@@ -4,7 +4,12 @@
   "git.scanRepositories": [
     "/Users/Bhuvesh.Singla/Desktop/Projects/personal/Hamaragharr Vastu"
   ],
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true
+  },
+  "explorer.fileNesting.enabled": false
 }
 
 
