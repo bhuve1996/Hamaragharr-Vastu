@@ -1,0 +1,9 @@
+{
+  "git.enabled": true,
+  "git.autoRepositoryDetection": false,
+  "git.scanRepositories": [
+    "/Users/Bhuvesh.Singla/Desktop/Projects/personal/Hamaragharr Vastu"
+  ],
+  "git.ignoreLimitWarning": true
+}
+
