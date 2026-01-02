@@ -64,3 +64,16 @@ coverage/
 *.backup
 *.old
 
+# Shopify
+.shopify/
+.shopifyignore
+config.yml
+.env.production
+.env.development
+shopify.theme.toml
+.shopify-cli/
+*.theme
+theme.lock
+.shopify-app/
+shopify.app.toml
+
