@@ -17,7 +17,7 @@
         "subtitle": "",
         "heading": "Bring Balance, Prosperity & Positive Energy Home",
         "subtext": "Transform your living space with ancient Vastu principles. Create harmony, attract abundance, and enhance positive energy flow in your home.",
-        "product_image": "",
+        "product_image": "shopify://shop_images/Untitled_design_2.png",
         "button_text": "Buy Now",
         "button_link": "shopify://collections/all",
         "button_mode": "light",
@@ -29,6 +29,7 @@
         "background_type": "color",
         "background_color": "#ffffff",
         "background_gradient": "",
+        "use_parallax": false,
         "padding_top": 100,
         "padding_bottom": 100
       }
@@ -39,7 +40,6 @@
         "feature_1": {
           "type": "feature",
           "settings": {
-            "icon": "",
             "title": "Ancient Science",
             "text": "Based on 5,000-year-old principles"
           }
@@ -47,7 +47,6 @@
         "feature_2": {
           "type": "feature",
           "settings": {
-            "icon": "",
             "title": "Modern Homes",
             "text": "Designed for contemporary living spaces"
           }
@@ -55,7 +54,6 @@
         "feature_3": {
           "type": "feature",
           "settings": {
-            "icon": "",
             "title": "Easy Placement",
             "text": "Simple to install and maintain"
           }
@@ -84,30 +82,32 @@
         "card_1": {
           "type": "card",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/other-bold-5.jpg",
             "title": "Wall Art",
             "description": "Beautiful Vastu-compliant wall art to enhance your space",
             "badge": "",
+            "product": "",
             "link": "shopify://collections/all"
           }
         },
         "card_2": {
           "type": "card",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/other-bold-8.jpg",
             "title": "Vastu Kit",
             "description": "Complete Vastu remedy kit for your home",
             "badge": "Best Seller",
+            "product": "",
             "link": "shopify://collections/all"
           }
         },
         "card_3": {
           "type": "card",
           "settings": {
-            "image": "",
             "title": "Notes from Vastu",
             "description": "Educational content and guides",
             "badge": "",
+            "product": "",
             "link": "shopify://pages/about"
           }
         }
@@ -146,7 +146,6 @@
         "trust_1": {
           "type": "trust_item",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "text": "Free Shipping on orders above ₹500"
           }
@@ -154,7 +153,6 @@
         "trust_2": {
           "type": "trust_item",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "text": "Easy Returns"
           }
@@ -162,7 +160,6 @@
         "trust_3": {
           "type": "trust_item",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "text": "Secure Payment"
           }
@@ -170,7 +167,6 @@
         "trust_4": {
           "type": "trust_item",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "text": "24/7 Support"
           }
@@ -194,107 +190,108 @@
     "vastu-featured-products": {
       "type": "vastu-featured-products",
       "blocks": {
+        "product_icon_MpaGUp": {
+          "type": "product_icon",
+          "settings": {
+            "icon_svg": "",
+            "label": "Product",
+            "product": "vastu-kit-home-office",
+            "link": ""
+          }
+        },
         "icon_1": {
           "type": "product_icon",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "label": "Owl",
+            "product": "",
             "link": "shopify://collections/all"
           }
         },
         "icon_2": {
           "type": "product_icon",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "label": "Sun",
-            "link": "shopify://collections/all",
-            "collection": "all"
+            "product": "",
+            "link": "shopify://collections/all"
           }
         },
         "icon_3": {
           "type": "product_icon",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "label": "Horse",
-            "link": "shopify://collections/all",
-            "collection": "all"
+            "product": "",
+            "link": "shopify://collections/all"
           }
         },
         "icon_4": {
           "type": "product_icon",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "label": "Hand",
-            "link": "shopify://collections/all",
-            "collection": "all"
+            "product": "",
+            "link": "shopify://collections/all"
           }
         },
         "icon_5": {
           "type": "product_icon",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "label": "Tree",
-            "link": "shopify://collections/all",
-            "collection": "all"
+            "product": "",
+            "link": "shopify://collections/all"
           }
         },
         "icon_6": {
           "type": "product_icon",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "label": "Pyramid",
-            "link": "shopify://collections/all",
-            "collection": "all"
+            "product": "",
+            "link": "shopify://collections/all"
           }
         },
         "icon_7": {
           "type": "product_icon",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "label": "Om",
-            "link": "shopify://collections/all",
-            "collection": "all"
+            "product": "",
+            "link": "shopify://collections/all"
           }
         },
         "icon_8": {
           "type": "product_icon",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "label": "Swastik",
-            "link": "shopify://collections/all",
-            "collection": "all"
+            "product": "",
+            "link": "shopify://collections/all"
           }
         },
         "icon_9": {
           "type": "product_icon",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "label": "Product 9",
-            "link": "shopify://collections/all",
-            "collection": "all"
+            "product": "",
+            "link": "shopify://collections/all"
           }
         },
         "icon_10": {
           "type": "product_icon",
           "settings": {
-            "icon": "",
             "icon_svg": "",
             "label": "Product 10",
-            "link": "shopify://collections/all",
-            "collection": "all"
+            "product": "",
+            "link": "shopify://collections/all"
           }
         }
       },
       "block_order": [
+        "product_icon_MpaGUp",
         "icon_1",
         "icon_2",
         "icon_3",
@@ -322,7 +319,7 @@
         "combo_1": {
           "type": "combo",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/7_horses_vastu_1536x1024_8k_quality.png",
             "title": "Kit with Small Accessory",
             "description": "Get the complete Vastu Kit along with a small accessory at a special price",
             "discount_badge": "15% OFF",
@@ -333,7 +330,7 @@
         "combo_2": {
           "type": "combo",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
             "title": "Kit with Painting",
             "description": "Vastu Kit combined with beautiful Vastu-compliant wall painting",
             "discount_badge": "20% OFF",
@@ -394,6 +391,7 @@
         "fullwidth_margin": 0,
         "reverse": false,
         "auto_play": true,
+        "image1": "shopify://shop_images/other-product-4.jpg",
         "columns_limit": 3,
         "limit": 6,
         "gap": 30,
