@@ -1,14 +1,166 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-page",
       "settings": {
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "background_margin": 0,
         "padding_top": 28,
         "padding_bottom": 28
+      }
+    },
+    "contact_v1_FU4XqU": {
+      "type": "contact-v1",
+      "name": "t:sections.contact_v1.presets.name",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "reverse_layout": false,
+        "title": "CONTACT INFORMATION",
+        "content": "",
+        "mail": "hello@domain.com",
+        "social_title": "FOLLOW US",
+        "social_icon1": "",
+        "social_link1": "",
+        "social_icon2": "",
+        "social_link2": "",
+        "social_icon3": "",
+        "social_link3": "",
+        "social_icon4": "",
+        "social_link4": "",
+        "map_style": "image",
+        "map_iframe": "",
+        "map_link": "",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "contact_v2_zWab6F": {
+      "type": "contact-v2",
+      "name": "t:sections.contact_v2.presets.name",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "title": "",
+        "button_text": "Submit",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "contact_v3_gpJxcN": {
+      "type": "contact-v3",
+      "name": "t:sections.contact_v3.presets.name",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "map_style": "image",
+        "map_iframe": "",
+        "map_link": "",
+        "title_information": "Contact Us",
+        "description": "",
+        "title_form": "Send Us An Message",
+        "button_text": "Send",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "contact_v4_Q9m9HH": {
+      "type": "contact-v4",
+      "name": "t:sections.contact_v4.presets.name",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "reverse_layout": false,
+        "title": "",
+        "description": "",
+        "map_style": "image",
+        "map_iframe": "",
+        "map_link": "",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "contact_v5_RTDnLk": {
+      "type": "contact-v5",
+      "name": "t:sections.contact_v5.presets.name",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "title": "",
+        "button_text": "Submit",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "contact_v1_FU4XqU",
+    "contact_v2_zWab6F",
+    "contact_v3_gpJxcN",
+    "contact_v4_Q9m9HH",
+    "contact_v5_RTDnLk"
   ]
 }
