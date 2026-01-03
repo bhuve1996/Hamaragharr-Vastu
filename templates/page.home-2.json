@@ -1,0 +1,396 @@
+{
+  "sections": {
+    "policy-v3": {
+      "type": "policy-v3",
+      "blocks": {
+        "items_box_fJ4PzT": {
+          "type": "policy",
+          "settings": {
+            "svg": "",
+            "title": "Find Your Plant Match 🌱"
+          }
+        }
+      },
+      "block_order": [
+        "items_box_fJ4PzT"
+      ],
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "limit": 1,
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#e0f5f0",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    },
+    "slideshow-v1": {
+      "type": "slideshow-v1",
+      "blocks": {
+        "13926295-9e3c-41b8-a71d-a0fd2ed4e3ca": {
+          "type": "slideshow",
+          "settings": {
+            "reverse_layout": false,
+            "subtitle": "plants and gardening",
+            "subtitle_font_size": 2,
+            "subtitle_font_weight": 400,
+            "subtitle_animation": "fade-right",
+            "title": "Air-purifying",
+            "title_font_size": 8,
+            "title_font_weight": 500,
+            "title_animation": "fade-left",
+            "description": "We bring you closer to nature by delivering indoor plants, outdoor  plants, plant pots, accessories, and seeds",
+            "description_font_size": 1.6,
+            "description_font_weight": 400,
+            "description_animation": "fade-left",
+            "button_text": "SHOP NOW",
+            "button_link": "shopify://collections/all",
+            "button_mode": "dark",
+            "button_style": "secondary",
+            "button_size": "sm",
+            "button_radius": 0,
+            "button_padding": 1.4,
+            "button_animation": "fade-left",
+            "device": "desktop",
+            "image_desktop_animation": "none",
+            "image_mobile_animation": "none",
+            "color_scheme": "",
+            "background_type": "image",
+            "background_color": "#f7f7f7",
+            "background_gradient": "",
+            "background_image_desktop": "shopify://shop_images/slide1.1.jpg",
+            "background_image_mobile": "shopify://shop_images/slide1.1.jpg",
+            "use_parallax": false,
+            "background_image_animation": "none",
+            "background_video_url": "",
+            "background_video_animation": "none",
+            "background_overlay": "",
+            "background_margin": 0
+          }
+        },
+        "3d548e62-6820-4210-8e7a-865fb6a6505c": {
+          "type": "slideshow",
+          "settings": {
+            "reverse_layout": false,
+            "subtitle": "plants and gardening",
+            "subtitle_font_size": 2,
+            "subtitle_font_weight": 400,
+            "subtitle_animation": "fade-right",
+            "title": "New Collection",
+            "title_font_size": 8,
+            "title_font_weight": 500,
+            "title_animation": "fade-left",
+            "description": "We bring you closer to nature by delivering indoor plants, outdoor  plants, plant pots, accessories, and seeds",
+            "description_font_size": 1.6,
+            "description_font_weight": 400,
+            "description_animation": "fade-left",
+            "button_text": "SHOP NOW",
+            "button_link": "shopify://collections/all",
+            "button_mode": "dark",
+            "button_style": "secondary",
+            "button_size": "sm",
+            "button_radius": 0,
+            "button_padding": 1.4,
+            "button_animation": "fade-left",
+            "device": "mobile",
+            "image_desktop_animation": "fade-right",
+            "image_mobile_animation": "fade-up",
+            "color_scheme": "",
+            "background_type": "image",
+            "background_color": "#f7f7f7",
+            "background_gradient": "",
+            "background_image_desktop": "shopify://shop_images/slide1.2.jpg",
+            "background_image_mobile": "shopify://shop_images/slide1.2.jpg",
+            "use_parallax": false,
+            "background_image_animation": "none",
+            "background_video_url": "",
+            "background_video_animation": "none",
+            "background_overlay": "",
+            "background_margin": 0
+          }
+        }
+      },
+      "block_order": [
+        "13926295-9e3c-41b8-a71d-a0fd2ed4e3ca",
+        "3d548e62-6820-4210-8e7a-865fb6a6505c"
+      ],
+      "settings": {
+        "width": "fullwidth",
+        "fullwidth_margin": 0,
+        "section_height_desktop": 850,
+        "section_height_mobile": 500,
+        "carousel_type": "none",
+        "changing_speed": 400,
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "show_pagination": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "policy-v2": {
+      "type": "policy-v2",
+      "blocks": {
+        "f789c762-4122-4653-93c8-dffb4ed86c8c": {
+          "type": "policy",
+          "settings": {
+            "svg": "",
+            "image_svg": "shopify://shop_images/service1.png",
+            "title": "24/7 FRIENDLY SUPPORT",
+            "subtitle": "Our support team always ready for you  to 7 days a week"
+          }
+        },
+        "348f2f96-4078-42ea-b7bb-8bfea6b6b1a3": {
+          "type": "policy",
+          "settings": {
+            "svg": "",
+            "image_svg": "shopify://shop_images/service2.png",
+            "title": "FREE SHIPPING",
+            "subtitle": "Free worldwide shipping on all area order above $100"
+          }
+        },
+        "c96dd2ba-f0c4-4139-8b09-ed311ff5d7be": {
+          "type": "policy",
+          "settings": {
+            "svg": "",
+            "image_svg": "shopify://shop_images/service3.png",
+            "title": "7 DAYS EASY RETURN",
+            "subtitle": "Product any fault within 7 days for an  immediately exchange."
+          }
+        },
+        "ff64989f-c172-4744-9e91-41d9d45c5821": {
+          "type": "policy",
+          "settings": {
+            "svg": "",
+            "image_svg": "shopify://shop_images/service4.png",
+            "title": "QUALITY GUARANTEED",
+            "subtitle": "If your product aren't perfect, return them for a full refund"
+          }
+        }
+      },
+      "block_order": [
+        "f789c762-4122-4653-93c8-dffb4ed86c8c",
+        "348f2f96-4078-42ea-b7bb-8bfea6b6b1a3",
+        "c96dd2ba-f0c4-4139-8b09-ed311ff5d7be",
+        "ff64989f-c172-4744-9e91-41d9d45c5821"
+      ],
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "limit": 4,
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "#f5f5f5",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "product-v1": {
+      "type": "product-v1",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "subtitle": "Best Seller Product This Week!",
+        "title": "Best Seller",
+        "collection": "collection-title-style-03",
+        "limit": 12,
+        "columns_size": 4,
+        "distinct_color_scheme": false,
+        "product_card_color_scheme": "",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "banner-v4": {
+      "type": "banner-v4",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "title": "The Benefits of Having Plantsin Your Home",
+        "subtitle": "Indoor plants don’t just look good – they can make us feel good, too.Studies have shown indoor plants...",
+        "button_text": "SHOP NOW",
+        "button_link": "shopify://collections/all",
+        "button_mode": "accent",
+        "button_style": "secondary",
+        "button_size": "sm",
+        "button_radius": 0,
+        "button_padding": 1.4,
+        "color_scheme": "background-1",
+        "background_type": "image",
+        "background_color": "",
+        "background_gradient": "",
+        "background_image_desktop": "shopify://shop_images/banner7.jpg",
+        "background_image_mobile": "shopify://shop_images/banner7.jpg",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 200,
+        "padding_bottom": 200
+      }
+    },
+    "banner-v5": {
+      "type": "banner-v5",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "hover": "scale_up",
+        "gap": 30,
+        "subtitle1": "NEW COLLECTION",
+        "title1": "Up to 20% off plant indoor",
+        "image1": "shopify://shop_images/banner8.1.jpg",
+        "link1": "shopify://collections/all",
+        "button1_text": "SHOP NOW",
+        "button1_mode": "dark",
+        "button1_style": "tertiary",
+        "button1_size": "sm",
+        "button1_radius": 0,
+        "button1_padding": 1.4,
+        "subtitle2": "WEEKLY OFFER",
+        "title2": "Best Corporate Plant Gifts",
+        "image2": "shopify://shop_images/banner8.2.jpg",
+        "link2": "shopify://collections/all",
+        "button2_text": "SHOP NOW",
+        "button2_mode": "dark",
+        "button2_style": "tertiary",
+        "button2_size": "sm",
+        "button2_radius": 0,
+        "button2_padding": 1.4,
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "product-v2": {
+      "type": "product-v2",
+      "blocks": {
+        "891b74ee-242f-4933-a599-7f97c2fa0139": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "NEW ARRIVALS",
+            "tab_collection": "toggle-sidebar",
+            "tab_limit": 8
+          }
+        },
+        "eaf25326-2cd2-4c89-8430-3ca4518ed39f": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "BEST SELLERS",
+            "tab_collection": "best-seller",
+            "tab_limit": 8
+          }
+        },
+        "5b873d26-9935-44ef-bb2e-404c70eb024e": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "TOP RATES",
+            "tab_collection": "box-container",
+            "tab_limit": 8
+          }
+        }
+      },
+      "block_order": [
+        "891b74ee-242f-4933-a599-7f97c2fa0139",
+        "eaf25326-2cd2-4c89-8430-3ca4518ed39f",
+        "5b873d26-9935-44ef-bb2e-404c70eb024e"
+      ],
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "heading_title": "Our Best Seller",
+        "heading_align": "center",
+        "columns_size": 4,
+        "distinct_color_scheme": false,
+        "product_card_color_scheme": "",
+        "button_text": "",
+        "button_link": "shopify://collections/all",
+        "button_mode": "light",
+        "button_style": "primary",
+        "button_size": "sm",
+        "button_radius": 0.8,
+        "button_padding": 1.4,
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "instagram-v2": {
+      "type": "instagram-v2",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "icon_heading": "",
+        "title": "Instagram Shop",
+        "subtitle": "",
+        "columns_limit": 5,
+        "limit": 10,
+        "gap": 10,
+        "access_token": "",
+        "open_mode": "newtab",
+        "icon_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 448 512\"><path d=\"M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z\"></path></svg>",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "policy-v3",
+    "slideshow-v1",
+    "policy-v2",
+    "product-v1",
+    "banner-v4",
+    "banner-v5",
+    "product-v2",
+    "instagram-v2"
+  ]
+}
