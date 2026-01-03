@@ -37,7 +37,6 @@
             "button_padding": 1.4,
             "button_animation": "fade-up",
             "device": "desktop",
-            "image_desktop": "",
             "image_desktop_animation": "none",
             "image_mobile_animation": "none",
             "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
@@ -45,12 +44,11 @@
             "background_color": "",
             "background_gradient": "",
             "background_image_desktop": "shopify://shop_images/Blue_horse_high_frame.png",
-            "background_image_mobile": "",
             "use_parallax": true,
             "background_image_animation": "none",
             "background_video_url": "",
             "background_video_animation": "none",
-            "background_overlay": "rgba(0,0,0,0.3)",
+            "background_overlay": "#0000004d",
             "background_margin": 0
           }
         },
@@ -79,7 +77,6 @@
             "button_padding": 1.4,
             "button_animation": "fade-up",
             "device": "desktop",
-            "image_desktop": "",
             "image_desktop_animation": "none",
             "image_mobile_animation": "none",
             "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
@@ -87,12 +84,11 @@
             "background_color": "",
             "background_gradient": "",
             "background_image_desktop": "shopify://shop_images/Water_Frame_1200_x_628_px_1.png",
-            "background_image_mobile": "",
             "use_parallax": true,
             "background_image_animation": "none",
             "background_video_url": "",
             "background_video_animation": "none",
-            "background_overlay": "rgba(0,0,0,0.3)",
+            "background_overlay": "#0000004d",
             "background_margin": 0
           }
         }
@@ -126,9 +122,9 @@
         "subtitle": "",
         "title": "Complete Vastu Kit for Your Home",
         "description": "Transform your living space with our carefully curated Vastu Kit. Based on 5,000-year-old principles, bring balance, prosperity, and positive energy into your home.",
-        "image": "shopify://shop_images/Untitled_design_2.png",
+        "image": "shopify://shop_images/VASTU_MAGIC_BOOK_6.png",
         "button_text": "Buy Now",
-        "button_link": "shopify://collections/all",
+        "button_link": "shopify://products/vastu-kit-home-office",
         "button_mode": "dark",
         "button_style": "secondary",
         "button_size": "md",
@@ -154,11 +150,11 @@
         "card_1": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/other-bold-5.jpg",
-            "title": "Wall Art",
+            "image": "shopify://shop_images/7_horses_vastu_1536x1024_8k_quality.png",
+            "title": "7 Horses",
             "description": "Beautiful Vastu-compliant wall art to enhance your space",
             "badge": "",
-            "product": "",
+            "product": "framed-7-horses-painting-for-vastu-solution-enhance-positivity-success",
             "link": "shopify://collections/all"
           }
         },
@@ -218,28 +214,28 @@
         "trust_1": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 512\" height=\"48\" width=\"48\" fill=\"currentColor\"><path d=\"M112 0C85.5 0 64 21.5 64 48V96H16c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 272c0 17.7 14.3 32 32 32h96c17.7 0 32-14.3 32-32h208c8.8 0 16-7.2 16-16s-7.2-16-16-16H384V48c0-26.5-21.5-48-48-48H112zM544 128H96c-35.3 0-64 28.7-64 64V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64zM208 352c-8.8 0-16-7.2-16-16s7.2-16 16-16h96c8.8 0 16 7.2 16 16s-7.2 16-16 16H208zm96-128c-8.8 0-16-7.2-16-16s7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H304z\"></path></svg>",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 512\" height=\"48\" width=\"48\" fill=\"currentColor\"><path d=\"M112 0C85.5 0 64 21.5 64 48V96H16c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 272c0 17.7 14.3 32 32 32h96c17.7 0 32-14.3 32-32h208c8.8 0 16-7.2 16-16s-7.2-16-16-16H384V48c0-26.5-21.5-48-48-48H112zM544 128H96c-35.3 0-64 28.7-64 64V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64zM208 352c-8.8 0-16-7.2-16-16s7.2-16 16-16h96c8.8 0 16 7.2 16 16s-7.2 16-16 16H208zm96-128c-8.8 0-16-7.2-16-16s7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H304z\"></path></svg>",
             "text": "Free Shipping"
           }
         },
         "trust_2": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" height=\"48\" width=\"48\" fill=\"currentColor\"><path d=\"M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z\"></path></svg>",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" height=\"48\" width=\"48\" fill=\"currentColor\"><path d=\"M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z\"></path></svg>",
             "text": "Easy Returns"
           }
         },
         "trust_3": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 576 512\" height=\"48\" width=\"48\" fill=\"currentColor\"><path d=\"M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm48 112a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm-64 48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zM176 384a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM48 224H192V384H48V224zM448 224H512V384H448V224z\"></path></svg>",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 576 512\" height=\"48\" width=\"48\" fill=\"currentColor\"><path d=\"M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm48 112a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm-64 48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zM176 384a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM48 224H192V384H48V224zM448 224H512V384H448V224z\"></path></svg>",
             "text": "Secure Payment"
           }
         },
         "trust_4": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" height=\"48\" width=\"48\" fill=\"currentColor\"><path d=\"M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z\"></path></svg>",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" height=\"48\" width=\"48\" fill=\"currentColor\"><path d=\"M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z\"></path></svg>",
             "text": "24/7 Support"
           }
         }
@@ -265,9 +261,10 @@
         "product_icon_MpaGUp": {
           "type": "product_icon",
           "settings": {
+            "icon": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
             "icon_svg": "",
-            "label": "Product",
-            "product": "vastu-kit-home-office",
+            "label": "Golden dawn",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
             "link": ""
           }
         },
