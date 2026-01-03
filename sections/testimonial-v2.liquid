@@ -44,21 +44,22 @@
           style='--order-lg:-1'
         {% endif %}
       >
-        {% assign has_manual_images = false %}
-        {% for block in section.blocks %}
-          {% if block.type == 'instagram_image' and block.settings.image != blank %}
-            {% assign has_manual_images = true %}
+        {% assign instagram_blocks = section.blocks | where: 'type', 'instagram_image' %}
+        {% assign has_instagram_images = false %}
+        {% for block in instagram_blocks %}
+          {% if block.settings.image != blank %}
+            {% assign has_instagram_images = true %}
             {% break %}
           {% endif %}
         {% endfor %}
         
-        {% if has_manual_images %}
+        {% if has_instagram_images %}
           <xo-grid
             style='--xs: 2; --md:2; --xl: {{ section.settings.columns_limit }}; --xo-grid-col-gap: {{section.settings.gap}}px ;--xo-grid-row-gap: {{section.settings.gap}}px'
             class='instagram-v2__grid'
           >
-            {% for block in section.blocks %}
-              {% if block.type == 'instagram_image' and block.settings.image != blank %}
+            {% for block in instagram_blocks %}
+              {% if block.settings.image != blank %}
                 <div class='instagram-v2__item' {{ block.shopify_attributes }}>
                   {% render 'image', image: block.settings.image, media_aspect_ratio: '1/1' %}
                   <a href='{{ block.settings.link | default: "https://www.instagram.com/" }}' class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}' target='_blank'>
@@ -68,9 +69,9 @@
               {% endif %}
             {% endfor %}
           </xo-grid>
-        {% else %}
+        {% elsif section.settings.access_token != blank %}
           <xo-instagram
-            xo-limit='5'
+            xo-limit='{{ section.settings.limit }}'
             xo-open-mode='{{ section.settings.open_mode }}'
             xo-access-token='{{ section.settings.access_token }}'
           >
@@ -78,21 +79,10 @@
               style='--xs: 2; --md:2; --xl: {{ section.settings.columns_limit }}; --xo-grid-col-gap: {{section.settings.gap}}px ;--xo-grid-row-gap: {{section.settings.gap}}px'
               class='instagram-v2__grid'
             >
-              {% if section.settings.access_token == blank %}
-                {% for i in (1..section.settings.limit) %}
-                  <div class='instagram-v2__item'>
-                    {{ 'image' | placeholder_svg_tag: 'instagram-v2__image' }}
-                    <a href='https://www.instagram.com/' class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}' target='_blank'>
-                      {{ section.settings.icon_image }}
-                    </a>
-                  </div>
-                {% endfor %}
-              {% else %}
-                <xo-instagram-template>
-                  <img class='instagram-v2__image' data-src='{ url }' alt='' width='1000' height='1000'>
-                  <span class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}'>{{ section.settings.icon_image }}</span>
-                </xo-instagram-template>
-              {% endif %}
+              <xo-instagram-template>
+                <img class='instagram-v2__image' data-src='{ url }' alt='' width='1000' height='1000'>
+                <span class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}'>{{ section.settings.icon_image }}</span>
+              </xo-instagram-template>
             </xo-grid>
           </xo-instagram>
         {% endif %}
@@ -166,7 +156,8 @@
       "max": 16,
       "step": 1,
       "label": "t:sections.testimonial_v2.settings.limit.label",
-      "default": 6
+      "default": 6,
+      "info": "Only used if Instagram API access token is provided. For manual images, add 'Instagram Image' blocks below."
     },
     {
       "type": "range",
@@ -182,7 +173,7 @@
       "type": "text",
       "id": "access_token",
       "label": "t:sections.testimonial_v2.settings.access_token.label",
-      "info": "t:sections.testimonial_v2.settings.access_token.info"
+      "info": "t:sections.testimonial_v2.settings.access_token.info. Leave blank to use manual 'Instagram Image' blocks instead."
     },
     {
       "type": "select",
@@ -478,13 +469,14 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "Image",
+          "info": "Upload an Instagram post image. This will be displayed in the Instagram grid on the right side of the testimonials section."
         },
         {
           "type": "url",
           "id": "link",
           "label": "Instagram Post Link",
-          "info": "Optional: Add the full URL to the Instagram post (e.g., https://www.instagram.com/p/ABC123/). If left empty, defaults to Instagram homepage."
+          "info": "Add the full URL to the Instagram post (e.g., https://www.instagram.com/p/ABC123/). If left empty, defaults to Instagram homepage."
         }
       ]
     }
