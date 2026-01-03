@@ -59,6 +59,7 @@
     "drawer_backdrop_blur": 0,
     "currency_code_enabled": false,
     "dark_mode_mapping": "Scheme 1: Scheme 5\nScheme 2: Scheme 4",
+    "popup_newsletter_color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
@@ -146,7 +147,6 @@
     "social_youtube_link": "",
     "social_vimeo_link": "",
     "show_cart_note": false,
-    "popup_newsletter_color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
