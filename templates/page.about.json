@@ -1,5 +1,12 @@
 {
   "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "breadcrumb-v2": {
       "type": "breadcrumb-v2",
       "settings": {
@@ -147,6 +154,7 @@
     }
   },
   "order": [
+    "main",
     "breadcrumb-v2",
     "about_v1",
     "about_v2",
