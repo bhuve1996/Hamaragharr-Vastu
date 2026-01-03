@@ -1,13 +1,20 @@
 {
   "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
     "breadcrumb-v2": {
       "type": "breadcrumb-v2",
       "settings": {
-        "color_scheme": "inverse",
+        "color_scheme": "background-1",
         "background_image_desktop": "shopify://shop_images/bg_page.jpg",
         "background_image_mobile": "shopify://shop_images/bg_page.jpg",
         "use_parallax": false,
-        "background_color": "#f3f3f3",
+        "background_color": "#ffffff",
         "padding_top": 110,
         "padding_bottom": 110
       }
@@ -89,6 +96,7 @@
     }
   },
   "order": [
+    "main",
     "breadcrumb-v2",
     "contact_v1_PKH9fF",
     "contact_v2_rbAA39",

@@ -78,6 +78,7 @@
         "fullwidth_margin": 0,
         "title": "",
         "description": "",
+        "video_url": "",
         "button_text": "ALL PRODUCTS",
         "button_link": "shopify://collections/all",
         "button_mode": "light",

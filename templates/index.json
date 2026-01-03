@@ -438,7 +438,6 @@
         "fullwidth_margin": 0,
         "reverse": false,
         "auto_play": true,
-        "autoplay_speed": 10,
         "columns_limit": 6,
         "limit": 6,
         "gap": 30,
