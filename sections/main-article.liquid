@@ -160,7 +160,7 @@
               <ul role='list' class='main-article__sidebar-tag-list'>
                 {% for tag in unique_tag %}
                   <xo-animate xo-cascade>
-                    <li class='main-article__sidebar-tag-item'>{{ tag | link_to_tag: tag }}</li>
+                    <li class='main-article__sidebar-tag-item'><a href='{{ blog.url }}/tagged/{{ tag | handle }}'>{{ tag | capitalize }}</a></li>
                   </xo-animate>
                 {% endfor %}
               </ul>

@@ -188,9 +188,9 @@
                 {% for tag in unique_tag %}
                   <xo-animate xo-cascade>
                     {%- if current_tags contains tag -%}
-                      <li class='main-blog__tag-item xo-active'>{{ tag }}</li>
+                      <li class='main-blog__tag-item xo-active'>{{ tag | capitalize }}</li>
                     {%- else -%}
-                      <li class='main-blog__tag-item'>{{ tag | link_to_tag: tag }}</li>
+                      <li class='main-blog__tag-item'><a href='{{ blog.url }}/tagged/{{ tag | handle }}'>{{ tag | capitalize }}</a></li>
                     {%- endif -%}
                   </xo-animate>
                 {% endfor %}
