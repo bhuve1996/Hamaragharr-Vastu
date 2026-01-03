@@ -88,7 +88,8 @@
             "title": "Wall Art",
             "description": "Beautiful Vastu-compliant wall art to enhance your space",
             "badge": "",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         },
         "card_2": {
@@ -98,7 +99,8 @@
             "title": "Vastu Kit",
             "description": "Complete Vastu remedy kit for your home",
             "badge": "Best Seller",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         },
         "card_3": {
@@ -108,7 +110,8 @@
             "title": "Notes from Vastu",
             "description": "Educational content and guides",
             "badge": "",
-            "link": "shopify://pages/about"
+            "link": "shopify://pages/about",
+            "collection": "all"
           }
         }
       },

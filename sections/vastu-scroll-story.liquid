@@ -2,7 +2,7 @@
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
-    <xo-grid style='--xs: 1; --md: 2; --xl: 2; --xo-grid-col-gap: 60px; --xo-grid-row-gap: 40px; align-items: center;'>
+    <xo-grid style='--xs: 1; --sm: 1; --md: 2; --lg: 2; --xl: 2; --xo-grid-col-gap: 40px; --xo-grid-row-gap: 40px; align-items: center;'>
       <div class='vastu-scroll-story__content'>
         <xo-animate xo-cascade>
           <h2 class='vastu-scroll-story__title'>{{ section.settings.heading }}</h2>
@@ -10,7 +10,7 @@
         </xo-animate>
       </div>
       <div class='vastu-scroll-story__features'>
-        <xo-grid style='--xs: 1; --md: 2; --xl: 2; --xo-grid-col-gap: 30px; --xo-grid-row-gap: 30px;'>
+        <xo-grid style='--xs: 1; --sm: 1; --md: 2; --lg: 2; --xl: 2; --xo-grid-col-gap: 30px; --xo-grid-row-gap: 30px;'>
           {% for block in section.blocks %}
             <div class='vastu-scroll-story__feature' {{ block.shopify_attributes }}>
               {% if block.settings.icon != blank %}

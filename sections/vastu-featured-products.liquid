@@ -7,7 +7,7 @@
         <h2 class='vastu-featured-products__title'>{{ section.settings.title }}</h2>
       </xo-animate>
     {% endif %}
-    <xo-grid style='--xs: 2; --md: 5; --xl: 5; --xo-grid-col-gap: 30px; --xo-grid-row-gap: 30px;' class='vastu-featured-products__grid'>
+    <xo-grid style='--xs: 2; --sm: 3; --md: 4; --lg: 5; --xl: 5; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 30px;' class='vastu-featured-products__grid'>
       {% for block in section.blocks %}
         <a href='{{ block.settings.link }}' class='vastu-featured-products__item' {{ block.shopify_attributes }}>
           {% if block.settings.icon != blank %}
@@ -16,17 +16,35 @@
             </div>
           {% elsif block.settings.icon_svg != blank %}
             <div class='vastu-featured-products__icon-svg'>{{ block.settings.icon_svg }}</div>
-          {% elsif block.settings.collection != blank and collections[block.settings.collection].featured_image != blank %}
-            <div class='vastu-featured-products__icon'>
-              {% render 'image', image: collections[block.settings.collection].featured_image %}
-            </div>
-          {% elsif block.settings.collection != blank and collections[block.settings.collection].products.first.featured_image != blank %}
-            <div class='vastu-featured-products__icon'>
-              {% render 'image', image: collections[block.settings.collection].products.first.featured_image %}
-            </div>
+          {% elsif block.settings.collection != blank %}
+            {% assign collection_obj = collections[block.settings.collection] %}
+            {% if collection_obj.featured_image != blank %}
+              <div class='vastu-featured-products__icon'>
+                {% render 'image', image: collection_obj.featured_image %}
+              </div>
+            {% elsif collection_obj.products.size > 0 %}
+              {% assign product_index = forloop.index0 | modulo: collection_obj.products.size %}
+              {% assign product = collection_obj.products[product_index] %}
+              {% if product.featured_image != blank %}
+                <div class='vastu-featured-products__icon'>
+                  {% render 'image', image: product.featured_image %}
+                </div>
+              {% else %}
+                {% assign placeholder_index = forloop.index0 | modulo: 4 | plus: 1 %}
+                <div class='vastu-featured-products__icon'>
+                  {{ 'product-apparel-' | append: placeholder_index | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {% endif %}
+            {% else %}
+              {% assign placeholder_index = forloop.index0 | modulo: 4 | plus: 1 %}
+              <div class='vastu-featured-products__icon'>
+                {{ 'product-apparel-' | append: placeholder_index | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            {% endif %}
           {% else %}
+            {% assign placeholder_index = forloop.index0 | modulo: 4 | plus: 1 %}
             <div class='vastu-featured-products__icon'>
-              {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {{ 'product-apparel-' | append: placeholder_index | placeholder_svg_tag: 'placeholder-svg' }}
             </div>
           {% endif %}
           {% if block.settings.label != blank %}
