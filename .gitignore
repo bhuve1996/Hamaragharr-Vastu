@@ -70,7 +70,7 @@ coverage/
 config.yml
 .env.production
 .env.development
-shopify.theme.toml
+# shopify.theme.toml - KEEP THIS FILE (needed for CLI)
 .shopify-cli/
 *.theme
 theme.lock
