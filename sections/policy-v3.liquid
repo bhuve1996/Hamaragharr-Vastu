@@ -23,9 +23,9 @@
   {% endif %}
 {% endcapture %}
 
-<section {% render 'section-attr' %}>
+<section {% render 'section-attr', style: 'position: relative;' %}>
   {% render 'section-bg-image' %}
-  <xo-container {% render 'section-layout' %}>
+  <xo-container {% render 'section-layout' %} style="position: relative; z-index: 1;">
     <xo-carousel
       xo-per-view='{{ section.settings.limit }}'
       xo-gap='0'
