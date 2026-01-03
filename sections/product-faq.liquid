@@ -1,0 +1,314 @@
+
+<section {% render 'section-attr' %}>
+  {% render 'section-bg-image' %}
+  <xo-container {% render 'section-layout' %}>
+    {% if section.settings.title != blank %}
+      <xo-animate xo-cascade>
+        <h2 class='faq-v3__title'>{{ section.settings.title }}</h2>
+      </xo-animate>
+    {% endif %}
+    <xo-collapse-provider xo-duration='300'>
+      {%- for block in section.blocks -%}
+        {% if block.settings.question != blank %}
+          <xo-animate xo-cascade class='faq-v3__row'>
+            <xo-collapse-trigger class='faq-v3__trigger'>
+              <div class='faq-v3__question'>{{ block.settings.question }}</div>
+              <div class='faq-v3__icon'>
+                {%- render 'icon', name: 'plus2', icon_size: '15', color: 'rgba(var(--color-foreground))' -%}
+              </div>
+            </xo-collapse-trigger>
+            {%- if block.settings.answer != blank -%}
+              <xo-collapse>
+                <div class='faq-v3__answer'>{{ block.settings.answer }}</div>
+              </xo-collapse>
+            {%- endif -%}
+          </xo-animate>
+        {% endif %}
+      {%- endfor -%}
+    </xo-collapse-provider>
+  </xo-container>
+</section>
+
+{% schema %}
+{
+  "name": "Product FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "box",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        },
+        {
+          "value": "fullwidth",
+          "label": "t:sections.all.width.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "id": "fullwidth_margin",
+      "label": "t:sections.all.fullwidth_margin.label",
+      "default": 0,
+      "visible_if": "{{ section.settings.width == 'fullwidth' }}"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.heading.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "t:sections.all.background_type.label",
+      "options": [
+        {
+          "value": "color",
+          "label": "t:sections.all.background_type.option__1.label"
+        },
+        {
+          "value": "gradient",
+          "label": "t:sections.all.background_type.option__2.label"
+        },
+        {
+          "value": "image",
+          "label": "t:sections.all.background_type.option__3.label"
+        },
+        {
+          "value": "video",
+          "label": "t:sections.all.background_type.option__4.label"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.all.background_color.label",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "t:sections.all.background_gradient.label",
+      "visible_if": "{{ section.settings.background_type == 'gradient' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_desktop",
+      "label": "t:sections.all.background_image_desktop.label",
+      "visible_if": "{{ section.settings.background_type == 'image' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "t:sections.all.background_image_mobile.label",
+      "visible_if": "{{ section.settings.background_type == 'image' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_parallax",
+      "label": "t:sections.all.use_parallax.label",
+      "default": false,
+      "visible_if": "{{ section.settings.background_type == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "background_image_animation",
+      "label": "t:sections.all.animation.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.animation.option__0.label"
+        },
+        {
+          "value": "fade",
+          "label": "t:sections.all.animation.option__1.label"
+        },
+        {
+          "value": "fade-up",
+          "label": "t:sections.all.animation.option__2.label"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.background_type == 'image' }}"
+    },
+    {
+      "type": "textarea",
+      "id": "background_video_url",
+      "label": "t:sections.all.background_video_url.label",
+      "visible_if": "{{ section.settings.background_type == 'video' }}"
+    },
+    {
+      "type": "color",
+      "id": "background_overlay",
+      "label": "t:sections.all.background_overlay.label",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'image' or section.settings.background_type == 'video' }}"
+    },
+    {
+      "type": "number",
+      "id": "background_margin",
+      "label": "t:sections.all.background_margin.label",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "t:sections.all.padding_top.label",
+      "default": 50
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding_bottom.label",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "FAQ Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product FAQ",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "How does this Vastu product work?",
+            "answer": "<p>This product works on <strong>traditional Vastu principles</strong> that help balance the five elements and energy flow in your space. When placed correctly, it supports positivity, harmony, and well-being.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take to see results?",
+            "answer": "<p>Many customers start noticing changes in <strong>energy, peace, and positivity within a few days to a few weeks</strong>. Results may vary based on placement, belief, and environment.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Is this product already energised?",
+            "answer": "<p>Yes. All Hamaragharr Vastu products are <strong>pre-energised</strong> before dispatch to ensure effective results from the time you install them.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Do I need a Vastu expert to install this?",
+            "answer": "<p>No. Every product comes with <strong>clear, step-by-step placement instructions</strong>, making it easy for anyone to install without professional help.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Can I use this product in a rented home or apartment?",
+            "answer": "<p>Absolutely. Our Vastu remedies are <strong>non-invasive</strong> and do not require drilling, demolition, or permanent changes — ideal for <strong>rented homes and flats</strong>.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Where exactly should I place this product?",
+            "answer": "<p>Placement depends on the product and purpose. You will receive a <strong>direction-wise placement guide</strong> with your order. For any confusion, our team is available on <strong>WhatsApp support</strong>.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Can I use more than one Vastu product together?",
+            "answer": "<p>Yes. Multiple Vastu products can be used together as long as they are placed as per the provided guidelines. Many customers combine remedies for better results.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Is Cash on Delivery (COD) available?",
+            "answer": "<p>Yes, <strong>COD is available across India</strong>, along with UPI, cards, and net banking.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "What if I don't see any difference?",
+            "answer": "<p>Vastu results depend on multiple factors such as placement, surroundings, and personal belief. If you have concerns, our team will <strong>guide you with placement corrections</strong>.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Is this product suitable for gifting?",
+            "answer": "<p>Yes. Our Vastu products make <strong>thoughtful and meaningful gifts</strong> for housewarming, weddings, festivals, offices, and new beginnings.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "How is the product packed and delivered?",
+            "answer": "<p>All products are <strong>securely packed</strong> to avoid damage and shipped with reliable delivery partners across India.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Whom can I contact for help or guidance?",
+            "answer": "<p>You can contact us easily via:<br>📲 <strong>WhatsApp Support</strong><br>📧 Email<br>📞 Customer care<br><br>We're happy to help you choose or place the right remedy.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "For Wall Paintings - Will the colours fade over time?",
+            "answer": "<p>No. We use high-quality, fade-resistant printing for long-lasting beauty.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "For Vastu Kits - Does this kit correct all Vastu dosh?",
+            "answer": "<p>The kit addresses <strong>common and major Vastu imbalances</strong>. For severe or structural defects, results may vary.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

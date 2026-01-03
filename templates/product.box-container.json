@@ -214,6 +214,18 @@
         "padding_bottom": 0
       }
     },
+    "product-faq": {
+      "type": "product-faq",
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "width": "box",
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -225,6 +237,7 @@
     "breadcrumb-v1",
     "main-product",
     "product-information-tabs",
+    "product-faq",
     "product-recommendations"
   ]
 }
