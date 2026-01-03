@@ -200,7 +200,8 @@
             "icon": "",
             "icon_svg": "",
             "label": "Owl",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         },
         "icon_2": {
@@ -209,7 +210,8 @@
             "icon": "",
             "icon_svg": "",
             "label": "Sun",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         },
         "icon_3": {
@@ -218,7 +220,8 @@
             "icon": "",
             "icon_svg": "",
             "label": "Horse",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         },
         "icon_4": {
@@ -227,7 +230,8 @@
             "icon": "",
             "icon_svg": "",
             "label": "Hand",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         },
         "icon_5": {
@@ -236,7 +240,8 @@
             "icon": "",
             "icon_svg": "",
             "label": "Tree",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         },
         "icon_6": {
@@ -245,7 +250,8 @@
             "icon": "",
             "icon_svg": "",
             "label": "Pyramid",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         },
         "icon_7": {
@@ -254,7 +260,8 @@
             "icon": "",
             "icon_svg": "",
             "label": "Om",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         },
         "icon_8": {
@@ -263,7 +270,8 @@
             "icon": "",
             "icon_svg": "",
             "label": "Swastik",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         },
         "icon_9": {
@@ -272,7 +280,8 @@
             "icon": "",
             "icon_svg": "",
             "label": "Product 9",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         },
         "icon_10": {
@@ -281,7 +290,8 @@
             "icon": "",
             "icon_svg": "",
             "label": "Product 10",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/all",
+            "collection": "all"
           }
         }
       },
