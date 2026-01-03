@@ -1,0 +1,49 @@
+{% comment %}
+  Renders a section separator
+  
+  Accepts:
+  - enable_separator: {Boolean} Whether to show the separator
+  - separator_color: {String} Color of the separator
+  - separator_height: {Number} Height in px
+  - separator_width: {Number} Width in percentage
+  - padding_top: {Number} Top padding
+  - padding_bottom: {Number} Bottom padding
+  
+  Usage:
+  {% render 'section-separator',
+    enable_separator: section.settings.enable_separator,
+    separator_color: section.settings.separator_color,
+    separator_height: section.settings.separator_height,
+    separator_width: section.settings.separator_width,
+    padding_top: section.settings.separator_padding_top,
+    padding_bottom: section.settings.separator_padding_bottom
+  %}
+{% endcomment %}
+
+{% if enable_separator != false %}
+  <div class='section-separator' style='
+    --separator-color: {{ separator_color | default: '#473855' }};
+    --separator-height: {{ separator_height | default: 2 }}px;
+    --separator-width: {{ separator_width | default: 10 }}%;
+    padding-top: {{ padding_top | default: 30 }}px;
+    padding-bottom: {{ padding_bottom | default: 30 }}px;
+  '>
+    <div class='section-separator__line'></div>
+  </div>
+{% endif %}
+
+<style>
+  .section-separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .section-separator__line {
+    width: var(--separator-width, 10%);
+    height: var(--separator-height, 2px);
+    background-color: var(--separator-color, #473855);
+    border-radius: 2px;
+  }
+</style>
+

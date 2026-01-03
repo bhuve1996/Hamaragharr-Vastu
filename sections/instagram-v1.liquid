@@ -90,6 +90,14 @@
       </xo-instagram>
     </xo-animate>
   </xo-container>
+    {% render '''section-separator''',
+    enable_separator: section.settings.enable_separator,
+    separator_color: section.settings.separator_color,
+    separator_height: section.settings.separator_height,
+    separator_width: section.settings.separator_width,
+    padding_top: section.settings.separator_padding_top,
+    padding_bottom: section.settings.separator_padding_bottom
+  %}
 </section>
 
 {% schema %}

@@ -66,9 +66,9 @@
     {{ attrs }}
   {% endif %}
   style='
-    {%- if background_color != null %}--bg-color: {{ background_color }};{% endif -%}
+    {%- if background_color != null %}--bg-color: {{ background_color }};{% elsif style == 'secondary' %}--bg-color: rgb(var(--color-secondary-button, 71, 56, 85));{% elsif style == 'primary' %}--bg-color: rgb(var(--color-button, 255, 255, 255));{% endif -%}
     {%- if border_color != null %}--border-color: {{ border_color }};{% endif -%}
-    {%- if text_color != null %}--text-color: {{ text_color }};{% endif -%}
+    {%- if text_color != null %}--text-color: {{ text_color }};{% elsif style == 'secondary' %}--text-color: rgb(var(--color-secondary-button-text, 255, 255, 255));{% elsif style == 'primary' %}--text-color: rgb(var(--color-button-text, 0, 0, 0));{% endif -%}
     {%- if width != null %}--width: {{ width }};{% endif -%}
     {%- if radius != null %}border-radius: {{ radius }}rem;{% endif -%}
     {%- if padding != null and style != 'link' %}padding-left: {{ padding }}rem; padding-right: {{ padding }}rem;{% endif -%}
