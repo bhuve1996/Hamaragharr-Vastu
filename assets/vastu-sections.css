@@ -64,41 +64,65 @@
   flex: 1;
 }
 
-/* Vastu Featured Products */
-.vastu-featured-products__item {
+/* Vastu Featured Products - Card Layout (Same as Best Sellers) */
+.vastu-featured-products__card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  height: 100%;
+}
+
+.vastu-featured-products__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   text-decoration: none;
   color: inherit;
+}
+
+.vastu-featured-products__image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.vastu-featured-products__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.vastu-featured-products__item:hover {
-  transform: translateY(-4px);
-}
-
-.vastu-featured-products__icon,
 .vastu-featured-products__icon-svg {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 1rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem;
+  min-height: 200px;
 }
 
 .vastu-featured-products__icon-svg svg {
   width: 100%;
   height: 100%;
+  max-width: 150px;
+  max-height: 150px;
   fill: currentColor;
 }
 
-.vastu-featured-products__label {
-  font-size: 0.9375rem;
-  font-weight: 500;
-  margin: 0;
+.vastu-featured-products__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.vastu-featured-products__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
   line-height: 1.4;
 }
 
@@ -106,7 +130,7 @@
   font-size: 1rem;
   font-weight: 600;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
-  margin-top: 0.5rem;
+  margin: 0;
 }
 
 /* Vastu Trust Bar */
@@ -154,19 +178,6 @@
   position: relative;
 }
 
-/* Featured Products - Larger icons, fewer per row */
-.vastu-featured-products__icon,
-.vastu-featured-products__icon-svg {
-  width: 140px;
-  height: 140px;
-  margin-bottom: 1rem;
-}
-
-.vastu-featured-products__icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -174,10 +185,14 @@
     font-size: 2rem !important;
   }
   
-  .vastu-featured-products__icon,
   .vastu-featured-products__icon-svg {
-    width: 100px;
-    height: 100px;
+    min-height: 150px;
+    padding: 1.5rem;
+  }
+  
+  .vastu-featured-products__icon-svg svg {
+    max-width: 100px;
+    max-height: 100px;
   }
   
   .vastu-trust-bar__icon,
