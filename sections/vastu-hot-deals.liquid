@@ -2,7 +2,7 @@
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
-    {% if section.settings.title != blank %}
+    {% if section.settings.title != blank and section.blocks.size > 0 %}
       <xo-animate xo-cascade>
         <h2 class='vastu-hot-deals__title'>{{ section.settings.title }}</h2>
       </xo-animate>

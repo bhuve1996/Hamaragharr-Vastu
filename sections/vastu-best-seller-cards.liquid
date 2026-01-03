@@ -2,7 +2,14 @@
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
-    {% if section.settings.title != blank %}
+    {% assign has_visible_items = false %}
+    {% for block in section.blocks %}
+      {% if block.settings.image != blank or block.settings.product != blank %}
+        {% assign has_visible_items = true %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% if section.settings.title != blank and has_visible_items %}
       <xo-animate xo-cascade>
         <h2 class='vastu-best-seller__title'>{{ section.settings.title }}</h2>
       </xo-animate>
