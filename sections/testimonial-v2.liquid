@@ -44,32 +44,58 @@
           style='--order-lg:-1'
         {% endif %}
       >
-        <xo-instagram
-          xo-limit='5'
-          xo-open-mode='{{ section.settings.open_mode }}'
-          xo-access-token='{{ section.settings.access_token }}'
-        >
+        {% assign has_manual_images = false %}
+        {% for block in section.blocks %}
+          {% if block.type == 'instagram_image' and block.settings.image != blank %}
+            {% assign has_manual_images = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        
+        {% if has_manual_images %}
           <xo-grid
             style='--xs: 2; --md:2; --xl: {{ section.settings.columns_limit }}; --xo-grid-col-gap: {{section.settings.gap}}px ;--xo-grid-row-gap: {{section.settings.gap}}px'
             class='instagram-v2__grid'
           >
-            {% if section.settings.access_token == blank %}
-              {% for i in (1..section.settings.limit) %}
-                <div class='instagram-v2__item'>
-                  {{ 'image' | placeholder_svg_tag: 'instagram-v2__image' }}
-                  <a href='https://www.instagram.com/' class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}' target='_blank'>
+            {% for block in section.blocks %}
+              {% if block.type == 'instagram_image' and block.settings.image != blank %}
+                <div class='instagram-v2__item' {{ block.shopify_attributes }}>
+                  {% render 'image', image: block.settings.image, media_aspect_ratio: '1/1' %}
+                  <a href='{{ block.settings.link | default: "https://www.instagram.com/" }}' class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}' target='_blank'>
                     {{ section.settings.icon_image }}
                   </a>
                 </div>
-              {% endfor %}
-            {% else %}
-              <xo-instagram-template>
-                <img class='instagram-v2__image' data-src='{ url }' alt='' width='1000' height='1000'>
-                <span class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}'>{{ section.settings.icon_image }}</span>
-              </xo-instagram-template>
-            {% endif %}
+              {% endif %}
+            {% endfor %}
           </xo-grid>
-        </xo-instagram>
+        {% else %}
+          <xo-instagram
+            xo-limit='5'
+            xo-open-mode='{{ section.settings.open_mode }}'
+            xo-access-token='{{ section.settings.access_token }}'
+          >
+            <xo-grid
+              style='--xs: 2; --md:2; --xl: {{ section.settings.columns_limit }}; --xo-grid-col-gap: {{section.settings.gap}}px ;--xo-grid-row-gap: {{section.settings.gap}}px'
+              class='instagram-v2__grid'
+            >
+              {% if section.settings.access_token == blank %}
+                {% for i in (1..section.settings.limit) %}
+                  <div class='instagram-v2__item'>
+                    {{ 'image' | placeholder_svg_tag: 'instagram-v2__image' }}
+                    <a href='https://www.instagram.com/' class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}' target='_blank'>
+                      {{ section.settings.icon_image }}
+                    </a>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <xo-instagram-template>
+                  <img class='instagram-v2__image' data-src='{ url }' alt='' width='1000' height='1000'>
+                  <span class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}'>{{ section.settings.icon_image }}</span>
+                </xo-instagram-template>
+              {% endif %}
+            </xo-grid>
+          </xo-instagram>
+        {% endif %}
       </div>
     </xo-grid>
   </xo-container>
@@ -442,6 +468,23 @@
           "id": "position",
           "label": "t:sections.testimonial_v2.blocks.position.label",
           "default": "Photographer"
+        }
+      ]
+    },
+    {
+      "type": "instagram_image",
+      "name": "Instagram Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Optional: Link to Instagram post or page"
         }
       ]
     }
