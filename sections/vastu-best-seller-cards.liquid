@@ -9,31 +9,40 @@
     {% endif %}
     <xo-grid style='--xs: 1; --sm: 1; --md: 2; --lg: 3; --xl: 3; --xo-grid-col-gap: 30px; --xo-grid-row-gap: 30px;'>
       {% for block in section.blocks %}
-        <div class='vastu-best-seller-card' {{ block.shopify_attributes }}>
-          <a href='{{ block.settings.link }}' class='vastu-best-seller-card__link'>
-            {% if block.settings.badge != blank %}
-              <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
-            {% endif %}
-            {% if block.settings.image != blank %}
-              <div class='vastu-best-seller-card__image'>
-                {% render 'image', image: block.settings.image, media_aspect_ratio: '4/3' %}
-              </div>
-            {% else %}
-              {% assign placeholder_index = forloop.index0 | modulo: 4 | plus: 1 %}
-              <div class='vastu-best-seller-card__image'>
-                {{ 'product-apparel-' | append: placeholder_index | placeholder_svg_tag: 'placeholder-svg' }}
-              </div>
-            {% endif %}
-            <div class='vastu-best-seller-card__content'>
-              {% if block.settings.title != blank %}
-                <h3 class='vastu-best-seller-card__title'>{{ block.settings.title }}</h3>
+        {% if block.settings.image != blank or block.settings.product != blank %}
+          {% assign product_link = block.settings.link %}
+          {% if block.settings.product != blank %}
+            {% assign product_link = all_products[block.settings.product].url %}
+          {% endif %}
+          <div class='vastu-best-seller-card' {{ block.shopify_attributes }}>
+            <a href='{{ product_link }}' class='vastu-best-seller-card__link'>
+              {% if block.settings.badge != blank %}
+                <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
               {% endif %}
-              {% if block.settings.description != blank %}
-                <p class='vastu-best-seller-card__description'>{{ block.settings.description }}</p>
+              {% if block.settings.image != blank %}
+                <div class='vastu-best-seller-card__image'>
+                  {% render 'image', image: block.settings.image, media_aspect_ratio: '4/3' %}
+                </div>
+              {% elsif block.settings.product != blank and all_products[block.settings.product].featured_image != blank %}
+                <div class='vastu-best-seller-card__image'>
+                  {% render 'image', image: all_products[block.settings.product].featured_image, media_aspect_ratio: '4/3' %}
+                </div>
               {% endif %}
-            </div>
-          </a>
-        </div>
+              <div class='vastu-best-seller-card__content'>
+                {% if block.settings.title != blank %}
+                  <h3 class='vastu-best-seller-card__title'>{{ block.settings.title }}</h3>
+                {% elsif block.settings.product != blank %}
+                  <h3 class='vastu-best-seller-card__title'>{{ all_products[block.settings.product].title }}</h3>
+                {% endif %}
+                {% if block.settings.description != blank %}
+                  <p class='vastu-best-seller-card__description'>{{ block.settings.description }}</p>
+                {% elsif block.settings.product != blank %}
+                  <p class='vastu-best-seller-card__description'>{{ all_products[block.settings.product].description | strip_html | truncate: 100 }}</p>
+                {% endif %}
+              </div>
+            </a>
+          </div>
+        {% endif %}
       {% endfor %}
     </xo-grid>
   </xo-container>
@@ -143,9 +152,16 @@
           "label": "Badge"
         },
         {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "Select a product to link to its product page. If not selected, use manual link below."
+        },
+        {
           "type": "url",
           "id": "link",
-          "label": "Link"
+          "label": "Manual Link",
+          "info": "Only used if no product is selected above"
         }
       ]
     }
