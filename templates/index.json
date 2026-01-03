@@ -353,6 +353,42 @@
         "padding_bottom": 80
       }
     },
+    "section-separator-1": {
+      "type": "section-separator",
+      "settings": {
+        "enable_separator": true,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "width": "box",
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "section-separator-2": {
+      "type": "section-separator",
+      "settings": {
+        "enable_separator": true,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "width": "box",
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "section-separator-3": {
+      "type": "section-separator",
+      "settings": {
+        "enable_separator": true,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "width": "box",
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
     "testimonial-v2": {
       "type": "testimonial-v2",
       "blocks": {
@@ -447,8 +483,11 @@
     "vastu-best-seller-cards",
     "vastu-hindi-statement",
     "vastu-trust-bar",
+    "section-separator-1",
     "vastu-featured-products",
+    "section-separator-2",
     "vastu-hot-deals",
+    "section-separator-3",
     "testimonial-v2",
     "blog-v1"
   ]

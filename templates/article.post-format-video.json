@@ -16,8 +16,8 @@
       "type": "main-article",
       "settings": {
         "article_layout": "without_sidebar",
-        "category": "categories",
-        "post": "blog-grid"
+        "category": "main-menu",
+        "post": "vastu-remedy"
       }
     },
     "related-article": {

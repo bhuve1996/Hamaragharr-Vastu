@@ -76,7 +76,7 @@
                 <span>{{ 'blogs.article.tags' | t }} : </span>
                 <ul role='list' class='main-article__tag-list'>
                   {% for tag in article.tags %}
-                    <li class='main-article__tag-item'>{{ tag | link_to_tag: tag }}</li>
+                    <li class='main-article__tag-item'><a href='{{ blog.url }}/tagged/{{ tag | handle }}'>{{ tag | capitalize }}</a></li>
                   {% endfor %}
                 </ul>
               </div>

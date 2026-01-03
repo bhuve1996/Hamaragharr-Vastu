@@ -1,0 +1,112 @@
+
+{% if section.settings.enable_separator %}
+  <section {% render 'section-attr' %}>
+    <xo-container {% render 'section-layout' %}>
+      <div class='section-separator' style='--separator-color: {{ section.settings.separator_color }}; --separator-height: {{ section.settings.separator_height }}px; --separator-width: {{ section.settings.separator_width }}%;'>
+        <div class='section-separator__line'></div>
+      </div>
+    </xo-container>
+  </section>
+{% endif %}
+
+<style>
+  .section-separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .section-separator__line {
+    width: var(--separator-width, 10%);
+    height: var(--separator-height, 2px);
+    background-color: var(--separator-color, #473855);
+    border-radius: 2px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Section Separator",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_separator",
+      "label": "Enable Separator",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Separator Color",
+      "default": "#473855"
+    },
+    {
+      "type": "range",
+      "id": "separator_height",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Separator Height",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "separator_width",
+      "min": 5,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Separator Width",
+      "default": 10
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "box",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        },
+        {
+          "value": "fullwidth",
+          "label": "t:sections.all.width.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "id": "fullwidth_margin",
+      "label": "t:sections.all.fullwidth_margin.label",
+      "default": 0,
+      "visible_if": "{{ section.settings.width == 'fullwidth' }}"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "t:sections.all.padding_top.label",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding_bottom.label",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Separator"
+    }
+  ]
+}
+{% endschema %}
+
