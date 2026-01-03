@@ -50,21 +50,21 @@
 }
 
 .vastu-best-seller-card__title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin: 0 0 0.75rem 0;
   line-height: 1.4;
 }
 
 .vastu-best-seller-card__price {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin: 0 0 0.5rem 0;
 }
 
 .vastu-best-seller-card__description {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.6;
   color: rgba(var(--color-foreground, 0, 0, 0), 0.7);
   margin: 0;
@@ -134,14 +134,14 @@
 }
 
 .vastu-featured-products__title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin: 0 0 0.75rem 0;
   line-height: 1.4;
 }
 
 .vastu-featured-products__price {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin: 0 0 0.5rem 0;
