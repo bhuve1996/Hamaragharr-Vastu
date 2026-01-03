@@ -56,12 +56,26 @@
   line-height: 1.4;
 }
 
+.vastu-best-seller-card__price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  margin: 0 0 0.5rem 0;
+}
+
 .vastu-best-seller-card__description {
   font-size: 0.9375rem;
   line-height: 1.6;
   color: rgba(var(--color-foreground, 0, 0, 0), 0.7);
   margin: 0;
   flex: 1;
+}
+
+.vastu-best-seller-card__actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Vastu Featured Products - Card Layout (Same as Best Sellers) */
@@ -130,7 +144,14 @@
   font-size: 1rem;
   font-weight: 600;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
-  margin: 0;
+  margin: 0 0 0.5rem 0;
+}
+
+.vastu-featured-products__actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Vastu Trust Bar */

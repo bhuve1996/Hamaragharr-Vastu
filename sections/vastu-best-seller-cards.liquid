@@ -22,6 +22,10 @@
             {% assign product_link = all_products[block.settings.product].url %}
           {% endif %}
           <div class='vastu-best-seller-card' {{ block.shopify_attributes }}>
+            {% if block.settings.product != blank %}
+              {% assign current_product = all_products[block.settings.product] %}
+              <xo-product xo-product-id='{{ current_product.id }}' xo-section-id='{{ section.id }}' xo-product-information>
+            {% endif %}
             <a href='{{ product_link }}' class='vastu-best-seller-card__link'>
               {% if block.settings.image != blank %}
                 <div class='vastu-best-seller-card__image hover-style--scale-up'>
@@ -35,8 +39,8 @@
                   {% if block.settings.badge != blank %}
                     <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
                   {% endif %}
-                  {% if all_products[block.settings.product].featured_image != blank %}
-                    {% render 'image', image: all_products[block.settings.product].featured_image, media_aspect_ratio: '4/3' %}
+                  {% if current_product.featured_image != blank %}
+                    {% render 'image', image: current_product.featured_image, media_aspect_ratio: '4/3' %}
                   {% else %}
                     {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
                   {% endif %}
@@ -46,15 +50,27 @@
                 {% if block.settings.title != blank %}
                   <h3 class='vastu-best-seller-card__title'>{{ block.settings.title }}</h3>
                 {% elsif block.settings.product != blank %}
-                  <h3 class='vastu-best-seller-card__title'>{{ all_products[block.settings.product].title }}</h3>
+                  <h3 class='vastu-best-seller-card__title'>{{ current_product.title }}</h3>
+                {% endif %}
+                {% if block.settings.product != blank and current_product.price != blank %}
+                  <p class='vastu-best-seller-card__price'>{{ current_product.price | money }}</p>
                 {% endif %}
                 {% if block.settings.description != blank %}
                   <p class='vastu-best-seller-card__description'>{{ block.settings.description }}</p>
                 {% elsif block.settings.product != blank %}
-                  <p class='vastu-best-seller-card__description'>{{ all_products[block.settings.product].description | strip_html | truncate: 100 }}</p>
+                  <p class='vastu-best-seller-card__description'>{{ current_product.description | strip_html | truncate: 100 }}</p>
                 {% endif %}
               </div>
             </a>
+            {% if block.settings.product != blank %}
+              <div class='vastu-best-seller-card__actions'>
+                {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
+              </div>
+              {% if current_product.variants.size > 1 %}
+                {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'default' %}
+              {% endif %}
+              </xo-product>
+            {% endif %}
           </div>
         {% endif %}
       {% endfor %}
