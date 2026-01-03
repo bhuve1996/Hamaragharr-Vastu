@@ -98,7 +98,7 @@
         "fullwidth_margin": 0,
         "subtitle": "Best Seller Product This Week!",
         "title": "Best Seller",
-        "collection": "collection-title-style-03",
+        "collection": "all",
         "limit": 12,
         "columns_size": 4,
         "distinct_color_scheme": false,
@@ -156,7 +156,7 @@
           "type": "tab",
           "settings": {
             "tab_title": "NEW ARRIVALS",
-            "tab_collection": "toggle-sidebar",
+            "tab_collection": "all",
             "tab_limit": 8
           }
         },
@@ -172,7 +172,7 @@
           "type": "tab",
           "settings": {
             "tab_title": "TOP RATES",
-            "tab_collection": "box-container",
+            "tab_collection": "all",
             "tab_limit": 8
           }
         }
