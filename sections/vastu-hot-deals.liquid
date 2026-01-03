@@ -1,0 +1,177 @@
+
+<section {% render 'section-attr' %}>
+  {% render 'section-bg-image' %}
+  <xo-container {% render 'section-layout' %}>
+    {% if section.settings.title != blank %}
+      <xo-animate xo-cascade>
+        <h2 class='vastu-hot-deals__title'>{{ section.settings.title }}</h2>
+      </xo-animate>
+    {% endif %}
+    <xo-grid style='--xs: 1; --md: 2; --xl: 2; --xo-grid-col-gap: 30px; --xo-grid-row-gap: 30px;'>
+      {% for block in section.blocks %}
+        <div class='vastu-hot-deals__card' {{ block.shopify_attributes }}>
+          {% if block.settings.discount_badge != blank %}
+            <span class='vastu-hot-deals__badge'>{{ block.settings.discount_badge }}</span>
+          {% endif %}
+          {% if block.settings.image != blank %}
+            <div class='vastu-hot-deals__image'>
+              {% render 'image', image: block.settings.image, media_aspect_ratio: '16/9' %}
+            </div>
+          {% endif %}
+          <div class='vastu-hot-deals__content'>
+            {% if block.settings.title != blank %}
+              <h3 class='vastu-hot-deals__card-title'>{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <p class='vastu-hot-deals__card-description'>{{ block.settings.description }}</p>
+            {% endif %}
+            {% if block.settings.button_text != blank %}
+              <a href='{{ block.settings.button_link }}' class='vastu-hot-deals__button'>
+                {{ block.settings.button_text }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </xo-grid>
+  </xo-container>
+</section>
+
+{% schema %}
+{
+  "name": "Vastu Hot Deals",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "box",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        },
+        {
+          "value": "fullwidth",
+          "label": "t:sections.all.width.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Hot Deals & Combo Offers"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.heading.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "t:sections.all.background_type.label",
+      "options": [
+        {
+          "value": "color",
+          "label": "t:sections.all.background_type.option__1.label"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.all.background_color.label",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "t:sections.all.padding_top.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding_bottom.label",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "combo",
+      "name": "Combo Offer",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Combo Offer"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "discount_badge",
+          "label": "Discount Badge",
+          "default": "20% OFF"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Add to Cart"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vastu Hot Deals",
+      "blocks": [
+        {
+          "type": "combo",
+          "settings": {
+            "title": "Kit with Small Accessory",
+            "discount_badge": "15% OFF"
+          }
+        },
+        {
+          "type": "combo",
+          "settings": {
+            "title": "Kit with Painting",
+            "discount_badge": "20% OFF"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

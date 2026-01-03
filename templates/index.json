@@ -9,261 +9,376 @@
  */
 {
   "sections": {
-    "policy-v3": {
-      "type": "policy-v3",
-      "blocks": {
-        "items_box_fJ4PzT": {
-          "type": "policy",
-          "settings": {
-            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 640\"><path d=\"M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z\"></path></svg>",
-            "title": "Rated 4.94 / 5"
-          }
-        },
-        "items_box_TV9FYh": {
-          "type": "policy",
-          "settings": {
-            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 640\"><path d=\"M169.3 256C196.8 163.5 282.5 96 384 96L448 96C465.7 96 480 110.3 480 128C480 145.7 465.7 160 448 160L384 160C318.4 160 262 199.5 237.3 256L368 256C381.3 256 392 266.7 392 280C392 293.3 381.3 304 368 304L224.8 304C224.3 309.3 224 314.6 224 320C224 325.4 224.3 330.7 224.8 336L368 336C381.3 336 392 346.7 392 360C392 373.3 381.3 384 368 384L237.3 384C262 440.5 318.4 480 384 480L448 480C465.7 480 480 494.3 480 512C480 529.7 465.7 544 448 544L384 544C282.5 544 196.8 476.5 169.3 384L136 384C122.7 384 112 373.3 112 360C112 346.7 122.7 336 136 336L160.6 336C159.9 325.5 159.9 314.5 160.6 304L136 304C122.7 304 112 293.3 112 280C112 266.7 122.7 256 136 256L169.3 256z\"></path></svg>",
-            "title": "Price Match Promise"
-          }
-        },
-        "items_box_YXMaa7": {
-          "type": "policy",
-          "settings": {
-            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 640\"><path d=\"M32 160C32 124.7 60.7 96 96 96L384 96C419.3 96 448 124.7 448 160L448 192L498.7 192C515.7 192 532 198.7 544 210.7L589.3 256C601.3 268 608 284.3 608 301.3L608 448C608 483.3 579.3 512 544 512L540.7 512C530.3 548.9 496.3 576 456 576C415.7 576 381.8 548.9 371.3 512L268.7 512C258.3 548.9 224.3 576 184 576C143.7 576 109.8 548.9 99.3 512L96 512C60.7 512 32 483.3 32 448L32 160zM544 352L544 301.3L498.7 256L448 256L448 352L544 352zM224 488C224 465.9 206.1 448 184 448C161.9 448 144 465.9 144 488C144 510.1 161.9 528 184 528C206.1 528 224 510.1 224 488zM456 528C478.1 528 496 510.1 496 488C496 465.9 478.1 448 456 448C433.9 448 416 465.9 416 488C416 510.1 433.9 528 456 528z\"></path></svg>",
-            "title": "Free UK Delivery Over £50"
-          }
-        }
-      },
-      "block_order": [
-        "items_box_fJ4PzT",
-        "items_box_TV9FYh",
-        "items_box_YXMaa7"
-      ],
+    "vastu-hero": {
+      "type": "vastu-hero",
       "settings": {
         "width": "box",
         "fullwidth_margin": 0,
-        "limit": 3,
-        "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
-        "background_type": "image",
-        "background_color": "#473855",
-        "background_gradient": "",
-        "background_image_desktop": "shopify://shop_images/bg_page.jpg",
-        "background_image_mobile": "shopify://shop_images/bg_page.jpg",
-        "use_parallax": true,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 10,
-        "padding_bottom": 10
-      }
-    },
-    "banner-v2": {
-      "type": "banner-v2",
-      "settings": {
-        "width": "fullwidth",
-        "fullwidth_margin": 0,
-        "hover": "hover1",
-        "gap": 0,
-        "reverse": true,
-        "subtitle": "🔥 Up to 50% off almost everything",
-        "title": "Make the  World Greener",
-        "banner_label": "BEST PRICES",
-        "description": "45% OFF",
-        "link_banner": "shopify://collections/all",
-        "button_text": "SHOP NOW",
-        "button_link": "shopify://collections/all",
-        "button_mode": "light",
-        "button_style": "secondary",
-        "button_size": "sm",
-        "button_radius": 0,
-        "button_padding": 1.4,
-        "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
-        "background_type": "color",
-        "background_color": "#473855",
-        "background_gradient": "",
-        "use_parallax": true,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "product-v1": {
-      "type": "product-v1",
-      "settings": {
-        "width": "box",
-        "fullwidth_margin": 0,
-        "subtitle": "Best Seller Product This Week!",
-        "title": "Best Seller",
-        "collection": "all",
-        "limit": 12,
-        "columns_size": 4,
-        "distinct_color_scheme": false,
-        "product_card_color_scheme": "",
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "#ffffff",
-        "background_gradient": "",
-        "use_parallax": true,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 50,
-        "padding_bottom": 50
-      }
-    },
-    "banner-v3": {
-      "type": "banner-v3",
-      "settings": {
-        "width": "box",
-        "fullwidth_margin": 0,
-        "hover": "hover1",
-        "gap": 30,
-        "reversed": false,
         "subtitle": "",
-        "title": "Ready, Set, Summer",
-        "description": "Bring your space to life with leafy greens in new limited-edition planters—and enjoy FREE SHIPPING all month long!",
-        "button_text": "Shop now",
-        "button_link": "shopify://collections/all",
-        "button_mode": "light",
-        "button_style": "secondary",
-        "button_size": "sm",
-        "button_radius": 0,
-        "button_padding": 1.4,
-        "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
-        "background_type": "image",
-        "background_color": "",
-        "background_gradient": "",
-        "use_parallax": false,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 200,
-        "padding_bottom": 200
-      }
-    },
-    "product-v2": {
-      "type": "product-v2",
-      "blocks": {
-        "891b74ee-242f-4933-a599-7f97c2fa0139": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "NEW ARRIVALS",
-            "tab_collection": "all",
-            "tab_limit": 8
-          }
-        },
-        "eaf25326-2cd2-4c89-8430-3ca4518ed39f": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "BEST SELLERS",
-            "tab_collection": "best-seller",
-            "tab_limit": 8
-          }
-        },
-        "5b873d26-9935-44ef-bb2e-404c70eb024e": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "TOP RATES",
-            "tab_collection": "all",
-            "tab_limit": 8
-          }
-        }
-      },
-      "block_order": [
-        "891b74ee-242f-4933-a599-7f97c2fa0139",
-        "eaf25326-2cd2-4c89-8430-3ca4518ed39f",
-        "5b873d26-9935-44ef-bb2e-404c70eb024e"
-      ],
-      "settings": {
-        "width": "box",
-        "fullwidth_margin": 0,
-        "heading_title": "Our Best Seller",
-        "heading_align": "center",
-        "columns_size": 4,
-        "distinct_color_scheme": false,
-        "product_card_color_scheme": "",
-        "button_text": "",
+        "heading": "Bring Balance, Prosperity & Positive Energy Home",
+        "subtext": "Transform your living space with ancient Vastu principles. Create harmony, attract abundance, and enhance positive energy flow in your home.",
+        "product_image": "",
+        "button_text": "Buy Now",
         "button_link": "shopify://collections/all",
         "button_mode": "light",
         "button_style": "primary",
-        "button_size": "sm",
-        "button_radius": 0.8,
+        "button_size": "md",
+        "button_radius": 0,
         "button_padding": 1.4,
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
         "background_gradient": "",
-        "use_parallax": true,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "vastu-scroll-story": {
+      "type": "vastu-scroll-story",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "",
+            "title": "Ancient Science",
+            "text": "Based on 5,000-year-old principles"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "",
+            "title": "Modern Homes",
+            "text": "Designed for contemporary living spaces"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "",
+            "title": "Easy Placement",
+            "text": "Simple to install and maintain"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ],
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "heading": "What is Vastu Kit",
+        "description": "<p>Vastu Kit is a carefully curated collection of ancient Vastu Shastra remedies designed to bring balance, prosperity, and positive energy into your home. Based on the 5,000-year-old Indian science of architecture and design, our kit helps align your living space with natural energy flows.</p>",
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "vastu-best-seller-cards": {
+      "type": "vastu-best-seller-cards",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "image": "",
+            "title": "Wall Art",
+            "description": "Beautiful Vastu-compliant wall art to enhance your space",
+            "badge": "",
+            "link": "shopify://collections/all"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "image": "",
+            "title": "Vastu Kit",
+            "description": "Complete Vastu remedy kit for your home",
+            "badge": "Best Seller",
+            "link": "shopify://collections/all"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "image": "",
+            "title": "Notes from Vastu",
+            "description": "Educational content and guides",
+            "badge": "",
+            "link": "shopify://pages/about"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
+      ],
+      "settings": {
+        "width": "box",
+        "title": "Best Sellers",
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "vastu-hindi-statement": {
+      "type": "vastu-hindi-statement",
+      "settings": {
+        "width": "box",
+        "hindi_text": "घर की ऊर्जा बदलिए, समृद्धि की दिशा बदलिए",
+        "english_subtext": "Transform your home's energy, change the direction of prosperity",
+        "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
+        "background_type": "color",
+        "background_color": "#473855",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "vastu-trust-bar": {
+      "type": "vastu-trust-bar",
+      "blocks": {
+        "trust_1": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "text": "Free Shipping on orders above ₹500"
+          }
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "text": "Easy Returns"
+          }
+        },
+        "trust_3": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "text": "Secure Payment"
+          }
+        },
+        "trust_4": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "text": "24/7 Support"
+          }
+        }
+      },
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4"
+      ],
+      "settings": {
+        "width": "box",
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#f5f5f5",
         "padding_top": 50,
         "padding_bottom": 50
       }
     },
-    "blog-v1": {
-      "type": "blog-v1",
+    "vastu-featured-products": {
+      "type": "vastu-featured-products",
+      "blocks": {
+        "icon_1": {
+          "type": "product_icon",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "label": "Owl",
+            "link": "shopify://collections/all"
+          }
+        },
+        "icon_2": {
+          "type": "product_icon",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "label": "Sun",
+            "link": "shopify://collections/all"
+          }
+        },
+        "icon_3": {
+          "type": "product_icon",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "label": "Horse",
+            "link": "shopify://collections/all"
+          }
+        },
+        "icon_4": {
+          "type": "product_icon",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "label": "Hand",
+            "link": "shopify://collections/all"
+          }
+        },
+        "icon_5": {
+          "type": "product_icon",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "label": "Tree",
+            "link": "shopify://collections/all"
+          }
+        },
+        "icon_6": {
+          "type": "product_icon",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "label": "Pyramid",
+            "link": "shopify://collections/all"
+          }
+        },
+        "icon_7": {
+          "type": "product_icon",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "label": "Om",
+            "link": "shopify://collections/all"
+          }
+        },
+        "icon_8": {
+          "type": "product_icon",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "label": "Swastik",
+            "link": "shopify://collections/all"
+          }
+        },
+        "icon_9": {
+          "type": "product_icon",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "label": "Product 9",
+            "link": "shopify://collections/all"
+          }
+        },
+        "icon_10": {
+          "type": "product_icon",
+          "settings": {
+            "icon": "",
+            "icon_svg": "",
+            "label": "Product 10",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "icon_1",
+        "icon_2",
+        "icon_3",
+        "icon_4",
+        "icon_5",
+        "icon_6",
+        "icon_7",
+        "icon_8",
+        "icon_9",
+        "icon_10"
+      ],
       "settings": {
         "width": "box",
-        "fullwidth_margin": 0,
-        "title": "Our Blog",
-        "blog": "vastu-remedy",
-        "articles_limit": 8,
-        "columns_limit": 3,
-        "gap": 30,
-        "auto_play": false,
-        "hover": "scale_up",
-        "aspect_ratio": "1/1",
-        "button_text": "Read more",
+        "title": "Featured Products",
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
-        "background_gradient": "",
-        "use_parallax": true,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 50,
-        "padding_bottom": 50
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "vastu-hot-deals": {
+      "type": "vastu-hot-deals",
+      "blocks": {
+        "combo_1": {
+          "type": "combo",
+          "settings": {
+            "image": "",
+            "title": "Kit with Small Accessory",
+            "description": "Get the complete Vastu Kit along with a small accessory at a special price",
+            "discount_badge": "15% OFF",
+            "button_text": "Add to Cart",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "combo_2": {
+          "type": "combo",
+          "settings": {
+            "image": "",
+            "title": "Kit with Painting",
+            "description": "Vastu Kit combined with beautiful Vastu-compliant wall painting",
+            "discount_badge": "20% OFF",
+            "button_text": "Add to Cart",
+            "button_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "combo_1",
+        "combo_2"
+      ],
+      "settings": {
+        "width": "box",
+        "title": "Hot Deals & Combo Offers",
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "testimonial-v2": {
       "type": "testimonial-v2",
       "blocks": {
-        "review_jQe3nM": {
+        "review_1": {
           "type": "review",
           "settings": {
-            "testimonial": "Saved our business! We have no regrets! Thanks for the great service. Florasy is worth much more than I paid Saved our business! We have no regrets! Thanks for the great service. Florasy is worth much more!",
-            "name_customer": "TONY",
-            "position": "Marketing Personal"
+            "testimonial": "The Vastu Kit has transformed our home! We've noticed a significant positive change in the energy and atmosphere. Highly recommended!",
+            "name_customer": "Priya Sharma",
+            "position": "Delhi"
           }
         },
-        "review_jQe3nN": {
+        "review_2": {
           "type": "review",
           "settings": {
-            "testimonial": "Saved our business! We have no regrets! Thanks for the great service. Florasy is worth much more than I paid Saved our business! We have no regrets! Thanks for the great service. Florasy is worth much more!",
-            "name_customer": "ANTHONY",
-            "position": "Marketing Personal"
+            "testimonial": "Amazing quality and easy to place. Our family feels more harmonious and peaceful since using the Vastu remedies.",
+            "name_customer": "Rajesh Kumar",
+            "position": "Mumbai"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "testimonial": "Best investment for our home. The positive energy is palpable, and we've seen improvements in our daily life.",
+            "name_customer": "Anita Patel",
+            "position": "Bangalore"
           }
         }
       },
       "block_order": [
-        "review_jQe3nM",
-        "review_jQe3nN"
+        "review_1",
+        "review_2",
+        "review_3"
       ],
       "settings": {
         "width": "box",
@@ -289,15 +404,45 @@
         "padding_top": 50,
         "padding_bottom": 50
       }
+    },
+    "blog-v1": {
+      "type": "blog-v1",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "title": "Our Blog",
+        "blog": "vastu-remedy",
+        "articles_limit": 4,
+        "columns_limit": 4,
+        "gap": 30,
+        "auto_play": false,
+        "hover": "scale_up",
+        "aspect_ratio": "1/1",
+        "button_text": "Read more",
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
     }
   },
   "order": [
-    "policy-v3",
-    "banner-v2",
-    "product-v1",
-    "banner-v3",
-    "product-v2",
-    "blog-v1",
-    "testimonial-v2"
+    "vastu-hero",
+    "vastu-scroll-story",
+    "vastu-best-seller-cards",
+    "vastu-hindi-statement",
+    "vastu-trust-bar",
+    "vastu-featured-products",
+    "vastu-hot-deals",
+    "testimonial-v2",
+    "blog-v1"
   ]
 }

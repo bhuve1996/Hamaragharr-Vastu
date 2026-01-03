@@ -1,0 +1,148 @@
+
+<section {% render 'section-attr' %}>
+  {% render 'section-bg-image' %}
+  <xo-container {% render 'section-layout' %}>
+    <xo-grid style='--xs: 2; --md: 4; --xl: 4; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;' class='vastu-trust-bar'>
+      {% for block in section.blocks %}
+        <div class='vastu-trust-bar__item' {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <div class='vastu-trust-bar__icon'>
+              {% render 'image', image: block.settings.icon %}
+            </div>
+          {% elsif block.settings.icon_svg != blank %}
+            <div class='vastu-trust-bar__icon-svg'>{{ block.settings.icon_svg }}</div>
+          {% endif %}
+          {% if block.settings.text != blank %}
+            <p class='vastu-trust-bar__text'>{{ block.settings.text }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </xo-grid>
+  </xo-container>
+</section>
+
+{% schema %}
+{
+  "name": "Vastu Trust Bar",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "box",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        },
+        {
+          "value": "fullwidth",
+          "label": "t:sections.all.width.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.heading.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "t:sections.all.background_type.label",
+      "options": [
+        {
+          "value": "color",
+          "label": "t:sections.all.background_type.option__1.label"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.all.background_color.label",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "t:sections.all.padding_top.label",
+      "default": 50
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding_bottom.label",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG (Alternative)"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free Shipping"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vastu Trust Bar",
+      "blocks": [
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "Free Shipping on orders above ₹500"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "Easy Returns"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "Secure Payment"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "24/7 Support"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

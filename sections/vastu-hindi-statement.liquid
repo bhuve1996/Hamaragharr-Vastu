@@ -1,0 +1,101 @@
+
+<section {% render 'section-attr' %}>
+  {% render 'section-bg-image' %}
+  <xo-container {% render 'section-layout' %}>
+    <div class='vastu-hindi-statement'>
+      <xo-animate xo-cascade>
+        <h2 class='vastu-hindi-statement__text'>{{ section.settings.hindi_text }}</h2>
+        {% if section.settings.english_subtext != blank %}
+          <p class='vastu-hindi-statement__subtext'>{{ section.settings.english_subtext }}</p>
+        {% endif %}
+      </xo-animate>
+    </div>
+  </xo-container>
+</section>
+
+{% schema %}
+{
+  "name": "Vastu Hindi Statement",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "box",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        },
+        {
+          "value": "fullwidth",
+          "label": "t:sections.all.width.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "hindi_text",
+      "label": "Hindi Text",
+      "default": "घर की ऊर्जा बदलिए, समृद्धि की दिशा बदलिए"
+    },
+    {
+      "type": "text",
+      "id": "english_subtext",
+      "label": "English Subtext (Optional)",
+      "default": "Transform your home's energy, change the direction of prosperity"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.heading.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "t:sections.all.background_type.label",
+      "options": [
+        {
+          "value": "color",
+          "label": "t:sections.all.background_type.option__1.label"
+        },
+        {
+          "value": "gradient",
+          "label": "t:sections.all.background_type.option__2.label"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.all.background_color.label",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "t:sections.all.padding_top.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding_bottom.label",
+      "default": 80
+    }
+  ]
+}
+{% endschema %}
+

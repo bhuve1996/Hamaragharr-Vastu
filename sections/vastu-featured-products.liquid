@@ -1,0 +1,204 @@
+
+<section {% render 'section-attr' %}>
+  {% render 'section-bg-image' %}
+  <xo-container {% render 'section-layout' %}>
+    {% if section.settings.title != blank %}
+      <xo-animate xo-cascade>
+        <h2 class='vastu-featured-products__title'>{{ section.settings.title }}</h2>
+      </xo-animate>
+    {% endif %}
+    <xo-grid style='--xs: 2; --md: 5; --xl: 5; --xo-grid-col-gap: 30px; --xo-grid-row-gap: 30px;' class='vastu-featured-products__grid'>
+      {% for block in section.blocks %}
+        <a href='{{ block.settings.link }}' class='vastu-featured-products__item' {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <div class='vastu-featured-products__icon'>
+              {% render 'image', image: block.settings.icon %}
+            </div>
+          {% elsif block.settings.icon_svg != blank %}
+            <div class='vastu-featured-products__icon-svg'>{{ block.settings.icon_svg }}</div>
+          {% else %}
+            <div class='vastu-featured-products__icon'>
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {% endif %}
+          {% if block.settings.label != blank %}
+            <p class='vastu-featured-products__label'>{{ block.settings.label }}</p>
+          {% endif %}
+        </a>
+      {% endfor %}
+    </xo-grid>
+  </xo-container>
+</section>
+
+{% schema %}
+{
+  "name": "Vastu Featured Products",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "box",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        },
+        {
+          "value": "fullwidth",
+          "label": "t:sections.all.width.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Featured Products"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.heading.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "t:sections.all.background_type.label",
+      "options": [
+        {
+          "value": "color",
+          "label": "t:sections.all.background_type.option__1.label"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.all.background_color.label",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "t:sections.all.padding_top.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding_bottom.label",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_icon",
+      "name": "Product Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG (Alternative)"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Product"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vastu Featured Products",
+      "blocks": [
+        {
+          "type": "product_icon",
+          "settings": {
+            "label": "Owl"
+          }
+        },
+        {
+          "type": "product_icon",
+          "settings": {
+            "label": "Sun"
+          }
+        },
+        {
+          "type": "product_icon",
+          "settings": {
+            "label": "Horse"
+          }
+        },
+        {
+          "type": "product_icon",
+          "settings": {
+            "label": "Hand"
+          }
+        },
+        {
+          "type": "product_icon",
+          "settings": {
+            "label": "Tree"
+          }
+        },
+        {
+          "type": "product_icon",
+          "settings": {
+            "label": "Pyramid"
+          }
+        },
+        {
+          "type": "product_icon",
+          "settings": {
+            "label": "Om"
+          }
+        },
+        {
+          "type": "product_icon",
+          "settings": {
+            "label": "Swastik"
+          }
+        },
+        {
+          "type": "product_icon",
+          "settings": {
+            "label": "Product 9"
+          }
+        },
+        {
+          "type": "product_icon",
+          "settings": {
+            "label": "Product 10"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

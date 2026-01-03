@@ -1,0 +1,184 @@
+
+<section {% render 'section-attr' %}>
+  {% render 'section-bg-image' %}
+  <xo-container {% render 'section-layout' %}>
+    <xo-grid style='--xs: 1; --md: 2; --xl: 2; --xo-grid-col-gap: 60px; --xo-grid-row-gap: 40px; align-items: center;'>
+      <div class='vastu-scroll-story__content'>
+        <xo-animate xo-cascade>
+          <h2 class='vastu-scroll-story__title'>{{ section.settings.heading }}</h2>
+          <div class='vastu-scroll-story__description'>{{ section.settings.description }}</div>
+        </xo-animate>
+      </div>
+      <div class='vastu-scroll-story__features'>
+        <xo-grid style='--xs: 1; --md: 2; --xl: 2; --xo-grid-col-gap: 30px; --xo-grid-row-gap: 30px;'>
+          {% for block in section.blocks %}
+            <div class='vastu-scroll-story__feature' {{ block.shopify_attributes }}>
+              {% if block.settings.icon != blank %}
+                <div class='vastu-scroll-story__icon'>
+                  {% render 'image', image: block.settings.icon %}
+                </div>
+              {% endif %}
+              {% if block.settings.title != blank %}
+                <h3 class='vastu-scroll-story__feature-title'>{{ block.settings.title }}</h3>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <p class='vastu-scroll-story__feature-text'>{{ block.settings.text }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </xo-grid>
+      </div>
+    </xo-grid>
+  </xo-container>
+</section>
+
+{% schema %}
+{
+  "name": "Vastu Scroll Story",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "box",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        },
+        {
+          "value": "fullwidth",
+          "label": "t:sections.all.width.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "id": "fullwidth_margin",
+      "label": "t:sections.all.fullwidth_margin.label",
+      "default": 0,
+      "visible_if": "{{ section.settings.width == 'fullwidth' }}"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What is Vastu Kit"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Vastu Kit is a carefully curated collection of ancient Vastu Shastra remedies designed to bring balance, prosperity, and positive energy into your home. Based on the 5,000-year-old Indian science of architecture and design, our kit helps align your living space with natural energy flows.</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.heading.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "t:sections.all.background_type.label",
+      "options": [
+        {
+          "value": "color",
+          "label": "t:sections.all.background_type.option__1.label"
+        },
+        {
+          "value": "gradient",
+          "label": "t:sections.all.background_type.option__2.label"
+        },
+        {
+          "value": "image",
+          "label": "t:sections.all.background_type.option__3.label"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.all.background_color.label",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "t:sections.all.padding_top.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding_bottom.label",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Ancient Science"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Based on 5,000-year-old principles"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vastu Scroll Story",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Ancient Science",
+            "text": "Based on 5,000-year-old principles"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Modern Homes",
+            "text": "Designed for contemporary living spaces"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Easy Placement",
+            "text": "Simple to install and maintain"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
