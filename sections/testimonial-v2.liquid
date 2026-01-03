@@ -56,7 +56,7 @@
             {% if section.settings.access_token == blank %}
               {% for i in (1..section.settings.limit) %}
                 <div class='instagram-v2__item'>
-                  <img src='{{ 'instagram' | append: i | append: '.jpg' | file_img_url: 'master' }}' class='instagram-v2__image' alt='instagram' width='1000' height='1000'>
+                  {{ 'image' | placeholder_svg_tag: 'instagram-v2__image' }}
                   <a href='https://www.instagram.com/' class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}' target='_blank'>
                     {{ section.settings.icon_image }}
                   </a>
