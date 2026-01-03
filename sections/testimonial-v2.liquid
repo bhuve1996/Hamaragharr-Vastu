@@ -3,8 +3,7 @@
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
-    <xo-grid style='--xs:1; --lg:2; --xo-grid-col-gap: 60px'>
-      <div>
+    <div>
         <xo-carousel
           {% if section.settings.auto_play %}
             xo-autoplay='5000'
@@ -38,56 +37,7 @@
           </xo-carousel-inner>
           {% render 'carousel-pagination-style3', class: 'testimonial-v13__pagination' %}
         </xo-carousel>
-      </div>
-      <div
-        {% if section.settings.reverse %}
-          style='--order-lg:-1'
-        {% endif %}
-      >
-        {% assign instagram_blocks = section.blocks | where: 'type', 'instagram_image' %}
-        {% assign has_instagram_images = false %}
-        {% for block in instagram_blocks %}
-          {% if block.settings.image != blank %}
-            {% assign has_instagram_images = true %}
-            {% break %}
-          {% endif %}
-        {% endfor %}
-        
-        {% if has_instagram_images %}
-          <xo-grid
-            style='--xs: 2; --md:2; --xl: {{ section.settings.columns_limit }}; --xo-grid-col-gap: {{section.settings.gap}}px ;--xo-grid-row-gap: {{section.settings.gap}}px'
-            class='instagram-v2__grid'
-          >
-            {% for block in instagram_blocks %}
-              {% if block.settings.image != blank %}
-                <div class='instagram-v2__item' {{ block.shopify_attributes }}>
-                  {% render 'image', image: block.settings.image, media_aspect_ratio: '1/1' %}
-                  <a href='{{ block.settings.link | default: "https://www.instagram.com/" }}' class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}' target='_blank'>
-                    {{ section.settings.icon_image }}
-                  </a>
-                </div>
-              {% endif %}
-            {% endfor %}
-          </xo-grid>
-        {% elsif section.settings.access_token != blank %}
-          <xo-instagram
-            xo-limit='{{ section.settings.limit }}'
-            xo-open-mode='{{ section.settings.open_mode }}'
-            xo-access-token='{{ section.settings.access_token }}'
-          >
-            <xo-grid
-              style='--xs: 2; --md:2; --xl: {{ section.settings.columns_limit }}; --xo-grid-col-gap: {{section.settings.gap}}px ;--xo-grid-row-gap: {{section.settings.gap}}px'
-              class='instagram-v2__grid'
-            >
-              <xo-instagram-template>
-                <img class='instagram-v2__image' data-src='{ url }' alt='' width='1000' height='1000'>
-                <span class='instagram-v2__image-layer' style='--color: {{ section.settings.background_color }}'>{{ section.settings.icon_image }}</span>
-              </xo-instagram-template>
-            </xo-grid>
-          </xo-instagram>
-        {% endif %}
-      </div>
-    </xo-grid>
+    </div>
   </xo-container>
     {% render 'section-separator',
     enable_separator: section.settings.enable_separator,

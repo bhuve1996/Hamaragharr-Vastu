@@ -9,71 +9,85 @@
  */
 {
   "sections": {
-    "vastu-hero": {
-      "type": "vastu-hero",
-      "settings": {
-        "width": "box",
-        "fullwidth_margin": 0,
-        "subtitle": "",
-        "heading": "Bring Balance, Prosperity & Positive Energy Home",
-        "subtext": "Transform your living space with ancient Vastu principles. Create harmony, attract abundance, and enhance positive energy flow in your home.",
-        "product_image": "shopify://shop_images/Untitled_design_2.png",
-        "button_text": "Buy Now",
-        "button_link": "shopify://collections/all",
-        "button_mode": "light",
-        "button_style": "secondary",
-        "button_size": "md",
-        "button_radius": 0,
-        "button_padding": 1.4,
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "#ffffff",
-        "background_gradient": "",
-        "use_parallax": false,
-        "padding_top": 100,
-        "padding_bottom": 100
-      }
-    },
-    "vastu-scroll-story": {
-      "type": "vastu-scroll-story",
+    "homepage-carousel": {
+      "type": "slideshow-v1",
       "blocks": {
-        "feature_1": {
-          "type": "feature",
+        "slide_1": {
+          "type": "slideshow",
           "settings": {
-            "title": "Ancient Science",
-            "text": "Based on 5,000-year-old principles"
-          }
-        },
-        "feature_2": {
-          "type": "feature",
-          "settings": {
-            "title": "Modern Homes",
-            "text": "Designed for contemporary living spaces"
-          }
-        },
-        "feature_3": {
-          "type": "feature",
-          "settings": {
-            "title": "Easy Placement",
-            "text": "Simple to install and maintain"
+            "reverse_layout": false,
+            "subtitle": "Transform Your Living Space",
+            "subtitle_font_size": 1.6,
+            "subtitle_font_weight": 500,
+            "subtitle_animation": "fade-up",
+            "title": "Bring Balance, Prosperity & Positive Energy Home",
+            "title_font_size": 5,
+            "title_font_weight": 700,
+            "title_animation": "fade-up",
+            "description": "Discover the power of Vastu Shastra to create harmony and abundance in your home",
+            "description_font_size": 1.6,
+            "description_font_weight": 400,
+            "description_animation": "fade-up",
+            "button_text": "Buy Now",
+            "button_link": "shopify://collections/all",
+            "button_mode": "dark",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_radius": 0,
+            "button_padding": 1.4,
+            "button_animation": "fade-up",
+            "image_desktop": "",
+            "image_desktop_animation": "none",
+            "image_mobile": "",
+            "image_mobile_animation": "none",
+            "background_image_desktop": "",
+            "background_image_mobile": "",
+            "background_overlay": "",
+            "background_overlay_opacity": 0
           }
         }
       },
       "block_order": [
-        "feature_1",
-        "feature_2",
-        "feature_3"
+        "slide_1"
       ],
+      "settings": {
+        "width": "fullwidth",
+        "fullwidth_margin": 0,
+        "section_height_desktop": 600,
+        "section_height_mobile": 400,
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "changing_speed": 500,
+        "show_pagination": true,
+        "show_pagination_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "vastu-kit-banner": {
+      "type": "banner-v3",
       "settings": {
         "width": "box",
         "fullwidth_margin": 0,
-        "heading": "What is Vastu Kit",
-        "description": "<p>Vastu Kit is a carefully curated collection of ancient Vastu Shastra remedies designed to bring balance, prosperity, and positive energy into your home. Based on the 5,000-year-old Indian science of architecture and design, our kit helps align your living space with natural energy flows.</p>",
+        "reversed": false,
+        "align": "start",
+        "subtitle": "",
+        "title": "Complete Vastu Kit for Your Home",
+        "description": "Transform your living space with our carefully curated Vastu Kit. Based on 5,000-year-old principles, bring balance, prosperity, and positive energy into your home.",
+        "button_text": "Buy Now",
+        "button_link": "shopify://collections/all",
+        "button_mode": "dark",
+        "button_style": "secondary",
+        "button_size": "md",
+        "button_radius": 0,
+        "button_padding": 1.4,
+        "image": "shopify://shop_images/Untitled_design_2.png",
+        "gap": 60,
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "vastu-best-seller-cards": {
@@ -146,28 +160,28 @@
         "trust_1": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "",
-            "text": "Free Shipping on orders above ₹500"
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 512\" height=\"24\" width=\"24\" fill=\"currentColor\"><path d=\"M0 488V171.3c0-26.2 15.9-49.7 40.2-59.4L308.1 4.8c7.6-3.1 16.1-3.1 23.8 0L599.8 111.9c24.3 9.7 40.2 33.2 40.2 59.4V488c0 13.3-10.7 24-24 24h-48c-13.3 0-24-10.7-24-24V224c0-17.7-14.3-32-32-32H128c-17.7 0-32 14.3-32 32V488c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24zm488 24l-336 0c-13.3 0-24-10.7-24-24V432H512v56c0 13.3-10.7 24-24 24zM128 400V336H512v64H128zm0-96V224H512v80H128z\"/></svg>",
+            "text": "Free Shipping"
           }
         },
         "trust_2": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" height=\"24\" width=\"24\" fill=\"currentColor\"><path d=\"M48 256a208 208 0 1 1 416 0A208 208 0 1 1 48 256zm464 0A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM135.1 217.4c-4.5-7.6-14.6-10.1-22.2-5.6s-10.1 14.6-5.6 22.2l53.6 90.2c12.2 20.6 38.5 28.6 61.2 18.8l56.6-21.8c7.8-3 16.4-1.3 22.1 4.4s6.2 14.3 2.8 22.1l-24.4 47.3c-8.2 15.9-26.7 24.5-44.5 20.1l-47.9-10.2c-8.2-1.7-16.9.4-23.3 5.9l-33.9 29.3c-6.9 6-7.2 16.1-.4 22.5l17.2 17.2c6.2 6.2 16.1 6.2 22.3 0l78.2-78.2c6.2-6.2 6.2-16.1 0-22.3l-17.2-17.2c-6.4-6.4-16.5-6.5-22.5-.4l-29.3 33.9c-5.5 6.4-7.6 15.1-5.9 23.3l10.2 47.9c4.4 17.8-4.2 36.3-20.1 44.5l-47.3 24.4c-7.8 4-17.4 1.3-22.1-4.4s-6.2-14.3-2.8-22.1l24.4-47.3c8.2-15.9 4.4-35.1-9.3-47.2L67.2 350.9c-6.9-5.8-7.3-15.9-1-22.3l17.2-17.2c6.2-6.2 16.1-6.2 22.3 0l29.3 33.9c6.4 6.4 15.1 7.6 23.3 5.9l47.9-10.2c17.8-4.4 36.3 4.2 44.5 20.1l24.4 47.3c4 7.8 14.3 10.1 22.1 4.4s10.1-14.3 4.4-22.1l-24.4-47.3c-8.2-15.9-26.7-24.5-44.5-20.1l-47.9 10.2c-8.2 1.7-16.9-.4-23.3-5.9l-33.9-29.3c-6.9-6-16.9-5.7-22.5.4l-17.2 17.2c-6.2 6.2-16.1 6.2-22.3 0L5.4 294.7c-6.2-6.2-6.2-16.1 0-22.3l17.2-17.2c6.4-6.4 16.5-6.5 22.5-.4l29.3 33.9c5.5 6.4 7.6 15.1 5.9 23.3l-10.2 47.9c-4.4 17.8 4.2 36.3 20.1 44.5l47.3 24.4c7.8 4 17.4 1.3 22.1-4.4s6.2-14.3 2.8-22.1l-24.4-47.3c-8.2-15.9-4.4-35.1 9.3-47.2l56.6-21.8c22.7-9.8 49-1.8 61.2 18.8l53.6 90.2c4.5 7.6 14.6 10.1 22.2 5.6s10.1-14.6 5.6-22.2L135.1 217.4z\"/></svg>",
             "text": "Easy Returns"
           }
         },
         "trust_3": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 576 512\" height=\"24\" width=\"24\" fill=\"currentColor\"><path d=\"M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H144c-17.7 0-32 14.3-32 32zm288-96a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zm-32 32c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H448c-17.7 0-32 14.3-32 32zm96-192H192c-17.7 0-32 14.3-32 32s14.3 32 32 32H512c17.7 0 32-14.3 32-32s-14.3-32-32-32zM192 320H512c17.7 0 32-14.3 32-32s-14.3-32-32-32H192c-17.7 0-32 14.3-32 32s14.3 32 32 32z\"/></svg>",
             "text": "Secure Payment"
           }
         },
         "trust_4": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" height=\"24\" width=\"24\" fill=\"currentColor\"><path d=\"M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z\"/></svg>",
             "text": "24/7 Support"
           }
         }
@@ -319,46 +333,6 @@
         "separator_padding_bottom": 30
       }
     },
-    "vastu-hot-deals": {
-      "type": "vastu-hot-deals",
-      "blocks": {
-        "combo_1": {
-          "type": "combo",
-          "settings": {
-            "image": "shopify://shop_images/7_horses_vastu_1536x1024_8k_quality.png",
-            "title": "Kit with Small Accessory",
-            "description": "Get the complete Vastu Kit along with a small accessory at a special price",
-            "discount_badge": "15% OFF",
-            "button_text": "Add to Cart",
-            "button_link": "shopify://collections/all"
-          }
-        },
-        "combo_2": {
-          "type": "combo",
-          "settings": {
-            "image": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
-            "title": "Kit with Painting",
-            "description": "Vastu Kit combined with beautiful Vastu-compliant wall painting",
-            "discount_badge": "20% OFF",
-            "button_text": "Add to Cart",
-            "button_link": "shopify://collections/all"
-          }
-        }
-      },
-      "block_order": [
-        "combo_1",
-        "combo_2"
-      ],
-      "settings": {
-        "width": "box",
-        "title": "Hot Deals & Combo Offers",
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "#ffffff",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
     "testimonial-v2": {
       "type": "testimonial-v2",
       "blocks": {
@@ -378,84 +352,30 @@
             "position": "Mumbai"
           }
         },
-        "review_3": {
-          "type": "review",
-          "settings": {
-            "testimonial": "Best investment for our home. The positive energy is palpable, and we've seen improvements in our daily life.",
-            "name_customer": "Anita Patel",
-            "position": "Bangalore"
-          }
-        }
       },
       "block_order": [
         "review_1",
-        "review_2",
-        "review_3"
+        "review_2"
       ],
       "settings": {
-        "width": "box",
+        "width": "fullwidth",
         "fullwidth_margin": 0,
-        "reverse": false,
         "auto_play": true,
-        "image1": "shopify://shop_images/other-product-4.jpg",
-        "columns_limit": 3,
-        "limit": 6,
-        "gap": 30,
-        "access_token": "",
-        "open_mode": "newtab",
-        "icon_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 448 512\"><path d=\"M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z\"></path></svg>",
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
-        "background_gradient": "",
-        "use_parallax": true,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 50,
-        "padding_bottom": 50
-      }
-    },
-    "blog-v1": {
-      "type": "blog-v1",
-      "settings": {
-        "width": "box",
-        "fullwidth_margin": 0,
-        "title": "Our Blog",
-        "blog": "vastu-remedy",
-        "articles_limit": 4,
-        "columns_limit": 4,
-        "gap": 30,
-        "auto_play": false,
-        "hover": "scale_up",
-        "aspect_ratio": "1/1",
-        "button_text": "Read more",
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "#ffffff",
-        "background_gradient": "",
-        "use_parallax": true,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 50,
-        "padding_bottom": 50
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
-    "vastu-hero",
-    "vastu-scroll-story",
+    "homepage-carousel",
+    "vastu-kit-banner",
     "vastu-best-seller-cards",
     "vastu-hindi-statement",
     "vastu-trust-bar",
     "vastu-featured-products",
-    "vastu-hot-deals",
-    "testimonial-v2",
-    "blog-v1"
+    "testimonial-v2"
   ]
 }
