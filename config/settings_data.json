@@ -150,13 +150,13 @@
       "main-password-header": {
         "type": "main-password-header",
         "settings": {
-          "color_scheme": "background-1"
+          "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639"
         }
       },
       "main-password-footer": {
         "type": "main-password-footer",
         "settings": {
-          "color_scheme": "background-1"
+          "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639"
         }
       }
     },
@@ -279,11 +279,11 @@
           "background_gradient": "#473855",
           "text": "#ffffff",
           "shadow": "#473855",
-          "border": "#000000",
+          "border": "#ffffff",
           "button": "#ffffff",
-          "button_label": "#ffffff",
-          "secondary_button": "#ffffff",
-          "secondary_button_label": "#473855",
+          "button_label": "#473855",
+          "secondary_button": "#473855",
+          "secondary_button_label": "#ffffff",
           "tertiary_button": "#121212",
           "tertiary_button_label": "#ffffff",
           "gray_button": "#eeeeee",
@@ -291,7 +291,7 @@
           "dark_button": "#000000",
           "dark_button_label": "#ffffff",
           "light_button": "#ffffff",
-          "light_button_label": "#000000"
+          "light_button_label": "#473855"
         }
       }
     }
@@ -550,13 +550,13 @@
         "main-password-header": {
           "type": "main-password-header",
           "settings": {
-            "color_scheme": "background-1"
+            "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639"
           }
         },
         "main-password-footer": {
           "type": "main-password-footer",
           "settings": {
-            "color_scheme": "background-1"
+            "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639"
           }
         }
       }
@@ -610,7 +610,7 @@
         },
         "inverse": {
           "settings": {
-            "accent": "#2bbea1",
+            "accent": "#006f74",
             "background": "#121212",
             "background_gradient": "",
             "text": "#ffffff",
@@ -810,13 +810,13 @@
         "main-password-header": {
           "type": "main-password-header",
           "settings": {
-            "color_scheme": "background-1"
+            "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639"
           }
         },
         "main-password-footer": {
           "type": "main-password-footer",
           "settings": {
-            "color_scheme": "background-1"
+            "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639"
           }
         }
       }
