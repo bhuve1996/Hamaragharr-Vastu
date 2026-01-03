@@ -134,6 +134,27 @@
   line-height: 1.4;
 }
 
+/* Carousel Pagination Positioning */
+.slideshow-v28__pagination {
+  position: absolute;
+  bottom: 30px !important;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.slideshow-v28__overlay-content {
+  position: relative;
+}
+
+/* Featured Products - Larger icons, fewer per row */
+.vastu-featured-products__icon,
+.vastu-featured-products__icon-svg {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .vastu-best-seller__title {
@@ -142,14 +163,18 @@
   
   .vastu-featured-products__icon,
   .vastu-featured-products__icon-svg {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
   }
   
   .vastu-trust-bar__icon,
   .vastu-trust-bar__icon-svg {
     width: 40px;
     height: 40px;
+  }
+  
+  .slideshow-v28__pagination {
+    bottom: 20px !important;
   }
 }
 

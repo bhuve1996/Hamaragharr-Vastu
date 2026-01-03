@@ -3,11 +3,11 @@
     "collection-title": {
       "type": "collection-title",
       "settings": {
-        "color_scheme": "inverse",
+        "color_scheme": "background-1",
         "background_image_desktop": "shopify://shop_images/bg_page.jpg",
         "background_image_mobile": "shopify://shop_images/bg_page.jpg",
         "use_parallax": false,
-        "background_color": "#f3f3f3",
+        "background_color": "#ffffff",
         "padding_top": 110,
         "padding_bottom": 110
       },
