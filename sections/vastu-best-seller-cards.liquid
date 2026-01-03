@@ -30,9 +30,13 @@
                 <div class='vastu-best-seller-card__image'>
                   {% render 'image', image: block.settings.image, media_aspect_ratio: '4/3' %}
                 </div>
-              {% elsif block.settings.product != blank and all_products[block.settings.product].featured_image != blank %}
+              {% elsif block.settings.product != blank %}
                 <div class='vastu-best-seller-card__image'>
-                  {% render 'image', image: all_products[block.settings.product].featured_image, media_aspect_ratio: '4/3' %}
+                  {% if all_products[block.settings.product].featured_image != blank %}
+                    {% render 'image', image: all_products[block.settings.product].featured_image, media_aspect_ratio: '4/3' %}
+                  {% else %}
+                    {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
                 </div>
               {% endif %}
               <div class='vastu-best-seller-card__content'>
