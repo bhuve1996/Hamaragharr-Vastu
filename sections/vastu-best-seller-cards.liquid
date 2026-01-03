@@ -32,6 +32,11 @@
                   {% if block.settings.badge != blank %}
                     <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
                   {% endif %}
+                  {% if block.settings.product != blank %}
+                    <div class='vastu-best-seller-card__actions-overlay'>
+                      {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
+                    </div>
+                  {% endif %}
                   {% render 'image', image: block.settings.image, media_aspect_ratio: '4/3' %}
                 </div>
               {% elsif block.settings.product != blank %}
@@ -39,6 +44,9 @@
                   {% if block.settings.badge != blank %}
                     <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
                   {% endif %}
+                  <div class='vastu-best-seller-card__actions-overlay'>
+                    {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
+                  </div>
                   {% if current_product.featured_image != blank %}
                     {% render 'image', image: current_product.featured_image, media_aspect_ratio: '4/3' %}
                   {% else %}
@@ -63,9 +71,6 @@
               </div>
             </a>
             {% if block.settings.product != blank %}
-              <div class='vastu-best-seller-card__actions'>
-                {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
-              </div>
               {% if current_product.variants.size > 1 %}
                 {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'default' %}
               {% endif %}

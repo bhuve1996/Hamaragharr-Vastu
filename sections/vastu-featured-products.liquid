@@ -29,14 +29,27 @@
             <a href='{{ product_link }}' class='vastu-featured-products__link'>
               {% if block.settings.icon != blank %}
                 <div class='vastu-featured-products__image hover-style--scale-up'>
+                  {% if block.settings.product != blank %}
+                    <div class='vastu-featured-products__actions-overlay'>
+                      {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
+                    </div>
+                  {% endif %}
                   {% render 'image', image: block.settings.icon, media_aspect_ratio: '4/3' %}
                 </div>
               {% elsif block.settings.icon_svg != blank %}
                 <div class='vastu-featured-products__image hover-style--scale-up'>
+                  {% if block.settings.product != blank %}
+                    <div class='vastu-featured-products__actions-overlay'>
+                      {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
+                    </div>
+                  {% endif %}
                   <div class='vastu-featured-products__icon-svg'>{{ block.settings.icon_svg }}</div>
                 </div>
               {% elsif block.settings.product != blank %}
                 <div class='vastu-featured-products__image hover-style--scale-up'>
+                  <div class='vastu-featured-products__actions-overlay'>
+                    {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
+                  </div>
                   {% if current_product.featured_image != blank %}
                     {% render 'image', image: current_product.featured_image, media_aspect_ratio: '4/3' %}
                   {% else %}
@@ -58,9 +71,6 @@
               </div>
             </a>
             {% if block.settings.product != blank %}
-              <div class='vastu-featured-products__actions'>
-                {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
-              </div>
               {% if current_product.variants.size > 1 %}
                 {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'default' %}
               {% endif %}

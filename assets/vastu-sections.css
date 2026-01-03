@@ -42,6 +42,25 @@
   line-height: 1.2;
 }
 
+.vastu-best-seller-card__actions-overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay {
+  opacity: 1;
+}
+
+/* If badge exists, position button on left to avoid overlap */
+.vastu-best-seller-card__image .vastu-best-seller-card__badge ~ .vastu-best-seller-card__actions-overlay {
+  right: auto;
+  left: 12px;
+}
+
 .vastu-best-seller-card__content {
   flex: 1;
   display: flex;
@@ -71,13 +90,6 @@
   flex: 1;
 }
 
-.vastu-best-seller-card__actions {
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 0 0.5rem 0;
-}
 
 /* Vastu Featured Products - Card Layout (Same as Best Sellers) */
 .vastu-featured-products__card {
@@ -148,12 +160,17 @@
   margin: 0 0 0.75rem 0;
 }
 
-.vastu-featured-products__actions {
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 0 0.5rem 0;
+.vastu-featured-products__actions-overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay {
+  opacity: 1;
 }
 
 /* Vastu Trust Bar */
