@@ -19,19 +19,31 @@
     "main-wishlist": {
       "type": "main-wishlist",
       "settings": {
-        "padding_top": 20
+        "padding_top": 20,
+        "enable_separator": true,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "separator_padding_top": 30,
+        "separator_padding_bottom": 30
       }
     },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
         "heading_title": "You May Also Like",
-        "collection": "best-seller",
+        "collection": "all",
         "columns_desktop": 4,
         "columns_mobile": "2",
         "color_scheme": "background-1",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "enable_separator": true,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "separator_padding_top": 30,
+        "separator_padding_bottom": 30
       }
     }
   },
