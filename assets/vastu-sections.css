@@ -46,7 +46,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 0.5rem 0;
 }
 
 .vastu-best-seller-card__title {
@@ -67,15 +67,16 @@
   font-size: 1.0625rem;
   line-height: 1.6;
   color: rgba(var(--color-foreground, 0, 0, 0), 0.7);
-  margin: 0;
+  margin: 0 0 0.75rem 0;
   flex: 1;
 }
 
 .vastu-best-seller-card__actions {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 0 0.5rem 0;
 }
 
 /* Vastu Featured Products - Card Layout (Same as Best Sellers) */
@@ -129,7 +130,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 0.5rem 0;
   text-align: center;
 }
 
@@ -144,14 +145,15 @@
   font-size: 1.25rem;
   font-weight: 600;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.75rem 0;
 }
 
 .vastu-featured-products__actions {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 0 0.5rem 0;
 }
 
 /* Vastu Trust Bar */
