@@ -11,7 +11,7 @@
     {% endfor %}
     {% if section.settings.title != blank and has_visible_items %}
       <xo-animate xo-cascade>
-        <h2 class='vastu-best-seller__title'>{{ section.settings.title }}</h2>
+        <h2 class='vastu-best-seller__title' style='text-transform: uppercase; font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem;'>{{ section.settings.title }}</h2>
       </xo-animate>
     {% endif %}
     <xo-grid style='--xs: 1; --sm: 1; --md: 2; --lg: 3; --xl: 3; --xo-grid-col-gap: 30px; --xo-grid-row-gap: 30px;'>
@@ -23,15 +23,18 @@
           {% endif %}
           <div class='vastu-best-seller-card' {{ block.shopify_attributes }}>
             <a href='{{ product_link }}' class='vastu-best-seller-card__link'>
-              {% if block.settings.badge != blank %}
-                <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
-              {% endif %}
               {% if block.settings.image != blank %}
                 <div class='vastu-best-seller-card__image'>
+                  {% if block.settings.badge != blank %}
+                    <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
+                  {% endif %}
                   {% render 'image', image: block.settings.image, media_aspect_ratio: '4/3' %}
                 </div>
               {% elsif block.settings.product != blank %}
                 <div class='vastu-best-seller-card__image'>
+                  {% if block.settings.badge != blank %}
+                    <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
+                  {% endif %}
                   {% if all_products[block.settings.product].featured_image != blank %}
                     {% render 'image', image: all_products[block.settings.product].featured_image, media_aspect_ratio: '4/3' %}
                   {% else %}

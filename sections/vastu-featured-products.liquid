@@ -42,6 +42,11 @@
             {% elsif block.settings.product != blank %}
               <p class='vastu-featured-products__label'>{{ all_products[block.settings.product].title }}</p>
             {% endif %}
+            {% if block.settings.product != blank and all_products[block.settings.product].price != blank %}
+              <div class='vastu-featured-products__price'>
+                {{ all_products[block.settings.product].price | money }}
+              </div>
+            {% endif %}
           </a>
         {% endif %}
       {% endfor %}

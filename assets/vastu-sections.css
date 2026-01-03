@@ -1,0 +1,155 @@
+/* Vastu Best Seller Cards */
+.vastu-best-seller-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.vastu-best-seller-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.vastu-best-seller-card__image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.vastu-best-seller-card__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgb(var(--color-secondary-button, 71, 56, 85));
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 2;
+  line-height: 1.2;
+}
+
+.vastu-best-seller-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+}
+
+.vastu-best-seller-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.4;
+}
+
+.vastu-best-seller-card__description {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.7);
+  margin: 0;
+  flex: 1;
+}
+
+/* Vastu Featured Products */
+.vastu-featured-products__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.vastu-featured-products__item:hover {
+  transform: translateY(-4px);
+}
+
+.vastu-featured-products__icon,
+.vastu-featured-products__icon-svg {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vastu-featured-products__icon-svg svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.vastu-featured-products__label {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.vastu-featured-products__price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  margin-top: 0.5rem;
+}
+
+/* Vastu Trust Bar */
+.vastu-trust-bar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.vastu-trust-bar__icon,
+.vastu-trust-bar__icon-svg {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vastu-trust-bar__icon-svg svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.vastu-trust-bar__text {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .vastu-best-seller__title {
+    font-size: 2rem !important;
+  }
+  
+  .vastu-featured-products__icon,
+  .vastu-featured-products__icon-svg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .vastu-trust-bar__icon,
+  .vastu-trust-bar__icon-svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
