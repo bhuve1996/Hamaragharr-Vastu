@@ -24,14 +24,14 @@
           <div class='vastu-best-seller-card' {{ block.shopify_attributes }}>
             <a href='{{ product_link }}' class='vastu-best-seller-card__link'>
               {% if block.settings.image != blank %}
-                <div class='vastu-best-seller-card__image'>
+                <div class='vastu-best-seller-card__image hover-style--scale-up'>
                   {% if block.settings.badge != blank %}
                     <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
                   {% endif %}
                   {% render 'image', image: block.settings.image, media_aspect_ratio: '4/3' %}
                 </div>
               {% elsif block.settings.product != blank %}
-                <div class='vastu-best-seller-card__image'>
+                <div class='vastu-best-seller-card__image hover-style--scale-up'>
                   {% if block.settings.badge != blank %}
                     <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
                   {% endif %}
