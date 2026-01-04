@@ -7,33 +7,22 @@
   function setupOverlayHandlers() {
     // Handle best seller cards - prevent link navigation when clicking overlay
     document.querySelectorAll('.vastu-best-seller-card__actions-overlay').forEach(function(overlay) {
-      // Remove existing listeners
-      const newOverlay = overlay.cloneNode(true);
-      overlay.parentNode.replaceChild(newOverlay, overlay);
-      
-      // Prevent all clicks from bubbling to the card link
-      newOverlay.addEventListener('click', function(e) {
+      // Only stop propagation, don't prevent default on buttons
+      overlay.addEventListener('click', function(e) {
+        // Only stop propagation to prevent card link navigation
+        // Don't prevent default - let buttons work normally
         e.stopPropagation();
-        e.preventDefault();
-        // Don't prevent default on actual buttons/triggers
-        if (e.target.closest('button') || e.target.closest('xo-toggle-trigger') || e.target.closest('xo-modal-trigger') || e.target.closest('xo-cart-add') || e.target.closest('xo-tooltip')) {
-          e.stopPropagation();
-          return true;
-        }
-        return false;
       }, true);
       
-      // Also prevent on all interactive elements inside
-      newOverlay.querySelectorAll('button, xo-toggle-trigger, xo-modal-trigger, xo-cart-add, xo-tooltip, a').forEach(function(element) {
-        element.addEventListener('click', function(e) {
-          e.stopPropagation();
-        }, true);
-      });
-      
       // Prevent the card link from receiving clicks from overlay
-      const cardLink = newOverlay.closest('.vastu-best-seller-card')?.querySelector('.vastu-best-seller-card__link');
+      const cardLink = overlay.closest('.vastu-best-seller-card')?.querySelector('.vastu-best-seller-card__link');
       if (cardLink) {
-        cardLink.addEventListener('click', function(e) {
+        // Remove any existing listener to avoid duplicates
+        const newCardLink = cardLink.cloneNode(true);
+        cardLink.parentNode.replaceChild(newCardLink, cardLink);
+        
+        newCardLink.addEventListener('click', function(e) {
+          // If click originated from overlay, prevent navigation
           if (e.target.closest('.vastu-best-seller-card__actions-overlay')) {
             e.preventDefault();
             e.stopPropagation();
@@ -45,33 +34,22 @@
     
     // Handle featured products cards - prevent link navigation when clicking overlay
     document.querySelectorAll('.vastu-featured-products__actions-overlay').forEach(function(overlay) {
-      // Remove existing listeners
-      const newOverlay = overlay.cloneNode(true);
-      overlay.parentNode.replaceChild(newOverlay, overlay);
-      
-      // Prevent all clicks from bubbling to the card link
-      newOverlay.addEventListener('click', function(e) {
+      // Only stop propagation, don't prevent default on buttons
+      overlay.addEventListener('click', function(e) {
+        // Only stop propagation to prevent card link navigation
+        // Don't prevent default - let buttons work normally
         e.stopPropagation();
-        e.preventDefault();
-        // Don't prevent default on actual buttons/triggers
-        if (e.target.closest('button') || e.target.closest('xo-toggle-trigger') || e.target.closest('xo-modal-trigger') || e.target.closest('xo-cart-add') || e.target.closest('xo-tooltip')) {
-          e.stopPropagation();
-          return true;
-        }
-        return false;
       }, true);
       
-      // Also prevent on all interactive elements inside
-      newOverlay.querySelectorAll('button, xo-toggle-trigger, xo-modal-trigger, xo-cart-add, xo-tooltip, a').forEach(function(element) {
-        element.addEventListener('click', function(e) {
-          e.stopPropagation();
-        }, true);
-      });
-      
       // Prevent the card link from receiving clicks from overlay
-      const cardLink = newOverlay.closest('.vastu-featured-products__card')?.querySelector('.vastu-featured-products__link');
+      const cardLink = overlay.closest('.vastu-featured-products__card')?.querySelector('.vastu-featured-products__link');
       if (cardLink) {
-        cardLink.addEventListener('click', function(e) {
+        // Remove any existing listener to avoid duplicates
+        const newCardLink = cardLink.cloneNode(true);
+        cardLink.parentNode.replaceChild(newCardLink, cardLink);
+        
+        newCardLink.addEventListener('click', function(e) {
+          // If click originated from overlay, prevent navigation
           if (e.target.closest('.vastu-featured-products__actions-overlay')) {
             e.preventDefault();
             e.stopPropagation();
