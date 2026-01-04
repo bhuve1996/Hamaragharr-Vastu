@@ -12,23 +12,28 @@
       if (processedCards.has(overlay)) return;
       processedCards.add(overlay);
       
-      // Stop propagation on overlay to prevent card link navigation
-      overlay.addEventListener('click', function(e) {
-        e.stopPropagation();
-      }, true);
-      
       // Prevent the card link from receiving clicks from overlay
+      // Only intercept clicks that would go to the card link, not button clicks
       const cardLink = overlay.closest('.vastu-best-seller-card')?.querySelector('.vastu-best-seller-card__link');
       if (cardLink && !cardLink.dataset.vastuHandlerAdded) {
         cardLink.dataset.vastuHandlerAdded = 'true';
         cardLink.addEventListener('click', function(e) {
-          // If click originated from overlay, prevent navigation
-          if (e.target.closest('.vastu-best-seller-card__actions-overlay')) {
+          // If click originated from overlay or any interactive element inside it, prevent navigation
+          const clickedElement = e.target;
+          const isInteractiveElement = clickedElement.closest('button') || 
+                                      clickedElement.closest('xo-toggle-trigger') || 
+                                      clickedElement.closest('xo-modal-trigger') || 
+                                      clickedElement.closest('xo-cart-add') || 
+                                      clickedElement.closest('xo-tooltip') ||
+                                      clickedElement.closest('.vastu-best-seller-card__actions-overlay');
+          
+          if (isInteractiveElement) {
             e.preventDefault();
             e.stopPropagation();
+            e.stopImmediatePropagation();
             return false;
           }
-        }, true);
+        }, false); // Use bubble phase, not capture
       }
     });
     
@@ -37,23 +42,28 @@
       if (processedCards.has(overlay)) return;
       processedCards.add(overlay);
       
-      // Stop propagation on overlay to prevent card link navigation
-      overlay.addEventListener('click', function(e) {
-        e.stopPropagation();
-      }, true);
-      
       // Prevent the card link from receiving clicks from overlay
+      // Only intercept clicks that would go to the card link, not button clicks
       const cardLink = overlay.closest('.vastu-featured-products__card')?.querySelector('.vastu-featured-products__link');
       if (cardLink && !cardLink.dataset.vastuHandlerAdded) {
         cardLink.dataset.vastuHandlerAdded = 'true';
         cardLink.addEventListener('click', function(e) {
-          // If click originated from overlay, prevent navigation
-          if (e.target.closest('.vastu-featured-products__actions-overlay')) {
+          // If click originated from overlay or any interactive element inside it, prevent navigation
+          const clickedElement = e.target;
+          const isInteractiveElement = clickedElement.closest('button') || 
+                                      clickedElement.closest('xo-toggle-trigger') || 
+                                      clickedElement.closest('xo-modal-trigger') || 
+                                      clickedElement.closest('xo-cart-add') || 
+                                      clickedElement.closest('xo-tooltip') ||
+                                      clickedElement.closest('.vastu-featured-products__actions-overlay');
+          
+          if (isInteractiveElement) {
             e.preventDefault();
             e.stopPropagation();
+            e.stopImmediatePropagation();
             return false;
           }
-        }, true);
+        }, false); // Use bubble phase, not capture
       }
     });
   }
