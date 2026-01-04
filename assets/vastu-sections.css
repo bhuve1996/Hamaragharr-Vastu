@@ -583,9 +583,11 @@ section[class*="testimonial-v2"] > * {
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(71, 56, 85, 0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  background: transparent;
-  padding: 0;
+  background: transparent !important;
+  padding: 0 !important;
   width: 100%;
+  border: none !important;
+  outline: none !important;
 }
 
 .banner-v155__img:hover {
@@ -596,13 +598,17 @@ section[class*="testimonial-v2"] > * {
 .banner-v155__img img,
 .banner-v155__img picture,
 .banner-v155__img picture img {
-  border-radius: 16px;
+  border-radius: 20px !important;
   width: 100% !important;
   height: auto !important;
   display: block !important;
   transition: transform 0.4s ease;
   object-fit: cover;
   max-width: 100%;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .banner-v155__img:hover img,
@@ -649,6 +655,11 @@ section[class*="testimonial-v2"] > * {
 
 .banner-v155__item--right .banner-v155__img {
   background: transparent !important;
+  box-shadow: none !important;
+}
+
+.banner-v155__item--right .banner-v155__img:hover {
+  box-shadow: none !important;
 }
 
 /* Mobile Responsive */
