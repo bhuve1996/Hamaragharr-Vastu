@@ -69,21 +69,21 @@
 }
 
 .vastu-best-seller-card__title {
-  font-size: var(--card-title-size, 1.5rem);
+  font-size: calc(var(--card-title-size, 1.5rem) * 1.3);
   font-weight: 600;
   margin: 0 0 0.75rem 0;
   line-height: 1.4;
 }
 
 .vastu-best-seller-card__price {
-  font-size: var(--card-price-size, 1.2rem);
+  font-size: calc(var(--card-price-size, 1.2rem) * 1.3);
   font-weight: 600;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin: 0 0 0.5rem 0;
 }
 
 .vastu-best-seller-card__description {
-  font-size: 1.0625rem;
+  font-size: calc(1.0625rem * 1.3);
   line-height: 1.6;
   color: rgba(var(--color-foreground, 0, 0, 0), 0.7);
   margin: 0 0 0.75rem 0;
@@ -147,14 +147,14 @@
 }
 
 .vastu-featured-products__title {
-  font-size: var(--card-title-size, 1.5rem);
+  font-size: calc(var(--card-title-size, 1.5rem) * 1.3);
   font-weight: 600;
   margin: 0 0 0.75rem 0;
   line-height: 1.4;
 }
 
 .vastu-featured-products__price {
-  font-size: var(--card-price-size, 1.2rem);
+  font-size: calc(var(--card-price-size, 1.2rem) * 1.3);
   font-weight: 600;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin: 0 0 0.75rem 0;
@@ -366,6 +366,231 @@ section[class*="related-article"] xo-carousel-inner {
   .xo-section {
     --pt: 16px !important;
     --pb: 16px !important;
+  }
+}
+
+/* Testimonials Section Redesign */
+.testimonial-v13__item {
+  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(71, 56, 85, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(71, 56, 85, 0.1);
+}
+
+.testimonial-v13__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(71, 56, 85, 0.15);
+}
+
+.testimonial-v13__icon {
+  margin-bottom: 1.5rem;
+  opacity: 0.6;
+}
+
+.testimonial-v13__icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(15%) saturate(1000%) hue-rotate(240deg) brightness(0.9);
+}
+
+.testimonial-v13__testimonial {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.85);
+  font-style: italic;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.testimonial-v13__customer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.testimonial-v13__name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  margin: 0;
+}
+
+.testimonial-v13__position {
+  font-size: 0.9375rem;
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.6);
+  margin: 0;
+}
+
+/* Testimonials Section Background */
+section[class*="testimonial-v2"] {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 247, 250, 0.95) 100%);
+  position: relative;
+}
+
+section[class*="testimonial-v2"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(71, 56, 85, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(71, 56, 85, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+section[class*="testimonial-v2"] > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .testimonial-v13__item {
+    padding: 2rem 1.5rem;
+  }
+  
+  .testimonial-v13__testimonial {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .testimonial-v13__name {
+    font-size: 1rem;
+  }
+}
+
+/* Vastu Kit Banner Section - Enhanced Styling */
+.banner-v155 {
+  position: relative;
+}
+
+/* Vastu Kit Section Background - Apply to all banner-v3 sections with enhanced styling */
+.banner-v155 > div {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced Content Styling for Banner Sections */
+.banner-v155__content {
+  padding: 2rem 0;
+}
+
+.banner-v155__subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.banner-v155__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgb(var(--color-foreground, 0, 0, 0));
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.banner-v155__title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, rgb(var(--color-secondary-button, 71, 56, 85)) 0%, rgba(71, 56, 85, 0.3) 100%);
+  border-radius: 2px;
+}
+
+.banner-v155__description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+/* Enhanced Image Styling */
+.banner-v155__img {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(71, 56, 85, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(248, 247, 250, 0.1) 100%);
+  padding: 1rem;
+}
+
+.banner-v155__img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(71, 56, 85, 0.25);
+}
+
+.banner-v155__img img {
+  border-radius: 16px;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.banner-v155__img:hover img {
+  transform: scale(1.05);
+}
+
+/* Enhanced Button Container */
+.banner-v155__content .button {
+  margin-top: 1rem;
+}
+
+/* Grid Item Enhancements */
+.banner-v155__item--left {
+  display: flex;
+  align-items: center;
+}
+
+.banner-v155__item--right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .banner-v155__title {
+    font-size: 2rem;
+  }
+  
+  .banner-v155__description {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  
+  .banner-v155__img {
+    padding: 0.5rem;
+    border-radius: 16px;
+  }
+  
+  .banner-v155__content {
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+  
+  .banner-v155__title::after {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 

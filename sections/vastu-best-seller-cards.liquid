@@ -82,18 +82,25 @@
                         </div>
                       {% endif %}
                       <div class='vastu-best-seller-card__content' style='--content-padding-top: {{ section.settings.card_content_padding_top | default: 1.5 }}rem; --content-padding-bottom: {{ section.settings.card_content_padding_bottom | default: 0.5 }}rem;'>
-                        {% if block.settings.title != blank %}
-                          <h3 class='vastu-best-seller-card__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;'>{{ block.settings.title }}</h3>
-                        {% elsif block.settings.product != blank %}
-                          <h3 class='vastu-best-seller-card__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;'>{{ current_product.title }}</h3>
+                        {% comment %} Auto-populate title: Use manual title if provided, otherwise use product title {% endcomment %}
+                        {% assign display_title = block.settings.title %}
+                        {% if display_title == blank and block.settings.product != blank %}
+                          {% assign display_title = current_product.title %}
                         {% endif %}
+                        {% if display_title != blank %}
+                          <h3 class='vastu-best-seller-card__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;'>{{ display_title }}</h3>
+                        {% endif %}
+                        {% comment %} Auto-populate price: Show product price if product is selected {% endcomment %}
                         {% if block.settings.product != blank and current_product.price != blank %}
                           <p class='vastu-best-seller-card__price' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>{{ current_product.price | money }}</p>
                         {% endif %}
-                        {% if block.settings.description != blank %}
-                          <p class='vastu-best-seller-card__description'>{{ block.settings.description }}</p>
-                        {% elsif block.settings.product != blank %}
-                          <p class='vastu-best-seller-card__description'>{{ current_product.description | strip_html | truncate: 100 }}</p>
+                        {% comment %} Auto-populate description: Use manual description if provided, otherwise use product description {% endcomment %}
+                        {% assign display_description = block.settings.description %}
+                        {% if display_description == blank and block.settings.product != blank %}
+                          {% assign display_description = current_product.description | strip_html | truncate: 100 %}
+                        {% endif %}
+                        {% if display_description != blank %}
+                          <p class='vastu-best-seller-card__description'>{{ display_description }}</p>
                         {% endif %}
                       </div>
                     </a>
@@ -493,13 +500,13 @@
           "type": "product",
           "id": "product",
           "label": "Product",
-          "info": "Select a product to link to its product page. If not selected, use manual link below."
+          "info": "Select a product to auto-populate image, title, description, and price. You can override any field by manually filling it below."
         },
         {
           "type": "url",
           "id": "link",
           "label": "Manual Link",
-          "info": "Only used if no product is selected above"
+          "info": "Only used if no product is selected above. If product is selected, product URL is used automatically."
         }
       ]
     }

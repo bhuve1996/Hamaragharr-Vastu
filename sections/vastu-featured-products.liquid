@@ -54,6 +54,7 @@
                       <xo-product xo-product-id='{{ current_product.id }}' xo-section-id='{{ section.id }}' xo-product-information>
                     {% endif %}
                     <a href='{{ product_link }}' class='vastu-featured-products__link'>
+                      {% comment %} Auto-populate icon/image: Use manual icon/icon_svg if provided, otherwise use product image {% endcomment %}
                       {% if block.settings.icon != blank %}
                         <div class='vastu-featured-products__image hover-style--scale-up'>
                           {% if block.settings.product != blank %}
@@ -484,13 +485,13 @@
           "type": "product",
           "id": "product",
           "label": "Product",
-          "info": "Select a product to link to its product page. If not selected, use manual link below."
+          "info": "Select a product to auto-populate icon/image, label, and price. You can override any field by manually filling it above."
         },
         {
           "type": "url",
           "id": "link",
           "label": "Manual Link",
-          "info": "Only used if no product is selected above"
+          "info": "Only used if no product is selected above. If product is selected, product URL is used automatically."
         }
       ]
     }
