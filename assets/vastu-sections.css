@@ -246,7 +246,29 @@
   border-radius: 2px;
 }
 
-/* Carousel Pagination Positioning - Center All */
+/* Carousel Container - Add padding for pagination (only when specific pagination is present) */
+xo-carousel:has(.vastu-best-seller__pagination),
+xo-carousel:has(.vastu-featured-products__pagination),
+xo-carousel:has(.slideshow-v28__pagination),
+xo-carousel:has(.testimonial-v13__pagination),
+xo-carousel:has(.blog-v2__pagination),
+xo-carousel:has(.related-article__pagination) {
+  position: relative;
+  padding-bottom: 50px !important;
+}
+
+/* Fallback for browsers that don't support :has() - target by parent section */
+section[class*="vastu-best-seller"] xo-carousel,
+section[class*="vastu-featured-products"] xo-carousel,
+section[class*="slideshow-v28"] xo-carousel,
+section[class*="testimonial-v13"] xo-carousel,
+section[class*="blog-v2"] xo-carousel,
+section[class*="related-article"] xo-carousel {
+  position: relative;
+  padding-bottom: 50px !important;
+}
+
+/* Carousel Pagination Positioning - Center All, Outside Content */
 .slideshow-v28__pagination,
 .vastu-best-seller__pagination,
 .vastu-featured-products__pagination,
@@ -254,7 +276,7 @@
 .blog-v2__pagination,
 .carousel-pagination-style3 {
   position: absolute;
-  bottom: 30px !important;
+  bottom: 10px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   z-index: 10;
@@ -262,6 +284,7 @@
   justify-content: center;
   align-items: center;
   width: auto;
+  pointer-events: auto;
 }
 
 .carousel-pagination-style3__pagination-wrap {
@@ -269,6 +292,23 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+/* Ensure carousel inner content doesn't extend to pagination area (only for specific sections) */
+xo-carousel:has(.vastu-best-seller__pagination) xo-carousel-inner,
+xo-carousel:has(.vastu-featured-products__pagination) xo-carousel-inner,
+xo-carousel:has(.slideshow-v28__pagination) xo-carousel-inner,
+xo-carousel:has(.testimonial-v13__pagination) xo-carousel-inner,
+xo-carousel:has(.blog-v2__pagination) xo-carousel-inner,
+xo-carousel:has(.related-article__pagination) xo-carousel-inner,
+section[class*="vastu-best-seller"] xo-carousel-inner,
+section[class*="vastu-featured-products"] xo-carousel-inner,
+section[class*="slideshow-v28"] xo-carousel-inner,
+section[class*="testimonial-v13"] xo-carousel-inner,
+section[class*="blog-v2"] xo-carousel-inner,
+section[class*="related-article"] xo-carousel-inner {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .slideshow-v28__overlay-content {
@@ -299,12 +339,27 @@
     height: 40px;
   }
   
+  xo-carousel:has(.vastu-best-seller__pagination),
+  xo-carousel:has(.vastu-featured-products__pagination),
+  xo-carousel:has(.slideshow-v28__pagination),
+  xo-carousel:has(.testimonial-v13__pagination),
+  xo-carousel:has(.blog-v2__pagination),
+  xo-carousel:has(.related-article__pagination),
+  section[class*="vastu-best-seller"] xo-carousel,
+  section[class*="vastu-featured-products"] xo-carousel,
+  section[class*="slideshow-v28"] xo-carousel,
+  section[class*="testimonial-v13"] xo-carousel,
+  section[class*="blog-v2"] xo-carousel,
+  section[class*="related-article"] xo-carousel {
+    padding-bottom: 40px !important;
+  }
+  
   .slideshow-v28__pagination,
   .vastu-best-seller__pagination,
   .vastu-featured-products__pagination,
   .testimonial-v13__pagination,
   .blog-v2__pagination {
-    bottom: 20px !important;
+    bottom: 5px !important;
   }
 
   /* Mobile section padding override - 16px on mobile */
