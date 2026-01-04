@@ -140,8 +140,8 @@
         "background_video_animation": "none",
         "background_overlay": "",
         "background_margin": 0,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     },
     "vastu-best-seller-cards": {
@@ -203,8 +203,8 @@
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     },
     "vastu-hindi-statement": {
@@ -216,8 +216,8 @@
         "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
         "background_type": "color",
         "background_color": "#473855",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     },
     "vastu-trust-bar": {
@@ -385,18 +385,18 @@
       ],
       "settings": {
         "width": "box",
-        "title": "Featured Products",
+        "title": "Shop by Occasion",
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
-        "padding_top": 80,
-        "padding_bottom": 80,
+        "padding_top": 24,
+        "padding_bottom": 24,
         "enable_separator": true,
         "separator_color": "#473855",
         "separator_height": 2,
         "separator_width": 10,
-        "separator_padding_top": 30,
-        "separator_padding_bottom": 30
+        "separator_padding_top": 4,
+        "separator_padding_bottom": 4
       }
     },
     "testimonial-v2": {
@@ -462,8 +462,8 @@
         "background_video_animation": "none",
         "background_overlay": "",
         "background_margin": 0,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     },
     "blog_v1_UzjtYd": {
@@ -473,7 +473,7 @@
         "width": "box",
         "fullwidth_margin": 0,
         "title": "Our Blog",
-        "blog": "",
+        "blog": "vastu-remedy",
         "articles_limit": 8,
         "columns_limit": 3,
         "gap": 30,
@@ -491,8 +491,8 @@
         "background_video_animation": "none",
         "background_overlay": "",
         "background_margin": 0,
-        "padding_top": 50,
-        "padding_bottom": 50
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     }
   },

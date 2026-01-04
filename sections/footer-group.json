@@ -54,7 +54,7 @@
       "settings": {
         "width": "box",
         "fullwidth_margin": 0,
-        "copyright": "© Copyright {{ 'now' | date: '%Y' }} VastuKit. All rights reserved. Powered by Shopify.",
+        "copyright": "© Copyright {{ 'now' | date: '%Y' }} VastuKit. All rights reserved. <a href='/pages/privacy-policy' style='color: inherit; text-decoration: underline;'>Privacy Policy</a> | Powered by Shopify.",
         "image_payment": "shopify://shop_images/paymet.png",
         "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
         "background_type": "color",

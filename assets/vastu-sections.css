@@ -244,5 +244,11 @@
   .slideshow-v28__pagination {
     bottom: 20px !important;
   }
+
+  /* Mobile section padding override - 16px on mobile */
+  .xo-section {
+    --pt: 16px !important;
+    --pb: 16px !important;
+  }
 }
 

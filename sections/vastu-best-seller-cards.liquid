@@ -14,72 +14,172 @@
         <h2 class='vastu-best-seller__title' style='text-transform: uppercase; font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem;'>{{ section.settings.title }}</h2>
       </xo-animate>
     {% endif %}
-    <xo-grid style='--xs: 1; --sm: 1; --md: 2; --lg: 3; --xl: 3; --xo-grid-col-gap: 30px; --xo-grid-row-gap: 30px;'>
-      {% for block in section.blocks %}
-        {% if block.settings.image != blank or block.settings.product != blank %}
-          {% assign product_link = block.settings.link %}
-          {% if block.settings.product != blank %}
-            {% assign product_link = all_products[block.settings.product].url %}
-          {% endif %}
-          <div class='vastu-best-seller-card' {{ block.shopify_attributes }}>
+    {% assign visible_blocks_count = 0 %}
+    {% for block in section.blocks %}
+      {% if block.settings.image != blank or block.settings.product != blank %}
+        {% assign visible_blocks_count = visible_blocks_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    
+    {% if visible_blocks_count > 3 %}
+      {% comment %} Use carousel when more than 3 items {% endcomment %}
+      <xo-carousel
+        xo-per-view='3'
+        xo-gap='30'
+        xo-speed='400'
+        xo-breakpoints='
+        {
+          992: {
+            perView: 2,
+          },
+          576: {
+            perView: 1,
+          },
+        }
+        '
+        xo-render-bullet='<span></span>'
+      >
+        <xo-carousel-inner>
+          <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
+            {% for block in section.blocks %}
+              {% if block.settings.image != blank or block.settings.product != blank %}
+                {% assign product_link = block.settings.link %}
+                {% if block.settings.product != blank %}
+                  {% assign product_link = all_products[block.settings.product].url %}
+                {% endif %}
+                <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
+                  <div class='vastu-best-seller-card' {{ block.shopify_attributes }}>
+                    {% if block.settings.product != blank %}
+                      {% assign current_product = all_products[block.settings.product] %}
+                      <xo-product xo-product-id='{{ current_product.id }}' xo-section-id='{{ section.id }}' xo-product-information>
+                    {% endif %}
+                    <a href='{{ product_link }}' class='vastu-best-seller-card__link'>
+                      {% if block.settings.image != blank %}
+                        <div class='vastu-best-seller-card__image hover-style--scale-up'>
+                          {% if block.settings.badge != blank %}
+                            <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
+                          {% endif %}
+                          {% if block.settings.product != blank %}
+                            <div class='vastu-best-seller-card__actions-overlay'>
+                              {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
+                            </div>
+                          {% endif %}
+                          {% render 'image', image: block.settings.image, media_aspect_ratio: '4/3' %}
+                        </div>
+                      {% elsif block.settings.product != blank %}
+                        <div class='vastu-best-seller-card__image hover-style--scale-up'>
+                          {% if block.settings.badge != blank %}
+                            <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
+                          {% endif %}
+                          <div class='vastu-best-seller-card__actions-overlay'>
+                            {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
+                          </div>
+                          {% if current_product.featured_image != blank %}
+                            {% render 'image', image: current_product.featured_image, media_aspect_ratio: '4/3' %}
+                          {% else %}
+                            {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                      <div class='vastu-best-seller-card__content'>
+                        {% if block.settings.title != blank %}
+                          <h3 class='vastu-best-seller-card__title'>{{ block.settings.title }}</h3>
+                        {% elsif block.settings.product != blank %}
+                          <h3 class='vastu-best-seller-card__title'>{{ current_product.title }}</h3>
+                        {% endif %}
+                        {% if block.settings.product != blank and current_product.price != blank %}
+                          <p class='vastu-best-seller-card__price'>{{ current_product.price | money }}</p>
+                        {% endif %}
+                        {% if block.settings.description != blank %}
+                          <p class='vastu-best-seller-card__description'>{{ block.settings.description }}</p>
+                        {% elsif block.settings.product != blank %}
+                          <p class='vastu-best-seller-card__description'>{{ current_product.description | strip_html | truncate: 100 }}</p>
+                        {% endif %}
+                      </div>
+                    </a>
+                    {% if block.settings.product != blank %}
+                      {% if current_product.variants.size > 1 %}
+                        {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'default' %}
+                      {% endif %}
+                      </xo-product>
+                    {% endif %}
+                  </div>
+                </xo-carousel-slide>
+              {% endif %}
+            {% endfor %}
+          </xo-carousel-list>
+        </xo-carousel-inner>
+        {% render 'carousel-pagination-style3', class: 'vastu-best-seller__pagination' %}
+      </xo-carousel>
+    {% else %}
+      {% comment %} Use grid when 3 or fewer items {% endcomment %}
+      <xo-grid style='--xs: 1; --sm: 1; --md: 2; --lg: 3; --xl: 3; --xo-grid-col-gap: 30px; --xo-grid-row-gap: 30px;'>
+        {% for block in section.blocks %}
+          {% if block.settings.image != blank or block.settings.product != blank %}
+            {% assign product_link = block.settings.link %}
             {% if block.settings.product != blank %}
-              {% assign current_product = all_products[block.settings.product] %}
-              <xo-product xo-product-id='{{ current_product.id }}' xo-section-id='{{ section.id }}' xo-product-information>
+              {% assign product_link = all_products[block.settings.product].url %}
             {% endif %}
-            <a href='{{ product_link }}' class='vastu-best-seller-card__link'>
-              {% if block.settings.image != blank %}
-                <div class='vastu-best-seller-card__image hover-style--scale-up'>
-                  {% if block.settings.badge != blank %}
-                    <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
-                  {% endif %}
-                  {% if block.settings.product != blank %}
+            <div class='vastu-best-seller-card' {{ block.shopify_attributes }}>
+              {% if block.settings.product != blank %}
+                {% assign current_product = all_products[block.settings.product] %}
+                <xo-product xo-product-id='{{ current_product.id }}' xo-section-id='{{ section.id }}' xo-product-information>
+              {% endif %}
+              <a href='{{ product_link }}' class='vastu-best-seller-card__link'>
+                {% if block.settings.image != blank %}
+                  <div class='vastu-best-seller-card__image hover-style--scale-up'>
+                    {% if block.settings.badge != blank %}
+                      <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
+                    {% endif %}
+                    {% if block.settings.product != blank %}
+                      <div class='vastu-best-seller-card__actions-overlay'>
+                        {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
+                      </div>
+                    {% endif %}
+                    {% render 'image', image: block.settings.image, media_aspect_ratio: '4/3' %}
+                  </div>
+                {% elsif block.settings.product != blank %}
+                  <div class='vastu-best-seller-card__image hover-style--scale-up'>
+                    {% if block.settings.badge != blank %}
+                      <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
+                    {% endif %}
                     <div class='vastu-best-seller-card__actions-overlay'>
                       {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
                     </div>
-                  {% endif %}
-                  {% render 'image', image: block.settings.image, media_aspect_ratio: '4/3' %}
-                </div>
-              {% elsif block.settings.product != blank %}
-                <div class='vastu-best-seller-card__image hover-style--scale-up'>
-                  {% if block.settings.badge != blank %}
-                    <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
-                  {% endif %}
-                  <div class='vastu-best-seller-card__actions-overlay'>
-                    {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
+                    {% if current_product.featured_image != blank %}
+                      {% render 'image', image: current_product.featured_image, media_aspect_ratio: '4/3' %}
+                    {% else %}
+                      {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {% endif %}
                   </div>
-                  {% if current_product.featured_image != blank %}
-                    {% render 'image', image: current_product.featured_image, media_aspect_ratio: '4/3' %}
-                  {% else %}
-                    {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+                <div class='vastu-best-seller-card__content'>
+                  {% if block.settings.title != blank %}
+                    <h3 class='vastu-best-seller-card__title'>{{ block.settings.title }}</h3>
+                  {% elsif block.settings.product != blank %}
+                    <h3 class='vastu-best-seller-card__title'>{{ current_product.title }}</h3>
+                  {% endif %}
+                  {% if block.settings.product != blank and current_product.price != blank %}
+                    <p class='vastu-best-seller-card__price'>{{ current_product.price | money }}</p>
+                  {% endif %}
+                  {% if block.settings.description != blank %}
+                    <p class='vastu-best-seller-card__description'>{{ block.settings.description }}</p>
+                  {% elsif block.settings.product != blank %}
+                    <p class='vastu-best-seller-card__description'>{{ current_product.description | strip_html | truncate: 100 }}</p>
                   {% endif %}
                 </div>
+              </a>
+              {% if block.settings.product != blank %}
+                {% if current_product.variants.size > 1 %}
+                  {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'default' %}
+                {% endif %}
+                </xo-product>
               {% endif %}
-              <div class='vastu-best-seller-card__content'>
-                {% if block.settings.title != blank %}
-                  <h3 class='vastu-best-seller-card__title'>{{ block.settings.title }}</h3>
-                {% elsif block.settings.product != blank %}
-                  <h3 class='vastu-best-seller-card__title'>{{ current_product.title }}</h3>
-                {% endif %}
-                {% if block.settings.product != blank and current_product.price != blank %}
-                  <p class='vastu-best-seller-card__price'>{{ current_product.price | money }}</p>
-                {% endif %}
-                {% if block.settings.description != blank %}
-                  <p class='vastu-best-seller-card__description'>{{ block.settings.description }}</p>
-                {% elsif block.settings.product != blank %}
-                  <p class='vastu-best-seller-card__description'>{{ current_product.description | strip_html | truncate: 100 }}</p>
-                {% endif %}
-              </div>
-            </a>
-            {% if block.settings.product != blank %}
-              {% if current_product.variants.size > 1 %}
-                {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'default' %}
-              {% endif %}
-              </xo-product>
-            {% endif %}
-          </div>
-        {% endif %}
-      {% endfor %}
-    </xo-grid>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </xo-grid>
+    {% endif %}
   </xo-container>
     {% render 'section-separator',
     enable_separator: section.settings.enable_separator,
@@ -166,6 +266,54 @@
       "id": "padding_bottom",
       "label": "t:sections.all.padding_bottom.label",
       "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Section Separator"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_separator",
+      "label": "Enable Separator",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Separator Color",
+      "default": "#473855"
+    },
+    {
+      "type": "range",
+      "id": "separator_height",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Separator Height",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "separator_width",
+      "min": 5,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Separator Width",
+      "default": 10
+    },
+    {
+      "type": "number",
+      "id": "separator_padding_top",
+      "label": "Separator Top Padding",
+      "default": 15
+    },
+    {
+      "type": "number",
+      "id": "separator_padding_bottom",
+      "label": "Separator Bottom Padding",
+      "default": 15
     }
   ],
   "blocks": [
@@ -239,4 +387,3 @@
   ]
 }
 {% endschema %}
-
