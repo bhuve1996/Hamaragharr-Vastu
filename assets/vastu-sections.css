@@ -475,7 +475,6 @@ section[class*="testimonial-v2"] > * {
 /* Vastu Kit Section Background - Apply to all banner-v3 sections with enhanced styling */
 .banner-v155 > div {
   position: relative;
-  overflow: hidden;
 }
 
 /* Enhanced Content Styling for Banner Sections */
@@ -531,6 +530,7 @@ section[class*="testimonial-v2"] > * {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(248, 247, 250, 0.1) 100%);
   padding: 1rem;
+  width: 100%;
 }
 
 .banner-v155__img:hover {
@@ -538,15 +538,20 @@ section[class*="testimonial-v2"] > * {
   box-shadow: 0 20px 60px rgba(71, 56, 85, 0.25);
 }
 
-.banner-v155__img img {
+.banner-v155__img img,
+.banner-v155__img picture,
+.banner-v155__img picture img {
   border-radius: 16px;
-  width: 100%;
-  height: auto;
-  display: block;
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
   transition: transform 0.4s ease;
+  object-fit: cover;
+  max-width: 100%;
 }
 
-.banner-v155__img:hover img {
+.banner-v155__img:hover img,
+.banner-v155__img:hover picture img {
   transform: scale(1.05);
 }
 
@@ -565,6 +570,11 @@ section[class*="testimonial-v2"] > * {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+}
+
+.banner-v155__item--right > div {
+  width: 100%;
 }
 
 /* Mobile Responsive */
