@@ -11,7 +11,7 @@
     {% endfor %}
     {% if section.settings.title != blank and has_visible_items %}
       <xo-animate xo-cascade>
-        <h2 class='vastu-featured-products__title'>{{ section.settings.title }}</h2>
+        <h2 class='vastu-featured-products__section-title' style='--title-font-size: {{ section.settings.title_font_size | default: 3.5 }}rem; --title-font-weight: {{ section.settings.title_font_weight | default: 700 }}; --title-underline-color: {{ section.settings.title_underline_color | default: "#473855" }}; --title-underline-width: {{ section.settings.title_underline_width | default: 80 }}px; --title-underline-height: {{ section.settings.title_underline_height | default: 4 }}px;'>{{ section.settings.title | upcase }}</h2>
       </xo-animate>
     {% endif %}
     {% assign visible_blocks_count = 0 %}
@@ -84,18 +84,18 @@
                           {% endif %}
                         </div>
                       {% endif %}
-                      <div class='vastu-featured-products__content'>
-                        {% if block.settings.label != blank %}
-                          <h3 class='vastu-featured-products__title'>{{ block.settings.label }}</h3>
-                        {% elsif block.settings.product != blank %}
-                          <h3 class='vastu-featured-products__title'>{{ current_product.title }}</h3>
-                        {% endif %}
-                        {% if block.settings.product != blank and current_product.price != blank %}
-                          <div class='vastu-featured-products__price'>
-                            {{ current_product.price | money }}
-                          </div>
-                        {% endif %}
-                      </div>
+                <div class='vastu-featured-products__content' style='--content-padding-top: {{ section.settings.card_content_padding_top | default: 1.5 }}rem; --content-padding-bottom: {{ section.settings.card_content_padding_bottom | default: 0.5 }}rem;'>
+                  {% if block.settings.label != blank %}
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;'>{{ block.settings.label }}</h3>
+                  {% elsif block.settings.product != blank %}
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;'>{{ current_product.title }}</h3>
+                  {% endif %}
+                  {% if block.settings.product != blank and current_product.price != blank %}
+                    <div class='vastu-featured-products__price' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
+                      {{ current_product.price | money }}
+                    </div>
+                  {% endif %}
+                </div>
                     </a>
                     {% if block.settings.product != blank %}
                       {% if current_product.variants.size > 1 %}
@@ -156,14 +156,14 @@
                     {% endif %}
                   </div>
                 {% endif %}
-                <div class='vastu-featured-products__content'>
+                <div class='vastu-featured-products__content' style='--content-padding-top: {{ section.settings.card_content_padding_top | default: 1.5 }}rem; --content-padding-bottom: {{ section.settings.card_content_padding_bottom | default: 0.5 }}rem;'>
                   {% if block.settings.label != blank %}
-                    <h3 class='vastu-featured-products__title'>{{ block.settings.label }}</h3>
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;'>{{ block.settings.label }}</h3>
                   {% elsif block.settings.product != blank %}
-                    <h3 class='vastu-featured-products__title'>{{ current_product.title }}</h3>
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;'>{{ current_product.title }}</h3>
                   {% endif %}
                   {% if block.settings.product != blank and current_product.price != blank %}
-                    <div class='vastu-featured-products__price'>
+                    <div class='vastu-featured-products__price' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
                       {{ current_product.price | money }}
                     </div>
                   {% endif %}
@@ -222,6 +222,55 @@
       "id": "title",
       "label": "Section Title",
       "default": "Featured Products"
+    },
+    {
+      "type": "header",
+      "content": "Heading Styling"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 2,
+      "max": 6,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Title Font Size",
+      "default": 3.5
+    },
+    {
+      "type": "range",
+      "id": "title_font_weight",
+      "min": 400,
+      "max": 900,
+      "step": 100,
+      "label": "Title Font Weight",
+      "default": 700
+    },
+    {
+      "type": "color",
+      "id": "title_underline_color",
+      "label": "Title Underline Color",
+      "default": "#473855"
+    },
+    {
+      "type": "range",
+      "id": "title_underline_width",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Title Underline Width",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "title_underline_height",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Title Underline Height",
+      "default": 4
     },
     {
       "type": "header",
@@ -310,6 +359,104 @@
       "id": "separator_padding_bottom",
       "label": "Separator Bottom Padding",
       "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Card Styling"
+    },
+    {
+      "type": "range",
+      "id": "card_title_font_size",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Card Title Font Size",
+      "default": 1.5
+    },
+    {
+      "type": "range",
+      "id": "card_price_font_size",
+      "min": 1,
+      "max": 2.5,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Card Price Font Size",
+      "default": 1.2
+    },
+    {
+      "type": "range",
+      "id": "card_content_padding_top",
+      "min": 0.5,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Card Content Top Padding",
+      "default": 1.5
+    },
+    {
+      "type": "range",
+      "id": "card_content_padding_bottom",
+      "min": 0.1,
+      "max": 2,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Card Content Bottom Padding",
+      "default": 0.5
+    },
+    {
+      "type": "header",
+      "content": "Badge Styling"
+    },
+    {
+      "type": "range",
+      "id": "badge_font_size",
+      "min": 0.5,
+      "max": 1.5,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Badge Font Size",
+      "default": 0.9
+    },
+    {
+      "type": "range",
+      "id": "badge_padding_horizontal",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Badge Horizontal Padding",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "badge_padding_vertical",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "label": "Badge Vertical Padding",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "badge_top_position",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Badge Top Position",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "badge_right_position",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Badge Right Position",
+      "default": 12
     }
   ],
   "blocks": [

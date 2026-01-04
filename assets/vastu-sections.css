@@ -29,13 +29,13 @@
 
 .vastu-best-seller-card__badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: var(--badge-top, 12px);
+  right: var(--badge-right, 12px);
   background: rgb(var(--color-secondary-button, 71, 56, 85));
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
-  padding: 6px 12px;
+  padding: var(--badge-padding-v, 6px) var(--badge-padding-h, 12px);
   border-radius: 4px;
-  font-size: 0.875rem;
+  font-size: var(--badge-font-size, 0.9rem);
   font-weight: 600;
   text-transform: uppercase;
   z-index: 2;
@@ -65,18 +65,18 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 0 0.5rem 0;
+  padding: var(--content-padding-top, 1.5rem) 0 var(--content-padding-bottom, 0.5rem) 0;
 }
 
 .vastu-best-seller-card__title {
-  font-size: 1.5rem;
+  font-size: var(--card-title-size, 1.5rem);
   font-weight: 600;
   margin: 0 0 0.75rem 0;
   line-height: 1.4;
 }
 
 .vastu-best-seller-card__price {
-  font-size: 1.25rem;
+  font-size: var(--card-price-size, 1.2rem);
   font-weight: 600;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin: 0 0 0.5rem 0;
@@ -142,19 +142,19 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 0 0.5rem 0;
+  padding: var(--content-padding-top, 1.5rem) 0 var(--content-padding-bottom, 0.5rem) 0;
   text-align: center;
 }
 
 .vastu-featured-products__title {
-  font-size: 1.5rem;
+  font-size: var(--card-title-size, 1.5rem);
   font-weight: 600;
   margin: 0 0 0.75rem 0;
   line-height: 1.4;
 }
 
 .vastu-featured-products__price {
-  font-size: 1.25rem;
+  font-size: var(--card-price-size, 1.2rem);
   font-weight: 600;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin: 0 0 0.75rem 0;
@@ -170,6 +170,20 @@
 }
 
 .vastu-featured-products__card:hover .vastu-featured-products__actions-overlay {
+  opacity: 1;
+}
+
+/* Footer Copyright Link Visibility */
+.footer-v18__copyright a,
+.footer-v18__copyright-content a {
+  color: rgb(var(--color-text, 255, 255, 255)) !important;
+  text-decoration: underline;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.footer-v18__copyright a:hover,
+.footer-v18__copyright-content a:hover {
   opacity: 1;
 }
 
@@ -205,13 +219,56 @@
   line-height: 1.4;
 }
 
-/* Carousel Pagination Positioning */
-.slideshow-v28__pagination {
+/* Section Heading Styles - Bigger, Capitalized, with Underline */
+.vastu-best-seller__section-title,
+.vastu-featured-products__section-title {
+  font-size: var(--title-font-size, 3.5rem) !important;
+  font-weight: var(--title-font-weight, 700) !important;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.2;
+}
+
+.vastu-best-seller__section-title::after,
+.vastu-featured-products__section-title::after {
+  content: '';
   position: absolute;
-  bottom: 30px !important;
+  bottom: -12px;
   left: 50%;
   transform: translateX(-50%);
+  width: var(--title-underline-width, 80px);
+  height: var(--title-underline-height, 4px);
+  background-color: var(--title-underline-color, #473855);
+  border-radius: 2px;
+}
+
+/* Carousel Pagination Positioning - Center All */
+.slideshow-v28__pagination,
+.vastu-best-seller__pagination,
+.vastu-featured-products__pagination,
+.testimonial-v13__pagination,
+.blog-v2__pagination,
+.carousel-pagination-style3 {
+  position: absolute;
+  bottom: 30px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
   z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.carousel-pagination-style3__pagination-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .slideshow-v28__overlay-content {
@@ -221,8 +278,9 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .vastu-best-seller__title {
-    font-size: 2rem !important;
+  .vastu-best-seller__section-title,
+  .vastu-featured-products__section-title {
+    font-size: 2.5rem !important;
   }
   
   .vastu-featured-products__icon-svg {
@@ -241,7 +299,11 @@
     height: 40px;
   }
   
-  .slideshow-v28__pagination {
+  .slideshow-v28__pagination,
+  .vastu-best-seller__pagination,
+  .vastu-featured-products__pagination,
+  .testimonial-v13__pagination,
+  .blog-v2__pagination {
     bottom: 20px !important;
   }
 
