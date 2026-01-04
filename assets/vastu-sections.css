@@ -68,8 +68,10 @@
   opacity: 1;
 }
 
-.vastu-best-seller-card__actions-overlay * {
-  display: block !important;
+.vastu-best-seller-card__actions-overlay > * {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   visibility: visible !important;
   pointer-events: auto !important;
   position: relative;
@@ -109,9 +111,14 @@
   height: 40px !important;
   margin: 0 !important;
   padding: 0 !important;
+  line-height: 1 !important;
 }
 
-.vastu-best-seller-card__actions-overlay button {
+.vastu-best-seller-card__actions-overlay button,
+.vastu-best-seller-card__actions-overlay .xo-product-card__icon button,
+.vastu-best-seller-card__actions-overlay xo-tooltip button,
+.vastu-best-seller-card__actions-overlay xo-toggle-trigger button,
+.vastu-best-seller-card__actions-overlay xo-modal-trigger button {
   opacity: 1 !important;
   visibility: visible !important;
   display: flex !important;
@@ -126,6 +133,17 @@
   border: none !important;
   background: transparent !important;
   cursor: pointer !important;
+  line-height: 1 !important;
+}
+
+/* Ensure icons inside buttons are centered */
+.vastu-best-seller-card__actions-overlay button svg,
+.vastu-best-seller-card__actions-overlay button .icon,
+.vastu-best-seller-card__actions-overlay .xo-product-card__icon svg,
+.vastu-best-seller-card__actions-overlay .xo-product-card__icon .icon {
+  display: block !important;
+  margin: auto !important;
+  vertical-align: middle !important;
 }
 
 .vastu-best-seller-card__content {
@@ -252,8 +270,10 @@
   opacity: 1;
 }
 
-.vastu-featured-products__actions-overlay * {
-  display: block !important;
+.vastu-featured-products__actions-overlay > * {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   visibility: visible !important;
   pointer-events: auto !important;
   position: relative;
@@ -293,9 +313,14 @@
   height: 40px !important;
   margin: 0 !important;
   padding: 0 !important;
+  line-height: 1 !important;
 }
 
-.vastu-featured-products__actions-overlay button {
+.vastu-featured-products__actions-overlay button,
+.vastu-featured-products__actions-overlay .xo-product-card__icon button,
+.vastu-featured-products__actions-overlay xo-tooltip button,
+.vastu-featured-products__actions-overlay xo-toggle-trigger button,
+.vastu-featured-products__actions-overlay xo-modal-trigger button {
   opacity: 1 !important;
   visibility: visible !important;
   display: flex !important;
@@ -310,6 +335,17 @@
   border: none !important;
   background: transparent !important;
   cursor: pointer !important;
+  line-height: 1 !important;
+}
+
+/* Ensure icons inside buttons are centered */
+.vastu-featured-products__actions-overlay button svg,
+.vastu-featured-products__actions-overlay button .icon,
+.vastu-featured-products__actions-overlay .xo-product-card__icon svg,
+.vastu-featured-products__actions-overlay .xo-product-card__icon .icon {
+  display: block !important;
+  margin: auto !important;
+  vertical-align: middle !important;
 }
 
 /* Footer Copyright Link Visibility */
