@@ -836,3 +836,30 @@ section[class*="testimonial-v2"] > * {
   }
 }
 
+/* Product Page - Increase width for variant option labels */
+.xo-product-info-variant .xo-field-radio__label,
+.xo-product-variant .xo-field-radio__label {
+  min-width: auto !important;
+  width: auto !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  padding: 0.5rem 1rem !important;
+  display: inline-block !important;
+}
+
+.xo-product-info-variant .xo-field-radio,
+.xo-product-variant .xo-field-radio {
+  min-width: auto !important;
+  width: auto !important;
+  max-width: 100% !important;
+}
+
+/* Ensure labels can expand to fit content */
+.xo-product-info-variant__inner .xo-field-radio__label,
+.xo-product-variant__inner .xo-field-radio__label {
+  flex: 1 1 auto !important;
+  min-width: fit-content !important;
+}
+
