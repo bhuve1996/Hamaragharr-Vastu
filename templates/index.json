@@ -161,11 +161,22 @@
         "card_2": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/WhatsAppImage2025-12-20at10.33.04AM_1.jpg",
+            "title": "Vastu Kit",
+            "description": "Complete Vastu remedy kit for your home",
+            "badge": "Best Seller",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "link": "shopify://collections/all"
+          }
+        },
+        "card_CJUYd9": {
+          "type": "card",
+          "settings": {
             "image": "shopify://shop_images/other-bold-8.jpg",
             "title": "Vastu Kit",
             "description": "Complete Vastu remedy kit for your home",
             "badge": "Best Seller",
-            "product": "",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
             "link": "shopify://collections/all"
           }
         },
@@ -183,6 +194,7 @@
       "block_order": [
         "card_1",
         "card_2",
+        "card_CJUYd9",
         "card_3"
       ],
       "settings": {
@@ -268,109 +280,108 @@
             "link": ""
           }
         },
-        "icon_1": {
+        "product_icon_miaLQQ": {
           "type": "product_icon",
           "settings": {
+            "icon": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
             "icon_svg": "",
-            "label": "Owl",
-            "product": "",
-            "link": "shopify://collections/all"
+            "label": "Golden dawn",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "link": ""
           }
         },
-        "icon_2": {
+        "product_icon_4gU9BB": {
           "type": "product_icon",
           "settings": {
+            "icon": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
             "icon_svg": "",
-            "label": "Sun",
-            "product": "",
-            "link": "shopify://collections/all"
+            "label": "Golden dawn",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "link": ""
           }
         },
-        "icon_3": {
+        "product_icon_tLkRHq": {
           "type": "product_icon",
           "settings": {
+            "icon": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
             "icon_svg": "",
-            "label": "Horse",
-            "product": "",
-            "link": "shopify://collections/all"
+            "label": "Golden dawn",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "link": ""
           }
         },
-        "icon_4": {
+        "product_icon_MYr8ym": {
           "type": "product_icon",
           "settings": {
+            "icon": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
             "icon_svg": "",
-            "label": "Hand",
-            "product": "",
-            "link": "shopify://collections/all"
+            "label": "Golden dawn",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "link": ""
           }
         },
-        "icon_5": {
+        "product_icon_qDzyjt": {
           "type": "product_icon",
           "settings": {
+            "icon": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
             "icon_svg": "",
-            "label": "Tree",
-            "product": "",
-            "link": "shopify://collections/all"
+            "label": "Golden dawn",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "link": ""
           }
         },
-        "icon_6": {
+        "product_icon_zmY4RD": {
           "type": "product_icon",
           "settings": {
+            "icon": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
             "icon_svg": "",
-            "label": "Pyramid",
-            "product": "",
-            "link": "shopify://collections/all"
+            "label": "Golden dawn",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "link": ""
           }
         },
-        "icon_7": {
+        "product_icon_yeMjaG": {
           "type": "product_icon",
           "settings": {
+            "icon": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
             "icon_svg": "",
-            "label": "Om",
-            "product": "",
-            "link": "shopify://collections/all"
+            "label": "Golden dawn",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "link": ""
           }
         },
-        "icon_8": {
+        "product_icon_UAaBAY": {
           "type": "product_icon",
           "settings": {
+            "icon": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
             "icon_svg": "",
-            "label": "Swastik",
-            "product": "",
-            "link": "shopify://collections/all"
+            "label": "Golden dawn",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "link": ""
           }
         },
-        "icon_9": {
+        "product_icon_EjbcqJ": {
           "type": "product_icon",
           "settings": {
+            "icon": "shopify://shop_images/17_95f76634-9f97-425e-ba60-17406ed46fe7.png",
             "icon_svg": "",
-            "label": "Product 9",
-            "product": "",
-            "link": "shopify://collections/all"
-          }
-        },
-        "icon_10": {
-          "type": "product_icon",
-          "settings": {
-            "icon_svg": "",
-            "label": "Product 10",
-            "product": "",
-            "link": "shopify://collections/all"
+            "label": "Golden dawn",
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "link": ""
           }
         }
       },
       "block_order": [
         "product_icon_MpaGUp",
-        "icon_1",
-        "icon_2",
-        "icon_3",
-        "icon_4",
-        "icon_5",
-        "icon_6",
-        "icon_7",
-        "icon_8",
-        "icon_9",
-        "icon_10"
+        "product_icon_miaLQQ",
+        "product_icon_4gU9BB",
+        "product_icon_tLkRHq",
+        "product_icon_MYr8ym",
+        "product_icon_qDzyjt",
+        "product_icon_zmY4RD",
+        "product_icon_yeMjaG",
+        "product_icon_UAaBAY",
+        "product_icon_EjbcqJ"
       ],
       "settings": {
         "width": "box",
@@ -454,6 +465,35 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "blog_v1_UzjtYd": {
+      "type": "blog-v1",
+      "name": "t:sections.blog_v1.presets.name",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "title": "Our Blog",
+        "blog": "",
+        "articles_limit": 8,
+        "columns_limit": 3,
+        "gap": 30,
+        "auto_play": false,
+        "hover": "scale_up",
+        "aspect_ratio": "3/4",
+        "button_text": "Read more",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
     }
   },
   "order": [
@@ -463,6 +503,7 @@
     "vastu-hindi-statement",
     "vastu-trust-bar",
     "vastu-featured-products",
-    "testimonial-v2"
+    "testimonial-v2",
+    "blog_v1_UzjtYd"
   ]
 }
