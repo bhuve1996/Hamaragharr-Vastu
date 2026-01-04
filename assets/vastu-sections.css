@@ -528,8 +528,8 @@ section[class*="testimonial-v2"] > * {
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(71, 56, 85, 0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(248, 247, 250, 0.1) 100%);
-  padding: 1rem;
+  background: transparent;
+  padding: 0;
   width: 100%;
 }
 
@@ -589,7 +589,7 @@ section[class*="testimonial-v2"] > * {
   }
   
   .banner-v155__img {
-    padding: 0.5rem;
+    padding: 0;
     border-radius: 16px;
   }
   
