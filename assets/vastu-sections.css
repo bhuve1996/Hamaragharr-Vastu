@@ -35,7 +35,8 @@
 .vastu-best-seller-card__badge {
   position: absolute;
   top: var(--badge-top, 12px);
-  right: var(--badge-right, 12px);
+  left: var(--badge-left, 12px);
+  right: auto;
   background: rgb(var(--color-secondary-button, 71, 56, 85));
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
   padding: var(--badge-padding-v, 6px) var(--badge-padding-h, 12px);
@@ -54,9 +55,13 @@
   z-index: 10 !important;
   opacity: 0;
   transition: opacity 0.3s ease;
-  display: block !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   visibility: visible !important;
   pointer-events: auto !important;
+  width: auto;
+  height: auto;
 }
 
 .vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay {
@@ -87,24 +92,40 @@
   position: relative;
 }
 
-/* Ensure button is visible */
+/* Ensure button is visible and properly centered */
 .vastu-best-seller-card__actions-overlay .xo-product-card__icon,
 .vastu-best-seller-card__actions-overlay xo-tooltip,
 .vastu-best-seller-card__actions-overlay xo-toggle-trigger,
 .vastu-best-seller-card__actions-overlay xo-modal-trigger,
-.vastu-best-seller-card__actions-overlay xo-cart-add,
+.vastu-best-seller-card__actions-overlay xo-cart-add {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  z-index: 12 !important;
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .vastu-best-seller-card__actions-overlay button {
   opacity: 1 !important;
   visibility: visible !important;
-  display: block !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   position: relative !important;
   z-index: 12 !important;
-}
-
-/* If badge exists, position button on left to avoid overlap */
-.vastu-best-seller-card__image .vastu-best-seller-card__badge ~ .vastu-best-seller-card__actions-overlay {
-  right: auto;
-  left: 12px;
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
 }
 
 .vastu-best-seller-card__content {
@@ -218,9 +239,13 @@
   z-index: 10 !important;
   opacity: 0;
   transition: opacity 0.3s ease;
-  display: block !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   visibility: visible !important;
   pointer-events: auto !important;
+  width: auto;
+  height: auto;
 }
 
 .vastu-featured-products__card:hover .vastu-featured-products__actions-overlay {
@@ -251,18 +276,40 @@
   position: relative;
 }
 
-/* Ensure button is visible */
+/* Ensure button is visible and properly centered */
 .vastu-featured-products__actions-overlay .xo-product-card__icon,
 .vastu-featured-products__actions-overlay xo-tooltip,
 .vastu-featured-products__actions-overlay xo-toggle-trigger,
 .vastu-featured-products__actions-overlay xo-modal-trigger,
-.vastu-featured-products__actions-overlay xo-cart-add,
+.vastu-featured-products__actions-overlay xo-cart-add {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  z-index: 12 !important;
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .vastu-featured-products__actions-overlay button {
   opacity: 1 !important;
   visibility: visible !important;
-  display: block !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   position: relative !important;
   z-index: 12 !important;
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
 }
 
 /* Footer Copyright Link Visibility */
