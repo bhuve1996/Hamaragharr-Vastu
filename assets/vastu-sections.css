@@ -571,10 +571,29 @@ section[class*="testimonial-v2"] > * {
   align-items: center;
   justify-content: center;
   width: 100%;
+  background: transparent !important;
 }
 
 .banner-v155__item--right > div {
   width: 100%;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.banner-v155__item--right > div.hover-scale_up,
+.banner-v155__item--right > div[class*="hover-"],
+.banner-v155__item--right > div[class*="hover-style"] {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.banner-v155__item--right * {
+  background-color: transparent !important;
+}
+
+.banner-v155__item--right .banner-v155__img {
+  background: transparent !important;
 }
 
 /* Mobile Responsive */
