@@ -11,6 +11,11 @@
   height: 100%;
   text-decoration: none;
   color: inherit;
+  position: relative;
+}
+
+.vastu-best-seller-card__link:hover .vastu-best-seller-card__actions-overlay {
+  opacity: 1;
 }
 
 .vastu-best-seller-card__image {
@@ -49,10 +54,19 @@
   z-index: 3;
   opacity: 0;
   transition: opacity 0.3s ease;
+  display: block !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 .vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay {
   opacity: 1;
+}
+
+.vastu-best-seller-card__actions-overlay * {
+  display: block !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 /* If badge exists, position button on left to avoid overlap */
@@ -104,6 +118,11 @@
   height: 100%;
   text-decoration: none;
   color: inherit;
+  position: relative;
+}
+
+.vastu-featured-products__link:hover .vastu-featured-products__actions-overlay {
+  opacity: 1;
 }
 
 .vastu-featured-products__image {
@@ -167,10 +186,19 @@
   z-index: 3;
   opacity: 0;
   transition: opacity 0.3s ease;
+  display: block !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 .vastu-featured-products__card:hover .vastu-featured-products__actions-overlay {
   opacity: 1;
+}
+
+.vastu-featured-products__actions-overlay * {
+  display: block !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 /* Footer Copyright Link Visibility */
