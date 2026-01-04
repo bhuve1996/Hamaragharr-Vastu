@@ -1,0 +1,34 @@
+{% comment %}
+  Prevents card link from being triggered when clicking on add to cart/select options button
+{% endcomment %}
+
+<script>
+(function() {
+  function setupOverlayHandlers() {
+    // Handle best seller cards - prevent link navigation when clicking overlay
+    document.querySelectorAll('.vastu-best-seller-card__actions-overlay').forEach(function(overlay) {
+      overlay.addEventListener('click', function(e) {
+        e.stopPropagation();
+      }, true);
+    });
+    
+    // Handle featured products cards - prevent link navigation when clicking overlay
+    document.querySelectorAll('.vastu-featured-products__actions-overlay').forEach(function(overlay) {
+      overlay.addEventListener('click', function(e) {
+        e.stopPropagation();
+      }, true);
+    });
+  }
+  
+  // Run on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupOverlayHandlers);
+  } else {
+    setupOverlayHandlers();
+  }
+  
+  // Also run after a short delay to catch dynamically loaded content
+  setTimeout(setupOverlayHandlers, 500);
+})();
+</script>
+

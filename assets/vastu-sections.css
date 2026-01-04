@@ -51,7 +51,7 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  z-index: 3;
+  z-index: 10 !important;
   opacity: 0;
   transition: opacity 0.3s ease;
   display: block !important;
@@ -67,6 +67,38 @@
   display: block !important;
   visibility: visible !important;
   pointer-events: auto !important;
+  position: relative;
+  z-index: 11 !important;
+}
+
+/* Prevent card link from being triggered when clicking on overlay */
+.vastu-best-seller-card__actions-overlay,
+.vastu-best-seller-card__actions-overlay *,
+.vastu-best-seller-card__actions-overlay button,
+.vastu-best-seller-card__actions-overlay a {
+  pointer-events: auto !important;
+}
+
+.vastu-best-seller-card__link {
+  pointer-events: auto;
+}
+
+.vastu-best-seller-card__image {
+  position: relative;
+}
+
+/* Ensure button is visible */
+.vastu-best-seller-card__actions-overlay .xo-product-card__icon,
+.vastu-best-seller-card__actions-overlay xo-tooltip,
+.vastu-best-seller-card__actions-overlay xo-toggle-trigger,
+.vastu-best-seller-card__actions-overlay xo-modal-trigger,
+.vastu-best-seller-card__actions-overlay xo-cart-add,
+.vastu-best-seller-card__actions-overlay button {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 12 !important;
 }
 
 /* If badge exists, position button on left to avoid overlap */
@@ -183,7 +215,7 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  z-index: 3;
+  z-index: 10 !important;
   opacity: 0;
   transition: opacity 0.3s ease;
   display: block !important;
@@ -199,6 +231,38 @@
   display: block !important;
   visibility: visible !important;
   pointer-events: auto !important;
+  position: relative;
+  z-index: 11 !important;
+}
+
+/* Prevent card link from being triggered when clicking on overlay */
+.vastu-featured-products__actions-overlay,
+.vastu-featured-products__actions-overlay *,
+.vastu-featured-products__actions-overlay button,
+.vastu-featured-products__actions-overlay a {
+  pointer-events: auto !important;
+}
+
+.vastu-featured-products__link {
+  pointer-events: auto;
+}
+
+.vastu-featured-products__image {
+  position: relative;
+}
+
+/* Ensure button is visible */
+.vastu-featured-products__actions-overlay .xo-product-card__icon,
+.vastu-featured-products__actions-overlay xo-tooltip,
+.vastu-featured-products__actions-overlay xo-toggle-trigger,
+.vastu-featured-products__actions-overlay xo-modal-trigger,
+.vastu-featured-products__actions-overlay xo-cart-add,
+.vastu-featured-products__actions-overlay button {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 12 !important;
 }
 
 /* Footer Copyright Link Visibility */
