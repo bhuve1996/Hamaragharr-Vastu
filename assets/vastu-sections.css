@@ -343,6 +343,33 @@ section[class*="related-article"] xo-carousel-inner {
   position: relative;
 }
 
+/* Slideshow Text Centering */
+.slideshow-v28__text--overlay {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 800px !important;
+}
+
+.slideshow-v28__text--overlay .slideshow-v28__subtitle,
+.slideshow-v28__text--overlay .slideshow-v28__title,
+.slideshow-v28__text--overlay .slideshow-v28__description {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.slideshow-v28__text--overlay .slideshow-v28__button,
+.slideshow-v28__text--overlay .button {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: inline-block !important;
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
