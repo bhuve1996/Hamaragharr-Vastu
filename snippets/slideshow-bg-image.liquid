@@ -9,6 +9,7 @@
 {% endcomment %}
 
 {% liquid
+  assign video_file = block.settings.background_video
   assign video_url = block.settings.background_video_url
   assign background_overlay = block.settings.background_overlay
   assign background_video_animation = block.settings.background_video_animation
@@ -19,9 +20,18 @@
   assign background_image_animation = block.settings.background_image_animation
 
   assign duration = 1000
+  
+  # Use uploaded video file if available, otherwise use video URL
+  if video_file != blank
+    assign final_video_url = video_file
+  elsif video_url != blank
+    assign final_video_url = video_url
+  else
+    assign final_video_url = blank
+  endif
 %}
 
-{%- if video_url != blank -%}
+{%- if final_video_url != blank -%}
   {%- assign type = background_video_animation -%}
 
   {%- capture style -%}
@@ -29,7 +39,7 @@
   {%- endcapture -%}
 
   {%- capture content -%}
-    <xo-video-cover xo-src='{{ video_url }}'></xo-video-cover>
+    <xo-video-cover xo-src='{{ final_video_url }}'></xo-video-cover>
   {%- endcapture -%}
 
   {%- else -%}

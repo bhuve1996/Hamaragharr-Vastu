@@ -18,23 +18,17 @@
               {% for block in section.blocks %}
                 <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
                   <div class='testimonial-v13__item'>
-                    <div class='testimonial-v13__content-wrapper'>
-                      <div class='testimonial-v13__left'>
-                        <div class='testimonial-v13__icon'>
-                          {%- render 'image', image: block.settings.icon_image -%}
-                        </div>
-                        <div class='testimonial-v13__customer'>
-                          {% if block.settings.name_customer %}
-                            <div class='testimonial-v13__name'>{{ block.settings.name_customer }}</div>
-                          {% endif %}
-                          {% if block.settings.position %}
-                            <div class='testimonial-v13__position'>{{ block.settings.position }}</div>
-                          {% endif %}
-                        </div>
-                      </div>
-                      <div class='testimonial-v13__right'>
-                        <div class='testimonial-v13__testimonial'>{{ block.settings.testimonial }}</div>
-                      </div>
+                    <div class='testimonial-v13__icon'>
+                      {%- render 'image', image: block.settings.icon_image -%}
+                    </div>
+                    <div class='testimonial-v13__testimonial'>{{ block.settings.testimonial }}</div>
+                    <div class='testimonial-v13__customer'>
+                      {% if block.settings.name_customer %}
+                        <div class='testimonial-v13__name'>{{ block.settings.name_customer }}</div>
+                      {% endif %}
+                      {% if block.settings.position %}
+                        <div class='testimonial-v13__position'>{{ block.settings.position }}</div>
+                      {% endif %}
                     </div>
                   </div>
                 </xo-carousel-slide>

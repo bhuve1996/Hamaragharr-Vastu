@@ -2,7 +2,7 @@
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
-    <xo-grid style='--xs: 4; --sm: 4; --md: 4; --lg: 4; --xl: 4; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;' class='vastu-trust-bar'>
+    <xo-grid style='--xs: 2; --sm: 2; --md: 4; --lg: 4; --xl: 4; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;' class='vastu-trust-bar'>
       {% for block in section.blocks %}
         <div class='vastu-trust-bar__item' {{ block.shopify_attributes }}>
           {% if block.settings.icon != blank %}

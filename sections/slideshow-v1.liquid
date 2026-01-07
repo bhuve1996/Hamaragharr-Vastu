@@ -17,7 +17,57 @@
           <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
             <div {% render 'slideshow-attr', block: block %}>
               {% render 'slideshow-bg-image', block: block %}
-              {% if block.settings.background_type == 'image' and block.settings.background_image_desktop != blank %}
+              {% if block.settings.background_type == 'video' and (block.settings.background_video != blank or block.settings.background_video_url != blank) %}
+                {% comment %} Full-width banner with video background {% endcomment %}
+                <div class='slideshow-v28__overlay-content' style='position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center; min-height: {{ section.settings.section_height_desktop }}px;'>
+                  <xo-container {% render 'section-layout' %}>
+                    <div class='slideshow-v28__text slideshow-v28__text--overlay' style='text-align: center; max-width: 800px; margin: 0 auto;'>
+                      {%- capture subtitle -%}
+                        {%- if block.settings.subtitle != blank -%}
+                          <div class='slideshow-v28__subtitle' style='--fontsize:{{block.settings.subtitle_font_size}}; --fontweight:{{block.settings.subtitle_font_weight}}'>
+                            {{ block.settings.subtitle }}
+                          </div>
+                        {%- endif -%}
+                      {%- endcapture -%}
+                      {%- capture title -%}
+                        {%- if block.settings.title != blank -%}
+                          <h3 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
+                            {{ block.settings.title }}
+                          </h3>
+                        {%- endif -%}
+                      {%- endcapture -%}
+                      {%- capture description -%}
+                        {%- if block.settings.description != blank -%}
+                          <p class='slideshow-v28__description' style='--fontsize:{{block.settings.description_font_size}}; --fontweight:{{block.settings.description_font_weight}}'>
+                            {{ block.settings.description }}
+                          </p>
+                        {%- endif -%}
+                      {%- endcapture -%}
+                      {%- capture button -%}
+                        {%- if block.settings.button_text != blank -%}
+                          {% render 'button',
+                            text: block.settings.button_text,
+                            link: block.settings.button_link,
+                            mode: block.settings.button_mode,
+                            style: block.settings.button_style,
+                            size: block.settings.button_size,
+                            radius: block.settings.button_radius,
+                            padding: block.settings.button_padding
+                          %}
+                        {%- endif -%}
+                      {%- endcapture -%}
+
+                      {%- render 'animation', content: subtitle, type: block.settings.subtitle_animation, order: 1, duration: '1400' -%}
+                      {%- render 'animation', content: title, type: block.settings.title_animation, order: 3, duration: '1400' -%}
+                      {%- render 'animation', content: description, type: block.settings.description_animation, order: 5, duration: '1400' -%}
+                      {%- render 'animation', content: button, type: block.settings.button_animation, order: 7, duration: '1400', strength: 3 -%}
+                    </div>
+                  </xo-container>
+                  {%- if section.settings.show_pagination -%}
+                    {% render 'carousel-pagination-style3', class: 'slideshow-v28__pagination' %}
+                  {%- endif -%}
+                </div>
+              {% elsif block.settings.background_type == 'image' and block.settings.background_image_desktop != blank %}
                 {% comment %} Full-width banner with text overlay {% endcomment %}
                 <div class='slideshow-v28__overlay-content' style='position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center; min-height: {{ section.settings.section_height_desktop }}px;'>
                   <xo-container {% render 'section-layout' %}>
@@ -1076,9 +1126,17 @@
           "visible_if": "{{ block.settings.background_type == 'image' and section.settings.carousel_type == 'none' }}"
         },
         {
+          "type": "video",
+          "id": "background_video",
+          "label": "Upload Video (MP4)",
+          "info": "Upload a video file or use video URL below",
+          "visible_if": "{{ block.settings.background_type == 'video' }}"
+        },
+        {
           "type": "textarea",
           "id": "background_video_url",
-          "label": "t:sections.all.background_video_url.label",
+          "label": "Video URL (Alternative)",
+          "info": "Enter video URL (YouTube, Vimeo, or hosted video). Leave blank if using uploaded video above.",
           "visible_if": "{{ block.settings.background_type == 'video' }}"
         },
         {

@@ -43,7 +43,7 @@
             "background_type": "image",
             "background_color": "",
             "background_gradient": "",
-            "background_image_desktop": "shopify://shop_images/Blue_horse_high_frame.png",
+            "background_image_desktop": "shopify://shop_images/Vastu_Banner_-_6.jpg",
             "use_parallax": true,
             "background_image_animation": "none",
             "background_video_url": "",
@@ -53,6 +53,46 @@
           }
         },
         "slideshow_7KaQdB": {
+          "type": "slideshow",
+          "settings": {
+            "reverse_layout": true,
+            "subtitle": "Transform Your Living Space",
+            "subtitle_font_size": 1.6,
+            "subtitle_font_weight": 500,
+            "subtitle_animation": "fade-up",
+            "title": "Bring Balance, Prosperity & Positive Energy Home",
+            "title_font_size": 5,
+            "title_font_weight": 700,
+            "title_animation": "fade-up",
+            "description": "Discover the power of Vastu Shastra to create harmony and abundance in your home",
+            "description_font_size": 1.6,
+            "description_font_weight": 400,
+            "description_animation": "fade-up",
+            "button_text": "Buy Now",
+            "button_link": "shopify://collections/all",
+            "button_mode": "dark",
+            "button_style": "secondary",
+            "button_size": "md",
+            "button_radius": 0,
+            "button_padding": 1.4,
+            "button_animation": "fade-up",
+            "device": "desktop",
+            "image_desktop_animation": "none",
+            "image_mobile_animation": "none",
+            "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
+            "background_type": "image",
+            "background_color": "",
+            "background_gradient": "",
+            "background_image_desktop": "shopify://shop_images/Vastu_Banner_-_5.jpg",
+            "use_parallax": true,
+            "background_image_animation": "none",
+            "background_video_url": "",
+            "background_video_animation": "none",
+            "background_overlay": "#0000004d",
+            "background_margin": 0
+          }
+        },
+        "slideshow_RB3T9p": {
           "type": "slideshow",
           "settings": {
             "reverse_layout": true,
@@ -95,7 +135,8 @@
       },
       "block_order": [
         "slide_1",
-        "slideshow_7KaQdB"
+        "slideshow_7KaQdB",
+        "slideshow_RB3T9p"
       ],
       "settings": {
         "width": "fullwidth",
@@ -200,11 +241,31 @@
       "settings": {
         "width": "box",
         "title": "Best Sellers",
+        "title_font_size": 3.5,
+        "title_font_weight": 700,
+        "title_underline_color": "#473855",
+        "title_underline_width": 80,
+        "title_underline_height": 4,
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
         "padding_top": 24,
-        "padding_bottom": 24
+        "padding_bottom": 24,
+        "enable_separator": false,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "separator_padding_top": 15,
+        "separator_padding_bottom": 15,
+        "card_title_font_size": 1.5,
+        "card_price_font_size": 1.2,
+        "card_content_padding_top": 1.5,
+        "card_content_padding_bottom": 0.5,
+        "badge_font_size": 0.9,
+        "badge_padding_horizontal": 12,
+        "badge_padding_vertical": 6,
+        "badge_top_position": 12,
+        "badge_right_position": 12
       }
     },
     "vastu-hindi-statement": {
@@ -216,8 +277,8 @@
         "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
         "background_type": "color",
         "background_color": "#473855",
-        "padding_top": 16,
-        "padding_bottom": 16
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     },
     "vastu-trust-bar": {
@@ -386,6 +447,11 @@
       "settings": {
         "width": "box",
         "title": "Shop by Occasion",
+        "title_font_size": 3.5,
+        "title_font_weight": 700,
+        "title_underline_color": "#473855",
+        "title_underline_width": 80,
+        "title_underline_height": 4,
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
@@ -396,7 +462,16 @@
         "separator_height": 2,
         "separator_width": 10,
         "separator_padding_top": 4,
-        "separator_padding_bottom": 4
+        "separator_padding_bottom": 4,
+        "card_title_font_size": 1.5,
+        "card_price_font_size": 1.2,
+        "card_content_padding_top": 1.5,
+        "card_content_padding_bottom": 0.5,
+        "badge_font_size": 0.9,
+        "badge_padding_horizontal": 12,
+        "badge_padding_vertical": 6,
+        "badge_top_position": 12,
+        "badge_right_position": 12
       }
     },
     "testimonial-v2": {
