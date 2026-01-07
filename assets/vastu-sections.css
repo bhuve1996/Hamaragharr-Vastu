@@ -5,17 +5,25 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0;
+}
+
+section[class*="vastu-hindi-statement"] {
+  padding-top: var(--pt, 16px) !important;
+  padding-bottom: var(--pb, 16px) !important;
 }
 
 .vastu-hindi-statement__text {
   font-size: 1.15em !important;
   text-align: center !important;
   margin: 0 auto;
+  line-height: 1.4;
 }
 
 .vastu-hindi-statement__subtext {
   text-align: center !important;
   margin: 0.5rem auto 0;
+  line-height: 1.4;
 }
 
 /* Vastu Best Seller Cards */
