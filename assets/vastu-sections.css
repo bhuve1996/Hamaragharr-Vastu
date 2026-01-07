@@ -1,3 +1,23 @@
+/* Vastu Hindi Statement - Center Aligned and 15% Bigger */
+.vastu-hindi-statement {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vastu-hindi-statement__text {
+  font-size: 1.15em !important;
+  text-align: center !important;
+  margin: 0 auto;
+}
+
+.vastu-hindi-statement__subtext {
+  text-align: center !important;
+  margin: 0.5rem auto 0;
+}
+
 /* Vastu Best Seller Cards */
 .vastu-best-seller-card {
   display: flex;
