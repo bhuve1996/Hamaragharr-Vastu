@@ -476,31 +476,33 @@
       "name": "Card",
       "settings": [
         {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "⚠️ SELECT PRODUCT FIRST - This will auto-populate image, title, description, and price on the frontend. You can override by manually filling fields below."
+        },
+        {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "Image (Optional - Auto-filled from product if left blank)",
+          "info": "Leave blank to use product image automatically"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Title",
-          "default": "Product Name"
+          "label": "Title (Optional - Auto-filled from product title if left blank)",
+          "info": "Leave blank to use product title automatically"
         },
         {
           "type": "textarea",
           "id": "description",
-          "label": "Description"
+          "label": "Description (Optional - Auto-filled from product description if left blank)",
+          "info": "Leave blank to use product description automatically"
         },
         {
           "type": "text",
           "id": "badge",
-          "label": "Badge"
-        },
-        {
-          "type": "product",
-          "id": "product",
-          "label": "Product",
-          "info": "Select a product to auto-populate image, title, description, and price. You can override any field by manually filling it below."
+          "label": "Badge (Optional)"
         },
         {
           "type": "url",

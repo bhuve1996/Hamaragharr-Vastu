@@ -466,26 +466,28 @@
       "name": "Product Icon",
       "settings": [
         {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "⚠️ SELECT PRODUCT FIRST - This will auto-populate icon/image, label, and price on the frontend. You can override by manually filling fields below."
+        },
+        {
           "type": "image_picker",
           "id": "icon",
-          "label": "Icon Image"
+          "label": "Icon Image (Optional - Auto-filled from product if left blank)",
+          "info": "Leave blank to use product image automatically"
         },
         {
           "type": "html",
           "id": "icon_svg",
-          "label": "Icon SVG (Alternative)"
+          "label": "Icon SVG (Optional - Alternative to icon image)",
+          "info": "Only used if icon image is blank"
         },
         {
           "type": "text",
           "id": "label",
-          "label": "Label",
-          "default": "Product"
-        },
-        {
-          "type": "product",
-          "id": "product",
-          "label": "Product",
-          "info": "Select a product to auto-populate icon/image, label, and price. You can override any field by manually filling it above."
+          "label": "Label (Optional - Auto-filled from product title if left blank)",
+          "info": "Leave blank to use product title automatically"
         },
         {
           "type": "url",
