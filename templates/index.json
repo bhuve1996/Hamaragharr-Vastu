@@ -188,55 +188,63 @@
     "vastu-best-seller-cards": {
       "type": "vastu-best-seller-cards",
       "blocks": {
-        "card_1": {
+        "card_4CEkpr": {
+          "type": "card",
+          "settings": {
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": ""
+          }
+        },
+        "card_nEFWRM": {
+          "type": "card",
+          "settings": {
+            "product": "framed-bull-painting-for-vastu-solution-strength-stability-and-prosperity",
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": ""
+          }
+        },
+        "card_CNyNy3": {
+          "type": "card",
+          "settings": {
+            "product": "white-owl-vastu-wall-painting-symbol-of-wisdom-wealth-protection",
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": ""
+          }
+        },
+        "card_LfqaYg": {
           "type": "card",
           "settings": {
             "product": "framed-7-horses-painting-for-vastu-solution-enhance-positivity-success",
-            "image": "shopify://shop_images/7_horses_vastu_1536x1024_8k_quality.png",
-            "title": "7 Horses",
-            "description": "Beautiful Vastu-compliant wall art to enhance your space",
+            "title": "",
+            "description": "",
             "badge": "",
-            "link": "shopify://collections/all"
+            "link": ""
           }
         },
-        "card_2": {
+        "card_gDdbeW": {
           "type": "card",
           "settings": {
-            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
-            "image": "shopify://shop_images/WhatsAppImage2025-12-20at10.33.04AM_1.jpg",
-            "title": "Vastu Kit",
-            "description": "Complete Vastu remedy kit for your home",
-            "badge": "Best Seller",
-            "link": "shopify://collections/all"
-          }
-        },
-        "card_CJUYd9": {
-          "type": "card",
-          "settings": {
-            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
-            "image": "shopify://shop_images/other-bold-8.jpg",
-            "title": "Vastu Kit",
-            "description": "Complete Vastu remedy kit for your home",
-            "badge": "Best Seller",
-            "link": "shopify://collections/all"
-          }
-        },
-        "card_3": {
-          "type": "card",
-          "settings": {
-            "product": "",
-            "title": "Notes from Vastu",
-            "description": "Educational content and guides",
+            "product": "golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance",
+            "title": "",
+            "description": "",
             "badge": "",
-            "link": "shopify://pages/about"
+            "link": ""
           }
         }
       },
       "block_order": [
-        "card_1",
-        "card_2",
-        "card_CJUYd9",
-        "card_3"
+        "card_4CEkpr",
+        "card_nEFWRM",
+        "card_CNyNy3",
+        "card_LfqaYg",
+        "card_gDdbeW"
       ],
       "settings": {
         "width": "box",
@@ -331,10 +339,46 @@
     "vastu-featured-products": {
       "type": "vastu-featured-products",
       "blocks": {
+        "product_icon_48L4Ed": {
+          "type": "product_icon",
+          "settings": {
+            "product": "white-owl-vastu-wall-painting-symbol-of-wisdom-wealth-protection",
+            "icon_svg": "",
+            "label": "",
+            "link": ""
+          }
+        },
+        "product_icon_49cU84": {
+          "type": "product_icon",
+          "settings": {
+            "product": "golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance",
+            "icon_svg": "",
+            "label": "",
+            "link": ""
+          }
+        },
+        "product_icon_i8dehJ": {
+          "type": "product_icon",
+          "settings": {
+            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "icon_svg": "",
+            "label": "",
+            "link": ""
+          }
+        },
+        "product_icon_yg7h6k": {
+          "type": "product_icon",
+          "settings": {
+            "product": "framed-bull-painting-for-vastu-solution-strength-stability-and-prosperity",
+            "icon_svg": "",
+            "label": "",
+            "link": ""
+          }
+        },
         "product_icon_jeabCU": {
           "type": "product_icon",
           "settings": {
-            "product": "",
+            "product": "framed-7-horses-painting-for-vastu-solution-enhance-positivity-success",
             "icon_svg": "",
             "label": "",
             "link": ""
@@ -342,6 +386,10 @@
         }
       },
       "block_order": [
+        "product_icon_48L4Ed",
+        "product_icon_49cU84",
+        "product_icon_i8dehJ",
+        "product_icon_yg7h6k",
         "product_icon_jeabCU"
       ],
       "settings": {
