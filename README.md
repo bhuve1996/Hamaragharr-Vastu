@@ -4,23 +4,20 @@ VastuKit theme based on Florasy Multipurpose Plant Store Theme.
 
 ## Theme Information
 
-- **Store**: hamaragharr.myshopify.com
+- **Development Store**: aa4383-53.myshopify.com
+- **Production Store**: hamaragharr.myshopify.com
 - **Theme ID**: 183707402553 (Florasy theme)
 - **Theme Base**: Florasy Multipurpose Plant Store Theme by ShopiLaunch
 
 ## Pulling Theme from Shopify
 
-To pull the latest theme files from Shopify:
-
-```bash
-shopify theme pull --theme=183707402553 --store=hamaragharr.myshopify.com
-```
-
-Or if you're already authenticated:
+To pull the latest theme files from Shopify (development store):
 
 ```bash
 shopify theme pull --theme=183707402553
 ```
+
+The `shopify.theme.toml` is configured to use the development store (`aa4383-53.myshopify.com`), so you can pull directly without specifying the store.
 
 ## Development
 
