@@ -32,6 +32,9 @@
           992: {
             perView: 2,
           },
+          768: {
+            perView: 1,
+          },
           576: {
             perView: 1,
           },
@@ -57,6 +60,11 @@
                       {% comment %} Auto-populate icon/image: Use manual icon/icon_svg if provided, otherwise use product image {% endcomment %}
                       {% if block.settings.icon != blank %}
                         <div class='vastu-featured-products__image hover-style--scale-up'>
+                          {% if block.settings.product != blank and current_product.price != blank %}
+                            <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
+                              {{ current_product.price | money }}
+                            </div>
+                          {% endif %}
                           {% if block.settings.product != blank %}
                             <div class='vastu-featured-products__actions-overlay'>
                               {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
@@ -66,6 +74,11 @@
                         </div>
                       {% elsif block.settings.icon_svg != blank %}
                         <div class='vastu-featured-products__image hover-style--scale-up'>
+                          {% if block.settings.product != blank and current_product.price != blank %}
+                            <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
+                              {{ current_product.price | money }}
+                            </div>
+                          {% endif %}
                           {% if block.settings.product != blank %}
                             <div class='vastu-featured-products__actions-overlay'>
                               {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
@@ -75,6 +88,11 @@
                         </div>
                       {% elsif block.settings.product != blank %}
                         <div class='vastu-featured-products__image hover-style--scale-up'>
+                          {% if current_product.price != blank %}
+                            <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
+                              {{ current_product.price | money }}
+                            </div>
+                          {% endif %}
                           <div class='vastu-featured-products__actions-overlay'>
                             {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
                           </div>
@@ -87,14 +105,9 @@
                       {% endif %}
                 <div class='vastu-featured-products__content' style='--content-padding-top: {{ section.settings.card_content_padding_top | default: 1.5 }}rem; --content-padding-bottom: {{ section.settings.card_content_padding_bottom | default: 0.5 }}rem;'>
                   {% if block.settings.label != blank %}
-                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;'>{{ block.settings.label }}</h3>
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ block.settings.label | escape }}'>{{ block.settings.label }}</h3>
                   {% elsif block.settings.product != blank %}
-                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;'>{{ current_product.title }}</h3>
-                  {% endif %}
-                  {% if block.settings.product != blank and current_product.price != blank %}
-                    <div class='vastu-featured-products__price' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
-                      {{ current_product.price | money }}
-                    </div>
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ current_product.title | escape }}'>{{ current_product.title }}</h3>
                   {% endif %}
                 </div>
                     </a>
@@ -147,6 +160,11 @@
                   </div>
                 {% elsif block.settings.product != blank %}
                   <div class='vastu-featured-products__image hover-style--scale-up'>
+                    {% if current_product.price != blank %}
+                      <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
+                        {{ current_product.price | money }}
+                      </div>
+                    {% endif %}
                     <div class='vastu-featured-products__actions-overlay'>
                       {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
                     </div>
@@ -159,14 +177,9 @@
                 {% endif %}
                 <div class='vastu-featured-products__content' style='--content-padding-top: {{ section.settings.card_content_padding_top | default: 1.5 }}rem; --content-padding-bottom: {{ section.settings.card_content_padding_bottom | default: 0.5 }}rem;'>
                   {% if block.settings.label != blank %}
-                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;'>{{ block.settings.label }}</h3>
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ block.settings.label | escape }}'>{{ block.settings.label }}</h3>
                   {% elsif block.settings.product != blank %}
-                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;'>{{ current_product.title }}</h3>
-                  {% endif %}
-                  {% if block.settings.product != blank and current_product.price != blank %}
-                    <div class='vastu-featured-products__price' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
-                      {{ current_product.price | money }}
-                    </div>
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ current_product.title | escape }}'>{{ current_product.title }}</h3>
                   {% endif %}
                 </div>
               </a>

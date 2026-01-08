@@ -19,9 +19,9 @@
               {% render 'slideshow-bg-image', block: block %}
               {% if block.settings.background_type == 'image' and block.settings.background_image_desktop != blank %}
                 {% comment %} Full-width banner with text overlay {% endcomment %}
-                <div class='slideshow-v28__overlay-content' style='position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center; min-height: {{ section.settings.section_height_desktop }}px;'>
+                <div class='slideshow-v28__overlay-content' style='position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: flex-start; min-height: {{ section.settings.section_height_desktop }}px;'>
                   <xo-container {% render 'section-layout' %}>
-                    <div class='slideshow-v28__text slideshow-v28__text--overlay' style='text-align: center; max-width: 800px; margin: 0 auto;'>
+                    <div class='slideshow-v28__text slideshow-v28__text--overlay' style='text-align: left; max-width: 800px; margin: 0;'>
                       {%- capture subtitle -%}
                         {%- if block.settings.subtitle != blank -%}
                           <div class='slideshow-v28__subtitle' style='--fontsize:{{block.settings.subtitle_font_size}}; --fontweight:{{block.settings.subtitle_font_weight}}'>
