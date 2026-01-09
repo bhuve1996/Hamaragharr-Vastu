@@ -74,7 +74,16 @@
                 {% endif %}
                 <div class='testimonial-v18__customer'>
                   <div class='testimonial-v18__img'>
-                    {% render 'image', image: block.settings.avatar %}
+                    {% if block.settings.avatar != blank %}
+                      {% render 'image', image: block.settings.avatar %}
+                    {% else %}
+                      <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
+                           stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                           aria-label="Person placeholder avatar" role="img">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 20a8 8 0 0 1 16 0"/>
+                      </svg>
+                    {% endif %}
                   </div>
                   <div>
                     {% if block.settings.name %}

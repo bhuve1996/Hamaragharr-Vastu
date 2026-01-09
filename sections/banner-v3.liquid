@@ -3,7 +3,7 @@
 {%- assign reversed = section.settings.reversed -%}
 
 {% comment %} Assign align. Align will get 3 values : start , center or end {% endcomment %}
-{%- assign align = section.settings.align | default: 'start' -%}
+{%- assign align = 'start' -%}
 
 <section class='banner-v155'
   {% render 'section-attr' %}
@@ -26,7 +26,7 @@
           >
             <div
               class='banner-v155__content'
-              style='text-align: {{ align }}'
+              style='text-align: left'
             >
               <xo-animate xo-cascade>
                 <h3 class='banner-v155__subtitle'>{{ section.settings.subtitle }}</h3>

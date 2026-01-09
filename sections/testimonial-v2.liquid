@@ -19,7 +19,16 @@
                 <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
                   <div class='testimonial-v13__item'>
                     <div class='testimonial-v13__icon'>
-                      {%- render 'image', image: block.settings.icon_image -%}
+                      {% if block.settings.icon_image != blank %}
+                        {%- render 'image', image: block.settings.icon_image -%}
+                      {% else %}
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                             aria-label="Person placeholder avatar" role="img">
+                          <circle cx="12" cy="8" r="4"/>
+                          <path d="M4 20a8 8 0 0 1 16 0"/>
+                        </svg>
+                      {% endif %}
                     </div>
                     <div class='testimonial-v13__testimonial'>{{ block.settings.testimonial }}</div>
                     <div class='testimonial-v13__customer'>
