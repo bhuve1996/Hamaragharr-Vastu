@@ -154,6 +154,18 @@
     },
     "vastu-kit-banner": {
       "type": "banner-v3",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Vastu_Banner_-_1.jpg",
+            "image_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_1"
+      ],
       "settings": {
         "width": "box",
         "fullwidth_margin": 0,
@@ -164,6 +176,9 @@
         "title": "About Vastu Kit",
         "description": "The Hamaragharr Vastu Kit is a complete, self-use Vastu correction solution that helps you identify and fix Vastu imbalances—on your own.\n\nBuilt on authentic Vastu Shastra, it transforms traditional wisdom into simple, practical actions—without fear, rituals, or costly consultations. The kit requires no prior Vastu knowledge, no external experts, and comes as one complete, thoughtfully designed solution that makes Vastu correction clear and approachable for modern homes.\n\nWhat Does It Help Address?\n\n• Constant stress or negativity\n• Lack of peace and harmony\n• Financial delays or stagnation\n• Health and mental fatigue",
         "image": "shopify://shop_images/Vastu_Banner_-_1.jpg",
+        "carousel_autoplay": false,
+        "carousel_autoplay_speed": 5,
+        "show_carousel_pagination": true,
         "button_text": "Buy Now",
         "button_link": "shopify://products/vastu-kit-home-office",
         "button_mode": "dark",
