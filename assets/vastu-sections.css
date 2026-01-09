@@ -820,10 +820,10 @@ section[class*="blog"] *:last-child {
 
 .vastu-features-bar__icon,
 .vastu-features-bar__icon-svg {
-  width: 4rem;
-  height: 4rem;
-  min-width: 4rem;
-  min-height: 4rem;
+  width: 6rem;
+  height: 6rem;
+  min-width: 6rem;
+  min-height: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -850,8 +850,8 @@ section[class*="blog"] *:last-child {
 .vastu-features-bar__icon .xo-image {
   width: 100%;
   height: 100%;
-  max-width: 4rem;
-  max-height: 4rem;
+  max-width: 6rem;
+  max-height: 6rem;
   display: block;
   position: relative;
 }
@@ -859,8 +859,8 @@ section[class*="blog"] *:last-child {
 .vastu-features-bar__icon .xo-image img {
   width: 100%;
   height: 100%;
-  max-width: 4rem;
-  max-height: 4rem;
+  max-width: 6rem;
+  max-height: 6rem;
   object-fit: contain;
   display: block;
 }
@@ -868,8 +868,8 @@ section[class*="blog"] *:last-child {
 .vastu-features-bar__icon img {
   width: 100%;
   height: 100%;
-  max-width: 4rem;
-  max-height: 4rem;
+  max-width: 6rem;
+  max-height: 6rem;
   object-fit: contain;
   display: block;
 }
@@ -886,8 +886,8 @@ section[class*="blog"] *:last-child {
 .vastu-features-bar__icon .xo-image__placeholder svg {
   width: 100%;
   height: 100%;
-  max-width: 4rem;
-  max-height: 4rem;
+  max-width: 6rem;
+  max-height: 6rem;
 }
 
 .vastu-features-bar__text {
@@ -912,8 +912,10 @@ section[class*="blog"] *:last-child {
   
   .vastu-features-bar__icon,
   .vastu-features-bar__icon-svg {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    min-width: 4.5rem;
+    min-height: 4.5rem;
   }
   
   .vastu-features-bar__text {
@@ -1177,8 +1179,10 @@ section[class*="slideshow"] .xo-background-lazyload {
   
   .vastu-features-bar__icon,
   .vastu-features-bar__icon-svg {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    min-width: 4.5rem;
+    min-height: 4.5rem;
   }
   
   xo-carousel:has(.vastu-best-seller__pagination),
