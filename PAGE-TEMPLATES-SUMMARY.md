@@ -78,3 +78,4 @@ After creating pages, verify these exist:
 3. **Blog Pages**: Blog pages are created differently - go to **Online Store** → **Blog posts** → **Manage blogs**
 4. **All templates have been pushed to Shopify** and are ready to use!
 
+

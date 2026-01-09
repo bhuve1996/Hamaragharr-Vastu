@@ -97,7 +97,7 @@
                           {% assign display_title = current_product.title %}
                         {% endif %}
                         {% if display_title != blank %}
-                          <h3 class='vastu-best-seller-card__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 20 }}px;' title='{{ display_title | escape }}'>{{ display_title }}</h3>
+                          <h3 class='vastu-best-seller-card__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h3>
                         {% endif %}
                         {% comment %} Auto-populate description: Use manual description if provided, otherwise use product description {% endcomment %}
                         {% assign display_description = block.settings.description %}
