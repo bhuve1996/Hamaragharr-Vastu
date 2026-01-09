@@ -1,32 +1,35 @@
-/* Vastu Hindi Statement - Center Aligned and 15% Bigger */
+/* Vastu Hindi Statement - Center Aligned, Grouped Text, Reduced Height */
 .vastu-hindi-statement {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 4rem; /* Increased top padding */
-  padding-bottom: 4rem; /* Increased bottom padding */
-  min-height: 200px; /* Ensure enough height for vertical centering */
+  padding-top: 2rem; /* Reduced padding for compact height */
+  padding-bottom: 2rem; /* Reduced padding for compact height */
+  min-height: auto; /* Remove fixed min-height for more compact section */
+}
+
+.vastu-hindi-statement__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .vastu-hindi-statement__text {
   font-size: var(--title-font-size, 3.4375rem); /* Same font size as other section headings */
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 0.5rem; /* Reduced spacing between Hindi and English text */
   position: relative;
-  display: inline-block;
+  display: block;
   width: 100%;
-  line-height: 1.2;
+  line-height: 1.3; /* Tighter line height for grouped text */
   text-transform: none; /* Don't apply uppercase to Hindi text */
   font-weight: normal; /* Don't apply bold to Hindi text */
-}
-
-.vastu-hindi-statement__subtext {
-  text-align: center;
-  margin: 0 auto;
-  margin-top: 0; /* Equal spacing - handled by text margin-bottom above */
+  white-space: normal; /* Allow text to wrap naturally */
+  word-wrap: break-word; /* Ensure long words wrap */
 }
 
 /* Vastu Best Seller Cards */
@@ -1408,7 +1411,6 @@ section xo-carousel {
 .slideshow-v28__pagination,
 .vastu-trust-bar__pagination,
 .vastu-features-bar__pagination,
-.testimonial-v13__pagination,
 .blog-v2__pagination,
 .carousel-pagination-style3 {
   position: absolute;
@@ -1421,6 +1423,21 @@ section xo-carousel {
   align-items: center;
   width: auto;
   pointer-events: auto;
+}
+
+/* Testimonial pagination - positioned lower */
+.testimonial-v13__pagination {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  pointer-events: auto;
+  margin-top: 1rem;
 }
 
 /* Move vastu best seller and featured products pagination further below */
@@ -1454,6 +1471,64 @@ section xo-carousel {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+/* Carousel Pagination Bullets - Active State Styling for Vastu Section */
+.banner-v155__carousel-pagination xo-carousel-pagination span,
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination span,
+.banner-v155__carousel-pagination .carousel-pagination-style3__pagination span,
+section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-pagination-style3__pagination span {
+  display: inline-block !important;
+  width: 0.5rem !important;
+  height: 0.5rem !important;
+  border-radius: 50% !important;
+  background-color: rgba(71, 56, 85, 0.3) !important;
+  margin: 0 0.25rem !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1 !important;
+}
+
+/* Active bullet styling - Multiple selectors to catch all cases */
+.banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span,
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span,
+.banner-v155__carousel-pagination xo-carousel-pagination span[aria-current="true"],
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination span[aria-current="true"],
+.banner-v155__carousel-pagination xo-carousel-pagination span.is-active,
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination span.is-active,
+.banner-v155__carousel-pagination xo-carousel-pagination span[class*="active"],
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination span[class*="active"] {
+  background-color: rgb(71, 56, 85) !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  opacity: 1 !important;
+}
+
+/* Target the bullet-active element directly */
+.banner-v155__carousel-pagination xo-carousel-pagination-bullet-active,
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active {
+  display: inline-block !important;
+}
+
+.banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span,
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span {
+  background-color: rgb(71, 56, 85) !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  opacity: 1 !important;
+}
+
+/* Ensure pagination bullets are visible and styled */
+.banner-v155__carousel-pagination xo-carousel-pagination::part(bullet),
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination::part(bullet) {
+  background-color: rgba(71, 56, 85, 0.3) !important;
+}
+
+.banner-v155__carousel-pagination xo-carousel-pagination::part(bullet-active),
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination::part(bullet-active) {
+  background-color: rgb(71, 56, 85) !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
 }
 
 /* Ensure carousel inner content has no padding-bottom */
@@ -1662,10 +1737,14 @@ section[class*="slideshow"] .xo-background-lazyload {
   }
   
   .vastu-features-bar__pagination,
-  .testimonial-v13__pagination,
   .blog-v2__pagination {
     bottom: -24px; /* Adjusted for mobile - positioned below */
     margin-top: 24px; /* Additional spacing */
+  }
+  
+  .testimonial-v13__pagination {
+    bottom: -1.5rem !important; /* Adjusted for mobile - positioned lower */
+    margin-top: 1rem !important; /* Additional spacing */
   }
 
   /* Mobile section padding - use template values for consistent spacing */
@@ -1717,88 +1796,57 @@ section[class*="slideshow"] .xo-background-lazyload {
   }
 }
 
-/* Testimonials Section Redesign */
-.testimonial-v13__item {
-  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%);
-  border-radius: 0;
-  padding: 3rem 2.5rem;
-  text-align: center;
-  position: relative;
-  box-shadow: none;
-  transition: transform 0.3s ease;
-  border: none;
-  margin-bottom: 0;
-}
-
-/* Remove padding from testimonial section */
+/* Testimonials Section - Complete Redesign */
 section[class*="testimonial-v2"],
 section[class*="testimonial-v13"] {
-  padding-top: 0;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: #ffffff;
+  position: relative;
+}
+
+/* Testimonials Section - Box Shadow Container */
+section[class*="testimonial-v2"] xo-container,
+section[class*="testimonial-v13"] xo-container {
+  background: #ffffff;
+  border-radius: 1rem;
+  border-top: 4px solid rgba(71, 56, 85, 0.15);
+  padding: 3rem 2.5rem;
+  box-shadow: 0 2px 12px rgba(71, 56, 85, 0.08), 0 1px 4px rgba(71, 56, 85, 0.05);
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Testimonial Carousel - 2 per view on desktop */
+section[class*="testimonial-v2"] xo-carousel,
+section[class*="testimonial-v13"] xo-carousel {
   padding-bottom: 0;
+  overflow: visible;
 }
 
-.testimonial-v13__item:hover {
-  transform: translateY(0);
-  box-shadow: none;
+section[class*="testimonial-v2"] xo-carousel-inner,
+section[class*="testimonial-v13"] xo-carousel-inner {
+  overflow: visible;
 }
 
-.testimonial-v13__icon {
-  margin-bottom: 1.5rem;
-  opacity: 1; /* Removed opacity filter */
+section[class*="testimonial-v2"] xo-carousel-list,
+section[class*="testimonial-v13"] xo-carousel-list {
+  overflow: visible;
 }
 
-.testimonial-v13__icon img {
-  width: 5rem; /* Increased from 3rem to 5rem */
-  height: 5rem; /* Increased from 3rem to 5rem */
-  object-fit: cover; /* Changed from contain to cover for better image display */
-  border-radius: 50%; /* Make it circular */
-  filter: none; /* Removed filter */
-}
-
-.testimonial-v13__testimonial {
-  font-size: 1.5rem;
-  line-height: 1.8;
-  color: rgba(var(--color-foreground, 0, 0, 0), 0.85);
-  font-style: italic;
-  margin-bottom: 0;
-  position: relative;
-}
-
-.testimonial-v13__customer {
+section[class*="testimonial-v2"] xo-carousel-slide,
+section[class*="testimonial-v13"] xo-carousel-slide {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: stretch;
+  height: 100%;
+  overflow: visible;
+  box-sizing: border-box;
 }
 
-.testimonial-v13__name {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: rgb(var(--color-secondary-button, 71, 56, 85));
-  margin: 0;
-}
-
-.testimonial-v13__position {
-  font-size: 1.125rem;
-  color: rgba(var(--color-foreground, 0, 0, 0), 0.6);
-  margin: 0;
-}
-
-/* Testimonials Section Background - Ensure carousel matches section background */
-section[class*="testimonial-v2"] {
-  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%);
-  position: relative;
-}
-
-/* Override any background from section-bg-image */
+/* Clean white background for testimonial section */
 section[class*="testimonial-v2"] .xo-section-bg,
 section[class*="testimonial-v2"] .xo-section-bg-image__item,
-section[class*="testimonial-v2"] .xo-section-bg-image__url {
-  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%);
-  background-image: none;
-}
-
-/* Make ALL containers and carousel match testimonial section background */
+section[class*="testimonial-v2"] .xo-section-bg-image__url,
 section[class*="testimonial-v2"] xo-container,
 section[class*="testimonial-v2"] xo-carousel,
 section[class*="testimonial-v2"] .xo-carousel,
@@ -1806,44 +1854,219 @@ section[class*="testimonial-v2"] > div,
 section[class*="testimonial-v2"] xo-container > div,
 section[class*="testimonial-v2"] xo-carousel-inner,
 section[class*="testimonial-v2"] xo-carousel-list {
-  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%);
-  background-color: transparent;
+  background: #ffffff;
+  background-color: #ffffff;
   background-image: none;
 }
 
-section[class*="testimonial-v2"]::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-section[class*="testimonial-v2"] > * {
+/* Modern Testimonial Card Design */
+.testimonial-v13__item {
+  background: #ffffff;
+  border: 2px solid rgba(71, 56, 85, 0.15);
+  border-radius: 1rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
   position: relative;
-  z-index: 1;
+  box-shadow: 0 4px 20px rgba(71, 56, 85, 0.12), 0 2px 8px rgba(71, 56, 85, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 0;
+  min-height: 320px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
 }
 
+.testimonial-v13__item::before {
+  content: '"';
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  font-size: 6rem;
+  font-family: Georgia, serif;
+  color: rgba(71, 56, 85, 0.25);
+  line-height: 1;
+  font-weight: bold;
+}
+
+.testimonial-v13__item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(71, 56, 85, 0.2), 0 4px 12px rgba(71, 56, 85, 0.12);
+  border-color: rgba(71, 56, 85, 0.25);
+}
+
+/* Customer Image - Modern Circular Design */
+.testimonial-v13__icon {
+  margin-bottom: 2rem;
+  opacity: 1;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-v13__icon img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: none;
+  border: 4px solid rgba(71, 56, 85, 0.15);
+  box-shadow: 0 4px 12px rgba(71, 56, 85, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-v13__item:hover .testimonial-v13__icon img {
+  transform: scale(1.05);
+}
+
+/* Testimonial Text - Clean Typography */
+.testimonial-v13__testimonial {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.9);
+  font-style: normal;
+  margin-bottom: 2rem;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  font-weight: 400;
+}
+
+/* Customer Info - Elegant Styling */
+.testimonial-v13__customer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: auto;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(71, 56, 85, 0.1);
+  width: 100%;
+}
+
+.testimonial-v13__name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.testimonial-v13__position {
+  font-size: 0.95rem;
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.6);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Desktop - 2 testimonials side by side */
+@media (min-width: 62rem) {
+  section[class*="testimonial-v2"] xo-carousel,
+  section[class*="testimonial-v13"] xo-carousel {
+    padding-left: 0;
+    padding-right: 0;
+    overflow: visible;
+  }
+  
+  section[class*="testimonial-v2"] xo-carousel-inner,
+  section[class*="testimonial-v13"] xo-carousel-inner {
+    overflow: visible;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  section[class*="testimonial-v2"] xo-carousel-list,
+  section[class*="testimonial-v13"] xo-carousel-list {
+    overflow: visible;
+  }
+  
+  section[class*="testimonial-v2"] xo-carousel-slide,
+  section[class*="testimonial-v13"] xo-carousel-slide {
+    padding: 0;
+    box-sizing: border-box;
+    width: calc(50% - 15px); /* Account for 30px gap (15px on each side) */
+    flex: 0 0 calc(50% - 15px);
+    max-width: calc(50% - 15px);
+  }
+  
+  .testimonial-v13__item {
+    min-height: 340px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Tablet */
+@media (max-width: 61.9375rem) and (min-width: 48.0625rem) {
+  section[class*="testimonial-v2"] xo-carousel-slide,
+  section[class*="testimonial-v13"] xo-carousel-slide {
+    padding: 0 0.9375rem;
+  }
+}
+
+/* Mobile Responsive */
 @media (max-width: 48rem) {
+  section[class*="testimonial-v2"],
+  section[class*="testimonial-v13"] {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  
+  section[class*="testimonial-v2"] xo-container,
+  section[class*="testimonial-v13"] xo-container {
+    padding: 2rem 1.5rem;
+    border-radius: 0.75rem;
+  }
+  
+  section[class*="testimonial-v2"] xo-carousel-slide,
+  section[class*="testimonial-v13"] xo-carousel-slide {
+    padding: 0;
+  }
+  
   .testimonial-v13__item {
     padding: 2rem 1.5rem;
+    min-height: 280px;
+  }
+  
+  .testimonial-v13__item::before {
+    font-size: 4rem;
+    top: 0.5rem;
+    left: 1rem;
+  }
+  
+  .testimonial-v13__icon {
+    margin-bottom: 1.5rem;
+  }
+  
+  .testimonial-v13__icon img {
+    width: 4rem;
+    height: 4rem;
   }
   
   .testimonial-v13__testimonial {
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.6;
+    margin-bottom: 1.5rem;
   }
   
   .testimonial-v13__name {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
   
   .testimonial-v13__position {
-    font-size: 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .testimonial-v13__customer {
+    padding-top: 1rem;
   }
 }
 
@@ -2097,6 +2320,87 @@ section[class*="banner-v3"] h2.banner-v155__title {
   box-shadow: none;
 }
 
+/* Carousel Image Visibility Fix - Proper Carousel Behavior */
+.banner-v155__item--right xo-carousel {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  padding-bottom: 3rem; /* Space for pagination dots */
+}
+
+.banner-v155__item--right xo-carousel-inner {
+  width: 100%;
+  position: relative;
+}
+
+.banner-v155__item--right xo-carousel-list {
+  width: 100%;
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.banner-v155__item--right xo-carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  display: block;
+}
+
+.banner-v155__item--right xo-carousel-slide > div {
+  width: 100%;
+  display: block;
+}
+
+.banner-v155__item--right xo-carousel-slide .banner-v155__img {
+  width: 100%;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.banner-v155__item--right xo-carousel-slide .banner-v155__img img,
+.banner-v155__item--right xo-carousel-slide .banner-v155__img picture,
+.banner-v155__item--right xo-carousel-slide .banner-v155__img picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Vastu Banner Carousel Pagination - Move dots lower */
+.banner-v155__carousel-pagination,
+section[class*="banner-v3"] .banner-v155__carousel-pagination,
+section[class*="banner-v155"] .banner-v155__carousel-pagination,
+.banner-v155__item--right .banner-v155__carousel-pagination,
+.banner-v155__item--right .carousel-pagination-style3 {
+  position: absolute !important;
+  bottom: 0.5rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 100 !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.banner-v155__carousel-pagination .carousel-pagination-style3__pagination-wrap,
+section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-pagination-style3__pagination-wrap {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 48rem) {
+  .banner-v155__carousel-pagination,
+  section[class*="banner-v3"] .banner-v155__carousel-pagination,
+  section[class*="banner-v155"] .banner-v155__carousel-pagination {
+    bottom: -1.5rem !important;
+    margin-top: 0.75rem;
+  }
+}
+
 /* Mobile Responsive */
 @media (max-width: 48rem) {
   /* Mobile: Scale down headings proportionally */
@@ -2330,7 +2634,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
 
 .footer-modern__newsletter-button {
   padding: 0.875rem 1.5rem;
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-weight: 600;
   line-height: 1.5;
   border: none;
@@ -2507,7 +2811,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
   }
   
   .footer-modern__newsletter-button {
-    font-size: 1.125rem;
+    font-size: 1.75rem;
     padding: 0.75rem 1rem;
   }
 
@@ -2572,4 +2876,29 @@ section[class*="banner-v3"] h2.banner-v155__title {
 .article-card-style4__description {
   display: none !important;
 }
+
+/* FAQ Section - Container Box Shadow */
+.faq-content-wrapper {
+  background: #ffffff;
+  border-radius: 1rem;
+  border-top: 4px solid rgba(71, 56, 85, 0.15);
+  padding: 3rem 2.5rem;
+  box-shadow: 0 4px 20px rgba(71, 56, 85, 0.12), 0 2px 8px rgba(71, 56, 85, 0.08);
+  margin: 0 auto;
+  position: relative;
+}
+
+section[class*="faq-v1"],
+section[class*="faq-v3"],
+section[class*="product-faq"] {
+  position: relative;
+}
+
+@media (max-width: 48rem) {
+  .faq-content-wrapper {
+    padding: 2rem 1.5rem;
+    border-radius: 0.75rem;
+  }
+}
+
 

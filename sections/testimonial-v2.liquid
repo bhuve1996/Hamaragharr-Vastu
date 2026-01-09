@@ -1,16 +1,34 @@
 
 
+{% capture breakpoints %}
+  xo-breakpoints='
+  {
+    992: {
+      perView: 2,
+    },
+    768: {
+      perView: 1,
+    },
+    576: {
+      perView: 1,
+    },
+  }
+  '
+{% endcapture %}
+
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
     <div>
         <xo-carousel
+          xo-per-view='2'
           {% if section.settings.auto_play %}
             xo-autoplay='10000'
           {% endif %}
           xo-speed='400'
           xo-gap='30'
           xo-rewind
+          {{ breakpoints }}
           xo-render-bullet='<span></span>'
         >
           <xo-carousel-inner>

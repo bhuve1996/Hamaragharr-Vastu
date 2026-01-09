@@ -4,10 +4,9 @@
   <xo-container {% render 'section-layout' %}>
     <div class='vastu-hindi-statement'>
       <xo-animate xo-cascade>
-        <h2 class='vastu-hindi-statement__text'>{{ section.settings.hindi_text }}</h2>
-        {% if section.settings.english_subtext != blank %}
-          <p class='vastu-hindi-statement__subtext'>{{ section.settings.english_subtext }}</p>
-        {% endif %}
+        <div class='vastu-hindi-statement__content'>
+          <h2 class='vastu-hindi-statement__text'>{{ section.settings.hindi_text }}</h2>
+        </div>
       </xo-animate>
     </div>
   </xo-container>

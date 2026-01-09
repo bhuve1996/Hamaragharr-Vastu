@@ -66,8 +66,10 @@
                       {% if block.settings.icon != blank %}
                         <div class='vastu-featured-products__image hover-style--scale-up'>
                           {% if block.settings.product != blank and current_product.price != blank %}
+                            {%- assign price_formatted = current_product.price | money -%}
+                            {%- assign price_formatted = price_formatted | replace: 'Rs.', 'र' | replace: '₹', 'र' | replace: 'INR', 'र' -%}
                             <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
-                              {{ current_product.price | money }}
+                              {{ price_formatted }}
                             </div>
                           {% endif %}
                           {% if block.settings.product != blank %}
@@ -77,8 +79,10 @@
                       {% elsif block.settings.icon_svg != blank %}
                         <div class='vastu-featured-products__image hover-style--scale-up'>
                           {% if block.settings.product != blank and current_product.price != blank %}
+                            {%- assign price_formatted = current_product.price | money -%}
+                            {%- assign price_formatted = price_formatted | replace: 'Rs.', 'र' | replace: '₹', 'र' | replace: 'INR', 'र' -%}
                             <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
-                              {{ current_product.price | money }}
+                              {{ price_formatted }}
                             </div>
                           {% endif %}
                           {% if block.settings.product != blank %}
@@ -88,8 +92,10 @@
                       {% elsif block.settings.product != blank %}
                         <div class='vastu-featured-products__image hover-style--scale-up'>
                           {% if current_product.price != blank %}
+                            {%- assign price_formatted = current_product.price | money -%}
+                            {%- assign price_formatted = price_formatted | replace: 'Rs.', 'र' | replace: '₹', 'र' | replace: 'INR', 'र' -%}
                             <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
-                              {{ current_product.price | money }}
+                              {{ price_formatted }}
                             </div>
                           {% endif %}
                           {% if current_product.featured_image != blank %}
@@ -166,8 +172,10 @@
                 {% elsif block.settings.product != blank %}
                   <div class='vastu-featured-products__image hover-style--scale-up'>
                     {% if current_product.price != blank %}
+                      {%- assign price_formatted = current_product.price | money -%}
+                      {%- assign price_formatted = price_formatted | replace: 'Rs.', 'रुपये' | replace: '₹', 'रुपये' | replace: 'INR', 'रुपये' -%}
                       <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
-                        {{ current_product.price | money }}
+                        {{ price_formatted }}
                       </div>
                     {% endif %}
                     <div class='vastu-featured-products__actions-overlay'>

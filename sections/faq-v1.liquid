@@ -1,8 +1,9 @@
 
 
-<section {% render 'section-attr', style: '--pb-mobile: 70px' %}>
+<section {% render 'section-attr', style: '--pb-mobile: 70px' %} class="faq-section-wrapper">
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
+    <div class="faq-content-wrapper">
     <div class='faq-v3__heading'>
       {%- if section.settings.subtitle != blank -%}
         <xo-animate xo-cascade class='faq-v3__subtitle'>{{ section.settings.subtitle }}</xo-animate>
@@ -32,6 +33,7 @@
         </xo-animate>
       {%- endfor -%}
     </xo-collapse-provider>
+    </div>
   </xo-container>
     {% render 'section-separator',
     enable_separator: section.settings.enable_separator,
