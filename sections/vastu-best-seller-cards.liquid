@@ -59,9 +59,11 @@
                     <a href='{{ product_link }}' class='vastu-best-seller-card__link'>
                       {% if block.settings.image != blank %}
                         <div class='vastu-best-seller-card__image hover-style--scale-up'>
+                          {% comment %}
                           {% if block.settings.badge != blank %}
                             <span class='vastu-best-seller-card__badge' style='--badge-font-size: {{ section.settings.badge_font_size | default: 0.9 }}rem; --badge-padding-h: {{ section.settings.badge_padding_horizontal | default: 12 }}px; --badge-padding-v: {{ section.settings.badge_padding_vertical | default: 6 }}px; --badge-top: {{ section.settings.badge_top_position | default: 12 }}px; --badge-right: {{ section.settings.badge_right_position | default: 12 }}px;'>{{ block.settings.badge }}</span>
                           {% endif %}
+                          {% endcomment %}
                           {% if block.settings.product != blank and current_product.price != blank %}
                             <p class='vastu-best-seller-card__price vastu-best-seller-card__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>{{ current_product.price | money }}</p>
                           {% endif %}
@@ -69,9 +71,11 @@
                         </div>
                       {% elsif block.settings.product != blank %}
                         <div class='vastu-best-seller-card__image hover-style--scale-up'>
+                          {% comment %}
                           {% if block.settings.badge != blank %}
                             <span class='vastu-best-seller-card__badge' style='--badge-font-size: {{ section.settings.badge_font_size | default: 0.9 }}rem; --badge-padding-h: {{ section.settings.badge_padding_horizontal | default: 12 }}px; --badge-padding-v: {{ section.settings.badge_padding_vertical | default: 6 }}px; --badge-top: {{ section.settings.badge_top_position | default: 12 }}px; --badge-right: {{ section.settings.badge_right_position | default: 12 }}px;'>{{ block.settings.badge }}</span>
                           {% endif %}
+                          {% endcomment %}
                           {% if current_product.price != blank %}
                             <p class='vastu-best-seller-card__price vastu-best-seller-card__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>{{ current_product.price | money }}</p>
                           {% endif %}
@@ -147,9 +151,11 @@
               <a href='{{ product_link }}' class='vastu-best-seller-card__link'>
                   {% if block.settings.image != blank %}
                     <div class='vastu-best-seller-card__image hover-style--scale-up'>
+                      {% comment %}
                       {% if block.settings.badge != blank %}
                         <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
                       {% endif %}
+                      {% endcomment %}
                       {% if block.settings.product != blank and current_product.price != blank %}
                         <p class='vastu-best-seller-card__price vastu-best-seller-card__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>{{ current_product.price | money }}</p>
                       {% endif %}
@@ -157,9 +163,11 @@
                     </div>
                   {% elsif block.settings.product != blank %}
                     <div class='vastu-best-seller-card__image hover-style--scale-up'>
+                      {% comment %}
                       {% if block.settings.badge != blank %}
                         <span class='vastu-best-seller-card__badge'>{{ block.settings.badge }}</span>
                       {% endif %}
+                      {% endcomment %}
                       {% if current_product.price != blank %}
                         <p class='vastu-best-seller-card__price vastu-best-seller-card__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>{{ current_product.price | money }}</p>
                       {% endif %}

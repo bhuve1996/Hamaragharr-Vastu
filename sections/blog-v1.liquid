@@ -63,13 +63,17 @@
                     <span class='blog-v2__day'>{{ article.published_at | date: '%d' }}</span>
                     <span class='blog-v2__month'>{{ article.published_at | date: '%b' }}</span>
                   </div>
+                  {% comment %}
                   <div class='blog-v2__tag'>{{ article.tags }}</div>
+                  {% endcomment %}
                   <a href='{{ article.url }}'>
                     <h3 class='blog-v2__item-title'>
                       {{ article.title | truncate: 50 | escape }}
                     </h3>
                   </a>
+                  {% comment %}
                   <div class='blog-v2__description'>{{ article.excerpt | strip_html | truncatewords: 30 }}</div>
+                  {% endcomment %}
                   <a href='{{ article.url }}' class='blog-v2__button'>
                     <span>{{ section.settings.button_text }}</span>
                     {% render 'icon', name: 'icon-arrow', icon_size: '15' %}
