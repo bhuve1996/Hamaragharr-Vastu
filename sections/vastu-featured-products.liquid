@@ -14,6 +14,11 @@
         <h2 class='vastu-featured-products__section-title' style='--title-font-size: {{ section.settings.title_font_size | default: 3.5 }}rem; --title-font-weight: {{ section.settings.title_font_weight | default: 700 }}; --title-underline-color: {{ section.settings.title_underline_color | default: "#473855" }}; --title-underline-width: {{ section.settings.title_underline_width | default: 80 }}px; --title-underline-height: {{ section.settings.title_underline_height | default: 4 }}px;'>{{ section.settings.title | upcase }}</h2>
       </xo-animate>
     {% endif %}
+    {% if section.settings.question != blank and has_visible_items %}
+      <xo-animate xo-cascade>
+        <p class='vastu-featured-products__question'>{{ section.settings.question }}</p>
+      </xo-animate>
+    {% endif %}
     {% assign visible_blocks_count = 0 %}
     {% for block in section.blocks %}
       {% if block.settings.icon != blank or block.settings.icon_svg != blank or block.settings.product != blank %}
@@ -103,7 +108,7 @@
                   {% if block.settings.product != blank %}
                     <div class='vastu-featured-products__add-to-cart'>
                       {% if current_product.variants.size > 1 %}
-                        {% assign button_text = section.settings.button_text_select_options | default: 'Select Options' %}
+                        {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
                         <xo-toggle-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}'>
                           {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
                         </xo-toggle-trigger>
@@ -184,7 +189,7 @@
                   {% if block.settings.product != blank %}
                     <div class='vastu-featured-products__add-to-cart'>
                       {% if current_product.variants.size > 1 %}
-                        {% assign button_text = section.settings.button_text_select_options | default: 'Select Options' %}
+                        {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
                         <xo-toggle-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}'>
                           {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
                         </xo-toggle-trigger>
@@ -251,6 +256,11 @@
       "id": "title",
       "label": "Section Title",
       "default": "Featured Products"
+    },
+    {
+      "type": "richtext",
+      "id": "question",
+      "label": "Question/Description Above Products"
     },
     {
       "type": "header",
@@ -403,7 +413,7 @@
       "type": "text",
       "id": "button_text_select_options",
       "label": "Select Options Button Text",
-      "default": "Select Options"
+      "default": "Add to Cart"
     },
     {
       "type": "header",

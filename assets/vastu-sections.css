@@ -1285,6 +1285,16 @@ section h3,
   line-height: 1.2;
 }
 
+.vastu-featured-products__question {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0 auto 2rem auto;
+  max-width: 800px;
+  color: rgb(var(--color-foreground, 0, 0, 0));
+  opacity: 0.9;
+}
+
 /* Blog title - Separate spacing */
 .blog-v2__title {
   font-size: var(--title-font-size, 3.4375rem);
@@ -1474,6 +1484,27 @@ xo-carousel-inner {
   position: relative;
 }
 
+/* Ensure xo-container--box in slideshow doesn't blur background images */
+section[class*="homepage-carousel"] .slideshow-v28__overlay-content xo-container.xo-container--box,
+section[class*="slideshow"] .slideshow-v28__overlay-content xo-container.xo-container--box {
+  filter: none !important;
+  backdrop-filter: none !important;
+  background: transparent !important;
+}
+
+/* Ensure background images are behind the container and not blurred */
+section[class*="homepage-carousel"] .slideshow-bg,
+section[class*="slideshow"] .slideshow-bg {
+  filter: none !important;
+  backdrop-filter: none !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
 /* Make background image full width and cover entire area */
 section[class*="homepage-carousel"] .slideshow-bg-image__item,
 section[class*="homepage-carousel"] .slideshow-bg-image__url,
@@ -1486,6 +1517,10 @@ section[class*="slideshow"] .xo-background-lazyload {
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
+  filter: none !important; /* Ensure no blur filter on background images */
+  backdrop-filter: none !important; /* Ensure no backdrop blur */
+  image-rendering: -webkit-optimize-contrast !important; /* Keep images sharp */
+  image-rendering: crisp-edges !important; /* Keep images sharp */
 }
 
 /* Slideshow Text - Left Aligned for Homepage Carousel */
@@ -1498,8 +1533,8 @@ section[class*="slideshow"] .xo-background-lazyload {
   margin: 0;
   width: 100%;
   max-width: 50rem;
-  padding-left: var(--xo-container-gap, 1.25rem);
-  padding-right: var(--xo-container-gap, 1.25rem);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Homepage carousel - Left aligned text */
@@ -1873,12 +1908,60 @@ section[class*="banner-v3"] h2.banner-v155__title {
 
 .banner-v155__description {
   font-size: 2rem;
-  line-height: 1.8;
+  line-height: 1.6; /* Reduced line height for tighter spacing */
   color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
   margin-bottom: 4.5rem !important; /* Increased equal spacing between elements - includes spacing before button - important to override last-child rule */
   margin-top: 0;
   max-width: 90%;
   text-align: left;
+  word-spacing: 0.05em; /* Slight word spacing for better readability */
+}
+
+/* Style the intro text in description */
+.banner-v155__description-intro {
+  white-space: pre-line;
+  line-height: 1.6; /* Reduced line height for tighter spacing between paragraphs */
+  margin-bottom: 0.75rem; /* Reduced spacing between paragraphs */
+}
+
+/* Style the heading in description */
+.banner-v155__description-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgb(var(--color-foreground, 0, 0, 0));
+  margin-top: 2.5rem; /* Increased top margin */
+  margin-bottom: 1rem; /* Reduced bottom margin */
+  line-height: 1.4;
+}
+
+/* Style the bullet list in description */
+.banner-v155__description-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.banner-v155__description-list li {
+  font-size: 2rem;
+  line-height: 1.6; /* Reduced line height to match description spacing */
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
+  padding-left: 2rem;
+  position: relative;
+  margin-bottom: 0.5rem; /* Reduced spacing between bullet points */
+  display: flex;
+  align-items: flex-start;
+}
+
+.banner-v155__description-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  font-size: 2rem; /* Match the font size of the text */
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  font-weight: 700;
+  line-height: 1.6; /* Match the line-height of the text */
+  top: 0; /* Align with top of text */
 }
 
 /* Add spacing above button for equal spacing */
@@ -2247,7 +2330,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
 
 .footer-modern__newsletter-button {
   padding: 0.875rem 1.5rem;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.5;
   border: none;
@@ -2418,9 +2501,13 @@ section[class*="banner-v3"] h2.banner-v155__title {
     margin-bottom: 1rem;
   }
 
-  .footer-modern__newsletter-input,
-  .footer-modern__newsletter-button {
+  .footer-modern__newsletter-input {
     font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .footer-modern__newsletter-button {
+    font-size: 1.125rem;
     padding: 0.75rem 1rem;
   }
 

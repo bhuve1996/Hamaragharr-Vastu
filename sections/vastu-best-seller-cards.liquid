@@ -106,7 +106,7 @@
                         {% if block.settings.product != blank %}
                           <div class='vastu-best-seller-card__add-to-cart'>
                             {% if current_product.variants.size > 1 %}
-                              {% assign button_text = section.settings.button_text_select_options | default: 'Select Options' %}
+                              {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
                               <xo-toggle-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}'>
                                 {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
                               </xo-toggle-trigger>
@@ -192,7 +192,7 @@
                   {% if block.settings.product != blank %}
                     <div class='vastu-best-seller-card__add-to-cart'>
                       {% if current_product.variants.size > 1 %}
-                        {% assign button_text = section.settings.button_text_select_options | default: 'Select Options' %}
+                        {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
                         <xo-toggle-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}'>
                           {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
                         </xo-toggle-trigger>
@@ -415,7 +415,7 @@
       "type": "text",
       "id": "button_text_select_options",
       "label": "Select Options Button Text",
-      "default": "Select Options"
+      "default": "Add to Cart"
     },
     {
       "type": "header",

@@ -35,7 +35,31 @@
                 <h2 class='banner-v155__title'>{{ section.settings.title }}</h2>
               </xo-animate>
               <xo-animate xo-cascade>
-                <div class='banner-v155__description'>{{ section.settings.description }}</div>
+                <div class='banner-v155__description'>
+                  {% liquid
+                    assign desc = section.settings.description
+                    assign parts = desc | split: 'What Does It Help Address?'
+                    if parts.size > 1
+                      assign intro_text = parts[0] | strip
+                      assign after_heading = parts[1] | strip
+                      assign bullets = after_heading | split: '•'
+                    endif
+                  %}
+                  {% if parts.size > 1 %}
+                    <div class='banner-v155__description-intro'>{{ intro_text }}</div>
+                    <div class='banner-v155__description-heading'>What Does It Help Address?</div>
+                    <ul class='banner-v155__description-list'>
+                      {% for bullet in bullets %}
+                        {% assign bullet_text = bullet | strip %}
+                        {% if bullet_text != blank %}
+                          <li>{{ bullet_text }}</li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    {{ desc }}
+                  {% endif %}
+                </div>
               </xo-animate>
               {% render 'button',
                 text: section.settings.button_text,
@@ -49,7 +73,61 @@
             </div>
           </div>
           <div class='banner-v155__item banner-v155__item--right'>
-            {% if section.settings.image != blank %}
+            {% assign has_images = false %}
+            {% for block in section.blocks %}
+              {% if block.settings.image != blank %}
+                {% assign has_images = true %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            
+            {% if has_images %}
+              {% if section.blocks.size > 1 %}
+                {% comment %} Use carousel when multiple images {% endcomment %}
+                <xo-carousel
+                  xo-per-view='1'
+                  xo-gap='0'
+                  xo-speed='400'
+                  xo-loop
+                  xo-hover-pause
+                  {% if section.settings.carousel_autoplay %}
+                    xo-autoplay='{{ section.settings.carousel_autoplay_speed | times: 1000 }}'
+                  {% endif %}
+                  xo-render-bullet='<span></span>'
+                >
+                  <xo-carousel-inner>
+                    <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
+                      {% for block in section.blocks %}
+                        {% if block.settings.image != blank %}
+                          <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
+                            <div class='{%- render 'hover-style' -%}'>
+                              <a href='{{ block.settings.image_link | default: section.settings.button_link }}' class='banner-v155__img'>
+                                {%- render 'image', image: block.settings.image -%}
+                              </a>
+                            </div>
+                          </xo-carousel-slide>
+                        {% endif %}
+                      {% endfor %}
+                    </xo-carousel-list>
+                  </xo-carousel-inner>
+                  {% if section.settings.show_carousel_pagination %}
+                    {% render 'carousel-pagination-style3', class: 'banner-v155__carousel-pagination' %}
+                  {% endif %}
+                </xo-carousel>
+              {% else %}
+                {% comment %} Single image - no carousel needed {% endcomment %}
+                {% for block in section.blocks %}
+                  {% if block.settings.image != blank %}
+                    <div class='{%- render 'hover-style' -%}'>
+                      <a href='{{ block.settings.image_link | default: section.settings.button_link }}' class='banner-v155__img'>
+                        {%- render 'image', image: block.settings.image -%}
+                      </a>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% elsif section.settings.image != blank %}
+              {% comment %} Fallback to old single image setting for backward compatibility {% endcomment %}
               <div class='{%- render 'hover-style' -%}'>
                 <a href='{{ section.settings.button_link }}' class='banner-v155__img'>
                   {%- render 'image', image: section.settings.image -%}
@@ -507,6 +585,52 @@
       "id": "padding_bottom",
       "label": "t:sections.all.padding_bottom.label",
       "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Image Carousel Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "carousel_autoplay",
+      "label": "Enable Carousel Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "carousel_autoplay_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay Speed (seconds)",
+      "default": 5,
+      "visible_if": "{{ section.settings.carousel_autoplay }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_carousel_pagination",
+      "label": "Show Carousel Pagination",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "image_link",
+          "label": "Image Link (optional)",
+          "info": "Leave empty to use the button link"
+        }
+      ]
     }
   ],
   "presets": [

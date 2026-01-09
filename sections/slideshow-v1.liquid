@@ -28,7 +28,7 @@
               {% if use_overlay %}
                 {% comment %} Full-width banner with text overlay {% endcomment %}
                 <div class='slideshow-v28__overlay-content' style='position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: flex-start; min-height: {{ section.settings.section_height_desktop }}px;'>
-                  <xo-container {% render 'section-layout' %}>
+                  <xo-container class='xo-container--box'>
                     <div class='slideshow-v28__text slideshow-v28__text--overlay' style='text-align: left; max-width: 800px; margin: 0;'>
                       {%- capture subtitle -%}
                         {%- if block.settings.subtitle != blank -%}
