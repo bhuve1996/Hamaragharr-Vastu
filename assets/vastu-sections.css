@@ -807,6 +807,16 @@ section[class*="blog"] *:last-child {
 }
 
 /* Vastu Features Bar - Carousel Design (Duplicate of Trust Bar) */
+main#xo-main-content section[class*="vastu-features-bar"],
+main#xo-main-content section[class*="vastu-features"],
+main#xo-main-content div[class*="vastu-features-bar"],
+main#xo-main-content div[class*="vastu-features"],
+section[class*="vastu-features-bar"],
+section[class*="vastu-features"],
+div[class*="shopify-section-template"][class*="vastu-features"] {
+  padding-top: 4rem !important;
+}
+
 .vastu-features-bar__item {
   display: flex;
   flex-direction: column;
@@ -816,14 +826,24 @@ section[class*="blog"] *:last-child {
   padding: 1.5rem 1rem;
   min-height: 11.25rem;
   justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(71, 56, 85, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vastu-features-bar__item:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.75rem 2rem rgba(71, 56, 85, 0.25);
 }
 
 .vastu-features-bar__icon,
 .vastu-features-bar__icon-svg {
-  width: 4rem;
-  height: 4rem;
-  min-width: 4rem;
-  min-height: 4rem;
+  width: 24rem;
+  height: 24rem;
+  min-width: 24rem;
+  min-height: 24rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -847,47 +867,84 @@ section[class*="blog"] *:last-child {
 }
 
 /* Image styling for features bar */
+.vastu-features-bar__icon {
+  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(71, 56, 85, 0.2), inset 0 0 1rem rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vastu-features-bar__item:hover .vastu-features-bar__icon {
+  box-shadow: 0 0.75rem 2rem rgba(71, 56, 85, 0.3), inset 0 0 1.5rem rgba(255, 255, 255, 0.4);
+}
+
 .vastu-features-bar__icon .xo-image {
   width: 100%;
   height: 100%;
-  max-width: 4rem;
-  max-height: 4rem;
+  max-width: 24rem;
+  max-height: 24rem;
+  min-width: 24rem;
+  min-height: 24rem;
   display: block;
   position: relative;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0.25rem 0.5rem rgba(71, 56, 85, 0.2));
 }
 
 .vastu-features-bar__icon .xo-image img {
   width: 100%;
   height: 100%;
-  max-width: 4rem;
-  max-height: 4rem;
+  max-width: 24rem;
+  max-height: 24rem;
+  min-width: 24rem;
+  min-height: 24rem;
   object-fit: contain;
   display: block;
+  visibility: visible;
+  opacity: 1;
+  filter: drop-shadow(0 0.25rem 0.5rem rgba(71, 56, 85, 0.2));
 }
 
 .vastu-features-bar__icon img {
   width: 100%;
   height: 100%;
-  max-width: 4rem;
-  max-height: 4rem;
+  max-width: 24rem;
+  max-height: 24rem;
+  min-width: 24rem;
+  min-height: 24rem;
   object-fit: contain;
   display: block;
+  visibility: visible;
+  opacity: 1;
+  filter: drop-shadow(0 0.25rem 0.5rem rgba(71, 56, 85, 0.2));
 }
 
 /* Ensure placeholder images are visible */
 .vastu-features-bar__icon .xo-image__placeholder {
   width: 100%;
   height: 100%;
+  max-width: 24rem;
+  max-height: 24rem;
+  min-width: 24rem;
+  min-height: 24rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  visibility: visible;
+  opacity: 1;
 }
 
 .vastu-features-bar__icon .xo-image__placeholder svg {
   width: 100%;
   height: 100%;
-  max-width: 4rem;
-  max-height: 4rem;
+  max-width: 24rem;
+  max-height: 24rem;
+  min-width: 24rem;
+  min-height: 24rem;
+  visibility: visible;
+  opacity: 1;
 }
 
 .vastu-features-bar__text {
@@ -905,6 +962,16 @@ section[class*="blog"] *:last-child {
 
 /* Mobile adjustments for features bar */
 @media (max-width: 48rem) {
+  main#xo-main-content section[class*="vastu-features-bar"],
+  main#xo-main-content section[class*="vastu-features"],
+  main#xo-main-content div[class*="vastu-features-bar"],
+  main#xo-main-content div[class*="vastu-features"],
+  section[class*="vastu-features-bar"],
+  section[class*="vastu-features"],
+  div[class*="shopify-section-template"][class*="vastu-features"] {
+    padding-top: 2.5rem !important;
+  }
+  
   .vastu-features-bar__item {
     min-height: 10rem;
     padding: 1.25rem 0.75rem;
@@ -912,8 +979,27 @@ section[class*="blog"] *:last-child {
   
   .vastu-features-bar__icon,
   .vastu-features-bar__icon-svg {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 18rem;
+    height: 18rem;
+    min-width: 18rem;
+    min-height: 18rem;
+  }
+  
+  .vastu-features-bar__icon .xo-image,
+  .vastu-features-bar__icon .xo-image img,
+  .vastu-features-bar__icon img {
+    max-width: 18rem;
+    max-height: 18rem;
+    min-width: 18rem;
+    min-height: 18rem;
+  }
+  
+  .vastu-features-bar__icon .xo-image__placeholder,
+  .vastu-features-bar__icon .xo-image__placeholder svg {
+    max-width: 18rem;
+    max-height: 18rem;
+    min-width: 18rem;
+    min-height: 18rem;
   }
   
   .vastu-features-bar__text {
@@ -1177,8 +1263,10 @@ section[class*="slideshow"] .xo-background-lazyload {
   
   .vastu-features-bar__icon,
   .vastu-features-bar__icon-svg {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 18rem;
+    height: 18rem;
+    min-width: 18rem;
+    min-height: 18rem;
   }
   
   xo-carousel:has(.vastu-best-seller__pagination),
