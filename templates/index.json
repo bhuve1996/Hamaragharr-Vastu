@@ -267,8 +267,8 @@
         "separator_padding_bottom": 0,
         "card_title_font_size": 1.5,
         "card_price_font_size": 1.2,
-        "card_content_padding_top": 1.25,
-        "card_content_padding_bottom": 1.25,
+        "card_content_padding_top": 1.3,
+        "card_content_padding_bottom": 1.3,
         "badge_font_size": 0.9,
         "badge_padding_horizontal": 12,
         "badge_padding_vertical": 6,
@@ -287,67 +287,6 @@
         "background_color": "#473855",
         "padding_top": 40,
         "padding_bottom": 40
-      }
-    },
-    "vastu-trust-bar": {
-      "type": "vastu-trust-bar",
-      "blocks": {
-        "trust_1": {
-          "type": "trust_item",
-          "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M226.5 92.9c14.7 22.7 39.5 35.1 65.5 35.1s50.8-12.4 65.5-35.1c7.1-10.9 20.5-14.6 31.4-7.5s14.6 20.5 7.5 31.4C350.8 174.8 317.7 192 282 192c-2.3 0-4.6-.1-6.9-.4l-46.2 46.2c12.2 6.2 23.1 14.8 32.1 25.1l41.4-41.4c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6l-48 48c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l9.4-9.4c-5.5-12.6-13.8-23.7-24.2-32.9L184 278.6c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l48-48c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6l-9.4 9.4c10.4 9.2 18.7 20.3 24.2 32.9l-9.4 9.4c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l48-48c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0l-41.4 41.4c-10.3-9-21.2-17.6-33.4-23.8l46.2-46.2c-.3-2.2-.4-4.5-.4-6.9c0-35.7 17.2-68.8 46.2-89.1c-10.9-7.1-14.6-20.5-7.5-31.4s20.5-14.6 31.4-7.5zM64 128c-8.8 0-16 7.2-16 16V352c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V144c0-8.8-7.2-16-16-16H64zM48 352V144c0-26.5 21.5-48 48-48H448c26.5 0 48 21.5 48 48V352c0 26.5-21.5 48-48 48H96c-26.5 0-48-21.5-48-48z\"></path></svg>",
-            "text": "Personalized your product"
-          }
-        },
-        "trust_2": {
-          "type": "trust_item",
-          "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z\"></path></svg>",
-            "text": "100% satisfaction Guaranteed"
-          }
-        },
-        "trust_3": {
-          "type": "trust_item",
-          "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 576 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm48 112a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm-64 48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zM176 384a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM48 224H192V384H48V224zM448 224H512V384H448V224z\"></path></svg>",
-            "text": "100% secure payment"
-          }
-        },
-        "trust_4": {
-          "type": "trust_item",
-          "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M112 0C85.5 0 64 21.5 64 48V96H16c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 272c0 17.7 14.3 32 32 32h96c17.7 0 32-14.3 32-32h208c8.8 0 16-7.2 16-16s-7.2-16-16-16H384V48c0-26.5-21.5-48-48-48H112zM544 128H96c-35.3 0-64 28.7-64 64V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64zM208 352c-8.8 0-16-7.2-16-16s7.2-16 16-16h96c8.8 0 16 7.2 16 16s-7.2 16-16 16H208zm96-128c-8.8 0-16-7.2-16-16s7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H304z\"></path></svg>",
-            "text": "Easy shipping and return policy"
-          }
-        },
-        "trust_5": {
-          "type": "trust_item",
-          "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M392.8 1.2c-17-7.9-38-1.5-46.1 15.6L320 96H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H322.9l-46.4 92.7c-8.1 16.1-1.5 38 15.6 46.1s38 1.5 46.1-15.6L416 196.2V288H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32-14.3-32-32V224c0-10.1 4.7-19.6 12.8-25.6l64-48c8.1-6 18.4-7.4 27.6-3.6s16.1 12.5 18 22.3l32 160c2.9 14.4-5.8 28.7-20.2 31.6s-28.7-5.8-31.6-20.2L442 283.8l-46 34.5V288 416c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V352H96c-17.7 0-32-14.3-32-32s14.3-32 32-32h96V288H80c-17.7 0-32-14.3-32-32s14.3-32 32-32H192V160H48C21.5 160 0 181.5 0 208v96 48V464c0 26.5 21.5 48 48 48H592c26.5 0 48-21.5 48-48V352 304 208c0-26.5-21.5-48-48-48H512c-17.7 0-32 14.3-32 32v16.7l-28.1-84.4c-3.9-11.7-13.2-21-25.1-24.6l-34.1-8.5zM560 240a16 16 0 1 1 0 32 16 16 0 1 1 0-32z\"></path></svg>",
-            "text": "Made in India"
-          }
-        }
-      },
-      "block_order": [
-        "trust_1",
-        "trust_2",
-        "trust_3",
-        "trust_4",
-        "trust_5"
-      ],
-      "settings": {
-        "width": "box",
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "#f5f5f5",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "enable_separator": false,
-        "separator_color": "#473855",
-        "separator_height": 2,
-        "separator_width": 10,
-        "separator_padding_top": 0,
-        "separator_padding_bottom": 0
       }
     },
     "vastu-featured-products": {
@@ -427,8 +366,8 @@
         "separator_padding_bottom": 0,
         "card_title_font_size": 1.5,
         "card_price_font_size": 1.2,
-        "card_content_padding_top": 1.25,
-        "card_content_padding_bottom": 1.25,
+        "card_content_padding_top": 1.3,
+        "card_content_padding_bottom": 1.3,
         "badge_font_size": 0.9,
         "badge_padding_horizontal": 12,
         "badge_padding_vertical": 6,
@@ -544,36 +483,107 @@
         "separator_padding_bottom": 0
       }
     },
+    "vastu-trust-bar": {
+      "type": "vastu-trust-bar",
+      "blocks": {
+        "trust_1": {
+          "type": "trust_item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M226.5 92.9c14.7 22.7 39.5 35.1 65.5 35.1s50.8-12.4 65.5-35.1c7.1-10.9 20.5-14.6 31.4-7.5s14.6 20.5 7.5 31.4C350.8 174.8 317.7 192 282 192c-2.3 0-4.6-.1-6.9-.4l-46.2 46.2c12.2 6.2 23.1 14.8 32.1 25.1l41.4-41.4c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6l-48 48c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l9.4-9.4c-5.5-12.6-13.8-23.7-24.2-32.9L184 278.6c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l48-48c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6l-9.4 9.4c10.4 9.2 18.7 20.3 24.2 32.9l-9.4 9.4c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l48-48c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0l-41.4 41.4c-10.3-9-21.2-17.6-33.4-23.8l46.2-46.2c-.3-2.2-.4-4.5-.4-6.9c0-35.7 17.2-68.8 46.2-89.1c-10.9-7.1-14.6-20.5-7.5-31.4s20.5-14.6 31.4-7.5zM64 128c-8.8 0-16 7.2-16 16V352c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V144c0-8.8-7.2-16-16-16H64zM48 352V144c0-26.5 21.5-48 48-48H448c26.5 0 48 21.5 48 48V352c0 26.5-21.5 48-48 48H96c-26.5 0-48-21.5-48-48z\"></path></svg>",
+            "text": "Personalized your product"
+          }
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z\"></path></svg>",
+            "text": "100% satisfaction Guaranteed"
+          }
+        },
+        "trust_3": {
+          "type": "trust_item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 576 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm48 112a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm-64 48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zM176 384a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM48 224H192V384H48V224zM448 224H512V384H448V224z\"></path></svg>",
+            "text": "100% secure payment"
+          }
+        },
+        "trust_4": {
+          "type": "trust_item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M112 0C85.5 0 64 21.5 64 48V96H16c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 272c0 17.7 14.3 32 32 32h96c17.7 0 32-14.3 32-32h208c8.8 0 16-7.2 16-16s-7.2-16-16-16H384V48c0-26.5-21.5-48-48-48H112zM544 128H96c-35.3 0-64 28.7-64 64V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64zM208 352c-8.8 0-16-7.2-16-16s7.2-16 16-16h96c8.8 0 16 7.2 16 16s-7.2 16-16 16H208zm96-128c-8.8 0-16-7.2-16-16s7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H304z\"></path></svg>",
+            "text": "Easy shipping and return policy"
+          }
+        },
+        "trust_5": {
+          "type": "trust_item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M392.8 1.2c-17-7.9-38-1.5-46.1 15.6L320 96H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H322.9l-46.4 92.7c-8.1 16.1-1.5 38 15.6 46.1s38 1.5 46.1-15.6L416 196.2V288H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32-14.3-32-32V224c0-10.1 4.7-19.6 12.8-25.6l64-48c8.1-6 18.4-7.4 27.6-3.6s16.1 12.5 18 22.3l32 160c2.9 14.4-5.8 28.7-20.2 31.6s-28.7-5.8-31.6-20.2L442 283.8l-46 34.5V288 416c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V352H96c-17.7 0-32-14.3-32-32s14.3-32 32-32h96V288H80c-17.7 0-32-14.3-32-32s14.3-32 32-32H192V160H48C21.5 160 0 181.5 0 208v96 48V464c0 26.5 21.5 48 48 48H592c26.5 0 48-21.5 48-48V352 304 208c0-26.5-21.5-48-48-48H512c-17.7 0-32 14.3-32 32v16.7l-28.1-84.4c-3.9-11.7-13.2-21-25.1-24.6l-34.1-8.5zM560 240a16 16 0 1 1 0 32 16 16 0 1 1 0-32z\"></path></svg>",
+            "text": "Made in India"
+          }
+        }
+      },
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4",
+        "trust_5"
+      ],
+      "settings": {
+        "width": "box",
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#f5f5f5",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "enable_separator": false,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "separator_padding_top": 0,
+        "separator_padding_bottom": 0
+      }
+    },
     "vastu-features-bar": {
       "type": "vastu-features-bar",
       "blocks": {
         "feature_1": {
           "type": "vastu_feature_item",
           "settings": {
-            "text": "Camera Pouch"
+            "icon": "shopify://shop_images/freepik__35mm-film-photography-personalize-your-product-bes__59442.png",
+            "icon_svg": "",
+            "text": "Personalized your product"
           }
         },
         "feature_2": {
           "type": "vastu_feature_item",
           "settings": {
+            "icon": "shopify://shop_images/freepik__100-secure-payments-icon-glossy-shield-sticker-vib__59445.png",
+            "icon_svg": "",
             "text": "Secure Payment"
           }
         },
         "feature_3": {
           "type": "vastu_feature_item",
           "settings": {
+            "icon": "shopify://shop_images/freepik__the-style-is-candid-image-photography-with-natural__59444.png",
+            "icon_svg": "",
             "text": "Easy Shipping & Returns"
           }
         },
         "feature_4": {
           "type": "vastu_feature_item",
           "settings": {
+            "icon": "shopify://shop_images/freepik__100-customer-satisfaction-cool-icon-glossy-ribbon-__59446.png",
+            "icon_svg": "",
             "text": "100% Customer Satisfaction"
           }
         },
         "feature_5": {
           "type": "vastu_feature_item",
           "settings": {
+            "icon": "shopify://shop_images/freepik__the-style-is-candid-image-photography-with-natural__59443.png",
+            "icon_svg": "",
             "text": "Proudly Made in India"
           }
         }
