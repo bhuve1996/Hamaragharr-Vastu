@@ -1,5 +1,4 @@
 
-
 {% comment %} Add padding bottom for toolbar mobile {% endcomment %}
 {% liquid
   assign placeholder = 'newsletter.email' | t
@@ -13,20 +12,102 @@
 
 {% comment %} Sticky add cart is hidden when reach here {% endcomment %}
 <xo-sticky-hidden xo-name='sticky-addcart'></xo-sticky-hidden>
-<footer {% render 'section-attr', style: pb_mobile %}>
+<footer {% render 'section-attr', style: pb_mobile %} class='footer-modern'>
   {% render 'section-bg-image' %}
-  <div class='footer-v25__top'>
-    <xo-container>
-      <div class='footer-v25__top-content'>
+  
+  {% comment %} Main Footer Content - 3 Column Layout {% endcomment %}
+  <xo-container {% render 'section-layout' %}>
+    <xo-grid style='--xs: 1; --sm: 2; --lg: 3' class='footer-modern__columns'>
+      
+      {% comment %} Column 1 - Information {% endcomment %}
+      <div class='footer-modern__column'>
         <xo-animate xo-cascade>
-          <h2 class='footer-v25__title'>{{ section.settings.title }}</h2>
+          <h3 class='footer-modern__heading'>{{ section.settings.info_heading | default: 'Information' }}</h3>
+          {%- if section.settings.info_menu != blank -%}
+            <ul role='list' class='footer-modern__list list-unstyled'>
+              {%- for link in section.settings.info_menu.links -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ link.url }}' class='footer-modern__link'>
+                    {{ link.title | escape }}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- else -%}
+            <ul role='list' class='footer-modern__list list-unstyled'>
+              <li class='footer-modern__list-item'>
+                <a href='/pages/privacy-policy' class='footer-modern__link'>Privacy Policy</a>
+              </li>
+              <li class='footer-modern__list-item'>
+                <a href='/pages/terms-conditions' class='footer-modern__link'>Terms & Conditions</a>
+              </li>
+              <li class='footer-modern__list-item'>
+                <a href='/pages/return-refund-policy' class='footer-modern__link'>Return & Refund Policy</a>
+              </li>
+              <li class='footer-modern__list-item'>
+                <a href='/pages/delivery-information' class='footer-modern__link'>Delivery Information</a>
+              </li>
+              <li class='footer-modern__list-item'>
+                <a href='/pages/contact-us' class='footer-modern__link'>Contact Us</a>
+              </li>
+              <li class='footer-modern__list-item'>
+                <a href='{{ section.settings.amazon_link }}' class='footer-modern__link' {% if section.settings.amazon_link != blank %}target='_blank'{% endif %}>Shop on Amazon</a>
+              </li>
+            </ul>
+          {%- endif -%}
         </xo-animate>
-        <xo-animate xo-cascade class='footer-v25__description'>{{ section.settings.description }}</xo-animate>
+      </div>
+
+      {% comment %} Column 2 - Customer Support {% endcomment %}
+      <div class='footer-modern__column'>
+        <xo-animate xo-cascade>
+          <h3 class='footer-modern__heading'>{{ section.settings.support_heading | default: 'Customer Support' }}</h3>
+          {%- if section.settings.support_menu != blank -%}
+            <ul role='list' class='footer-modern__list list-unstyled'>
+              {%- for link in section.settings.support_menu.links -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ link.url }}' class='footer-modern__link'>
+                    {{ link.title | escape }}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- else -%}
+            <ul role='list' class='footer-modern__list list-unstyled'>
+              <li class='footer-modern__list-item'>
+                <a href='/pages/faq' class='footer-modern__link'>FAQ</a>
+              </li>
+              <li class='footer-modern__list-item'>
+                <a href='{{ routes.account_url }}' class='footer-modern__link'>My Account</a>
+              </li>
+              <li class='footer-modern__list-item'>
+                <a href='{{ routes.blogs_url }}' class='footer-modern__link'>Blog</a>
+              </li>
+              <li class='footer-modern__list-item'>
+                <a href='/pages/how-to-order' class='footer-modern__link'>How to Order</a>
+              </li>
+              <li class='footer-modern__list-item'>
+                <a href='/pages/track-order' class='footer-modern__link'>Track Order</a>
+              </li>
+              <li class='footer-modern__list-item'>
+                <a href='{{ section.settings.payment_link }}' class='footer-modern__link' {% if section.settings.payment_link != blank %}target='_blank'{% endif %}>Payment Link</a>
+              </li>
+            </ul>
+          {%- endif -%}
+        </xo-animate>
+      </div>
+
+      {% comment %} Column 3 - Newsletter Subscription {% endcomment %}
+      <div class='footer-modern__column footer-modern__column--newsletter'>
+        <xo-animate xo-cascade>
         {%- if section.settings.newsletter_enable -%}
-          <xo-animate xo-cascade>
+            <h3 class='footer-modern__heading'>{{ section.settings.newsletter_heading | default: 'Subscribe to our emails' }}</h3>
+            {%- if section.settings.newsletter_description != blank -%}
+              <p class='footer-modern__newsletter-description'>{{ section.settings.newsletter_description }}</p>
+            {%- endif -%}
             {%- form 'customer', id: 'ContactFooter' -%}
               <input type='hidden' name='contact[tags]' value='newsletter'>
-              <div class='footer-v25__input-btn'>
+              <div class='footer-modern__newsletter-form'>
                 {% assign value = form.email %}
                 {% capture attr %}
                       aria-required='true'
@@ -40,79 +121,118 @@
                       {% endif %}
                       required
                     {% endcapture %}
-                {% render 'field-input', type: 'email', name: 'contact[email]', value: value, label: placeholder, attr: attr %}
+                <input
+                  type='email'
+                  name='contact[email]'
+                  value='{{ value }}'
+                  placeholder='{{ placeholder | default: "Email" }}'
+                  class='footer-modern__newsletter-input'
+                  {{ attr }}
+                >
                 <button
                   type='submit'
-                  class='footer-v25__email-button'
+                  class='footer-modern__newsletter-button'
                   name='commit'
                   id='Subscribe'
-                  aria-label='{{ 'newsletter.button_label' | t }}'
+                  aria-label='{{ "newsletter.button_label" | t }}'
                 >
-                  <span class='footer-v25__text-before'>
-                    {{ 'newsletter.submit' | t }}
-                  </span>
-                  <span class='footer-v25__text-after'>
-                    {{ 'newsletter.submit' | t }}
-                  </span>
+                  {{ section.settings.newsletter_button_text | default: 'Sign up' }}
                 </button>
               </div>
               {% render 'newsletter-form-message', form: form %}
             {%- endform -%}
-          </xo-animate>
-        {%- endif -%}
-      </div>
-    </xo-container>
-  </div>
-  <xo-container {% render 'section-layout' %}>
-    <xo-grid style='--xs: 1; --lg: 3' class='footer-v25__bottom'>
-      <div class='footer-v25__left'>
-        <div class='footer-v25__copyright'>
-          {% if section.settings.copyright != blank %}
-            {{- section.settings.copyright -}}
-          {% else %}
-            <small class='footer-v25__copyright-content'>&copy; Copyright {{ 'now' | date: '%Y' }} | {{ shop.name | escape | link_to: routes.root_url -}}</small>
-            <small class='footer-v25__copyright-content'> By <a class='footer-v25__copyright-shopilaunch' href='https://shopilaunch.com/'> ShopiLaunch.</a> </small>
-            <small class='footer-v25__copyright-content footer-v25__copyright-content--black'>{{ powered_by_link }}.</small>
-          {% endif %}
-        </div>
-      </div>
-      <div class='footer-v25__center'>
-        <div class='footer-v25__menu-list'>
-          {%- if section.settings.menu != blank -%}
-            <ul role='list' class='list-unstyled footer-v25__list'>
-              {%- for link in section.settings.menu.links -%}
-                <li class='footer-v25__list-item'>
-                  <a
-                    href='{{ link.url }}'
-                  >
-                    {{ link.title | escape }}
-                  </a>
-                </li>
-              {%- endfor -%}
-            </ul>
           {%- endif -%}
-        </div>
+        </xo-animate>
       </div>
-      <div class='footer-v25__right'>
-        {%- if section.settings.show_social -%}
-          <ul role='list' class='footer-v25__social list-unstyled'>
-            <li>
-              <a href='{{section.settings.social_link1}}' class='footer-v25__social-link' target='_blank'>{{ section.settings.social_icon1 }}</a>
-            </li>
-            <li>
-              <a href='{{section.settings.social_link2}}' class='footer-v25__social-link' target='_blank'>{{ section.settings.social_icon2 }}</a>
-            </li>
-            <li>
-              <a href='{{section.settings.social_link3}}' class='footer-v25__social-link' target='_blank'>{{ section.settings.social_icon3 }}</a>
-            </li>
-            <li>
-              <a href='{{section.settings.social_link4}}' class='footer-v25__social-link' target='_blank'>{{ section.settings.social_icon4 }}</a>
-            </li>
-          </ul>
-        {%- endif -%}
-      </div>
+
     </xo-grid>
   </xo-container>
+
+  {% comment %} Bottom Section - Social Media & Payment Icons {% endcomment %}
+  <div class='footer-modern__bottom'>
+    <xo-container>
+      <div class='footer-modern__bottom-content'>
+        
+        {% comment %} Social Media Icons {% endcomment %}
+        {%- if section.settings.show_social -%}
+          <div class='footer-modern__social'>
+            {%- if section.settings.social_facebook_link != blank -%}
+              <a href='{{ section.settings.social_facebook_link }}' target='_blank' class='footer-modern__social-link' aria-label='Facebook'>
+                {% render 'icon', name: 'facebook2', icon_size: '20' %}
+              </a>
+            {%- endif -%}
+            {%- if section.settings.social_instagram_link != blank -%}
+              <a href='{{ section.settings.social_instagram_link }}' target='_blank' class='footer-modern__social-link' aria-label='Instagram'>
+                {% render 'icon', name: 'instagram', icon_size: '20' %}
+              </a>
+            {%- endif -%}
+            {%- if section.settings.social_youtube_link != blank -%}
+              <a href='{{ section.settings.social_youtube_link }}' target='_blank' class='footer-modern__social-link' aria-label='YouTube'>
+                {% render 'icon', name: 'youtube', icon_size: '20' %}
+              </a>
+            {%- endif -%}
+            {%- if section.settings.social_twitter_link != blank -%}
+              <a href='{{ section.settings.social_twitter_link }}' target='_blank' class='footer-modern__social-link' aria-label='Twitter'>
+                {% render 'icon', name: 'twitter2', icon_size: '20' %}
+              </a>
+            {%- endif -%}
+            {%- if section.settings.social_pinterest_link != blank -%}
+              <a href='{{ section.settings.social_pinterest_link }}' target='_blank' class='footer-modern__social-link' aria-label='Pinterest'>
+                {% render 'icon', name: 'pinterest2', icon_size: '20' %}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {% comment %} Payment Method Icons {% endcomment %}
+        {%- if section.settings.show_payment_icons -%}
+          <div class='footer-modern__payment'>
+            {%- if section.settings.payment_visa -%}
+              <span class='footer-modern__payment-icon' aria-label='Visa'>Visa</span>
+            {%- endif -%}
+            {%- if section.settings.payment_mastercard -%}
+              <span class='footer-modern__payment-icon' aria-label='Mastercard'>Mastercard</span>
+            {%- endif -%}
+            {%- if section.settings.payment_gpay -%}
+              <span class='footer-modern__payment-icon' aria-label='Google Pay'>GPay</span>
+            {%- endif -%}
+            {%- if section.settings.payment_paytm -%}
+              <span class='footer-modern__payment-icon' aria-label='Paytm'>Paytm</span>
+            {%- endif -%}
+            {%- if section.settings.payment_upi -%}
+              <span class='footer-modern__payment-icon' aria-label='UPI'>UPI</span>
+            {%- endif -%}
+            {%- if section.settings.payment_amazon_pay -%}
+              <span class='footer-modern__payment-icon' aria-label='Amazon Pay'>Amazon Pay</span>
+            {%- endif -%}
+            {%- if section.settings.payment_image != blank -%}
+              <img
+                src='{{ section.settings.payment_image | image_url: width: 400 }}'
+                alt='Payment methods'
+                class='footer-modern__payment-image'
+                loading='lazy'
+                width='400'
+                height='auto'
+              >
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {% comment %} Copyright {% endcomment %}
+        {%- if section.settings.copyright != blank -%}
+          <div class='footer-modern__copyright'>
+            {{ section.settings.copyright }}
+          </div>
+        {%- else -%}
+          <div class='footer-modern__copyright'>
+            <small>&copy; Copyright {{ 'now' | date: '%Y' }} | {{ shop.name | escape | link_to: routes.root_url }}</small>
+            <small>{{ powered_by_link }}</small>
+          </div>
+        {%- endif -%}
+
+      </div>
+  </xo-container>
+  </div>
 </footer>
 
 {% schema %}
@@ -148,16 +268,52 @@
       "visible_if": "{{ section.settings.width == 'fullwidth' }}"
     },
     {
-      "type": "text",
-      "id": "title",
-      "label": "t:sections.footer.settings.title.label",
-      "default": "Our Newsletter"
+      "type": "header",
+      "content": "Column 1 - Information"
     },
     {
       "type": "text",
-      "id": "description",
-      "label": "t:sections.footer.settings.description.label",
-      "default": "Join our list and get 15% off your first purchase! Don’t worry we don’t spam"
+      "id": "info_heading",
+      "label": "Information Column Heading",
+      "default": "Information"
+    },
+    {
+      "type": "link_list",
+      "id": "info_menu",
+      "label": "Information Menu",
+      "info": "If no menu is selected, default links will be shown"
+    },
+    {
+      "type": "url",
+      "id": "amazon_link",
+      "label": "Shop on Amazon Link",
+      "info": "Link to your Amazon store"
+    },
+    {
+      "type": "header",
+      "content": "Column 2 - Customer Support"
+    },
+    {
+      "type": "text",
+      "id": "support_heading",
+      "label": "Support Column Heading",
+      "default": "Customer Support"
+    },
+    {
+      "type": "link_list",
+      "id": "support_menu",
+      "label": "Support Menu",
+      "info": "If no menu is selected, default links will be shown"
+    },
+    {
+      "type": "url",
+      "id": "payment_link",
+      "label": "Payment Link",
+      "info": "Link to payment page"
+    },
+    {
+      "type": "header",
+      "content": "Column 3 - Newsletter"
     },
     {
       "type": "checkbox",
@@ -166,15 +322,27 @@
       "label": "t:sections.footer.settings.newsletter_enable.label"
     },
     {
-      "type": "liquid",
-      "id": "copyright",
-      "label": "t:sections.footer.settings.copyright.label",
-      "default": " © Copyright {{ 'now' | date: '%Y' }} | <a href='http://engotheme.com' rel='nofollow' target='_blank' class='footer-v25__theme-name'>Engo-theme</a> By <a href='https://shopilaunch.com/' rel='nofollow' target='_blank' class='footer-v25__shop-name'> ShopiLaunch.</a><a href='https://shopify.pxf.io/9gPaY0' rel='nofollow' target='_blank' class='footer-v25__powered-shopify'> Powered by Shopify.</a>"
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter Heading",
+      "default": "Subscribe to our emails"
     },
     {
-      "type": "link_list",
-      "id": "menu",
-      "label": "t:sections.footer.settings.menu.label"
+      "type": "textarea",
+      "id": "newsletter_description",
+      "label": "Newsletter Description",
+      "default": "Get exclusive offers and updates delivered to your inbox.",
+      "info": "Short helper text for offers & updates"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button_text",
+      "label": "Newsletter Button Text",
+      "default": "Sign up"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Section"
     },
     {
       "type": "checkbox",
@@ -183,52 +351,83 @@
       "label": "t:sections.footer.settings.show_social.label"
     },
     {
-      "type": "html",
-      "id": "social_icon1",
-      "label": "t:sections.footer.settings.social_icon1.label",
-      "default": "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 150 150\" style=\"enable-background:new 0 0 150 150;\" height=\"1em\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\">\n  <g>\n   <path d=\"M131.95,12.84c-5.03,5.87-10.06,11.74-15.1,17.6c-9.93,11.54-19.88,23.07-29.81,34.6c-0.11,0.12-0.2,0.25-0.37,0.47\n     c16.38,23.8,32.77,47.61,49.27,71.57c-0.51,0.03-0.84,0.07-1.18,0.07c-11.35,0-22.7-0.01-34.06,0.02c-0.78,0-1.22-0.24-1.67-0.89\n     c-10.58-15.41-21.18-30.79-31.78-46.18c-0.25-0.36-0.51-0.71-0.82-1.14c-2.93,3.39-5.79,6.7-8.64,10.01\n     c-10.7,12.42-21.41,24.84-32.09,37.28c-0.59,0.68-1.18,0.94-2.07,0.92c-3.07-0.05-6.15-0.02-9.54-0.02\n     c15.95-18.51,31.74-36.82,47.57-55.19c-2.56-3.72-5.09-7.41-7.63-11.1C40.93,51.86,27.85,32.87,14.78,13.88\n     c-0.22-0.33-0.38-0.7-0.57-1.04c12.08,0,24.16,0,36.25,0c0.08,0.14,0.15,0.28,0.24,0.42c10.22,14.85,20.44,29.71,30.67,44.56\n     c0.13,0.19,0.29,0.36,0.5,0.6c0.35-0.38,0.66-0.68,0.94-1.01c11.76-13.64,23.51-27.27,35.26-40.92c1.02-1.18,1.96-2.43,2.94-3.64\n     C124.65,12.84,128.3,12.84,131.95,12.84z M121.13,129.4c-0.24-0.4-0.34-0.58-0.45-0.74C95.71,93.01,70.74,57.36,45.74,21.73\n     c-0.3-0.43-1.04-0.77-1.58-0.77c-4.78-0.06-9.57-0.04-14.35-0.03c-0.26,0-0.53,0.03-0.99,0.06c0.4,0.59,0.68,1.02,0.97,1.44\n     c8.98,12.82,17.97,25.65,26.95,38.47c15.78,22.53,31.57,45.06,47.33,67.61c0.48,0.68,0.97,0.93,1.78,0.92\n     c4.66-0.04,9.32-0.02,13.99-0.02C120.2,129.4,120.55,129.4,121.13,129.4\"></path>\n  </g>\n</svg>"
+      "type": "url",
+      "id": "social_facebook_link",
+      "label": "Facebook Link"
     },
     {
       "type": "url",
-      "id": "social_link1",
-      "label": "t:sections.footer.settings.social_link1.label",
-      "default": "/collections/all"
-    },
-    {
-      "type": "html",
-      "id": "social_icon2",
-      "label": "t:sections.footer.settings.social_icon2.label",
-      "default": "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 150 150\" style=\"enable-background:new 0 0 150 150;\" height=\"1em\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\">\n  <g>\n   <path d=\"M131.95,12.84c-5.03,5.87-10.06,11.74-15.1,17.6c-9.93,11.54-19.88,23.07-29.81,34.6c-0.11,0.12-0.2,0.25-0.37,0.47\n     c16.38,23.8,32.77,47.61,49.27,71.57c-0.51,0.03-0.84,0.07-1.18,0.07c-11.35,0-22.7-0.01-34.06,0.02c-0.78,0-1.22-0.24-1.67-0.89\n     c-10.58-15.41-21.18-30.79-31.78-46.18c-0.25-0.36-0.51-0.71-0.82-1.14c-2.93,3.39-5.79,6.7-8.64,10.01\n     c-10.7,12.42-21.41,24.84-32.09,37.28c-0.59,0.68-1.18,0.94-2.07,0.92c-3.07-0.05-6.15-0.02-9.54-0.02\n     c15.95-18.51,31.74-36.82,47.57-55.19c-2.56-3.72-5.09-7.41-7.63-11.1C40.93,51.86,27.85,32.87,14.78,13.88\n     c-0.22-0.33-0.38-0.7-0.57-1.04c12.08,0,24.16,0,36.25,0c0.08,0.14,0.15,0.28,0.24,0.42c10.22,14.85,20.44,29.71,30.67,44.56\n     c0.13,0.19,0.29,0.36,0.5,0.6c0.35-0.38,0.66-0.68,0.94-1.01c11.76-13.64,23.51-27.27,35.26-40.92c1.02-1.18,1.96-2.43,2.94-3.64\n     C124.65,12.84,128.3,12.84,131.95,12.84z M121.13,129.4c-0.24-0.4-0.34-0.58-0.45-0.74C95.71,93.01,70.74,57.36,45.74,21.73\n     c-0.3-0.43-1.04-0.77-1.58-0.77c-4.78-0.06-9.57-0.04-14.35-0.03c-0.26,0-0.53,0.03-0.99,0.06c0.4,0.59,0.68,1.02,0.97,1.44\n     c8.98,12.82,17.97,25.65,26.95,38.47c15.78,22.53,31.57,45.06,47.33,67.61c0.48,0.68,0.97,0.93,1.78,0.92\n     c4.66-0.04,9.32-0.02,13.99-0.02C120.2,129.4,120.55,129.4,121.13,129.4\"></path>\n  </g>\n</svg>"
+      "id": "social_instagram_link",
+      "label": "Instagram Link"
     },
     {
       "type": "url",
-      "id": "social_link2",
-      "label": "t:sections.footer.settings.social_link2.label",
-      "default": "/collections/all"
-    },
-    {
-      "type": "html",
-      "id": "social_icon3",
-      "label": "t:sections.footer.settings.social_icon3.label",
-      "default": "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 150 150\" style=\"enable-background:new 0 0 150 150;\" height=\"1em\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\">\n  <g>\n   <path d=\"M131.95,12.84c-5.03,5.87-10.06,11.74-15.1,17.6c-9.93,11.54-19.88,23.07-29.81,34.6c-0.11,0.12-0.2,0.25-0.37,0.47\n     c16.38,23.8,32.77,47.61,49.27,71.57c-0.51,0.03-0.84,0.07-1.18,0.07c-11.35,0-22.7-0.01-34.06,0.02c-0.78,0-1.22-0.24-1.67-0.89\n     c-10.58-15.41-21.18-30.79-31.78-46.18c-0.25-0.36-0.51-0.71-0.82-1.14c-2.93,3.39-5.79,6.7-8.64,10.01\n     c-10.7,12.42-21.41,24.84-32.09,37.28c-0.59,0.68-1.18,0.94-2.07,0.92c-3.07-0.05-6.15-0.02-9.54-0.02\n     c15.95-18.51,31.74-36.82,47.57-55.19c-2.56-3.72-5.09-7.41-7.63-11.1C40.93,51.86,27.85,32.87,14.78,13.88\n     c-0.22-0.33-0.38-0.7-0.57-1.04c12.08,0,24.16,0,36.25,0c0.08,0.14,0.15,0.28,0.24,0.42c10.22,14.85,20.44,29.71,30.67,44.56\n     c0.13,0.19,0.29,0.36,0.5,0.6c0.35-0.38,0.66-0.68,0.94-1.01c11.76-13.64,23.51-27.27,35.26-40.92c1.02-1.18,1.96-2.43,2.94-3.64\n     C124.65,12.84,128.3,12.84,131.95,12.84z M121.13,129.4c-0.24-0.4-0.34-0.58-0.45-0.74C95.71,93.01,70.74,57.36,45.74,21.73\n     c-0.3-0.43-1.04-0.77-1.58-0.77c-4.78-0.06-9.57-0.04-14.35-0.03c-0.26,0-0.53,0.03-0.99,0.06c0.4,0.59,0.68,1.02,0.97,1.44\n     c8.98,12.82,17.97,25.65,26.95,38.47c15.78,22.53,31.57,45.06,47.33,67.61c0.48,0.68,0.97,0.93,1.78,0.92\n     c4.66-0.04,9.32-0.02,13.99-0.02C120.2,129.4,120.55,129.4,121.13,129.4\"></path>\n  </g>\n</svg>"
+      "id": "social_youtube_link",
+      "label": "YouTube Link"
     },
     {
       "type": "url",
-      "id": "social_link3",
-      "label": "t:sections.footer.settings.social_link3.label",
-      "default": "/collections/all"
-    },
-    {
-      "type": "html",
-      "id": "social_icon4",
-      "label": "t:sections.footer.settings.social_icon4.label",
-      "default": "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 150 150\" style=\"enable-background:new 0 0 150 150;\" height=\"1em\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\">\n  <g>\n   <path d=\"M131.95,12.84c-5.03,5.87-10.06,11.74-15.1,17.6c-9.93,11.54-19.88,23.07-29.81,34.6c-0.11,0.12-0.2,0.25-0.37,0.47\n     c16.38,23.8,32.77,47.61,49.27,71.57c-0.51,0.03-0.84,0.07-1.18,0.07c-11.35,0-22.7-0.01-34.06,0.02c-0.78,0-1.22-0.24-1.67-0.89\n     c-10.58-15.41-21.18-30.79-31.78-46.18c-0.25-0.36-0.51-0.71-0.82-1.14c-2.93,3.39-5.79,6.7-8.64,10.01\n     c-10.7,12.42-21.41,24.84-32.09,37.28c-0.59,0.68-1.18,0.94-2.07,0.92c-3.07-0.05-6.15-0.02-9.54-0.02\n     c15.95-18.51,31.74-36.82,47.57-55.19c-2.56-3.72-5.09-7.41-7.63-11.1C40.93,51.86,27.85,32.87,14.78,13.88\n     c-0.22-0.33-0.38-0.7-0.57-1.04c12.08,0,24.16,0,36.25,0c0.08,0.14,0.15,0.28,0.24,0.42c10.22,14.85,20.44,29.71,30.67,44.56\n     c0.13,0.19,0.29,0.36,0.5,0.6c0.35-0.38,0.66-0.68,0.94-1.01c11.76-13.64,23.51-27.27,35.26-40.92c1.02-1.18,1.96-2.43,2.94-3.64\n     C124.65,12.84,128.3,12.84,131.95,12.84z M121.13,129.4c-0.24-0.4-0.34-0.58-0.45-0.74C95.71,93.01,70.74,57.36,45.74,21.73\n     c-0.3-0.43-1.04-0.77-1.58-0.77c-4.78-0.06-9.57-0.04-14.35-0.03c-0.26,0-0.53,0.03-0.99,0.06c0.4,0.59,0.68,1.02,0.97,1.44\n     c8.98,12.82,17.97,25.65,26.95,38.47c15.78,22.53,31.57,45.06,47.33,67.61c0.48,0.68,0.97,0.93,1.78,0.92\n     c4.66-0.04,9.32-0.02,13.99-0.02C120.2,129.4,120.55,129.4,121.13,129.4\"></path>\n  </g>\n</svg>"
+      "id": "social_twitter_link",
+      "label": "Twitter/X Link"
     },
     {
       "type": "url",
-      "id": "social_link4",
-      "label": "t:sections.footer.settings.social_link4.label",
-      "default": "/collections/all"
+      "id": "social_pinterest_link",
+      "label": "Pinterest Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "default": true,
+      "label": "Show Payment Icons"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_visa",
+      "default": true,
+      "label": "Show Visa"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_mastercard",
+      "default": true,
+      "label": "Show Mastercard"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_gpay",
+      "default": true,
+      "label": "Show Google Pay"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_paytm",
+      "default": true,
+      "label": "Show Paytm"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_upi",
+      "default": true,
+      "label": "Show UPI"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_amazon_pay",
+      "default": true,
+      "label": "Show Amazon Pay"
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_image",
+      "label": "Payment Methods Image",
+      "info": "Alternative: Upload a single image with all payment icons instead of individual checkboxes"
+    },
+    {
+      "type": "liquid",
+      "id": "copyright",
+      "label": "t:sections.footer.settings.copyright.label",
+      "default": "© Copyright {{ 'now' | date: '%Y' }} | <a href='/' style='color: inherit; text-decoration: underline;'>{{ shop.name }}</a> | Powered by Shopify."
     },
     {
       "type": "header",
@@ -381,7 +580,7 @@
         },
         {
           "value": "fade",
-          "label": "t:sections.all.animation.option__1.label"
+          "label": "t:sections.all.animation.option__2.label"
         },
         {
           "value": "fade-up",
