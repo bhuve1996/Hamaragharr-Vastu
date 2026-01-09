@@ -8,13 +8,13 @@
 }
 
 .vastu-hindi-statement__text {
-  font-size: 1.15em !important;
-  text-align: center !important;
+  font-size: 1.15em;
+  text-align: center;
   margin: 0 auto;
 }
 
 .vastu-hindi-statement__subtext {
-  text-align: center !important;
+  text-align: center;
   margin: 0.5rem auto 0;
 }
 
@@ -72,14 +72,14 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  z-index: 10 !important;
+  z-index: 10;
   opacity: 0;
   transition: opacity 0.3s ease;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+  pointer-events: auto;
   width: auto;
   height: auto;
 }
@@ -89,13 +89,13 @@
 }
 
 .vastu-best-seller-card__actions-overlay > * {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+  pointer-events: auto;
   position: relative;
-  z-index: 11 !important;
+  z-index: 11;
 }
 
 /* Prevent card link from being triggered when clicking on overlay */
@@ -103,7 +103,7 @@
 .vastu-best-seller-card__actions-overlay *,
 .vastu-best-seller-card__actions-overlay button,
 .vastu-best-seller-card__actions-overlay a {
-  pointer-events: auto !important;
+  pointer-events: auto;
 }
 
 .vastu-best-seller-card__link {
@@ -120,18 +120,18 @@
 .vastu-best-seller-card__actions-overlay xo-toggle-trigger,
 .vastu-best-seller-card__actions-overlay xo-modal-trigger,
 .vastu-best-seller-card__actions-overlay xo-cart-add {
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  position: relative !important;
-  z-index: 12 !important;
-  width: 40px !important;
-  height: 40px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  line-height: 1 !important;
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 12;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 .vastu-best-seller-card__actions-overlay button,
@@ -139,21 +139,21 @@
 .vastu-best-seller-card__actions-overlay xo-tooltip button,
 .vastu-best-seller-card__actions-overlay xo-toggle-trigger button,
 .vastu-best-seller-card__actions-overlay xo-modal-trigger button {
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  position: relative !important;
-  z-index: 12 !important;
-  width: 40px !important;
-  height: 40px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  background: transparent !important;
-  cursor: pointer !important;
-  line-height: 1 !important;
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 12;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  line-height: 1;
 }
 
 /* Ensure icons inside buttons are centered */
@@ -161,9 +161,9 @@
 .vastu-best-seller-card__actions-overlay button .icon,
 .vastu-best-seller-card__actions-overlay .xo-product-card__icon svg,
 .vastu-best-seller-card__actions-overlay .xo-product-card__icon .icon {
-  display: block !important;
-  margin: auto !important;
-  vertical-align: middle !important;
+  display: block;
+  margin: auto;
+  vertical-align: middle;
 }
 
 .vastu-best-seller-card__content {
@@ -174,16 +174,19 @@
   text-align: left;
 }
 
-.vastu-best-seller-card__title {
-  font-size: calc(var(--card-title-size, 1.5rem) * 0.85);
+.vastu-best-seller-card__title,
+.vastu-best-seller-card h3.vastu-best-seller-card__title,
+.vastu-best-seller-card__content .vastu-best-seller-card__title,
+h3.vastu-best-seller-card__title {
+  font-size: var(--card-title-size, 20px);
   font-weight: 450;
   margin: 0 0 0.75rem 0;
   line-height: 1.4;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   white-space: normal;
   cursor: pointer;
@@ -191,7 +194,7 @@
 }
 
 .vastu-best-seller-card__price {
-  font-size: calc(var(--card-price-size, 1.2rem) * 1.4) !important;
+  font-size: calc(var(--card-price-size, 1.2rem) * 1.4);
   font-weight: 700;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin: 0.75rem 0 0.5rem 0;
@@ -209,11 +212,11 @@
   top: 12px;
   left: 12px;
   z-index: 10;
-  margin: 0 !important;
-  background: rgba(255, 255, 255, 0.95) !important;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(71, 56, 85, 0.2) !important;
+  border: 1px solid rgba(71, 56, 85, 0.2);
 }
 
 .vastu-best-seller-card__description {
@@ -286,16 +289,19 @@
   text-align: left;
 }
 
-.vastu-featured-products__title {
-  font-size: calc(var(--card-title-size, 1.5rem) * 0.85);
+.vastu-featured-products__title,
+.vastu-featured-products__card h3.vastu-featured-products__title,
+.vastu-featured-products__content .vastu-featured-products__title,
+h3.vastu-featured-products__title {
+  font-size: var(--card-title-size, 20px);
   font-weight: 450;
   margin: 0 0 0.75rem 0;
   line-height: 1.4;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   white-space: normal;
   cursor: pointer;
@@ -303,7 +309,7 @@
 }
 
 .vastu-featured-products__price {
-  font-size: calc(var(--card-price-size, 1.2rem) * 1.4) !important;
+  font-size: calc(var(--card-price-size, 1.2rem) * 1.4);
   font-weight: 700;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin: 0.75rem 0 0.5rem 0;
@@ -321,25 +327,25 @@
   top: 12px;
   left: 12px;
   z-index: 10;
-  margin: 0 !important;
-  background: rgba(255, 255, 255, 0.95) !important;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(71, 56, 85, 0.2) !important;
+  border: 1px solid rgba(71, 56, 85, 0.2);
 }
 
 .vastu-featured-products__actions-overlay {
   position: absolute;
   top: 12px;
   right: 12px;
-  z-index: 10 !important;
+  z-index: 10;
   opacity: 0;
   transition: opacity 0.3s ease;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+  pointer-events: auto;
   width: auto;
   height: auto;
 }
@@ -349,13 +355,13 @@
 }
 
 .vastu-featured-products__actions-overlay > * {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+  pointer-events: auto;
   position: relative;
-  z-index: 11 !important;
+  z-index: 11;
 }
 
 /* Prevent card link from being triggered when clicking on overlay */
@@ -363,7 +369,7 @@
 .vastu-featured-products__actions-overlay *,
 .vastu-featured-products__actions-overlay button,
 .vastu-featured-products__actions-overlay a {
-  pointer-events: auto !important;
+  pointer-events: auto;
 }
 
 .vastu-featured-products__link {
@@ -380,18 +386,18 @@
 .vastu-featured-products__actions-overlay xo-toggle-trigger,
 .vastu-featured-products__actions-overlay xo-modal-trigger,
 .vastu-featured-products__actions-overlay xo-cart-add {
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  position: relative !important;
-  z-index: 12 !important;
-  width: 40px !important;
-  height: 40px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  line-height: 1 !important;
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 12;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 .vastu-featured-products__actions-overlay button,
@@ -399,21 +405,21 @@
 .vastu-featured-products__actions-overlay xo-tooltip button,
 .vastu-featured-products__actions-overlay xo-toggle-trigger button,
 .vastu-featured-products__actions-overlay xo-modal-trigger button {
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  position: relative !important;
-  z-index: 12 !important;
-  width: 40px !important;
-  height: 40px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  background: transparent !important;
-  cursor: pointer !important;
-  line-height: 1 !important;
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 12;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  line-height: 1;
 }
 
 /* Ensure icons inside buttons are centered */
@@ -421,9 +427,9 @@
 .vastu-featured-products__actions-overlay button .icon,
 .vastu-featured-products__actions-overlay .xo-product-card__icon svg,
 .vastu-featured-products__actions-overlay .xo-product-card__icon .icon {
-  display: block !important;
-  margin: auto !important;
-  vertical-align: middle !important;
+  display: block;
+  margin: auto;
+  vertical-align: middle;
 }
 
 /* Footer Copyright Link Visibility */
@@ -438,7 +444,7 @@ footer,
 .footer-v18__copyright-content,
 .footer-v18__copyright a,
 .footer-v18__copyright-content a {
-  font-size: 1.25rem !important;
+  font-size: 1.25rem;
   line-height: 1.6;
 }
 
@@ -446,14 +452,14 @@ footer,
 .footer-v18__heading,
 footer h2,
 footer h3 {
-  font-size: 2rem !important;
+  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 .footer-v18__copyright a,
 .footer-v18__copyright-content a {
-  color: rgb(var(--color-text, 255, 255, 255)) !important;
+  color: rgb(var(--color-text, 255, 255, 255));
   text-decoration: underline;
   opacity: 0.9;
   transition: opacity 0.3s ease;
@@ -467,50 +473,226 @@ footer h3 {
 /* Equal spacing between sections using margin instead of padding */
 /* This ensures sections with background colors have consistent visual spacing */
 
-/* Target all sections - remove default padding using CSS variables */
+/* Set default section spacing and padding variables - can be overridden via inline style on main#xo-main-content */
+:root {
+  --homepage-section-spacing: 64px;
+  --homepage-section-spacing-mobile: 32px;
+  --homepage-section-spacing-tablet: 32px;
+  --homepage-section-padding-top: 0;
+  --homepage-section-padding-bottom: 0;
+  --homepage-section-padding-top-mobile: 0;
+  --homepage-section-padding-bottom-mobile: 0;
+  --homepage-section-padding-top-tablet: 0;
+  --homepage-section-padding-bottom-tablet: 0;
+}
+
+/* Target all sections and Shopify section wrapper divs - remove default padding and make it configurable */
 main#xo-main-content section,
+main#xo-main-content div[class*="shopify-section-template"],
 section.xo-section,
-section[class*="xo-section--"] {
+section[class*="xo-section--"],
+div[class*="shopify-section-template"] {
   /* Override padding via CSS variables - allows section settings to still work */
-  --pt: 0;
-  --pb: 0;
+  --pt: var(--homepage-section-padding-top);
+  --pb: var(--homepage-section-padding-bottom);
+  /* Directly set padding to ensure it's applied */
+  padding-top: var(--homepage-section-padding-top);
+  padding-bottom: var(--homepage-section-padding-bottom);
+  /* Reset margins to ensure consistency - will be set per section below */
+  margin-top: var(--homepage-section-spacing);
+  margin-bottom: var(--homepage-section-spacing);
 }
 
-/* Add margin-top to all sections except the first one */
-main#xo-main-content section:not(:first-of-type),
-section.xo-section:not(:first-of-type) {
-  margin-top: 40px;
+/* Prevent margin collapsing between carousel and vastu section */
+/* Use padding on carousel bottom instead of margin to prevent collapse */
+main#xo-main-content section[class*="homepage-carousel"]:first-child,
+main#xo-main-content section[class*="slideshow"]:first-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
-/* Add margin-bottom to all sections except the last one */
-main#xo-main-content section:not(:last-of-type),
-section.xo-section:not(:last-of-type) {
-  margin-bottom: 40px;
+/* Vastu section gets top margin (no collapse because carousel uses padding) */
+main#xo-main-content div[class*="vastu-kit-banner"],
+main#xo-main-content div[class*="vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="vastu-kit"],
+main#xo-main-content section[class*="slideshow"] + div[class*="vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="vastu-kit-banner"],
+main#xo-main-content section[class*="slideshow"] + div[class*="vastu-kit-banner"] {
+  margin-top: var(--homepage-section-spacing);
+  margin-bottom: var(--homepage-section-spacing);
 }
 
-/* Mobile: Smaller margins for better mobile experience */
+/* Section-by-section margin control */
+/* Homepage sections in order:
+   1. homepage-carousel (slideshow-v1) - First section, no top margin
+   2. vastu-kit-banner (banner-v3) - 32px top margin
+   3. vastu-best-seller-cards - 32px top margin
+   4. vastu-hindi-statement - 32px top margin
+   5. vastu-featured-products - 32px top margin
+   6. testimonial-v2 - 32px top margin
+   7. blog_v1_UzjtYd (blog-v1) - 32px top margin
+   8. vastu-trust-bar - 32px top margin, last section
+*/
+
+/* First section/div - no top margin, but has bottom margin */
+main#xo-main-content > section:first-child,
+main#xo-main-content > div:first-child,
+main#xo-main-content section:first-child,
+main#xo-main-content div:first-child,
+main#xo-main-content > section:first-child[class*="homepage-carousel"],
+main#xo-main-content > div:first-child[class*="homepage-carousel"],
+main#xo-main-content > section:first-child[class*="slideshow"],
+main#xo-main-content section:first-child[class*="homepage-carousel"],
+main#xo-main-content section:first-child[class*="slideshow"] {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+/* Last section/div - no bottom margin */
+main#xo-main-content > section:last-child,
+main#xo-main-content > div:last-child,
+main#xo-main-content section:last-child,
+main#xo-main-content div:last-child {
+  margin-bottom: 0;
+}
+
+/* Vastu Kit Banner - margin after carousel */
+/* Handle both direct sections and Shopify wrapper divs */
+/* Note: Shopify wraps some sections in div with class like "shopify-section-template--ID__section-id" */
+main#xo-main-content section[class*="homepage-carousel"] + section[class*="vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + section[class*="banner-v3"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="banner-v3"],
+main#xo-main-content section[class*="slideshow"] + section[class*="vastu-kit"],
+main#xo-main-content section[class*="slideshow"] + div[class*="vastu-kit"],
+main#xo-main-content section[class*="slideshow"] + section[class*="banner-v3"],
+main#xo-main-content section[class*="slideshow"] + div[class*="banner-v3"],
+main#xo-main-content section[class*="homepage-carousel"] + section[class*="xo-section--vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="xo-section--vastu-kit"],
+main#xo-main-content section[class*="slideshow"] + section[class*="xo-section--vastu-kit"],
+main#xo-main-content section[class*="slideshow"] + div[class*="xo-section--vastu-kit"],
+/* More specific: target section/div that comes after homepage-carousel */
+main#xo-main-content > section:first-child + section,
+main#xo-main-content > section:first-child + div,
+main#xo-main-content section:first-child + section,
+main#xo-main-content section:first-child + div {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Vastu Best Seller Cards - margin after vastu-kit-banner */
+/* Handle both div wrapper and direct section */
+main#xo-main-content div[class*="vastu-kit"] + section[class*="vastu-best-seller"],
+main#xo-main-content div[class*="banner-v3"] + section[class*="vastu-best-seller"],
+main#xo-main-content section[class*="vastu-kit"] + section[class*="vastu-best-seller"],
+main#xo-main-content section[class*="banner-v3"] + section[class*="vastu-best-seller"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Vastu Hindi Statement - margin after best-seller */
+main#xo-main-content section[class*="vastu-best-seller"] + section[class*="vastu-hindi"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Vastu Featured Products - margin after hindi-statement */
+main#xo-main-content section[class*="vastu-hindi"] + section[class*="vastu-featured"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Testimonial - margin after featured-products */
+main#xo-main-content section[class*="vastu-featured"] + section[class*="testimonial"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Blog - margin after testimonial */
+main#xo-main-content section[class*="testimonial"] + section[class*="blog"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Trust Bar - margin after blog (last section) */
+main#xo-main-content section[class*="blog"] + section[class*="vastu-trust"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Fallback: Any section/div following another section gets margin */
+main#xo-main-content > section + section,
+main#xo-main-content > section + div,
+main#xo-main-content > div + section,
+main#xo-main-content > div + div,
+main#xo-main-content section + section,
+main#xo-main-content section + div,
+main#xo-main-content div + section {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Remove padding-bottom from slideshow/carousel sections */
+section[class*="slideshow-v1"],
+section[class*="slideshow-v28"],
+section[class*="homepage-carousel"] {
+  padding-bottom: 0;
+}
+
+/* Remove margin and padding from last elements in product cards */
+.vastu-best-seller-card:last-child,
+.vastu-featured-products__card:last-child,
+.vastu-best-seller-card__content > *:last-child,
+.vastu-featured-products__content > *:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Remove margin from blog sections (Shopify default) */
+section[class*="blog-v1"],
+section[class*="blog-v2"],
+section[class*="blog"] {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Remove bottom margin from blog sections */
+section[class*="blog-v1"] *:last-child,
+section[class*="blog-v2"] *:last-child,
+section[class*="blog"] *:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile: Smaller margins and padding for better mobile experience */
 @media (max-width: 749px) {
-  main#xo-main-content section:not(:first-of-type),
-  section.xo-section:not(:first-of-type) {
-    margin-top: 32px;
+  main#xo-main-content {
+    --homepage-section-spacing: var(--homepage-section-spacing-mobile);
+    --homepage-section-padding-top: var(--homepage-section-padding-top-mobile);
+    --homepage-section-padding-bottom: var(--homepage-section-padding-bottom-mobile);
   }
   
-  main#xo-main-content section:not(:last-of-type),
-  section.xo-section:not(:last-of-type) {
-    margin-bottom: 32px;
+  main#xo-main-content section,
+  section.xo-section,
+  section[class*="xo-section--"] {
+    padding-top: var(--homepage-section-padding-top);
+    padding-bottom: var(--homepage-section-padding-bottom);
+    margin-bottom: var(--homepage-section-spacing);
+  }
+  
+  /* Last section on mobile - no bottom margin */
+  main#xo-main-content > section:last-child,
+  main#xo-main-content section:last-child {
+    margin-bottom: 0;
   }
 }
 
-/* Tablet: Medium margins */
+/* Tablet: Medium margins and padding */
 @media (min-width: 750px) and (max-width: 989px) {
-  main#xo-main-content section:not(:first-of-type),
-  section.xo-section:not(:first-of-type) {
-    margin-top: 36px;
+  main#xo-main-content {
+    --homepage-section-spacing: var(--homepage-section-spacing-tablet);
+    --homepage-section-padding-top: var(--homepage-section-padding-top-tablet);
+    --homepage-section-padding-bottom: var(--homepage-section-padding-bottom-tablet);
   }
   
-  main#xo-main-content section:not(:last-of-type),
-  section.xo-section:not(:last-of-type) {
-    margin-bottom: 36px;
+  main#xo-main-content section,
+  section.xo-section,
+  section[class*="xo-section--"] {
+    padding-top: var(--homepage-section-padding-top);
+    padding-bottom: var(--homepage-section-padding-bottom);
   }
 }
 
@@ -552,7 +734,7 @@ section.xo-section:not(:last-of-type) {
 }
 
 .vastu-trust-bar__text {
-  font-size: 1.125rem !important;
+  font-size: 1.125rem;
   font-weight: 500;
   margin: 0;
   line-height: 1.5;
@@ -578,7 +760,7 @@ section.xo-section:not(:last-of-type) {
   }
   
   .vastu-trust-bar__text {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
 }
 
@@ -590,8 +772,8 @@ section.xo-section:not(:last-of-type) {
 h2.banner-v155__title,
 section[class*="banner-v3"] .banner-v155__title,
 section[class*="banner-v3"] h2.banner-v155__title {
-  font-size: 4.375rem !important;
-  font-size: 70px !important;
+  font-size: 4.375rem;
+  font-size: 70px;
   margin-bottom: 1.25rem;
 }
 
@@ -602,8 +784,8 @@ section[class*="banner-v3"] h2.banner-v155__title {
 section h2:not(.banner-v155__title),
 section h3,
 .xo-section-heading__title {
-  font-size: var(--title-font-size, 3.4375rem) !important;
-  font-weight: var(--title-font-weight, 700) !important;
+  font-size: var(--title-font-size, 3.4375rem);
+  font-weight: var(--title-font-weight, 700);
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 1.25rem;
@@ -622,20 +804,20 @@ button,
 .slideshow-v28__text--overlay .button,
 xo-cart-add button,
 xo-cart-add .xo-btn {
-  font-size: 1.875rem !important;
-  padding-left: 3.75rem !important;
-  padding-right: 3.75rem !important;
-  min-height: calc(5.625rem + var(--buttons-border-width, 0) * 2) !important;
+  font-size: 1.875rem;
+  padding-left: 3.75rem;
+  padding-right: 3.75rem;
+  min-height: calc(5.625rem + var(--buttons-border-width, 0) * 2);
 }
 
 .button--small {
-  font-size: 1.5rem !important;
-  padding: 1.5rem 3.25rem !important;
+  font-size: 1.5rem;
+  padding: 1.5rem 3.25rem;
 }
 
 .button--tertiary {
-  font-size: 1.5rem !important;
-  padding: 1.25rem 1.875rem !important;
+  font-size: 1.5rem;
+  padding: 1.25rem 1.875rem;
 }
 
 .vastu-best-seller__section-title::after,
@@ -651,16 +833,17 @@ xo-cart-add .xo-btn {
   border-radius: 2px;
 }
 
-/* Carousel Container - Add padding for pagination dots to prevent overlap (consistent with section margins) */
+/* Carousel Container - Remove all padding-bottom */
 xo-carousel:has(.vastu-best-seller__pagination),
 xo-carousel:has(.vastu-featured-products__pagination),
 xo-carousel:has(.slideshow-v28__pagination),
 xo-carousel:has(.testimonial-v13__pagination),
 xo-carousel:has(.blog-v2__pagination),
 xo-carousel:has(.blog-v1__pagination),
-xo-carousel:has(.related-article__pagination) {
+xo-carousel:has(.related-article__pagination),
+xo-carousel {
   position: relative;
-  padding-bottom: 40px;
+  padding-bottom: 0;
 }
 
 /* Fallback for browsers that don't support :has() - target by parent section */
@@ -670,9 +853,10 @@ section[class*="slideshow-v28"] xo-carousel,
 section[class*="testimonial-v13"] xo-carousel,
 section[class*="blog-v2"] xo-carousel,
 section[class*="blog-v1"] xo-carousel,
-section[class*="related-article"] xo-carousel {
+section[class*="related-article"] xo-carousel,
+section xo-carousel {
   position: relative;
-  padding-bottom: 40px;
+  padding-bottom: 0;
 }
 
 /* Carousel Pagination Positioning - Center All, Outside Content */
@@ -683,9 +867,9 @@ section[class*="related-article"] xo-carousel {
 .blog-v2__pagination,
 .carousel-pagination-style3 {
   position: absolute;
-  bottom: 10px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -701,7 +885,7 @@ section[class*="related-article"] xo-carousel {
   width: 100%;
 }
 
-/* Ensure carousel inner content has padding to prevent pagination overlap (consistent with section margins) */
+/* Ensure carousel inner content has no padding-bottom */
 xo-carousel:has(.vastu-best-seller__pagination) xo-carousel-inner,
 xo-carousel:has(.vastu-featured-products__pagination) xo-carousel-inner,
 xo-carousel:has(.slideshow-v28__pagination) xo-carousel-inner,
@@ -715,9 +899,10 @@ section[class*="slideshow-v28"] xo-carousel-inner,
 section[class*="testimonial-v13"] xo-carousel-inner,
 section[class*="blog-v2"] xo-carousel-inner,
 section[class*="blog-v1"] xo-carousel-inner,
-section[class*="related-article"] xo-carousel-inner {
+section[class*="related-article"] xo-carousel-inner,
+xo-carousel-inner {
   margin-bottom: 0;
-  padding-bottom: 40px;
+  padding-bottom: 0;
 }
 
 .slideshow-v28__overlay-content {
@@ -726,41 +911,41 @@ section[class*="related-article"] xo-carousel-inner {
 
 /* Slideshow Text - Left Aligned for Homepage Carousel */
 .slideshow-v28__text--overlay {
-  text-align: left !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  justify-content: center !important;
-  margin: 0 !important;
-  width: 100% !important;
-  max-width: 800px !important;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  max-width: 800px;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /* Homepage carousel - Left aligned text */
 .slideshow-v28__overlay-content {
-  justify-content: flex-start !important;
+  justify-content: flex-start;
 }
 
 .slideshow-v28__text--overlay {
-  text-align: left !important;
-  margin: 0 !important;
+  text-align: left;
+  margin: 0;
 }
 
 .slideshow-v28__text--overlay .slideshow-v28__subtitle,
 .slideshow-v28__text--overlay .slideshow-v28__title,
 .slideshow-v28__text--overlay .slideshow-v28__description {
-  text-align: left !important;
-  margin-left: 0 !important;
-  margin-right: auto !important;
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .slideshow-v28__text--overlay .slideshow-v28__button,
 .slideshow-v28__text--overlay .button {
-  margin-left: 0 !important;
-  margin-right: auto !important;
-  display: inline-block !important;
+  margin-left: 0;
+  margin-right: auto;
+  display: inline-block;
 }
 
 
@@ -769,23 +954,23 @@ section[class*="related-article"] xo-carousel-inner {
   /* Carousel title on mobile - adjust from 5rem (80px) to smaller size */
   .slideshow-v28__title,
   .slideshow-v28__text--overlay .slideshow-v28__title {
-    font-size: 2.5rem !important;
-    --fontsize: 2.5rem !important;
+    font-size: 2.5rem;
+    --fontsize: 2.5rem;
   }
   
   /* Mobile padding for carousel text */
   .slideshow-v28__text--overlay {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
   
   .banner-v155__title {
-    font-size: 3.5rem !important;
+    font-size: 3.5rem;
   }
   
   .vastu-best-seller__section-title,
   .vastu-featured-products__section-title {
-    font-size: 2.5rem !important;
+    font-size: 2.5rem;
   }
   
   .vastu-featured-products__icon-svg {
@@ -818,7 +1003,7 @@ section[class*="related-article"] xo-carousel-inner {
   section[class*="blog-v2"] xo-carousel,
   section[class*="blog-v1"] xo-carousel,
   section[class*="related-article"] xo-carousel {
-    padding-bottom: 32px;
+    padding-bottom: 0;
   }
   
   .slideshow-v28__pagination,
@@ -826,7 +1011,7 @@ section[class*="related-article"] xo-carousel-inner {
   .vastu-featured-products__pagination,
   .testimonial-v13__pagination,
   .blog-v2__pagination {
-    bottom: 5px !important;
+    bottom: 5px;
   }
 
   /* Mobile section padding - use template values for consistent spacing */
@@ -849,7 +1034,7 @@ section[class*="related-article"] xo-carousel-inner {
   section[class*="blog-v2"] xo-carousel,
   section[class*="blog-v1"] xo-carousel,
   section[class*="related-article"] xo-carousel {
-    padding-bottom: 36px;
+    padding-bottom: 0;
   }
   
   xo-carousel:has(.vastu-best-seller__pagination) xo-carousel-inner,
@@ -866,7 +1051,7 @@ section[class*="related-article"] xo-carousel-inner {
   section[class*="blog-v2"] xo-carousel-inner,
   section[class*="blog-v1"] xo-carousel-inner,
   section[class*="related-article"] xo-carousel-inner {
-    padding-bottom: 36px;
+    padding-bottom: 0;
   }
 }
 
@@ -880,6 +1065,14 @@ section[class*="related-article"] xo-carousel-inner {
   box-shadow: none;
   transition: transform 0.3s ease;
   border: none;
+  margin-bottom: 0;
+}
+
+/* Remove padding from testimonial section */
+section[class*="testimonial-v2"],
+section[class*="testimonial-v13"] {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .testimonial-v13__item:hover {
@@ -900,11 +1093,11 @@ section[class*="related-article"] xo-carousel-inner {
 }
 
 .testimonial-v13__testimonial {
-  font-size: 1.25rem !important;
+  font-size: 1.25rem;
   line-height: 1.8;
   color: rgba(var(--color-foreground, 0, 0, 0), 0.85);
   font-style: italic;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   position: relative;
 }
 
@@ -916,21 +1109,21 @@ section[class*="related-article"] xo-carousel-inner {
 }
 
 .testimonial-v13__name {
-  font-size: 1.25rem !important;
+  font-size: 1.25rem;
   font-weight: 600;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin: 0;
 }
 
 .testimonial-v13__position {
-  font-size: 1.125rem !important;
+  font-size: 1.125rem;
   color: rgba(var(--color-foreground, 0, 0, 0), 0.6);
   margin: 0;
 }
 
 /* Testimonials Section Background - Ensure carousel matches section background */
 section[class*="testimonial-v2"] {
-  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%) !important;
+  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%);
   position: relative;
 }
 
@@ -938,8 +1131,8 @@ section[class*="testimonial-v2"] {
 section[class*="testimonial-v2"] .xo-section-bg,
 section[class*="testimonial-v2"] .xo-section-bg-image__item,
 section[class*="testimonial-v2"] .xo-section-bg-image__url {
-  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%) !important;
-  background-image: none !important;
+  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%);
+  background-image: none;
 }
 
 /* Make ALL containers and carousel match testimonial section background */
@@ -950,9 +1143,9 @@ section[class*="testimonial-v2"] > div,
 section[class*="testimonial-v2"] xo-container > div,
 section[class*="testimonial-v2"] xo-carousel-inner,
 section[class*="testimonial-v2"] xo-carousel-list {
-  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%) !important;
-  background-color: transparent !important;
-  background-image: none !important;
+  background: linear-gradient(135deg, rgba(71, 56, 85, 0.05) 0%, rgba(71, 56, 85, 0.1) 100%);
+  background-color: transparent;
+  background-image: none;
 }
 
 section[class*="testimonial-v2"]::before {
@@ -978,16 +1171,16 @@ section[class*="testimonial-v2"] > * {
   }
   
   .testimonial-v13__testimonial {
-    font-size: 1.125rem !important;
+    font-size: 1.125rem;
     line-height: 1.6;
   }
   
   .testimonial-v13__name {
-    font-size: 1.125rem !important;
+    font-size: 1.125rem;
   }
   
   .testimonial-v13__position {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
 }
 
@@ -1022,9 +1215,9 @@ section[class*="testimonial-v2"] > * {
 h2.banner-v155__title,
 section[class*="banner-v3"] .banner-v155__title,
 section[class*="banner-v3"] h2.banner-v155__title {
-  font-size: 4.375rem !important;
-  font-size: 70px !important;
-  font-weight: 700 !important;
+  font-size: 4.375rem;
+  font-size: 70px;
+  font-weight: 700;
   line-height: 1.2;
   color: rgb(var(--color-foreground, 0, 0, 0));
   margin-bottom: 1.25rem;
@@ -1043,7 +1236,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
 }
 
 .banner-v155__description {
-  font-size: 1.125rem;
+  font-size: 2rem;
   line-height: 1.8;
   color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
   margin-bottom: 2rem;
@@ -1058,11 +1251,11 @@ section[class*="banner-v3"] h2.banner-v155__title {
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(71, 56, 85, 0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  background: transparent !important;
-  padding: 0 !important;
+  background: transparent;
+  padding: 0;
   width: 100%;
-  border: none !important;
-  outline: none !important;
+  border: none;
+  outline: none;
 }
 
 .banner-v155__img:hover {
@@ -1073,17 +1266,17 @@ section[class*="banner-v3"] h2.banner-v155__title {
 .banner-v155__img img,
 .banner-v155__img picture,
 .banner-v155__img picture img {
-  border-radius: 20px !important;
-  width: 100% !important;
-  height: auto !important;
-  display: block !important;
+  border-radius: 20px;
+  width: 100%;
+  height: auto;
+  display: block;
   transition: transform 0.4s ease;
   object-fit: cover;
   max-width: 100%;
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .banner-v155__img:hover img,
@@ -1100,6 +1293,9 @@ section[class*="banner-v3"] h2.banner-v155__title {
 .banner-v155__item--left {
   display: flex;
   align-items: center;
+  padding-right: 0 !important;
+  --pr: 0 !important;
+  --prrps: 0 !important;
 }
 
 .banner-v155__item--right {
@@ -1107,34 +1303,35 @@ section[class*="banner-v3"] h2.banner-v155__title {
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: transparent !important;
+  background: transparent;
+  margin-top: 0;
 }
 
 .banner-v155__item--right > div {
   width: 100%;
-  background: transparent !important;
-  padding: 0 !important;
+  background: transparent;
+  padding: 0;
 }
 
 .banner-v155__item--right > div.hover-scale_up,
 .banner-v155__item--right > div[class*="hover-"],
 .banner-v155__item--right > div[class*="hover-style"] {
-  background: transparent !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  background: transparent;
+  padding: 0;
+  margin: 0;
 }
 
 .banner-v155__item--right * {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
 .banner-v155__item--right .banner-v155__img {
-  background: transparent !important;
-  box-shadow: none !important;
+  background: transparent;
+  box-shadow: none;
 }
 
 .banner-v155__item--right .banner-v155__img:hover {
-  box-shadow: none !important;
+  box-shadow: none;
 }
 
 /* Mobile Responsive */
@@ -1144,22 +1341,22 @@ section[class*="banner-v3"] h2.banner-v155__title {
   section h2,
   section h3,
   .xo-section-heading__title {
-    font-size: 2.5rem !important;
+    font-size: 2.5rem;
   }
   
   /* Vastu Kit Banner on mobile */
   .banner-v155__title {
-    font-size: 3.5rem !important;
+    font-size: 3.5rem;
   }
   
   /* Best sellers and featured products on mobile */
   .vastu-best-seller__section-title,
   .vastu-featured-products__section-title {
-    font-size: 2.5rem !important;
+    font-size: 2.5rem;
   }
   
   .banner-v155__description {
-    font-size: 1rem;
+    font-size: 2rem;
     max-width: 100%;
   }
   
@@ -1177,17 +1374,17 @@ section[class*="banner-v3"] h2.banner-v155__title {
   }
   
   .banner-v155__item--left {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    --pl: 0 !important;
-    --pr: 0 !important;
-    --plrps: 0 !important;
-    --prrps: 0 !important;
-    order: 2 !important;
+    padding-left: 0;
+    padding-right: 0;
+    --pl: 0;
+    --pr: 0;
+    --plrps: 0;
+    --prrps: 0;
+    order: 2;
   }
   
   .banner-v155__item--right {
-    order: 1 !important;
+    order: 1;
   }
   
   .banner-v155__title::after {
@@ -1199,34 +1396,34 @@ section[class*="banner-v3"] h2.banner-v155__title {
 /* Product Page - Increase width for variant option labels */
 .xo-product-info-variant .xo-field-radio__label,
 .xo-product-variant .xo-field-radio__label {
-  min-width: auto !important;
-  width: auto !important;
-  max-width: 100% !important;
-  white-space: normal !important;
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
-  padding: 0.5rem 1rem !important;
-  display: inline-block !important;
+  min-width: auto;
+  width: auto;
+  max-width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 0.5rem 1rem;
+  display: inline-block;
 }
 
 .xo-product-info-variant .xo-field-radio,
 .xo-product-variant .xo-field-radio {
-  min-width: auto !important;
-  width: auto !important;
-  max-width: 100% !important;
+  min-width: auto;
+  width: auto;
+  max-width: 100%;
 }
 
 /* Ensure labels can expand to fit content */
 .xo-product-info-variant__inner .xo-field-radio__label,
 .xo-product-variant__inner .xo-field-radio__label {
-  flex: 1 1 auto !important;
-  min-width: fit-content !important;
+  flex: 1 1 auto;
+  min-width: fit-content;
 }
 
 /* Product Variant Modal - Hide by default and add padding */
 .product-variant-modal__toggle-content {
-  bottom: -20px !important;
-  padding: 1.5rem !important;
+  bottom: -20px;
+  padding: 1.5rem;
 }
 
 .product-variant-modal__variant-list {
@@ -1247,7 +1444,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
 /* Add padding to radio button labels in product variant modal */
 .product-variant-modal .xo-field-radio__label,
 .product-variant-modal__variant-list .xo-field-radio__label {
-  padding: 0.75rem 1rem !important;
+  padding: 0.75rem 1rem;
 }
 
 .product-variant-modal .xo-field-radio,
@@ -1264,13 +1461,13 @@ section[class*="banner-v3"] h2.banner-v155__title {
   .footer-v18__list-item a,
   .footer-v18__copyright,
   .footer-v18__copyright-content {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
   
   .footer-v18__heading,
   footer h2,
   footer h3 {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
 }
 

@@ -5,10 +5,9 @@
 {% comment %} Assign align. Align will get 3 values : start , center or end {% endcomment %}
 {%- assign align = section.settings.align | default: 'start' -%}
 
-<div class='banner-v155'>
-  <div
-    {% render 'section-attr' %}
-  >
+<section class='banner-v155'
+  {% render 'section-attr' %}
+>
     {% render 'section-bg-image' %}
     <xo-container
       {% render 'section-layout' %}
@@ -61,8 +60,7 @@
         </xo-grid>
       </xo-animate>
     </xo-container>
-  </div>
-</div>
+</section>
 
 {% schema %}
 {

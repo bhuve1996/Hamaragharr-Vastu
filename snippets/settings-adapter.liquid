@@ -87,6 +87,19 @@
       --media-shadow-horizontal-offset: {{ settings.media_shadow_horizontal_offset }}px;
       --media-shadow-vertical-offset: {{ settings.media_shadow_vertical_offset }}px;
       --media-shadow-blur-radius: {{ settings.media_shadow_blur }}px;
+      
+      /* Homepage section spacing - configurable via theme settings or inline style */
+      --homepage-section-spacing: {% if settings.spacing_sections > 0 %}{{ settings.spacing_sections }}px{% else %}32px{% endif %};
+      --homepage-section-spacing-mobile: 0px;
+      --homepage-section-spacing-tablet: {% if settings.spacing_sections > 0 %}{{ settings.spacing_sections }}px{% else %}32px{% endif %};
+      
+      /* Homepage section padding - configurable via theme settings or inline style */
+      --homepage-section-padding-top: 0px;
+      --homepage-section-padding-bottom: 0px;
+      --homepage-section-padding-top-mobile: 0px;
+      --homepage-section-padding-bottom-mobile: 0px;
+      --homepage-section-padding-top-tablet: 0px;
+      --homepage-section-padding-bottom-tablet: 0px;
       --media-shadow-visible: {% if settings.media_shadow_opacity > 0 %}1{% else %}0{% endif %};
 
       --page-width: {{ settings.page_width | divided_by: 10 }}rem;
