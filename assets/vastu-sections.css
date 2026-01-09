@@ -971,13 +971,13 @@ section[class*="blog"] *:last-child {
 
 .vastu-trust-bar__icon,
 .vastu-trust-bar__icon-svg {
-  width: 4rem;
-  height: 4rem;
+  width: 12rem; /* Doubled from 6rem to 12rem */
+  height: 12rem; /* Doubled from 6rem to 12rem */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem; /* Increased spacing between image and text */
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -998,6 +998,7 @@ section[class*="blog"] *:last-child {
   font-size: 1.125rem;
   font-weight: 500;
   margin: 0;
+  margin-top: 2rem; /* Add margin-top to text */
   line-height: 1.5;
   color: rgb(var(--color-foreground, 0, 0, 0));
 }
@@ -1005,6 +1006,11 @@ section[class*="blog"] *:last-child {
 /* Trust Bar Carousel Pagination */
 .vastu-trust-bar__pagination {
   margin-top: 2rem;
+  position: absolute;
+  bottom: -40px !important; /* Shift dots further down */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
 /* Mobile adjustments for trust bar */
@@ -1016,13 +1022,24 @@ section[class*="blog"] *:last-child {
   
   .vastu-trust-bar__icon,
   .vastu-trust-bar__icon-svg {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 10rem; /* Doubled from 5rem to 10rem for mobile */
+    height: 10rem; /* Doubled from 5rem to 10rem for mobile */
   }
   
   .vastu-trust-bar__text {
     font-size: 1rem;
   }
+}
+
+/* Vastu Trust Bar - Use CSS variables from section settings (--pt, --pb, --bg-color) */
+/* Convert --pt and --pb (numbers) to pixels for padding */
+main#xo-main-content section[class*="vastu-trust-bar"],
+main#xo-main-content div[class*="vastu-trust-bar"],
+section[class*="vastu-trust-bar"],
+div[class*="shopify-section-template"][class*="vastu-trust-bar"] {
+  padding-top: calc(var(--pt, 32) * 1px) !important; /* Convert --pt to pixels, default 32px */
+  padding-bottom: calc(var(--pb, 32) * 1px) !important; /* Convert --pb to pixels, default 32px */
+  background-color: var(--bg-color, #fafafa); /* Use --bg-color variable from section settings */
 }
 
 /* Vastu Features Bar - Carousel Design (Duplicate of Trust Bar) */
@@ -1568,8 +1585,8 @@ section[class*="slideshow"] .xo-background-lazyload {
   
   .vastu-trust-bar__icon,
   .vastu-trust-bar__icon-svg {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 8rem; /* Doubled from 4rem to 8rem for mobile */
+    height: 8rem; /* Doubled from 4rem to 8rem for mobile */
   }
   
   .vastu-features-bar__icon,
@@ -1604,7 +1621,11 @@ section[class*="slideshow"] .xo-background-lazyload {
   .slideshow-v28__pagination,
   .vastu-best-seller__pagination,
   .vastu-featured-products__pagination,
-  .vastu-trust-bar__pagination,
+  .vastu-trust-bar__pagination {
+    bottom: -48px !important; /* Shift trust bar dots further down on mobile */
+    margin-top: 32px; /* Additional spacing */
+  }
+  
   .vastu-features-bar__pagination,
   .testimonial-v13__pagination,
   .blog-v2__pagination {
@@ -1688,14 +1709,15 @@ section[class*="testimonial-v13"] {
 
 .testimonial-v13__icon {
   margin-bottom: 1.5rem;
-  opacity: 0.6;
+  opacity: 1; /* Removed opacity filter */
 }
 
 .testimonial-v13__icon img {
-  width: 3rem;
-  height: 3rem;
-  object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(27%) sepia(15%) saturate(1000%) hue-rotate(240deg) brightness(0.9);
+  width: 5rem; /* Increased from 3rem to 5rem */
+  height: 5rem; /* Increased from 3rem to 5rem */
+  object-fit: cover; /* Changed from contain to cover for better image display */
+  border-radius: 50%; /* Make it circular */
+  filter: none; /* Removed filter */
 }
 
 .testimonial-v13__testimonial {
