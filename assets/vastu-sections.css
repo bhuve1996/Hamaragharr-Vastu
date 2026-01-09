@@ -1412,9 +1412,14 @@ section xo-carousel {
   margin-top: 32px; /* Additional spacing */
 }
 
-/* Blog pagination dots - positioned lower */
+/* Blog pagination dots - positioned lower (matching best seller and featured products) */
 .blog-v2__pagination {
-  bottom: -1rem;
+  position: absolute;
+  bottom: -32px; /* Moved further below (32px) - matching other sections */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  margin-top: 32px; /* Additional spacing */
 }
 
 .carousel-pagination-style3__pagination-wrap {
@@ -1603,7 +1608,8 @@ section[class*="slideshow"] .xo-background-lazyload {
   .vastu-features-bar__pagination,
   .testimonial-v13__pagination,
   .blog-v2__pagination {
-    bottom: -0.75rem;
+    bottom: -24px; /* Adjusted for mobile - positioned below */
+    margin-top: 24px; /* Additional spacing */
   }
 
   /* Mobile section padding - use template values for consistent spacing */
