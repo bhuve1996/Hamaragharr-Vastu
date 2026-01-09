@@ -17,7 +17,15 @@
           <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
             <div {% render 'slideshow-attr', block: block %}>
               {% render 'slideshow-bg-image', block: block %}
-              {% if block.settings.background_type == 'image' and block.settings.background_image_desktop != blank %}
+              {% liquid
+                assign use_overlay = false
+                if block.settings.background_type == 'image' and block.settings.background_image_desktop != blank
+                  assign use_overlay = true
+                elsif block.settings.background_type == 'video' and block.settings.background_video_url != blank
+                  assign use_overlay = true
+                endif
+              %}
+              {% if use_overlay %}
                 {% comment %} Full-width banner with text overlay {% endcomment %}
                 <div class='slideshow-v28__overlay-content' style='position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: flex-start; min-height: {{ section.settings.section_height_desktop }}px;'>
                   <xo-container {% render 'section-layout' %}>

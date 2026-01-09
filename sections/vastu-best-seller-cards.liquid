@@ -65,11 +65,6 @@
                           {% if block.settings.product != blank and current_product.price != blank %}
                             <p class='vastu-best-seller-card__price vastu-best-seller-card__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>{{ current_product.price | money }}</p>
                           {% endif %}
-                          {% if block.settings.product != blank %}
-                            <div class='vastu-best-seller-card__actions-overlay'>
-                              {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
-                            </div>
-                          {% endif %}
                           {% render 'image', image: block.settings.image, media_aspect_ratio: '4/3' %}
                         </div>
                       {% elsif block.settings.product != blank %}
@@ -80,9 +75,6 @@
                           {% if current_product.price != blank %}
                             <p class='vastu-best-seller-card__price vastu-best-seller-card__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>{{ current_product.price | money }}</p>
                           {% endif %}
-                          <div class='vastu-best-seller-card__actions-overlay'>
-                            {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
-                          </div>
                           {% if current_product.featured_image != blank %}
                             {% render 'image', image: current_product.featured_image, media_aspect_ratio: '4/3' %}
                           {% else %}
@@ -106,6 +98,21 @@
                         {% endif %}
                         {% if display_description != blank %}
                           <p class='vastu-best-seller-card__description'>{{ display_description }}</p>
+                        {% endif %}
+                        {% if block.settings.product != blank %}
+                          <div class='vastu-best-seller-card__add-to-cart'>
+                            {% if current_product.variants.size > 1 %}
+                              {% assign button_text = section.settings.button_text_select_options | default: 'Select Options' %}
+                              <xo-toggle-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}'>
+                                {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+                              </xo-toggle-trigger>
+                            {% else %}
+                              {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
+                              <xo-cart-add {% if current_product.selected_or_first_available_variant.available == false %}xo-disabled{% endif %}>
+                                {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+                              </xo-cart-add>
+                            {% endif %}
+                          </div>
                         {% endif %}
                       </div>
                     </a>
@@ -146,11 +153,6 @@
                       {% if block.settings.product != blank and current_product.price != blank %}
                         <p class='vastu-best-seller-card__price vastu-best-seller-card__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>{{ current_product.price | money }}</p>
                       {% endif %}
-                      {% if block.settings.product != blank %}
-                        <div class='vastu-best-seller-card__actions-overlay'>
-                          {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
-                        </div>
-                      {% endif %}
                       {% render 'image', image: block.settings.image, media_aspect_ratio: '4/3' %}
                     </div>
                   {% elsif block.settings.product != blank %}
@@ -161,9 +163,6 @@
                       {% if current_product.price != blank %}
                         <p class='vastu-best-seller-card__price vastu-best-seller-card__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>{{ current_product.price | money }}</p>
                       {% endif %}
-                      <div class='vastu-best-seller-card__actions-overlay'>
-                        {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
-                      </div>
                       {% if current_product.featured_image != blank %}
                         {% render 'image', image: current_product.featured_image, media_aspect_ratio: '4/3' %}
                       {% else %}
@@ -181,6 +180,21 @@
                     <p class='vastu-best-seller-card__description'>{{ block.settings.description }}</p>
                   {% elsif block.settings.product != blank %}
                     <p class='vastu-best-seller-card__description'>{{ current_product.description | strip_html | truncate: 100 }}</p>
+                  {% endif %}
+                  {% if block.settings.product != blank %}
+                    <div class='vastu-best-seller-card__add-to-cart'>
+                      {% if current_product.variants.size > 1 %}
+                        {% assign button_text = section.settings.button_text_select_options | default: 'Select Options' %}
+                        <xo-toggle-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}'>
+                          {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+                        </xo-toggle-trigger>
+                      {% else %}
+                        {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
+                        <xo-cart-add {% if current_product.selected_or_first_available_variant.available == false %}xo-disabled{% endif %}>
+                          {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+                        </xo-cart-add>
+                      {% endif %}
+                    </div>
                   {% endif %}
                 </div>
               </a>
@@ -378,6 +392,22 @@
       "id": "separator_padding_bottom",
       "label": "Separator Bottom Padding",
       "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text_add_to_cart",
+      "label": "Add to Cart Button Text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "text",
+      "id": "button_text_select_options",
+      "label": "Select Options Button Text",
+      "default": "Select Options"
     },
     {
       "type": "header",

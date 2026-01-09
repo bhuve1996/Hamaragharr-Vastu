@@ -152,8 +152,12 @@
         "type": "select",
         "id": "font_heading_selection",
         "label": "t:settings_schema.typography.settings.font_heading_selection.label",
-        "default": "Jost",
+        "default": "Poppins",
         "options": [
+          {
+            "value": "Poppins",
+            "label": "Poppins"
+          },
           {
             "value": "Montserrat",
             "label": "Montserrat"
@@ -179,7 +183,7 @@
       {
         "type": "font_picker",
         "id": "type_header_font",
-        "default": "cooper_bt_n5",
+        "default": "poppins_n5",
         "label": "t:settings_schema.typography.settings.type_header_font.label",
         "info": "t:settings_schema.typography.settings.type_header_font.info"
       },
@@ -246,8 +250,12 @@
         "type": "select",
         "id": "font_body_selection",
         "label": "t:settings_schema.typography.settings.font_body_selection.label",
-        "default": "Jost",
+        "default": "Poppins",
         "options": [
+          {
+            "value": "Poppins",
+            "label": "Poppins"
+          },
           {
             "value": "Montserrat",
             "label": "Montserrat"
@@ -265,7 +273,7 @@
       {
         "type": "font_picker",
         "id": "type_body_font",
-        "default": "lato_n4",
+        "default": "poppins_n4",
         "label": "t:settings_schema.typography.settings.type_body_font.label",
         "info": "t:settings_schema.typography.settings.type_body_font.info"
       },
@@ -333,8 +341,12 @@
         "id": "font_custom_selection",
         "label": "t:settings_schema.typography.settings.font_custom_selection.label",
         "info": "t:settings_schema.typography.settings.font_custom_selection.info",
-        "default": "Marcellus",
+        "default": "Poppins",
         "options": [
+          {
+            "value": "Poppins",
+            "label": "Poppins"
+          },
           {
             "value": "Montserrat",
             "label": "Montserrat"
@@ -364,7 +376,7 @@
       {
         "type": "font_picker",
         "id": "type_custom_font",
-        "default": "lato_n4",
+        "default": "poppins_n4",
         "label": "t:settings_schema.typography.settings.type_custom_font.label",
         "info": "t:settings_schema.typography.settings.type_custom_font.info"
       },

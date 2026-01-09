@@ -79,3 +79,4 @@ After creating pages, verify these exist:
 4. **All templates have been pushed to Shopify** and are ready to use!
 
 
+

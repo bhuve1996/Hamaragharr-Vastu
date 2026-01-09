@@ -4,15 +4,21 @@
   <xo-container {% render 'section-layout' %}>
     <xo-grid style='--xs: 1; --sm: 1; --md: 2; --lg: 2; --xl: 2; --xo-grid-col-gap: 40px; --xo-grid-row-gap: 40px; align-items: center;'>
       <div class='vastu-hero__content'>
-        <xo-animate xo-cascade>
-          {% if section.settings.subtitle != blank %}
+        {% if section.settings.subtitle != blank %}
+          <xo-animate xo-cascade>
             <p class='vastu-hero__subtitle'>{{ section.settings.subtitle }}</p>
-          {% endif %}
+          </xo-animate>
+        {% endif %}
+        <xo-animate xo-cascade>
           <h1 class='vastu-hero__title'>{{ section.settings.heading }}</h1>
-          {% if section.settings.subtext != blank %}
+        </xo-animate>
+        {% if section.settings.subtext != blank %}
+          <xo-animate xo-cascade>
             <p class='vastu-hero__description'>{{ section.settings.subtext }}</p>
-          {% endif %}
-          {% if section.settings.button_text != blank %}
+          </xo-animate>
+        {% endif %}
+        {% if section.settings.button_text != blank %}
+          <xo-animate xo-cascade>
             {% render 'button',
               text: section.settings.button_text,
               link: section.settings.button_link,
@@ -24,8 +30,8 @@
               background_color: '#473855',
               text_color: '#ffffff'
             %}
-          {% endif %}
-        </xo-animate>
+          </xo-animate>
+        {% endif %}
       </div>
       <div class='vastu-hero__image'>
         <xo-animate xo-cascade>

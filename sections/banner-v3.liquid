@@ -28,9 +28,9 @@
               class='banner-v155__content'
               style='text-align: left'
             >
-              <xo-animate xo-cascade>
+              {%- if section.settings.subtitle != blank -%}
                 <h3 class='banner-v155__subtitle'>{{ section.settings.subtitle }}</h3>
-              </xo-animate>
+              {%- endif -%}
               <xo-animate xo-cascade>
                 <h2 class='banner-v155__title'>{{ section.settings.title }}</h2>
               </xo-animate>
