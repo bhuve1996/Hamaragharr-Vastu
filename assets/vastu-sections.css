@@ -5,19 +5,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 4rem; /* Increased top padding */
+  padding-bottom: 4rem; /* Increased bottom padding */
+  min-height: 200px; /* Ensure enough height for vertical centering */
 }
 
 .vastu-hindi-statement__text {
-  font-size: 1.15em;
+  font-size: var(--title-font-size, 3.4375rem); /* Same font size as other section headings */
   text-align: center;
   margin: 0 auto;
+  margin-bottom: 0.5rem; /* Reduced spacing between Hindi and English text */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.2;
+  text-transform: none; /* Don't apply uppercase to Hindi text */
+  font-weight: normal; /* Don't apply bold to Hindi text */
 }
 
 .vastu-hindi-statement__subtext {
   text-align: center;
-  margin: 0 auto; /* Equal spacing - handled by text margin-bottom above */
+  margin: 0 auto;
+  margin-top: 0; /* Equal spacing - handled by text margin-bottom above */
 }
 
 /* Vastu Best Seller Cards */
@@ -300,6 +309,7 @@ h3.vastu-best-seller-card__title {
 .vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart xo-toggle-trigger {
   width: 100% !important;
   display: block !important;
+  padding: 0 !important;
 }
 
 /* Ensure button text is visible, white, and centered */
@@ -379,6 +389,7 @@ h3.vastu-best-seller-card__title {
 .vastu-featured-products__content .vastu-featured-products__add-to-cart xo-toggle-trigger {
   width: 100% !important;
   display: block !important;
+  padding: 0 !important;
 }
 
 /* Ensure button text is visible, white, and centered */
@@ -1227,28 +1238,48 @@ section[class*="banner-v3"] h2.banner-v155__title {
   margin-bottom: 4.5rem; /* Increased equal spacing between elements */
 }
 
-/* All other section headings: 3.4375rem */
-.vastu-best-seller__section-title,
-.vastu-featured-products__section-title,
-.blog-v2__title,
-section h2:not(.banner-v155__title),
+/* All other section headings: 3.4375rem - Base styles */
+section h2:not(.banner-v155__title):not(.vastu-hindi-statement__text),
 section h3,
 .xo-section-heading__title {
   font-size: var(--title-font-size, 3.4375rem);
   font-weight: var(--title-font-weight, 700);
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 64px; /* Consistent 64px spacing */
+  margin-bottom: 64px; /* Spacing below heading */
+  padding: 0; /* Zero padding */
   position: relative;
   display: inline-block;
   width: 100%;
   line-height: 1.2;
 }
 
-/* Add extra margin below Shop by Occasion and Best Seller titles */
+/* Vastu Best Seller and Featured Products titles - Separate spacing */
 .vastu-best-seller__section-title,
 .vastu-featured-products__section-title {
-  margin-bottom: 64px; /* Consistent 64px spacing */
+  font-size: var(--title-font-size, 3.4375rem);
+  font-weight: var(--title-font-weight, 700);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 64px; /* Spacing below heading */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.2;
+}
+
+/* Blog title - Separate spacing */
+.blog-v2__title {
+  font-size: var(--title-font-size, 3.4375rem);
+  font-weight: var(--title-font-weight, 700);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 64px; /* Spacing below heading */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.2;
+  padding-bottom: 1.5rem;
 }
 
 /* Increase button size by 25% everywhere (additional 25% increase from previous) */
@@ -1304,11 +1335,6 @@ xo-cart-add .xo-btn {
 }
 
 /* Blog title underline - use fixed values to match other sections */
-.blog-v2__title {
-  margin-bottom: 64px; /* Consistent 64px spacing */
-  padding-bottom: 1.5rem;
-}
-
 .blog-v2__title::after {
   content: '';
   position: absolute;
@@ -1370,11 +1396,11 @@ section xo-carousel {
   pointer-events: auto;
 }
 
-/* Move vastu best seller and featured products pagination at least 8px below */
+/* Move vastu best seller and featured products pagination further below */
 .vastu-best-seller__pagination,
 .vastu-featured-products__pagination {
   position: absolute;
-  bottom: -8px; /* At least 8px below */
+  bottom: -32px; /* Moved further below (32px) */
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -1383,7 +1409,7 @@ section xo-carousel {
   align-items: center;
   width: auto;
   pointer-events: auto;
-  margin-top: 8px; /* Additional spacing */
+  margin-top: 32px; /* Additional spacing */
 }
 
 /* Blog pagination dots - positioned lower */
@@ -1860,11 +1886,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
   margin-top: 0; /* Spacing handled by description margin-bottom above */
 }
 
-/* Vastu Hindi Statement - Equal spacing */
-.vastu-hindi-statement__text {
-  margin-bottom: 2rem; /* Equal spacing between elements */
-  margin-top: 0;
-}
+/* Vastu Hindi Statement - Spacing handled by main rule above */
 
 .vastu-hindi-statement__subtext {
   margin-bottom: 0;
@@ -2425,5 +2447,14 @@ section[class*="banner-v3"] h2.banner-v155__title {
   .footer-modern__heading {
     font-size: 1.375rem;
   }
+}
+
+/* Hide blog card descriptions */
+.blog-v2__description,
+.xo-article-card__description,
+.article-card-style1__description,
+.article-card-style3__description,
+.article-card-style4__description {
+  display: none !important;
 }
 

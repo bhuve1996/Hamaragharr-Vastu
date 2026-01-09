@@ -22,12 +22,9 @@
                       {% if block.settings.icon_image != blank %}
                         {%- render 'image', image: block.settings.icon_image -%}
                       {% else %}
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
-                             aria-label="Person placeholder avatar" role="img">
-                          <circle cx="12" cy="8" r="4"/>
-                          <path d="M4 20a8 8 0 0 1 16 0"/>
-                        </svg>
+                        {%- assign customer_name = block.settings.name_customer | default: 'Customer' | split: ' ' | first -%}
+                        {%- assign avatar_url = 'https://ui-avatars.com/api/?name=' | append: customer_name | append: '&size=80&background=473855&color=ffffff&bold=true&format=png' -%}
+                        <img src="{{ avatar_url }}" alt="{{ block.settings.name_customer | default: 'Customer' }}" width="80" height="80" style="border-radius: 50%; object-fit: cover;" loading="lazy">
                       {% endif %}
                     </div>
                     <div class='testimonial-v13__testimonial'>{{ block.settings.testimonial }}</div>
