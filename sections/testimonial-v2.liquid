@@ -1,34 +1,32 @@
 
-
-{% capture breakpoints %}
-  xo-breakpoints='
-  {
-    992: {
-      perView: 2,
-    },
-    768: {
-      perView: 1,
-    },
-    576: {
-      perView: 1,
-    },
-  }
-  '
-{% endcapture %}
-
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
     <div>
         <xo-carousel
-          xo-per-view='2'
+          xo-per-view='3'
           {% if section.settings.auto_play %}
             xo-autoplay='10000'
           {% endif %}
           xo-speed='400'
-          xo-gap='30'
+          xo-gap='40'
           xo-rewind
-          {{ breakpoints }}
+          xo-breakpoints='
+          {
+            1200: {
+              perView: 3,
+            },
+            992: {
+              perView: 2,
+            },
+            768: {
+              perView: 1,
+            },
+            576: {
+              perView: 1,
+            },
+          }
+          '
           xo-render-bullet='<span></span>'
         >
           <xo-carousel-inner>
@@ -36,15 +34,11 @@
               {% for block in section.blocks %}
                 <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
                   <div class='testimonial-v13__item'>
-                    <div class='testimonial-v13__icon'>
-                      {% if block.settings.icon_image != blank %}
+                    {% if block.settings.icon_image != blank %}
+                      <div class='testimonial-v13__icon'>
                         {%- render 'image', image: block.settings.icon_image -%}
-                      {% else %}
-                        {%- assign customer_name = block.settings.name_customer | default: 'Customer' | split: ' ' | first -%}
-                        {%- assign avatar_url = 'https://ui-avatars.com/api/?name=' | append: customer_name | append: '&size=80&background=473855&color=ffffff&bold=true&format=png' -%}
-                        <img src="{{ avatar_url }}" alt="{{ block.settings.name_customer | default: 'Customer' }}" width="80" height="80" style="border-radius: 50%; object-fit: cover;" loading="lazy">
-                      {% endif %}
-                    </div>
+                      </div>
+                    {% endif %}
                     <div class='testimonial-v13__testimonial'>{{ block.settings.testimonial }}</div>
                     <div class='testimonial-v13__customer'>
                       {% if block.settings.name_customer %}

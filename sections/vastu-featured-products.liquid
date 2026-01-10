@@ -72,6 +72,14 @@
                               {{ price_formatted }}
                             </div>
                           {% endif %}
+                          {% if block.settings.concern_tags != blank and block.settings.tag_position == 'image' %}
+                            <div class='vastu-featured-products__concern-tags vastu-featured-products__concern-tags--overlay'>
+                              {% assign concerns = block.settings.concern_tags | split: '|' %}
+                              {% for concern in concerns %}
+                                <span class='vastu-featured-products__concern-tag'>{{ concern | strip }}</span>
+                              {% endfor %}
+                            </div>
+                          {% endif %}
                           {% if block.settings.product != blank %}
                           {% endif %}
                           {% render 'image', image: block.settings.icon, media_aspect_ratio: '4/3' %}
@@ -83,6 +91,14 @@
                             {%- assign price_formatted = price_formatted | replace: 'Rs.', 'र' | replace: '₹', 'र' | replace: 'INR', 'र' -%}
                             <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
                               {{ price_formatted }}
+                            </div>
+                          {% endif %}
+                          {% if block.settings.concern_tags != blank and block.settings.tag_position == 'image' %}
+                            <div class='vastu-featured-products__concern-tags vastu-featured-products__concern-tags--overlay'>
+                              {% assign concerns = block.settings.concern_tags | split: '|' %}
+                              {% for concern in concerns %}
+                                <span class='vastu-featured-products__concern-tag'>{{ concern | strip }}</span>
+                              {% endfor %}
                             </div>
                           {% endif %}
                           {% if block.settings.product != blank %}
@@ -98,6 +114,14 @@
                               {{ price_formatted }}
                             </div>
                           {% endif %}
+                          {% if block.settings.concern_tags != blank and block.settings.tag_position == 'image' %}
+                            <div class='vastu-featured-products__concern-tags vastu-featured-products__concern-tags--overlay'>
+                              {% assign concerns = block.settings.concern_tags | split: '|' %}
+                              {% for concern in concerns %}
+                                <span class='vastu-featured-products__concern-tag'>{{ concern | strip }}</span>
+                              {% endfor %}
+                            </div>
+                          {% endif %}
                           {% if current_product.featured_image != blank %}
                             {% render 'image', image: current_product.featured_image, media_aspect_ratio: '4/3' %}
                           {% else %}
@@ -106,10 +130,20 @@
                         </div>
                       {% endif %}
                 <div class='vastu-featured-products__content' style='--content-padding-top: {{ section.settings.card_content_padding_top | default: 1.5 }}rem; --content-padding-bottom: {{ section.settings.card_content_padding_bottom | default: 0.5 }}rem;'>
+                  {% if block.settings.concern_tags != blank %}
+                    <div class='vastu-featured-products__concern-tags'>
+                      {% assign concerns = block.settings.concern_tags | split: '|' %}
+                      {% for concern in concerns %}
+                        <span class='vastu-featured-products__concern-tag'>{{ concern | strip }}</span>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
                   {% if block.settings.label != blank %}
-                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ block.settings.label | escape }}'>{{ block.settings.label }}</h3>
+                    {% assign display_label = block.settings.label | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7" %}
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ display_label | escape }}'>{{ display_label }}</h3>
                   {% elsif block.settings.product != blank %}
-                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ current_product.title | escape }}'>{{ current_product.title }}</h3>
+                    {% assign display_title = current_product.title | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7" %}
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h3>
                   {% endif %}
                   {% if block.settings.product != blank %}
                     <div class='vastu-featured-products__add-to-cart'>
@@ -159,12 +193,28 @@
               <a href='{{ product_link }}' class='vastu-featured-products__link'>
                 {% if block.settings.icon != blank %}
                   <div class='vastu-featured-products__image hover-style--scale-up'>
+                    {% if block.settings.concern_tags != blank and block.settings.tag_position == 'image' %}
+                      <div class='vastu-featured-products__concern-tags vastu-featured-products__concern-tags--overlay'>
+                        {% assign concerns = block.settings.concern_tags | split: '|' %}
+                        {% for concern in concerns %}
+                          <span class='vastu-featured-products__concern-tag'>{{ concern | strip }}</span>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
                     {% if block.settings.product != blank %}
                     {% endif %}
                     {% render 'image', image: block.settings.icon, media_aspect_ratio: '4/3' %}
                   </div>
                 {% elsif block.settings.icon_svg != blank %}
                   <div class='vastu-featured-products__image hover-style--scale-up'>
+                    {% if block.settings.concern_tags != blank and block.settings.tag_position == 'image' %}
+                      <div class='vastu-featured-products__concern-tags vastu-featured-products__concern-tags--overlay'>
+                        {% assign concerns = block.settings.concern_tags | split: '|' %}
+                        {% for concern in concerns %}
+                          <span class='vastu-featured-products__concern-tag'>{{ concern | strip }}</span>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
                     {% if block.settings.product != blank %}
                     {% endif %}
                     <div class='vastu-featured-products__icon-svg'>{{ block.settings.icon_svg }}</div>
@@ -178,6 +228,14 @@
                         {{ price_formatted }}
                       </div>
                     {% endif %}
+                    {% if block.settings.concern_tags != blank and block.settings.tag_position == 'image' %}
+                      <div class='vastu-featured-products__concern-tags vastu-featured-products__concern-tags--overlay'>
+                        {% assign concerns = block.settings.concern_tags | split: '|' %}
+                        {% for concern in concerns %}
+                          <span class='vastu-featured-products__concern-tag'>{{ concern | strip }}</span>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
                     <div class='vastu-featured-products__actions-overlay'>
                       {% render 'action-cart-add', product: current_product, variant_modal_placement: 'default' %}
                     </div>
@@ -189,10 +247,20 @@
                   </div>
                 {% endif %}
                 <div class='vastu-featured-products__content' style='--content-padding-top: {{ section.settings.card_content_padding_top | default: 1.5 }}rem; --content-padding-bottom: {{ section.settings.card_content_padding_bottom | default: 0.5 }}rem;'>
+                  {% if block.settings.concern_tags != blank %}
+                    <div class='vastu-featured-products__concern-tags'>
+                      {% assign concerns = block.settings.concern_tags | split: '|' %}
+                      {% for concern in concerns %}
+                        <span class='vastu-featured-products__concern-tag'>{{ concern | strip }}</span>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
                   {% if block.settings.label != blank %}
-                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ block.settings.label | escape }}'>{{ block.settings.label }}</h3>
+                    {% assign display_label = block.settings.label | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7" %}
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ display_label | escape }}'>{{ display_label }}</h3>
                   {% elsif block.settings.product != blank %}
-                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ current_product.title | escape }}'>{{ current_product.title }}</h3>
+                    {% assign display_title = current_product.title | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7" %}
+                    <h3 class='vastu-featured-products__title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h3>
                   {% endif %}
                   {% if block.settings.product != blank %}
                     <div class='vastu-featured-products__add-to-cart'>
@@ -556,6 +624,30 @@
           "id": "link",
           "label": "Manual Link",
           "info": "Only used if no product is selected above. If product is selected, product URL is used automatically."
+        },
+        {
+          "type": "textarea",
+          "id": "concern_tags",
+          "label": "Concern Tags (separate with |)",
+          "info": "Add concern tags for this product. Separate multiple concerns with | (pipe). Example: Money & Financial|Career Growth",
+          "placeholder": "Money & Financial|Peace & Stress|Family Conflicts|Career Growth"
+        },
+        {
+          "type": "select",
+          "id": "tag_position",
+          "label": "Tag Position",
+          "options": [
+            {
+              "value": "above_name",
+              "label": "Above Product Name"
+            },
+            {
+              "value": "image",
+              "label": "On Image (Overlay)"
+            }
+          ],
+          "default": "above_name",
+          "info": "Choose where to display the concern tags"
         }
       ]
     }

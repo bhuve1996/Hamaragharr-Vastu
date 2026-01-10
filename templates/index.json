@@ -314,131 +314,142 @@
         "padding_bottom": 24
       }
     },
-    "vastu-featured-products": {
-      "type": "vastu-featured-products",
-      "blocks": {
-        "product_icon_48L4Ed": {
-          "type": "product_icon",
-          "settings": {
-            "product": "white-owl-vastu-wall-painting-symbol-of-wisdom-wealth-protection",
-            "icon_svg": "",
-            "label": "",
-            "link": ""
-          }
-        },
-        "product_icon_49cU84": {
-          "type": "product_icon",
-          "settings": {
-            "product": "golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance",
-            "icon_svg": "",
-            "label": "",
-            "link": ""
-          }
-        },
-        "product_icon_i8dehJ": {
-          "type": "product_icon",
-          "settings": {
-            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
-            "icon_svg": "",
-            "label": "",
-            "link": ""
-          }
-        },
-        "product_icon_yg7h6k": {
-          "type": "product_icon",
-          "settings": {
-            "product": "framed-bull-painting-for-vastu-solution-strength-stability-and-prosperity",
-            "icon_svg": "",
-            "label": "",
-            "link": ""
-          }
-        },
-        "product_icon_jeabCU": {
-          "type": "product_icon",
-          "settings": {
-            "product": "framed-7-horses-painting-for-vastu-solution-enhance-positivity-success",
-            "icon_svg": "",
-            "label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_icon_48L4Ed",
-        "product_icon_49cU84",
-        "product_icon_i8dehJ",
-        "product_icon_yg7h6k",
-        "product_icon_jeabCU"
-      ],
-      "settings": {
-        "width": "box",
-        "title": "Shop by Concern",
-        "title_font_size": 3.5,
-        "title_font_weight": 700,
-        "title_underline_color": "#473855",
-        "title_underline_width": 80,
-        "title_underline_height": 4,
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "#ffffff",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "enable_separator": false,
-        "separator_color": "#473855",
-        "separator_height": 2,
-        "separator_width": 10,
-        "separator_padding_top": 0,
-        "separator_padding_bottom": 0,
-        "button_text_add_to_cart": "Add to Cart",
-        "button_text_select_options": "Select Options",
-        "card_title_font_size": 1.5,
-        "card_price_font_size": 1.2,
-        "card_content_padding_top": 1.3,
-        "card_content_padding_bottom": 1.3,
-        "badge_font_size": 0.9,
-        "badge_padding_horizontal": 12,
-        "badge_padding_vertical": 6,
-        "badge_top_position": 12,
-        "badge_right_position": 12
-      }
-    },
     "testimonial-v2": {
       "type": "testimonial-v2",
       "blocks": {
         "review_1": {
           "type": "review",
           "settings": {
-            "icon_image": "shopify://shop_images/Essential-Neutral-Backdrops-For-Headshot-Photography-6.webp",
-            "testimonial": "The Vastu Kit has transformed our home! We've noticed a significant positive change in the energy and atmosphere. Highly recommended!",
-            "name_customer": "Priya Sharma",
-            "position": "Delhi"
+            "icon_image": "",
+            "testimonial": "Absolutely transformative! After using the HamaraGharr Vastu Kit for just a few weeks, I noticed a clear lift in positivity at home. Stress levels have reduced and the whole atmosphere feels lighter.",
+            "name_customer": "Anjali Sharma",
+            "position": "Noida"
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
-            "icon_image": "shopify://shop_images/Essential-Neutral-Backdrops-For-Headshot-Photography-6.webp",
-            "testimonial": "Amazing quality and easy to place. Our family feels more harmonious and peaceful since using the Vastu remedies.",
-            "name_customer": "Rajesh Kumar",
+            "icon_image": "",
+            "testimonial": "Highly recommend their Vastu Kit. Simple to place, easy to use, and the results are real. I feel more focused and productive every day.",
+            "name_customer": "Rohan Verma",
             "position": "Mumbai"
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
-            "icon_image": "shopify://shop_images/Essential-Neutral-Backdrops-For-Headshot-Photography-6.webp",
-            "testimonial": "The Vastu products are beautifully crafted and have brought positive changes to our home environment. Worth every penny!",
-            "name_customer": "Anita Patel",
-            "position": "Bangalore"
+            "icon_image": "",
+            "testimonial": "Was skeptical at first, but now a believer! Our family's vibe has improved noticeably, especially in the living room and master bedroom.",
+            "name_customer": "Priya N.",
+            "position": "Gurugram"
           }
         },
         "review_4": {
           "type": "review",
           "settings": {
-            "icon_image": "shopify://shop_images/Essential-Neutral-Backdrops-For-Headshot-Photography-6.webp",
-            "testimonial": "Excellent customer service and high-quality products. The Vastu Kit has helped create a more balanced and peaceful home.",
-            "name_customer": "Vikram Singh",
+            "icon_image": "",
+            "testimonial": "Perfect for rented homes. We couldn't do any renovation, but the HamaraGharr Vastu Kit made a huge difference in energy flow.",
+            "name_customer": "Deepak Singh",
+            "position": "Delhi"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "icon_image": "",
+            "testimonial": "Absolutely worth it! We were facing constant disruptions in business, but after placing the Vastu Kit as recommended, things started improving within a month.",
+            "name_customer": "Nisha & Rajiv",
+            "position": "Jaipur"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "icon_image": "",
+            "testimonial": "What a beautiful piece! The vastu wall painting not only looks elegant but the energy shift is noticeable. I feel calmer and more centered.",
+            "name_customer": "Komal G.",
+            "position": "Bangalore"
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "icon_image": "",
+            "testimonial": "A stunning decor piece and powerful at the same time. Our living room feels so much more balanced now.",
+            "name_customer": "Sanjay Patel",
+            "position": "Ahmedabad"
+          }
+        },
+        "review_8": {
+          "type": "review",
+          "settings": {
+            "icon_image": "",
+            "testimonial": "Compliments from guests, peace in my home. Didn't expect so much impact from a painting, but it's working wonderfully.",
+            "name_customer": "Meera K.",
             "position": "Pune"
+          }
+        },
+        "review_9": {
+          "type": "review",
+          "settings": {
+            "icon_image": "",
+            "testimonial": "Excellent craftsmanship and vastu accuracy. Our family feels lighter and happier—especially mornings feel peaceful.",
+            "name_customer": "Arun & Seema",
+            "position": "Chandigarh"
+          }
+        },
+        "review_10": {
+          "type": "review",
+          "settings": {
+            "icon_image": "",
+            "testimonial": "The vastu painting is a game changer! Our finances and relationships have seen positive shifts within a few weeks.",
+            "name_customer": "Tanya Bhat",
+            "position": "Hyderabad"
+          }
+        },
+        "review_11": {
+          "type": "review",
+          "settings": {
+            "icon_image": "",
+            "testimonial": "HamaraGharr Vastu products have changed our home's energy. We used both the wall painting and the kit—what a difference!",
+            "name_customer": "Karan & Pooja",
+            "position": "Lucknow"
+          }
+        },
+        "review_12": {
+          "type": "review",
+          "settings": {
+            "icon_image": "",
+            "testimonial": "Worth every rupee. Peace, positive vibes, and a noticeable uplift in mood—especially since the vastu painting went up in our living room.",
+            "name_customer": "Mitali Desai",
+            "position": "Surat"
+          }
+        },
+        "review_13": {
+          "type": "review",
+          "settings": {
+            "icon_image": "",
+            "testimonial": "Quick to arrive, well packaged, and truly vastu-energized. The Vastu Kit helped clear blocked energy in our study room.",
+            "name_customer": "Kabir Jain",
+            "position": "Bhopal"
+          }
+        },
+        "review_14": {
+          "type": "review",
+          "settings": {
+            "icon_image": "",
+            "testimonial": "Our home feels complete now. The vastu wall art and kit work together beautifully and have brought harmony into our daily life.",
+            "name_customer": "Rekha & Amit",
+            "position": "Kolkata"
+          }
+        },
+        "review_15": {
+          "type": "review",
+          "settings": {
+            "icon_image": "",
+            "testimonial": "Five stars! Reliable, authentic, and impactful. I recommend HamaraGharr Vastu to anyone serious about energy balance in their home.",
+            "name_customer": "Suhana R.",
+            "position": "Chandigarh"
           }
         }
       },
@@ -446,7 +457,18 @@
         "review_1",
         "review_2",
         "review_3",
-        "review_4"
+        "review_4",
+        "review_5",
+        "review_6",
+        "review_7",
+        "review_8",
+        "review_9",
+        "review_10",
+        "review_11",
+        "review_12",
+        "review_13",
+        "review_14",
+        "review_15"
       ],
       "settings": {
         "width": "fullwidth",
@@ -636,14 +658,222 @@
         "question_3",
         "question_4"
       ]
+    },
+    "vastu-shop-by-concern": {
+      "type": "vastu-shop-by-concern",
+      "blocks": {
+        "concern_1": {
+          "type": "concern",
+          "settings": {
+            "concern_title": "Money & Financial Blockages",
+            "concern_question": "Facing Money Problems or Financial Instability at Home?",
+            "concern_description": "<p>Despite hard work, if money doesn't stay, expenses rise unexpectedly, or income feels blocked — your home's energy may be out of balance.</p><p>According to Vastu, improper energy flow can block wealth and opportunities. Our carefully selected remedies help activate prosperity zones and support financial stability.</p>",
+            "benefits_title": "How These Remedies Help",
+            "benefits_list": "✔ Improve cash flow & savings|✔ Reduce financial stress|✔ Activate wealth-attracting energy|✔ Support business & career growth",
+            "recommended_title": "🌿 Recommended Vastu Solutions",
+            "recommended_products": "* 7 Horses Vastu Painting|* Golden Tree of Life Painting|* White Owl Painting|* Complete Vastu Correction Kit",
+            "product_list": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony, golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance, white-owl-vastu-wall-painting-symbol-of-wisdom-wealth-protection",
+            "cta_text": "👉 Choose a remedy that supports abundance",
+            "cta_link": "shopify://collections/all"
+          }
+        },
+        "concern_2": {
+          "type": "concern",
+          "settings": {
+            "concern_title": "Lack of Peace, Stress & Negativity",
+            "concern_question": "Is Your Home Feeling Heavy, Restless or Stressful?",
+            "concern_description": "<p>Frequent arguments, mental unrest, disturbed sleep, or constant tension often indicate negative energy accumulation in the home.</p><p>Vastu remedies help restore calm, balance, and emotional harmony — creating a peaceful environment for the entire family.</p>",
+            "benefits_title": "✨ How These Remedies Help",
+            "benefits_list": "✔ Reduce stress & anxiety|✔ Improve emotional well-being|✔ Create calm & positivity|✔ Support better sleep",
+            "recommended_title": "🌿 Recommended Vastu Solutions",
+            "recommended_products": "* Complete Vastu Correction Kit|* Peace & Harmony Wall Paintings|* Energy balancing remedies (can add shree yantra and other things)",
+            "product_list": "golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance",
+            "cta_text": "👉 Invite calm energy into your home",
+            "cta_link": "shopify://collections/all"
+          }
+        },
+        "concern_3": {
+          "type": "concern",
+          "settings": {
+            "concern_title": "Family Conflicts & Relationship Issues",
+            "concern_question": "Experiencing Frequent Arguments or Family Discomfort?",
+            "concern_description": "<p>Misunderstandings, emotional distance, or constant friction in the household can be linked to imbalanced elements in living spaces.</p><p>Vastu remedies help create supportive energy that encourages understanding, bonding, and harmony.</p>",
+            "benefits_title": "✨ How These Remedies Help",
+            "benefits_list": "✔ Reduce conflicts|✔ Improve communication|✔ Restore emotional balance|✔ Strengthen family bonds",
+            "recommended_title": "🌿 Recommended Vastu Solutions",
+            "recommended_products": "* Tree of Life Vastu Painting|* Harmony-focused Vastu remedies|* Complete Vastu Correction Kit",
+            "product_list": "golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance, framed-bull-painting-for-vastu-solution-strength-stability-and-prosperity",
+            "cta_text": "👉 Create a harmonious living space",
+            "cta_link": "shopify://collections/all"
+          }
+        },
+        "concern_4": {
+          "type": "concern",
+          "settings": {
+            "concern_title": "Career Growth & Business Stagnation",
+            "concern_question": "Feeling Stuck in Career or Business?",
+            "concern_description": "<p>Delays, missed opportunities, or slow growth may occur due to blocked energy flow in workspaces.</p><p>Vastu remedies support focus, motivation, and progress, helping remove stagnation and encourage forward movement.</p>",
+            "benefits_title": "✨ How These Remedies Help",
+            "benefits_list": "✔ Improve focus & productivity|✔ Support career advancement|✔ Encourage business growth|✔ Reduce obstacles",
+            "recommended_title": "🌿 Recommended Vastu Solutions",
+            "recommended_products": "* 7 Horses Running Painting|* White Owl Painting|* Vastu remedies for offices",
+            "product_list": "framed-7-horses-painting-for-vastu-solution-enhance-positivity-success, white-owl-vastu-wall-painting-symbol-of-wisdom-wealth-protection, golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "cta_text": "👉 Activate progress and success",
+            "cta_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "concern_1",
+        "concern_2",
+        "concern_3",
+        "concern_4"
+      ],
+      "settings": {
+        "width": "box",
+        "title": "Shop by Concern",
+        "title_font_size": 3.5,
+        "title_font_weight": 700,
+        "title_underline_color": "#473855",
+        "title_underline_width": 80,
+        "title_underline_height": 4,
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "enable_separator": false,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "separator_padding_top": 0,
+        "separator_padding_bottom": 0,
+        "button_text_add_to_cart": "Add to Cart",
+        "card_title_font_size": 1.5,
+        "card_price_font_size": 1.2
+      }
+    },
+    "vastu-help-address-v1": {
+      "type": "vastu-help-address-v1",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "text": "Constant stress or negativity"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "text": "Lack of peace and harmony"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "text": "Financial delays or stagnation"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "text": "Health and mental fatigue"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+      "settings": {
+        "width": "box",
+        "title": "What Does It Help Address?",
+        "title_font_size": 3.5,
+        "title_font_weight": 700,
+        "title_underline_color": "#473855",
+        "title_underline_width": 80,
+        "title_underline_height": 4,
+        "gap": 30,
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "enable_separator": false,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "separator_padding_top": 0,
+        "separator_padding_bottom": 0
+      }
+    },
+    "vastu-help-address-v2": {
+      "type": "vastu-help-address-v2",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "text": "Constant stress or negativity"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "text": "Lack of peace and harmony"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "text": "Financial delays or stagnation"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "text": "Health and mental fatigue"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+      "settings": {
+        "width": "box",
+        "title": "What Does It Help Address?",
+        "title_font_size": 3.5,
+        "title_font_weight": 700,
+        "title_underline_color": "#473855",
+        "title_underline_width": 80,
+        "title_underline_height": 4,
+        "circle_size": 500,
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "enable_separator": false,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "separator_padding_top": 0,
+        "separator_padding_bottom": 0
+      }
     }
   },
   "order": [
     "homepage-carousel",
     "vastu-kit-banner",
+    "vastu-help-address-v1",
+    "vastu-help-address-v2",
     "vastu-best-seller-cards",
     "vastu-hindi-statement",
-    "vastu-featured-products",
+    "vastu-shop-by-concern",
     "vastu-trust-bar",
     "testimonial-v2",
     "blog_v1_UzjtYd",

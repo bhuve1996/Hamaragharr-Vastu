@@ -1,0 +1,281 @@
+
+<section {% render 'section-attr' %}>
+  {% render 'section-bg-image' %}
+  <xo-container {% render 'section-layout' %}>
+    {% if section.settings.title != blank %}
+      <xo-animate xo-cascade>
+        <h2 class='vastu-help-address-v2__section-title' style='--title-font-size: {{ section.settings.title_font_size | default: 3.5 }}rem; --title-font-weight: {{ section.settings.title_font_weight | default: 700 }}; --title-underline-color: {{ section.settings.title_underline_color | default: "#473855" }}; --title-underline-width: {{ section.settings.title_underline_width | default: 80 }}px; --title-underline-height: {{ section.settings.title_underline_height | default: 4 }}px;'>{{ section.settings.title | upcase }}</h2>
+      </xo-animate>
+    {% endif %}
+    
+    <div class='vastu-help-address-v2__circle-container'>
+      <div class='vastu-help-address-v2__circle' style='--circle-size: {{ section.settings.circle_size | default: 500 }}px;'>
+        {% for block in section.blocks limit: 4 %}
+          <div class='vastu-help-address-v2__quadrant vastu-help-address-v2__quadrant--{{ forloop.index }}' {{ block.shopify_attributes }}>
+            <div class='vastu-help-address-v2__quadrant-content'>
+              <div class='vastu-help-address-v2__icon'>
+                {% if block.settings.icon_svg != blank %}
+                  {{ block.settings.icon_svg }}
+                {% elsif block.settings.icon_image != blank %}
+                  {% render 'image', image: block.settings.icon_image %}
+                {% endif %}
+              </div>
+              {% if block.settings.text != blank %}
+                <h3 class='vastu-help-address-v2__text'>{{ block.settings.text }}</h3>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+        {% comment %} Center circle decoration {% endcomment %}
+        <div class='vastu-help-address-v2__center'></div>
+      </div>
+    </div>
+  </xo-container>
+  {% render 'section-separator',
+    enable_separator: section.settings.enable_separator,
+    separator_color: section.settings.separator_color,
+    separator_height: section.settings.separator_height,
+    separator_width: section.settings.separator_width,
+    padding_top: section.settings.separator_padding_top,
+    padding_bottom: section.settings.separator_padding_bottom
+  %}
+</section>
+
+{% schema %}
+{
+  "name": "Help Address V2",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "box",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        },
+        {
+          "value": "fullwidth",
+          "label": "t:sections.all.width.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "What Does It Help Address?"
+    },
+    {
+      "type": "header",
+      "content": "Heading Styling"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 2,
+      "max": 6,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Title Font Size",
+      "default": 3.5
+    },
+    {
+      "type": "range",
+      "id": "title_font_weight",
+      "min": 400,
+      "max": 900,
+      "step": 100,
+      "label": "Title Font Weight",
+      "default": 700
+    },
+    {
+      "type": "color",
+      "id": "title_underline_color",
+      "label": "Title Underline Color",
+      "default": "#473855"
+    },
+    {
+      "type": "range",
+      "id": "title_underline_width",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Title Underline Width",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "title_underline_height",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Title Underline Height",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "circle_size",
+      "min": 300,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Circle Size",
+      "default": 500
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.heading.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "t:sections.all.background_type.label",
+      "options": [
+        {
+          "value": "color",
+          "label": "t:sections.all.background_type.option__1.label"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.all.background_color.label",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "t:sections.all.padding_top.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding_bottom.label",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Section Separator"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_separator",
+      "label": "Enable Separator",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Separator Color",
+      "default": "#473855"
+    },
+    {
+      "type": "range",
+      "id": "separator_height",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Separator Height",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "separator_width",
+      "min": 5,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Separator Width",
+      "default": 10
+    },
+    {
+      "type": "number",
+      "id": "separator_padding_top",
+      "label": "Separator Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "separator_padding_bottom",
+      "label": "Separator Padding Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Address Item",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image (Alternative)"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Constant stress or negativity"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Help Address V2",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "text": "Constant stress or negativity"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Lack of peace and harmony"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Financial delays or stagnation"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Health and mental fatigue"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

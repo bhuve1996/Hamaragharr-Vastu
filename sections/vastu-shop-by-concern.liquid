@@ -1,0 +1,443 @@
+
+<section {% render 'section-attr' %}>
+  {% render 'section-bg-image' %}
+  <xo-container {% render 'section-layout' %}>
+    {% if section.settings.title != blank %}
+      <xo-animate xo-cascade>
+        <h2 class='vastu-shop-by-concern__section-title' style='--title-font-size: {{ section.settings.title_font_size | default: 3.5 }}rem; --title-font-weight: {{ section.settings.title_font_weight | default: 700 }}; --title-underline-color: {{ section.settings.title_underline_color | default: "#473855" }}; --title-underline-width: {{ section.settings.title_underline_width | default: 80 }}px; --title-underline-height: {{ section.settings.title_underline_height | default: 4 }}px;'>{{ section.settings.title | upcase }}</h2>
+      </xo-animate>
+    {% endif %}
+    
+    <xo-collapse-provider xo-duration='300' class='vastu-shop-by-concern__accordion'>
+      {% for block in section.blocks %}
+        <xo-animate xo-cascade class='vastu-shop-by-concern__item' {{ block.shopify_attributes }}>
+          {% if block.settings.concern_title != blank or block.settings.concern_question != blank %}
+            <xo-collapse-trigger class='vastu-shop-by-concern__trigger'>
+              <div class='vastu-shop-by-concern__trigger-content'>
+                {% if block.settings.concern_title != blank %}
+                  <h3 class='vastu-shop-by-concern__trigger-title'>{{ block.settings.concern_title }}</h3>
+                {% endif %}
+                {% if block.settings.concern_question != blank %}
+                  <p class='vastu-shop-by-concern__trigger-question'>{{ block.settings.concern_question }}</p>
+                {% endif %}
+              </div>
+              <div class='vastu-shop-by-concern__trigger-icon'>
+                {%- render 'icon', name: 'plus2', icon_size: '20', color: '#473855' -%}
+              </div>
+            </xo-collapse-trigger>
+          {% endif %}
+          
+          <xo-collapse class='vastu-shop-by-concern__collapse'>
+            <div class='vastu-shop-by-concern__content'>
+              {% if block.settings.concern_description != blank %}
+                <div class='vastu-shop-by-concern__card-description'>{{ block.settings.concern_description }}</div>
+              {% endif %}
+              
+              {% if block.settings.benefits_title != blank %}
+                <h4 class='vastu-shop-by-concern__benefits-title'>{{ block.settings.benefits_title }}</h4>
+              {% endif %}
+              
+              {% if block.settings.benefits_list != blank %}
+                <ul class='vastu-shop-by-concern__benefits-list'>
+                  {% assign benefits = block.settings.benefits_list | split: '|' %}
+                  {% for benefit in benefits %}
+                    <li>{{ benefit | strip }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+              
+              {% if block.settings.recommended_title != blank %}
+                <h4 class='vastu-shop-by-concern__recommended-title'>{{ block.settings.recommended_title }}</h4>
+              {% endif %}
+              
+              {% if block.settings.recommended_products != blank %}
+                <ul class='vastu-shop-by-concern__recommended-list'>
+                  {% assign products = block.settings.recommended_products | split: '|' %}
+                  {% for product_name in products %}
+                    <li>{{ product_name | strip }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+              
+              {% comment %} Product Carousel {% endcomment %}
+              {% assign product_list = block.settings.product_list | split: ',' %}
+              {% assign has_products = false %}
+              {% for product_handle in product_list %}
+                {% assign product_handle_stripped = product_handle | strip %}
+                {% if product_handle_stripped != blank and all_products[product_handle_stripped] != blank %}
+                  {% assign has_products = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              
+              {% if has_products %}
+                <div class='vastu-shop-by-concern__products-carousel'>
+                  <xo-carousel
+                    xo-per-view='3'
+                    xo-gap='30'
+                    xo-breakpoints='{"992": {"perView": 2}, "768": {"perView": 1}, "576": {"perView": 1}}'
+                    xo-render-bullet='<span></span>'
+                  >
+                    <xo-carousel-inner>
+                      <xo-carousel-list role='list' aria-label='Products for {{ block.settings.concern_title }}'>
+                        {% for product_handle in product_list %}
+                          {% assign product_handle_stripped = product_handle | strip %}
+                          {% if product_handle_stripped != blank %}
+                            {% assign current_product = all_products[product_handle_stripped] %}
+                            {% if current_product != blank %}
+                              <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
+                                <div class='vastu-shop-by-concern__product-card'>
+                                  <xo-product xo-product-id='{{ current_product.id }}' xo-section-id='{{ section.id }}-{{ block.id }}' xo-product-information>
+                                    <a href='{{ current_product.url }}' class='vastu-shop-by-concern__product-link'>
+                                      <div class='vastu-shop-by-concern__product-image hover-style--scale-up'>
+                                        {% if current_product.price != blank %}
+                                          {%- assign price_formatted = current_product.price | money -%}
+                                          {%- assign price_formatted = price_formatted | replace: 'Rs.', 'र' | replace: '₹', 'र' | replace: 'INR', 'र' -%}
+                                          <div class='vastu-shop-by-concern__product-price' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
+                                            {{ price_formatted }}
+                                          </div>
+                                        {% endif %}
+                                        {% if current_product.featured_image != blank %}
+                                          {% render 'image', image: current_product.featured_image, media_aspect_ratio: '4/3' %}
+                                        {% else %}
+                                          {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                                        {% endif %}
+                                      </div>
+                                      <div class='vastu-shop-by-concern__product-content'>
+                                        {% assign display_title = current_product.title | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7" %}
+                                        <h4 class='vastu-shop-by-concern__product-title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h4>
+                                        <div class='vastu-shop-by-concern__product-add-to-cart'>
+                                          {% if current_product.variants.size > 1 %}
+                                            {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
+                                            <xo-toggle-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}-{{ block.id }}'>
+                                              {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+                                            </xo-toggle-trigger>
+                                          {% else %}
+                                            {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
+                                            <xo-cart-add {% if current_product.selected_or_first_available_variant.available == false %}xo-disabled{% endif %}>
+                                              {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+                                            </xo-cart-add>
+                                          {% endif %}
+                                        </div>
+                                      </div>
+                                    </a>
+                                    {% if current_product.variants.size > 1 %}
+                                      {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'default' %}
+                                    {% endif %}
+                                  </xo-product>
+                                </div>
+                              </xo-carousel-slide>
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                      </xo-carousel-list>
+                    </xo-carousel-inner>
+                    {% render 'carousel-pagination-style3', class: 'vastu-shop-by-concern__products-pagination' %}
+                  </xo-carousel>
+                </div>
+              {% endif %}
+              
+              {% if block.settings.cta_text != blank and block.settings.cta_link != blank %}
+                <div class='vastu-shop-by-concern__cta'>
+                  <a href='{{ block.settings.cta_link }}' class='vastu-shop-by-concern__cta-link'>
+                    {{ block.settings.cta_text }}
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </xo-collapse>
+        </xo-animate>
+      {% endfor %}
+    </xo-collapse-provider>
+  </xo-container>
+  {% render 'section-separator',
+    enable_separator: section.settings.enable_separator,
+    separator_color: section.settings.separator_color,
+    separator_height: section.settings.separator_height,
+    separator_width: section.settings.separator_width,
+    padding_top: section.settings.separator_padding_top,
+    padding_bottom: section.settings.separator_padding_bottom
+  %}
+</section>
+
+{% schema %}
+{
+  "name": "Vastu Shop by Concern",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "box",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        },
+        {
+          "value": "fullwidth",
+          "label": "t:sections.all.width.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Shop by Concern"
+    },
+    {
+      "type": "header",
+      "content": "Heading Styling"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 2,
+      "max": 6,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Title Font Size",
+      "default": 3.5
+    },
+    {
+      "type": "range",
+      "id": "title_font_weight",
+      "min": 400,
+      "max": 900,
+      "step": 100,
+      "label": "Title Font Weight",
+      "default": 700
+    },
+    {
+      "type": "color",
+      "id": "title_underline_color",
+      "label": "Title Underline Color",
+      "default": "#473855"
+    },
+    {
+      "type": "range",
+      "id": "title_underline_width",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Title Underline Width",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "title_underline_height",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Title Underline Height",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.heading.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "t:sections.all.background_type.label",
+      "options": [
+        {
+          "value": "color",
+          "label": "t:sections.all.background_type.option__1.label"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.all.background_color.label",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "t:sections.all.padding_top.label",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding_bottom.label",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Section Separator"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_separator",
+      "label": "Enable Separator",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Separator Color",
+      "default": "#473855"
+    },
+    {
+      "type": "range",
+      "id": "separator_height",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Separator Height",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "separator_width",
+      "min": 5,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Separator Width",
+      "default": 10
+    },
+    {
+      "type": "number",
+      "id": "separator_padding_top",
+      "label": "Separator Padding Top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "separator_padding_bottom",
+      "label": "Separator Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Product Carousel Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text_add_to_cart",
+      "label": "Add to Cart Button Text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "range",
+      "id": "card_title_font_size",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Product Card Title Font Size",
+      "default": 1.5
+    },
+    {
+      "type": "range",
+      "id": "card_price_font_size",
+      "min": 0.8,
+      "max": 2,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Product Card Price Font Size",
+      "default": 1.2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "concern",
+      "name": "Concern Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "concern_title",
+          "label": "Concern Title",
+          "default": "Money & Financial Blockages"
+        },
+        {
+          "type": "text",
+          "id": "concern_question",
+          "label": "Question/Heading",
+          "default": "Facing Money Problems or Financial Instability at Home?"
+        },
+        {
+          "type": "richtext",
+          "id": "concern_description",
+          "label": "Description",
+          "default": "<p>Despite hard work, if money doesn't stay, expenses rise unexpectedly, or income feels blocked — your home's energy may be out of balance.</p><p>According to Vastu, improper energy flow can block wealth and opportunities. Our carefully selected remedies help activate prosperity zones and support financial stability.</p>"
+        },
+        {
+          "type": "text",
+          "id": "benefits_title",
+          "label": "Benefits Section Title",
+          "default": "How These Remedies Help"
+        },
+        {
+          "type": "textarea",
+          "id": "benefits_list",
+          "label": "Benefits List (separate with |)",
+          "default": "✔ Improve cash flow & savings|✔ Reduce financial stress|✔ Activate wealth-attracting energy|✔ Support business & career growth",
+          "info": "Separate each benefit with a pipe character (|)"
+        },
+        {
+          "type": "text",
+          "id": "recommended_title",
+          "label": "Recommended Products Title",
+          "default": "🌿 Recommended Vastu Solutions"
+        },
+        {
+          "type": "textarea",
+          "id": "recommended_products",
+          "label": "Recommended Products (separate with |)",
+          "default": "* 7 Horses Vastu Painting|* Golden Tree of Life Painting|* White Owl Painting|* Complete Vastu Correction Kit",
+          "info": "Separate each product with a pipe character (|)"
+        },
+        {
+          "type": "header",
+          "content": "Product Carousel"
+        },
+        {
+          "type": "textarea",
+          "id": "product_list",
+          "label": "Products (comma-separated handles)",
+          "info": "Enter product handles separated by commas (e.g., product-handle-1, product-handle-2). These products will be displayed in a carousel."
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Button Text",
+          "default": "👉 Choose a remedy that supports abundance"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "CTA Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vastu Shop by Concern"
+    }
+  ]
+}
+{% endschema %}
+
