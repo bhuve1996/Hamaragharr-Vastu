@@ -167,62 +167,6 @@
         "padding_bottom": "0"
       }
     },
-    "vastu-kit-banner": {
-      "type": "banner-v3",
-      "blocks": {
-        "image_1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Vastu_Banner_-_1.jpg",
-            "image_link": ""
-          }
-        },
-        "image_2": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Vastu_Banner_-_1.jpg",
-            "image_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_1",
-        "image_2"
-      ],
-      "settings": {
-        "width": "box",
-        "fullwidth_margin": 0,
-        "hover": "scale_up",
-        "gap": 60,
-        "reversed": false,
-        "subtitle": "",
-        "title": "About Vastu Kit",
-        "description": "The Hamaragharr Vastu Kit is a complete, self-use Vastu correction solution that helps you identify and fix Vastu imbalances—on your own.\n\nBuilt on authentic Vastu Shastra, it transforms traditional wisdom into simple, practical actions—without fear, rituals, or costly consultations. The kit requires no prior Vastu knowledge, no external experts, and comes as one complete, thoughtfully designed solution that makes Vastu correction clear and approachable for modern homes.",
-        "image": "shopify://shop_images/Vastu_Banner_-_1.jpg",
-        "button_text": "Buy Now",
-        "button_link": "shopify://products/vastu-kit-home-office",
-        "button_mode": "dark",
-        "button_style": "secondary",
-        "button_size": "md",
-        "button_radius": 0,
-        "button_padding": 1.4,
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "#ffffff",
-        "background_gradient": "",
-        "use_parallax": true,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "carousel_autoplay": false,
-        "carousel_autoplay_speed": 5,
-        "show_carousel_pagination": true
-      }
-    },
     "vastu-help-address-v1": {
       "type": "vastu-help-address-v1",
       "blocks": {
@@ -851,7 +795,6 @@
   },
   "order": [
     "homepage-carousel",
-    "vastu-kit-banner",
     "vastu-product-showcase",
     "vastu-help-address-v1",
     "vastu-best-seller-cards",
