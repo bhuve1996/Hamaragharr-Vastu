@@ -87,7 +87,8 @@
                     </xo-cart-add>
                   </xo-product-will-change>
                 </div>
-                {%- if section.settings.sticky_dynamic -%}
+                {% comment %} Buy Now button disabled {% endcomment %}
+                {% if false and section.settings.sticky_dynamic -%}
                   <div class='terms-binding'>
                     <xo-product-will-change
                       class='buy-button__now sticky-addcart__buy-now'
@@ -135,7 +136,8 @@
                 {%- endif -%}
               </div>
               <div class='sticky-addcart__buttons-mobile'>
-                {%- if section.settings.sticky_dynamic -%}
+                {% comment %} Buy Now button disabled {% endcomment %}
+                {% if false and section.settings.sticky_dynamic -%}
                   <div class='terms-binding'>
                     <xo-product-will-change
                       class='buy-button__now sticky-addcart__buy-now'

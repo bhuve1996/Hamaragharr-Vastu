@@ -61,6 +61,7 @@
         },
         "b1d95bc4-490b-4b8c-914a-89b1323d2a41": {
           "type": "countdown_time",
+          "disabled": true,
           "settings": {
             "countdown_title": "Sale ends in:",
             "time": "June 30, 2024",
@@ -86,6 +87,7 @@
         },
         "4dabf9d3-3372-4f5a-9edf-1e1f03527b1c": {
           "type": "visitor",
+          "disabled": true,
           "settings": {
             "visitor_text": "people are viewing this right now",
             "visitor_max": 500,
@@ -101,7 +103,7 @@
             "offer_title": "Special Offer",
             "offer_content1": "In Stock",
             "offer_content2": "Free Delivery Available*",
-            "offer_content3": "Sale 30% Off Use Code: Deal30",
+            "offer_content3": "10% Off on Website - Use Code: VASTU10",
             "offer_color": "#28af5b",
             "padding_top": 0,
             "padding_bottom": 30
@@ -109,6 +111,7 @@
         },
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94h": {
           "type": "countdown_stock",
+          "disabled": true,
           "settings": {
             "padding_top": 0,
             "padding_bottom": 30
@@ -117,8 +120,8 @@
         "addon_buttons_MGW7hE": {
           "type": "addon_buttons",
           "settings": {
-            "sizeguide": true,
-            "compare": true,
+            "sizeguide": false,
+            "compare": false,
             "ask": true,
             "share": true,
             "sizeguide_type": "page",

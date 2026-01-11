@@ -38,6 +38,21 @@
 {% endcase %}
 
 {% capture modal_content %}
+  {% if variant_modal_placement != 'default' %}
+    <div class='product-variant-modal__product-info'>
+      {% if product.featured_image != blank %}
+        <div class='product-variant-modal__product-image'>
+          {% render 'image', image: product.featured_image, media_aspect_ratio: '4/3' %}
+        </div>
+      {% endif %}
+      <div class='product-variant-modal__product-details'>
+        <h3 class='product-variant-modal__product-title'>{{ product.title }}</h3>
+        {% if product.price != blank %}
+          <p class='product-variant-modal__product-price'>{{ product.price | money }}</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
   <div class='product-variant-modal__variant-list'>
     {% unless product.has_only_default_variant %}
       {% for option in product.options_with_values %}
@@ -49,6 +64,7 @@
     {% assign form_id = 'product_variant_modal_id-' | append: section.id | append: '-' | append: product.id %}
     {% render 'quantity-style2', form_id: form_id, width: '100%' %}
   </div>
+  {% render 'product-data', product: product %}
   <xo-cart-add
     {% if product.selected_or_first_available_variant.available == false %}
       xo-disabled
@@ -78,10 +94,10 @@
   </xo-toggle>
 {% else %}
   <xo-modal xo-name='product-variant-modal-{{ product.id }}-{{ section.id }}' {{ modal_attr }}>
-    <xo-modal-trigger xo-name='product-variant-modal-{{ product.id }}-{{ section.id }}' class='product-variant-modal__close'>
-      <button aria-label='{{ 'accessibility.close' | t }}'>{% render 'icon', name: 'close2', icon_size: '12' %}</button>
-    </xo-modal-trigger>
-    <div class='product-variant-modal__modal-content' aria-label='{{ 'products.product.choose_product_options' | t: product_name: card_product.title | escape }}' role='dialog'>
+    <div class='product-variant-modal__modal-content' aria-label='{{ 'products.product.choose_product_options' | t: product_name: product.title | escape }}' role='dialog'>
+      <xo-modal-trigger xo-name='product-variant-modal-{{ product.id }}-{{ section.id }}' class='product-variant-modal__close'>
+        <button aria-label='{{ 'accessibility.close' | t }}'>{% render 'icon', name: 'close2', icon_size: '15' %}</button>
+      </xo-modal-trigger>
       {{ modal_content }}
     </div>
   </xo-modal>

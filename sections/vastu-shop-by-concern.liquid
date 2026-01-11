@@ -8,11 +8,11 @@
       </xo-animate>
     {% endif %}
     
-    <xo-collapse-provider xo-duration='300' class='vastu-shop-by-concern__accordion'>
+    <xo-collapse-provider xo-duration='300' class='vastu-shop-by-concern__accordion' xo-default-open='0'>
       {% for block in section.blocks %}
         <xo-animate xo-cascade class='vastu-shop-by-concern__item' {{ block.shopify_attributes }}>
           {% if block.settings.concern_title != blank or block.settings.concern_question != blank %}
-            <xo-collapse-trigger class='vastu-shop-by-concern__trigger'>
+            <xo-collapse-trigger class='vastu-shop-by-concern__trigger' {% if forloop.first %}aria-expanded='true'{% endif %}>
               <div class='vastu-shop-by-concern__trigger-content'>
                 {% if block.settings.concern_title != blank %}
                   <h3 class='vastu-shop-by-concern__trigger-title'>{{ block.settings.concern_title }}</h3>
@@ -27,7 +27,7 @@
             </xo-collapse-trigger>
           {% endif %}
           
-          <xo-collapse class='vastu-shop-by-concern__collapse'>
+          <xo-collapse class='vastu-shop-by-concern__collapse' {% if forloop.first %}style='display: block; max-height: none; opacity: 1;'{% endif %}>
             <div class='vastu-shop-by-concern__content'>
               {% if block.settings.concern_description != blank %}
                 <div class='vastu-shop-by-concern__card-description'>{{ block.settings.concern_description }}</div>
@@ -106,24 +106,27 @@
                                       <div class='vastu-shop-by-concern__product-content'>
                                         {% assign display_title = current_product.title | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7" %}
                                         <h4 class='vastu-shop-by-concern__product-title' style='--card-title-size: {{ section.settings.card_title_font_size | default: 1.5 }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h4>
-                                        <div class='vastu-shop-by-concern__product-add-to-cart'>
-                                          {% if current_product.variants.size > 1 %}
-                                            {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
-                                            <xo-toggle-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}-{{ block.id }}'>
+                                        {% if current_product.variants.size > 1 %}
+                                          {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
+                                          <div class='vastu-shop-by-concern__product-add-to-cart' onclick='event.stopPropagation(); event.preventDefault();'>
+                                            <xo-modal-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}-{{ block.id }}' onclick='event.stopPropagation(); event.preventDefault();'>
                                               {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
-                                            </xo-toggle-trigger>
-                                          {% else %}
-                                            {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
+                                            </xo-modal-trigger>
+                                          </div>
+                                        {% else %}
+                                          {% assign button_text = section.settings.button_text_add_to_cart | default: 'Add to Cart' %}
+                                          <div class='vastu-shop-by-concern__product-add-to-cart' onclick='event.stopPropagation(); event.preventDefault();'>
                                             <xo-cart-add {% if current_product.selected_or_first_available_variant.available == false %}xo-disabled{% endif %}>
                                               {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
                                             </xo-cart-add>
-                                          {% endif %}
-                                        </div>
+                                          </div>
+                                        {% endif %}
                                       </div>
                                     </a>
                                     {% if current_product.variants.size > 1 %}
-                                      {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'default' %}
+                                      {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'center' %}
                                     {% endif %}
+                                    {% render 'product-data', product: current_product %}
                                   </xo-product>
                                 </div>
                               </xo-carousel-slide>
@@ -150,6 +153,71 @@
       {% endfor %}
     </xo-collapse-provider>
   </xo-container>
+  
+  <script>
+    (function() {
+      // Open first accordion item by default
+      function openFirstAccordion() {
+        const accordion = document.querySelector('.vastu-shop-by-concern__accordion');
+        if (!accordion) return;
+        
+        const firstItem = accordion.querySelector('.vastu-shop-by-concern__item');
+        if (!firstItem) return;
+        
+        const firstTrigger = firstItem.querySelector('.vastu-shop-by-concern__trigger');
+        const firstCollapse = firstItem.querySelector('.vastu-shop-by-concern__collapse');
+        
+        if (firstTrigger && firstCollapse) {
+          // Set aria-expanded to true
+          firstTrigger.setAttribute('aria-expanded', 'true');
+          
+          // Force collapse to be visible
+          firstCollapse.style.display = 'block';
+          firstCollapse.style.maxHeight = 'none';
+          firstCollapse.style.opacity = '1';
+          firstCollapse.removeAttribute('hidden');
+          
+          // Set data attribute to mark as open
+          firstCollapse.setAttribute('data-open', 'true');
+          
+          // Use MutationObserver to watch for component initialization
+          const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              if (mutation.type === 'attributes' && mutation.attributeName === 'aria-expanded') {
+                if (firstTrigger.getAttribute('aria-expanded') === 'false') {
+                  firstTrigger.setAttribute('aria-expanded', 'true');
+                  firstCollapse.style.display = 'block';
+                  firstCollapse.style.maxHeight = 'none';
+                  firstCollapse.style.opacity = '1';
+                }
+              }
+            });
+          });
+          
+          observer.observe(firstTrigger, { attributes: true });
+          
+          // Also trigger click after a delay to ensure component recognizes the state
+          setTimeout(function() {
+            if (firstTrigger.getAttribute('aria-expanded') !== 'true') {
+              firstTrigger.click();
+            }
+          }, 100);
+        }
+      }
+      
+      // Try multiple times to ensure it works
+      openFirstAccordion();
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', openFirstAccordion);
+      }
+      
+      setTimeout(openFirstAccordion, 100);
+      setTimeout(openFirstAccordion, 300);
+      setTimeout(openFirstAccordion, 600);
+    })();
+  </script>
+  
   {% render 'section-separator',
     enable_separator: section.settings.enable_separator,
     separator_color: section.settings.separator_color,

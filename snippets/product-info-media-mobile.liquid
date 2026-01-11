@@ -187,13 +187,13 @@
       </div>
       <xo-carousel-pagination
         class='xo-product-info-media-mobile__pagination'
-        {% if section.settings.thumbnail_mobile == 'thumbnail' %}
+        {% if section.settings.thumbnail_mobile == 'thumbnail' or section == blank %}
           style='display:none'
         {% endif %}
       ></xo-carousel-pagination>
       <xo-carousel-thumbnail
         class='xo-product-info-media-mobile__thumbnails'
-        {% if section.settings.thumbnail_mobile == 'pagination' %}
+        {% if section.settings.thumbnail_mobile == 'pagination' or section == blank %}
           style='display:none'
         {% endif %}
         xo-per-view='5'

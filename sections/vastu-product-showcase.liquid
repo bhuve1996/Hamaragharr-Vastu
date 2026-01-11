@@ -1,0 +1,232 @@
+{% comment %}
+  Renders a product showcase section similar to product page layout
+  Left: Product images with thumbnails
+  Right: Product description, price, quantity, add to cart, buy now
+{% endcomment %}
+
+{% liquid
+  assign selected_product = all_products[section.settings.product]
+  if selected_product == blank
+    assign selected_product = all_products['vastu-kit-home-office']
+  endif
+%}
+
+{% if selected_product != blank %}
+  {% comment %} Assign product variable for snippets that expect it {% endcomment %}
+  {% assign product = selected_product %}
+  
+  <section {% render 'section-attr' %} class='vastu-product-showcase'>
+    {% render 'section-bg-image' %}
+    {% comment %} Ensure product is available before xo-product component {% endcomment %}
+    <xo-product xo-product-information xo-product-id='{{ product.id }}' xo-section-id='{{ section.id }}'>
+      {%- assign product_form_id = 'product-showcase-form-' | append: section.id -%}
+      <xo-container {% render 'section-layout' %}>
+        <xo-grid>
+          {% comment %} Left Side: Product Images with Thumbnails {% endcomment %}
+          <xo-animate xo-cascade style='--xs: 12; --md: 7'>
+            {% comment %} Render product media - the snippet expects product variable to be available {% endcomment %}
+            {% render 'product-info-media-showcase',
+              hover_zoom_enabled: section.settings.image_zoom_hover,
+              click_zoom_enabled: section.settings.image_zoom_click,
+              autoplay: false,
+              video_modal: false,
+              product_360: false,
+              media_sticky: false
+            %}
+          </xo-animate>
+          
+          {% comment %} Right Side: Product Info {% endcomment %}
+          <xo-animate xo-cascade style='--xs: 12; --md: 5' class='vastu-product-showcase__right'>
+            <div class='vastu-product-showcase__content'>
+              {% comment %} Title {% endcomment %}
+              {% if section.settings.show_title %}
+                <h1 class='vastu-product-showcase__title'>{{ product.title | escape }}</h1>
+              {% endif %}
+              
+              {% comment %} Price {% endcomment %}
+              {% if section.settings.show_price %}
+                <div class='vastu-product-showcase__price'>
+                  <xo-product-will-change xo-unique-id='product-price-{{ product.id }}'>
+                    {% render 'price', product: product, use_variant: true, style: 'larger' %}
+                  </xo-product-will-change>
+                </div>
+              {% endif %}
+              
+              {% comment %} Description {% endcomment %}
+              {% if section.settings.show_description and product.description != blank %}
+                <div class='vastu-product-showcase__description'>
+                  {% assign description_text = product.description | strip_html %}
+                  {% assign truncated_description = description_text | truncatewords: 50 %}
+                  <div class='vastu-product-showcase__description-text'>
+                    {{ truncated_description }}
+                  </div>
+                  {% if description_text.size > truncated_description.size %}
+                    <a href='{{ product.url }}' class='vastu-product-showcase__read-more'>
+                      View in Detail →
+                    </a>
+                  {% endif %}
+                </div>
+              {% endif %}
+              
+              {% comment %} Variant Selector {% endcomment %}
+              {% unless product.has_only_default_variant %}
+                <div class='vastu-product-showcase__variants'>
+                  {% for option in product.options_with_values %}
+                    {% render 'product-variant', option: option, product: product, style: 'boxed' %}
+                  {% endfor %}
+                </div>
+              {% endunless %}
+              
+              {% comment %} Quantity and Buttons {% endcomment %}
+              {%- form 'product', product, id: product_form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                <input type='hidden' name='id' value='{{ product.selected_or_first_available_variant.id }}'>
+                
+                {% comment %} Quantity Selector {% endcomment %}
+                {% if section.settings.show_quantity %}
+                  <div class='vastu-product-showcase__quantity'>
+                    {% render 'quantity-style2', form_id: product_form_id, width: '100%', height: '5rem', modify: 'half' %}
+                  </div>
+                {% endif %}
+                
+                {% comment %} Buttons {% endcomment %}
+                <div class='vastu-product-showcase__buttons'>
+                  {% comment %} Add to Cart {% endcomment %}
+                  <div class='vastu-product-showcase__add-to-cart'>
+                    <xo-product-will-change
+                      xo-unique-id='product-add-button-{{ product.id }}'
+                      class='buy-button__add'
+                      {% if product.selected_or_first_available_variant.available == false %}
+                        xo-disabled
+                      {% endif %}
+                    >
+                      <xo-cart-add
+                        {% if product.selected_or_first_available_variant.available == false %}
+                          xo-disabled
+                        {% endif %}
+                      >
+                        {%- if product.selected_or_first_available_variant.available -%}
+                          {% assign button_text = 'products.product.add_to_cart' | t %}
+                        {%- else -%}
+                          {% assign button_text = 'products.product.sold_out' | t %}
+                        {%- endif -%}
+                        {% render 'button', style: 'primary', text: button_text, block: true, size: 'md' %}
+                      </xo-cart-add>
+                    </xo-product-will-change>
+                  </div>
+                  
+                  {% comment %} Buy Now Button {% endcomment %}
+                  {% if section.settings.show_buy_now and product.selling_plan_groups == empty %}
+                    <div class='vastu-product-showcase__buy-now'>
+                      <xo-product-will-change
+                        class='buy-button__now'
+                        xo-unique-id='product-buy-now-button-{{ product.id }}'
+                        {% if product.selected_or_first_available_variant.available == false %}
+                          xo-disabled
+                        {% endif %}
+                      >
+                        {{ form | payment_button }}
+                        {{ form | payment_terms }}
+                      </xo-product-will-change>
+                    </div>
+                  {% endif %}
+                </div>
+              {%- endform -%}
+            </div>
+          </xo-animate>
+        </xo-grid>
+      </xo-container>
+      {% render 'product-data', product: product %}
+    </xo-product>
+  </section>
+  
+  {% comment %} Reset product variable {% endcomment %}
+  {% assign product = null %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Vastu Product Showcase",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Select the product to showcase (defaults to Vastu Kit if not selected)"
+    },
+    {
+      "type": "header",
+      "content": "Display Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show Product Title",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show Price",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show Description",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quantity",
+      "label": "Show Quantity Selector",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_buy_now",
+      "label": "Show Buy Now Button",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Image Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_zoom_hover",
+      "label": "Enable Hover Zoom",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "image_zoom_click",
+      "label": "Enable Click Zoom",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": "0"
+    },
+    {
+      "type": "text",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": "0"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vastu Product Showcase"
+    }
+  ]
+}
+{% endschema %}
+

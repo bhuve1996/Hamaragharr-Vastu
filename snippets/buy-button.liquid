@@ -53,7 +53,8 @@
     </div>
   </div>
 
-  {% if show_dynamic_checkout and product.selling_plan_groups == empty and gift_card_recipient_feature_active == false %}
+  {% comment %} Buy Now button disabled {% endcomment %}
+  {% if false and show_dynamic_checkout and product.selling_plan_groups == empty and gift_card_recipient_feature_active == false %}
     {% render 'space', value: '2.5rem' %}
     <div class='terms-binding'>
       <xo-product-will-change

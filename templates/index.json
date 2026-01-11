@@ -152,6 +152,21 @@
         "padding_bottom": 0
       }
     },
+    "vastu-product-showcase": {
+      "type": "vastu-product-showcase",
+      "settings": {
+        "product": "vastu-kit-home-office",
+        "show_title": true,
+        "show_price": true,
+        "show_description": true,
+        "show_quantity": true,
+        "show_buy_now": true,
+        "image_zoom_hover": false,
+        "image_zoom_click": false,
+        "padding_top": "0",
+        "padding_bottom": "0"
+      }
+    },
     "vastu-kit-banner": {
       "type": "banner-v3",
       "blocks": {
@@ -182,11 +197,8 @@
         "reversed": false,
         "subtitle": "",
         "title": "About Vastu Kit",
-        "description": "The Hamaragharr Vastu Kit is a complete, self-use Vastu correction solution that helps you identify and fix Vastu imbalances—on your own.\n\nBuilt on authentic Vastu Shastra, it transforms traditional wisdom into simple, practical actions—without fear, rituals, or costly consultations. The kit requires no prior Vastu knowledge, no external experts, and comes as one complete, thoughtfully designed solution that makes Vastu correction clear and approachable for modern homes.\n\nWhat Does It Help Address?\n\n• Constant stress or negativity\n• Lack of peace and harmony\n• Financial delays or stagnation\n• Health and mental fatigue",
+        "description": "The Hamaragharr Vastu Kit is a complete, self-use Vastu correction solution that helps you identify and fix Vastu imbalances—on your own.\n\nBuilt on authentic Vastu Shastra, it transforms traditional wisdom into simple, practical actions—without fear, rituals, or costly consultations. The kit requires no prior Vastu knowledge, no external experts, and comes as one complete, thoughtfully designed solution that makes Vastu correction clear and approachable for modern homes.",
         "image": "shopify://shop_images/Vastu_Banner_-_1.jpg",
-        "carousel_autoplay": false,
-        "carousel_autoplay_speed": 5,
-        "show_carousel_pagination": true,
         "button_text": "Buy Now",
         "button_link": "shopify://products/vastu-kit-home-office",
         "button_mode": "dark",
@@ -205,7 +217,70 @@
         "background_overlay": "",
         "background_margin": 0,
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "carousel_autoplay": false,
+        "carousel_autoplay_speed": 5,
+        "show_carousel_pagination": true
+      }
+    },
+    "vastu-help-address-v1": {
+      "type": "vastu-help-address-v1",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM240 176c0-8.8 7.2-16 16-16s16 7.2 16 16v128c0 8.8-7.2 16-16 16s-16-7.2-16-16V176zM256 384c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32S273.7 384 256 384z\"/></svg>",
+            "text": "Constant stress or negativity"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z\"/></svg>",
+            "text": "Lack of peace and harmony"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H224v80c0 17.7 14.3 32 32 32h80V448c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0H64zm96 240c-8.8 0-16 7.2-16 16s7.2 16 16 16h96c8.8 0 16-7.2 16-16s-7.2-16-16-16H160zm0 64c-8.8 0-16 7.2-16 16s7.2 16 16 16h96c8.8 0 16-7.2 16-16s-7.2-16-16-16H160z\"/></svg>",
+            "text": "Financial delays or stagnation"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z\"/></svg>",
+            "text": "Health and mental fatigue"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
+      ],
+      "settings": {
+        "width": "box",
+        "title": "What Does It Help Address?",
+        "title_font_size": 3.5,
+        "title_font_weight": 700,
+        "title_underline_color": "#473855",
+        "title_underline_width": 80,
+        "title_underline_height": 4,
+        "gap": 30,
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "enable_separator": false,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "separator_padding_top": 0,
+        "separator_padding_bottom": 0
       }
     },
     "vastu-best-seller-cards": {
@@ -314,13 +389,199 @@
         "padding_bottom": 24
       }
     },
+    "vastu-shop-by-concern": {
+      "type": "vastu-shop-by-concern",
+      "blocks": {
+        "concern_1": {
+          "type": "concern",
+          "settings": {
+            "concern_title": "Money & Financial Blockages",
+            "concern_question": "Facing Money Problems or Financial Instability at Home?",
+            "concern_description": "<p>Despite hard work, if money doesn't stay, expenses rise unexpectedly, or income feels blocked — your home's energy may be out of balance.</p><p>According to Vastu, improper energy flow can block wealth and opportunities. Our carefully selected remedies help activate prosperity zones and support financial stability.</p>",
+            "benefits_title": "How These Remedies Help",
+            "benefits_list": "✔ Improve cash flow & savings|✔ Reduce financial stress|✔ Activate wealth-attracting energy|✔ Support business & career growth",
+            "recommended_title": "🌿 Recommended Vastu Solutions",
+            "recommended_products": "* 7 Horses Vastu Painting|* Golden Tree of Life Painting|* White Owl Painting|* Complete Vastu Correction Kit",
+            "product_list": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony, golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance, white-owl-vastu-wall-painting-symbol-of-wisdom-wealth-protection",
+            "cta_text": "👉 Choose a remedy that supports abundance",
+            "cta_link": "shopify://collections/all"
+          }
+        },
+        "concern_2": {
+          "type": "concern",
+          "settings": {
+            "concern_title": "Lack of Peace, Stress & Negativity",
+            "concern_question": "Is Your Home Feeling Heavy, Restless or Stressful?",
+            "concern_description": "<p>Frequent arguments, mental unrest, disturbed sleep, or constant tension often indicate negative energy accumulation in the home.</p><p>Vastu remedies help restore calm, balance, and emotional harmony — creating a peaceful environment for the entire family.</p>",
+            "benefits_title": "✨ How These Remedies Help",
+            "benefits_list": "✔ Reduce stress & anxiety|✔ Improve emotional well-being|✔ Create calm & positivity|✔ Support better sleep",
+            "recommended_title": "🌿 Recommended Vastu Solutions",
+            "recommended_products": "* Complete Vastu Correction Kit|* Peace & Harmony Wall Paintings|* Energy balancing remedies (can add shree yantra and other things)",
+            "product_list": "golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance",
+            "cta_text": "👉 Invite calm energy into your home",
+            "cta_link": "shopify://collections/all"
+          }
+        },
+        "concern_3": {
+          "type": "concern",
+          "settings": {
+            "concern_title": "Family Conflicts & Relationship Issues",
+            "concern_question": "Experiencing Frequent Arguments or Family Discomfort?",
+            "concern_description": "<p>Misunderstandings, emotional distance, or constant friction in the household can be linked to imbalanced elements in living spaces.</p><p>Vastu remedies help create supportive energy that encourages understanding, bonding, and harmony.</p>",
+            "benefits_title": "✨ How These Remedies Help",
+            "benefits_list": "✔ Reduce conflicts|✔ Improve communication|✔ Restore emotional balance|✔ Strengthen family bonds",
+            "recommended_title": "🌿 Recommended Vastu Solutions",
+            "recommended_products": "* Tree of Life Vastu Painting|* Harmony-focused Vastu remedies|* Complete Vastu Correction Kit",
+            "product_list": "golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance, framed-bull-painting-for-vastu-solution-strength-stability-and-prosperity",
+            "cta_text": "👉 Create a harmonious living space",
+            "cta_link": "shopify://collections/all"
+          }
+        },
+        "concern_4": {
+          "type": "concern",
+          "settings": {
+            "concern_title": "Career Growth & Business Stagnation",
+            "concern_question": "Feeling Stuck in Career or Business?",
+            "concern_description": "<p>Delays, missed opportunities, or slow growth may occur due to blocked energy flow in workspaces.</p><p>Vastu remedies support focus, motivation, and progress, helping remove stagnation and encourage forward movement.</p>",
+            "benefits_title": "✨ How These Remedies Help",
+            "benefits_list": "✔ Improve focus & productivity|✔ Support career advancement|✔ Encourage business growth|✔ Reduce obstacles",
+            "recommended_title": "🌿 Recommended Vastu Solutions",
+            "recommended_products": "* 7 Horses Running Painting|* White Owl Painting|* Vastu remedies for offices",
+            "product_list": "framed-7-horses-painting-for-vastu-solution-enhance-positivity-success, white-owl-vastu-wall-painting-symbol-of-wisdom-wealth-protection, golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
+            "cta_text": "👉 Activate progress and success",
+            "cta_link": "shopify://collections/all"
+          }
+        },
+        "concern_5": {
+          "type": "concern",
+          "settings": {
+            "concern_title": "One Stop Solution for All",
+            "concern_question": "Looking for a Complete Vastu Solution?",
+            "concern_description": "<p>Address multiple Vastu concerns with one comprehensive solution. The Hamaragharr Vastu Kit is designed to help you identify and fix various Vastu imbalances in your home or office.</p><p>Perfect for those who want a complete, self-use Vastu correction solution without the need for multiple products or consultations.</p>",
+            "benefits_title": "✨ How This Solution Helps",
+            "benefits_list": "✔ Address multiple Vastu concerns|✔ Complete self-use solution|✔ No prior Vastu knowledge needed|✔ Comprehensive energy correction",
+            "recommended_title": "🌿 Recommended Solution",
+            "recommended_products": "* Complete Vastu Correction Kit",
+            "product_list": "vastu-kit-home-office",
+            "cta_text": "👉 Get your complete Vastu solution",
+            "cta_link": "shopify://products/vastu-kit-home-office"
+          }
+        }
+      },
+      "block_order": [
+        "concern_1",
+        "concern_2",
+        "concern_3",
+        "concern_4",
+        "concern_5"
+      ],
+      "settings": {
+        "width": "box",
+        "title": "Shop by Concern",
+        "title_font_size": 3.5,
+        "title_font_weight": 700,
+        "title_underline_color": "#473855",
+        "title_underline_width": 80,
+        "title_underline_height": 4,
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "enable_separator": false,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "separator_padding_top": 0,
+        "separator_padding_bottom": 0,
+        "button_text_add_to_cart": "Add to Cart",
+        "card_title_font_size": 1.5,
+        "card_price_font_size": 1.2
+      }
+    },
+    "vastu-trust-bar": {
+      "type": "vastu-trust-bar",
+      "blocks": {
+        "trust_1": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "shopify://shop_images/delivery.png",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M226.5 92.9c14.7 22.7 39.5 35.1 65.5 35.1s50.8-12.4 65.5-35.1c7.1-10.9 20.5-14.6 31.4-7.5s14.6 20.5 7.5 31.4C350.8 174.8 317.7 192 282 192c-2.3 0-4.6-.1-6.9-.4l-46.2 46.2c12.2 6.2 23.1 14.8 32.1 25.1l41.4-41.4c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6l-48 48c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l9.4-9.4c-5.5-12.6-13.8-23.7-24.2-32.9L184 278.6c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l48-48c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6l-9.4 9.4c10.4 9.2 18.7 20.3 24.2 32.9l-9.4 9.4c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l48-48c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0l-41.4 41.4c-10.3-9-21.2-17.6-33.4-23.8l46.2-46.2c-.3-2.2-.4-4.5-.4-6.9c0-35.7 17.2-68.8 46.2-89.1c-10.9-7.1-14.6-20.5-7.5-31.4s20.5-14.6 31.4-7.5zM64 128c-8.8 0-16 7.2-16 16V352c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V144c0-8.8-7.2-16-16-16H64zM48 352V144c0-26.5 21.5-48 48-48H448c26.5 0 48 21.5 48 48V352c0 26.5-21.5 48-48 48H96c-26.5 0-48-21.5-48-48z\"></path></svg>",
+            "text": "Free & Fast Shipping",
+            "subtitle": "On orders above र 500"
+          }
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "shopify://shop_images/heart_3.png",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z\"></path></svg>",
+            "text": "100% Satisfaction Guaranteed",
+            "subtitle": "Your happiness is our priority"
+          }
+        },
+        "trust_3": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "shopify://shop_images/costumer.png",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 576 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm48 112a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm-64 48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zM176 384a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM48 224H192V384H48V224zM448 224H512V384H448V224z\"></path></svg>",
+            "text": "Happy Customers",
+            "subtitle": "Join thousands of satisfied families"
+          }
+        },
+        "trust_4": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "shopify://shop_images/shield.png",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M112 0C85.5 0 64 21.5 64 48V96H16c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 272c0 17.7 14.3 32 32 32h96c17.7 0 32-14.3 32-32h208c8.8 0 16-7.2 16-16s-7.2-16-16-16H384V48c0-26.5-21.5-48-48-48H112zM544 128H96c-35.3 0-64 28.7-64 64V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64zM208 352c-8.8 0-16-7.2-16-16s7.2-16 16-16h96c8.8 0 16 7.2 16 16s-7.2 16-16 16H208zm96-128c-8.8 0-16-7.2-16-16s7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H304z\"></path></svg>",
+            "text": "Safe & Secured",
+            "subtitle": "100% secure payment gateway"
+          }
+        },
+        "trust_5": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "shopify://shop_images/freepik__badge-reading-made-in-india-circular-stickericon-s__2624.png",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M392.8 1.2c-17-7.9-38-1.5-46.1 15.6L320 96H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H322.9l-46.4 92.7c-8.1 16.1-1.5 38 15.6 46.1s38 1.5 46.1-15.6L416 196.2V288H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32-14.3-32-32V224c0-10.1 4.7-19.6 12.8-25.6l64-48c8.1-6 18.4-7.4 27.6-3.6s16.1 12.5 18 22.3l32 160c2.9 14.4-5.8 28.7-20.2 31.6s-28.7-5.8-31.6-20.2L442 283.8l-46 34.5V288 416c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V352H96c-17.7 0-32-14.3-32-32s14.3-32 32-32h96V288H80c-17.7 0-32-14.3-32-32s14.3-32 32-32H192V160H48C21.5 160 0 181.5 0 208v96 48V464c0 26.5 21.5 48 48 48H592c26.5 0 48-21.5 48-48V352 304 208c0-26.5-21.5-48-48-48H512c-17.7 0-32 14.3-32 32v16.7l-28.1-84.4c-3.9-11.7-13.2-21-25.1-24.6l-34.1-8.5zM560 240a16 16 0 1 1 0 32 16 16 0 1 1 0-32z\"></path></svg>",
+            "text": "Made in India",
+            "subtitle": "Proudly supporting local artisans"
+          }
+        }
+      },
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4",
+        "trust_5"
+      ],
+      "settings": {
+        "width": "box",
+        "title": "Why Choose Us",
+        "title_font_size": 3.5,
+        "title_font_weight": 700,
+        "title_underline_color": "#473855",
+        "title_underline_width": 80,
+        "title_underline_height": 4,
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#fafafa",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_separator": false,
+        "separator_color": "#473855",
+        "separator_height": 2,
+        "separator_width": 10,
+        "separator_padding_top": 0,
+        "separator_padding_bottom": 0
+      }
+    },
     "testimonial-v2": {
       "type": "testimonial-v2",
       "blocks": {
         "review_1": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "Absolutely transformative! After using the HamaraGharr Vastu Kit for just a few weeks, I noticed a clear lift in positivity at home. Stress levels have reduced and the whole atmosphere feels lighter.",
             "name_customer": "Anjali Sharma",
             "position": "Noida"
@@ -329,7 +590,6 @@
         "review_2": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "Highly recommend their Vastu Kit. Simple to place, easy to use, and the results are real. I feel more focused and productive every day.",
             "name_customer": "Rohan Verma",
             "position": "Mumbai"
@@ -338,7 +598,6 @@
         "review_3": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "Was skeptical at first, but now a believer! Our family's vibe has improved noticeably, especially in the living room and master bedroom.",
             "name_customer": "Priya N.",
             "position": "Gurugram"
@@ -347,7 +606,6 @@
         "review_4": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "Perfect for rented homes. We couldn't do any renovation, but the HamaraGharr Vastu Kit made a huge difference in energy flow.",
             "name_customer": "Deepak Singh",
             "position": "Delhi"
@@ -356,7 +614,6 @@
         "review_5": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "Absolutely worth it! We were facing constant disruptions in business, but after placing the Vastu Kit as recommended, things started improving within a month.",
             "name_customer": "Nisha & Rajiv",
             "position": "Jaipur"
@@ -365,7 +622,6 @@
         "review_6": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "What a beautiful piece! The vastu wall painting not only looks elegant but the energy shift is noticeable. I feel calmer and more centered.",
             "name_customer": "Komal G.",
             "position": "Bangalore"
@@ -374,7 +630,6 @@
         "review_7": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "A stunning decor piece and powerful at the same time. Our living room feels so much more balanced now.",
             "name_customer": "Sanjay Patel",
             "position": "Ahmedabad"
@@ -383,7 +638,6 @@
         "review_8": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "Compliments from guests, peace in my home. Didn't expect so much impact from a painting, but it's working wonderfully.",
             "name_customer": "Meera K.",
             "position": "Pune"
@@ -392,7 +646,6 @@
         "review_9": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "Excellent craftsmanship and vastu accuracy. Our family feels lighter and happier—especially mornings feel peaceful.",
             "name_customer": "Arun & Seema",
             "position": "Chandigarh"
@@ -401,7 +654,6 @@
         "review_10": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "The vastu painting is a game changer! Our finances and relationships have seen positive shifts within a few weeks.",
             "name_customer": "Tanya Bhat",
             "position": "Hyderabad"
@@ -410,7 +662,6 @@
         "review_11": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "HamaraGharr Vastu products have changed our home's energy. We used both the wall painting and the kit—what a difference!",
             "name_customer": "Karan & Pooja",
             "position": "Lucknow"
@@ -419,7 +670,6 @@
         "review_12": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "Worth every rupee. Peace, positive vibes, and a noticeable uplift in mood—especially since the vastu painting went up in our living room.",
             "name_customer": "Mitali Desai",
             "position": "Surat"
@@ -428,7 +678,6 @@
         "review_13": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "Quick to arrive, well packaged, and truly vastu-energized. The Vastu Kit helped clear blocked energy in our study room.",
             "name_customer": "Kabir Jain",
             "position": "Bhopal"
@@ -437,7 +686,6 @@
         "review_14": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "Our home feels complete now. The vastu wall art and kit work together beautifully and have brought harmony into our daily life.",
             "name_customer": "Rekha & Amit",
             "position": "Kolkata"
@@ -446,7 +694,6 @@
         "review_15": {
           "type": "review",
           "settings": {
-            "icon_image": "",
             "testimonial": "Five stars! Reliable, authentic, and impactful. I recommend HamaraGharr Vastu to anyone serious about energy balance in their home.",
             "name_customer": "Suhana R.",
             "position": "Chandigarh"
@@ -536,84 +783,8 @@
         "separator_padding_bottom": 0
       }
     },
-    "vastu-trust-bar": {
-      "type": "vastu-trust-bar",
-      "blocks": {
-        "trust_1": {
-          "type": "trust_item",
-          "settings": {
-            "icon": "shopify://shop_images/freepik__badge-reading-personalize-your-product-with-rounde__2625.png",
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M226.5 92.9c14.7 22.7 39.5 35.1 65.5 35.1s50.8-12.4 65.5-35.1c7.1-10.9 20.5-14.6 31.4-7.5s14.6 20.5 7.5 31.4C350.8 174.8 317.7 192 282 192c-2.3 0-4.6-.1-6.9-.4l-46.2 46.2c12.2 6.2 23.1 14.8 32.1 25.1l41.4-41.4c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6l-48 48c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l9.4-9.4c-5.5-12.6-13.8-23.7-24.2-32.9L184 278.6c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l48-48c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6l-9.4 9.4c10.4 9.2 18.7 20.3 24.2 32.9l-9.4 9.4c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l48-48c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0l-41.4 41.4c-10.3-9-21.2-17.6-33.4-23.8l46.2-46.2c-.3-2.2-.4-4.5-.4-6.9c0-35.7 17.2-68.8 46.2-89.1c-10.9-7.1-14.6-20.5-7.5-31.4s20.5-14.6 31.4-7.5zM64 128c-8.8 0-16 7.2-16 16V352c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V144c0-8.8-7.2-16-16-16H64zM48 352V144c0-26.5 21.5-48 48-48H448c26.5 0 48 21.5 48 48V352c0 26.5-21.5 48-48 48H96c-26.5 0-48-21.5-48-48z\"></path></svg>",
-            "text": "Personalized your product"
-          }
-        },
-        "trust_2": {
-          "type": "trust_item",
-          "settings": {
-            "icon": "shopify://shop_images/freepik__round-glossy-badge-reading-100-customer-satisfacti__2626.png",
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z\"></path></svg>",
-            "text": "100% satisfaction Guaranteed"
-          }
-        },
-        "trust_3": {
-          "type": "trust_item",
-          "settings": {
-            "icon": "shopify://shop_images/freepik__badge-reading-100-secure-payments-glossy-metallic-__2627.png",
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 576 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm48 112a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm-64 48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zM176 384a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM48 224H192V384H48V224zM448 224H512V384H448V224z\"></path></svg>",
-            "text": "100% secure payment"
-          }
-        },
-        "trust_4": {
-          "type": "trust_item",
-          "settings": {
-            "icon": "shopify://shop_images/freepik__can-you-generate-badgesgenerate-a-badge-for-free-s__2623.png",
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M112 0C85.5 0 64 21.5 64 48V96H16c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 272c0 17.7 14.3 32 32 32h96c17.7 0 32-14.3 32-32h208c8.8 0 16-7.2 16-16s-7.2-16-16-16H384V48c0-26.5-21.5-48-48-48H112zM544 128H96c-35.3 0-64 28.7-64 64V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64zM208 352c-8.8 0-16-7.2-16-16s7.2-16 16-16h96c8.8 0 16 7.2 16 16s-7.2 16-16 16H208zm96-128c-8.8 0-16-7.2-16-16s7.2-16 16-16h128c8.8 0 16 7.2 16 16s-7.2 16-16 16H304z\"></path></svg>",
-            "text": "Easy shipping and return policy"
-          }
-        },
-        "trust_5": {
-          "type": "trust_item",
-          "settings": {
-            "icon": "shopify://shop_images/freepik__badge-reading-made-in-india-circular-stickericon-s__2624.png",
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M392.8 1.2c-17-7.9-38-1.5-46.1 15.6L320 96H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H322.9l-46.4 92.7c-8.1 16.1-1.5 38 15.6 46.1s38 1.5 46.1-15.6L416 196.2V288H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32-14.3-32-32V224c0-10.1 4.7-19.6 12.8-25.6l64-48c8.1-6 18.4-7.4 27.6-3.6s16.1 12.5 18 22.3l32 160c2.9 14.4-5.8 28.7-20.2 31.6s-28.7-5.8-31.6-20.2L442 283.8l-46 34.5V288 416c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V352H96c-17.7 0-32-14.3-32-32s14.3-32 32-32h96V288H80c-17.7 0-32-14.3-32-32s14.3-32 32-32H192V160H48C21.5 160 0 181.5 0 208v96 48V464c0 26.5 21.5 48 48 48H592c26.5 0 48-21.5 48-48V352 304 208c0-26.5-21.5-48-48-48H512c-17.7 0-32 14.3-32 32v16.7l-28.1-84.4c-3.9-11.7-13.2-21-25.1-24.6l-34.1-8.5zM560 240a16 16 0 1 1 0 32 16 16 0 1 1 0-32z\"></path></svg>",
-            "text": "Made in India"
-          }
-        }
-      },
-      "block_order": [
-        "trust_1",
-        "trust_2",
-        "trust_3",
-        "trust_4",
-        "trust_5"
-      ],
-      "settings": {
-        "width": "box",
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "#fafafa",
-        "padding_top": 32,
-        "padding_bottom": 32,
-        "enable_separator": false,
-        "separator_color": "#473855",
-        "separator_height": 2,
-        "separator_width": 10,
-        "separator_padding_top": 0,
-        "separator_padding_bottom": 0
-      }
-    },
     "faq_homepage": {
       "type": "faq-v1",
-      "settings": {
-        "width": "box",
-        "subtitle": "Have Questions?",
-        "title": "Frequently Asked Questions",
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "#ffffff",
-        "padding_top": 64,
-        "padding_bottom": 64
-      },
       "blocks": {
         "question_0": {
           "type": "question",
@@ -657,220 +828,32 @@
         "question_2",
         "question_3",
         "question_4"
-      ]
-    },
-    "vastu-shop-by-concern": {
-      "type": "vastu-shop-by-concern",
-      "blocks": {
-        "concern_1": {
-          "type": "concern",
-          "settings": {
-            "concern_title": "Money & Financial Blockages",
-            "concern_question": "Facing Money Problems or Financial Instability at Home?",
-            "concern_description": "<p>Despite hard work, if money doesn't stay, expenses rise unexpectedly, or income feels blocked — your home's energy may be out of balance.</p><p>According to Vastu, improper energy flow can block wealth and opportunities. Our carefully selected remedies help activate prosperity zones and support financial stability.</p>",
-            "benefits_title": "How These Remedies Help",
-            "benefits_list": "✔ Improve cash flow & savings|✔ Reduce financial stress|✔ Activate wealth-attracting energy|✔ Support business & career growth",
-            "recommended_title": "🌿 Recommended Vastu Solutions",
-            "recommended_products": "* 7 Horses Vastu Painting|* Golden Tree of Life Painting|* White Owl Painting|* Complete Vastu Correction Kit",
-            "product_list": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony, golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance, white-owl-vastu-wall-painting-symbol-of-wisdom-wealth-protection",
-            "cta_text": "👉 Choose a remedy that supports abundance",
-            "cta_link": "shopify://collections/all"
-          }
-        },
-        "concern_2": {
-          "type": "concern",
-          "settings": {
-            "concern_title": "Lack of Peace, Stress & Negativity",
-            "concern_question": "Is Your Home Feeling Heavy, Restless or Stressful?",
-            "concern_description": "<p>Frequent arguments, mental unrest, disturbed sleep, or constant tension often indicate negative energy accumulation in the home.</p><p>Vastu remedies help restore calm, balance, and emotional harmony — creating a peaceful environment for the entire family.</p>",
-            "benefits_title": "✨ How These Remedies Help",
-            "benefits_list": "✔ Reduce stress & anxiety|✔ Improve emotional well-being|✔ Create calm & positivity|✔ Support better sleep",
-            "recommended_title": "🌿 Recommended Vastu Solutions",
-            "recommended_products": "* Complete Vastu Correction Kit|* Peace & Harmony Wall Paintings|* Energy balancing remedies (can add shree yantra and other things)",
-            "product_list": "golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance",
-            "cta_text": "👉 Invite calm energy into your home",
-            "cta_link": "shopify://collections/all"
-          }
-        },
-        "concern_3": {
-          "type": "concern",
-          "settings": {
-            "concern_title": "Family Conflicts & Relationship Issues",
-            "concern_question": "Experiencing Frequent Arguments or Family Discomfort?",
-            "concern_description": "<p>Misunderstandings, emotional distance, or constant friction in the household can be linked to imbalanced elements in living spaces.</p><p>Vastu remedies help create supportive energy that encourages understanding, bonding, and harmony.</p>",
-            "benefits_title": "✨ How These Remedies Help",
-            "benefits_list": "✔ Reduce conflicts|✔ Improve communication|✔ Restore emotional balance|✔ Strengthen family bonds",
-            "recommended_title": "🌿 Recommended Vastu Solutions",
-            "recommended_products": "* Tree of Life Vastu Painting|* Harmony-focused Vastu remedies|* Complete Vastu Correction Kit",
-            "product_list": "golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance, framed-bull-painting-for-vastu-solution-strength-stability-and-prosperity",
-            "cta_text": "👉 Create a harmonious living space",
-            "cta_link": "shopify://collections/all"
-          }
-        },
-        "concern_4": {
-          "type": "concern",
-          "settings": {
-            "concern_title": "Career Growth & Business Stagnation",
-            "concern_question": "Feeling Stuck in Career or Business?",
-            "concern_description": "<p>Delays, missed opportunities, or slow growth may occur due to blocked energy flow in workspaces.</p><p>Vastu remedies support focus, motivation, and progress, helping remove stagnation and encourage forward movement.</p>",
-            "benefits_title": "✨ How These Remedies Help",
-            "benefits_list": "✔ Improve focus & productivity|✔ Support career advancement|✔ Encourage business growth|✔ Reduce obstacles",
-            "recommended_title": "🌿 Recommended Vastu Solutions",
-            "recommended_products": "* 7 Horses Running Painting|* White Owl Painting|* Vastu remedies for offices",
-            "product_list": "framed-7-horses-painting-for-vastu-solution-enhance-positivity-success, white-owl-vastu-wall-painting-symbol-of-wisdom-wealth-protection, golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony",
-            "cta_text": "👉 Activate progress and success",
-            "cta_link": "shopify://collections/all"
-          }
-        }
-      },
-      "block_order": [
-        "concern_1",
-        "concern_2",
-        "concern_3",
-        "concern_4"
       ],
       "settings": {
         "width": "box",
-        "title": "Shop by Concern",
-        "title_font_size": 3.5,
-        "title_font_weight": 700,
-        "title_underline_color": "#473855",
-        "title_underline_width": 80,
-        "title_underline_height": 4,
+        "fullwidth_margin": 0,
+        "subtitle": "Have Questions?",
+        "title": "Frequently Asked Questions",
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "enable_separator": false,
-        "separator_color": "#473855",
-        "separator_height": 2,
-        "separator_width": 10,
-        "separator_padding_top": 0,
-        "separator_padding_bottom": 0,
-        "button_text_add_to_cart": "Add to Cart",
-        "card_title_font_size": 1.5,
-        "card_price_font_size": 1.2
-      }
-    },
-    "vastu-help-address-v1": {
-      "type": "vastu-help-address-v1",
-      "blocks": {
-        "item_1": {
-          "type": "item",
-          "settings": {
-            "text": "Constant stress or negativity"
-          }
-        },
-        "item_2": {
-          "type": "item",
-          "settings": {
-            "text": "Lack of peace and harmony"
-          }
-        },
-        "item_3": {
-          "type": "item",
-          "settings": {
-            "text": "Financial delays or stagnation"
-          }
-        },
-        "item_4": {
-          "type": "item",
-          "settings": {
-            "text": "Health and mental fatigue"
-          }
-        }
-      },
-      "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4"
-      ],
-      "settings": {
-        "width": "box",
-        "title": "What Does It Help Address?",
-        "title_font_size": 3.5,
-        "title_font_weight": 700,
-        "title_underline_color": "#473855",
-        "title_underline_width": 80,
-        "title_underline_height": 4,
-        "gap": 30,
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "#ffffff",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "enable_separator": false,
-        "separator_color": "#473855",
-        "separator_height": 2,
-        "separator_width": 10,
-        "separator_padding_top": 0,
-        "separator_padding_bottom": 0
-      }
-    },
-    "vastu-help-address-v2": {
-      "type": "vastu-help-address-v2",
-      "blocks": {
-        "item_1": {
-          "type": "item",
-          "settings": {
-            "text": "Constant stress or negativity"
-          }
-        },
-        "item_2": {
-          "type": "item",
-          "settings": {
-            "text": "Lack of peace and harmony"
-          }
-        },
-        "item_3": {
-          "type": "item",
-          "settings": {
-            "text": "Financial delays or stagnation"
-          }
-        },
-        "item_4": {
-          "type": "item",
-          "settings": {
-            "text": "Health and mental fatigue"
-          }
-        }
-      },
-      "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4"
-      ],
-      "settings": {
-        "width": "box",
-        "title": "What Does It Help Address?",
-        "title_font_size": 3.5,
-        "title_font_weight": 700,
-        "title_underline_color": "#473855",
-        "title_underline_width": 80,
-        "title_underline_height": 4,
-        "circle_size": 500,
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "#ffffff",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "enable_separator": false,
-        "separator_color": "#473855",
-        "separator_height": 2,
-        "separator_width": 10,
-        "separator_padding_top": 0,
-        "separator_padding_bottom": 0
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     }
   },
   "order": [
     "homepage-carousel",
     "vastu-kit-banner",
+    "vastu-product-showcase",
     "vastu-help-address-v1",
-    "vastu-help-address-v2",
     "vastu-best-seller-cards",
     "vastu-hindi-statement",
     "vastu-shop-by-concern",

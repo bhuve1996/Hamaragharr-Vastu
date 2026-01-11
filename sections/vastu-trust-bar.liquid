@@ -2,6 +2,15 @@
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
+    {% if section.settings.title != blank %}
+      <div class='vastu-trust-bar__header'>
+        {% if section.settings.title != blank %}
+          <xo-animate xo-cascade>
+            <h2 class='vastu-trust-bar__title' style='--title-font-size: {{ section.settings.title_font_size | default: 3.5 }}rem; --title-font-weight: {{ section.settings.title_font_weight | default: 700 }}; --title-underline-color: {{ section.settings.title_underline_color | default: "#473855" }}; --title-underline-width: {{ section.settings.title_underline_width | default: 80 }}px; --title-underline-height: {{ section.settings.title_underline_height | default: 4 }}px;'>{{ section.settings.title | upcase }}</h2>
+          </xo-animate>
+        {% endif %}
+      </div>
+    {% endif %}
     <xo-carousel
       xo-per-view='4'
       xo-gap='30'
@@ -35,6 +44,9 @@
                 {% endif %}
                 {% if block.settings.text != blank %}
                   <p class='vastu-trust-bar__text'>{{ block.settings.text }}</p>
+                {% endif %}
+                {% if block.settings.subtitle != blank %}
+                  <p class='vastu-trust-bar__item-subtitle'>{{ block.settings.subtitle }}</p>
                 {% endif %}
               </div>
             </xo-carousel-slide>
@@ -79,6 +91,61 @@
           "label": "t:sections.all.width.options__3.label"
         }
       ]
+    },
+    {
+      "type": "header",
+      "content": "Section Heading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Why Choose Us"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 2,
+      "max": 6,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Title Font Size",
+      "default": 3.5
+    },
+    {
+      "type": "range",
+      "id": "title_font_weight",
+      "min": 400,
+      "max": 900,
+      "step": 100,
+      "label": "Title Font Weight",
+      "default": 700
+    },
+    {
+      "type": "color",
+      "id": "title_underline_color",
+      "label": "Title Underline Color",
+      "default": "#473855"
+    },
+    {
+      "type": "range",
+      "id": "title_underline_width",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Title Underline Width",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "title_underline_height",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Title Underline Height",
+      "default": 4
     },
     {
       "type": "header",
@@ -189,6 +256,12 @@
           "id": "text",
           "label": "Text",
           "default": "Free Shipping"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "On orders above र 500"
         }
       ]
     }
