@@ -5,7 +5,9 @@
 {% endcomment %}
 
 {% liquid
-  comment %} Get product from settings - use product selector or fallback handle {% endcomment
+  comment
+    Get product from settings - use product selector or fallback handle
+  endcomment
   if section.settings.product != blank
     assign selected_product = section.settings.product
   elsif section.settings.fallback_product_handle != blank
