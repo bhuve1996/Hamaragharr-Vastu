@@ -50,42 +50,89 @@
     >
       <xo-carousel-inner>
         <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
-          {% for article in section.settings.blog.articles limit: section.settings.articles_limit %}
-            {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
-            {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
-            <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
-              {%- if article and article != empty -%}
-                <xo-animate xo-cascade class='blog-v2__item'>
-                  <a href='{{ article.url }}' class='{% render 'hover-style' %}'>
-                    {% render 'image', image: article.image, media_aspect_ratio: section.settings.aspect_ratio %}
-                  </a>
-                  <div class='blog-v2__date'>
-                    <span class='blog-v2__day'>{{ article.published_at | date: '%d' }}</span>
-                    <span class='blog-v2__month'>{{ article.published_at | date: '%b' }}</span>
-                  </div>
-                  {% comment %}
-                  <div class='blog-v2__tag'>{{ article.tags }}</div>
-                  {% endcomment %}
-                  <a href='{{ article.url }}'>
-                    <h3 class='blog-v2__item-title'>
-                      {{ article.title | truncate: 50 | escape }}
-                    </h3>
-                  </a>
-                  {% comment %}
-                  <div class='blog-v2__description'>{{ article.excerpt | strip_html | truncatewords: 30 }}</div>
-                  {% endcomment %}
-                  <a href='{{ article.url }}' class='blog-v2__button'>
-                    <span>{{ section.settings.button_text }}</span>
-                    {% render 'icon', name: 'icon-arrow', icon_size: '15' %}
-                  </a>
-                </xo-animate>
-              {%- else -%}
-                <xo-animate xo-cascade>
-                  {% render 'article-card-placeholder', placeholder_image: placeholder_image %}
-                </xo-animate>
+          {% comment %} Use blocks if available, otherwise fall back to blog articles {% endcomment %}
+          {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+              {%- assign article = block.settings.article -%}
+              {%- if article == blank and block.settings.article_handle != blank -%}
+                {%- assign article = articles[block.settings.article_handle] -%}
               {%- endif -%}
-            </xo-carousel-slide>
-          {% endfor %}
+              {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+              {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
+              <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ section.blocks.size }}' {{ block.shopify_attributes }}>
+                {%- if article and article != empty -%}
+                  <xo-animate xo-cascade class='blog-v2__item'>
+                    <a href='{{ article.url }}' class='{% render 'hover-style' %}'>
+                      {%- if block.settings.custom_image != blank -%}
+                        {% render 'image', image: block.settings.custom_image, media_aspect_ratio: section.settings.aspect_ratio %}
+                      {%- else -%}
+                        {% render 'image', image: article.image, media_aspect_ratio: section.settings.aspect_ratio %}
+                      {%- endif -%}
+                    </a>
+                    <div class='blog-v2__date'>
+                      {%- if block.settings.custom_date != blank -%}
+                        {%- assign date_parts = block.settings.custom_date | split: '/' -%}
+                        <span class='blog-v2__day'>{{ date_parts[0] }}</span>
+                        <span class='blog-v2__month'>{{ date_parts[1] | date: '%b' }}</span>
+                      {%- else -%}
+                        <span class='blog-v2__day'>{{ article.published_at | date: '%d' }}</span>
+                        <span class='blog-v2__month'>{{ article.published_at | date: '%b' }}</span>
+                      {%- endif -%}
+                    </div>
+                    <a href='{{ article.url }}'>
+                      <h3 class='blog-v2__item-title'>
+                        {%- if block.settings.custom_title != blank -%}
+                          {{ block.settings.custom_title | truncate: 50 | escape }}
+                        {%- else -%}
+                          {{ article.title | truncate: 50 | escape }}
+                        {%- endif -%}
+                      </h3>
+                    </a>
+                    <a href='{{ article.url }}' class='blog-v2__button'>
+                      <span>{{ block.settings.button_text | default: section.settings.button_text }}</span>
+                      {% render 'icon', name: 'icon-arrow', icon_size: '15' %}
+                    </a>
+                  </xo-animate>
+                {%- else -%}
+                  <xo-animate xo-cascade>
+                    {% render 'article-card-placeholder', placeholder_image: placeholder_image %}
+                  </xo-animate>
+                {%- endif -%}
+              </xo-carousel-slide>
+            {% endfor %}
+          {% else %}
+            {% comment %} Fallback to original behavior: show articles from selected blog {% endcomment %}
+            {% for article in section.settings.blog.articles limit: section.settings.articles_limit %}
+              {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+              {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
+              <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
+                {%- if article and article != empty -%}
+                  <xo-animate xo-cascade class='blog-v2__item'>
+                    <a href='{{ article.url }}' class='{% render 'hover-style' %}'>
+                      {% render 'image', image: article.image, media_aspect_ratio: section.settings.aspect_ratio %}
+                    </a>
+                    <div class='blog-v2__date'>
+                      <span class='blog-v2__day'>{{ article.published_at | date: '%d' }}</span>
+                      <span class='blog-v2__month'>{{ article.published_at | date: '%b' }}</span>
+                    </div>
+                    <a href='{{ article.url }}'>
+                      <h3 class='blog-v2__item-title'>
+                        {{ article.title | truncate: 50 | escape }}
+                      </h3>
+                    </a>
+                    <a href='{{ article.url }}' class='blog-v2__button'>
+                      <span>{{ section.settings.button_text }}</span>
+                      {% render 'icon', name: 'icon-arrow', icon_size: '15' %}
+                    </a>
+                  </xo-animate>
+                {%- else -%}
+                  <xo-animate xo-cascade>
+                    {% render 'article-card-placeholder', placeholder_image: placeholder_image %}
+                  </xo-animate>
+                {%- endif -%}
+              </xo-carousel-slide>
+            {% endfor %}
+          {% endif %}
         </xo-carousel-list>
       </xo-carousel-inner>
       {% render 'carousel-pagination-style3', class: 'blog-v2__pagination' %}
@@ -143,7 +190,8 @@
     {
       "type": "blog",
       "id": "blog",
-      "label": "t:sections.blog_v1.settings.blog.label"
+      "label": "t:sections.blog_v1.settings.blog.label",
+      "info": "Select a blog to display articles from. If you add article blocks below, they will override this setting."
     },
     {
       "type": "range",
@@ -508,6 +556,50 @@
       "id": "separator_padding_bottom",
       "label": "Separator Bottom Padding",
       "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Blog Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article",
+          "info": "Select a specific blog article to display"
+        },
+        {
+          "type": "text",
+          "id": "article_handle",
+          "label": "Article Handle (Alternative)",
+          "info": "If article selector doesn't work, enter the article handle here (e.g., 'what-is-vastu-shastra')"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom Title",
+          "info": "Override the article title with custom text (optional)"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image",
+          "info": "Override the article image with a custom image (optional)"
+        },
+        {
+          "type": "text",
+          "id": "custom_date",
+          "label": "Custom Date",
+          "info": "Override the date (format: DD/MM, e.g., '15/Jan') (optional)"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "info": "Custom button text for this article (optional, uses section default if empty)"
+        }
+      ]
     }
   ],
   "presets": [
