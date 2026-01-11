@@ -3048,6 +3048,12 @@ xo-modal[xo-placement="center"]::before {
   padding: 4rem 0;
 }
 
+/* Override sticky positioning from product-info-content snippet - applies to all screen sizes */
+.vastu-product-showcase .xo-product-info-content {
+  position: relative !important;
+  top: 0 !important;
+}
+
 /* Ensure equal heights for left and right sections on desktop */
 @media (min-width: 768px) {
   .vastu-product-showcase xo-grid {
