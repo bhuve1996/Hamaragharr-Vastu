@@ -34,8 +34,10 @@
         class='xo-menu-horizontal__item{% if event_type == 'hover' %} xo-menu-horizontal__item--hover{% else %} xo-menu-horizontal__item--click{% endif %}'
         style='--padding:{{ navigation_padding_item }}'
       >
-        {% comment %} render megamenu {% endcomment %}
+        {% comment %} render megamenu - DISABLED: Submenus are disabled {% endcomment %}
+        {% comment %}
         <xo-mega-menu class='xo-menu-horizontal__mega-menu' xo-name='header-mega-menu' xo-index='{{ forloop.index0 }}'></xo-mega-menu>
+        {% endcomment %}
         {% comment %} check link title has color label {% endcomment %}
         {% if link.title contains '[' %}
           <a
@@ -114,7 +116,8 @@
             {% endif %}
           </a>
         {% endif %}
-        {% comment %} show sub menu with child link {% endcomment %}
+        {% comment %} show sub menu with child link - DISABLED: Submenus are disabled {% endcomment %}
+        {% comment %}
         {% if link.links != blank %}
           <ul role='list' class='xo-menu-horizontal__sub-menu list-unstyled color-{{ submenu_color_scheme }}' style='{{ background_color }} {{ background_gradient }}'>
             {% for childlink in link.links %}
@@ -160,6 +163,7 @@
             {% endfor %}
           </ul>
         {% endif %}
+        {% endcomment %}
       </li>
     {% endfor %}
   </ul>

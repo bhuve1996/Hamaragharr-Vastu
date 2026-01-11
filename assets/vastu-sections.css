@@ -4677,3 +4677,140 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   }
 }
 
+/* ============================================
+   HIDE SHOPIFY TRIAL BANNER
+   ============================================ */
+/* Hide Shopify free trial promotional banner */
+[data-shopify-trial],
+[class*="shopify-trial"],
+[class*="trial-banner"],
+[id*="shopify-trial"],
+[id*="trial-banner"],
+iframe[src*="shopify-trial"],
+iframe[src*="free-trial"],
+div[data-testid*="trial"],
+div[aria-label*="trial" i],
+div[aria-label*="free" i][aria-label*="day" i] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* Hide any Shopify promotional messages about free trials */
+body > div:first-child[style*="position: fixed"],
+body > div:first-child[style*="z-index"][style*="999"] {
+  display: none !important;
+}
+
+/* ============================================
+   SHIPPING ACCORDION STYLING
+   Match FAQ accordion styling
+   ============================================ */
+.shipping-accordion {
+  margin-top: 1rem;
+}
+
+.shipping-accordion__row {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(var(--color-border), 0.2);
+}
+
+.shipping-accordion__row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.shipping-accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  transition: color 0.3s ease;
+}
+
+.shipping-accordion__trigger:hover {
+  color: rgb(71, 56, 85);
+}
+
+.shipping-accordion__question {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgba(var(--color-foreground));
+}
+
+.shipping-accordion__question svg {
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.shipping-accordion__icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shipping-accordion__trigger[aria-expanded="true"] .shipping-accordion__icon {
+  transform: rotate(45deg);
+}
+
+.shipping-accordion__answer {
+  padding: 0 0 1.5rem 0;
+  padding-left: calc(1rem + 24px + 1rem); /* Icon width + gap + padding */
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: rgba(var(--color-foreground), 0.8);
+}
+
+/* Mobile adjustments */
+@media (max-width: 48rem) {
+  .shipping-accordion__question {
+    font-size: 2rem;
+  }
+  
+  .shipping-accordion__answer {
+    font-size: 2rem;
+    padding-left: calc(1rem + 22px + 1rem);
+  }
+}
+
+/* ============================================
+   DISABLE MENU SUBMENUS
+   Hide dropdown arrows and submenu content
+   ============================================ */
+.xo-menu-horizontal__arrow,
+.xo-menu-horizontal__arrow--mega-menu {
+  display: none !important;
+}
+
+.xo-menu-horizontal__mega-menu,
+.xo-menu-horizontal__submenu,
+.xo-menu-horizontal__dropdown {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Hide submenu on hover/click */
+.xo-menu-horizontal__item:hover .xo-menu-horizontal__mega-menu,
+.xo-menu-horizontal__item:hover .xo-menu-horizontal__submenu,
+.xo-menu-horizontal__item:hover .xo-menu-horizontal__dropdown,
+.xo-menu-horizontal__item--click[aria-expanded="true"] .xo-menu-horizontal__mega-menu,
+.xo-menu-horizontal__item--click[aria-expanded="true"] .xo-menu-horizontal__submenu,
+.xo-menu-horizontal__item--click[aria-expanded="true"] .xo-menu-horizontal__dropdown {
+  display: none !important;
+  visibility: hidden !important;
+}
+
