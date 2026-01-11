@@ -3083,6 +3083,12 @@ xo-modal[xo-placement="center"]::before {
     margin-top: 0 !important;
   }
   
+  /* Override sticky positioning from product-info-content snippet */
+  .vastu-product-showcase .xo-product-info-content {
+    position: relative !important;
+    top: 0 !important;
+  }
+  
   /* Right content section - stretch to match left height */
   .vastu-product-showcase__right {
     display: flex !important;
