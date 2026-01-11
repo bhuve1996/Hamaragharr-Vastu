@@ -5,8 +5,12 @@
 {% endcomment %}
 
 {% liquid
-  assign selected_product = all_products[section.settings.product]
-  if selected_product == blank
+  comment %} Get product from settings - use product selector or fallback handle {% endcomment
+  if section.settings.product != blank
+    assign selected_product = section.settings.product
+  elsif section.settings.fallback_product_handle != blank
+    assign selected_product = all_products[section.settings.fallback_product_handle]
+  else
     assign selected_product = all_products['vastu-kit-home-office']
   endif
 %}
@@ -15,123 +19,49 @@
   {% comment %} Assign product variable for snippets that expect it {% endcomment %}
   {% assign product = selected_product %}
   
-  <section {% render 'section-attr' %} class='vastu-product-showcase'>
+  <section {% render 'section-attr' %} class='vastu-product-showcase' {% if section.settings.background_color != blank %}style='background-color: {{ section.settings.background_color }};'{% endif %}>
     {% render 'section-bg-image' %}
     {% comment %} Ensure product is available before xo-product component {% endcomment %}
     <xo-product xo-product-information xo-product-id='{{ product.id }}' xo-section-id='{{ section.id }}'>
       {%- assign product_form_id = 'product-showcase-form-' | append: section.id -%}
       <xo-container {% render 'section-layout' %}>
         <xo-grid>
-          {% comment %} Left Side: Product Images with Thumbnails {% endcomment %}
-          <xo-animate xo-cascade style='--xs: 12; --md: 7'>
-            {% comment %} Render product media - the snippet expects product variable to be available {% endcomment %}
-            {% render 'product-info-media-showcase',
-              hover_zoom_enabled: section.settings.image_zoom_hover,
-              click_zoom_enabled: section.settings.image_zoom_click,
-              autoplay: false,
-              video_modal: false,
-              product_360: false,
-              media_sticky: false
-            %}
-          </xo-animate>
-          
+          {% comment %} Product Images with Thumbnails {% endcomment %}
+          {% assign image_col_size = section.settings.image_column_size | default: 7 %}
+          {% assign content_col_size = 12 | minus: image_col_size %}
+          {% if section.settings.image_position == 'right' %}
+            {% comment %} Right Side: Product Info {% endcomment %}
+            <xo-animate xo-cascade style='--xs: 12; --md: {{ content_col_size }}' class='vastu-product-showcase__right'>
+              {% render 'vastu-product-showcase-content', product: product, section: section, product_form_id: product_form_id %}
+            </xo-animate>
+            
+            {% comment %} Right Side: Product Images {% endcomment %}
+            <xo-animate xo-cascade style='--xs: 12; --md: {{ image_col_size }}'>
+              {% render 'product-info-media-showcase',
+                hover_zoom_enabled: section.settings.image_zoom_hover,
+                click_zoom_enabled: section.settings.image_zoom_click,
+                autoplay: false,
+                video_modal: false,
+                product_360: false,
+                media_sticky: false
+              %}
+            </xo-animate>
+          {% else %}
+            {% comment %} Left Side: Product Images {% endcomment %}
+            <xo-animate xo-cascade style='--xs: 12; --md: {{ image_col_size }}'>
+              {% render 'product-info-media-showcase',
+                hover_zoom_enabled: section.settings.image_zoom_hover,
+                click_zoom_enabled: section.settings.image_zoom_click,
+                autoplay: false,
+                video_modal: false,
+                product_360: false,
+                media_sticky: false
+              %}
+            </xo-animate>
+            
           {% comment %} Right Side: Product Info {% endcomment %}
-          <xo-animate xo-cascade style='--xs: 12; --md: 5' class='vastu-product-showcase__right'>
-            <div class='vastu-product-showcase__content'>
-              {% comment %} Title {% endcomment %}
-              {% if section.settings.show_title %}
-                <h1 class='vastu-product-showcase__title'>{{ product.title | escape }}</h1>
-              {% endif %}
-              
-              {% comment %} Price {% endcomment %}
-              {% if section.settings.show_price %}
-                <div class='vastu-product-showcase__price'>
-                  <xo-product-will-change xo-unique-id='product-price-{{ product.id }}'>
-                    {% render 'price', product: product, use_variant: true, style: 'larger' %}
-                  </xo-product-will-change>
-                </div>
-              {% endif %}
-              
-              {% comment %} Description {% endcomment %}
-              {% if section.settings.show_description and product.description != blank %}
-                <div class='vastu-product-showcase__description'>
-                  {% assign description_text = product.description | strip_html %}
-                  {% assign truncated_description = description_text | truncatewords: 50 %}
-                  <div class='vastu-product-showcase__description-text'>
-                    {{ truncated_description }}
-                  </div>
-                  {% if description_text.size > truncated_description.size %}
-                    <a href='{{ product.url }}' class='vastu-product-showcase__read-more'>
-                      View in Detail →
-                    </a>
-                  {% endif %}
-                </div>
-              {% endif %}
-              
-              {% comment %} Variant Selector {% endcomment %}
-              {% unless product.has_only_default_variant %}
-                <div class='vastu-product-showcase__variants'>
-                  {% for option in product.options_with_values %}
-                    {% render 'product-variant', option: option, product: product, style: 'boxed' %}
-                  {% endfor %}
-                </div>
-              {% endunless %}
-              
-              {% comment %} Quantity and Buttons {% endcomment %}
-              {%- form 'product', product, id: product_form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                <input type='hidden' name='id' value='{{ product.selected_or_first_available_variant.id }}'>
-                
-                {% comment %} Quantity Selector {% endcomment %}
-                {% if section.settings.show_quantity %}
-                  <div class='vastu-product-showcase__quantity'>
-                    {% render 'quantity-style2', form_id: product_form_id, width: '100%', height: '5rem', modify: 'half' %}
-                  </div>
-                {% endif %}
-                
-                {% comment %} Buttons {% endcomment %}
-                <div class='vastu-product-showcase__buttons'>
-                  {% comment %} Add to Cart {% endcomment %}
-                  <div class='vastu-product-showcase__add-to-cart'>
-                    <xo-product-will-change
-                      xo-unique-id='product-add-button-{{ product.id }}'
-                      class='buy-button__add'
-                      {% if product.selected_or_first_available_variant.available == false %}
-                        xo-disabled
-                      {% endif %}
-                    >
-                      <xo-cart-add
-                        {% if product.selected_or_first_available_variant.available == false %}
-                          xo-disabled
-                        {% endif %}
-                      >
-                        {%- if product.selected_or_first_available_variant.available -%}
-                          {% assign button_text = 'products.product.add_to_cart' | t %}
-                        {%- else -%}
-                          {% assign button_text = 'products.product.sold_out' | t %}
-                        {%- endif -%}
-                        {% render 'button', style: 'primary', text: button_text, block: true, size: 'md' %}
-                      </xo-cart-add>
-                    </xo-product-will-change>
-                  </div>
-                  
-                  {% comment %} Buy Now Button {% endcomment %}
-                  {% if section.settings.show_buy_now and product.selling_plan_groups == empty %}
-                    <div class='vastu-product-showcase__buy-now'>
-                      <xo-product-will-change
-                        class='buy-button__now'
-                        xo-unique-id='product-buy-now-button-{{ product.id }}'
-                        {% if product.selected_or_first_available_variant.available == false %}
-                          xo-disabled
-                        {% endif %}
-                      >
-                        {{ form | payment_button }}
-                        {{ form | payment_terms }}
-                      </xo-product-will-change>
-                    </div>
-                  {% endif %}
-                </div>
-              {%- endform -%}
-            </div>
+          <xo-animate xo-cascade style='--xs: 12; --md: {{ content_col_size }}' class='vastu-product-showcase__right'>
+            {% render 'vastu-product-showcase-content', product: product, section: section, product_form_id: product_form_id %}
           </xo-animate>
         </xo-grid>
       </xo-container>
@@ -150,10 +80,21 @@
   "class": "section",
   "settings": [
     {
+      "type": "header",
+      "content": "Product Selection"
+    },
+    {
       "type": "product",
       "id": "product",
       "label": "Product",
-      "info": "Select the product to showcase (defaults to Vastu Kit if not selected)"
+      "info": "Select the product to showcase. This will display all product images, description, price, and options."
+    },
+    {
+      "type": "text",
+      "id": "fallback_product_handle",
+      "label": "Fallback Product Handle",
+      "info": "If no product is selected above, use this product handle as fallback (e.g., 'vastu-kit-home-office')",
+      "default": "vastu-kit-home-office"
     },
     {
       "type": "header",
@@ -176,6 +117,22 @@
       "id": "show_description",
       "label": "Show Description",
       "default": true
+    },
+    {
+      "type": "number",
+      "id": "description_truncate_words",
+      "label": "Description Word Limit",
+      "info": "Number of words to show before 'Read More' link (default: 50)",
+      "default": 50,
+      "min": 10,
+      "max": 200
+    },
+    {
+      "type": "text",
+      "id": "read_more_text",
+      "label": "Read More Link Text",
+      "default": "View in Detail →",
+      "info": "Text for the 'Read More' link that appears when description is truncated"
     },
     {
       "type": "checkbox",
@@ -219,7 +176,52 @@
       "type": "text",
       "id": "padding_bottom",
       "label": "Padding Bottom",
-      "default": "0"
+      "default": "0",
+      "info": "Padding at the bottom of the section (e.g., '4rem' or '64px')"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "info": "Optional background color for the section"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "info": "Position of product images (left or right side)"
+    },
+    {
+      "type": "range",
+      "id": "image_column_size",
+      "label": "Image Column Size (Desktop)",
+      "min": 4,
+      "max": 8,
+      "step": 1,
+      "default": 7,
+      "info": "Column size for images on desktop (out of 12 columns). Content will take remaining space."
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_text",
+      "label": "Add to Cart Button Text",
+      "default": "",
+      "info": "Custom text for Add to Cart button (leave blank to use default translation)"
     }
   ],
   "presets": [

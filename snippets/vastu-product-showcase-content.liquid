@@ -1,0 +1,106 @@
+{% comment %}
+  Renders the product content section for vastu-product-showcase
+  This includes title, price, description, variants, quantity, and buttons
+{% endcomment %}
+
+<div class='vastu-product-showcase__content'>
+  {% comment %} Title {% endcomment %}
+  {% if section.settings.show_title %}
+    <h1 class='vastu-product-showcase__title'>{{ product.title | escape }}</h1>
+  {% endif %}
+  
+  {% comment %} Price {% endcomment %}
+  {% if section.settings.show_price %}
+    <div class='vastu-product-showcase__price'>
+      <xo-product-will-change xo-unique-id='product-price-{{ product.id }}'>
+        {% render 'price', product: product, use_variant: true, style: 'larger' %}
+      </xo-product-will-change>
+    </div>
+  {% endif %}
+  
+  {% comment %} Description {% endcomment %}
+  {% if section.settings.show_description and product.description != blank %}
+    <div class='vastu-product-showcase__description'>
+      {% assign description_text = product.description | strip_html %}
+      {% assign truncate_words = section.settings.description_truncate_words | default: 50 %}
+      {% assign truncated_description = description_text | truncatewords: truncate_words %}
+      <div class='vastu-product-showcase__description-text'>
+        {{ truncated_description }}
+      </div>
+      {% if description_text.size > truncated_description.size %}
+        <a href='{{ product.url }}' class='vastu-product-showcase__read-more'>
+          {{ section.settings.read_more_text | default: 'View in Detail →' }}
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+  
+  {% comment %} Variant Selector {% endcomment %}
+  {% unless product.has_only_default_variant %}
+    <div class='vastu-product-showcase__variants'>
+      {% for option in product.options_with_values %}
+        {% render 'product-variant', option: option, product: product, style: 'boxed' %}
+      {% endfor %}
+    </div>
+  {% endunless %}
+  
+  {% comment %} Quantity and Buttons {% endcomment %}
+  {%- form 'product', product, id: product_form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+    <input type='hidden' name='id' value='{{ product.selected_or_first_available_variant.id }}'>
+    
+    {% comment %} Quantity Selector {% endcomment %}
+    {% if section.settings.show_quantity %}
+      <div class='vastu-product-showcase__quantity'>
+        {% render 'quantity-style2', form_id: product_form_id, width: '100%', height: '5rem', modify: 'half' %}
+      </div>
+    {% endif %}
+    
+    {% comment %} Buttons {% endcomment %}
+    <div class='vastu-product-showcase__buttons'>
+      {% comment %} Add to Cart {% endcomment %}
+      <div class='vastu-product-showcase__add-to-cart'>
+        <xo-product-will-change
+          xo-unique-id='product-add-button-{{ product.id }}'
+          class='buy-button__add'
+          {% if product.selected_or_first_available_variant.available == false %}
+            xo-disabled
+          {% endif %}
+        >
+          <xo-cart-add
+            {% if product.selected_or_first_available_variant.available == false %}
+              xo-disabled
+            {% endif %}
+          >
+            {%- if product.selected_or_first_available_variant.available -%}
+              {% if section.settings.add_to_cart_text != blank %}
+                {% assign button_text = section.settings.add_to_cart_text %}
+              {% else %}
+                {% assign button_text = 'products.product.add_to_cart' | t %}
+              {% endif %}
+            {%- else -%}
+              {% assign button_text = 'products.product.sold_out' | t %}
+            {%- endif -%}
+            {% render 'button', style: 'primary', text: button_text, block: true, size: 'md' %}
+          </xo-cart-add>
+        </xo-product-will-change>
+      </div>
+      
+      {% comment %} Buy Now Button {% endcomment %}
+      {% if section.settings.show_buy_now and product.selling_plan_groups == empty %}
+        <div class='vastu-product-showcase__buy-now'>
+          <xo-product-will-change
+            class='buy-button__now'
+            xo-unique-id='product-buy-now-button-{{ product.id }}'
+            {% if product.selected_or_first_available_variant.available == false %}
+              xo-disabled
+            {% endif %}
+          >
+            {{ form | payment_button }}
+            {{ form | payment_terms }}
+          </xo-product-will-change>
+        </div>
+      {% endif %}
+    </div>
+  {%- endform -%}
+</div>
+
