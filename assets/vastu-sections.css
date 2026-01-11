@@ -4814,3 +4814,8 @@ body > div:first-child[style*="z-index"][style*="999"] {
   visibility: hidden !important;
 }
 
+/* Remove margin-bottom for fieldset-block__title h2 elements on collection pages */
+h2.fieldset-block__title#verticalTitle {
+  margin-bottom: 0 !important;
+}
+

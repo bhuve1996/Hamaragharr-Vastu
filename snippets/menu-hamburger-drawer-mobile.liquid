@@ -85,6 +85,26 @@
           {% endcomment %}
         {% endcapture %}
         {% if link.title contains '[' %}
+          {% comment %} Convert to simple link - DISABLED: Submenus are disabled {% endcomment %}
+          <a
+            class='menu-hamburger-drawer-mobile__link'
+            href='{{ link.url }}'
+            title='{{ link.title | escape | split: '[' | first  }}'
+            {% if link.current %}
+              aria-current='page'
+            {% endif %}
+          >
+            <span class='menu-hamburger-drawer-mobile__label'>{{ link.title | escape | split: '[' | first }}</span>
+            <span
+              class='menu-hamburger-drawer-mobile__label-filter'
+              {% if link.title contains '(' %}
+                style='--bg-color: {{link.title | escape | split: '(' | last  | split: ')' | first}}'
+              {% endif %}
+            >
+              {{ link.title | escape | split: '[' | last | split: ']' | first }}
+            </span>
+          </a>
+          {% comment %}
           <xo-collapse-trigger
             xo-name='menu-hamburger-drawer-mobile-collapse-{{ forloop.index0 }}'
             id='menu-hamburger-drawer-trigger'
@@ -125,6 +145,7 @@
               {{ submenu }}
             </div>
           </xo-collapse>
+          {% endcomment %}
           {% comment %} check link has logo {% endcomment %}
         {% elsif link.title contains '(' %}
           {% comment %} skip {% endcomment %}
