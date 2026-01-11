@@ -63,7 +63,9 @@
         class='menu-hamburger-drawer-desktop__list list-unstyled{% if event_type == 'hover' %} menu-hamburger-drawer-desktop--hover{% else %} menu-hamburger-drawer-desktop--click{% endif %}'
       >
         {% for link in menu.links %}
+          {% comment %} Submenu disabled - DISABLED: Submenus are disabled {% endcomment %}
           {% capture submenu %}
+            {% comment %}
             {% if link.links != blank %}
               <div class='menu-hamburger-drawer-desktop__sub-menu'>
                 <ul role='list'
@@ -115,6 +117,7 @@
                 </ul>
               </div>
             {% endif %}
+            {% endcomment %}
           {% endcapture %}
           {% if link.title contains '[' %}
             <li
@@ -139,7 +142,8 @@
                 >
                   {{ link.title | escape | split: '[' | last | split: ']' | first }}
                 </span>
-                {% comment %} check conditions to render arrow dropdown child link/megamenu{% endcomment %}
+                {% comment %} check conditions to render arrow dropdown child link/megamenu - DISABLED: Submenus are disabled {% endcomment %}
+                {% comment %}
                 {% if link.links != blank %}
                   <span class='menu-hamburger-drawer-desktop__arrow'>
                     {% render 'icon', name: 'chevron-right', icon_size: '1.5rem' %}
@@ -150,8 +154,10 @@
                     {% render 'icon', name: 'chevron-right', icon_size: '1.5rem' %}
                   </span>
                 {% endif %}
+                {% endcomment %}
               </a>
-              {{ submenu }}
+              {% comment %} Submenu disabled - DISABLED: Submenus are disabled {% endcomment %}
+              {% comment %}{{ submenu }}{% endcomment %}
             </li>
           {% elsif link.title contains '(' %}
             {% comment %} skip {% endcomment %}
@@ -170,7 +176,8 @@
                 {% endif %}
               >
                 <span class='menu-hamburger-drawer-desktop__label'>{{ link.title | escape }}</span>
-                {% comment %} check conditions to render arrow dropdown child link/megamenu {% endcomment %}
+                {% comment %} check conditions to render arrow dropdown child link/megamenu - DISABLED: Submenus are disabled {% endcomment %}
+                {% comment %}
                 {% if link.links != blank %}
                   <span class='menu-hamburger-drawer-desktop__arrow'>
                     {% render 'icon', name: 'chevron-right', icon_size: '1.5rem' %}
@@ -181,8 +188,10 @@
                     {% render 'icon', name: 'chevron-right', icon_size: '1.5rem' %}
                   </span>
                 {% endif %}
+                {% endcomment %}
               </a>
-              {{ submenu }}
+              {% comment %} Submenu disabled - DISABLED: Submenus are disabled {% endcomment %}
+              {% comment %}{{ submenu }}{% endcomment %}
             </li>
           {% endif %}
         {% endfor %}
