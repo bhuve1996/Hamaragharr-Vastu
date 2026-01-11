@@ -4615,12 +4615,18 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   max-height: 1.2rem !important;
 }
 
-/* Add price overlay on product image (top right, purple) */
+/* Hide price overlay by default (only show in product-recommendations) */
+.xo-product-card__price-overlay {
+  display: none;
+}
+
+/* Add price overlay on product image (top right, purple) - only in product-recommendations */
 .product-recommendations .xo-product-card__header {
   position: relative;
 }
 
 .product-recommendations .xo-product-card__price-overlay {
+  display: block !important;
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
@@ -4639,11 +4645,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 /* Hide default price display in information section when overlay is shown */
 .product-recommendations .xo-product-card__information .xo-product-card__price {
   display: none !important;
-}
-
-/* Show price overlay in header */
-.product-recommendations .xo-product-card__price-overlay {
-  display: block !important;
 }
 
 /* Mobile adjustments */
