@@ -3067,7 +3067,7 @@ xo-modal[xo-placement="center"]::before {
     align-items: flex-start !important;
   }
   
-  .vastu-product-showcase xo-animate:first-of-type .xo-product-info-media-style1,
+  /* Only apply to product showcase section, not product pages */
   .vastu-product-showcase .xo-product-info-media-style1 {
     width: 100%;
     padding-top: 0 !important;
