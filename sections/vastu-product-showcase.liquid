@@ -22,6 +22,20 @@
   {% assign product = selected_product %}
   
   <section {% render 'section-attr' %} class='vastu-product-showcase' {% if section.settings.background_color != blank %}style='background-color: {{ section.settings.background_color }};'{% endif %}>
+    {% comment %} Inline styles to override base theme CSS that loads after vastu-sections.css {% endcomment %}
+    <style>
+      /* Force override base theme: .xo-product-info-media-style1 { top: 9.3rem; } */
+      .vastu-product-showcase .xo-product-info-media-style1 {
+        top: 0 !important;
+        position: relative !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      .vastu-product-showcase .xo-product-info-content {
+        position: relative !important;
+        top: 0 !important;
+      }
+    </style>
     {% render 'section-bg-image' %}
     {% comment %} Ensure product is available before xo-product component {% endcomment %}
     <xo-product xo-product-information xo-product-id='{{ product.id }}' xo-section-id='{{ section.id }}'>

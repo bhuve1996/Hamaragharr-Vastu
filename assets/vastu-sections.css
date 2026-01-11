@@ -3056,6 +3056,24 @@ xo-modal[xo-placement="center"]::before {
   top: 0 !important;
 }
 
+/* Override base theme CSS for xo-product-info-media-style1 - applies to all screen sizes */
+/* Must be after product-info-media-style1.css loads, so placed at end of file */
+.vastu-product-showcase .xo-product-info-media-style1,
+section.vastu-product-showcase .xo-product-info-media-style1,
+.vastu-product-showcase section .xo-product-info-media-style1 {
+  width: 100% !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  top: 0 !important;
+  position: relative !important;
+}
+
+/* Ensure image container starts from top - applies to all screen sizes */
+.vastu-product-showcase .xo-product-info-media-style1__bottom {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
 /* Ensure equal heights for left and right sections on desktop */
 @media (min-width: 768px) {
   .vastu-product-showcase xo-grid {
@@ -3075,26 +3093,9 @@ xo-modal[xo-placement="center"]::before {
     align-items: flex-start !important;
   }
   
-  /* Only apply to product showcase section, not product pages */
+  /* Additional desktop-specific overrides */
   .vastu-product-showcase .xo-product-info-media-style1 {
-    width: 100%;
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-    top: 0 !important;
-    position: relative !important;
     align-self: flex-start !important;
-  }
-  
-  /* Ensure image container starts from top */
-  .vastu-product-showcase .xo-product-info-media-style1__bottom {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
-  
-  /* Override sticky positioning from product-info-content snippet */
-  .vastu-product-showcase .xo-product-info-content {
-    position: relative !important;
-    top: 0 !important;
   }
   
   /* Right content section - stretch to match left height */
@@ -4512,4 +4513,18 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
   }
 }
 
+/* ============================================
+   PRODUCT SHOWCASE - Force Override Base Theme CSS
+   Must be at end of file to override product-info-media-style1.css
+   This overrides: .xo-product-info-media-style1 { position: relative; top: 9.3rem; }
+   ============================================ */
+.vastu-product-showcase .xo-product-info-media-style1,
+section.vastu-product-showcase .xo-product-info-media-style1,
+.vastu-product-showcase section .xo-product-info-media-style1,
+.vastu-product-showcase div.xo-product-info-media-style1 {
+  top: 0 !important;
+  position: relative !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
 
