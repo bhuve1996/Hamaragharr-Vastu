@@ -3046,6 +3046,8 @@ xo-modal[xo-placement="center"]::before {
 /* Vastu Product Showcase Styles */
 .vastu-product-showcase {
   padding: 4rem 0;
+  margin-top: var(--homepage-section-spacing, 4rem);
+  margin-bottom: var(--homepage-section-spacing, 4rem);
 }
 
 /* Override sticky positioning from product-info-content snippet - applies to all screen sizes */
