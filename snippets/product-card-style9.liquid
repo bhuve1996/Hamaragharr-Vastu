@@ -77,6 +77,17 @@
         </a>
       {% endif %}
 
+      {% comment %} Price overlay for product-recommendations and collection sections {% endcomment %}
+      {% if show_price %}
+        <div class='xo-product-card__price-overlay' xo-binding="price">
+          {% liquid
+            assign price_formatted = product.price | money
+            assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹'
+          %}
+          <span class="xo-price__item">{{ price_formatted }}</span>
+        </div>
+      {% endif %}
+
       {% if show_badge %}
         <div class='xo-product-card__badge'>
           {% render 'badge-sale', product: product, use_variant: true %}
@@ -84,6 +95,26 @@
         {% render 'badge-sold-out', product: product, use_variant: true %}
       {% endif %}
 
+      {% comment %} Wishlist button - top left only {% endcomment %}
+      {% if show_wishlist %}
+        <div class='xo-product-card__wishlist-container'>
+          {% comment %} add to wishlist {% endcomment %}
+          <xo-products-fetcher-add xo-type="wishlist" class="xo-product-card__wishlist">
+            <xo-tooltip xo-title='{{ 'products.product.add_to_wishlist' | t }}' class="xo-product-card__icon xo-product-card__icon-wishlist" xo-added>
+              {% render 'button', class:'circle', style:'primary', mode: 'light', icon: 'heart', size: 'sm' %}
+            </xo-tooltip>
+          </xo-products-fetcher-add>
+          {% comment %} remove wishlist {% endcomment %}
+          <xo-products-fetcher-add xo-type="wishlist" class="xo-product-card__wishlist">
+            <xo-tooltip xo-title='{{ 'products.product.remove_from_wishlist' | t }}' class="xo-product-card__icon xo-product-card__icon-wishlist" xo-removed>
+              {% render 'button', class:'circle', style:'primary', mode: 'light', icon: 'heart', size: 'sm' %}
+             </xo-tooltip>
+          </xo-products-fetcher-add>
+        </div>
+      {% endif %}
+
+      {% comment %} Commented out: Quick add and quick view buttons {% endcomment %}
+      {% comment %}
       <div class='xo-product-card__actions xo-product-card__actions--style9'>
         {% if show_quick_add %}
           {% render 'action-cart-add', product: product, variant_modal_placement: variant_modal_placement %}
@@ -96,26 +127,15 @@
             </xo-product-quick-view-trigger>
          </xo-tooltip>
         {% endif %}
-        
-        {% if show_wishlist %}
-          <div>
-          {% comment %} add to wishlist {% endcomment %}
-            <xo-products-fetcher-add xo-type="wishlist" class="xo-product-card__wishlist">
-              <xo-tooltip xo-title='{{ 'products.product.add_to_wishlist' | t }}' class="xo-product-card__icon xo-product-card__icon-wishlist" xo-added>
-                {% render 'button', class:'circle', style:'primary', mode: 'light', icon: 'heart', size: 'sm' %}
-              </xo-tooltip>
-            </xo-products-fetcher-add>
-            {% comment %} remove wishlist {% endcomment %}
-            <xo-products-fetcher-add xo-type="wishlist" class="xo-product-card__wishlist">
-              <xo-tooltip xo-title='{{ 'products.product.remove_from_wishlist' | t }}' class="xo-product-card__icon xo-product-card__icon-wishlist" xo-removed>
-                {% render 'button', class:'circle', style:'primary', mode: 'light', icon: 'heart', size: 'sm' %}
-               </xo-tooltip>
-            </xo-products-fetcher-add>
-          </div>
-        {% endif %}
       </div>
+      {% endcomment %}
 
+      {% comment %} Variant modal for products with multiple variants - always use center placement (same as homepage) {% endcomment %}
       {% if product.variants.size > 1 %}
+        {% liquid
+          # Always use center placement for variant modal in product cards (same as homepage)
+          assign modal_placement = 'center'
+        %}
         {% for option in product.options_with_values
         %}
           {% if option.name == 'Color' %}
@@ -125,7 +145,7 @@
             {% break %}
           {% endif %}
         {% endfor %}
-        {% render 'product-variant-modal', product: product, variant_modal_placement: variant_modal_placement %}
+        {% render 'product-variant-modal', product: product, variant_modal_placement: modal_placement %}
       {% endif %}
     </div>
     {% endcapture %}
@@ -157,6 +177,36 @@
             </div>
           </div>
         {% endif %}
+
+        {% comment %} Add to Cart button - always visible {% endcomment %}
+        <div class='xo-product-card__add-to-cart'>
+          {% liquid
+            # Always use center placement modal for product cards (same as homepage)
+            assign modal_placement = 'center'
+            assign button_modal_trigger = 'xo-modal-trigger'
+            
+            # Always use "Add to Cart" text
+            assign button_text = 'products.product.add_to_cart' | t
+
+            assign product_form_id = 'quick-add-' | append: section.id | append: product.id
+            assign button_id = product_form_id | append: '-submit'
+            assign aria_labelledby = product_form_id | append: '-submit title-{{ section.id }}-{{ product.id }}'
+          %}
+
+          {% if product.variants.size > 1 %}
+            <{{ button_modal_trigger }} xo-name='product-variant-modal-{{ product.id }}-{{ section.id }}' xo-placement='{{ modal_placement }}'>
+              {% render 'button', text: button_text, style: 'primary', mode: 'light', size: 'sm', type: 'button', id: button_id, aria_labelledby: aria_labelledby %}
+            </{{ button_modal_trigger }}>
+          {% else %}
+            <xo-cart-add
+              {% if product.selected_or_first_available_variant.available == false %}
+                xo-disabled
+              {% endif %}
+            >
+              {% render 'button', text: button_text, style: 'primary', mode: 'light', size: 'sm', type: 'button', id: button_id, aria_labelledby: aria_labelledby %}
+            </xo-cart-add>
+          {% endif %}
+        </div>
       </div>
     {% endcapture %}
 

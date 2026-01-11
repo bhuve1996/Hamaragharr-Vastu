@@ -46,22 +46,23 @@
           {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
           {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
           <div>
-            {% render 'product-card-styles',
-              product_card_style: settings.product_card_style_layout,
+            {% comment %} Force style1 for product recommendations to match featured products structure {% endcomment %}
+            {% render 'product-card-style1',
               product: product,
-              variant_modal_placement: settings.variant_modal_placement,
+              variant_modal_placement: 'center',
               show_image: settings.product_card_show_image,
               product_card_media_type: settings.product_card_media_type,
               show_vendor: settings.product_card_show_vendor,
               show_description: settings.product_card_show_description,
-              show_quick_add: settings.product_card_show_quick_add,
-              show_quick_view: settings.product_card_show_quick_view,
+              show_quick_add: false,
+              show_quick_view: false,
               show_wishlist: settings.product_card_show_wishlist,
               show_price: settings.product_card_show_price,
               show_badge: settings.product_card_show_badge,
               media_aspect_ratio: settings.product_card_aspect_ratio,
               color_scheme: color_scheme_chosen,
-              placeholder_image: placeholder_image
+              placeholder_image: placeholder_image,
+              animate_enabled: true
             %}
           </div>
         {% endfor %}
@@ -88,22 +89,23 @@
               {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
               {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
               <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
-                {% render 'product-card-styles',
-                  product_card_style: settings.product_card_style_layout,
+                {% comment %} Force style1 for product recommendations to match featured products structure {% endcomment %}
+                {% render 'product-card-style1',
                   product: product,
-                  variant_modal_placement: settings.variant_modal_placement,
+                  variant_modal_placement: 'center',
                   show_image: settings.product_card_show_image,
                   product_card_media_type: settings.product_card_media_type,
                   show_vendor: settings.product_card_show_vendor,
                   show_description: settings.product_card_show_description,
-                  show_quick_add: settings.product_card_show_quick_add,
-                  show_quick_view: settings.product_card_show_quick_view,
+                  show_quick_add: false,
+                  show_quick_view: false,
                   show_wishlist: settings.product_card_show_wishlist,
                   show_price: settings.product_card_show_price,
                   show_badge: settings.product_card_show_badge,
                   media_aspect_ratio: settings.product_card_aspect_ratio,
                   color_scheme: color_scheme_chosen,
-                  placeholder_image: placeholder_image
+                  placeholder_image: placeholder_image,
+                  animate_enabled: true
                 %}
               </xo-carousel-slide>
             {% endfor %}

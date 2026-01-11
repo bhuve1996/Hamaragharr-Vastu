@@ -1597,19 +1597,26 @@ section h3,
   padding-bottom: 7rem;
 }
 
-/* Buttons - Consistent 2.5rem font size */
+/* Buttons - Consistent 2.5rem font size (font size only, no padding) */
 .button,
 .xo-btn,
 button,
-.button-label,
-.banner-v155__content .button,
-.slideshow-v28__text--overlay .button,
-xo-cart-add button,
-xo-cart-add .xo-btn {
+.button-label {
   font-size: var(--font-size-button, 2.5rem);
-  padding-left: 4.6875rem; /* 3.75rem * 1.25 = 4.6875rem (25% increase) */
-  padding-right: 4.6875rem; /* 3.75rem * 1.25 = 4.6875rem (25% increase) */
-  min-height: calc(7.03125rem + var(--buttons-border-width, 0) * 2); /* 5.625rem * 1.25 = 7.03125rem (25% increase) */
+}
+
+/* Large padding buttons - Only for specific sections that need it */
+.vastu-button-large-padding,
+.banner-v155__content .button,
+.banner-v155__content .xo-btn,
+.banner-v155__content button,
+.slideshow-v28__text--overlay .button,
+.slideshow-v28__text--overlay .xo-btn,
+.slideshow-v28__text--overlay button {
+  font-size: var(--font-size-button, 2.5rem);
+  padding-left: 4.6875rem !important; /* 3.75rem * 1.25 = 4.6875rem (25% increase) */
+  padding-right: 4.6875rem !important; /* 3.75rem * 1.25 = 4.6875rem (25% increase) */
+  min-height: calc(7.03125rem + var(--buttons-border-width, 0) * 2) !important; /* 5.625rem * 1.25 = 7.03125rem (25% increase) */
 }
 
 /* Override xo-btn text size with higher specificity */
@@ -4533,10 +4540,535 @@ section.vastu-product-showcase .xo-product-info-media-style1,
    Fix buttons, title spacing, and add price overlay
    ============================================ */
 
-/* Fix product card title spacing and line-height */
+/* Fix incorrect xo-modal-trigger wrapper on product cards - ensure it displays correctly */
+.product-recommendations-section xo-modal-trigger.xo-product-card,
+section[class*="product-recommendations"] xo-modal-trigger.xo-product-card,
+.product-recommendations xo-modal-trigger.xo-product-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  position: relative !important;
+}
+
+/* Ensure xo-modal-trigger doesn't interfere with card structure */
+.product-recommendations-section xo-modal-trigger.xo-product-card:not([xo-name]),
+section[class*="product-recommendations"] xo-modal-trigger.xo-product-card:not([xo-name]),
+.product-recommendations xo-modal-trigger.xo-product-card:not([xo-name]) {
+  pointer-events: auto !important;
+}
+
+/* Ensure only the button triggers the modal, not the entire card */
+.product-recommendations-section xo-modal-trigger.xo-product-card > .xo-product-card__header,
+section[class*="product-recommendations"] xo-modal-trigger.xo-product-card > .xo-product-card__header,
+.product-recommendations xo-modal-trigger.xo-product-card > .xo-product-card__header,
+.product-recommendations-section xo-modal-trigger.xo-product-card > .xo-product-card__information,
+section[class*="product-recommendations"] xo-modal-trigger.xo-product-card > .xo-product-card__information,
+.product-recommendations xo-modal-trigger.xo-product-card > .xo-product-card__information {
+  pointer-events: auto !important;
+}
+
+/* Ensure the add-to-cart button inside xo-modal-trigger wrapper works correctly */
+.product-recommendations-section xo-modal-trigger.xo-product-card .xo-product-card__add-to-cart xo-modal-trigger,
+section[class*="product-recommendations"] xo-modal-trigger.xo-product-card .xo-product-card__add-to-cart xo-modal-trigger,
+.product-recommendations xo-modal-trigger.xo-product-card .xo-product-card__add-to-cart xo-modal-trigger {
+  display: block !important;
+  width: 100% !important;
+}
+
+/* Hide commented out quick add and quick view buttons - hide all action buttons */
+.product-recommendations-section .xo-product-card__actions--style1,
+section[class*="product-recommendations"] .xo-product-card__actions--style1,
+.product-recommendations .xo-product-card__actions--style1,
+.section-collection-products .xo-product-card__actions--style1,
+.filters-content .xo-product-card__actions--style1,
+.product-recommendations-section .xo-product-card__actions,
+section[class*="product-recommendations"] .xo-product-card__actions,
+.product-recommendations .xo-product-card__actions,
+.section-collection-products .xo-product-card__actions,
+.filters-content .xo-product-card__actions,
+.product-recommendations-section .xo-product-card:hover .xo-product-card__actions--style1,
+section[class*="product-recommendations"] .xo-product-card:hover .xo-product-card__actions--style1,
+.product-recommendations .xo-product-card:hover .xo-product-card__actions--style1,
+.section-collection-products .xo-product-card:hover .xo-product-card__actions--style1,
+.filters-content .xo-product-card:hover .xo-product-card__actions--style1,
+.product-recommendations-section .xo-product-card:hover .xo-product-card__actions,
+section[class*="product-recommendations"] .xo-product-card:hover .xo-product-card__actions,
+.product-recommendations .xo-product-card:hover .xo-product-card__actions,
+.section-collection-products .xo-product-card:hover .xo-product-card__actions,
+.filters-content .xo-product-card:hover .xo-product-card__actions {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Hide all action icons inside actions container */
+.product-recommendations-section .xo-product-card__actions--style1 *,
+section[class*="product-recommendations"] .xo-product-card__actions--style1 *,
+.product-recommendations .xo-product-card__actions--style1 *,
+.section-collection-products .xo-product-card__actions--style1 *,
+.filters-content .xo-product-card__actions--style1 *,
+.product-recommendations-section .xo-product-card__actions--style9 *,
+section[class*="product-recommendations"] .xo-product-card__actions--style9 *,
+.product-recommendations .xo-product-card__actions--style9 *,
+.section-collection-products .xo-product-card__actions--style9 *,
+.filters-content .xo-product-card__actions--style9 *,
+.product-recommendations-section .xo-product-card__actions *,
+section[class*="product-recommendations"] .xo-product-card__actions *,
+.product-recommendations .xo-product-card__actions *,
+.section-collection-products .xo-product-card__actions *,
+.filters-content .xo-product-card__actions * {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Wishlist button - top left position on image */
+.product-recommendations-section .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] .xo-product-card__wishlist-container,
+.product-recommendations .xo-product-card__wishlist-container,
+.section-collection-products .xo-product-card__wishlist-container,
+.filters-content .xo-product-card__wishlist-container,
+.product-recommendations-section .xo-product-card__header .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] .xo-product-card__header .xo-product-card__wishlist-container,
+.product-recommendations .xo-product-card__header .xo-product-card__wishlist-container,
+.section-collection-products .xo-product-card__header .xo-product-card__wishlist-container,
+.filters-content .xo-product-card__header .xo-product-card__wishlist-container {
+  position: absolute !important;
+  top: 0.75rem !important;
+  left: 0.75rem !important;
+  z-index: 10 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: auto !important;
+}
+
+/* Ensure header is positioned relative for absolute positioning */
+.product-recommendations-section .xo-product-card__header,
+section[class*="product-recommendations"] .xo-product-card__header,
+.product-recommendations .xo-product-card__header,
+.section-collection-products .xo-product-card__header,
+.filters-content .xo-product-card__header,
+.product-recommendations-section .xo-product-card .xo-product-card__header,
+section[class*="product-recommendations"] .xo-product-card .xo-product-card__header,
+.product-recommendations .xo-product-card .xo-product-card__header,
+.section-collection-products .xo-product-card .xo-product-card__header,
+.filters-content .xo-product-card .xo-product-card__header {
+  position: relative !important;
+}
+
+.product-recommendations-section .xo-product-card__wishlist-container .xo-product-card__icon,
+section[class*="product-recommendations"] .xo-product-card__wishlist-container .xo-product-card__icon,
+.product-recommendations .xo-product-card__wishlist-container .xo-product-card__icon,
+.section-collection-products .xo-product-card__wishlist-container .xo-product-card__icon,
+.filters-content .xo-product-card__wishlist-container .xo-product-card__icon {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  min-width: 2.5rem !important;
+  min-height: 2.5rem !important;
+  max-width: 2.5rem !important;
+  max-height: 2.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.product-recommendations-section .xo-product-card__wishlist-container button,
+section[class*="product-recommendations"] .xo-product-card__wishlist-container button,
+.product-recommendations .xo-product-card__wishlist-container button,
+.section-collection-products .xo-product-card__wishlist-container button,
+.filters-content .xo-product-card__wishlist-container button {
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+  min-width: 3.5rem !important;
+  min-height: 3.5rem !important;
+  max-width: 3.5rem !important;
+  max-height: 3.5rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  background-color: rgba(71, 56, 85, 0.9) !important;
+  color: #ffffff !important;
+}
+
+/* Ensure wishlist icon SVG and all child elements are white and larger */
+.product-recommendations-section .xo-product-card__wishlist-container button svg,
+section[class*="product-recommendations"] .xo-product-card__wishlist-container button svg,
+.product-recommendations .xo-product-card__wishlist-container button svg,
+.section-collection-products .xo-product-card__wishlist-container button svg,
+.filters-content .xo-product-card__wishlist-container button svg,
+.product-recommendations-section .xo-product-card__wishlist-container .xo-btn__icon,
+section[class*="product-recommendations"] .xo-product-card__wishlist-container .xo-btn__icon,
+.product-recommendations .xo-product-card__wishlist-container .xo-btn__icon,
+.section-collection-products .xo-product-card__wishlist-container .xo-btn__icon,
+.filters-content .xo-product-card__wishlist-container .xo-btn__icon,
+.product-recommendations-section .xo-product-card__wishlist-container .xo-btn__icon svg,
+section[class*="product-recommendations"] .xo-product-card__wishlist-container .xo-btn__icon svg,
+.product-recommendations .xo-product-card__wishlist-container .xo-btn__icon svg,
+.section-collection-products .xo-product-card__wishlist-container .xo-btn__icon svg,
+.filters-content .xo-product-card__wishlist-container .xo-btn__icon svg {
+  width: 2rem !important;
+  height: 2rem !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.product-recommendations-section .xo-product-card__wishlist-container button *,
+section[class*="product-recommendations"] .xo-product-card__wishlist-container button *,
+.product-recommendations .xo-product-card__wishlist-container button *,
+.section-collection-products .xo-product-card__wishlist-container button *,
+.filters-content .xo-product-card__wishlist-container button * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Hide one wishlist button based on state - only show active one */
+/* Hide the "remove from wishlist" button when item is not in wishlist */
+.product-recommendations-section .xo-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-removed],
+section[class*="product-recommendations"] .xo-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-removed],
+.product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-removed],
+.section-collection-products .xo-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-removed],
+.filters-content .xo-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-removed] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Hide the "add to wishlist" button when item is already in wishlist */
+.product-recommendations-section .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-added],
+section[class*="product-recommendations"] .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-added],
+.product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-added],
+.section-collection-products .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-added],
+.filters-content .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-added] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Add to Cart button styling - always visible */
+.product-recommendations-section .xo-product-card__add-to-cart,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart,
+.product-recommendations .xo-product-card__add-to-cart,
+.section-collection-products .xo-product-card__add-to-cart,
+.filters-content .xo-product-card__add-to-cart {
+  margin-top: 1rem !important;
+  width: 100% !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+}
+
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn,
+.product-recommendations .xo-product-card__add-to-cart .xo-btn,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn,
+.filters-content .xo-product-card__add-to-cart .xo-btn,
+.product-recommendations-section .xo-product-card__add-to-cart button,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart button,
+.product-recommendations .xo-product-card__add-to-cart button,
+.section-collection-products .xo-product-card__add-to-cart button,
+.filters-content .xo-product-card__add-to-cart button {
+  width: 100% !important;
+  background-color: rgba(71, 56, 85, 0.9) !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.5rem !important;
+  font-size: var(--font-size-button, 2.5rem) !important;
+  font-weight: 600 !important;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+}
+
+/* Fix text overlapping in add to cart button */
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn__content,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn__content,
+.product-recommendations .xo-product-card__add-to-cart .xo-btn__content,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__content,
+.filters-content .xo-product-card__add-to-cart .xo-btn__content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn__text,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn__text,
+.product-recommendations .xo-product-card__add-to-cart .xo-btn__text,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__text,
+.filters-content .xo-product-card__add-to-cart .xo-btn__text {
+  position: relative !important;
+  transform: none !important;
+  translate: 0 0 !important;
+  display: inline-block !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn__text[data-text]::before,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn__text[data-text]::before,
+.product-recommendations .xo-product-card__add-to-cart .xo-btn__text[data-text]::before,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__text[data-text]::before,
+.filters-content .xo-product-card__add-to-cart .xo-btn__text[data-text]::before,
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn__text[data-text]::after,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn__text[data-text]::after,
+.product-recommendations .xo-product-card__add-to-cart .xo-btn__text[data-text]::after,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__text[data-text]::after,
+.filters-content .xo-product-card__add-to-cart .xo-btn__text[data-text]::after {
+  display: none !important;
+  content: none !important;
+}
+
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn__loading,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn__loading,
+.product-recommendations .xo-product-card__add-to-cart .xo-btn__loading,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__loading,
+.filters-content .xo-product-card__add-to-cart .xo-btn__loading {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 2 !important;
+}
+
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn:hover,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn:hover,
+.product-recommendations .xo-product-card__add-to-cart .xo-btn:hover,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn:hover,
+.filters-content .xo-product-card__add-to-cart .xo-btn:hover,
+.product-recommendations-section .xo-product-card__add-to-cart button:hover,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart button:hover,
+.product-recommendations .xo-product-card__add-to-cart button:hover,
+.section-collection-products .xo-product-card__add-to-cart button:hover,
+.filters-content .xo-product-card__add-to-cart button:hover {
+  background-color: rgba(71, 56, 85, 1) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(71, 56, 85, 0.3) !important;
+}
+
+/* Ensure all text content in add to cart button is white */
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn__content,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn__content,
+.product-recommendations .xo-product-card__add-to-cart .xo-btn__content,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__content,
+.filters-content .xo-product-card__add-to-cart .xo-btn__content,
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn__text,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn__text,
+.product-recommendations .xo-product-card__add-to-cart .xo-btn__text,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__text,
+.filters-content .xo-product-card__add-to-cart .xo-btn__text,
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn *,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn *,
+.product-recommendations .xo-product-card__add-to-cart .xo-btn *,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn *,
+.filters-content .xo-product-card__add-to-cart .xo-btn *,
+.product-recommendations-section .xo-product-card__add-to-cart button *,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart button *,
+.product-recommendations .xo-product-card__add-to-cart button *,
+.section-collection-products .xo-product-card__add-to-cart button *,
+.filters-content .xo-product-card__add-to-cart button * {
+  color: #ffffff !important;
+}
+
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn:active,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn:active,
+.product-recommendations .xo-product-card__add-to-cart .xo-btn:active,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn:active,
+.filters-content .xo-product-card__add-to-cart .xo-btn:active,
+.product-recommendations-section .xo-product-card__add-to-cart button:active,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart button:active,
+.product-recommendations .xo-product-card__add-to-cart button:active,
+.section-collection-products .xo-product-card__add-to-cart button:active,
+.filters-content .xo-product-card__add-to-cart button:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 6px rgba(71, 56, 85, 0.2) !important;
+}
+
+/* ============================================
+   COLLECTION PAGES / ALL PRODUCTS
+   Apply same styling as product recommendations
+   ============================================ */
+
+/* Fix product card title spacing and line-height for collection pages - match homepage */
+.section-collection-products .xo-product-card__title,
+.section-collection-products .xo-product-card__title a,
+.filters-content .xo-product-card__title,
+.filters-content .xo-product-card__title a {
+  line-height: 1.2 !important;
+  margin-bottom: 0.5rem !important;
+  margin-top: 0.5rem !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Commented out: Hover buttons are now hidden for collection pages */
+
+.section-collection-products .xo-product-card__actions--style1 .xo-product-card__icon,
+.section-collection-products .xo-product-card__actions .xo-product-card__icon,
+.section-collection-products .xo-product-card__actions--style1 xo-tooltip,
+.section-collection-products .xo-product-card__actions xo-tooltip,
+.section-collection-products .xo-product-card__actions--style1 xo-cart-add,
+.section-collection-products .xo-product-card__actions xo-cart-add,
+.filters-content .xo-product-card__actions--style1 .xo-product-card__icon,
+.filters-content .xo-product-card__actions .xo-product-card__icon,
+.filters-content .xo-product-card__actions--style1 xo-tooltip,
+.filters-content .xo-product-card__actions xo-tooltip,
+.filters-content .xo-product-card__actions--style1 xo-cart-add,
+.filters-content .xo-product-card__actions xo-cart-add {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  min-width: 2.5rem !important;
+  min-height: 2.5rem !important;
+  max-width: 2.5rem !important;
+  max-height: 2.5rem !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  aspect-ratio: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.section-collection-products .xo-product-card__actions--style1 button,
+.section-collection-products .xo-product-card__actions button,
+.section-collection-products .xo-product-card__actions--style1 .xo-product-card__icon button,
+.section-collection-products .xo-product-card__actions .xo-product-card__icon button,
+.section-collection-products .xo-product-card__actions--style1 xo-tooltip button,
+.section-collection-products .xo-product-card__actions xo-tooltip button,
+.section-collection-products .xo-product-card__actions--style1 xo-cart-add button,
+.section-collection-products .xo-product-card__actions xo-cart-add button,
+.filters-content .xo-product-card__actions--style1 button,
+.filters-content .xo-product-card__actions button,
+.filters-content .xo-product-card__actions--style1 .xo-product-card__icon button,
+.filters-content .xo-product-card__actions .xo-product-card__icon button,
+.filters-content .xo-product-card__actions--style1 xo-tooltip button,
+.filters-content .xo-product-card__actions xo-tooltip button,
+.filters-content .xo-product-card__actions--style1 xo-cart-add button,
+.filters-content .xo-product-card__actions xo-cart-add button {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  min-width: 2.5rem !important;
+  min-height: 2.5rem !important;
+  max-width: 2.5rem !important;
+  max-height: 2.5rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  aspect-ratio: 1 !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  background-color: rgba(71, 56, 85, 0.9) !important;
+  color: #ffffff !important;
+}
+
+.section-collection-products .xo-product-card__actions--style1 button svg,
+.section-collection-products .xo-product-card__actions button svg,
+.section-collection-products .xo-product-card__actions--style1 .xo-product-card__icon svg,
+.section-collection-products .xo-product-card__actions .xo-product-card__icon svg,
+.filters-content .xo-product-card__actions--style1 button svg,
+.filters-content .xo-product-card__actions button svg,
+.filters-content .xo-product-card__actions--style1 .xo-product-card__icon svg,
+.filters-content .xo-product-card__actions .xo-product-card__icon svg {
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+  max-width: 1.2rem !important;
+  max-height: 1.2rem !important;
+}
+
+/* Add price overlay on product image (top right, purple) - for collection pages */
+.section-collection-products .xo-product-card__header,
+.filters-content .xo-product-card__header {
+  position: relative;
+}
+
+/* Price overlay styles are now in the more specific rule above */
+
+/* Ensure price overlay content is visible for collections */
+.section-collection-products .xo-product-card__price-overlay .xo-price__item,
+.filters-content .xo-product-card__price-overlay .xo-price__item,
+.section-collection-products .xo-product-card__price-overlay span,
+.filters-content .xo-product-card__price-overlay span {
+  color: #ffffff !important;
+  display: inline !important;
+}
+
+/* Hide default price display in information section when overlay is shown */
+.section-collection-products .xo-product-card__information .xo-product-card__price,
+.filters-content .xo-product-card__information .xo-product-card__price {
+  display: none !important;
+}
+
+/* Mobile adjustments for collection pages */
+@media (max-width: 48rem) {
+  .section-collection-products .xo-product-card__title,
+  .section-collection-products .xo-product-card__title a,
+  .filters-content .xo-product-card__title,
+  .filters-content .xo-product-card__title a {
+    font-size: 2rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  .section-collection-products .xo-product-card__price-overlay,
+  .filters-content .xo-product-card__price-overlay {
+    font-size: 2rem !important;
+    padding: 0.6rem 0.9rem !important;
+  }
+  
+  .section-collection-products .xo-product-card__add-to-cart .xo-btn,
+  .section-collection-products .xo-product-card__add-to-cart button,
+  .filters-content .xo-product-card__add-to-cart .xo-btn,
+  .filters-content .xo-product-card__add-to-cart button {
+    font-size: 1.8rem !important;
+    padding: 0.6rem 1.2rem !important;
+  }
+  
+  .product-recommendations-section .xo-product-card__add-to-cart .xo-btn,
+  .product-recommendations-section .xo-product-card__add-to-cart button,
+  section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn,
+  section[class*="product-recommendations"] .xo-product-card__add-to-cart button,
+  .product-recommendations .xo-product-card__add-to-cart .xo-btn,
+  .product-recommendations .xo-product-card__add-to-cart button {
+    font-size: 1.8rem !important;
+    padding: 0.6rem 1.2rem !important;
+  }
+}
+
+/* Fix product card title spacing and line-height - match homepage */
+.product-recommendations-section .xo-product-card__title,
+.product-recommendations-section .xo-product-card__title a,
+section[class*="product-recommendations"] .xo-product-card__title,
+section[class*="product-recommendations"] .xo-product-card__title a,
 .product-recommendations .xo-product-card__title,
 .product-recommendations .xo-product-card__title a {
-  line-height: 1.4 !important;
+  line-height: 1.2 !important;
   margin-bottom: 0.5rem !important;
   margin-top: 0.5rem !important;
   display: -webkit-box;
@@ -4549,6 +5081,10 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 }
 
 /* Fix hover buttons - make them circular, not oval */
+.product-recommendations-section .xo-product-card__actions--style1,
+.product-recommendations-section .xo-product-card__actions,
+section[class*="product-recommendations"] .xo-product-card__actions--style1,
+section[class*="product-recommendations"] .xo-product-card__actions,
 .product-recommendations .xo-product-card__actions--style1,
 .product-recommendations .xo-product-card__actions {
   display: flex;
@@ -4556,8 +5092,27 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
+.product-recommendations-section .xo-product-card__actions--style1 .xo-product-card__icon,
+.product-recommendations-section .xo-product-card__actions .xo-product-card__icon,
+.product-recommendations-section .xo-product-card__actions--style1 xo-tooltip,
+.product-recommendations-section .xo-product-card__actions xo-tooltip,
+.product-recommendations-section .xo-product-card__actions--style1 xo-cart-add,
+.product-recommendations-section .xo-product-card__actions xo-cart-add,
+section[class*="product-recommendations"] .xo-product-card__actions--style1 .xo-product-card__icon,
+section[class*="product-recommendations"] .xo-product-card__actions .xo-product-card__icon,
+section[class*="product-recommendations"] .xo-product-card__actions--style1 xo-tooltip,
+section[class*="product-recommendations"] .xo-product-card__actions xo-tooltip,
+section[class*="product-recommendations"] .xo-product-card__actions--style1 xo-cart-add,
+section[class*="product-recommendations"] .xo-product-card__actions xo-cart-add,
 .product-recommendations .xo-product-card__actions--style1 .xo-product-card__icon,
 .product-recommendations .xo-product-card__actions .xo-product-card__icon,
 .product-recommendations .xo-product-card__actions--style1 xo-tooltip,
@@ -4578,6 +5133,22 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   justify-content: center !important;
 }
 
+.product-recommendations-section .xo-product-card__actions--style1 button,
+.product-recommendations-section .xo-product-card__actions button,
+.product-recommendations-section .xo-product-card__actions--style1 .xo-product-card__icon button,
+.product-recommendations-section .xo-product-card__actions .xo-product-card__icon button,
+.product-recommendations-section .xo-product-card__actions--style1 xo-tooltip button,
+.product-recommendations-section .xo-product-card__actions xo-tooltip button,
+.product-recommendations-section .xo-product-card__actions--style1 xo-cart-add button,
+.product-recommendations-section .xo-product-card__actions xo-cart-add button,
+section[class*="product-recommendations"] .xo-product-card__actions--style1 button,
+section[class*="product-recommendations"] .xo-product-card__actions button,
+section[class*="product-recommendations"] .xo-product-card__actions--style1 .xo-product-card__icon button,
+section[class*="product-recommendations"] .xo-product-card__actions .xo-product-card__icon button,
+section[class*="product-recommendations"] .xo-product-card__actions--style1 xo-tooltip button,
+section[class*="product-recommendations"] .xo-product-card__actions xo-tooltip button,
+section[class*="product-recommendations"] .xo-product-card__actions--style1 xo-cart-add button,
+section[class*="product-recommendations"] .xo-product-card__actions xo-cart-add button,
 .product-recommendations .xo-product-card__actions--style1 button,
 .product-recommendations .xo-product-card__actions button,
 .product-recommendations .xo-product-card__actions--style1 .xo-product-card__icon button,
@@ -4605,6 +5176,14 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 }
 
 /* Ensure icons are properly sized */
+.product-recommendations-section .xo-product-card__actions--style1 button svg,
+.product-recommendations-section .xo-product-card__actions button svg,
+.product-recommendations-section .xo-product-card__actions--style1 .xo-product-card__icon svg,
+.product-recommendations-section .xo-product-card__actions .xo-product-card__icon svg,
+section[class*="product-recommendations"] .xo-product-card__actions--style1 button svg,
+section[class*="product-recommendations"] .xo-product-card__actions button svg,
+section[class*="product-recommendations"] .xo-product-card__actions--style1 .xo-product-card__icon svg,
+section[class*="product-recommendations"] .xo-product-card__actions .xo-product-card__icon svg,
 .product-recommendations .xo-product-card__actions--style1 button svg,
 .product-recommendations .xo-product-card__actions button svg,
 .product-recommendations .xo-product-card__actions--style1 .xo-product-card__icon svg,
@@ -4615,51 +5194,112 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   max-height: 1.2rem !important;
 }
 
-/* Hide price overlay by default (only show in product-recommendations) */
+/* Hide price overlay by default (only show in product-recommendations and collections) */
 .xo-product-card__price-overlay {
-  display: none;
+  display: none !important;
 }
 
-/* Add price overlay on product image (top right, purple) - only in product-recommendations */
-.product-recommendations .xo-product-card__header {
-  position: relative;
+/* Force show price overlay for product recommendations and collections - HIGHER SPECIFICITY */
+.product-recommendations-section .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations .xo-product-card__header .xo-product-card__price-overlay,
+.section-collection-products .xo-product-card__header .xo-product-card__price-overlay,
+.filters-content .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card__price-overlay,
+.product-recommendations .xo-product-card__price-overlay,
+.section-collection-products .xo-product-card__price-overlay,
+.filters-content .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-product .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] xo-product .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  background: rgba(71, 56, 85, 0.9) !important;
+  color: #ffffff !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.5rem !important;
+  font-size: var(--card-price-size, 1.2rem) !important;
+  font-weight: 600 !important;
+  z-index: 999 !important;
+  backdrop-filter: blur(4px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  line-height: 1.2 !important;
+  height: auto !important;
+  width: auto !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  pointer-events: auto !important;
 }
 
+/* Header positioning already set above */
+
+.product-recommendations-section .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card__price-overlay,
 .product-recommendations .xo-product-card__price-overlay {
   display: block !important;
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  background: rgba(71, 56, 85, 0.9);
-  color: #ffffff;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  z-index: 2;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  line-height: 1.2;
+  visibility: visible !important;
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  background: rgba(71, 56, 85, 0.9) !important;
+  color: #ffffff !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.5rem !important;
+  font-size: var(--card-price-size, 1.2rem) !important;
+  font-weight: 600 !important;
+  z-index: 2 !important;
+  backdrop-filter: blur(4px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  line-height: 1.2 !important;
+}
+
+/* Ensure price overlay content is visible */
+.product-recommendations-section .xo-product-card__price-overlay .xo-price__item,
+section[class*="product-recommendations"] .xo-product-card__price-overlay .xo-price__item,
+.product-recommendations .xo-product-card__price-overlay .xo-price__item,
+.product-recommendations-section .xo-product-card__price-overlay span,
+section[class*="product-recommendations"] .xo-product-card__price-overlay span,
+.product-recommendations .xo-product-card__price-overlay span {
+  color: #ffffff !important;
+  display: inline !important;
 }
 
 /* Hide default price display in information section when overlay is shown */
+.product-recommendations-section .xo-product-card__information .xo-product-card__price,
+section[class*="product-recommendations"] .xo-product-card__information .xo-product-card__price,
 .product-recommendations .xo-product-card__information .xo-product-card__price {
   display: none !important;
 }
 
 /* Mobile adjustments */
 @media (max-width: 48rem) {
+  .product-recommendations-section .xo-product-card__title,
+  .product-recommendations-section .xo-product-card__title a,
+  section[class*="product-recommendations"] .xo-product-card__title,
+  section[class*="product-recommendations"] .xo-product-card__title a,
   .product-recommendations .xo-product-card__title,
   .product-recommendations .xo-product-card__title a {
     font-size: 2rem !important;
     line-height: 1.4 !important;
   }
   
+  .product-recommendations-section .xo-product-card__price-overlay,
+  section[class*="product-recommendations"] .xo-product-card__price-overlay,
   .product-recommendations .xo-product-card__price-overlay {
     font-size: 2rem !important;
     padding: 0.6rem 0.9rem !important;
   }
   
+  .product-recommendations-section .xo-product-card__actions--style1 button,
+  .product-recommendations-section .xo-product-card__actions button,
+  section[class*="product-recommendations"] .xo-product-card__actions--style1 button,
+  section[class*="product-recommendations"] .xo-product-card__actions button,
   .product-recommendations .xo-product-card__actions--style1 button,
   .product-recommendations .xo-product-card__actions button {
     width: 3rem !important;
@@ -4670,6 +5310,10 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     max-height: 3rem !important;
   }
   
+  .product-recommendations-section .xo-product-card__actions--style1 button svg,
+  .product-recommendations-section .xo-product-card__actions button svg,
+  section[class*="product-recommendations"] .xo-product-card__actions--style1 button svg,
+  section[class*="product-recommendations"] .xo-product-card__actions button svg,
   .product-recommendations .xo-product-card__actions--style1 button svg,
   .product-recommendations .xo-product-card__actions button svg {
     width: 1.5rem !important;
@@ -4702,8 +5346,40 @@ div[aria-label*="free" i][aria-label*="day" i] {
 
 /* Hide any Shopify promotional messages about free trials */
 body > div:first-child[style*="position: fixed"],
-body > div:first-child[style*="z-index"][style*="999"] {
+body > div:first-child[style*="z-index"][style*="999"],
+body > div[style*="position: fixed"][style*="top"],
+body > div[style*="position: fixed"][style*="bottom"],
+div[style*="position: fixed"][style*="z-index: 999"],
+div[style*="position: fixed"][style*="z-index: 9999"],
+div[style*="position: fixed"][style*="z-index: 10000"],
+div[style*="position: fixed"][style*="z-index: 2147483647"],
+div[class*="PolarisBanner"],
+div[class*="Banner"],
+div[class*="banner"][style*="position: fixed"],
+div[class*="shopify"][style*="position: fixed"],
+div[data-shopify*="trial"],
+div[data-shopify*="Trial"],
+div[data-shopify*="TRIAL"],
+div[aria-label*="3 day" i],
+div[aria-label*="3-day" i],
+div[aria-label*="free trial" i],
+div[title*="trial" i],
+div[title*="3 day" i],
+div[title*="3-day" i],
+div[class*="shopify-banner"],
+div[class*="shopify-promo"],
+div[class*="promo-banner"],
+div[id*="shopify-banner"],
+div[id*="promo-banner"] {
   display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
 }
 
 /* ============================================
@@ -4767,6 +5443,97 @@ body > div:first-child[style*="z-index"][style*="999"] {
   transform: rotate(45deg);
 }
 
+/* ============================================
+   FORCE FIXES FOR PRODUCT CARDS - HIGHEST PRIORITY
+   ============================================ */
+
+/* Force price overlay visibility - highest specificity */
+.product-recommendations-section .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
+.section-collection-products .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
+.filters-content .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations .xo-product-card__header .xo-product-card__price-overlay,
+.section-collection-products .xo-product-card__header .xo-product-card__price-overlay,
+.filters-content .xo-product-card__header .xo-product-card__price-overlay {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  background: rgba(71, 56, 85, 0.9) !important;
+  color: #ffffff !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.5rem !important;
+  font-size: var(--card-price-size, 1.2rem) !important;
+  font-weight: 600 !important;
+  z-index: 5 !important;
+  backdrop-filter: blur(4px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  line-height: 1.2 !important;
+  height: auto !important;
+  width: auto !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+}
+
+/* Force wishlist container visibility and positioning */
+.product-recommendations-section .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
+.product-recommendations .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
+.section-collection-products .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
+.filters-content .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
+.product-recommendations-section .xo-product-card__header .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] .xo-product-card__header .xo-product-card__wishlist-container,
+.product-recommendations .xo-product-card__header .xo-product-card__wishlist-container,
+.section-collection-products .xo-product-card__header .xo-product-card__wishlist-container,
+.filters-content .xo-product-card__header .xo-product-card__wishlist-container {
+  position: absolute !important;
+  top: 0.75rem !important;
+  left: 0.75rem !important;
+  z-index: 10 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: auto !important;
+}
+
+/* Force hide all action buttons including on hover */
+.product-recommendations-section .xo-product-card .xo-product-card__header .xo-product-card__actions--style1,
+section[class*="product-recommendations"] .xo-product-card .xo-product-card__header .xo-product-card__actions--style1,
+.product-recommendations .xo-product-card .xo-product-card__header .xo-product-card__actions--style1,
+.section-collection-products .xo-product-card .xo-product-card__header .xo-product-card__actions--style1,
+.filters-content .xo-product-card .xo-product-card__header .xo-product-card__actions--style1,
+.product-recommendations-section .xo-product-card .xo-product-card__header .xo-product-card__actions--style9,
+section[class*="product-recommendations"] .xo-product-card .xo-product-card__header .xo-product-card__actions--style9,
+.product-recommendations .xo-product-card .xo-product-card__header .xo-product-card__actions--style9,
+.section-collection-products .xo-product-card .xo-product-card__header .xo-product-card__actions--style9,
+.filters-content .xo-product-card .xo-product-card__header .xo-product-card__actions--style9,
+.product-recommendations-section .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style1,
+section[class*="product-recommendations"] .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style1,
+.product-recommendations .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style1,
+.section-collection-products .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style1,
+.filters-content .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style1,
+.product-recommendations-section .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style9,
+section[class*="product-recommendations"] .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style9,
+.product-recommendations .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style9,
+.section-collection-products .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style9,
+.filters-content .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style9 {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
 .shipping-accordion__answer {
   padding: 0 0 1.5rem 0;
   padding-left: calc(1rem + 24px + 1rem); /* Icon width + gap + padding */
@@ -4817,5 +5584,298 @@ body > div:first-child[style*="z-index"][style*="999"] {
 /* Remove margin-bottom for fieldset-block__title h2 elements on collection pages */
 h2.fieldset-block__title#verticalTitle {
   margin-bottom: 0 !important;
+}
+
+/* Remove left and right padding from product card information and decrease line height of product name */
+.product-recommendations-section .xo-product-card__information,
+section[class*="product-recommendations"] .xo-product-card__information,
+.product-recommendations .xo-product-card__information,
+.section-collection-products .xo-product-card__information,
+.filters-content .xo-product-card__information {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Decrease line height of product title in recommendations section */
+.product-recommendations-section .xo-product-card__title,
+.product-recommendations-section .xo-product-card__title a,
+section[class*="product-recommendations"] .xo-product-card__title,
+section[class*="product-recommendations"] .xo-product-card__title a,
+.product-recommendations .xo-product-card__title,
+.product-recommendations .xo-product-card__title a {
+  line-height: 1.2 !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Ensure consistent card sizes and image sizes across You May Also Like and All Collections */
+.product-recommendations-section .xo-product-card,
+section[class*="product-recommendations"] .xo-product-card,
+.product-recommendations .xo-product-card,
+.section-collection-products .xo-product-card,
+.filters-content .xo-product-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.product-recommendations-section .xo-product-card__header,
+section[class*="product-recommendations"] .xo-product-card__header,
+.product-recommendations .xo-product-card__header,
+.section-collection-products .xo-product-card__header,
+.filters-content .xo-product-card__header {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  overflow: hidden !important;
+}
+
+.product-recommendations-section .xo-product-image,
+section[class*="product-recommendations"] .xo-product-image,
+.product-recommendations .xo-product-image,
+.section-collection-products .xo-product-image,
+.filters-content .xo-product-image,
+.product-recommendations-section .xo-product-image img,
+section[class*="product-recommendations"] .xo-product-image img,
+.product-recommendations .xo-product-image img,
+.section-collection-products .xo-product-image img,
+.filters-content .xo-product-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+.product-recommendations-section .xo-product-card__information,
+section[class*="product-recommendations"] .xo-product-card__information,
+.product-recommendations .xo-product-card__information,
+.section-collection-products .xo-product-card__information,
+.filters-content .xo-product-card__information {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.product-recommendations-section .xo-product-card__add-to-cart,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart,
+.product-recommendations .xo-product-card__add-to-cart,
+.section-collection-products .xo-product-card__add-to-cart,
+.filters-content .xo-product-card__add-to-cart {
+  margin-top: auto !important;
+}
+
+/* ULTRA HIGH PRIORITY - Force price overlay visibility - for both style1 and style9 */
+.product-recommendations-section .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card__price-overlay,
+.product-recommendations .xo-product-card__price-overlay,
+.section-collection-products .xo-product-card__price-overlay,
+.filters-content .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card--style1 .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card--style9 .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card--style1 .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card--style9 .xo-product-card__price-overlay,
+.product-recommendations .xo-product-card--style1 .xo-product-card__price-overlay,
+.product-recommendations .xo-product-card--style9 .xo-product-card__price-overlay,
+.section-collection-products .xo-product-card--style1 .xo-product-card__price-overlay,
+.section-collection-products .xo-product-card--style9 .xo-product-card__price-overlay,
+.filters-content .xo-product-card--style1 .xo-product-card__price-overlay,
+.filters-content .xo-product-card--style9 .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card .xo-product-card__price-overlay,
+.product-recommendations .xo-product-card .xo-product-card__price-overlay,
+.section-collection-products .xo-product-card .xo-product-card__price-overlay,
+.filters-content .xo-product-card .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations .xo-product-card__header .xo-product-card__price-overlay,
+.section-collection-products .xo-product-card__header .xo-product-card__price-overlay,
+.filters-content .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
+.section-collection-products .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
+.filters-content .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
+/* Target product recommendations on product pages - xo-product > xo-animate.xo-product-card > header structure */
+section[class*="product-recommendations"] xo-product .xo-product-card__header .xo-product-card__price-overlay {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  background: rgba(71, 56, 85, 0.9) !important;
+  color: #ffffff !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.5rem !important;
+  font-size: var(--card-price-size, 1.2rem) !important;
+  font-weight: 600 !important;
+  z-index: 999 !important;
+  backdrop-filter: blur(4px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  line-height: 1.2 !important;
+  height: auto !important;
+  width: auto !important;
+  pointer-events: auto !important;
+}
+
+/* ULTRA HIGH PRIORITY - Force wishlist visibility - for both style1 and style9 */
+.product-recommendations-section .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] .xo-product-card__wishlist-container,
+.product-recommendations .xo-product-card__wishlist-container,
+.section-collection-products .xo-product-card__wishlist-container,
+.filters-content .xo-product-card__wishlist-container,
+.product-recommendations-section .xo-product-card--style1 .xo-product-card__wishlist-container,
+.product-recommendations-section .xo-product-card--style9 .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] .xo-product-card--style1 .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] .xo-product-card--style9 .xo-product-card__wishlist-container,
+.product-recommendations .xo-product-card--style1 .xo-product-card__wishlist-container,
+.product-recommendations .xo-product-card--style9 .xo-product-card__wishlist-container,
+.section-collection-products .xo-product-card--style1 .xo-product-card__wishlist-container,
+.section-collection-products .xo-product-card--style9 .xo-product-card__wishlist-container,
+.filters-content .xo-product-card--style1 .xo-product-card__wishlist-container,
+.filters-content .xo-product-card--style9 .xo-product-card__wishlist-container,
+.product-recommendations-section .xo-product-card .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] .xo-product-card .xo-product-card__wishlist-container,
+.product-recommendations .xo-product-card .xo-product-card__wishlist-container,
+.section-collection-products .xo-product-card .xo-product-card__wishlist-container,
+.filters-content .xo-product-card .xo-product-card__wishlist-container,
+.product-recommendations-section .xo-product-card__header .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] .xo-product-card__header .xo-product-card__wishlist-container,
+.product-recommendations .xo-product-card__header .xo-product-card__wishlist-container,
+.section-collection-products .xo-product-card__header .xo-product-card__wishlist-container,
+.filters-content .xo-product-card__header .xo-product-card__wishlist-container,
+.product-recommendations-section .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
+.product-recommendations .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
+.section-collection-products .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
+.filters-content .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
+/* Target product recommendations on product pages - xo-product > xo-animate.xo-product-card > header structure */
+section[class*="product-recommendations"] xo-product .xo-product-card__header .xo-product-card__wishlist-container {
+  position: absolute !important;
+  top: 0.75rem !important;
+  left: 0.75rem !important;
+  z-index: 999 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: auto !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure header is positioned relative on product pages */
+section[class*="product-recommendations"] xo-product .xo-product-card__header,
+section[class*="product-recommendations"] xo-product .xo-product-card--style1 .xo-product-card__header,
+section[class*="product-recommendations"] .xo-product-card--style1 .xo-product-card__header,
+.product-recommendations-section .xo-product-card--style1 .xo-product-card__header {
+  position: relative !important;
+}
+
+/* EXTRA SPECIFIC - Force price overlay for style1 cards in product recommendations - MAXIMUM PRIORITY */
+section[class*="product-recommendations"] .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] xo-product .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] xo-product .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card__header .xo-product-card__price-overlay {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  background: rgba(71, 56, 85, 0.9) !important;
+  color: #ffffff !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 0.5rem !important;
+  font-size: var(--card-price-size, 1.2rem) !important;
+  font-weight: 600 !important;
+  z-index: 999 !important;
+  backdrop-filter: blur(4px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  line-height: 1.2 !important;
+  height: auto !important;
+  width: auto !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  pointer-events: auto !important;
+}
+
+/* EXTRA SPECIFIC - Force wishlist for style1 cards in product recommendations - MAXIMUM PRIORITY */
+section[class*="product-recommendations"] .xo-product-card--style1 .xo-product-card__header .xo-product-card__wishlist-container,
+.product-recommendations-section .xo-product-card--style1 .xo-product-card__header .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] xo-product .xo-product-card--style1 .xo-product-card__header .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] xo-product .xo-product-card__header .xo-product-card__wishlist-container,
+section[class*="product-recommendations"] .xo-product-card__header .xo-product-card__wishlist-container,
+.product-recommendations-section .xo-product-card__header .xo-product-card__wishlist-container {
+  position: absolute !important;
+  top: 0.75rem !important;
+  left: 0.75rem !important;
+  z-index: 999 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: auto !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  pointer-events: auto !important;
+}
+
+/* ULTRA HIGH PRIORITY - Force add to cart button visibility - for both style1 and style9 */
+.product-recommendations-section .xo-product-card__add-to-cart,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart,
+.product-recommendations .xo-product-card__add-to-cart,
+.section-collection-products .xo-product-card__add-to-cart,
+.filters-content .xo-product-card__add-to-cart,
+.product-recommendations-section .xo-product-card--style1 .xo-product-card__add-to-cart,
+.product-recommendations-section .xo-product-card--style9 .xo-product-card__add-to-cart,
+section[class*="product-recommendations"] .xo-product-card--style1 .xo-product-card__add-to-cart,
+section[class*="product-recommendations"] .xo-product-card--style9 .xo-product-card__add-to-cart,
+.product-recommendations .xo-product-card--style1 .xo-product-card__add-to-cart,
+.product-recommendations .xo-product-card--style9 .xo-product-card__add-to-cart,
+.section-collection-products .xo-product-card--style1 .xo-product-card__add-to-cart,
+.section-collection-products .xo-product-card--style9 .xo-product-card__add-to-cart,
+.filters-content .xo-product-card--style1 .xo-product-card__add-to-cart,
+.filters-content .xo-product-card--style9 .xo-product-card__add-to-cart,
+.product-recommendations-section .xo-product-card .xo-product-card__add-to-cart,
+section[class*="product-recommendations"] .xo-product-card .xo-product-card__add-to-cart,
+.product-recommendations .xo-product-card .xo-product-card__add-to-cart,
+.section-collection-products .xo-product-card .xo-product-card__add-to-cart,
+.filters-content .xo-product-card .xo-product-card__add-to-cart,
+.product-recommendations-section .xo-product-card__information .xo-product-card__add-to-cart,
+section[class*="product-recommendations"] .xo-product-card__information .xo-product-card__add-to-cart,
+.product-recommendations .xo-product-card__information .xo-product-card__add-to-cart,
+.section-collection-products .xo-product-card__information .xo-product-card__add-to-cart,
+.filters-content .xo-product-card__information .xo-product-card__add-to-cart {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-top: 1rem !important;
+  width: 100% !important;
+  height: auto !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure header is relative for absolute positioning */
+.product-recommendations-section .xo-product-card__header,
+section[class*="product-recommendations"] .xo-product-card__header,
+.product-recommendations .xo-product-card__header,
+.section-collection-products .xo-product-card__header,
+.filters-content .xo-product-card__header,
+.product-recommendations-section .xo-product-card .xo-product-card__header,
+section[class*="product-recommendations"] .xo-product-card .xo-product-card__header,
+.product-recommendations .xo-product-card .xo-product-card__header,
+.section-collection-products .xo-product-card .xo-product-card__header,
+.filters-content .xo-product-card .xo-product-card__header {
+  position: relative !important;
 }
 

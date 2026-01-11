@@ -239,6 +239,75 @@
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       };
+
+      // Hide Shopify trial banner
+      (function() {
+        function hideTrialBanner() {
+          const selectors = [
+            '[data-shopify-trial]',
+            '[class*="shopify-trial"]',
+            '[class*="trial-banner"]',
+            '[id*="shopify-trial"]',
+            '[id*="trial-banner"]',
+            '[aria-label*="trial" i]',
+            '[aria-label*="3 day" i]',
+            '[aria-label*="3-day" i]',
+            '[aria-label*="free trial" i]',
+            '[title*="trial" i]',
+            '[title*="3 day" i]',
+            '[title*="3-day" i]',
+            'div[style*="position: fixed"][style*="z-index: 999"]',
+            'div[style*="position: fixed"][style*="z-index: 9999"]',
+            'div[style*="position: fixed"][style*="z-index: 10000"]',
+            'div[class*="PolarisBanner"]',
+            'div[class*="shopify-banner"]',
+            'div[class*="shopify-promo"]'
+          ];
+          
+          selectors.forEach(selector => {
+            try {
+              document.querySelectorAll(selector).forEach(el => {
+                const text = el.textContent || el.innerText || '';
+                if (text.toLowerCase().includes('trial') || 
+                    text.toLowerCase().includes('3 day') || 
+                    text.toLowerCase().includes('3-day') ||
+                    text.toLowerCase().includes('free trial')) {
+                  el.style.display = 'none';
+                  el.style.visibility = 'hidden';
+                  el.style.height = '0';
+                  el.style.width = '0';
+                  el.style.opacity = '0';
+                  el.style.position = 'absolute';
+                  el.style.left = '-9999px';
+                  el.style.pointerEvents = 'none';
+                  el.remove();
+                }
+              });
+            } catch(e) {}
+          });
+        }
+        
+        // Run immediately
+        hideTrialBanner();
+        
+        // Run after DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', hideTrialBanner);
+        }
+        
+        // Run after page load
+        window.addEventListener('load', hideTrialBanner);
+        
+        // Watch for dynamically added elements
+        const observer = new MutationObserver(hideTrialBanner);
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+        
+        // Also check periodically
+        setInterval(hideTrialBanner, 1000);
+      })();
     </script>
   </body>
 </html>
