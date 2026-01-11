@@ -77,6 +77,17 @@
         </a>
       {% endif %}
 
+      {% comment %} Price overlay for product-recommendations section {% endcomment %}
+      {% if show_price %}
+        <div class='xo-product-card__price-overlay' xo-binding="price">
+          {% liquid
+            assign price_formatted = product.price | money
+            assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹'
+          %}
+          {{ price_formatted }}
+        </div>
+      {% endif %}
+
       {% if show_badge %}
         <div class='xo-product-card__badge'>
           {% render 'badge-sale', product: product, use_variant: true %}

@@ -4528,3 +4528,151 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   padding-top: 0 !important;
 }
 
+/* ============================================
+   PRODUCT RECOMMENDATIONS / YOU MAY ALSO LIKE
+   Fix buttons, title spacing, and add price overlay
+   ============================================ */
+
+/* Fix product card title spacing and line-height */
+.product-recommendations .xo-product-card__title,
+.product-recommendations .xo-product-card__title a {
+  line-height: 1.4 !important;
+  margin-bottom: 0.5rem !important;
+  margin-top: 0.5rem !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Fix hover buttons - make them circular, not oval */
+.product-recommendations .xo-product-card__actions--style1,
+.product-recommendations .xo-product-card__actions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-recommendations .xo-product-card__actions--style1 .xo-product-card__icon,
+.product-recommendations .xo-product-card__actions .xo-product-card__icon,
+.product-recommendations .xo-product-card__actions--style1 xo-tooltip,
+.product-recommendations .xo-product-card__actions xo-tooltip,
+.product-recommendations .xo-product-card__actions--style1 xo-cart-add,
+.product-recommendations .xo-product-card__actions xo-cart-add {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  min-width: 2.5rem !important;
+  min-height: 2.5rem !important;
+  max-width: 2.5rem !important;
+  max-height: 2.5rem !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  aspect-ratio: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.product-recommendations .xo-product-card__actions--style1 button,
+.product-recommendations .xo-product-card__actions button,
+.product-recommendations .xo-product-card__actions--style1 .xo-product-card__icon button,
+.product-recommendations .xo-product-card__actions .xo-product-card__icon button,
+.product-recommendations .xo-product-card__actions--style1 xo-tooltip button,
+.product-recommendations .xo-product-card__actions xo-tooltip button,
+.product-recommendations .xo-product-card__actions--style1 xo-cart-add button,
+.product-recommendations .xo-product-card__actions xo-cart-add button {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  min-width: 2.5rem !important;
+  min-height: 2.5rem !important;
+  max-width: 2.5rem !important;
+  max-height: 2.5rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  aspect-ratio: 1 !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure icons are properly sized */
+.product-recommendations .xo-product-card__actions--style1 button svg,
+.product-recommendations .xo-product-card__actions button svg,
+.product-recommendations .xo-product-card__actions--style1 .xo-product-card__icon svg,
+.product-recommendations .xo-product-card__actions .xo-product-card__icon svg {
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+  max-width: 1.2rem !important;
+  max-height: 1.2rem !important;
+}
+
+/* Add price overlay on product image (top right, purple) */
+.product-recommendations .xo-product-card__header {
+  position: relative;
+}
+
+.product-recommendations .xo-product-card__price-overlay {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(71, 56, 85, 0.9);
+  color: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  line-height: 1.2;
+}
+
+/* Hide default price display in information section when overlay is shown */
+.product-recommendations .xo-product-card__information .xo-product-card__price {
+  display: none !important;
+}
+
+/* Show price overlay in header */
+.product-recommendations .xo-product-card__price-overlay {
+  display: block !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 48rem) {
+  .product-recommendations .xo-product-card__title,
+  .product-recommendations .xo-product-card__title a {
+    font-size: 2rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  .product-recommendations .xo-product-card__price-overlay {
+    font-size: 2rem !important;
+    padding: 0.6rem 0.9rem !important;
+  }
+  
+  .product-recommendations .xo-product-card__actions--style1 button,
+  .product-recommendations .xo-product-card__actions button {
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+  }
+  
+  .product-recommendations .xo-product-card__actions--style1 button svg,
+  .product-recommendations .xo-product-card__actions button svg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+}
+
