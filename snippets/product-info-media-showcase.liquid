@@ -1,9 +1,23 @@
 {% comment %}
   Renders product media for showcase section (based on product-info-media-style1)
   This version ensures images always display with proper fallbacks
+  
+  Accepts:
+   - product: {Product} The product object (required)
+   - hover_zoom_enabled: {Boolean} Whether to enable hover zoom (optional)
+   - click_zoom_enabled: {Boolean} Whether to enable click zoom (optional)
+   - autoplay: {Boolean} Whether to enable video autoplay (optional)
+   - video_modal: {Boolean} Whether to enable video style modal (optional)
+   - product_360: {Boolean} Whether to enable 360 product view (optional)
+   - media_sticky: {Boolean} Enable position sticky (optional)
 {% endcomment %}
 
 {{ 'product-info-media-style1.css' | asset_url | stylesheet_tag }}
+
+{% comment %} Ensure product is available {% endcomment %}
+{% if product == blank %}
+  {% assign product = all_products['vastu-kit-home-office'] %}
+{% endif %}
 
 {% comment %} Get featured media - try multiple fallbacks {% endcomment %}
 {% assign featured_media = product.selected_or_first_available_variant.featured_media %}
@@ -175,6 +189,15 @@
                   {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: image %}
                 </xo-carousel-slide>
               {% endfor %}
+            {% elsif featured_image != blank %}
+              {% comment %} Final fallback: use featured_image if nothing else is available {% endcomment %}
+              <xo-carousel-slide
+                aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
+                aria-label='1 {{ 'general.slider.of' | t }} 1'
+                class='xo-product-info-media-style1__thumb-slide'
+              >
+                {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_image %}
+              </xo-carousel-slide>
             {% endif %}
           </xo-carousel-list>
         </xo-carousel-inner>
@@ -487,6 +510,38 @@
                   {% endif %}
                 </xo-carousel-slide>
               {% endfor %}
+            {% elsif featured_image != blank %}
+              {% comment %} Final fallback: use featured_image if nothing else is available {% endcomment %}
+              <xo-carousel-slide
+                aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
+                aria-label='1 {{ 'general.slider.of' | t }} 1'
+                data-media-id='{{ featured_image.id }}'
+                class='xo-product-info-media-style1__slide'
+              >
+                {% if hover_zoom_enabled and click_zoom_enabled == false %}
+                  <xo-image-zoom xo-zoom='3' xo-use-wheel='false' xo-zoom-src='{{ featured_image | image_url: width: 1200 }}'>
+                    <div class='xo-product-info-media-style1__image'>
+                      {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_image %}
+                    </div>
+                  </xo-image-zoom>
+                {% elsif hover_zoom_enabled == false and click_zoom_enabled %}
+                  <xo-gallery-item xo-src='{{ featured_image | image_url: width: 1200 }}'>
+                    <div class='xo-product-info-media-style1__image'>
+                      {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_image %}
+                    </div>
+                  </xo-gallery-item>
+                {% elsif hover_zoom_enabled and click_zoom_enabled %}
+                  <xo-image-zoom xo-zoom='3' xo-use-wheel='false' xo-zoom-src='{{ featured_image | image_url: width: 1200 }}'>
+                    <xo-gallery-item xo-src='{{ featured_image | image_url: width: 1200 }}'>
+                      <div class='xo-product-info-media-style1__image'>
+                        {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_image %}
+                      </div>
+                    </xo-gallery-item>
+                  </xo-image-zoom>
+                {% else %}
+                  {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_image %}
+                {% endif %}
+              </xo-carousel-slide>
             {% endif %}
           </xo-carousel-list>
         </xo-carousel-inner>
@@ -507,6 +562,7 @@
   </xo-gallery>
 </div>
 {% render 'product-info-media-mobile',
+  product: product,
   hover_zoom_enabled: hover_zoom_enabled,
   click_zoom_enabled: click_zoom_enabled,
   autoplay: autoplay,

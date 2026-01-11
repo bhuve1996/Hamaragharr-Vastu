@@ -40,6 +40,7 @@
             {% comment %} Right Side: Product Images {% endcomment %}
             <xo-animate xo-cascade style='--xs: 12; --md: {{ image_col_size }}'>
               {% render 'product-info-media-showcase',
+                product: product,
                 hover_zoom_enabled: section.settings.image_zoom_hover,
                 click_zoom_enabled: section.settings.image_zoom_click,
                 autoplay: false,
@@ -52,6 +53,7 @@
             {% comment %} Left Side: Product Images {% endcomment %}
             <xo-animate xo-cascade style='--xs: 12; --md: {{ image_col_size }}'>
               {% render 'product-info-media-showcase',
+                product: product,
                 hover_zoom_enabled: section.settings.image_zoom_hover,
                 click_zoom_enabled: section.settings.image_zoom_click,
                 autoplay: false,
