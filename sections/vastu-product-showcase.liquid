@@ -61,10 +61,11 @@
               %}
             </xo-animate>
             
-          {% comment %} Right Side: Product Info {% endcomment %}
-          <xo-animate xo-cascade style='--xs: 12; --md: {{ content_col_size }}' class='vastu-product-showcase__right'>
-            {% render 'vastu-product-showcase-content', product: product, section: section, product_form_id: product_form_id %}
-          </xo-animate>
+            {% comment %} Right Side: Product Info {% endcomment %}
+            <xo-animate xo-cascade style='--xs: 12; --md: {{ content_col_size }}' class='vastu-product-showcase__right'>
+              {% render 'vastu-product-showcase-content', product: product, section: section, product_form_id: product_form_id %}
+            </xo-animate>
+          {% endif %}
         </xo-grid>
       </xo-container>
       {% render 'product-data', product: product %}
