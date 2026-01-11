@@ -48,7 +48,13 @@
       <div class='product-variant-modal__product-details'>
         <h3 class='product-variant-modal__product-title'>{{ product.title }}</h3>
         {% if product.price != blank %}
-          <p class='product-variant-modal__product-price'>{{ product.price | money }}</p>
+          <p class='product-variant-modal__product-price'>
+            {% liquid
+              assign price_formatted = product.price | money
+              assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹'
+            %}
+            {{ price_formatted }}
+          </p>
         {% endif %}
       </div>
     </div>

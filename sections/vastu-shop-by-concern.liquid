@@ -92,7 +92,7 @@
                                       <div class='vastu-shop-by-concern__product-image hover-style--scale-up'>
                                         {% if current_product.price != blank %}
                                           {%- assign price_formatted = current_product.price | money -%}
-                                          {%- assign price_formatted = price_formatted | replace: 'Rs.', 'र' | replace: '₹', 'र' | replace: 'INR', 'र' -%}
+                                          {%- assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' -%}
                                           <div class='vastu-shop-by-concern__product-price' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
                                             {{ price_formatted }}
                                           </div>

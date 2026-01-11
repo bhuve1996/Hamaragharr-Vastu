@@ -67,7 +67,7 @@
                         <div class='vastu-featured-products__image hover-style--scale-up'>
                           {% if block.settings.product != blank and current_product.price != blank %}
                             {%- assign price_formatted = current_product.price | money -%}
-                            {%- assign price_formatted = price_formatted | replace: 'Rs.', 'र' | replace: '₹', 'र' | replace: 'INR', 'र' -%}
+                            {%- assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' -%}
                             <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
                               {{ price_formatted }}
                             </div>
@@ -88,7 +88,7 @@
                         <div class='vastu-featured-products__image hover-style--scale-up'>
                           {% if block.settings.product != blank and current_product.price != blank %}
                             {%- assign price_formatted = current_product.price | money -%}
-                            {%- assign price_formatted = price_formatted | replace: 'Rs.', 'र' | replace: '₹', 'र' | replace: 'INR', 'र' -%}
+                            {%- assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' -%}
                             <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
                               {{ price_formatted }}
                             </div>
@@ -109,7 +109,7 @@
                         <div class='vastu-featured-products__image hover-style--scale-up'>
                           {% if current_product.price != blank %}
                             {%- assign price_formatted = current_product.price | money -%}
-                            {%- assign price_formatted = price_formatted | replace: 'Rs.', 'र' | replace: '₹', 'र' | replace: 'INR', 'र' -%}
+                            {%- assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' -%}
                             <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
                               {{ price_formatted }}
                             </div>
@@ -224,7 +224,7 @@
                   <div class='vastu-featured-products__image hover-style--scale-up'>
                     {% if current_product.price != blank %}
                       {%- assign price_formatted = current_product.price | money -%}
-                      {%- assign price_formatted = price_formatted | replace: 'Rs.', 'रुपये' | replace: '₹', 'रुपये' | replace: 'INR', 'रुपये' -%}
+                      {%- assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' -%}
                       <div class='vastu-featured-products__price vastu-featured-products__price--overlay' style='--card-price-size: {{ section.settings.card_price_font_size | default: 1.2 }}rem;'>
                         {{ price_formatted }}
                       </div>
