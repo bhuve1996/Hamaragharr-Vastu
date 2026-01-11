@@ -4,10 +4,42 @@
 {% endcomment %}
 
 <div class='vastu-product-showcase__content'>
+  {% comment %} Custom Text Blocks - Before Title {% endcomment %}
+  {% for block in section.blocks %}
+    {% if block.type == 'custom_text' and block.settings.position == 'before_title' %}
+      <div class='vastu-product-showcase__custom-text' {{ block.shopify_attributes }}>
+        {% if block.settings.heading != blank %}
+          <h3 class='vastu-product-showcase__custom-heading'>{{ block.settings.heading | escape }}</h3>
+        {% endif %}
+        {% if block.settings.content != blank %}
+          <div class='vastu-product-showcase__custom-content'>{{ block.settings.content }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+  
   {% comment %} Title {% endcomment %}
   {% if section.settings.show_title %}
-    <h1 class='vastu-product-showcase__title'>{{ product.title | escape }}</h1>
+    {% if section.settings.use_custom_title and section.settings.custom_title != blank %}
+      <h1 class='vastu-product-showcase__title'>{{ section.settings.custom_title | escape }}</h1>
+    {% else %}
+      <h1 class='vastu-product-showcase__title'>{{ product.title | escape }}</h1>
+    {% endif %}
   {% endif %}
+  
+  {% comment %} Custom Text Blocks - After Title {% endcomment %}
+  {% for block in section.blocks %}
+    {% if block.type == 'custom_text' and block.settings.position == 'after_title' %}
+      <div class='vastu-product-showcase__custom-text' {{ block.shopify_attributes }}>
+        {% if block.settings.heading != blank %}
+          <h3 class='vastu-product-showcase__custom-heading'>{{ block.settings.heading | escape }}</h3>
+        {% endif %}
+        {% if block.settings.content != blank %}
+          <div class='vastu-product-showcase__custom-content'>{{ block.settings.content }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
   
   {% comment %} Price {% endcomment %}
   {% if section.settings.show_price %}
@@ -18,22 +50,58 @@
     </div>
   {% endif %}
   
-  {% comment %} Description {% endcomment %}
-  {% if section.settings.show_description and product.description != blank %}
-    <div class='vastu-product-showcase__description'>
-      {% assign description_text = product.description | strip_html %}
-      {% assign truncate_words = section.settings.description_truncate_words | default: 50 %}
-      {% assign truncated_description = description_text | truncatewords: truncate_words %}
-      <div class='vastu-product-showcase__description-text'>
-        {{ truncated_description }}
+  {% comment %} Custom Text Blocks - After Price {% endcomment %}
+  {% for block in section.blocks %}
+    {% if block.type == 'custom_text' and block.settings.position == 'after_price' %}
+      <div class='vastu-product-showcase__custom-text' {{ block.shopify_attributes }}>
+        {% if block.settings.heading != blank %}
+          <h3 class='vastu-product-showcase__custom-heading'>{{ block.settings.heading | escape }}</h3>
+        {% endif %}
+        {% if block.settings.content != blank %}
+          <div class='vastu-product-showcase__custom-content'>{{ block.settings.content }}</div>
+        {% endif %}
       </div>
-      {% if description_text.size > truncated_description.size %}
-        <a href='{{ product.url }}' class='vastu-product-showcase__read-more'>
-          {{ section.settings.read_more_text | default: 'View in Detail →' }}
-        </a>
-      {% endif %}
-    </div>
+    {% endif %}
+  {% endfor %}
+  
+  {% comment %} Description {% endcomment %}
+  {% if section.settings.show_description %}
+    {% if section.settings.use_custom_description and section.settings.custom_description != blank %}
+      <div class='vastu-product-showcase__description'>
+        <div class='vastu-product-showcase__description-text'>
+          {{ section.settings.custom_description }}
+        </div>
+      </div>
+    {% elsif product.description != blank %}
+      <div class='vastu-product-showcase__description'>
+        {% assign description_text = product.description | strip_html %}
+        {% assign truncate_words = section.settings.description_truncate_words | default: 50 %}
+        {% assign truncated_description = description_text | truncatewords: truncate_words %}
+        <div class='vastu-product-showcase__description-text'>
+          {{ truncated_description }}
+        </div>
+        {% if description_text.size > truncated_description.size %}
+          <a href='{{ product.url }}' class='vastu-product-showcase__read-more'>
+            {{ section.settings.read_more_text | default: 'View in Detail →' }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
   {% endif %}
+  
+  {% comment %} Custom Text Blocks - After Description {% endcomment %}
+  {% for block in section.blocks %}
+    {% if block.type == 'custom_text' and block.settings.position == 'after_description' %}
+      <div class='vastu-product-showcase__custom-text' {{ block.shopify_attributes }}>
+        {% if block.settings.heading != blank %}
+          <h3 class='vastu-product-showcase__custom-heading'>{{ block.settings.heading | escape }}</h3>
+        {% endif %}
+        {% if block.settings.content != blank %}
+          <div class='vastu-product-showcase__custom-content'>{{ block.settings.content }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
   
   {% comment %} Variant Selector {% endcomment %}
   {% unless product.has_only_default_variant %}
@@ -102,5 +170,19 @@
       {% endif %}
     </div>
   {%- endform -%}
+  
+  {% comment %} Custom Text Blocks - After Buttons {% endcomment %}
+  {% for block in section.blocks %}
+    {% if block.type == 'custom_text' and block.settings.position == 'after_buttons' %}
+      <div class='vastu-product-showcase__custom-text' {{ block.shopify_attributes }}>
+        {% if block.settings.heading != blank %}
+          <h3 class='vastu-product-showcase__custom-heading'>{{ block.settings.heading | escape }}</h3>
+        {% endif %}
+        {% if block.settings.content != blank %}
+          <div class='vastu-product-showcase__custom-content'>{{ block.settings.content }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
 </div>
 

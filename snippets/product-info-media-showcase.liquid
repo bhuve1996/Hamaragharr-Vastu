@@ -4,6 +4,7 @@
   
   Accepts:
    - product: {Product} The product object (required)
+   - section: {Section} The section object (optional, for custom image blocks)
    - hover_zoom_enabled: {Boolean} Whether to enable hover zoom (optional)
    - click_zoom_enabled: {Boolean} Whether to enable click zoom (optional)
    - autoplay: {Boolean} Whether to enable video autoplay (optional)
@@ -45,6 +46,46 @@
       <div class='xo-product-info-media-style1__bottom'>
         <xo-carousel-inner>
           <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
+            {% comment %} Custom Image Blocks - Add before product images {% endcomment %}
+            {% if section != blank %}
+              {% assign custom_image_blocks = section.blocks | where: 'type', 'custom_image' %}
+              {% for block in custom_image_blocks %}
+                {% if block.settings.image != blank %}
+                  <xo-carousel-slide
+                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
+                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ custom_image_blocks.size | plus: product.media.size }}'
+                    data-media-id='custom-{{ block.id }}'
+                    class='xo-product-info-media-style1__slide'
+                    {{ block.shopify_attributes }}
+                  >
+                    {% if hover_zoom_enabled and click_zoom_enabled == false %}
+                      <xo-image-zoom xo-zoom='3' xo-use-wheel='false' xo-zoom-src='{{ block.settings.image | image_url: width: 1200 }}'>
+                        <div class='xo-product-info-media-style1__image'>
+                          {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: block.settings.image %}
+                        </div>
+                      </xo-image-zoom>
+                    {% elsif hover_zoom_enabled == false and click_zoom_enabled %}
+                      <xo-gallery-item xo-src='{{ block.settings.image | image_url: width: 1200 }}'>
+                        <div class='xo-product-info-media-style1__image'>
+                          {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: block.settings.image %}
+                        </div>
+                      </xo-gallery-item>
+                    {% elsif hover_zoom_enabled and click_zoom_enabled %}
+                      <xo-image-zoom xo-zoom='3' xo-use-wheel='false' xo-zoom-src='{{ block.settings.image | image_url: width: 1200 }}'>
+                        <xo-gallery-item xo-src='{{ block.settings.image | image_url: width: 1200 }}'>
+                          <div class='xo-product-info-media-style1__image'>
+                            {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: block.settings.image %}
+                          </div>
+                        </xo-gallery-item>
+                      </xo-image-zoom>
+                    {% else %}
+                      {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: block.settings.image %}
+                    {% endif %}
+                  </xo-carousel-slide>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            
             {% if featured_media != null %}
               {% if featured_media.media_type %}
                 {% case featured_media.media_type %}
@@ -396,6 +437,23 @@
       <xo-carousel-thumbnail xo-loop class='xo-product-info-media-style1__thumbnails' xo-per-view='5' xo-gap='10'>
         <xo-carousel-inner style='padding-bottom: 0.1rem; margin-bottom: -0.1rem;'>
           <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}' style='padding-right: 0.2rem; margin-right: -0.2rem;'>
+            {% comment %} Custom Image Blocks Thumbnails {% endcomment %}
+            {% if section != blank %}
+              {% assign custom_image_blocks = section.blocks | where: 'type', 'custom_image' %}
+              {% for block in custom_image_blocks %}
+                {% if block.settings.image != blank %}
+                  <xo-carousel-slide
+                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
+                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ custom_image_blocks.size | plus: product.media.size }}'
+                    class='xo-product-info-media-style1__thumb-slide'
+                    {{ block.shopify_attributes }}
+                  >
+                    {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: block.settings.image %}
+                  </xo-carousel-slide>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            
             {%- if featured_media != null -%}
               {% if featured_media.media_type %}
                 {% case featured_media.media_type %}

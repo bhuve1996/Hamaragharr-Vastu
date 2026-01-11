@@ -3166,6 +3166,36 @@ xo-modal[xo-placement="center"]::before {
   width: 100%;
 }
 
+/* Custom Text Blocks */
+.vastu-product-showcase__custom-text {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background-color: rgba(var(--color-background), 0.5);
+  border-radius: 0.5rem;
+}
+
+.vastu-product-showcase__custom-heading {
+  font-size: var(--font-size-heading, 2.5rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: rgb(var(--color-foreground));
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.vastu-product-showcase__custom-content {
+  font-size: var(--font-size-description, 1.6rem);
+  line-height: 1.6;
+  color: rgb(var(--color-foreground));
+}
+
+.vastu-product-showcase__custom-content p {
+  margin: 0 0 1rem 0;
+}
+
+.vastu-product-showcase__custom-content p:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 767px) {
   .vastu-product-showcase {
     padding: 2rem 0;
