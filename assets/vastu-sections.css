@@ -3048,6 +3048,55 @@ xo-modal[xo-placement="center"]::before {
   padding: 4rem 0;
 }
 
+/* Ensure equal heights for left and right sections on desktop */
+@media (min-width: 768px) {
+  .vastu-product-showcase xo-grid {
+    display: flex !important;
+    align-items: stretch !important;
+  }
+  
+  .vastu-product-showcase xo-animate {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    align-items: stretch !important;
+  }
+  
+  /* Image section - align to top, no padding */
+  .vastu-product-showcase xo-animate:first-of-type {
+    align-items: flex-start !important;
+  }
+  
+  .vastu-product-showcase xo-animate:first-of-type .xo-product-info-media-style1,
+  .vastu-product-showcase .xo-product-info-media-style1 {
+    width: 100%;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    align-self: flex-start !important;
+  }
+  
+  /* Ensure image container starts from top */
+  .vastu-product-showcase .xo-product-info-media-style1__bottom {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Right content section - stretch to match left height */
+  .vastu-product-showcase__right {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    justify-content: flex-start !important;
+  }
+  
+  .vastu-product-showcase__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+  }
+}
+
 .vastu-product-showcase__content {
   display: flex;
   flex-direction: column;
