@@ -1758,6 +1758,7 @@ xo-carousel:has(.testimonial-v13__pagination),
 xo-carousel:has(.blog-v2__pagination),
 xo-carousel:has(.blog-v1__pagination),
 xo-carousel:has(.related-article__pagination),
+xo-carousel:has(.product-recommendations__pagination),
 xo-carousel {
   position: relative;
   padding-bottom: 0;
@@ -1773,6 +1774,9 @@ section[class*="testimonial-v13"] xo-carousel,
 section[class*="blog-v2"] xo-carousel,
 section[class*="blog-v1"] xo-carousel,
 section[class*="related-article"] xo-carousel,
+section[class*="product-recommendations"] xo-carousel,
+.product-recommendations-section xo-carousel,
+.product-recommendations xo-carousel,
 section xo-carousel {
   position: relative;
   padding-bottom: 0;
@@ -1834,6 +1838,22 @@ section xo-carousel {
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
+  margin-top: 32px; /* Additional spacing */
+}
+
+/* Product recommendations pagination - positioned below carousel */
+.product-recommendations__pagination,
+.product-recommendations__pagination--related {
+  position: absolute;
+  bottom: -32px; /* Moved further below (32px) - matching other sections */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  pointer-events: auto;
   margin-top: 32px; /* Additional spacing */
 }
 
@@ -1912,6 +1932,7 @@ xo-carousel:has(.testimonial-v13__pagination) xo-carousel-inner,
 xo-carousel:has(.blog-v2__pagination) xo-carousel-inner,
 xo-carousel:has(.blog-v1__pagination) xo-carousel-inner,
 xo-carousel:has(.related-article__pagination) xo-carousel-inner,
+xo-carousel:has(.product-recommendations__pagination) xo-carousel-inner,
 section[class*="vastu-best-seller"] xo-carousel-inner,
 section[class*="vastu-featured-products"] xo-carousel-inner,
 section[class*="vastu-trust-bar"] xo-carousel-inner,
@@ -2091,6 +2112,7 @@ section[class*="slideshow"] .xo-background-lazyload {
   xo-carousel:has(.blog-v2__pagination),
   xo-carousel:has(.blog-v1__pagination),
   xo-carousel:has(.related-article__pagination),
+  xo-carousel:has(.product-recommendations__pagination),
   section[class*="vastu-best-seller"] xo-carousel,
   section[class*="vastu-featured-products"] xo-carousel,
   section[class*="vastu-trust-bar"] xo-carousel,
@@ -2099,7 +2121,10 @@ section[class*="slideshow"] .xo-background-lazyload {
   section[class*="testimonial-v13"] xo-carousel,
   section[class*="blog-v2"] xo-carousel,
   section[class*="blog-v1"] xo-carousel,
-  section[class*="related-article"] xo-carousel {
+  section[class*="related-article"] xo-carousel,
+  section[class*="product-recommendations"] xo-carousel,
+  .product-recommendations-section xo-carousel,
+  .product-recommendations xo-carousel {
     padding-bottom: 0;
   }
   
@@ -2112,7 +2137,9 @@ section[class*="slideshow"] .xo-background-lazyload {
   }
   
   .vastu-features-bar__pagination,
-  .blog-v2__pagination {
+  .blog-v2__pagination,
+  .product-recommendations__pagination,
+  .product-recommendations__pagination--related {
     bottom: -24px; /* Adjusted for mobile - positioned below */
     margin-top: 24px; /* Additional spacing */
   }
@@ -2137,6 +2164,7 @@ section[class*="slideshow"] .xo-background-lazyload {
   xo-carousel:has(.blog-v2__pagination),
   xo-carousel:has(.blog-v1__pagination),
   xo-carousel:has(.related-article__pagination),
+  xo-carousel:has(.product-recommendations__pagination),
   section[class*="vastu-best-seller"] xo-carousel,
   section[class*="vastu-featured-products"] xo-carousel,
   section[class*="vastu-trust-bar"] xo-carousel,
@@ -2145,7 +2173,10 @@ section[class*="slideshow"] .xo-background-lazyload {
   section[class*="testimonial-v13"] xo-carousel,
   section[class*="blog-v2"] xo-carousel,
   section[class*="blog-v1"] xo-carousel,
-  section[class*="related-article"] xo-carousel {
+  section[class*="related-article"] xo-carousel,
+  section[class*="product-recommendations"] xo-carousel,
+  .product-recommendations-section xo-carousel,
+  .product-recommendations xo-carousel {
     padding-bottom: 0;
   }
   
@@ -2158,6 +2189,7 @@ section[class*="slideshow"] .xo-background-lazyload {
   xo-carousel:has(.blog-v2__pagination) xo-carousel-inner,
   xo-carousel:has(.blog-v1__pagination) xo-carousel-inner,
   xo-carousel:has(.related-article__pagination) xo-carousel-inner,
+  xo-carousel:has(.product-recommendations__pagination) xo-carousel-inner,
   section[class*="vastu-best-seller"] xo-carousel-inner,
   section[class*="vastu-featured-products"] xo-carousel-inner,
   section[class*="vastu-trust-bar"] xo-carousel-inner,
@@ -3116,9 +3148,120 @@ xo-modal[xo-placement="center"]::before {
   height: auto !important;
 }
 
+/* Sticky add cart layout - separate columns for product, price, and options */
+.sticky-addcart__wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2rem !important;
+}
+
+.sticky-addcart__price {
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
 /* Increase gap between product name and options in sticky add cart bar */
 .sticky-addcart__right {
-  margin-left: 2rem !important;
+  margin-left: 0 !important;
+}
+
+/* Mobile: Make sticky add cart scrollable with navigation arrows */
+@media (max-width: 48rem) {
+  .sticky-addcart__wrap {
+    position: relative !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+    gap: 1.5rem !important;
+    padding: 0 4rem !important; /* Space for arrows */
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .sticky-addcart__wrap::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+
+  /* Prevent items from shrinking on mobile */
+  .sticky-addcart__left,
+  .sticky-addcart__price,
+  .sticky-addcart__right {
+    flex-shrink: 0 !important;
+    min-width: auto !important;
+  }
+
+  /* Scroll navigation arrows */
+  .sticky-addcart__scroll-left,
+  .sticky-addcart__scroll-right {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 10 !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(var(--color-background), 0.95) !important;
+    border: 1px solid rgba(var(--color-foreground), 0.1) !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    opacity: 0.8 !important;
+    transition: opacity 0.3s ease, background 0.3s ease !important;
+    pointer-events: auto !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .sticky-addcart__scroll-left {
+    left: 0.5rem !important;
+  }
+
+  .sticky-addcart__scroll-right {
+    right: 0.5rem !important;
+  }
+
+  .sticky-addcart__scroll-left:hover,
+  .sticky-addcart__scroll-right:hover {
+    opacity: 1 !important;
+    background: rgba(var(--color-background), 1) !important;
+  }
+
+  .sticky-addcart__scroll-left:active,
+  .sticky-addcart__scroll-right:active {
+    transform: translateY(-50%) scale(0.95) !important;
+  }
+
+  /* Hide arrows when at scroll boundaries */
+  .sticky-addcart__scroll-left[data-disabled="true"],
+  .sticky-addcart__scroll-right[data-disabled="true"] {
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+  }
+
+  /* Arrow icon styling */
+  .sticky-addcart__scroll-left::before,
+  .sticky-addcart__scroll-right::before {
+    content: '' !important;
+    width: 0.8rem !important;
+    height: 0.8rem !important;
+    border: 2px solid rgba(var(--color-foreground), 0.7) !important;
+    border-top: none !important;
+    border-right: none !important;
+  }
+
+  .sticky-addcart__scroll-left::before {
+    transform: rotate(45deg) !important;
+    margin-left: 0.3rem !important;
+  }
+
+  .sticky-addcart__scroll-right::before {
+    transform: rotate(-135deg) !important;
+    margin-right: 0.3rem !important;
+  }
 }
 
 /* Hide Buy on Other Site - Disabled */
@@ -5656,6 +5799,44 @@ xo-product-recommendations .xo-product-card__information .xo-product-card__price
     width: 1.5rem !important;
     height: 1.5rem !important;
   }
+  
+  /* Show carousel pagination dots on mobile */
+  .product-recommendations-section .product-recommendations__pagination,
+  .product-recommendations-section .product-recommendations__pagination--related,
+  section[class*="product-recommendations"] .product-recommendations__pagination,
+  section[class*="product-recommendations"] .product-recommendations__pagination--related,
+  .product-recommendations .product-recommendations__pagination,
+  .product-recommendations .product-recommendations__pagination--related,
+  .xo-section--product-recommendations .product-recommendations__pagination,
+  xo-product-recommendations .product-recommendations__pagination {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .product-recommendations-section .product-recommendations__pagination .carousel-pagination-style3,
+  .product-recommendations-section .product-recommendations__pagination--related .carousel-pagination-style3,
+  section[class*="product-recommendations"] .product-recommendations__pagination .carousel-pagination-style3,
+  section[class*="product-recommendations"] .product-recommendations__pagination--related .carousel-pagination-style3,
+  .product-recommendations .product-recommendations__pagination .carousel-pagination-style3,
+  .xo-section--product-recommendations .product-recommendations__pagination .carousel-pagination-style3,
+  xo-product-recommendations .product-recommendations__pagination .carousel-pagination-style3 {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .product-recommendations-section .product-recommendations__pagination xo-carousel-pagination,
+  .product-recommendations-section .product-recommendations__pagination--related xo-carousel-pagination,
+  section[class*="product-recommendations"] .product-recommendations__pagination xo-carousel-pagination,
+  section[class*="product-recommendations"] .product-recommendations__pagination--related xo-carousel-pagination,
+  .product-recommendations .product-recommendations__pagination xo-carousel-pagination,
+  .xo-section--product-recommendations .product-recommendations__pagination xo-carousel-pagination,
+  xo-product-recommendations .product-recommendations__pagination xo-carousel-pagination {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
 }
 
 /* ============================================
@@ -5728,6 +5909,7 @@ div[id*="promo-banner"] {
 }
 
 .shipping-accordion__row {
+  padding: 2rem 0;
   margin-bottom: 1rem;
   border-bottom: 1px solid rgba(var(--color-border), 0.2);
 }
@@ -5926,34 +6108,54 @@ section[class*="product-recommendations"] .xo-product-card:hover .xo-product-car
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem 2rem;
-  background: rgba(var(--color-foreground), 0.1);
-  border: 1px solid rgba(var(--color-foreground), 0.2);
-  border-radius: 0.5rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   color: rgba(var(--color-foreground));
   font-size: 1.4rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.1rem;
+  text-decoration-color: rgba(var(--color-foreground), 0.4);
 }
 
 .xo-collapse-style2__view-full button:hover {
-  background: rgba(var(--color-foreground), 0.15);
-  border-color: rgba(var(--color-foreground), 0.3);
-  transform: translateY(-1px);
+  background: transparent;
+  border: none;
+  transform: none;
+  text-decoration-color: rgba(var(--color-foreground), 0.8);
+  color: rgba(var(--color-foreground), 0.9);
+  gap: 0.7rem;
 }
 
 .xo-collapse-style2__view-full button:active {
-  transform: translateY(0);
+  transform: none;
+  opacity: 0.8;
+}
+
+/* Add arrow icon after text on hover */
+.xo-collapse-style2__view-full button::after {
+  content: '→';
+  display: inline-block;
+  transition: transform 0.3s ease;
+  opacity: 0.6;
+}
+
+.xo-collapse-style2__view-full button:hover::after {
+  transform: translateX(0.3rem);
+  opacity: 1;
 }
 
 @media (max-width: 48rem) {
   .xo-collapse-style2__view-full button {
-    width: 100%;
-    justify-content: center;
-    padding: 1.2rem 2rem;
-    font-size: 1.6rem;
+    width: auto;
+    justify-content: flex-start;
+    padding: 0;
+    font-size: 1.4rem;
   }
 }
 
@@ -6577,5 +6779,9 @@ section[class*="product-recommendations"] .xo-product-card .xo-product-card__hea
   color: rgb(0, 0, 0) !important;
   opacity: 1 !important;
   visibility: visible !important;
+}
+
+.faq-v3__row {
+  padding: 2rem 0;
 }
 
