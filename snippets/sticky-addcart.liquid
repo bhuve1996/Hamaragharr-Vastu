@@ -21,7 +21,9 @@
       </xo-product-will-change>
       <div class='sticky-addcart'>
         <xo-container {% render 'section-layout' %}>
-          <div class='sticky-addcart__wrap'>
+          <div class='sticky-addcart__wrap' id='sticky-addcart-wrap-{{ product.id }}'>
+            <button type='button' class='sticky-addcart__scroll-left' aria-label='Scroll left' data-direction='left'></button>
+            <button type='button' class='sticky-addcart__scroll-right' aria-label='Scroll right' data-direction='right'></button>
             <a xo-scroll-to href='#top' class='sticky-addcart__left'>
               <xo-product-will-change xo-unique-id='product-media-{{ product.id }}' class='sticky-addcart__media'>
                 {% if featured_media != null %}
@@ -33,14 +35,16 @@
 
               <div class='sticky-addcart__product'>
                 <h3>{{ product.title | escape }}</h3>
-                <xo-product-will-change xo-unique-id='product-price-{{ product.id }}' {{ block.shopify_attributes }}>
-                  {% render 'price', product: product, use_variant: true, style: 'small' %}
-                  {% if cart.taxes_included == true %}
-                    <span>{{ 'products.product.price.include_tax' | t }}</span>
-                  {% endif %}
-                </xo-product-will-change>
               </div>
             </a>
+            <div class='sticky-addcart__price'>
+              <xo-product-will-change xo-unique-id='product-price-{{ product.id }}' {{ block.shopify_attributes }}>
+                {% render 'price', product: product, use_variant: true, style: 'small' %}
+                {% if cart.taxes_included == true %}
+                  <span>{{ 'products.product.price.include_tax' | t }}</span>
+                {% endif %}
+              </xo-product-will-change>
+            </div>
             <div class='sticky-addcart__right'>
               {% if product.options_with_values.size > 0 and product.options_with_values[0].name != 'Title' %}
                 <div class='sticky-addcart__variants-wrap'>
@@ -182,3 +186,90 @@
     {%- endform -%}
   </xo-sticky>
 </div>
+
+<script>
+(function() {
+  'use strict';
+  
+  const wrapId = 'sticky-addcart-wrap-{{ product.id }}';
+  const wrap = document.getElementById(wrapId);
+  
+  if (!wrap) return;
+  
+  const scrollLeftBtn = wrap.querySelector('.sticky-addcart__scroll-left');
+  const scrollRightBtn = wrap.querySelector('.sticky-addcart__scroll-right');
+  
+  if (!scrollLeftBtn || !scrollRightBtn) return;
+  
+  // Check if content is scrollable and update arrow visibility
+  function updateArrows() {
+    const isScrollable = wrap.scrollWidth > wrap.clientWidth;
+    const isAtStart = wrap.scrollLeft <= 0;
+    const isAtEnd = wrap.scrollLeft >= wrap.scrollWidth - wrap.clientWidth - 1;
+    
+    // Hide arrows if not scrollable
+    if (!isScrollable) {
+      scrollLeftBtn.style.display = 'none';
+      scrollRightBtn.style.display = 'none';
+      return;
+    }
+    
+    // Show arrows
+    scrollLeftBtn.style.display = 'flex';
+    scrollRightBtn.style.display = 'flex';
+    
+    // Update disabled state
+    scrollLeftBtn.setAttribute('data-disabled', isAtStart ? 'true' : 'false');
+    scrollRightBtn.setAttribute('data-disabled', isAtEnd ? 'true' : 'false');
+  }
+  
+  // Scroll functions
+  function scrollLeft() {
+    const scrollAmount = wrap.clientWidth * 0.8;
+    wrap.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  }
+  
+  function scrollRight() {
+    const scrollAmount = wrap.clientWidth * 0.8;
+    wrap.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  }
+  
+  // Event listeners
+  scrollLeftBtn.addEventListener('click', scrollLeft);
+  scrollRightBtn.addEventListener('click', scrollRight);
+  
+  // Update arrows on scroll
+  wrap.addEventListener('scroll', updateArrows);
+  
+  // Update arrows on resize
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(updateArrows, 100);
+  });
+  
+  // Initial check
+  setTimeout(updateArrows, 100);
+  
+  // Check after images load
+  const images = wrap.querySelectorAll('img');
+  if (images.length > 0) {
+    let loadedCount = 0;
+    images.forEach(function(img) {
+      if (img.complete) {
+        loadedCount++;
+        if (loadedCount === images.length) {
+          setTimeout(updateArrows, 100);
+        }
+      } else {
+        img.addEventListener('load', function() {
+          loadedCount++;
+          if (loadedCount === images.length) {
+            setTimeout(updateArrows, 100);
+          }
+        });
+      }
+    });
+  }
+})();
+</script>
