@@ -23,10 +23,13 @@
 - `blog.right-sidebar.json` ✅
 - `blog.without-sidebar.json` ✅
 
-### Policy/Info Pages (NEWLY CREATED)
-- `page.shipping.json` ✅ (Created)
-- `page.refund.json` ✅ (Created)
-- `page.privacy.json` ✅ (Created)
+### Policy/Info Pages (Footer Pages)
+- `page.privacy-policy.json` ✅
+- `page.terms-conditions.json` ✅
+- `page.return-refund-policy.json` ✅
+- `page.delivery-information.json` ✅
+- `page.how-to-order.json` ✅
+- `page.track-order.json` ✅
 
 ### Other Pages
 - `page.faqs.json` ✅
