@@ -246,10 +246,10 @@ main section .vastu-product-card .xo-product-card__price {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1.25rem;
+  padding: 1.5rem;
   text-align: left;
   min-height: 0;
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
 }
 
@@ -270,7 +270,7 @@ main section .vastu-product-card .xo-product-card__price {
   -webkit-box-orient: vertical;
   white-space: normal;
   min-height: calc(var(--card-title-size, 1.5rem) * 1.4 * 2);
-  height: calc(var(--card-title-size, 1.5rem) * 1.4 * 2);
+  height: auto;
   flex-shrink: 0;
   color: rgb(71 56 85);
   cursor: pointer;
@@ -282,7 +282,7 @@ main section .vastu-product-card .xo-product-card__price {
 
 .vastu-product-card__add-to-cart {
   margin-top: auto;
-  padding-top: 1rem;
+  padding-top: 1.25rem;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -521,7 +521,8 @@ main xo-grid .vastu-product-card,
 .filters-content__grid > * .vastu-product-card,
 .section-collection-products xo-grid .vastu-product-card,
 .filters-content xo-grid .vastu-product-card {
-  height: 100%;
+  min-height: 100%;
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: column;

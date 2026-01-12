@@ -12,14 +12,14 @@
    GRID CONTAINER - Equal Height Cards
    ============================================ */
 
-/* Collection Grid - Ensure equal height cards */
+/* Collection Grid - Allow natural height growth */
 xo-grid.filters-content__grid,
 xo-grid[class*="filters-content"],
 xo-grid[class*="collection"],
 main xo-grid:has(.xo-product-card),
 main xo-grid:has([class*="product-card"]) {
   display: grid;
-  align-items: stretch;
+  align-items: start;
 }
 
 /* Grid Items - Equal Heights */
@@ -28,9 +28,6 @@ xo-grid[class*="filters-content"] > *,
 xo-grid[class*="collection"] > *,
 main xo-grid:has(.xo-product-card) > *,
 main xo-grid:has([class*="product-card"]) > * {
-  display: flex;
-  align-items: stretch;
-  height: 100%;
 }
 
 /* ============================================
@@ -169,15 +166,15 @@ main xo-grid:has([class*="product-card"]) > * {
    SPACING BETWEEN CARDS
    ============================================ */
 
-/* Grid Gap - Consistent Spacing */
+/* Grid Gap - Increased Spacing for Better Accommodation */
 xo-grid.filters-content__grid {
-  gap: var(--xo-grid-col-gap, 2rem) var(--xo-grid-row-gap, 2rem);
+  gap: var(--xo-grid-col-gap, 3rem) var(--xo-grid-row-gap, 3rem);
 }
 
 /* Ensure proper spacing on mobile */
 @media (width <= 767px) {
   xo-grid.filters-content__grid {
-    gap: var(--xo-grid-col-gap-mobile, 1.5rem) var(--xo-grid-row-gap-mobile, 1.5rem);
+    gap: var(--xo-grid-col-gap-mobile, 2rem) var(--xo-grid-row-gap-mobile, 2rem);
   }
 }
 
