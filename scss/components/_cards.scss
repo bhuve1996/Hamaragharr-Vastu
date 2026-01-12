@@ -1,0 +1,284 @@
+// ============================================
+// Card Components
+// ============================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Base card structure
+.vastu-best-seller-card,
+.vastu-featured-products__card {
+  @include card-base;
+}
+
+// Ensure carousel slides and grid items have equal heights
+xo-carousel-slide:has(.vastu-best-seller-card),
+xo-grid > *:has(.vastu-best-seller-card),
+section[class*="vastu-best-seller"] xo-carousel-slide,
+section[class*="vastu-best-seller"] xo-grid > *,
+section[class*="vastu-featured-products"] xo-carousel-slide,
+section[class*="vastu-featured-products"] xo-grid > * {
+  display: flex;
+  height: 100%;
+  align-items: stretch;
+}
+
+section[class*="vastu-best-seller"] xo-carousel-slide .vastu-best-seller-card,
+section[class*="vastu-best-seller"] xo-grid > * .vastu-best-seller-card,
+section[class*="vastu-featured-products"] xo-carousel-slide .vastu-featured-products__card,
+section[class*="vastu-featured-products"] xo-grid > * .vastu-featured-products__card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: visible;
+}
+
+section[class*="vastu-best-seller"] xo-carousel-slide,
+section[class*="vastu-best-seller"] xo-carousel-inner,
+section[class*="vastu-featured-products"] xo-carousel-slide,
+section[class*="vastu-featured-products"] xo-carousel-inner {
+  overflow: visible;
+}
+
+// Card links
+.vastu-best-seller-card__link,
+.vastu-featured-products__link {
+  @include flex-column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+// Card images
+.vastu-best-seller-card__image,
+.vastu-featured-products__image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  aspect-ratio: #{$aspect-ratio-card};
+
+  img {
+    @include image-cover;
+    transition: transform $transition-base;
+  }
+}
+
+// Card content
+.vastu-best-seller-card__content,
+.vastu-featured-products__content {
+  flex: 1;
+  @include flex-column;
+  padding: var(--content-padding-top, $padding-xl) 0 var(--content-padding-bottom, $padding-xl) 0;
+  text-align: left;
+  min-height: 0;
+}
+
+// Card titles
+.vastu-best-seller-card__title,
+.vastu-featured-products__title,
+.vastu-best-seller-card h3.vastu-best-seller-card__title,
+.vastu-featured-products__card h3.vastu-featured-products__title,
+h3.vastu-best-seller-card__title,
+h3.vastu-featured-products__title {
+  font-size: var(--card-title-size, var(--font-size-card-title, $font-size-card-title));
+  font-weight: 450;
+  margin: 0 0 $spacing-sm 0;
+  line-height: 1.4;
+  @include text-ellipsis-multiline(2);
+  cursor: pointer;
+  text-align: left;
+  min-height: calc(var(--card-title-size, $font-size-card-title) * 1.4 * 2);
+  height: calc(var(--card-title-size, $font-size-card-title) * 1.4 * 2);
+  flex-shrink: 0;
+}
+
+// Card prices
+.vastu-best-seller-card__price,
+.vastu-featured-products__price {
+  font-size: calc(var(--card-price-size, 1.2rem) * 1.4);
+  font-weight: $font-weight-bold;
+  color: rgb(var(--color-secondary-button, $color-secondary-button-default));
+  margin: $spacing-sm 0 $spacing-xs 0;
+  padding: $spacing-xs $spacing-md;
+  background: linear-gradient(135deg, $color-primary-opacity-05 0%, $color-primary-opacity-10 100%);
+  border-radius: $border-radius-md;
+  display: inline-block;
+  width: fit-content;
+  border: 1px solid $color-primary-opacity-15;
+}
+
+.vastu-best-seller-card__price--overlay,
+.vastu-featured-products__price--overlay {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  z-index: $z-index-base + 1;
+  margin: 0;
+  background: $color-primary-opacity-90;
+  color: rgb-from-list($color-white);
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-md;
+  font-size: var(--card-price-size, 1.2rem);
+  font-weight: $font-weight-semibold;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 $spacing-xl $spacing-xxl $color-black-opacity-15;
+}
+
+// Card actions overlay
+.vastu-best-seller-card__actions-overlay,
+.vastu-featured-products__actions-overlay {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  z-index: $z-index-overlay;
+  opacity: 1;
+  transition: opacity $transition-base;
+  @include flex-center;
+  visibility: visible;
+  pointer-events: auto;
+  width: auto;
+  height: auto;
+
+  > * {
+    @include flex-center;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+    z-index: $z-index-overlay + 1;
+  }
+}
+
+.vastu-best-seller-card__actions-overlay,
+.vastu-featured-products__actions-overlay,
+.vastu-best-seller-card__actions-overlay *,
+.vastu-featured-products__actions-overlay * {
+  pointer-events: auto;
+}
+
+// Action buttons in overlay
+.vastu-best-seller-card__actions-overlay button,
+.vastu-featured-products__actions-overlay button,
+.vastu-best-seller-card__actions-overlay .xo-product-card__icon button,
+.vastu-featured-products__actions-overlay .xo-product-card__icon button {
+  @include flex-center;
+  position: relative;
+  z-index: $z-index-overlay + 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  max-width: 2.5rem;
+  max-height: 2.5rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: $color-white-opacity-95;
+  color: rgb(var(--color-secondary-button, $color-secondary-button-default));
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+  flex-shrink: 0;
+  flex-grow: 0;
+  box-sizing: border-box;
+  aspect-ratio: #{$aspect-ratio-square};
+  transition: background-color $transition-base, color $transition-base;
+}
+
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay button,
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay button {
+  background-color: rgb(var(--color-secondary-button, $color-secondary-button-default));
+  color: rgb-from-list($color-white);
+}
+
+// Icon styling in buttons
+.vastu-best-seller-card__actions-overlay button svg,
+.vastu-featured-products__actions-overlay button svg,
+.vastu-best-seller-card__actions-overlay button .icon,
+.vastu-featured-products__actions-overlay button .icon {
+  display: block;
+  margin: auto;
+  fill: currentColor;
+  color: inherit;
+}
+
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay button svg,
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay button svg {
+  fill: currentColor;
+  color: rgb-from-list($color-white);
+}
+
+// Add to cart buttons in card content
+.vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart,
+.vastu-featured-products__content .vastu-featured-products__add-to-cart {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart .xo-btn,
+.vastu-featured-products__content .vastu-featured-products__add-to-cart .xo-btn,
+.vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart button,
+.vastu-featured-products__content .vastu-featured-products__add-to-cart button {
+  width: 100%;
+  @include flex-center;
+  border-radius: $border-radius-sm;
+  padding: $spacing-sm $spacing-lg;
+  min-width: 100%;
+  max-width: 100%;
+  background-color: rgb(var(--color-secondary-button, $color-secondary-button-default));
+  color: rgb-from-list($color-white);
+  border: none;
+  font-size: var(--font-size-button, $font-size-button);
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all $transition-base, transform $transition-fast;
+  position: relative;
+
+  &:hover {
+    background-color: $color-primary-opacity-90;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px $color-primary-opacity-30;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 $spacing-xl $spacing-xxl $color-primary-opacity-20;
+  }
+}
+
+.vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart xo-cart-add,
+.vastu-featured-products__content .vastu-featured-products__add-to-cart xo-cart-add,
+.vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart xo-toggle-trigger,
+.vastu-featured-products__content .vastu-featured-products__add-to-cart xo-toggle-trigger {
+  width: 100%;
+  display: block;
+  padding: 0;
+}
+
+.vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart .xo-btn__text,
+.vastu-featured-products__content .vastu-featured-products__add-to-cart .xo-btn__text {
+  color: rgb-from-list($color-white);
+  @include flex-center;
+  width: 100%;
+  text-align: center;
+  font-size: var(--font-size-button, $font-size-button);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transform: none;
+  line-height: 1.2;
+  padding: 0 $spacing-xs;
+}
+
+.vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart .xo-btn--circle,
+.vastu-featured-products__content .vastu-featured-products__add-to-cart .xo-btn--circle {
+  border-radius: $border-radius-sm;
+  width: 100%;
+  aspect-ratio: auto;
+}
+

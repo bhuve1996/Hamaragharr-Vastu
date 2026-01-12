@@ -1,0 +1,107 @@
+// ============================================
+// Buttons
+// ============================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.button--secondary,
+.button--tertiary {
+  --color-button: var(--color-secondary-button);
+  --color-button-text: var(--color-secondary-button-text);
+}
+
+.button,
+.shopify-challenge__button,
+.customer button,
+button.shopify-payment-button__button--unbranded {
+  min-width: calc(12rem + var(--buttons-border-width) * 2);
+  min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+}
+
+.button,
+.shopify-challenge__button,
+.customer button {
+  @include button-base;
+  padding: 0 $padding-button-lg;
+  font-size: 1.5rem;
+  color: rgb(var(--color-button-text));
+  transition: box-shadow var(--duration-short) ease;
+  background-color: rgba(var(--color-button), var(--alpha-button-background));
+}
+
+.button--secondary:after {
+  --border-opacity: var(--buttons-border-opacity);
+}
+
+.button,
+.button-label,
+.shopify-challenge__button,
+.customer button {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  line-height: calc(1 + 0.2 / var(--font-body-scale));
+}
+
+.button--tertiary {
+  font-size: 1.2rem;
+  padding: $spacing-md $spacing-lg;
+  min-width: calc(9rem + var(--buttons-border-width) * 2);
+  min-height: calc(3.5rem + var(--buttons-border-width) * 2);
+}
+
+.button--small {
+  padding: $padding-xxxl $padding-xxxxxl;
+}
+
+.button.loading > .loading__spinner {
+  @include absolute-center;
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .spinner {
+    width: fit-content;
+  }
+
+  .path {
+    stroke: rgb(var(--color-button-text));
+  }
+}
+
+// XO Button overrides
+.xo-btn,
+.xo-btn__text {
+  font-size: var(--font-size-button, $font-size-button);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  position: relative;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+.xo-btn__text[data-text]::before,
+.xo-btn__text[data-text]::after {
+  display: none;
+  content: none;
+  visibility: hidden;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+// Large padding buttons for specific sections
+.vastu-button-large-padding,
+.banner-v155__content .button,
+.banner-v155__content .xo-btn,
+.banner-v155__content button {
+  font-size: var(--font-size-button, $font-size-button);
+  padding-left: $padding-button-xl;
+  padding-right: $padding-button-xl;
+  min-height: calc(7.03125rem + var(--buttons-border-width, 0) * 2);
+}
+

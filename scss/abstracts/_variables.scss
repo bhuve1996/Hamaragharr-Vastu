@@ -1,0 +1,145 @@
+// ============================================
+// CSS Variables & SCSS Variables
+// ============================================
+
+// Typography Scale
+$font-size-tag: 1.25rem;
+$font-size-description: 1.6rem;
+$font-size-subtitle: 1.6rem;
+$font-size-card-title: 1.5rem;
+$font-size-heading: 3.5rem;
+$font-size-button: 2.5rem;
+$font-size-number: 1.6rem;
+
+// Font Weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Spacing - Base scale
+$spacing-xs: 0.5rem;
+$spacing-sm: 0.75rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-xxl: 4.5rem;
+
+// Spacing - Extended scale
+$spacing-xxs: 0.25rem;
+$spacing-xxxl: 3rem;
+$spacing-xxxxl: 5rem;
+$spacing-xxxxxl: 7rem;
+
+// Padding - Specific values
+$padding-xs: 0.375rem;
+$padding-sm: 0.6rem;
+$padding-md: 0.75rem;
+$padding-lg: 1.15rem;
+$padding-xl: 1.25rem;
+$padding-xxl: 1.5rem;
+$padding-xxxl: 2.2rem;
+$padding-xxxxl: 2.5rem;
+$padding-xxxxxl: 2.6rem;
+$padding-section-sm: 16px;
+$padding-section-md: 32px;
+$padding-section-lg: 64px;
+$padding-button-lg: 3rem;
+$padding-button-xl: 4.6875rem;
+
+// Margin - Specific values
+$margin-xs: 0.2rem;
+$margin-sm: 0.3rem;
+$margin-md: 0.4rem;
+$margin-lg: 0.5rem;
+$margin-xl: 0.6rem;
+$margin-xxl: 0.7rem;
+$margin-xxxl: 0.8rem;
+$margin-xxxxl: 0.9rem;
+$margin-section-sm: 1.25rem;
+$margin-section-md: 3rem;
+$margin-section-lg: 5rem;
+$margin-negative-sm: -0.25rem;
+$margin-negative-md: -20px;
+$margin-negative-lg: -40px;
+$margin-negative-xl: -48px;
+
+// Colors - Primary (RGB values for use with rgb() function)
+$color-secondary-button-default: 71, 56, 85;
+$color-secondary-button-text-default: 255, 255, 255;
+$color-white: 255, 255, 255;
+$color-black: 0, 0, 0;
+
+// Colors - Brand colors
+$color-primary: 71, 56, 85;
+$color-primary-dark: 71, 56, 85;
+$color-primary-hex: #473855;
+$color-accent: 107, 70, 193;
+$color-accent-hex: #6B46C1;
+$color-background-light: #fafafa;
+$color-lavender: 186, 170, 200;
+$color-lavender-hex: #baaac8;
+$color-purple-border: 136, 112, 142;
+$color-purple-border-hex: #88708e;
+
+// Colors - Opacity variants
+$color-primary-opacity-05: rgba(71, 56, 85, 0.05);
+$color-primary-opacity-10: rgba(71, 56, 85, 0.1);
+$color-primary-opacity-15: rgba(71, 56, 85, 0.15);
+$color-primary-opacity-20: rgba(71, 56, 85, 0.2);
+$color-primary-opacity-25: rgba(71, 56, 85, 0.25);
+$color-primary-opacity-30: rgba(71, 56, 85, 0.3);
+$color-primary-opacity-70: rgba(71, 56, 85, 0.7);
+$color-primary-opacity-80: rgba(71, 56, 85, 0.8);
+$color-primary-opacity-90: rgba(71, 56, 85, 0.9);
+
+$color-white-opacity-30: rgba(255, 255, 255, 0.3);
+$color-white-opacity-40: rgba(255, 255, 255, 0.4);
+$color-white-opacity-80: rgba(255, 255, 255, 0.8);
+$color-white-opacity-90: rgba(255, 255, 255, 0.9);
+$color-white-opacity-95: rgba(255, 255, 255, 0.95);
+
+$color-accent-opacity-30: rgba(107, 70, 193, 0.3);
+$color-accent-opacity-40: rgba(107, 70, 193, 0.4);
+
+$color-black-opacity-15: rgba(0, 0, 0, 0.15);
+$color-black-opacity-08: rgba(0, 0, 0, 0.08);
+$color-black-opacity-12: rgba(0, 0, 0, 0.12);
+$color-black-opacity-80: rgba(0, 0, 0, 0.8);
+
+$color-lavender-opacity-10: rgba(186, 170, 200, 0.1);
+$color-lavender-opacity-20: rgba(186, 170, 200, 0.2);
+$color-lavender-opacity-90: rgba(186, 170, 200, 0.9);
+
+$color-purple-border-opacity-05: rgba(136, 112, 142, 0.05);
+$color-purple-border-opacity-10: rgba(136, 112, 142, 0.1);
+$color-purple-border-opacity-15: rgba(136, 112, 142, 0.15);
+$color-purple-border-opacity-20: rgba(136, 112, 142, 0.2);
+$color-purple-border-opacity-25: rgba(136, 112, 142, 0.25);
+$color-purple-border-opacity-40: rgba(136, 112, 142, 0.4);
+$color-purple-border-opacity-80: rgba(136, 112, 142, 0.8);
+
+// Border Radius
+$border-radius-sm: 0.25rem;
+$border-radius-md: 0.5rem;
+$border-radius-lg: 1rem;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-index layers
+$z-index-base: 1;
+$z-index-overlay: 10;
+$z-index-modal: 100;
+
+// Aspect Ratios (using string format - CSS will handle the ratio)
+$aspect-ratio-card: '4 / 3';
+$aspect-ratio-square: '1 / 1';
+
+// Breakpoints
+$breakpoint-mobile: 750px;
+$breakpoint-tablet: 990px;
+$breakpoint-desktop: 1200px;
+

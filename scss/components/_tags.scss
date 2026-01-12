@@ -1,0 +1,71 @@
+// ============================================
+// Tags & Badges
+// ============================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Base tag/badge styles
+.vastu-best-seller-card__badge,
+.vastu-featured-products__concern-tag {
+  position: absolute;
+  top: var(--badge-top, $spacing-sm);
+  left: var(--badge-left, $spacing-sm);
+  background: rgb(var(--color-secondary-button, $color-secondary-button-default));
+  color: rgb(var(--color-secondary-button-text, $color-secondary-button-text-default));
+  padding: var(--badge-padding-v, $padding-xs) var(--badge-padding-h, $spacing-sm);
+  border-radius: $border-radius-sm;
+  font-size: var(--badge-font-size, var(--font-size-tag, $font-size-tag));
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  z-index: $z-index-base + 1;
+  line-height: 1.2;
+}
+
+// Concern tags (featured products)
+.vastu-featured-products__concern-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-sm;
+  min-height: 2.5rem;
+  flex-shrink: 0;
+}
+
+.vastu-featured-products__concern-tag {
+  display: inline-block;
+  font-size: var(--font-size-tag, $font-size-tag);
+  font-weight: var(--font-weight-semibold, $font-weight-semibold);
+  padding: $padding-sm $padding-lg;
+  background: $color-accent-hex;
+  color: rgb-from-list($color-white);
+  border: none;
+  border-radius: $border-radius-md;
+  white-space: nowrap;
+  line-height: 1.3;
+  box-shadow: 0 $spacing-xl $spacing-xxl $color-accent-opacity-30;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px $color-accent-opacity-40;
+  }
+}
+
+// Concern tags overlay on image
+.vastu-featured-products__concern-tags--overlay {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  z-index: $z-index-overlay;
+  margin: 0;
+  max-width: calc(100% - #{$spacing-lg});
+
+  .vastu-featured-products__concern-tag {
+    background: $color-white-opacity-95;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 $spacing-xl $spacing-xxl $color-black-opacity-15;
+  }
+}
+

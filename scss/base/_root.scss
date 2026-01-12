@@ -1,0 +1,34 @@
+// ============================================
+// Root CSS Variables
+// ============================================
+
+@use '../abstracts/variables' as *;
+
+:root {
+  // Typography Scale
+  --font-size-tag: #{$font-size-tag};
+  --font-size-description: #{$font-size-description};
+  --font-size-subtitle: #{$font-size-subtitle};
+  --font-size-card-title: #{$font-size-card-title};
+  --font-size-heading: #{$font-size-heading};
+  --font-size-button: #{$font-size-button};
+  --font-size-number: #{$font-size-number};
+  
+  // Font Weights
+  --font-weight-normal: #{$font-weight-normal};
+  --font-weight-medium: #{$font-weight-medium};
+  --font-weight-semibold: #{$font-weight-semibold};
+  --font-weight-bold: #{$font-weight-bold};
+
+  // Section Spacing
+  --homepage-section-spacing: 64px;
+  --homepage-section-spacing-mobile: 64px;
+  --homepage-section-spacing-tablet: 64px;
+  --homepage-section-padding-top: 0px;
+  --homepage-section-padding-bottom: 0px;
+  --homepage-section-padding-top-mobile: 0px;
+  --homepage-section-padding-bottom-mobile: 0px;
+  --homepage-section-padding-top-tablet: 0px;
+  --homepage-section-padding-bottom-tablet: 0px;
+}
+

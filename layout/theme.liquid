@@ -83,8 +83,13 @@
     {% render 'settings-adapter' %}
 
     {{ 'xo-webcomponents.min.css' | asset_url | stylesheet_tag }}
-    {{ 'main.min.css' | asset_url | stylesheet_tag }}
-    {{ 'vastu-sections.css' | asset_url | stylesheet_tag }}
+    
+    {# NEW SCSS COMPILED CSS - Single file with all styles #}
+    {{ 'main.css' | asset_url | stylesheet_tag }}
+    
+    {# OLD CSS FILES - Commented out for testing. Uncomment if new CSS has issues #}
+    {# {{ 'main.min.css' | asset_url | stylesheet_tag }} #}
+    {# {{ 'vastu-sections.css' | asset_url | stylesheet_tag }} #}
 
     {% render 'google-fonts-link' %}
 

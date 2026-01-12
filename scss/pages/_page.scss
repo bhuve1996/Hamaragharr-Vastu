@@ -1,0 +1,68 @@
+// ============================================
+// Page-specific Styles
+// ============================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Vastu Hindi Statement
+.vastu-hindi-statement {
+  @include flex-column-center;
+  padding-top: $spacing-xl;
+  padding-bottom: $spacing-xl;
+  min-height: auto;
+}
+
+.vastu-hindi-statement__content {
+  @include flex-column-center;
+  width: 100%;
+}
+
+.vastu-hindi-statement__text {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  width: 100%;
+  line-height: 1.3;
+  text-transform: none;
+  font-weight: normal;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+// Footer styles
+footer,
+.footer-v18__description,
+.footer-v18__subtext,
+.footer-v18__list-item,
+.footer-v18__list-item a,
+.footer-v18__copyright,
+.footer-v18__copyright-content,
+.footer-v18__copyright a,
+.footer-v18__copyright-content a {
+  font-size: var(--font-size-description, $font-size-description);
+  line-height: 1.6;
+}
+
+.footer-v18__heading,
+footer h2,
+footer h3 {
+  font-size: var(--font-size-card-title, $font-size-card-title);
+  font-weight: var(--font-weight-semibold, $font-weight-semibold);
+  margin-bottom: $spacing-md;
+}
+
+.footer-v18__copyright a,
+.footer-v18__copyright-content a {
+  color: rgb(var(--color-text, $color-white));
+  text-decoration: underline;
+  opacity: 0.9;
+  transition: opacity $transition-base;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+

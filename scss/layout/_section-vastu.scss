@@ -1,0 +1,1141 @@
+// ============================================
+// Vastu Specific Sections
+// ============================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Vastu Trust Bar
+.vastu-trust-bar__header {
+  text-align: center;
+  margin-bottom: $margin-section-lg;
+}
+
+.vastu-trust-bar__title {
+  font-size: var(--title-font-size, $font-size-heading);
+  font-weight: var(--title-font-weight, $font-weight-bold);
+  text-align: center;
+  margin: 0 0 $spacing-lg 0;
+  position: relative;
+  padding-bottom: $spacing-xxxxxl;
+  color: rgb-from-list($color-primary);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: $margin-negative-md;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--title-underline-width, 80px);
+    height: var(--title-underline-height, 4px);
+    background-color: var(--title-underline-color, $color-primary-hex);
+    border-radius: 2px;
+  }
+}
+
+.vastu-trust-bar__subtitle {
+  font-size: var(--subtitle-font-size, var(--font-size-description, $font-size-description));
+  font-weight: var(--font-weight-normal, $font-weight-normal);
+  line-height: 1.6;
+  color: $color-primary-opacity-80;
+  margin: 0;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vastu-trust-bar__item {
+  @include flex-column;
+  align-items: center;
+  text-align: center;
+  gap: $spacing-md;
+  padding: $spacing-lg $spacing-md;
+  min-height: 11.25rem;
+  justify-content: center;
+}
+
+.vastu-trust-bar__icon,
+.vastu-trust-bar__icon-svg {
+  width: 10rem;
+  height: 10rem;
+  @include flex-center;
+  flex-shrink: 0;
+  margin-bottom: $spacing-lg;
+  color: rgb(var(--color-secondary-button, $color-secondary-button-default));
+  transition: transform $transition-base, color $transition-base;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+}
+
+.vastu-trust-bar__item:hover .vastu-trust-bar__icon,
+.vastu-trust-bar__item:hover .vastu-trust-bar__icon-svg {
+  transform: scale(1.1);
+  color: rgb(var(--color-accent, $color-secondary-button-default));
+}
+
+.vastu-trust-bar__text {
+  font-size: var(--font-size-card-title, 1.875rem);
+  font-weight: var(--font-weight-semibold, $font-weight-semibold);
+  margin: $spacing-md 0 0 0;
+  line-height: 1.5;
+  color: rgb(var(--color-foreground, 0, 0, 0));
+}
+
+.vastu-trust-bar__item-subtitle {
+  font-size: var(--font-size-description, $font-size-description);
+  font-weight: var(--font-weight-normal, $font-weight-normal);
+  margin: $spacing-xs 0 0 0;
+  line-height: 1.5;
+  color: $color-primary-opacity-70;
+  text-align: center;
+}
+
+.vastu-trust-bar__pagination {
+  margin-top: $spacing-xl;
+  position: absolute;
+  bottom: $margin-negative-lg;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: $z-index-overlay;
+
+  @include mobile {
+    bottom: $margin-negative-xl;
+  }
+}
+
+// Trust Bar section padding - using higher specificity instead of !important
+main#xo-main-content section[class*="vastu-trust-bar"],
+main#xo-main-content div[class*="vastu-trust-bar"],
+section[class*="vastu-trust-bar"],
+div[class*="shopify-section-template"][class*="vastu-trust-bar"] {
+  padding-top: calc(var(--pt, $padding-section-md) * 1px);
+  padding-bottom: calc(var(--pb, $padding-section-md) * 1px);
+  background-color: var(--bg-color, $color-background-light);
+}
+
+@include mobile {
+  .vastu-trust-bar__header {
+    margin-bottom: $margin-section-md;
+  }
+
+  .vastu-trust-bar__title {
+    font-size: 2rem;
+    margin-bottom: $spacing-md;
+    padding-bottom: $padding-xxxxl;
+  }
+
+  .vastu-trust-bar__subtitle {
+    font-size: 2rem;
+  }
+
+  .vastu-trust-bar__item {
+    min-height: 10rem;
+    padding: $padding-xl $padding-md;
+  }
+
+  .vastu-trust-bar__icon,
+  .vastu-trust-bar__icon-svg {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .vastu-trust-bar__text {
+    font-size: 2rem;
+  }
+
+  .vastu-trust-bar__item-subtitle {
+    font-size: 2rem;
+  }
+
+  main#xo-main-content section[class*="vastu-trust-bar"],
+  main#xo-main-content div[class*="vastu-trust-bar"],
+  section[class*="vastu-trust-bar"],
+  div[class*="shopify-section-template"][class*="vastu-trust-bar"] {
+    padding-top: $padding-section-sm;
+    padding-bottom: $padding-section-sm;
+  }
+
+  .vastu-trust-bar__pagination {
+    bottom: $margin-negative-xl;
+  }
+}
+
+// Vastu Features Bar
+main#xo-main-content section[class*="vastu-features-bar"],
+main#xo-main-content section[class*="vastu-features"],
+main#xo-main-content div[class*="vastu-features-bar"],
+main#xo-main-content div[class*="vastu-features"],
+section[class*="vastu-features-bar"],
+section[class*="vastu-features"],
+div[class*="shopify-section-template"][class*="vastu-features"] {
+  padding-top: $padding-section-lg;
+
+  @include mobile {
+    padding-top: $padding-xxxxl;
+  }
+}
+
+.vastu-features-bar__item {
+  @include flex-column;
+  align-items: center;
+  text-align: center;
+  gap: $spacing-md;
+  padding: $spacing-lg $spacing-md;
+  min-height: 11.25rem;
+  justify-content: center;
+  background: $color-white-opacity-80;
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  box-shadow: 0 $spacing-xs $spacing-lg $color-primary-opacity-15;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY($margin-negative-sm);
+    box-shadow: 0 0.75rem 2rem $color-primary-opacity-25;
+  }
+}
+
+.vastu-features-bar__icon,
+.vastu-features-bar__icon-svg {
+  width: 24rem;
+  height: 24rem;
+  min-width: 24rem;
+  min-height: 24rem;
+  @include flex-center;
+  flex-shrink: 0;
+  margin-bottom: $spacing-xs;
+  color: rgb(var(--color-secondary-button, $color-secondary-button-default));
+  transition: transform $transition-base, color $transition-base;
+  overflow: visible;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+}
+
+.vastu-features-bar__item:hover .vastu-features-bar__icon,
+.vastu-features-bar__item:hover .vastu-features-bar__icon-svg {
+  transform: scale(1.1);
+  color: rgb(var(--color-accent, $color-secondary-button-default));
+}
+
+.vastu-features-bar__icon {
+  background: linear-gradient(135deg, $color-primary-opacity-05 0%, $color-primary-opacity-10 100%);
+  border-radius: 0.75rem;
+  padding: $spacing-lg;
+  box-shadow: 0 $spacing-xs $spacing-lg $color-primary-opacity-20, inset 0 0 1rem $color-white-opacity-30;
+  backdrop-filter: blur(5px);
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  .xo-image,
+  .xo-image img,
+  img {
+    width: 100%;
+    height: 100%;
+    max-width: 24rem;
+    max-height: 24rem;
+    min-width: 24rem;
+    min-height: 24rem;
+    object-fit: contain;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    filter: drop-shadow(0 $spacing-xxs $spacing-xs $color-primary-opacity-20);
+  }
+}
+
+.vastu-features-bar__item:hover .vastu-features-bar__icon {
+  box-shadow: 0 0.75rem 2rem $color-primary-opacity-30, inset 0 0 1.5rem $color-white-opacity-40;
+}
+
+.vastu-features-bar__text {
+  font-size: var(--font-size-card-title, 1.875rem);
+  font-weight: var(--font-weight-semibold, $font-weight-semibold);
+  margin: $spacing-md 0 0 0;
+  line-height: 1.5;
+  color: rgb(var(--color-foreground, $color-black));
+}
+
+.vastu-features-bar__item-subtitle {
+  font-size: var(--font-size-description, $font-size-description);
+  font-weight: var(--font-weight-normal, $font-weight-normal);
+  margin: $spacing-xs 0 0 0;
+  line-height: 1.5;
+  color: $color-primary-opacity-70;
+  text-align: center;
+}
+
+.vastu-features-bar__pagination {
+  margin-top: $spacing-xl;
+}
+
+@include mobile {
+  .vastu-features-bar__item {
+    min-height: 10rem;
+    padding: $padding-xl $padding-md;
+  }
+
+  .vastu-features-bar__icon,
+  .vastu-features-bar__icon-svg {
+    width: 18rem;
+    height: 18rem;
+    min-width: 18rem;
+    min-height: 18rem;
+  }
+
+  .vastu-features-bar__icon .xo-image,
+  .vastu-features-bar__icon .xo-image img,
+  .vastu-features-bar__icon img {
+    max-width: 18rem;
+    max-height: 18rem;
+    min-width: 18rem;
+    min-height: 18rem;
+  }
+
+  .vastu-features-bar__icon .xo-image__placeholder,
+  .vastu-features-bar__icon .xo-image__placeholder svg {
+    max-width: 18rem;
+    max-height: 18rem;
+    min-width: 18rem;
+    min-height: 18rem;
+  }
+
+  .vastu-features-bar__text {
+    font-size: var(--font-size-description, $font-size-description);
+  }
+}
+
+// Featured products icon SVG
+.vastu-featured-products__icon-svg {
+  width: 100%;
+  height: 100%;
+  @include flex-center;
+  padding: $spacing-xl;
+  min-height: 12.5rem;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    max-width: 9.375rem;
+    max-height: 9.375rem;
+    fill: currentColor;
+  }
+}
+
+// Grid layout for featured products
+.vastu-featured-products__grid {
+  display: grid;
+  align-items: stretch;
+
+  > * {
+    display: flex;
+    height: 100%;
+    align-items: stretch;
+  }
+
+  .vastu-featured-products__card {
+    width: 100%;
+    @include flex-column;
+  }
+}
+
+// Ensure carousel list has proper layout
+section[class*="vastu-featured-products"] xo-carousel-list {
+  display: flex;
+  align-items: stretch;
+}
+
+// Vastu Help Address V1 - Icons Row
+.vastu-help-address-v1__section-title {
+  font-size: var(--title-font-size, $font-size-heading);
+  font-weight: var(--title-font-weight, $font-weight-bold);
+  text-align: center;
+  margin: 0 0 $margin-section-md 0;
+  position: relative;
+  padding-bottom: $spacing-xxxxxl;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: $margin-negative-md;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--title-underline-width, 80px);
+    height: var(--title-underline-height, 4px);
+    background-color: var(--title-underline-color, $color-primary-hex);
+    border-radius: 2px;
+  }
+}
+
+.vastu-help-address-v1__item {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: $spacing-xl $spacing-lg;
+  background: $color-white-opacity-95;
+  border-radius: 12px;
+  box-shadow: 0 $spacing-xl $spacing-xxl rgba(0, 0, 0, 0.08);
+  transition: transform $transition-base, box-shadow $transition-base;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.vastu-help-address-v1__icon {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
+  @include flex-center;
+  margin-bottom: $spacing-lg;
+  color: rgb(var(--color-secondary-button, $color-secondary-button-default));
+  transition: transform $transition-base, color $transition-base;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+
+  img,
+  .xo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.vastu-help-address-v1__item:hover .vastu-help-address-v1__icon {
+  transform: scale(1.1);
+  color: rgb-from-list($color-primary);
+}
+
+.vastu-help-address-v1__text {
+  font-size: var(--font-size-description, $font-size-description);
+  font-weight: var(--font-weight-medium, $font-weight-medium);
+  color: rgb-from-list($color-primary);
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@include mobile {
+  .vastu-help-address-v1__section-title {
+    font-size: 2rem;
+    margin-bottom: $spacing-xl;
+  }
+
+  .vastu-help-address-v1__item {
+    padding: $spacing-lg $spacing-md;
+  }
+
+  .vastu-help-address-v1__icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    margin-bottom: $spacing-md;
+  }
+
+  .vastu-help-address-v1__text {
+    font-size: 2rem;
+  }
+}
+
+// Vastu Shop By Concern - Accordion with Products
+.vastu-shop-by-concern__section-title {
+  font-size: var(--title-font-size, var(--font-size-heading, $font-size-heading));
+  font-weight: var(--title-font-weight, var(--font-weight-bold, $font-weight-bold));
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: $margin-section-md;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.2;
+  padding-bottom: $spacing-xxxxxl;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: $margin-negative-md;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--title-underline-width, 80px);
+    height: var(--title-underline-height, 4px);
+    background-color: var(--title-underline-color, $color-primary-hex);
+  }
+}
+
+.vastu-shop-by-concern__accordion {
+  margin-top: $margin-section-md;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vastu-shop-by-concern__item {
+  margin-bottom: $spacing-md;
+  background: rgb-from-list($color-white);
+  border: 2px solid $color-purple-border-opacity-25;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all $transition-base;
+  box-shadow: 0 $spacing-xl $spacing-xxl $color-purple-border-opacity-15;
+
+  &:hover {
+    border-color: $color-purple-border-opacity-40;
+    box-shadow: 0 4px 16px $color-purple-border-opacity-25;
+    transform: translateY(-2px);
+  }
+}
+
+.vastu-shop-by-concern__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-lg $spacing-xl;
+  cursor: pointer;
+  background: rgb-from-list($color-lavender);
+  transition: all $transition-base;
+  border: none;
+  width: 100%;
+  text-align: left;
+  position: relative;
+
+  &:hover {
+    background: $color-lavender-opacity-90;
+  }
+}
+
+.vastu-shop-by-concern__trigger-content {
+  flex: 1;
+  padding-right: $spacing-lg;
+  text-align: left;
+  position: relative;
+  z-index: $z-index-base;
+}
+
+.vastu-shop-by-concern__trigger-title {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold, $font-weight-bold);
+  color: rgb-from-list($color-primary);
+  margin: 0 0 $spacing-xs 0;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.vastu-shop-by-concern__trigger-question {
+  font-size: var(--font-size-description, $font-size-description);
+  font-weight: var(--font-weight-medium, $font-weight-medium);
+  color: rgb-from-list($color-primary);
+  margin: 0;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.vastu-shop-by-concern__trigger-icon {
+  flex-shrink: 0;
+  width: $spacing-xl;
+  height: $spacing-xl;
+  @include flex-center;
+  transition: transform $transition-base;
+  color: rgb-from-list($color-primary);
+  position: relative;
+  z-index: $z-index-base;
+
+  svg {
+    transition: transform $transition-base;
+  }
+}
+
+.vastu-shop-by-concern__trigger[aria-expanded="true"] .vastu-shop-by-concern__trigger-icon svg {
+  transform: rotate(45deg);
+}
+
+// First accordion item open by default - using higher specificity instead of !important
+.vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__collapse {
+  display: block;
+  max-height: none;
+  opacity: 1;
+  visibility: visible;
+}
+
+.vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__trigger[aria-expanded="true"] + .vastu-shop-by-concern__collapse,
+.vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__collapse[style*="display: block"] {
+  display: block;
+  max-height: none;
+  opacity: 1;
+}
+
+.vastu-shop-by-concern__collapse {
+  overflow: hidden;
+  background: $color-purple-border-opacity-05;
+}
+
+.vastu-shop-by-concern__content {
+  padding: $spacing-lg $spacing-xl $spacing-xl $spacing-xl;
+  text-align: left;
+  background: $color-purple-border-opacity-05;
+}
+
+.vastu-shop-by-concern__card-description {
+  font-size: var(--font-size-description, $font-size-description);
+  line-height: 1.75;
+  color: $color-black-opacity-80;
+  margin: 0 0 $spacing-lg 0;
+  text-align: left;
+
+  p {
+    margin: 0 0 $spacing-md 0;
+    text-align: left;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.vastu-shop-by-concern__benefits-title,
+.vastu-shop-by-concern__recommended-title {
+  font-size: 1.875rem;
+  font-weight: var(--font-weight-semibold, $font-weight-semibold);
+  color: rgb-from-list($color-primary);
+  margin: 0 0 $spacing-md 0;
+  padding-top: $spacing-lg;
+  text-align: left;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+}
+
+.vastu-shop-by-concern__benefits-list,
+.vastu-shop-by-concern__recommended-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 $spacing-lg 0;
+  text-align: left;
+
+  li {
+    font-size: var(--font-size-description, $font-size-description);
+    line-height: 1.75;
+    color: $color-black-opacity-80;
+    margin-bottom: $spacing-sm;
+    padding-left: 0;
+    text-align: left;
+    list-style-position: outside;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.vastu-shop-by-concern__cta {
+  margin-top: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $color-purple-border-opacity-20;
+  text-align: left;
+}
+
+.vastu-shop-by-concern__cta-link {
+  display: inline-block;
+  font-size: var(--font-size-description, $font-size-description);
+  font-weight: var(--font-weight-semibold, $font-weight-semibold);
+  color: rgb-from-list($color-purple-border);
+  text-decoration: none;
+  transition: color $transition-base;
+  text-align: left;
+
+  &:hover {
+    color: $color-purple-border-opacity-80;
+    text-decoration: underline;
+  }
+}
+
+.vastu-shop-by-concern__products-carousel {
+  margin: $spacing-xl 0;
+  padding: $spacing-lg 0;
+}
+
+.vastu-shop-by-concern__product-card {
+  @include card-base;
+  background: rgb-from-list($color-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 $spacing-xl $spacing-xxl $color-black-opacity-08;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px $color-black-opacity-12;
+  }
+}
+
+.vastu-shop-by-concern__product-link {
+  @include flex-column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.vastu-shop-by-concern__product-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  aspect-ratio: #{$aspect-ratio-card};
+
+  img {
+    @include image-cover;
+    transition: transform $transition-base;
+  }
+}
+
+.vastu-shop-by-concern__product-card:hover .vastu-shop-by-concern__product-image img {
+  transform: scale(1.05);
+}
+
+.vastu-shop-by-concern__product-price {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  background: $color-primary-opacity-90;
+  color: rgb-from-list($color-white);
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-md;
+  font-size: var(--card-price-size, 1.2rem);
+  font-weight: $font-weight-semibold;
+  z-index: $z-index-base + 1;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 $spacing-xl $spacing-xxl $color-black-opacity-15;
+}
+
+.vastu-shop-by-concern__product-content {
+  flex: 1;
+  @include flex-column;
+  padding: $padding-xl;
+  text-align: left;
+  min-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.vastu-shop-by-concern__product-title {
+  font-size: var(--card-title-size, var(--font-size-card-title, $font-size-card-title));
+  font-weight: 450;
+  margin: 0 0 $spacing-sm 0;
+  line-height: 1.4;
+  @include text-ellipsis-multiline(2);
+  min-height: calc(var(--card-title-size, $font-size-card-title) * 1.4 * 2);
+  height: calc(var(--card-title-size, $font-size-card-title) * 1.4 * 2);
+  flex-shrink: 0;
+  color: rgb-from-list($color-primary);
+}
+
+.vastu-shop-by-concern__product-add-to-cart {
+  margin-top: auto;
+  padding-top: $spacing-md;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: $z-index-overlay;
+  pointer-events: auto;
+}
+
+.vastu-shop-by-concern__product-add-to-cart .xo-btn,
+.vastu-shop-by-concern__product-add-to-cart button,
+.vastu-shop-by-concern__product-add-to-cart xo-cart-add,
+.vastu-shop-by-concern__product-add-to-cart xo-modal-trigger {
+  width: 100%;
+  @include flex-center;
+  pointer-events: auto;
+  border-radius: $border-radius-sm;
+  padding: $spacing-sm $spacing-lg;
+  background-color: rgb(var(--color-secondary-button, $color-secondary-button-default));
+  color: rgb-from-list($color-white);
+  font-size: var(--font-size-description, $font-size-description);
+  font-weight: var(--font-weight-semibold, $font-weight-semibold);
+  text-decoration: none;
+  transition: all $transition-base, transform $transition-fast;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    background-color: $color-primary-opacity-90;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px $color-primary-opacity-30;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 $spacing-xl $spacing-xxl $color-primary-opacity-20;
+  }
+}
+
+.vastu-shop-by-concern__product-add-to-cart xo-cart-add[aria-busy="true"] .xo-btn,
+.vastu-shop-by-concern__product-add-to-cart xo-cart-add.loading .xo-btn {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.vastu-shop-by-concern__product-add-to-cart .xo-btn__loading {
+  display: none;
+}
+
+.vastu-shop-by-concern__product-add-to-cart xo-cart-add[aria-busy="true"] .xo-btn__loading,
+.vastu-shop-by-concern__product-add-to-cart xo-cart-add.loading .xo-btn__loading {
+  display: block;
+}
+
+.vastu-shop-by-concern__product-add-to-cart xo-cart-add,
+.vastu-shop-by-concern__product-add-to-cart xo-modal-trigger {
+  display: block;
+  padding: 0;
+}
+
+.vastu-shop-by-concern__product-add-to-cart .xo-btn__text,
+.vastu-shop-by-concern__product-add-to-cart .xo-btn__content {
+  color: rgb-from-list($color-white);
+  @include flex-center;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  padding: 0 $spacing-xs;
+}
+
+.vastu-shop-by-concern__product-add-to-cart .xo-btn__text[data-text]::before,
+.vastu-shop-by-concern__product-add-to-cart .xo-btn__text[data-text]::after {
+  display: none;
+  content: none;
+  visibility: hidden;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.vastu-shop-by-concern__products-pagination {
+  margin-top: $spacing-lg;
+}
+
+// Carousel layout for shop by concern
+section[class*="vastu-shop-by-concern"] xo-carousel-slide {
+  display: flex;
+  height: 100%;
+  align-items: stretch;
+  overflow: visible;
+}
+
+section[class*="vastu-shop-by-concern"] xo-carousel-slide .vastu-shop-by-concern__product-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+section[class*="vastu-shop-by-concern"] xo-carousel-inner {
+  overflow: visible;
+}
+
+@include mobile {
+  .vastu-shop-by-concern__accordion {
+    margin-top: $spacing-xl;
+  }
+
+  .vastu-shop-by-concern__section-title {
+    font-size: 2.5rem;
+    padding-bottom: 5rem;
+  }
+
+  .vastu-shop-by-concern__trigger {
+    padding: $spacing-lg $spacing-lg;
+  }
+
+  .vastu-shop-by-concern__trigger-content {
+    padding-right: $spacing-md;
+  }
+
+  .vastu-shop-by-concern__trigger-title {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .vastu-shop-by-concern__trigger-question {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .vastu-shop-by-concern__content {
+    padding: $spacing-lg $spacing-lg $spacing-xl $spacing-lg;
+    text-align: left;
+  }
+
+  .vastu-shop-by-concern__trigger-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .vastu-shop-by-concern__card-description {
+    font-size: 2rem;
+    text-align: left;
+
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  .vastu-shop-by-concern__benefits-title,
+  .vastu-shop-by-concern__recommended-title {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .vastu-shop-by-concern__benefits-list li,
+  .vastu-shop-by-concern__recommended-list li {
+    font-size: 2rem;
+  }
+
+  .vastu-shop-by-concern__cta-link {
+    font-size: 2rem;
+  }
+
+  .vastu-shop-by-concern__benefits-list,
+  .vastu-shop-by-concern__recommended-list,
+  .vastu-shop-by-concern__cta {
+    text-align: left;
+  }
+
+  .vastu-shop-by-concern__product-title {
+    font-size: 2rem;
+    min-height: calc(2rem * 1.4 * 2);
+    height: calc(2rem * 1.4 * 2);
+  }
+
+  .vastu-shop-by-concern__product-price {
+    font-size: 2rem;
+  }
+
+  .vastu-shop-by-concern__product-add-to-cart .xo-btn,
+  .vastu-shop-by-concern__product-add-to-cart button {
+    font-size: 2rem;
+    padding: $spacing-md $spacing-lg;
+  }
+}
+
+// Vastu Help Address V2 - Circle with 4 Quadrants
+.vastu-help-address-v2__section-title {
+  font-size: var(--title-font-size, $font-size-heading);
+  font-weight: var(--title-font-weight, $font-weight-bold);
+  text-align: center;
+  margin: 0 0 $margin-section-md 0;
+  position: relative;
+  padding-bottom: $spacing-lg;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: $margin-negative-md;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--title-underline-width, 80px);
+    height: var(--title-underline-height, 4px);
+    background-color: var(--title-underline-color, $color-primary-hex);
+    border-radius: 2px;
+  }
+}
+
+.vastu-help-address-v2__circle-container {
+  @include flex-center;
+  padding: $spacing-xl;
+  min-height: 500px;
+}
+
+.vastu-help-address-v2__circle {
+  position: relative;
+  width: var(--circle-size, 500px);
+  height: var(--circle-size, 500px);
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: #{$aspect-ratio-square};
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 32px $color-primary-opacity-15;
+  background: linear-gradient(135deg, $color-lavender-opacity-10 0%, $color-primary-opacity-05 100%);
+}
+
+.vastu-help-address-v2__quadrant {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  @include flex-center;
+  transition: background-color $transition-base, transform $transition-base;
+  cursor: pointer;
+
+  &--1 {
+    top: 0;
+    left: 0;
+    border-right: 2px solid $color-primary-opacity-10;
+    border-bottom: 2px solid $color-primary-opacity-10;
+    border-radius: 0 0 100% 0;
+  }
+
+  &--2 {
+    top: 0;
+    right: 0;
+    border-left: 2px solid $color-primary-opacity-10;
+    border-bottom: 2px solid $color-primary-opacity-10;
+    border-radius: 0 0 0 100%;
+  }
+
+  &--3 {
+    bottom: 0;
+    left: 0;
+    border-right: 2px solid $color-primary-opacity-10;
+    border-top: 2px solid $color-primary-opacity-10;
+    border-radius: 0 100% 0 0;
+  }
+
+  &--4 {
+    bottom: 0;
+    right: 0;
+    border-left: 2px solid $color-primary-opacity-10;
+    border-top: 2px solid $color-primary-opacity-10;
+    border-radius: 100% 0 0 0;
+  }
+
+  &:hover {
+    background-color: $color-lavender-opacity-20;
+    transform: scale(1.05);
+    z-index: $z-index-base + 1;
+  }
+}
+
+.vastu-help-address-v2__quadrant-content {
+  @include flex-column-center;
+  padding: $spacing-lg;
+  width: 100%;
+  height: 100%;
+}
+
+.vastu-help-address-v2__icon {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  @include flex-center;
+  margin-bottom: $spacing-sm;
+  color: rgb(var(--color-secondary-button, $color-secondary-button-default));
+  transition: transform $transition-base, color $transition-base;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+
+  img,
+  .xo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.vastu-help-address-v2__quadrant:hover .vastu-help-address-v2__icon {
+  transform: scale(1.15);
+  color: rgb(var(--color-accent, $color-secondary-button-default));
+}
+
+.vastu-help-address-v2__text {
+  font-size: var(--font-size-description, $font-size-description);
+  font-weight: var(--font-weight-medium, $font-weight-medium);
+  color: rgb-from-list($color-primary);
+  margin: 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.vastu-help-address-v2__center {
+  @include absolute-center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgb-from-list($color-lavender) 0%, rgb-from-list($color-primary) 100%);
+  box-shadow: 0 4px 16px $color-primary-opacity-30;
+  z-index: 3;
+  @include flex-center;
+
+  &::before {
+    content: '';
+    @include absolute-center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: $color-white-opacity-90;
+    box-shadow: inset 0 $spacing-xl $spacing-xxl $color-primary-opacity-10;
+  }
+}
+
+@include mobile {
+  .vastu-help-address-v2__section-title {
+    font-size: 2rem;
+    margin-bottom: $spacing-xl;
+  }
+
+  .vastu-help-address-v2__circle-container {
+    padding: $spacing-md;
+    min-height: 300px;
+  }
+
+  .vastu-help-address-v2__circle {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .vastu-help-address-v2__icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    margin-bottom: $spacing-xs;
+  }
+
+  .vastu-help-address-v2__text {
+    font-size: 2rem;
+  }
+
+  .vastu-help-address-v2__center {
+    width: 60px;
+    height: 60px;
+
+    &::before {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  .vastu-help-address-v2__quadrant-content {
+    padding: $spacing-md;
+  }
+}
+

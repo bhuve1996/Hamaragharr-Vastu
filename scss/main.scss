@@ -1,0 +1,33 @@
+// ============================================
+// Main SCSS File - Imports all partials
+// Order: Sections → Tags → General → Page → Cards → Section
+// Compiles to: assets/main.css (SINGLE FILE)
+// ============================================
+
+// Abstracts (variables and mixins) - using @use for modern Sass
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+// Base
+@use 'base/root';
+@use 'base/general';
+
+// Layout - Sections (first as requested)
+@use 'layout/sections';
+@use 'layout/section-vastu';
+
+// Components - Tags (second as requested)
+@use 'components/tags';
+
+// Components - General components
+@use 'components/buttons';
+@use 'components/forms';
+@use 'components/modals';
+@use 'components/newsletter';
+
+// Components - Cards (fifth as requested)
+@use 'components/cards';
+
+// Pages (fourth as requested)
+@use 'pages/page';
+

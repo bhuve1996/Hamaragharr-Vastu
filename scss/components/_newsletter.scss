@@ -1,0 +1,51 @@
+// ============================================
+// Newsletter Components
+// ============================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Popup Newsletter Mobile Fixes
+@include mobile {
+  .popup-newsletter-v1__form,
+  .popup-newsletter-v3__form,
+  .popup-newsletter-v4__form,
+  .popup-newsletter-v5__form,
+  .popup-newsletter-v6__form {
+    @include flex-column;
+    gap: $spacing-md;
+    width: 100%;
+  }
+
+  .popup-newsletter-v1__form .field,
+  .popup-newsletter-v3__form .field,
+  .popup-newsletter-v4__form .field,
+  .popup-newsletter-v5__form .field,
+  .popup-newsletter-v6__form .field {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .popup-newsletter-v1__form button,
+  .popup-newsletter-v3__form button,
+  .popup-newsletter-v4__form button,
+  .popup-newsletter-v5__form button,
+  .popup-newsletter-v6__form button,
+  .popup-newsletter-v1__form .xo-btn,
+  .popup-newsletter-v3__form .xo-btn,
+  .popup-newsletter-v4__form .xo-btn,
+  .popup-newsletter-v5__form .xo-btn,
+  .popup-newsletter-v6__form .xo-btn {
+    width: 100%;
+    margin: 0;
+    padding: $spacing-md $spacing-xl;
+    font-size: 2rem;
+    min-height: 5rem;
+  }
+
+  .popup-newsletter__container {
+    max-width: 95vw;
+    padding: $spacing-xl $spacing-lg;
+  }
+}
+

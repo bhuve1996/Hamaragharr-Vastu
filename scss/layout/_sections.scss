@@ -1,0 +1,114 @@
+// ============================================
+// Sections - Layout & Spacing
+// ============================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Section spacing and padding
+main#xo-main-content {
+  section,
+  div[class*="shopify-section-template"],
+  section.xo-section,
+  section[class*="xo-section--"] {
+    --pt: var(--homepage-section-padding-top);
+    --pb: var(--homepage-section-padding-bottom);
+    padding-top: var(--homepage-section-padding-top);
+    padding-bottom: var(--homepage-section-padding-bottom);
+    margin-top: var(--homepage-section-spacing);
+    margin-bottom: var(--homepage-section-spacing);
+  }
+}
+
+// First section - no top margin
+main#xo-main-content {
+  > section:first-child,
+  > div:first-child,
+  section:first-child[class*="homepage-carousel"],
+  section:first-child[class*="slideshow"] {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Last section - no bottom margin
+main#xo-main-content {
+  > section:last-child,
+  > div:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Section spacing between consecutive sections
+main#xo-main-content {
+  > section + section,
+  > section + div,
+  > div + section,
+  > div + div {
+    margin-top: var(--homepage-section-spacing);
+  }
+}
+
+// Specific section spacing
+main#xo-main-content {
+  section[class*="homepage-carousel"] + section[class*="vastu-kit"],
+  section[class*="homepage-carousel"] + div[class*="vastu-kit"],
+  section[class*="slideshow"] + section[class*="vastu-kit"] {
+    margin-top: var(--homepage-section-spacing);
+  }
+
+  section[class*="vastu-kit"] + section[class*="vastu-best-seller"],
+  section[class*="vastu-best-seller"] + section[class*="vastu-hindi"],
+  section[class*="vastu-hindi"] + section[class*="vastu-featured"],
+  section[class*="vastu-featured"] + section[class*="testimonial"],
+  section[class*="testimonial"] + section[class*="blog"],
+  section[class*="blog"] + section[class*="vastu-trust"],
+  section[class*="vastu-trust"] + section[class*="vastu-features"] {
+    margin-top: var(--homepage-section-spacing);
+  }
+}
+
+// Remove padding from carousel/slideshow
+section[class*="slideshow-v1"],
+section[class*="slideshow-v28"],
+section[class*="homepage-carousel"] {
+  padding-bottom: 0;
+}
+
+// Mobile adjustments
+@include mobile {
+  main#xo-main-content {
+    --homepage-section-spacing: var(--homepage-section-spacing-mobile);
+    --homepage-section-padding-top: var(--homepage-section-padding-top-mobile);
+    --homepage-section-padding-bottom: var(--homepage-section-padding-bottom-mobile);
+
+    section,
+    section.xo-section,
+    section[class*="xo-section--"] {
+      padding-top: var(--homepage-section-padding-top);
+      padding-bottom: var(--homepage-section-padding-bottom);
+      margin-bottom: var(--homepage-section-spacing);
+    }
+
+    > section:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Tablet adjustments
+@include tablet {
+  main#xo-main-content {
+    --homepage-section-spacing: var(--homepage-section-spacing-tablet);
+    --homepage-section-padding-top: var(--homepage-section-padding-top-tablet);
+    --homepage-section-padding-bottom: var(--homepage-section-padding-bottom-tablet);
+
+    section,
+    section.xo-section,
+    section[class*="xo-section--"] {
+      padding-top: var(--homepage-section-padding-top);
+      padding-bottom: var(--homepage-section-padding-bottom);
+    }
+  }
+}
+

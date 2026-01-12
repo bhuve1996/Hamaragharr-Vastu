@@ -77,3 +77,6 @@ theme.lock
 .shopify-app/
 shopify.app.toml
 
+# SCSS build outputs (optional - uncomment if you want to ignore compiled CSS)
+# assets/main.css
+# assets/main.min.css
