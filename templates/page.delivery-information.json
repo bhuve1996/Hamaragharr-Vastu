@@ -10,9 +10,37 @@
     "breadcrumb-v2": {
       "type": "breadcrumb-v2",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "background-1",
         "background_type": "color",
-        "background_color": "",
+        "background_color": "#f3f3f3",
+        "background_gradient": "",
+        "background_image_desktop": "shopify://shop_images/bg_page.jpg",
+        "background_image_mobile": "shopify://shop_images/bg_page.jpg",
+        "use_parallax": false,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 110,
+        "padding_bottom": 110
+      }
+    },
+    "delivery_content_1": {
+      "type": "about-v1",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "reverse": false,
+        "gap": 30,
+        "title": "Delivery Information",
+        "subtitle": "Fast & Reliable Shipping",
+        "description": "<p>We are committed to delivering your Vastu products safely and on time. This page contains all the information you need about our delivery process, shipping times, and delivery options.</p><p>All products are carefully packaged to ensure they arrive in perfect condition.</p>",
+        "image": "",
+        "hover": "scale_down",
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
         "background_gradient": "",
         "use_parallax": true,
         "background_image_animation": "none",
@@ -20,13 +48,14 @@
         "background_video_animation": "none",
         "background_overlay": "",
         "background_margin": 0,
-        "padding_top": 50,
-        "padding_bottom": 50
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
     "main",
-    "breadcrumb-v2"
+    "breadcrumb-v2",
+    "delivery_content_1"
   ]
 }

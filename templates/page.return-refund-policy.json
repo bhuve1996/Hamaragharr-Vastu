@@ -10,9 +10,37 @@
     "breadcrumb-v2": {
       "type": "breadcrumb-v2",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "background-1",
         "background_type": "color",
-        "background_color": "",
+        "background_color": "#f3f3f3",
+        "background_gradient": "",
+        "background_image_desktop": "shopify://shop_images/bg_page.jpg",
+        "background_image_mobile": "shopify://shop_images/bg_page.jpg",
+        "use_parallax": false,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 110,
+        "padding_bottom": 110
+      }
+    },
+    "refund_content_1": {
+      "type": "about-v1",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "reverse": false,
+        "gap": 30,
+        "title": "Return & Refund Policy",
+        "subtitle": "Hassle-Free Returns",
+        "description": "<p>At VastuKit, we want you to be completely satisfied with your purchase. If you are not satisfied, we offer a straightforward return and refund process.</p><p>Please review the following policy to understand our return and refund procedures.</p>",
+        "image": "",
+        "hover": "scale_down",
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
         "background_gradient": "",
         "use_parallax": true,
         "background_image_animation": "none",
@@ -20,13 +48,14 @@
         "background_video_animation": "none",
         "background_overlay": "",
         "background_margin": 0,
-        "padding_top": 50,
-        "padding_bottom": 50
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
     "main",
-    "breadcrumb-v2"
+    "breadcrumb-v2",
+    "refund_content_1"
   ]
 }

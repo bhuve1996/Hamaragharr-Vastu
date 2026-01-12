@@ -10,9 +10,37 @@
     "breadcrumb-v2": {
       "type": "breadcrumb-v2",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "background-1",
         "background_type": "color",
-        "background_color": "",
+        "background_color": "#f3f3f3",
+        "background_gradient": "",
+        "background_image_desktop": "shopify://shop_images/bg_page.jpg",
+        "background_image_mobile": "shopify://shop_images/bg_page.jpg",
+        "use_parallax": false,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 110,
+        "padding_bottom": 110
+      }
+    },
+    "policy_content_1": {
+      "type": "about-v1",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "reverse": false,
+        "gap": 30,
+        "title": "Privacy Policy",
+        "subtitle": "Your Privacy Matters to Us",
+        "description": "<p>At VastuKit, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or make a purchase.</p><p>Please read this privacy policy carefully. By using our website, you consent to the practices described in this policy.</p>",
+        "image": "",
+        "hover": "scale_down",
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
         "background_gradient": "",
         "use_parallax": true,
         "background_image_animation": "none",
@@ -20,13 +48,14 @@
         "background_video_animation": "none",
         "background_overlay": "",
         "background_margin": 0,
-        "padding_top": 50,
-        "padding_bottom": 50
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
     "main",
-    "breadcrumb-v2"
+    "breadcrumb-v2",
+    "policy_content_1"
   ]
 }
