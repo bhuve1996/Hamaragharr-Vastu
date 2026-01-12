@@ -1,0 +1,384 @@
+.banner-v155__description p {
+  margin-bottom: 0.75rem; /* Reduced spacing between paragraphs */
+}
+
+/* Style the heading in description */
+.banner-v155__description-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgb(var(--color-foreground, 0, 0, 0));
+  margin-top: 2.5rem; /* Increased top margin */
+  margin-bottom: 1rem; /* Reduced bottom margin */
+  line-height: 1.4;
+}
+
+/* Style the bullet list in description */
+.banner-v155__description-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.banner-v155__description-list li {
+  font-size: 2rem;
+  line-height: 1.4; /* Reduced line height from 1.6 to 1.4 to match description spacing */
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
+  padding-left: 2rem;
+  position: relative;
+  margin-bottom: 0.5rem; /* Reduced spacing between bullet points */
+  display: flex;
+  align-items: flex-start;
+}
+
+.banner-v155__description-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  font-size: 2rem; /* Match the font size of the text */
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  font-weight: 700;
+  line-height: 1.4; /* Match the line-height of the text (reduced from 1.6) */
+  top: 0; /* Align with top of text */
+}
+
+/* Add spacing above button for equal spacing */
+.banner-v155__content .button,
+.banner-v155__content .xo-btn,
+.banner-v155__content button {
+  margin-top: 0; /* Button spacing handled by description margin-bottom */
+}
+
+/* Vastu Hero Section - Equal spacing between elements */
+.vastu-hero__content {
+  padding-top: 0; /* Remove top padding */
+}
+
+.vastu-hero__subtitle {
+  margin-bottom: 4.5rem; /* Increased equal spacing between elements */
+  margin-top: 0;
+}
+
+.vastu-hero__title {
+  margin-bottom: 4.5rem; /* Increased equal spacing between elements */
+  margin-top: 0;
+}
+
+.vastu-hero__description {
+  margin-bottom: 4.5rem !important; /* Increased equal spacing between elements - includes spacing before button - important to override last-child rule */
+  margin-top: 0;
+}
+
+.vastu-hero__content .button,
+.vastu-hero__content .xo-btn,
+.vastu-hero__content button {
+  margin-top: 0; /* Spacing handled by description margin-bottom above */
+}
+
+/* Vastu Hindi Statement - Spacing handled by main rule above */
+
+.vastu-hindi-statement__subtext {
+  margin-bottom: 0;
+  margin-top: 0; /* Equal spacing - handled by text margin-bottom above */
+}
+
+/* Enhanced Image Styling */
+.banner-v155__img {
+  position: relative;
+  display: block;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 0.625rem 2.5rem rgb(71 56 85 / 15%);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.banner-v155__img:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 1.25rem 3.75rem rgb(71 56 85 / 25%);
+}
+
+.banner-v155__img img,
+.banner-v155__img picture,
+.banner-v155__img picture img {
+  border-radius: 1.25rem;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+  object-fit: cover;
+  max-width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.banner-v155__img:hover img,
+.banner-v155__img:hover picture img {
+  transform: scale(1.05);
+}
+
+/* Enhanced Button Container - Equal spacing */
+.banner-v155__content .button,
+.banner-v155__content .xo-btn,
+.banner-v155__content button {
+  margin-top: 0; /* Spacing handled by description margin-bottom above */
+}
+
+/* Grid Item Enhancements */
+.banner-v155__item--left {
+  display: flex;
+  align-items: center;
+  padding-right: 0 !important;
+
+  --pr: 0 !important;
+  --prrps: 0 !important;
+}
+
+.banner-v155__item--right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: transparent;
+  margin-top: 0;
+}
+
+.banner-v155__item--right > div {
+  width: 100%;
+  background: transparent;
+  padding: 0;
+}
+
+.banner-v155__item--right > div.hover-scale_up,
+.banner-v155__item--right > div[class*="hover-"],
+.banner-v155__item--right > div[class*="hover-style"] {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.banner-v155__item--right * {
+  background-color: transparent;
+}
+
+.banner-v155__item--right .banner-v155__img {
+  background: transparent;
+  box-shadow: none;
+}
+
+.banner-v155__item--right .banner-v155__img:hover {
+  box-shadow: none;
+}
+
+/* Carousel Image Visibility Fix - Proper Carousel Behavior */
+.banner-v155__item--right xo-carousel {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  padding-bottom: 3rem; /* Space for pagination dots */
+}
+
+.banner-v155__item--right xo-carousel-inner {
+  width: 100%;
+  position: relative;
+}
+
+.banner-v155__item--right xo-carousel-list {
+  width: 100%;
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.banner-v155__item--right xo-carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  display: block;
+}
+
+.banner-v155__item--right xo-carousel-slide > div {
+  width: 100%;
+  display: block;
+}
+
+.banner-v155__item--right xo-carousel-slide .banner-v155__img {
+  width: 100%;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.banner-v155__item--right xo-carousel-slide .banner-v155__img img,
+.banner-v155__item--right xo-carousel-slide .banner-v155__img picture,
+.banner-v155__item--right xo-carousel-slide .banner-v155__img picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Vastu Banner Carousel Pagination - Move dots lower */
+.banner-v155__carousel-pagination,
+section[class*="banner-v3"] .banner-v155__carousel-pagination,
+section[class*="banner-v155"] .banner-v155__carousel-pagination,
+.banner-v155__item--right .banner-v155__carousel-pagination,
+.banner-v155__item--right .carousel-pagination-style3 {
+  position: absolute !important;
+  bottom: 0.5rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 100 !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.banner-v155__carousel-pagination .carousel-pagination-style3__pagination-wrap,
+section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-pagination-style3__pagination-wrap {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+@media (width <= 48rem) {
+  .banner-v155__carousel-pagination,
+  section[class*="banner-v3"] .banner-v155__carousel-pagination,
+  section[class*="banner-v155"] .banner-v155__carousel-pagination {
+    bottom: -1.5rem !important;
+    margin-top: 0.75rem;
+  }
+}
+
+/* Mobile Responsive */
+@media (width <= 48rem) {
+  /* Mobile: Scale down headings proportionally */
+  .blog-v2__title,
+  section h2,
+  section h3,
+  .xo-section-heading__title {
+    font-size: 2.5rem;
+  }
+  
+  /* Vastu Kit Banner on mobile */
+  .banner-v155__title {
+    font-size: 3.5rem;
+  }
+  
+  /* Best sellers and featured products on mobile */
+  .vastu-best-seller__section-title,
+  .vastu-featured-products__section-title {
+    font-size: 2.5rem;
+  }
+  
+  .banner-v155__description {
+    font-size: 2rem;
+    max-width: 100%;
+  }
+  
+  .banner-v155__img {
+    padding: 0;
+    border-radius: 1rem;
+  }
+  
+  .banner-v155__content {
+    padding: 0 0 1.5rem;
+    text-align: left;
+  }
+  
+  .banner-v155__item--left {
+    padding-left: 0;
+    padding-right: 0;
+
+    --pl: 0;
+    --pr: 0;
+    --plrps: 0;
+    --prrps: 0;
+
+    order: 2;
+  }
+  
+  .banner-v155__item--right {
+    order: 1;
+  }
+  
+  .banner-v155__title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Product Page - Increase width for variant option labels */
+.xo-product-info-variant .xo-field-radio__label,
+.xo-product-variant .xo-field-radio__label {
+  min-width: auto;
+  width: auto;
+  max-width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 1.4rem 0.8rem !important;
+  display: inline-block;
+}
+
+/* Fix internal padding for boxed size options */
+.xo-product-info-variant .xo-field-radio--boxed .xo-field-radio__label,
+.xo-product-variant .xo-field-radio--boxed .xo-field-radio__label,
+.xo-product-info-variant .xo-field-radio--boxed2 .xo-field-radio__label,
+.xo-product-variant .xo-field-radio--boxed2 .xo-field-radio__label,
+.xo-product-info-variant .xo-field-radio--boxed3 .xo-field-radio__label,
+.xo-product-variant .xo-field-radio--boxed3 .xo-field-radio__label {
+  padding: 1.4rem 0.8rem !important;
+  min-height: auto;
+}
+
+.xo-product-info-variant .xo-field-radio,
+.xo-product-variant .xo-field-radio {
+  min-width: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Ensure labels can expand to fit content */
+.xo-product-info-variant__inner .xo-field-radio__label,
+.xo-product-variant__inner .xo-field-radio__label {
+  flex: 1 1 auto;
+  min-width: fit-content;
+}
+
+/* Fix spacing for size options - reduce gap between variant options */
+.xo-product-info-variant__inner,
+.xo-product-variant__inner {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem !important;
+  gap: 0.75rem !important;
+  align-items: flex-start !important;
+}
+
+.xo-product-info-variant__inner .xo-field-radio,
+.xo-product-variant__inner .xo-field-radio {
+  margin: 0 !important;
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Ensure variant labels are properly aligned */
+.xo-product-info-variant__inner .xo-field-radio__label,
+.xo-product-variant__inner .xo-field-radio__label {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* Product Variant Modal - Hide by default and add padding */

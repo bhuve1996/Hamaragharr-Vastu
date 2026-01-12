@@ -1,0 +1,335 @@
+.product-recommendations-section .xo-section-heading__title,
+section[class*="product-recommendations"] .xo-section-heading__title,
+section[id*="product-recommendations"] .xo-section-heading__title,
+section[id*="section-"] .xo-section-heading__title,
+.product-recommendations .xo-section-heading__title,
+.xo-section--product-recommendations .xo-section-heading__title,
+xo-product-recommendations .xo-section-heading__title,
+.product-recommendations-section h2.xo-section-heading__title,
+section[class*="product-recommendations"] h2.xo-section-heading__title,
+section[id*="product-recommendations"] h2.xo-section-heading__title {
+  margin-bottom: 32px !important;
+}
+
+/* Vastu Best Seller and Featured Products titles - Consistent 3.5rem */
+.vastu-best-seller__section-title,
+.vastu-featured-products__section-title {
+  font-size: var(--title-font-size, var(--font-size-heading, 3.5rem));
+  font-weight: var(--title-font-weight, var(--font-weight-bold, 700));
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.2;
+  padding-bottom: 7rem;
+}
+
+.vastu-featured-products__question {
+  font-size: var(--font-size-description, 1.6rem);
+  line-height: 1.6;
+  text-align: center;
+  margin: 0 auto 2rem;
+  max-width: 800px;
+  color: rgb(var(--color-foreground, 0, 0, 0));
+  opacity: 0.9;
+}
+
+/* Blog title - Consistent 3.5rem */
+.blog-v2__title {
+  font-size: var(--title-font-size, var(--font-size-heading, 3.5rem));
+  font-weight: var(--title-font-weight, var(--font-weight-bold, 700));
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.2;
+  padding-bottom: 7rem;
+}
+
+/* Buttons - Consistent 2.5rem font size (font size only, no padding) */
+.button,
+.xo-btn,
+button,
+.button-label {
+  font-size: var(--font-size-button, 2.5rem);
+}
+
+/* Large padding buttons - Only for specific sections that need it */
+.vastu-button-large-padding,
+.banner-v155__content .button,
+.banner-v155__content .xo-btn,
+.banner-v155__content button,
+.slideshow-v28__text--overlay .button,
+.slideshow-v28__text--overlay .xo-btn,
+.slideshow-v28__text--overlay button {
+  font-size: var(--font-size-button, 2.5rem);
+  padding-left: 4.6875rem !important; /* 3.75rem * 1.25 = 4.6875rem (25% increase) */
+  padding-right: 4.6875rem !important; /* 3.75rem * 1.25 = 4.6875rem (25% increase) */
+  min-height: calc(7.03125rem + var(--buttons-border-width, 0) * 2) !important; /* 5.625rem * 1.25 = 7.03125rem (25% increase) */
+}
+
+/* Override xo-btn text size with higher specificity */
+.xo-btn--md .xo-btn__text[data-text],
+.xo-btn--md .xo-btn__text,
+.xo-btn .xo-btn__text[data-text],
+.xo-btn .xo-btn__text,
+.xo-btn__text {
+  font-size: 2.5rem !important; /* Increased text size - override any calc() rules */
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+  position: relative !important;
+  display: inline-block !important;
+  line-height: 1.2 !important;
+  color: white !important;
+}
+
+/* Prevent text overlap - Hide pseudo-elements that duplicate text */
+.xo-btn__text[data-text]::before,
+.xo-btn__text[data-text]::after {
+  display: none !important;
+  content: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Ensure all buttons have proper overflow handling to prevent text overlap */
+.xo-btn,
+button.xo-btn,
+.xo-btn button {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.xo-btn__content {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+}
+
+.xo-btn--small .xo-btn__text,
+.xo-btn--small .xo-btn__text[data-text] {
+  font-size: 2rem !important; /* Increased text size for small buttons */
+}
+
+.button--small {
+  font-size: 2rem; /* Increased text size */
+  padding: 1.875rem 4.0625rem; /* 1.5rem * 1.25 = 1.875rem, 3.25rem * 1.25 = 4.0625rem (25% increase) */
+}
+
+.button--tertiary {
+  font-size: 2rem; /* Increased text size */
+  padding: 1.5625rem 2.34375rem; /* 1.25rem * 1.25 = 1.5625rem, 1.875rem * 1.25 = 2.34375rem (25% increase) */
+}
+
+.vastu-best-seller__section-title::after,
+.vastu-featured-products__section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--title-underline-width, 5rem);
+  height: var(--title-underline-height, 0.25rem);
+  background-color: var(--title-underline-color, #473855);
+  border-radius: 0.125rem;
+}
+
+/* Blog title underline - use fixed values to match other sections */
+.blog-v2__title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #473855;
+  border-radius: 0.125rem;
+}
+
+/* Carousel Container - Remove all padding-bottom */
+xo-carousel:has(.vastu-best-seller__pagination),
+xo-carousel:has(.vastu-featured-products__pagination),
+xo-carousel:has(.vastu-trust-bar__pagination),
+xo-carousel:has(.vastu-features-bar__pagination),
+xo-carousel:has(.slideshow-v28__pagination),
+xo-carousel:has(.testimonial-v13__pagination),
+xo-carousel:has(.blog-v2__pagination),
+xo-carousel:has(.blog-v1__pagination),
+xo-carousel:has(.related-article__pagination),
+xo-carousel:has(.product-recommendations__pagination),
+xo-carousel {
+  position: relative;
+  padding-bottom: 0;
+}
+
+/* Fallback for browsers that don't support :has() - target by parent section */
+section[class*="vastu-best-seller"] xo-carousel,
+section[class*="vastu-featured-products"] xo-carousel,
+section[class*="vastu-trust-bar"] xo-carousel,
+section[class*="vastu-features-bar"] xo-carousel,
+section[class*="slideshow-v28"] xo-carousel,
+section[class*="testimonial-v13"] xo-carousel,
+section[class*="blog-v2"] xo-carousel,
+section[class*="blog-v1"] xo-carousel,
+section[class*="related-article"] xo-carousel,
+section[class*="product-recommendations"] xo-carousel,
+.product-recommendations-section xo-carousel,
+.product-recommendations xo-carousel,
+section xo-carousel {
+  position: relative;
+  padding-bottom: 0;
+}
+
+/* Carousel Pagination Positioning - Center All, Outside Content */
+.slideshow-v28__pagination,
+.vastu-trust-bar__pagination,
+.vastu-features-bar__pagination,
+.blog-v2__pagination,
+.carousel-pagination-style3 {
+  position: absolute;
+  bottom: 0.625rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  pointer-events: auto;
+}
+
+/* Testimonial pagination - positioned lower */
+.testimonial-v13__pagination {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  pointer-events: auto;
+  margin-top: 1.5rem;
+}
+
+/* Move vastu best seller and featured products pagination further below */
+.vastu-best-seller__pagination,
+.vastu-featured-products__pagination {
+  position: absolute;
+  bottom: -32px; /* Moved further below (32px) */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  pointer-events: auto;
+  margin-top: 32px; /* Additional spacing */
+}
+
+/* Blog pagination dots - positioned lower (matching best seller and featured products) */
+.blog-v2__pagination {
+  position: absolute;
+  bottom: -32px; /* Moved further below (32px) - matching other sections */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  margin-top: 32px; /* Additional spacing */
+}
+
+/* Product recommendations pagination - positioned below carousel */
+.product-recommendations__pagination,
+.product-recommendations__pagination--related {
+  position: absolute;
+  bottom: -32px; /* Moved further below (32px) - matching other sections */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  pointer-events: auto;
+  margin-top: 32px; /* Additional spacing */
+}
+
+.carousel-pagination-style3__pagination-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Carousel Pagination Bullets - Active State Styling for Vastu Section */
+.banner-v155__carousel-pagination xo-carousel-pagination span,
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination span,
+.banner-v155__carousel-pagination .carousel-pagination-style3__pagination span,
+section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-pagination-style3__pagination span {
+  display: inline-block !important;
+  width: 0.5rem !important;
+  height: 0.5rem !important;
+  border-radius: 50% !important;
+  background-color: rgb(71 56 85 / 30%) !important;
+  margin: 0 0.25rem !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1 !important;
+}
+
+/* Active bullet styling - Multiple selectors to catch all cases */
+.banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span,
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span,
+.banner-v155__carousel-pagination xo-carousel-pagination span[aria-current="true"],
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination span[aria-current="true"],
+.banner-v155__carousel-pagination xo-carousel-pagination span.is-active,
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination span.is-active,
+.banner-v155__carousel-pagination xo-carousel-pagination span[class*="active"],
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination span[class*="active"] {
+  background-color: rgb(71 56 85) !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  opacity: 1 !important;
+}
+
+/* Target the bullet-active element directly */
+.banner-v155__carousel-pagination xo-carousel-pagination-bullet-active,
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active {
+  display: inline-block !important;
+}
+
+.banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span,
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span {
+  background-color: rgb(71 56 85) !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  opacity: 1 !important;
+}
+
+/* Ensure pagination bullets are visible and styled */
+.banner-v155__carousel-pagination xo-carousel-pagination::part(bullet),
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination::part(bullet) {
+  background-color: rgb(71 56 85 / 30%) !important;
+}
+
+.banner-v155__carousel-pagination xo-carousel-pagination::part(bullet-active),
+section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination::part(bullet-active) {
+  background-color: rgb(71 56 85) !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+}
+
+/* Ensure carousel inner content has no padding-bottom */
+xo-carousel:has(.vastu-best-seller__pagination) xo-carousel-inner,

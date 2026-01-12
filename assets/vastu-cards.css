@@ -1,0 +1,775 @@
+/* ============================================
+   VASTU CARDS - Best Seller & Featured Products
+   ============================================
+   
+   DISABLED - Now using unified vastu-product-card.css
+   This file is kept for reference but commented out.
+   
+   /*
+
+/* Ensure Best Seller section uses wide container (no box) - consistent with other sections */
+section[class*="vastu-best-seller"] xo-container.xo-container--wide,
+section[class*="vastu-best-seller"] xo-container {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Override any box container styling if accidentally applied */
+section[class*="vastu-best-seller"] xo-container.xo-container--box {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Card Base - Shared Styles */
+.vastu-best-seller-card,
+.vastu-featured-products__card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: stretch;
+}
+
+/* Carousel Slide & Grid Container - Equal Heights */
+.vastu-featured-products__grid > *,
+.vastu-featured-products__grid .vastu-featured-products__card,
+.vastu-best-seller-card__actions-overlay > *,
+.vastu-featured-products__actions-overlay > *,
+.vastu-best-seller-card__actions-overlay *,
+.vastu-featured-products__actions-overlay *,
+xo-carousel-slide:has(.vastu-best-seller-card),
+xo-grid > *:has(.vastu-best-seller-card),
+section[class*="vastu-best-seller"] xo-carousel-slide,
+section[class*="vastu-best-seller"] xo-grid > *,
+section[class*="vastu-featured-products"] xo-carousel-list,
+section[class*="vastu-featured-products"] xo-carousel-slide,
+.vastu-featured-products__grid {
+  display: flex;
+  align-items: stretch;
+}
+
+xo-carousel-slide:has(.vastu-best-seller-card),
+xo-grid > *:has(.vastu-best-seller-card),
+section[class*="vastu-best-seller"] xo-carousel-slide .vastu-best-seller-card,
+section[class*="vastu-best-seller"] xo-grid > * .vastu-best-seller-card,
+section[class*="vastu-featured-products"] xo-carousel-slide .vastu-featured-products__card {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+section[class*="vastu-best-seller"] xo-carousel-slide,
+section[class*="vastu-best-seller"] xo-carousel-inner,
+section[class*="vastu-featured-products"] xo-carousel-slide,
+section[class*="vastu-featured-products"] xo-carousel-inner {
+  overflow: visible;
+}
+
+/* Fix carousel inner - override grid display that forces single column */
+section[class*="vastu-best-seller"] xo-carousel-inner {
+  display: block !important;
+  grid: none !important;
+  position: relative;
+  z-index: 9;
+}
+
+/* Ensure carousel list is flex and allows multiple items */
+section[class*="vastu-best-seller"] xo-carousel-list {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+/* Ensure carousel slides respect per-view setting - don't force full width */
+
+/* The carousel component calculates width based on xo-per-view, so we must not override it */
+section[class*="vastu-best-seller"] xo-carousel-slide {
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  flex: 0 0 auto;
+}
+
+/* Ensure carousel calculates slide widths correctly */
+section[class*="vastu-best-seller"] xo-carousel {
+  width: 100%;
+  display: block;
+}
+
+/* Mobile: Ensure 1 product shows (xo-per-view='1' at 768px breakpoint) */
+@media (width <= 767px) {
+  section[class*="vastu-best-seller"] xo-carousel-slide {
+    width: auto;
+    flex-basis: auto;
+  }
+}
+
+/* Desktop: Ensure 3 products show (xo-per-view='3' default) */
+@media (width >= 768px) {
+  section[class*="vastu-best-seller"] xo-carousel-slide {
+    width: auto;
+    flex-basis: auto;
+  }
+}
+
+.vastu-featured-products__grid > * {
+  display: flex;
+  height: 100%;
+}
+
+/* Card Link */
+.vastu-best-seller-card__link,
+.vastu-featured-products__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  pointer-events: auto;
+}
+
+/* Image Container - Aspect Ratio Maintained on Desktop & Mobile */
+.vastu-best-seller-card__image,
+.vastu-featured-products__image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  aspect-ratio: 4 / 3;
+}
+
+/* Ensure aspect ratio is maintained on mobile */
+@media (width <= 767px) {
+  .vastu-best-seller-card__image,
+  .vastu-featured-products__image {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Ensure aspect ratio is maintained on desktop */
+@media (width >= 768px) {
+  .vastu-best-seller-card__image,
+  .vastu-featured-products__image {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.vastu-best-seller-card__image img,
+.vastu-featured-products__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform var(--transition-base);
+}
+
+/* Featured Products Icon SVG */
+.vastu-featured-products__icon-svg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  min-height: 12.5rem;
+}
+
+.vastu-featured-products__icon-svg svg {
+  width: 100%;
+  height: 100%;
+  max-width: 9.375rem;
+  max-height: 9.375rem;
+  fill: currentColor;
+}
+
+/* Card Content */
+.vastu-best-seller-card__content,
+.vastu-featured-products__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--content-padding-top, var(--padding-card-content-top)) 0
+    var(--content-padding-bottom, var(--padding-card-content-bottom)) 0;
+  text-align: left;
+  min-height: 0;
+}
+
+/* Card Title */
+h3.vastu-best-seller-card__title,
+h3.vastu-featured-products__title,
+.vastu-best-seller-card__title,
+.vastu-featured-products__title,
+.vastu-best-seller-card h3.vastu-best-seller-card__title,
+.vastu-featured-products__card h3.vastu-featured-products__title,
+.vastu-best-seller-card__content .vastu-best-seller-card__title,
+.vastu-featured-products__content .vastu-featured-products__title {
+  font-size: var(--card-title-size, var(--font-size-card-title));
+  font-weight: 450;
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  min-height: calc(var(--card-title-size, 1.5rem) * 1.4 * 2);
+  height: calc(var(--card-title-size, 1.5rem) * 1.4 * 2);
+  flex-shrink: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+
+/* Card Price */
+.vastu-best-seller-card__price,
+.vastu-featured-products__price {
+  font-size: calc(var(--card-price-size, 1.2rem) * 1.4);
+  font-weight: var(--font-weight-bold);
+  color: rgb(var(--color-secondary-button));
+  margin: var(--margin-price-top) 0 var(--margin-price-bottom) 0;
+  padding: var(--padding-price) var(--padding-md);
+  background: linear-gradient(
+    135deg,
+    rgba(var(--color-secondary-button), 0.05) 0%,
+    rgba(var(--color-secondary-button), 0.1) 100%
+  );
+  border-radius: var(--radius-md);
+  display: inline-block;
+  width: fit-content;
+  border: 1px solid rgba(var(--color-secondary-button), 0.15);
+}
+
+/* Price Overlay */
+.vastu-best-seller-card__price--overlay,
+.vastu-featured-products__price--overlay {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  z-index: 2;
+  margin: 0;
+  background: rgba(var(--color-secondary-button), 0.9);
+  color: rgb(var(--color-secondary-button-text));
+  padding: var(--padding-price-overlay-v) var(--padding-price-overlay-h);
+  border-radius: var(--radius-md);
+  font-size: var(--card-price-size, 1.2rem);
+  font-weight: var(--font-weight-semibold);
+  backdrop-filter: blur(4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Badge */
+.vastu-best-seller-card__badge {
+  position: absolute;
+  top: var(--badge-top, var(--spacing-sm));
+  left: var(--badge-left, var(--spacing-sm));
+  background: rgb(var(--color-secondary-button));
+  color: rgb(var(--color-secondary-button-text));
+  padding: var(--badge-padding-v, var(--padding-badge-v)) var(--badge-padding-h, var(--padding-badge-h));
+  border-radius: var(--radius-sm);
+  font-size: var(--badge-font-size, var(--font-size-tag));
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  z-index: 2;
+  line-height: 1.2;
+}
+
+/* Actions Overlay */
+.vastu-best-seller-card__actions-overlay,
+.vastu-featured-products__actions-overlay {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  z-index: var(--z-overlay);
+  opacity: 1;
+  transition: opacity var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+  pointer-events: auto;
+  width: auto;
+  height: auto;
+}
+
+
+/* Icon Buttons in Overlay */
+.vastu-best-seller-card__actions-overlay .xo-product-card__icon,
+.vastu-best-seller-card__actions-overlay xo-tooltip,
+.vastu-best-seller-card__actions-overlay xo-toggle-trigger,
+.vastu-best-seller-card__actions-overlay xo-modal-trigger,
+.vastu-best-seller-card__actions-overlay xo-cart-add,
+.vastu-featured-products__actions-overlay .xo-product-card__icon,
+.vastu-featured-products__actions-overlay xo-tooltip,
+.vastu-featured-products__actions-overlay xo-toggle-trigger,
+.vastu-featured-products__actions-overlay xo-modal-trigger,
+.vastu-featured-products__actions-overlay xo-cart-add {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: calc(var(--z-overlay) + 2);
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  max-width: 2.5rem;
+  max-height: 2.5rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+  flex-grow: 0;
+  box-sizing: border-box;
+  aspect-ratio: 1;
+}
+
+.vastu-best-seller-card__actions-overlay button,
+.vastu-featured-products__actions-overlay button,
+.vastu-best-seller-card__actions-overlay xo-tooltip button,
+.vastu-best-seller-card__actions-overlay xo-toggle-trigger button,
+.vastu-best-seller-card__actions-overlay xo-modal-trigger button,
+.vastu-featured-products__actions-overlay xo-tooltip button,
+.vastu-featured-products__actions-overlay xo-toggle-trigger button,
+.vastu-featured-products__actions-overlay xo-modal-trigger button,
+.vastu-best-seller-card__actions-overlay .xo-product-card__icon button,
+.vastu-featured-products__actions-overlay .xo-product-card__icon button {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: calc(var(--z-overlay) + 2);
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  max-width: 2.5rem;
+  max-height: 2.5rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: rgba(var(--color-primary-bg), 0.95);
+  color: rgb(var(--color-secondary-button));
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  line-height: 1;
+  flex-shrink: 0;
+  flex-grow: 0;
+  box-sizing: border-box;
+  aspect-ratio: 1;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
+}
+
+/* Hover State - Invert Colors */
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay button,
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay xo-tooltip button,
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay xo-toggle-trigger button,
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay xo-modal-trigger button,
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay xo-tooltip button,
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay xo-toggle-trigger button,
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay xo-modal-trigger button,
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay button,
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay .xo-product-card__icon button,
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay .xo-product-card__icon button {
+  background-color: rgb(var(--color-secondary-button));
+  color: rgb(var(--color-secondary-button-text));
+}
+
+/* Icon Styles */
+.vastu-featured-products__actions-overlay button svg,
+.vastu-featured-products__actions-overlay button .icon,
+.vastu-best-seller-card__actions-overlay button svg,
+.vastu-best-seller-card__actions-overlay button .icon,
+.vastu-best-seller-card__actions-overlay .xo-product-card__icon svg,
+.vastu-best-seller-card__actions-overlay .xo-product-card__icon .icon,
+.vastu-featured-products__actions-overlay .xo-product-card__icon svg,
+.vastu-featured-products__actions-overlay .xo-product-card__icon .icon {
+  display: block;
+  margin: auto;
+  fill: currentColor;
+  color: inherit;
+}
+
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay button svg,
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay button .icon,
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay button svg,
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay button .icon,
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay .xo-product-card__icon svg,
+.vastu-best-seller-card:hover .vastu-best-seller-card__actions-overlay .xo-product-card__icon .icon,
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay .xo-product-card__icon svg,
+.vastu-featured-products__card:hover .vastu-featured-products__actions-overlay .xo-product-card__icon .icon {
+  fill: currentColor;
+  color: rgb(var(--color-secondary-button-text));
+}
+
+/* Add to Cart Button - Section-Specific with Parent Scoping */
+section[class*="vastu-featured-products"] .vastu-featured-products__content .vastu-featured-products__add-to-cart button,
+section[class*="vastu-best-seller"] .vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart,
+section[class*="vastu-featured-products"] .vastu-featured-products__content .vastu-featured-products__add-to-cart {
+  margin-top: auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Secondary Button (Purple/Black Background, White Text) - Default for Cards */
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  button,
+section[class*="vastu-best-seller"] .vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart .xo-btn,
+section[class*="vastu-best-seller"] .vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart button,
+section[class*="vastu-best-seller"] .vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart xo-cart-add,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  xo-toggle-trigger,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  xo-cart-add,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  xo-toggle-trigger {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 0.75rem;
+  padding: var(--padding-button-v) var(--padding-button-h);
+  background-color: rgb(var(--color-secondary-button));
+  color: rgb(var(--color-secondary-button-text));
+  border: none;
+  font-size: var(--font-size-button);
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  transition:
+    all var(--transition-base),
+    transform var(--transition-fast);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Secondary Button Style - Explicit */
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn--secondary,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn.xo-btn--secondary,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  button.xo-btn--secondary,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn--secondary,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn.xo-btn--secondary,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  button.xo-btn--secondary {
+  background-color: rgb(var(--color-secondary-button, 71, 56, 85));
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+}
+
+/* Primary Button Style (White Background, Black Text) */
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn--primary,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn.xo-btn--primary,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  button.xo-btn--primary,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn--primary,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn.xo-btn--primary,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  button.xo-btn--primary {
+  background-color: rgb(var(--color-button, 255, 255, 255));
+  color: rgb(var(--color-button-text, 0, 0, 0));
+  border: 1px solid rgba(var(--color-border, 0, 0, 0), 0.1);
+}
+
+/* Active States - Section-Specific */
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn:active,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  button:active,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn:active,
+section[class*="vastu-best-seller"] .vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Hover States - Section-Specific */
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn--secondary:hover,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  button.xo-btn--secondary:hover,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn--secondary:hover,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  button.xo-btn--secondary:hover,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn:hover:not(.xo-btn--primary),
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  button:hover:not(.xo-btn--primary),
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn:hover:not(.xo-btn--primary),
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  button:hover:not(.xo-btn--primary) {
+  background-color: rgba(var(--color-secondary-button), 0.9);
+  color: rgb(var(--color-secondary-button-text));
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn--primary:hover,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  button.xo-btn--primary:hover,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn--primary:hover,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  button.xo-btn--primary:hover {
+  background-color: rgba(var(--color-button, 255, 255, 255), 0.95);
+  color: rgb(var(--color-button-text, 0, 0, 0));
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Cart Add Wrapper - Section-Specific */
+section[class*="vastu-best-seller"] .vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart xo-cart-add,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  xo-toggle-trigger,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  xo-cart-add,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  xo-toggle-trigger {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Button Text and Content - Section-Specific */
+section[class*="vastu-best-seller"] .vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart .xo-btn__text,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn__content,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn__text,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn__content,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  button:not(.xo-btn--primary),
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn:not(.xo-btn--primary),
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  button:not(.xo-btn--primary),
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn:not(.xo-btn--primary) {
+  color: rgb(var(--color-secondary-button-text));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-button);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transform: none;
+  line-height: 1.2;
+  padding: 0 var(--spacing-xs);
+  box-sizing: border-box;
+}
+
+/* Primary Button Text Color */
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  button.xo-btn--primary,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn.xo-btn--primary,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn--primary
+  .xo-btn__text,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  button.xo-btn--primary,
+section[class*="vastu-best-seller"]
+  .vastu-best-seller-card__content
+  .vastu-best-seller-card__add-to-cart
+  .xo-btn.xo-btn--primary,
+section[class*="vastu-featured-products"]
+  .vastu-featured-products__content
+  .vastu-featured-products__add-to-cart
+  .xo-btn--primary
+  .xo-btn__text {
+  color: rgb(var(--color-button-text, 0, 0, 0));
+}
+
+.vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart .xo-btn--circle,
+.vastu-best-seller-card__content .vastu-best-seller-card__add-to-cart button[class*="circle"],
+.vastu-featured-products__content .vastu-featured-products__add-to-cart .xo-btn--circle,
+.vastu-featured-products__content .vastu-featured-products__add-to-cart button[class*="circle"] {
+  border-radius: var(--radius-sm);
+  width: 100%;
+  aspect-ratio: auto;
+}
+
+/* Featured Products Concern Tags */
+.vastu-featured-products__concern-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+  min-height: 2.5rem;
+  flex-shrink: 0;
+}
+
+.vastu-featured-products__concern-tag {
+  display: inline-block;
+  font-size: var(--font-size-tag);
+  font-weight: var(--font-weight-semibold);
+  padding: 0.6rem 1.15rem;
+  background: var(--color-hex-purple);
+  color: var(--color-hex-white);
+  border: none;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  line-height: 1.3;
+  box-shadow: 0 2px 6px rgba(var(--color-purple), 0.3);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.vastu-featured-products__concern-tag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(var(--color-purple), 0.4);
+}
+
+.vastu-featured-products__concern-tags--overlay {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  z-index: var(--z-overlay);
+  margin: 0;
+  max-width: calc(100% - 1.5rem);
+}
+
+.vastu-featured-products__concern-tags--overlay .vastu-featured-products__concern-tag {
+  background: rgba(var(--color-primary-bg), 0.95);
+  backdrop-filter: blur(4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Hide Description */
+.vastu-best-seller-card__description {
+  display: none;
+}

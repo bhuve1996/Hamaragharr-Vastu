@@ -1,0 +1,243 @@
+
+.slideshow-v28__text--overlay .slideshow-v28__subtitle,
+.slideshow-v28__text--overlay .slideshow-v28__title,
+.slideshow-v28__text--overlay .slideshow-v28__description {
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.slideshow-v28__text--overlay .slideshow-v28__button,
+.slideshow-v28__text--overlay .button {
+  margin-left: 0;
+  margin-right: auto;
+  display: inline-block;
+}
+
+/* Ensure regular slideshow text (non-overlay) is also left-aligned for consistency */
+.slideshow-v28__text:not(.slideshow-v28__text--overlay) {
+  text-align: left;
+}
+
+.slideshow-v28__text:not(.slideshow-v28__text--overlay) .slideshow-v28__subtitle,
+.slideshow-v28__text:not(.slideshow-v28__text--overlay) .slideshow-v28__title,
+.slideshow-v28__text:not(.slideshow-v28__text--overlay) .slideshow-v28__description {
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.slideshow-v28__text:not(.slideshow-v28__text--overlay) .slideshow-v28__button,
+.slideshow-v28__text:not(.slideshow-v28__text--overlay) .button {
+  margin-left: 0;
+  margin-right: auto;
+  display: inline-block;
+}
+
+
+/* Responsive adjustments */
+@media (width <= 48rem) {
+  /* Carousel title on mobile - adjust from 5rem to smaller size */
+  .slideshow-v28__title,
+  .slideshow-v28__text--overlay .slideshow-v28__title {
+    font-size: 2.5rem;
+
+    --fontsize: 2.5rem;
+  }
+  
+  /* Mobile padding for carousel text */
+  .slideshow-v28__text--overlay {
+    padding-left: var(--xo-container-gap, 1.25rem);
+    padding-right: var(--xo-container-gap, 1.25rem);
+  }
+  
+  
+  .banner-v155__title {
+    font-size: 3.5rem;
+  }
+  
+  .banner-v155__subtitle {
+    font-size: 2rem;
+  }
+  
+  .vastu-best-seller__section-title,
+  .vastu-featured-products__section-title {
+    font-size: 2.5rem;
+  }
+  
+  .vastu-featured-products__icon-svg {
+    min-height: 9.375rem;
+    padding: 1.5rem;
+  }
+  
+  .vastu-featured-products__icon-svg svg {
+    max-width: 6.25rem;
+    max-height: 6.25rem;
+  }
+  
+  .vastu-trust-bar__icon,
+  .vastu-trust-bar__icon-svg {
+    width: 8rem; /* Doubled from 4rem to 8rem for mobile */
+    height: 8rem; /* Doubled from 4rem to 8rem for mobile */
+  }
+  
+  .vastu-features-bar__icon,
+  .vastu-features-bar__icon-svg {
+    width: 18rem;
+    height: 18rem;
+    min-width: 18rem;
+    min-height: 18rem;
+  }
+  
+  xo-carousel:has(.vastu-best-seller__pagination),
+  xo-carousel:has(.vastu-featured-products__pagination),
+  xo-carousel:has(.vastu-trust-bar__pagination),
+  xo-carousel:has(.vastu-features-bar__pagination),
+  xo-carousel:has(.slideshow-v28__pagination),
+  xo-carousel:has(.testimonial-v13__pagination),
+  xo-carousel:has(.blog-v2__pagination),
+  xo-carousel:has(.blog-v1__pagination),
+  xo-carousel:has(.related-article__pagination),
+  xo-carousel:has(.product-recommendations__pagination),
+  section[class*="vastu-best-seller"] xo-carousel,
+  section[class*="vastu-featured-products"] xo-carousel,
+  section[class*="vastu-trust-bar"] xo-carousel,
+  section[class*="vastu-features-bar"] xo-carousel,
+  section[class*="slideshow-v28"] xo-carousel,
+  section[class*="testimonial-v13"] xo-carousel,
+  section[class*="blog-v2"] xo-carousel,
+  section[class*="blog-v1"] xo-carousel,
+  section[class*="related-article"] xo-carousel,
+  section[class*="product-recommendations"] xo-carousel,
+  .product-recommendations-section xo-carousel,
+  .product-recommendations xo-carousel {
+    padding-bottom: 0;
+  }
+  
+  .slideshow-v28__pagination,
+  .vastu-best-seller__pagination,
+  .vastu-featured-products__pagination,
+  .vastu-trust-bar__pagination {
+    bottom: -48px !important; /* Shift trust bar dots further down on mobile */
+    margin-top: 32px; /* Additional spacing */
+  }
+  
+  .vastu-features-bar__pagination,
+  .blog-v2__pagination,
+  .product-recommendations__pagination,
+  .product-recommendations__pagination--related {
+    bottom: -24px; /* Adjusted for mobile - positioned below */
+    margin-top: 24px; /* Additional spacing */
+  }
+  
+  .testimonial-v13__pagination {
+    bottom: -2.5rem !important; /* Adjusted for mobile - positioned lower */
+    margin-top: 1.5rem !important; /* Additional spacing */
+  }
+
+  /* Mobile section padding - use template values for consistent spacing */
+
+  /* No override needed - sections will use their template padding values */
+}
+
+/* Tablet: Medium padding for pagination (consistent with section margins) */
+@media (width >= 46.875rem) and (width <= 61.8125rem) {
+  xo-carousel:has(.vastu-best-seller__pagination),
+  xo-carousel:has(.vastu-featured-products__pagination),
+  xo-carousel:has(.vastu-trust-bar__pagination),
+  xo-carousel:has(.vastu-features-bar__pagination),
+  xo-carousel:has(.slideshow-v28__pagination),
+  xo-carousel:has(.testimonial-v13__pagination),
+  xo-carousel:has(.blog-v2__pagination),
+  xo-carousel:has(.blog-v1__pagination),
+  xo-carousel:has(.related-article__pagination),
+  xo-carousel:has(.product-recommendations__pagination),
+  section[class*="vastu-best-seller"] xo-carousel,
+  section[class*="vastu-featured-products"] xo-carousel,
+  section[class*="vastu-trust-bar"] xo-carousel,
+  section[class*="vastu-features-bar"] xo-carousel,
+  section[class*="slideshow-v28"] xo-carousel,
+  section[class*="testimonial-v13"] xo-carousel,
+  section[class*="blog-v2"] xo-carousel,
+  section[class*="blog-v1"] xo-carousel,
+  section[class*="related-article"] xo-carousel,
+  section[class*="product-recommendations"] xo-carousel,
+  .product-recommendations-section xo-carousel,
+  .product-recommendations xo-carousel {
+    padding-bottom: 0;
+  }
+  
+  xo-carousel:has(.vastu-best-seller__pagination) xo-carousel-inner,
+  xo-carousel:has(.vastu-featured-products__pagination) xo-carousel-inner,
+  xo-carousel:has(.vastu-trust-bar__pagination) xo-carousel-inner,
+  xo-carousel:has(.vastu-features-bar__pagination) xo-carousel-inner,
+  xo-carousel:has(.slideshow-v28__pagination) xo-carousel-inner,
+  xo-carousel:has(.testimonial-v13__pagination) xo-carousel-inner,
+  xo-carousel:has(.blog-v2__pagination) xo-carousel-inner,
+  xo-carousel:has(.blog-v1__pagination) xo-carousel-inner,
+  xo-carousel:has(.related-article__pagination) xo-carousel-inner,
+  xo-carousel:has(.product-recommendations__pagination) xo-carousel-inner,
+  section[class*="vastu-best-seller"] xo-carousel-inner,
+  section[class*="vastu-featured-products"] xo-carousel-inner,
+  section[class*="vastu-trust-bar"] xo-carousel-inner,
+  section[class*="vastu-features-bar"] xo-carousel-inner,
+  section[class*="slideshow-v28"] xo-carousel-inner,
+  section[class*="testimonial-v13"] xo-carousel-inner,
+  section[class*="blog-v2"] xo-carousel-inner,
+  section[class*="blog-v1"] xo-carousel-inner,
+  section[class*="related-article"] xo-carousel-inner {
+    padding-bottom: 0;
+  }
+}
+
+/* Testimonials Section - Complete Redesign */
+section[class*="testimonial-v2"],
+section[class*="testimonial-v13"] {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: #473855;
+  position: relative;
+}
+
+/* Testimonials Section - Box Shadow Container */
+section[class*="testimonial-v2"] xo-container,
+section[class*="testimonial-v13"] xo-container {
+  background: #473855;
+  border-radius: 1rem;
+  border-top: 4px solid rgb(255 255 255 / 20%);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 20%), 0 1px 4px rgb(0 0 0 / 15%);
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Testimonial Carousel - 3 per view on desktop */
+section[class*="testimonial-v2"] xo-carousel,
+section[class*="testimonial-v13"] xo-carousel {
+  padding-bottom: 0;
+  overflow: visible;
+}
+
+section[class*="testimonial-v2"] xo-carousel-inner,
+section[class*="testimonial-v13"] xo-carousel-inner {
+  overflow: visible;
+}
+
+section[class*="testimonial-v2"] xo-carousel-list,
+section[class*="testimonial-v13"] xo-carousel-list {
+  overflow: visible;
+}
+
+section[class*="testimonial-v2"] xo-carousel-slide,
+section[class*="testimonial-v13"] xo-carousel-slide {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  overflow: visible;
+  box-sizing: border-box;
+  padding: 0 20px !important; /* Add padding between testimonials */
+  width: 100%;
+  aspect-ratio: auto;
+}
+
+section[class*="testimonial-v2"] xo-carousel-slide .testimonial-v13__item,

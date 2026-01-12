@@ -1,0 +1,27 @@
+/* ULTRA HIGH PRIORITY - Force price overlay visibility - TOP RIGHT - Match collection page styling */
+
+/* Target exact structure: xo-carousel-slide > xo-product > xo-animate > header > price-overlay */
+xo-carousel-slide xo-product .xo-product-card__header .xo-product-card__price-overlay,
+xo-carousel-slide xo-product xo-animate .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-carousel-slide xo-product .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-carousel-slide xo-product xo-animate .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] xo-carousel-slide xo-product xo-animate .xo-product-card__header .xo-product-card__price-overlay,
+section[id*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card__header .xo-product-card__price-overlay,
+section[id*="product-recommendations"] xo-carousel-slide xo-product xo-animate .xo-product-card__header .xo-product-card__price-overlay,
+/* All card styles with exact structure */
+.product-recommendations-section xo-carousel-slide xo-product .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-carousel-slide xo-product .xo-product-card--style2 .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-carousel-slide xo-product .xo-product-card--style3 .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-carousel-slide xo-product .xo-product-card--style4 .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-carousel-slide xo-product .xo-product-card--style5 .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-carousel-slide xo-product .xo-product-card--style6 .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-carousel-slide xo-product .xo-product-card--style7 .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-carousel-slide xo-product .xo-product-card--style8 .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-carousel-slide xo-product .xo-product-card--style9 .xo-product-card__header .xo-product-card__price-overlay,
+.product-recommendations-section xo-carousel-slide xo-product .xo-product-card--style10 .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card--style2 .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card--style3 .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card--style4 .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card--style5 .xo-product-card__header .xo-product-card__price-overlay,

@@ -133,11 +133,7 @@
           }
         }
       },
-      "block_order": [
-        "slide_1",
-        "slideshow_7KaQdB",
-        "slideshow_RB3T9p"
-      ],
+      "block_order": ["slide_1", "slideshow_7KaQdB", "slideshow_RB3T9p"],
       "settings": {
         "width": "fullwidth",
         "fullwidth_margin": 0,
@@ -161,7 +157,7 @@
         "show_price": true,
         "show_description": true,
         "description_truncate_words": 50,
-        "read_more_text": "View in Detail →",
+        "read_more_text": "Read More",
         "show_quantity": true,
         "show_buy_now": true,
         "image_zoom_hover": false,
@@ -174,8 +170,8 @@
         "add_to_cart_text": "",
         "use_custom_title": false,
         "custom_title": "",
-        "use_custom_description": false,
-        "custom_description": ""
+        "use_custom_description": true,
+        "custom_description": "<p>The Hamaragharr Vastu Kit is a complete, self-use Vastu correction solution that helps you identify and fix Vastu imbalances—on your own.</p><p>Built on authentic Vastu Shastra, it transforms traditional wisdom into simple, practical actions—without fear, rituals, or costly consultations. The kit requires no prior Vastu knowledge, no external experts, and comes as one complete, thoughtfully designed solution that makes Vastu correction clear and approachable for modern homes.</p>"
       }
     },
     "vastu-help-address-v1": {
@@ -210,12 +206,7 @@
           }
         }
       },
-      "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4"
-      ],
+      "block_order": ["item_1", "item_2", "item_3", "item_4"],
       "settings": {
         "width": "box",
         "title": "What Does It Help Address?",
@@ -300,7 +291,7 @@
         "card_gDdbeW"
       ],
       "settings": {
-        "width": "box",
+        "width": "wide",
         "title": "Best Sellers",
         "title_font_size": 3.5,
         "title_font_weight": 700,
@@ -371,7 +362,7 @@
             "benefits_title": "✨ How These Remedies Help",
             "benefits_list": "✔ Reduce stress & anxiety|✔ Improve emotional well-being|✔ Create calm & positivity|✔ Support better sleep",
             "recommended_title": "🌿 Recommended Vastu Solutions",
-            "recommended_products": "* Complete Vastu Correction Kit|* Peace & Harmony Wall Paintings|* Energy balancing remedies (can add shree yantra and other things)",
+            "recommended_products": "* Complete Vastu Correction Kit|* Peace & Harmony Wall Paintings|* Energy balancing remedies can add shree yantra and other things",
             "product_list": "golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance",
             "cta_text": "👉 Invite calm energy into your home",
             "cta_link": "shopify://collections/all"
@@ -503,13 +494,7 @@
           }
         }
       },
-      "block_order": [
-        "trust_1",
-        "trust_2",
-        "trust_3",
-        "trust_4",
-        "trust_5"
-      ],
+      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4", "trust_5"],
       "settings": {
         "width": "box",
         "title": "Why Choose Us",

@@ -71,7 +71,5 @@
       }
     }
   },
-  "order": [
-    "footer-v2"
-  ]
+  "order": ["footer-v2"]
 }

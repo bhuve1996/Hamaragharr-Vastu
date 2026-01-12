@@ -1,0 +1,207 @@
+/* Vastu Kit Banner Section - Enhanced Styling */
+.banner-v155 {
+  position: relative;
+}
+
+/* Vastu Kit Section Background - Apply to all banner-v3 sections with enhanced styling */
+.banner-v155 > div {
+  position: relative;
+}
+
+/* Enhanced Content Styling for Banner Sections */
+.banner-v155__content {
+  padding: 0 0 1.25rem; /* Remove top padding, keep bottom */
+  align-self: stretch !important;
+  max-width: none !important;
+  width: 100%;
+  flex: 1;
+  text-align: left;
+}
+
+.banner-v155__subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  margin-bottom: 4.5rem; /* Increased equal spacing between elements */
+  margin-top: 0;
+  opacity: 0.8;
+  text-align: left;
+}
+
+h2.banner-v155__title,
+.banner-v155__title,
+.banner-v155 h2.banner-v155__title,
+.banner-v155__content h2.banner-v155__title,
+section[class*="banner-v3"] .banner-v155__title,
+section[class*="banner-v3"] h2.banner-v155__title {
+  font-size: 4.375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgb(var(--color-foreground, 0, 0, 0));
+  margin-bottom: 4.5rem; /* Increased equal spacing between elements */
+  position: relative;
+  text-align: left;
+  white-space: pre-line; /* Allow line breaks in title */
+  text-transform: uppercase;
+}
+
+.banner-v155__title::after {
+  content: "";
+  position: absolute;
+  bottom: -2.25rem; /* Positioned in the middle of 4.5rem spacing (2.25rem from bottom) */
+  left: 0;
+  width: 5rem;
+  height: 0.25rem;
+  background: linear-gradient(90deg, rgb(var(--color-secondary-button, 71, 56, 85)) 0%, rgb(71 56 85 / 30%) 100%);
+  border-radius: 0.125rem;
+}
+
+.banner-v155__description {
+  font-size: 2rem;
+  line-height: 1.4; /* Reduced line height from 1.6 to 1.4 for better spacing */
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
+  margin-bottom: 4.5rem !important; /* Increased equal spacing between elements - includes spacing before button - important to override last-child rule */
+  margin-top: 0;
+  max-width: 90%;
+  text-align: left;
+  word-spacing: 0.05em; /* Slight word spacing for better readability */
+}
+
+/* Style the intro text in description */
+.banner-v155__description-intro {
+  white-space: pre-line;
+  line-height: 1.4; /* Reduced line height from 1.6 to 1.4 for better spacing */
+  margin-bottom: 0.75rem; /* Reduced spacing between paragraphs */
+}
+
+/* Style the heading in description */
+.banner-v155__description-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgb(var(--color-foreground, 0, 0, 0));
+  margin-top: 2.5rem; /* Increased top margin */
+  margin-bottom: 1rem; /* Reduced bottom margin */
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* Style the bullet list in description */
+.banner-v155__description-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.banner-v155__description-list li {
+  font-size: 2rem;
+  line-height: 1.4; /* Reduced line height from 1.6 to 1.4 to match description spacing */
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
+  padding-left: 2rem;
+  position: relative;
+  margin-bottom: 0.5rem; /* Reduced spacing between bullet points */
+  display: flex;
+  align-items: flex-start;
+}
+
+.banner-v155__description-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  font-size: 2rem; /* Match the font size of the text */
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  font-weight: 700;
+  line-height: 1.4; /* Match the line-height of the text (reduced from 1.6) */
+  top: 0; /* Align with top of text */
+}
+
+/* Add spacing above button for equal spacing */
+.banner-v155__content .button,
+.banner-v155__content .xo-btn,
+.banner-v155__content button {
+  margin-top: 0; /* Button spacing handled by description margin-bottom */
+}
+
+/* Vastu Hero Section - Equal spacing between elements */
+.vastu-hero__content {
+  padding-top: 0; /* Remove top padding */
+}
+
+.vastu-hero__subtitle {
+  margin-bottom: 4.5rem; /* Increased equal spacing between elements */
+  margin-top: 0;
+}
+
+.vastu-hero__title {
+  margin-bottom: 4.5rem; /* Increased equal spacing between elements */
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.vastu-hero__description {
+  margin-bottom: 4.5rem !important; /* Increased equal spacing between elements - includes spacing before button - important to override last-child rule */
+  margin-top: 0;
+}
+
+.vastu-hero__content .button,
+.vastu-hero__content .xo-btn,
+.vastu-hero__content button {
+  margin-top: 0; /* Spacing handled by description margin-bottom above */
+}
+
+/* Vastu Hindi Statement - Spacing handled by main rule above */
+
+.vastu-hindi-statement__subtext {
+  margin-bottom: 0;
+  margin-top: 0; /* Equal spacing - handled by text margin-bottom above */
+}
+
+/* Enhanced Image Styling */
+.banner-v155__img {
+  position: relative;
+  display: block;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 0.625rem 2.5rem rgb(71 56 85 / 15%);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.banner-v155__img:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 1.25rem 3.75rem rgb(71 56 85 / 25%);
+}
+
+.banner-v155__img img,
+.banner-v155__img picture,
+.banner-v155__img picture img {
+  border-radius: 1.25rem;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+  object-fit: cover;
+  max-width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.banner-v155__img:hover img,
+.banner-v155__img:hover picture img {
+  transform: scale(1.05);
+}
+
+/* Enhanced Button Container - Equal spacing */
+.banner-v155__content .button {
+  margin-top: 0;
+}

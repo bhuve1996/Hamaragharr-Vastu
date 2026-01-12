@@ -1,0 +1,118 @@
+/* ============================================
+   VASTU POPUP NEWSLETTER - Subscribe Button Text
+   Parent-scoped: .popup-newsletter__container
+   ============================================ */
+
+/* Subscribe Button Text - Smaller Size for All Popup Newsletter Styles */
+
+/* Target all button text within popup newsletter containers */
+.popup-newsletter__container .popup-newsletter-v1 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v1 button .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v1 .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v1 .xo-btn--secondary .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v1 button.xo-btn--secondary .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v2 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v2 button .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v2 .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v2 .xo-btn--secondary .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v2 button.xo-btn--secondary .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v3 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v3 button .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v3 .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v3 .xo-btn--secondary .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v3 button.xo-btn--secondary .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v4 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v4 button .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v4 .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v4 .xo-btn--secondary .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v4 button.xo-btn--secondary .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v5 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v5 button .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v5 .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v5 .xo-btn--secondary .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v5 button.xo-btn--secondary .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v6 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v6 button .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v6 .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v6 .xo-btn--secondary .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v6 button.xo-btn--secondary .xo-btn__text {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Button Container - Ensure Text Fits */
+.popup-newsletter__container .popup-newsletter-v1 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v1 button,
+.popup-newsletter__container .popup-newsletter-v2 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v2 button,
+.popup-newsletter__container .popup-newsletter-v3 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v3 button,
+.popup-newsletter__container .popup-newsletter-v4 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v4 button,
+.popup-newsletter__container .popup-newsletter-v5 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v5 button,
+.popup-newsletter__container .popup-newsletter-v6 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v6 button {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Button Content - Ensure Proper Display */
+.popup-newsletter__container .popup-newsletter-v1 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v1 button .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v2 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v2 button .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v3 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v3 button .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v4 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v4 button .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v5 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v5 button .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v6 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v6 button .xo-btn__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Mobile - Even Smaller Text if Needed */
+@media (width <= 767px) {
+  .popup-newsletter__container .popup-newsletter-v1 .xo-btn .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v1 button .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v1 .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v1 .xo-btn--secondary .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v1 button.xo-btn--secondary .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v2 .xo-btn .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v2 button .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v2 .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v2 .xo-btn--secondary .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v2 button.xo-btn--secondary .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v3 .xo-btn .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v3 button .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v3 .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v3 .xo-btn--secondary .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v3 button.xo-btn--secondary .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v4 .xo-btn .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v4 button .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v4 .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v4 .xo-btn--secondary .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v4 button.xo-btn--secondary .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v5 .xo-btn .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v5 button .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v5 .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v5 .xo-btn--secondary .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v5 button.xo-btn--secondary .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v6 .xo-btn .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v6 button .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v6 .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v6 .xo-btn--secondary .xo-btn__text,
+  .popup-newsletter__container .popup-newsletter-v6 button.xo-btn--secondary .xo-btn__text {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+}

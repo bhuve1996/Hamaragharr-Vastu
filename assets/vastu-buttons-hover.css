@@ -1,0 +1,123 @@
+/* ============================================
+   VASTU BUTTONS HOVER - Light Secondary Button
+   Global hover styles for xo-btn--light xo-btn--secondary
+   ============================================ */
+
+/* Light Secondary Button - Hover Styles */
+.xo-btn--light.xo-btn--secondary:hover,
+.xo-btn.xo-btn--light.xo-btn--secondary:hover,
+button.xo-btn--light.xo-btn--secondary:hover,
+a.xo-btn--light.xo-btn--secondary:hover {
+  background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(var(--color-secondary-button, 71, 56, 85), 0.3);
+  transition:
+    background-color var(--transition-base, 0.3s ease),
+    color var(--transition-base, 0.3s ease),
+    transform var(--transition-fast, 0.2s ease),
+    box-shadow var(--transition-base, 0.3s ease);
+}
+
+/* Light Secondary Button - Active State */
+.xo-btn--light.xo-btn--secondary:active,
+.xo-btn.xo-btn--light.xo-btn--secondary:active,
+button.xo-btn--light.xo-btn--secondary:active,
+a.xo-btn--light.xo-btn--secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(var(--color-secondary-button, 71, 56, 85), 0.2);
+}
+
+/* Light Secondary Button - Focus State */
+.xo-btn--light.xo-btn--secondary:focus,
+.xo-btn.xo-btn--light.xo-btn--secondary:focus,
+button.xo-btn--light.xo-btn--secondary:focus,
+a.xo-btn--light.xo-btn--secondary:focus {
+  outline: 2px solid rgba(var(--color-secondary-button, 71, 56, 85), 0.5);
+  outline-offset: 2px;
+}
+
+/* Light Secondary Button - Disabled State */
+.xo-btn--light.xo-btn--secondary:disabled,
+.xo-btn.xo-btn--light.xo-btn--secondary:disabled,
+button.xo-btn--light.xo-btn--secondary:disabled,
+a.xo-btn--light.xo-btn--secondary:disabled,
+.xo-btn--light.xo-btn--secondary[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.xo-btn--light.xo-btn--secondary:disabled:hover,
+.xo-btn.xo-btn--light.xo-btn--secondary:disabled:hover,
+button.xo-btn--light.xo-btn--secondary:disabled:hover,
+a.xo-btn--light.xo-btn--secondary:disabled:hover,
+.xo-btn--light.xo-btn--secondary[disabled]:hover {
+  background-color: rgb(var(--color-secondary-button, 71, 56, 85));
+  transform: none;
+  box-shadow: none;
+}
+
+/* Block Button - Full Width Hover */
+.xo-btn--block.xo-btn--light.xo-btn--secondary:hover,
+.xo-btn.xo-btn--block.xo-btn--light.xo-btn--secondary:hover,
+button.xo-btn--block.xo-btn--light.xo-btn--secondary:hover,
+a.xo-btn--block.xo-btn--light.xo-btn--secondary:hover {
+  background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(var(--color-secondary-button, 71, 56, 85), 0.3);
+}
+
+/* Medium Size Button - Hover */
+.xo-btn--md.xo-btn--light.xo-btn--secondary:hover,
+.xo-btn.xo-btn--md.xo-btn--light.xo-btn--secondary:hover,
+button.xo-btn--md.xo-btn--light.xo-btn--secondary:hover,
+a.xo-btn--md.xo-btn--light.xo-btn--secondary:hover {
+  background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(var(--color-secondary-button, 71, 56, 85), 0.3);
+}
+
+/* Slide Up Effect - Hover */
+.xo-btn--slide-up.xo-btn--light.xo-btn--secondary:hover,
+.xo-btn.xo-btn--slide-up.xo-btn--light.xo-btn--secondary:hover,
+button.xo-btn--slide-up.xo-btn--light.xo-btn--secondary:hover,
+a.xo-btn--slide-up.xo-btn--light.xo-btn--secondary:hover {
+  background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(var(--color-secondary-button, 71, 56, 85), 0.35);
+}
+
+/* Combined Classes - All Hover States */
+.xo-btn--light.xo-btn--secondary.xo-btn--md.xo-btn--slide-up.xo-btn--block:hover,
+.xo-btn.xo-btn--light.xo-btn--secondary.xo-btn--md.xo-btn--slide-up.xo-btn--block:hover,
+button.xo-btn--light.xo-btn--secondary.xo-btn--md.xo-btn--slide-up.xo-btn--block:hover,
+a.xo-btn--light.xo-btn--secondary.xo-btn--md.xo-btn--slide-up.xo-btn--block:hover {
+  background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(var(--color-secondary-button, 71, 56, 85), 0.35);
+}
+
+/* Button Content - Hover Text Color */
+.xo-btn--light.xo-btn--secondary:hover .xo-btn__text,
+.xo-btn--light.xo-btn--secondary:hover .xo-btn__content,
+.xo-btn--light.xo-btn--secondary:hover .xo-btn__icon {
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+}
+
+/* Ensure transitions are smooth */
+.xo-btn--light.xo-btn--secondary,
+.xo-btn.xo-btn--light.xo-btn--secondary,
+button.xo-btn--light.xo-btn--secondary,
+a.xo-btn--light.xo-btn--secondary {
+  transition:
+    background-color var(--transition-base, 0.3s ease),
+    color var(--transition-base, 0.3s ease),
+    transform var(--transition-fast, 0.2s ease),
+    box-shadow var(--transition-base, 0.3s ease);
+}

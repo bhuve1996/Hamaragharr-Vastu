@@ -1,0 +1,122 @@
+/* Blog title - Consistent 3.5rem */
+.blog-v2__title {
+  font-size: var(--title-font-size, var(--font-size-heading, 3.5rem));
+  font-weight: var(--title-font-weight, var(--font-weight-bold, 700));
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.2;
+  padding-bottom: 7rem;
+}
+
+/* Buttons - Consistent 2.5rem font size (font size only, no padding) */
+.button,
+.xo-btn,
+button,
+.button-label {
+  font-size: var(--font-size-button, 2.5rem);
+}
+
+/* Large padding buttons - Only for specific sections that need it */
+.vastu-button-large-padding,
+.banner-v155__content .button,
+.banner-v155__content .xo-btn,
+.banner-v155__content button,
+.slideshow-v28__text--overlay .button,
+.slideshow-v28__text--overlay .xo-btn,
+.slideshow-v28__text--overlay button {
+  font-size: var(--font-size-button, 2.5rem);
+  padding-left: 4.6875rem !important; /* 3.75rem * 1.25 = 4.6875rem (25% increase) */
+  padding-right: 4.6875rem !important; /* 3.75rem * 1.25 = 4.6875rem (25% increase) */
+  min-height: calc(
+    7.0313rem + var(--buttons-border-width, 0) * 2
+  ) !important; /* 5.625rem * 1.25 = 7.03125rem (25% increase) */
+}
+
+/* Override xo-btn text size with higher specificity */
+.xo-btn--md .xo-btn__text[data-text],
+.xo-btn--md .xo-btn__text,
+.xo-btn .xo-btn__text[data-text],
+.xo-btn .xo-btn__text,
+.xo-btn__text {
+  font-size: 2.5rem !important; /* Increased text size - override any calc() rules */
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+  position: relative !important;
+  display: inline-block !important;
+  line-height: 1.2 !important;
+  color: white !important;
+}
+
+/* Prevent text overlap - Hide pseudo-elements that duplicate text */
+.xo-btn__text[data-text]::before,
+.xo-btn__text[data-text]::after {
+  display: none !important;
+  content: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Ensure all buttons have proper overflow handling to prevent text overlap */
+.xo-btn,
+button.xo-btn,
+.xo-btn button {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.xo-btn__content {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+}
+
+.xo-btn--small .xo-btn__text,
+.xo-btn--small .xo-btn__text[data-text] {
+  font-size: 2rem !important; /* Increased text size for small buttons */
+}
+
+.button--small {
+  font-size: 2rem; /* Increased text size */
+  padding: 1.875rem 4.0625rem; /* 1.5rem * 1.25 = 1.875rem, 3.25rem * 1.25 = 4.0625rem (25% increase) */
+}
+
+.button--tertiary {
+  font-size: 2rem; /* Increased text size */
+  padding: 1.5625rem 2.3438rem; /* 1.25rem * 1.25 = 1.5625rem, 1.875rem * 1.25 = 2.34375rem (25% increase) */
+}
+
+.vastu-best-seller__section-title::after,
+.vastu-featured-products__section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--title-underline-width, 5rem);
+  height: var(--title-underline-height, 0.25rem);
+  background-color: var(--title-underline-color, #473855);
+  border-radius: 0.125rem;
+}
+
+/* Blog title underline - use fixed values to match other sections */
+.blog-v2__title::after {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #473855;
+  border-radius: 0.125rem;
+}

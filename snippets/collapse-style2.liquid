@@ -74,7 +74,7 @@
         {{ preview_content }}
       </div>
       <xo-modal-trigger xo-name='{{ modal_name }}' class='xo-collapse-style2__view-full'>
-        <button type='button'>View Full {{ title }}</button>
+        <a href='javascript:void(0)' class='xo-collapse-style2__read-more' onclick='return false;'>Read more</a>
       </xo-modal-trigger>
     </div>
   {% else %}

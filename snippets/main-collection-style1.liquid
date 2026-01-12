@@ -11,7 +11,7 @@
   {%- else -%}
     {%- assign order_column = -1 -%}
   {%- endif -%}
-  <div style='--xs: 12; --sm: 12; --md: 4; --lg: 3; overflow:hidden' class='main-collection-style1__sidebar' aria-labelledby='verticalTitle'>
+  <div style='--xs: 12; --sm: 12; --md: 4; --lg: 4; overflow-x:hidden; overflow-y:visible; width: 100%;' class='main-collection-style1__sidebar' aria-labelledby='verticalTitle'>
     {% render 'collection-sidebar',
       menu_title: section.settings.menu_title,
       link_list: section.settings.menu_sidebar.links,
@@ -21,7 +21,7 @@
       banner_image: section.settings.banner_image
     %}
   </div>
-  <div style='--xs: 12; --sm: 12; --md: 8; --lg: 9;--order-md:{{ order_column }}'>
+  <div style='--xs: 12; --sm: 12; --md: 8; --lg: 8;--order-md:{{ order_column }}'>
     <div
       class='main-collection-style1__header'
     >

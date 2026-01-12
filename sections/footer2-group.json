@@ -83,7 +83,5 @@
       }
     }
   },
-  "order": [
-    "footer-v3"
-  ]
+  "order": ["footer-v3"]
 }

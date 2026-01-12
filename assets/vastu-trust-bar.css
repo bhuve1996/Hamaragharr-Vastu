@@ -1,0 +1,189 @@
+/* Vastu Trust Bar - Carousel Design */
+
+/* Trust Bar Header */
+.vastu-trust-bar__header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.vastu-trust-bar__title {
+  font-size: var(--title-font-size, 3.5rem);
+  font-weight: var(--title-font-weight, 700);
+  text-align: center;
+  margin: 0 0 1.5rem;
+  position: relative;
+  padding-bottom: 7rem;
+  color: rgb(71 56 85);
+}
+
+.vastu-trust-bar__title::after {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--title-underline-width, 80px);
+  height: var(--title-underline-height, 4px);
+  background-color: var(--title-underline-color, #473855);
+  border-radius: 2px;
+}
+
+.vastu-trust-bar__subtitle {
+  font-size: var(--subtitle-font-size, var(--font-size-description, 1.6rem));
+  font-weight: var(--font-weight-normal, 400);
+  line-height: 1.6;
+  color: rgb(71 56 85 / 80%);
+  margin: 0;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (width <= 48rem) {
+  .vastu-trust-bar__header {
+    margin-bottom: 3rem;
+  }
+
+  .vastu-trust-bar__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .vastu-trust-bar__title::after {
+    bottom: 0px;
+  }
+
+  .vastu-trust-bar__subtitle {
+    font-size: 2rem;
+  }
+}
+
+.vastu-trust-bar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  min-height: 11.25rem;
+  justify-content: center;
+}
+
+.vastu-trust-bar__icon,
+.vastu-trust-bar__icon-svg {
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 1.5rem;
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.vastu-trust-bar__item:hover .vastu-trust-bar__icon,
+.vastu-trust-bar__item:hover .vastu-trust-bar__icon-svg {
+  transform: scale(1.1);
+  color: var(--color-hex-purple, rgb(var(--color-purple, 107, 70, 193)));
+}
+
+.vastu-trust-bar__icon-svg svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  transition: fill var(--transition-base);
+}
+
+/* Image icons - Apply purple filter on hover */
+.vastu-trust-bar__icon img,
+.vastu-trust-bar__icon .xo-image img,
+.vastu-trust-bar__icon .xo-image {
+  transition:
+    filter var(--transition-base),
+    transform var(--transition-base);
+}
+
+.vastu-trust-bar__item:hover .vastu-trust-bar__icon img,
+.vastu-trust-bar__item:hover .vastu-trust-bar__icon .xo-image img,
+.vastu-trust-bar__item:hover .vastu-trust-bar__icon .xo-image {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(89%) saturate(1352%) hue-rotate(243deg) brightness(95%)
+    contrast(91%);
+}
+
+.vastu-trust-bar__text {
+  font-size: var(--font-size-card-title, 1.875rem);
+  font-weight: var(--font-weight-semibold, 600);
+  margin: 0;
+  margin-top: 1rem;
+  line-height: 1.5;
+  color: rgb(var(--color-foreground, 0, 0, 0));
+}
+
+.vastu-trust-bar__item-subtitle {
+  font-size: var(--font-size-description, 1.6rem);
+  font-weight: var(--font-weight-normal, 400);
+  margin: 0.5rem 0 0;
+  line-height: 1.5;
+  color: rgb(71 56 85 / 70%);
+  text-align: center;
+}
+
+/* Trust Bar Carousel Pagination */
+.vastu-trust-bar__pagination {
+  margin-top: 2rem;
+  position: absolute;
+  bottom: -40px !important; /* Shift dots further down */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* Mobile adjustments for trust bar */
+@media (width <= 48rem) {
+  .vastu-trust-bar__item {
+    min-height: 10rem;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .vastu-trust-bar__icon,
+  .vastu-trust-bar__icon-svg {
+    width: 10rem; /* Doubled from 5rem to 10rem for mobile */
+    height: 10rem; /* Doubled from 5rem to 10rem for mobile */
+  }
+
+  .vastu-trust-bar__text {
+    font-size: 2rem;
+  }
+
+  .vastu-trust-bar__item-subtitle {
+    font-size: 2rem;
+  }
+}
+
+/* Vastu Trust Bar - Use CSS variables from section settings (--pt, --pb, --bg-color) */
+
+/* Convert --pt and --pb (numbers) to pixels for padding */
+main#xo-main-content section[class*="vastu-trust-bar"],
+main#xo-main-content div[class*="vastu-trust-bar"],
+section[class*="vastu-trust-bar"],
+div[class*="shopify-section-template"][class*="vastu-trust-bar"] {
+  padding-top: calc(var(--pt, 32) * 1px) !important; /* Convert --pt to pixels, default 32px */
+  padding-bottom: calc(var(--pb, 32) * 1px) !important; /* Convert --pb to pixels, default 32px */
+  background-color: var(--bg-color, #fafafa); /* Use --bg-color variable from section settings */
+}
+
+/* Mobile: Trust Bar padding reduced to 16px */
+@media (width <= 48rem) {
+  main#xo-main-content section[class*="vastu-trust-bar"],
+  main#xo-main-content div[class*="vastu-trust-bar"],
+  section[class*="vastu-trust-bar"],
+  div[class*="shopify-section-template"][class*="vastu-trust-bar"] {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+}

@@ -1,0 +1,974 @@
+  bottom: -1.25rem;
+  padding: 1.5rem;
+
+/* Product Variant Modal - Center Popup Style */
+.product-variant-modal__modal-content {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgb(0 0 0 / 20%);
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Close button styling for modal */
+.product-variant-modal__modal-content .product-variant-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgb(71 56 85 / 10%);
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.product-variant-modal__modal-content .product-variant-modal__close:hover {
+  background: rgb(71 56 85 / 20%);
+}
+
+.product-variant-modal__modal-content .product-variant-modal__close button {
+  background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgb(71 56 85);
+}
+
+.product-variant-modal__modal-content .product-variant-modal__close button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Modal overlay background */
+xo-modal[xo-placement="center"]::before {
+  background: rgb(0 0 0 / 50%);
+  backdrop-filter: blur(2px);
+}
+
+.product-variant-modal__product-info {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(71 56 85 / 10%);
+}
+
+.product-variant-modal__product-image {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.product-variant-modal__product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-variant-modal__product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-variant-modal__product-title {
+  font-size: var(--font-size-card-title, 1.5rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: rgb(71 56 85);
+  margin: 0 0 0.5rem;
+  line-height: 1.4;
+}
+
+.product-variant-modal__product-price {
+  font-size: var(--font-size-description, 1.6rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: rgb(71 56 85);
+  margin: 0;
+}
+
+.product-variant-modal__variant-list {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.product-variant-modal__modal-content .product-variant-modal__variant-list {
+  padding: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.xo-product-variant-modal__quantity {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.product-variant-modal__modal-content .xo-product-variant-modal__quantity {
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.product-variant-modal__toggle-content xo-cart-add {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.product-variant-modal__modal-content xo-cart-add {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+/* Add padding to radio button labels in product variant modal */
+.product-variant-modal .xo-field-radio__label,
+.product-variant-modal__variant-list .xo-field-radio__label {
+  padding: 0.75rem 1rem;
+}
+
+.product-variant-modal .xo-field-radio,
+.product-variant-modal__variant-list .xo-field-radio {
+  margin-bottom: 0.5rem;
+}
+
+/* Hide Buy Now buttons - Disabled */
+
+/* Hide Buy Now everywhere except vastu-product-showcase */
+.buy-button__now:not(.vastu-product-showcase .buy-button__now),
+.sticky-addcart__buy-now {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Show Buy Now in vastu-product-showcase */
+.vastu-product-showcase .buy-button__now {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+}
+
+/* Sticky add cart layout - separate columns for product, price, and options */
+.sticky-addcart__wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2rem !important;
+}
+
+.sticky-addcart__price {
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
+/* Increase gap between product name and options in sticky add cart bar */
+.sticky-addcart__right {
+  margin-left: 0 !important;
+}
+
+/* Mobile: Make sticky add cart scrollable with navigation arrows */
+@media (width <= 48rem) {
+  .sticky-addcart__wrap {
+    position: relative !important;
+    overflow: auto hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+    gap: 1.5rem !important;
+    padding: 0 4rem !important; /* Space for arrows */
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .sticky-addcart__wrap::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+
+  /* Prevent items from shrinking on mobile */
+  .sticky-addcart__left,
+  .sticky-addcart__price,
+  .sticky-addcart__right {
+    flex-shrink: 0 !important;
+    min-width: auto !important;
+  }
+
+  /* Scroll navigation arrows */
+  .sticky-addcart__scroll-left,
+  .sticky-addcart__scroll-right {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 10 !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(var(--color-background), 0.95) !important;
+    border: 1px solid rgba(var(--color-foreground), 0.1) !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    opacity: 0.8 !important;
+    transition: opacity 0.3s ease, background 0.3s ease !important;
+    pointer-events: auto !important;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%) !important;
+  }
+
+  .sticky-addcart__scroll-left {
+    left: 0.5rem !important;
+  }
+
+  .sticky-addcart__scroll-right {
+    right: 0.5rem !important;
+  }
+
+  .sticky-addcart__scroll-left:hover,
+  .sticky-addcart__scroll-right:hover {
+    opacity: 1 !important;
+    background: rgba(var(--color-background), 1) !important;
+  }
+
+  .sticky-addcart__scroll-left:active,
+  .sticky-addcart__scroll-right:active {
+    transform: translateY(-50%) scale(0.95) !important;
+  }
+
+  /* Hide arrows when at scroll boundaries */
+  .sticky-addcart__scroll-left[data-disabled="true"],
+  .sticky-addcart__scroll-right[data-disabled="true"] {
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+  }
+
+  /* Arrow icon styling */
+  .sticky-addcart__scroll-left::before,
+  .sticky-addcart__scroll-right::before {
+    content: '' !important;
+    width: 0.8rem !important;
+    height: 0.8rem !important;
+    border: 2px solid rgba(var(--color-foreground), 0.7) !important;
+    border-top: none !important;
+    border-right: none !important;
+  }
+
+  .sticky-addcart__scroll-left::before {
+    transform: rotate(45deg) !important;
+    margin-left: 0.3rem !important;
+  }
+
+  .sticky-addcart__scroll-right::before {
+    transform: rotate(-135deg) !important;
+    margin-right: 0.3rem !important;
+  }
+}
+
+/* Hide Buy on Other Site - Disabled */
+
+/* Hide Buy on Other Site everywhere, including vastu-product-showcase */
+.xo-product-info-content__buy-othersite,
+[class*="buy-othersite"],
+[class*="buy-onsite"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Vastu Product Showcase Styles */
+.vastu-product-showcase {
+  padding: 4rem 0;
+  margin-top: var(--homepage-section-spacing, 4rem);
+  margin-bottom: var(--homepage-section-spacing, 4rem);
+}
+
+/* Override sticky positioning from product-info-content snippet - applies to all screen sizes */
+.vastu-product-showcase .xo-product-info-content {
+  position: relative !important;
+  top: 0 !important;
+}
+
+/* Override base theme CSS for xo-product-info-media-style1 - applies to all screen sizes */
+
+/* Must be after product-info-media-style1.css loads, so placed at end of file */
+.vastu-product-showcase .xo-product-info-media-style1,
+section.vastu-product-showcase .xo-product-info-media-style1,
+.vastu-product-showcase section .xo-product-info-media-style1 {
+  width: 100% !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  top: 0 !important;
+  position: relative !important;
+}
+
+/* Ensure image container starts from top - applies to all screen sizes */
+.vastu-product-showcase .xo-product-info-media-style1__bottom {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Ensure equal heights for left and right sections on desktop */
+@media (width >= 768px) {
+  .vastu-product-showcase xo-grid {
+    display: flex !important;
+    align-items: stretch !important;
+  }
+  
+  .vastu-product-showcase xo-animate {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    align-items: stretch !important;
+  }
+  
+  /* Image section - align to top, no padding */
+  .vastu-product-showcase xo-animate:first-of-type {
+    align-items: flex-start !important;
+  }
+  
+  /* Additional desktop-specific overrides */
+  .vastu-product-showcase .xo-product-info-media-style1 {
+    align-self: flex-start !important;
+  }
+  
+  /* Right content section - stretch to match left height */
+  .vastu-product-showcase__right {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    justify-content: flex-start !important;
+  }
+  
+  .vastu-product-showcase__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+  }
+}
+
+.vastu-product-showcase__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.vastu-product-showcase__title {
+  font-size: var(--font-size-heading, 3rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: rgb(var(--color-foreground));
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.vastu-product-showcase__price {
+  font-size: var(--font-size-price, 2rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: rgb(var(--color-foreground));
+}
+
+.vastu-product-showcase__description {
+  font-size: var(--font-size-description, 1.6rem);
+  line-height: 1.6;
+  color: rgb(var(--color-foreground));
+}
+
+.vastu-product-showcase__description-text {
+  margin-bottom: 1rem;
+}
+
+.vastu-product-showcase__read-more {
+  display: inline-block;
+  font-size: var(--font-size-description, 1.6rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: rgb(71 56 85);
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.vastu-product-showcase__read-more:hover {
+  color: rgb(186 170 200);
+  transform: translateX(4px);
+}
+
+.vastu-product-showcase__read-more:active {
+  transform: translateX(2px);
+}
+
+.vastu-product-showcase__variants {
+  margin: 1rem 0;
+}
+
+.vastu-product-showcase__quantity {
+  margin: 1rem 0;
+}
+
+.vastu-product-showcase__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.vastu-product-showcase__add-to-cart,
+.vastu-product-showcase__buy-now {
+  width: 100%;
+}
+
+/* Custom Text Blocks */
+.vastu-product-showcase__custom-text {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background-color: rgba(var(--color-background), 0.5);
+  border-radius: 0.5rem;
+}
+
+.vastu-product-showcase__custom-heading {
+  font-size: var(--font-size-heading, 2.5rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: rgb(var(--color-foreground));
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.vastu-product-showcase__custom-content {
+  font-size: var(--font-size-description, 1.6rem);
+  line-height: 1.6;
+  color: rgb(var(--color-foreground));
+}
+
+.vastu-product-showcase__custom-content p {
+  margin: 0 0 1rem;
+}
+
+.vastu-product-showcase__custom-content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (width <= 767px) {
+  .vastu-product-showcase {
+    padding: 2rem 0;
+  }
+  
+  .vastu-product-showcase__title {
+    font-size: 2.5rem;
+  }
+  
+  /* Ensure all text in vastu-product-showcase is minimum 2rem on mobile */
+  .vastu-product-showcase__price,
+  .vastu-product-showcase__description,
+  .vastu-product-showcase__description p {
+    font-size: 2rem !important;
+  }
+}
+
+/* Footer Mobile Responsive */
+@media (width <= 48rem) {
+  footer,
+  .footer-v18__description,
+  .footer-v18__subtext,
+  .footer-v18__list-item,
+  .footer-v18__list-item a,
+  .footer-v18__copyright,
+  .footer-v18__copyright-content {
+    font-size: var(--font-size-description, 1.6rem);
+  }
+  
+  .footer-v18__heading,
+  footer h2,
+  footer h3 {
+    font-size: var(--font-size-card-title, 1.5rem);
+  }
+}
+
+/* Modern Footer Styles */
+.footer-modern {
+  padding-top: 64px;
+  padding-bottom: 2rem;
+}
+
+.footer-modern__columns {
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-modern__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-modern__column--newsletter {
+  max-width: 100%;
+}
+
+.footer-modern__heading {
+  font-size: var(--font-size-card-title, 1.5rem);
+  font-weight: var(--font-weight-bold, 700);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: rgb(var(--color-text));
+  line-height: 1.3;
+}
+
+.footer-modern__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-modern__list-item {
+  margin: 0;
+}
+
+.footer-modern__link {
+  color: rgb(var(--color-text));
+  text-decoration: none;
+  font-size: var(--font-size-description, 1.6rem);
+  line-height: 1.6;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  opacity: 0.85;
+}
+
+.footer-modern__link:hover {
+  opacity: 1;
+  color: rgb(var(--color-text));
+  text-decoration: underline;
+}
+
+.footer-modern__newsletter-description {
+  font-size: var(--font-size-description, 1.6rem);
+  line-height: 1.6;
+  color: rgb(var(--color-text));
+  opacity: 0.8;
+  margin-bottom: 1.25rem;
+}
+
+.footer-modern__newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 100%;
+}
+
+.footer-modern__newsletter-input {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  min-height: 5rem;
+  border: 1px solid rgba(var(--color-border), 0.3);
+  border-radius: 0.375rem;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-text));
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-modern__newsletter-input:focus {
+  outline: none;
+  border-color: rgb(var(--color-text));
+  box-shadow: 0 0 0 2px rgba(var(--color-text), 0.1);
+}
+
+.footer-modern__newsletter-input::placeholder {
+  color: rgba(var(--color-text), 0.5);
+}
+
+.footer-modern__newsletter-button {
+  padding: 0.875rem 1.5rem;
+  font-size: var(--font-size-button, 2.5rem);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: 1.5;
+  border: none;
+  border-radius: 0.375rem;
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.footer-modern__newsletter-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.footer-modern__newsletter-button:active {
+  transform: translateY(0);
+}
+
+.footer-modern__bottom {
+  border-top: 1px solid rgba(var(--color-border), 0.2);
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+
+.footer-modern__bottom-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.footer-modern__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.footer-modern__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: rgb(var(--color-text));
+  text-decoration: none;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  opacity: 0.8;
+}
+
+.footer-modern__social-link:hover {
+  opacity: 1;
+  background-color: rgba(var(--color-text), 0.1);
+  transform: translateY(-2px);
+}
+
+.footer-modern__social-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.footer-modern__payment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-modern__payment-icon {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(var(--color-text));
+  background-color: rgba(var(--color-text), 0.05);
+  border-radius: 0.25rem;
+  border: 1px solid rgba(var(--color-border), 0.2);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer-modern__payment-icon:hover {
+  opacity: 1;
+}
+
+.footer-modern__payment-image {
+  max-height: 2.5rem;
+  width: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer-modern__payment-image:hover {
+  opacity: 1;
+}
+
+.footer-modern__copyright {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgb(var(--color-text));
+  opacity: 0.7;
+}
+
+.footer-modern__copyright small {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.footer-modern__copyright a {
+  color: inherit;
+  text-decoration: underline;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.footer-modern__copyright a:hover {
+  opacity: 1;
+}
+
+/* Newsletter Form Messages */
+.footer-modern .newsletter-form-message {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.footer-modern .newsletter-form-message--error {
+  color: rgb(var(--color-error));
+  background-color: rgba(var(--color-error), 0.1);
+}
+
+.footer-modern .newsletter-form-message--success {
+  color: rgb(var(--color-success));
+  background-color: rgba(var(--color-success), 0.1);
+}
+
+/* Mobile Responsive */
+@media (width <= 48rem) {
+  .footer-modern {
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .footer-modern__columns {
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-modern__heading {
+    font-size: var(--font-size-card-title, 1.5rem);
+    font-weight: var(--font-weight-bold, 700);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-modern__link {
+    font-size: var(--font-size-description, 1.6rem);
+  }
+
+  .footer-modern__newsletter-description {
+    font-size: var(--font-size-description, 1.6rem);
+    margin-bottom: 1rem;
+  }
+
+  .footer-modern__newsletter-input {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .footer-modern__newsletter-button {
+    font-size: var(--font-size-button, 2.5rem);
+    padding: 0.75rem 1rem;
+  }
+
+  .footer-modern__bottom {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .footer-modern__bottom-content {
+    gap: 1.5rem;
+  }
+
+  .footer-modern__social {
+    gap: 1rem;
+  }
+
+  .footer-modern__social-link {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .footer-modern__social-link svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .footer-modern__payment {
+    gap: 0.75rem;
+  }
+
+  .footer-modern__payment-icon {
+    padding: 0.4rem 0.75rem;
+    font-size: 2rem;
+  }
+
+  .footer-modern__payment-image {
+    max-height: 2rem;
+  }
+
+  .footer-modern__copyright {
+    font-size: 2rem;
+  }
+}
+
+/* Tablet Responsive */
+@media (width >= 48.1rem) and (width <= 64rem) {
+  .footer-modern__columns {
+    gap: 2.5rem;
+  }
+
+  .footer-modern__heading {
+    font-size: var(--font-size-card-title, 1.5rem);
+    font-weight: var(--font-weight-bold, 700);
+    text-transform: uppercase;
+  }
+  
+  .footer-modern__newsletter-input {
+    padding: 1rem 1.25rem;
+    font-size: 1.6rem;
+    min-height: 4.5rem;
+  }
+}
+
+/* Hide blog card descriptions */
+.blog-v2__description,
+.xo-article-card__description,
+.article-card-style1__description,
+.article-card-style3__description,
+.article-card-style4__description {
+  display: none !important;
+}
+
+/* FAQ Section - Container Box Shadow */
+.faq-content-wrapper {
+  background: #fff;
+  border-radius: 1rem;
+  border-top: 4px solid rgb(71 56 85 / 15%);
+  padding: 3rem 2.5rem;
+  box-shadow: 0 4px 20px rgb(71 56 85 / 12%), 0 2px 8px rgb(71 56 85 / 8%);
+  margin: 0 auto;
+  position: relative;
+}
+
+section[class*="faq-v1"],
+section[class*="faq-v3"],
+section[class*="product-faq"] {
+  position: relative;
+}
+
+@media (width <= 48rem) {
+  .faq-content-wrapper {
+    padding: 2rem 1.5rem;
+    border-radius: 0.75rem;
+  }
+}
+
+/* Fix product page add to cart button text color - respect button style */
+.buy-button xo-cart-add .xo-btn--primary .xo-btn__text,
+.buy-button xo-cart-add .xo-btn--primary .xo-btn__content,
+.buy-button xo-cart-add .xo-btn--primary .xo-btn__text *,
+.buy-button xo-cart-add .xo-btn--primary .xo-btn__content *,
+.buy-button .xo-btn--primary .xo-btn__text,
+.buy-button .xo-btn--primary .xo-btn__content,
+.buy-button .xo-btn--primary .xo-btn__text *,
+.buy-button .xo-btn--primary .xo-btn__content *,
+xo-product-info-content xo-cart-add .xo-btn--primary .xo-btn__text,
+xo-product-info-content xo-cart-add .xo-btn--primary .xo-btn__content,
+xo-product-info-content xo-cart-add .xo-btn--primary .xo-btn__text *,
+xo-product-info-content xo-cart-add .xo-btn--primary .xo-btn__content *,
+xo-product-info-content .xo-btn--primary .xo-btn__text,
+xo-product-info-content .xo-btn--primary .xo-btn__content,
+xo-product-info-content .xo-btn--primary .xo-btn__text *,
+xo-product-info-content .xo-btn--primary .xo-btn__content * {
+  color: rgb(var(--color-button-text, 0, 0, 0)) !important;
+}
+
+/* Ensure secondary buttons on product page have white text */
+.buy-button xo-cart-add .xo-btn--secondary .xo-btn__text,
+.buy-button xo-cart-add .xo-btn--secondary .xo-btn__content,
+.buy-button xo-cart-add .xo-btn--secondary .xo-btn__text *,
+.buy-button xo-cart-add .xo-btn--secondary .xo-btn__content *,
+.buy-button .xo-btn--secondary .xo-btn__text,
+.buy-button .xo-btn--secondary .xo-btn__content,
+.buy-button .xo-btn--secondary .xo-btn__text *,
+.buy-button .xo-btn--secondary .xo-btn__content *,
+xo-product-info-content xo-cart-add .xo-btn--secondary .xo-btn__text,
+xo-product-info-content xo-cart-add .xo-btn--secondary .xo-btn__content,
+xo-product-info-content xo-cart-add .xo-btn--secondary .xo-btn__text *,
+xo-product-info-content xo-cart-add .xo-btn--secondary .xo-btn__content *,
+xo-product-info-content .xo-btn--secondary .xo-btn__text,
+xo-product-info-content .xo-btn--secondary .xo-btn__content,
+xo-product-info-content .xo-btn--secondary .xo-btn__text *,
+xo-product-info-content .xo-btn--secondary .xo-btn__content * {
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255)) !important;
+}
+
+/* Hide loading spinner when not loading */
+.xo-btn__loading {
+  display: none !important;
+}
+
+/* Show loading spinner only when button is in loading state */
+.xo-btn[aria-busy="true"] .xo-btn__loading,
+.xo-btn.loading .xo-btn__loading,
+button[aria-busy="true"] .xo-btn__loading,
+button.loading .xo-btn__loading,
+xo-cart-add[aria-busy="true"] .xo-btn__loading,
+xo-cart-add.loading .xo-btn__loading {
+  display: block !important;
+}
+
+/* Vastu Shop by Concern Section */
+.vastu-shop-by-concern__section-title {
+  font-size: var(--title-font-size, var(--font-size-heading, 3.5rem));
+  font-weight: var(--title-font-weight, var(--font-weight-bold, 700));
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 1.2;
+  padding-bottom: 7rem;
+}
+
+.vastu-shop-by-concern__section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--title-underline-width, 80px);
+  height: var(--title-underline-height, 4px);
+  background-color: var(--title-underline-color, #473855);
+}
+
+/* Accordion Container */
+.vastu-shop-by-concern__accordion {
+  margin-top: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vastu-shop-by-concern__item {
+  margin-bottom: 1rem;
+  background: #fff;
+  border: 2px solid rgb(136 112 142 / 25%);
+  border-radius: 0.75rem;
+}

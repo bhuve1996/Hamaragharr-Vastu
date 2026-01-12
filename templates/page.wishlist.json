@@ -42,10 +42,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "main-page-heading",
-    "main-wishlist",
-    "featured-collection"
-  ]
+  "order": ["main", "main-page-heading", "main-wishlist", "featured-collection"]
 }

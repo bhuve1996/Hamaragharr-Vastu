@@ -1,0 +1,324 @@
+/* ============================================
+   Vastu Help Address V1 - Icons Row (Like About Page)
+   ============================================ */
+.vastu-help-address-v1__section-title {
+  font-size: var(--title-font-size, 3.5rem);
+  font-weight: var(--title-font-weight, 700);
+  text-align: center;
+  margin: 0 0 3rem;
+  position: relative;
+  padding-bottom: 7rem;
+}
+
+.vastu-help-address-v1__section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--title-underline-width, 80px);
+  height: var(--title-underline-height, 4px);
+  background-color: var(--title-underline-color, #473855);
+  border-radius: 2px;
+}
+
+.vastu-help-address-v1__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgb(255 255 255 / 95%);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.vastu-help-address-v1__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+}
+
+.vastu-help-address-v1__icon {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.vastu-help-address-v1__item:hover .vastu-help-address-v1__icon {
+  transform: scale(1.1);
+  color: rgb(71 56 85);
+}
+
+.vastu-help-address-v1__icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.vastu-help-address-v1__icon img,
+.vastu-help-address-v1__icon .xo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vastu-help-address-v1__text {
+  font-size: var(--font-size-description, 1.6rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: rgb(71 56 85);
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (width <= 48rem) {
+  .vastu-help-address-v1__section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .vastu-help-address-v1__item {
+    padding: 1.5rem 1rem;
+  }
+  
+  .vastu-help-address-v1__icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .vastu-help-address-v1__text {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   Vastu Help Address V2 - Circle with 4 Quadrants
+   ============================================ */
+.vastu-help-address-v2__section-title {
+  font-size: var(--title-font-size, 3.5rem);
+  font-weight: var(--title-font-weight, 700);
+  text-align: center;
+  margin: 0 0 3rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.vastu-help-address-v2__section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--title-underline-width, 80px);
+  height: var(--title-underline-height, 4px);
+  background-color: var(--title-underline-color, #473855);
+  border-radius: 2px;
+}
+
+.vastu-help-address-v2__circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: 500px;
+}
+
+.vastu-help-address-v2__circle {
+  position: relative;
+  width: var(--circle-size, 500px);
+  height: var(--circle-size, 500px);
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgb(71 56 85 / 15%);
+  background: linear-gradient(135deg, rgb(186 170 200 / 10%) 0%, rgb(71 56 85 / 5%) 100%);
+}
+
+.vastu-help-address-v2__quadrant {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.vastu-help-address-v2__quadrant--1 {
+  top: 0;
+  left: 0;
+  border-right: 2px solid rgb(71 56 85 / 10%);
+  border-bottom: 2px solid rgb(71 56 85 / 10%);
+  border-radius: 0 0 100%;
+}
+
+.vastu-help-address-v2__quadrant--2 {
+  top: 0;
+  right: 0;
+  border-left: 2px solid rgb(71 56 85 / 10%);
+  border-bottom: 2px solid rgb(71 56 85 / 10%);
+  border-radius: 0 0 0 100%;
+}
+
+.vastu-help-address-v2__quadrant--3 {
+  bottom: 0;
+  left: 0;
+  border-right: 2px solid rgb(71 56 85 / 10%);
+  border-top: 2px solid rgb(71 56 85 / 10%);
+  border-radius: 0 100% 0 0;
+}
+
+.vastu-help-address-v2__quadrant--4 {
+  bottom: 0;
+  right: 0;
+  border-left: 2px solid rgb(71 56 85 / 10%);
+  border-top: 2px solid rgb(71 56 85 / 10%);
+  border-radius: 100% 0 0;
+}
+
+.vastu-help-address-v2__quadrant:hover {
+  background-color: rgb(186 170 200 / 20%);
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.vastu-help-address-v2__quadrant-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.vastu-help-address-v2__icon {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.vastu-help-address-v2__quadrant:hover .vastu-help-address-v2__icon {
+  transform: scale(1.15);
+  color: rgb(var(--color-accent, 71, 56, 85));
+}
+
+.vastu-help-address-v2__icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.vastu-help-address-v2__icon img,
+.vastu-help-address-v2__icon .xo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vastu-help-address-v2__text {
+  font-size: var(--font-size-description, 1.6rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: rgb(71 56 85);
+  margin: 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.vastu-help-address-v2__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgb(186 170 200) 0%, rgb(71 56 85) 100%);
+  box-shadow: 0 4px 16px rgb(71 56 85 / 30%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vastu-help-address-v2__center::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 90%);
+  box-shadow: inset 0 2px 8px rgb(71 56 85 / 10%);
+}
+
+@media (width <= 48rem) {
+  .vastu-help-address-v2__section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .vastu-help-address-v2__circle-container {
+    padding: 1rem;
+    min-height: 300px;
+  }
+  
+  .vastu-help-address-v2__circle {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+  
+  .vastu-help-address-v2__icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .vastu-help-address-v2__text {
+    font-size: 2rem;
+  }
+  
+  .vastu-help-address-v2__center {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .vastu-help-address-v2__center::before {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .vastu-help-address-v2__quadrant-content {
+    padding: 1rem;
+  }
+}
+

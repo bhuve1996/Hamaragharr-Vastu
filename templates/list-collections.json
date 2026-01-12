@@ -10,7 +10,7 @@
       }
     },
     "main": {
-      "type" : "main-list-collections",
+      "type": "main-list-collections",
       "settings": {
         "padding_top": 20
       },
@@ -90,8 +90,5 @@
       ]
     }
   },
-  "order": [
-    "main-page-heading",
-    "main"
-  ]
+  "order": ["main-page-heading", "main"]
 }

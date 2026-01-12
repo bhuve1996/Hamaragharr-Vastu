@@ -15,8 +15,5 @@
       }
     }
   },
-  "order": [
-    "main-page-heading",
-    "main"
-  ]
+  "order": ["main-page-heading", "main"]
 }

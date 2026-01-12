@@ -1,0 +1,53 @@
+/* ============================================
+   TYPOGRAPHY SYSTEM - Consistent Font Sizes
+   ============================================ */
+:root {
+  /* Typography Scale */
+  --font-size-tag: 1.25rem;          /* Tags/Badges - Increased from 1.1rem */
+  --font-size-description: 1.6rem;    /* Descriptions */
+  --font-size-subtitle: 1.6rem;       /* Subtitles */
+  --font-size-card-title: 1.5rem;     /* Card/Product Titles */
+  --font-size-heading: 3.5rem;        /* Section Headings */
+  --font-size-button: 2.5rem;         /* Buttons (Buy Now, etc) */
+  --font-size-number: 1.6rem;         /* Numbers/Stats */
+  
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+/* Vastu Hindi Statement - Center Aligned, Grouped Text, Reduced Height */
+.vastu-hindi-statement {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem; /* Reduced padding for compact height */
+  padding-bottom: 2rem; /* Reduced padding for compact height */
+  min-height: auto; /* Remove fixed min-height for more compact section */
+}
+
+.vastu-hindi-statement__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.vastu-hindi-statement__text {
+  font-size: 2.5rem; /* Decreased font size from 3.4375rem */
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  width: 100%;
+  line-height: 1.3; /* Tighter line height for grouped text */
+  text-transform: none; /* Don't apply uppercase to Hindi text */
+  font-weight: normal; /* Don't apply bold to Hindi text */
+  white-space: normal; /* Allow text to wrap naturally */
+  word-wrap: break-word; /* Ensure long words wrap */
+}

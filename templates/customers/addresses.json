@@ -22,9 +22,5 @@
       }
     }
   },
-  "order": [
-    "collection-title",
-    "main-page-heading",
-    "main"
-  ]
+  "order": ["collection-title", "main-page-heading", "main"]
 }

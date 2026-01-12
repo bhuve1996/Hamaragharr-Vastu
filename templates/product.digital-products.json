@@ -209,10 +209,7 @@
           "settings": {}
         }
       },
-      "block_order": [
-        "tab1",
-        "tab2"
-      ],
+      "block_order": ["tab1", "tab2"],
       "disabled": true,
       "settings": {
         "padding_bottom": 0

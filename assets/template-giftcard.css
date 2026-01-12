@@ -1,4 +1,5 @@
-.gift_card__header, .gift_card__main {
+.gift_card__header,
+.gift_card__main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +43,8 @@
   color: rgba(var(--color-foreground), 0.5);
 }
 
-.gift-card__shopping-button, .gift-card__print-button {
+.gift-card__shopping-button,
+.gift-card__print-button {
   position: relative;
   width: 30rem;
   height: 5rem;
@@ -62,7 +64,8 @@
   transition: 0.3;
 }
 
-.gift-card__shopping-before, .gift-card__print-before {
+.gift-card__shopping-before,
+.gift-card__print-before {
   transition: 0.3s;
   line-height: 0;
   position: absolute;
@@ -71,7 +74,8 @@
   transform: translate(-50%, -50%);
 }
 
-.gift-card__shopping-after, .gift-card__print-after {
+.gift-card__shopping-after,
+.gift-card__print-after {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -83,6 +87,7 @@
 .gift-card__shopping-button:hover .gift-card__shopping-before {
   transform: translate(-50%, -5rem);
 }
+
 .gift-card__shopping-button:hover .gift-card__shopping-after {
   transform: translate(-50%, -50%);
 }
@@ -90,10 +95,12 @@
 .gift-card__print-button:hover {
   background-color: rgba(var(--color-foreground));
 }
+
 .gift-card__print-button:hover .gift-card__print-before {
   transform: translate(-50%, -5rem);
   color: rgba(var(--color-background));
 }
+
 .gift-card__print-button:hover .gift-card__print-after {
   transform: translate(-50%, -50%);
   color: rgba(var(--color-background));

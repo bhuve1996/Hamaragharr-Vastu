@@ -1,0 +1,87 @@
+/* ============================================
+   VASTU SECTIONS SPACING - Layout & Spacing
+   ============================================ */
+
+/* Section Base Spacing - Desktop Pattern */
+
+/* margin: 0 0 5rem 0 - Prevents margin collapse, explicit spacing control */
+
+/* position: relative - Creates positioning context for overlays/absolute children */
+
+/* padding-bottom: 0 - Prevents double spacing (margin + padding) */
+div[class*="shopify-section-template"],
+main#xo-main-content section,
+main#xo-main-content div[class*="shopify-section-template"],
+section.xo-section,
+section[class*="xo-section--"] {
+  --pt: var(--homepage-section-padding-top);
+  --pb: var(--homepage-section-padding-bottom);
+
+  padding-top: var(--homepage-section-padding-top);
+  padding-bottom: var(--homepage-section-padding-bottom);
+  margin: 0 0 var(--homepage-section-spacing) 0;
+  position: relative;
+}
+
+/* First Section - No Top Margin */
+main#xo-main-content > section:first-child,
+main#xo-main-content > div:first-child,
+main#xo-main-content section:first-child,
+main#xo-main-content div:first-child,
+main#xo-main-content > section:first-child[class*="homepage-carousel"],
+main#xo-main-content > div:first-child[class*="homepage-carousel"],
+main#xo-main-content > section:first-child[class*="slideshow"],
+main#xo-main-content section:first-child[class*="homepage-carousel"],
+main#xo-main-content section:first-child[class*="slideshow"] {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Last Section - No Bottom Margin */
+main#xo-main-content > section:last-child,
+main#xo-main-content > div:last-child {
+  margin-bottom: 0;
+}
+
+/* Carousel First Section - No Bottom Margin */
+
+/* Explicit margin: 0 0 0 0 prevents any margin collapse issues */
+main#xo-main-content section[class*="homepage-carousel"]:first-child,
+main#xo-main-content section[class*="slideshow"]:first-child {
+  margin: 0;
+  padding-bottom: 0;
+  position: relative;
+}
+
+/* Vastu Kit Banner - After Carousel */
+main#xo-main-content div[class*="vastu-kit-banner"],
+main#xo-main-content div[class*="vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="vastu-kit"],
+main#xo-main-content section[class*="slideshow"] + div[class*="vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="vastu-kit-banner"],
+main#xo-main-content section[class*="slideshow"] + div[class*="vastu-kit-banner"],
+main#xo-main-content > section:first-child + section,
+main#xo-main-content > section:first-child + div,
+main#xo-main-content section:first-child + section,
+main#xo-main-content section:first-child + div {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Blog Section - Consistent Spacing Pattern */
+
+/* Using explicit margin pattern for desktop stability */
+main#xo-main-content section[class*="blog"] {
+  margin: var(--homepage-section-spacing) 0 var(--homepage-section-spacing) 0;
+  position: relative;
+  padding-bottom: 0;
+}
+
+/* Vastu Product Showcase Spacing */
+
+/* Desktop pattern: explicit margins, relative positioning, no padding-bottom */
+.vastu-product-showcase {
+  padding-top: 4rem;
+  padding-bottom: 0;
+  margin: var(--homepage-section-spacing, 4rem) 0 var(--homepage-section-spacing, 4rem) 0;
+  position: relative;
+}

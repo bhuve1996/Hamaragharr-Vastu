@@ -121,11 +121,7 @@
           }
         }
       },
-      "block_order": [
-        "about_BbTPxX",
-        "about_gR46MT",
-        "about_PtWiYL"
-      ],
+      "block_order": ["about_BbTPxX", "about_gR46MT", "about_PtWiYL"],
       "settings": {
         "width": "box",
         "fullwidth_margin": 0,

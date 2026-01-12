@@ -1,7 +1,7 @@
 {
   "sections": {
-    "breadcrumb-v2":{
-      "type":"breadcrumb-v2",
+    "breadcrumb-v2": {
+      "type": "breadcrumb-v2",
       "settings": {
         "color_scheme": "inverse",
         "background_image_desktop": "shopify://shop_images/bg_page.jpg",
@@ -13,7 +13,7 @@
       }
     },
     "faq-v1": {
-      "type":"faq-v1",
+      "type": "faq-v1",
       "settings": {
         "padding_bottom": 140
       },
@@ -119,7 +119,7 @@
       ]
     },
     "newsletter-v2": {
-      "type":"newsletter-v2",
+      "type": "newsletter-v2",
       "settings": {
         "title": "Never miss our updates about new arrivals and special offers",
         "subtitle": "Get the latest news & updates",
@@ -128,9 +128,5 @@
       }
     }
   },
-  "order": [
-    "breadcrumb-v2",
-    "faq-v1",
-    "newsletter-v2"
-  ]
+  "order": ["breadcrumb-v2", "faq-v1", "newsletter-v2"]
 }

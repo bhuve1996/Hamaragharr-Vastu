@@ -11,9 +11,7 @@
           }
         }
       },
-      "block_order": [
-        "items_box_fJ4PzT"
-      ],
+      "block_order": ["items_box_fJ4PzT"],
       "settings": {
         "width": "box",
         "fullwidth_margin": 0,

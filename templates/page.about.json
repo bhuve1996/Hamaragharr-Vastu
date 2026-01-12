@@ -115,11 +115,7 @@
           }
         }
       },
-      "block_order": [
-        "about_box_1",
-        "about_box_2",
-        "about_box_3"
-      ],
+      "block_order": ["about_box_1", "about_box_2", "about_box_3"],
       "settings": {
         "width": "box",
         "fullwidth_margin": 0,
@@ -171,4 +167,3 @@
     "newsletter_v1"
   ]
 }
-

@@ -1,0 +1,301 @@
+/* ============================================
+   VASTU PRODUCT SHOWCASE - Product Display
+   ============================================ */
+
+.vastu-product-showcase {
+  padding: 4rem 0;
+  margin-top: var(--homepage-section-spacing, 4rem);
+  margin-bottom: var(--homepage-section-spacing, 4rem);
+}
+
+/* Override Sticky Positioning */
+.vastu-product-showcase .xo-product-info-content {
+  position: relative;
+  top: 0;
+}
+
+xo-gallery{
+    width:100%;
+}
+
+.vastu-product-showcase .xo-product-info-media-style1,
+section.vastu-product-showcase .xo-product-info-media-style1,
+.vastu-product-showcase section .xo-product-info-media-style1 {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  padding-top: 0;
+  margin-top: 0;
+  top: 0;
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Ensure all nested carousel and gallery elements have full width */
+.vastu-product-showcase .xo-product-info-media-style1 xo-gallery,
+.vastu-product-showcase .xo-product-info-media-style1 xo-carousel,
+.vastu-product-showcase .xo-product-info-media-style1 xo-carousel-inner,
+.vastu-product-showcase .xo-product-info-media-style1 xo-carousel-list,
+.vastu-product-showcase .xo-product-info-media-style1 xo-carousel-slide,
+.vastu-product-showcase .xo-product-info-media-style1 xo-image,
+.vastu-product-showcase .xo-product-info-media-style1 xo-image-zoom {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  display: block;
+}
+
+.vastu-product-showcase .xo-product-info-media-style1__image,
+.vastu-product-showcase .xo-product-info-media-style1__image img,
+.vastu-product-showcase .xo-product-info-media-style1__slide img,
+.vastu-product-showcase .xo-product-info-media-style1 xo-image img,
+.vastu-product-showcase .xo-product-info-media-style1 xo-image-zoom img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vastu-product-showcase .xo-product-info-media-style1__bottom {
+  padding-top: 0;
+  margin-top: 0;
+  width: 100%;
+}
+
+/* Desktop Layout - Equal Heights */
+@media (width >= 768px) {
+  .vastu-product-showcase xo-grid {
+    display: flex;
+    align-items: stretch;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .vastu-product-showcase xo-animate {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: stretch;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  .vastu-product-showcase xo-animate:first-of-type {
+    align-items: flex-start;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .vastu-product-showcase .xo-product-info-media-style1 {
+    align-self: flex-start;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Ensure nested elements maintain full width on desktop */
+  .vastu-product-showcase .xo-product-info-media-style1 xo-gallery,
+  .vastu-product-showcase .xo-product-info-media-style1 xo-carousel,
+  .vastu-product-showcase .xo-product-info-media-style1 xo-carousel-inner,
+  .vastu-product-showcase .xo-product-info-media-style1 xo-carousel-list,
+  .vastu-product-showcase .xo-product-info-media-style1 xo-carousel-slide,
+  .vastu-product-showcase .xo-product-info-media-style1 xo-image,
+  .vastu-product-showcase .xo-product-info-media-style1 xo-image-zoom {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    display: block;
+  }
+
+  .vastu-product-showcase .xo-product-info-media-style1__image,
+  .vastu-product-showcase .xo-product-info-media-style1__image img,
+  .vastu-product-showcase .xo-product-info-media-style1__slide img,
+  .vastu-product-showcase .xo-product-info-media-style1 xo-image img,
+  .vastu-product-showcase .xo-product-info-media-style1 xo-image-zoom img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .vastu-product-showcase__right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  .vastu-product-showcase__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* Content Styles */
+.vastu-product-showcase__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.vastu-product-showcase__title {
+  font-size: var(--font-size-heading, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: rgb(var(--color-foreground));
+  margin: 0 0 var(--spacing-md) 0;
+  line-height: 1.2;
+}
+
+.vastu-product-showcase__price {
+  font-size: var(--font-size-price, 2rem);
+  font-weight: var(--font-weight-semibold);
+  color: rgb(var(--color-foreground));
+}
+
+.vastu-product-showcase__description {
+  font-size: var(--font-size-description);
+  line-height: 1.6;
+  color: rgb(var(--color-foreground));
+}
+
+.vastu-product-showcase__description-text {
+  margin-bottom: var(--spacing-md);
+}
+
+.vastu-product-showcase__read-more {
+  display: inline-block;
+  font-size: var(--font-size-description);
+  font-weight: var(--font-weight-semibold);
+  color: rgb(var(--color-secondary-button));
+  text-decoration: none;
+  margin-top: var(--spacing-xs);
+  transition:
+    color var(--transition-base),
+    transform var(--transition-fast);
+}
+
+.vastu-product-showcase__read-more:hover {
+  color: rgb(186 170 200);
+  transform: translateX(4px);
+}
+
+.vastu-product-showcase__read-more:active {
+  transform: translateX(2px);
+}
+
+.vastu-product-showcase__variants {
+  margin: var(--spacing-md) 0;
+}
+
+.vastu-product-showcase__quantity {
+  margin: var(--spacing-md) 0;
+}
+
+.vastu-product-showcase__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.vastu-product-showcase__add-to-cart,
+.vastu-product-showcase__buy-now {
+  width: 100%;
+}
+
+/* ============================================
+   VASTU PRODUCT SHOWCASE - Button Styles
+   Section-specific, parent-scoped
+   ============================================ */
+
+/* Secondary Button (Purple/Black Background, White Text) */
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--secondary,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn.xo-btn--secondary,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart button.xo-btn--secondary,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn--secondary,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn.xo-btn--secondary,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add button.xo-btn--secondary {
+  background-color: rgb(var(--color-secondary-button, 71, 56, 85));
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  border: none;
+}
+
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--secondary:hover,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart button.xo-btn--secondary:hover,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn--secondary:hover {
+  background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+}
+
+/* Primary Button (White Background, Black Text) */
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--primary,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn.xo-btn--primary,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart button.xo-btn--primary,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn--primary,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn.xo-btn--primary,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add button.xo-btn--primary {
+  background-color: rgb(var(--color-button, 255, 255, 255));
+  color: rgb(var(--color-button-text, 0, 0, 0));
+  border: 1px solid rgba(var(--color-border, 0, 0, 0), 0.1);
+}
+
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--primary:hover,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart button.xo-btn--primary:hover,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn--primary:hover {
+  background-color: rgba(var(--color-button, 255, 255, 255), 0.95);
+  color: rgb(var(--color-button-text, 0, 0, 0));
+}
+
+/* Override inline styles if they conflict - ensure section-specific styles take precedence */
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn[style*="--bg-color"],
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart button[style*="--bg-color"],
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn[style*="--bg-color"] {
+  background-color: var(--bg-color, rgb(var(--color-secondary-button, 71, 56, 85)));
+}
+
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn[style*="--text-color"],
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart button[style*="--text-color"],
+section[class*="vastu-product-showcase"]
+  .vastu-product-showcase__add-to-cart
+  xo-cart-add
+  .xo-btn[style*="--text-color"] {
+  color: var(--text-color, rgb(var(--color-secondary-button-text, 255, 255, 255)));
+}
+
+/* Custom Text Blocks */
+.vastu-product-showcase__custom-text {
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-lg);
+  background-color: rgba(var(--color-background), 0.5);
+  border-radius: var(--radius-md);
+}
+
+.vastu-product-showcase__custom-heading {
+  font-size: var(--font-size-heading, 2.5rem);
+  font-weight: var(--font-weight-bold);
+  color: rgb(var(--color-foreground));
+  margin: 0 0 var(--spacing-md) 0;
+  line-height: 1.2;
+}
+
+.vastu-product-showcase__custom-content {
+  font-size: var(--font-size-description);
+  line-height: 1.6;
+  color: rgb(var(--color-foreground));
+}
+
+.vastu-product-showcase__custom-content p {
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.vastu-product-showcase__custom-content p:last-child {
+  margin-bottom: 0;
+}

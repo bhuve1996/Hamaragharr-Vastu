@@ -1,0 +1,43 @@
+.vastu-faq__item {
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgb(136 112 142 / 15%);
+}
+
+.vastu-shop-by-concern__item:hover {
+  border-color: rgb(136 112 142 / 40%);
+  box-shadow: 0 4px 16px rgb(136 112 142 / 25%);
+  transform: translateY(-2px);
+}
+
+/* Accordion Trigger */
+.vastu-shop-by-concern__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  background: rgb(186 170 200);
+  transition: all 0.3s ease;
+  border: none;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+.vastu-shop-by-concern__trigger:hover {
+  background: rgb(186 170 200 / 90%);
+}
+
+.vastu-shop-by-concern__trigger-content {
+  flex: 1;
+  padding-right: 1.5rem;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.vastu-shop-by-concern__trigger-title {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold, 700);
+}

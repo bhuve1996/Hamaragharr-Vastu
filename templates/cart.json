@@ -38,12 +38,7 @@
           }
         }
       },
-      "block_order": [
-        "free_shipping",
-        "note",
-        "subtotal",
-        "badge"
-      ],
+      "block_order": ["free_shipping", "note", "subtotal", "badge"],
       "settings": {
         "padding_top": 20
       }
@@ -61,9 +56,5 @@
       }
     }
   },
-  "order": [
-    "main-page-heading",
-    "cart-items",
-    "featured-collection"
-  ]
+  "order": ["main-page-heading", "cart-items", "featured-collection"]
 }

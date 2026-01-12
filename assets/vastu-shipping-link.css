@@ -1,0 +1,119 @@
+/* ============================================
+   VASTU SHIPPING LINK - Read More Link Styling
+   Parent-scoped: .shipping-accordion
+   ============================================ */
+
+/* View Full Link - Read More Style (Not Button) */
+.shipping-accordion__view-full,
+.shipping-accordion .shipping-accordion__view-full,
+.shipping-content .shipping-accordion__view-full {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  appearance: none;
+}
+
+/* View Full Link Text - Read More Style */
+.shipping-accordion__view-full-link,
+.shipping-accordion .shipping-accordion__view-full-link,
+.shipping-accordion__view-full span,
+.shipping-accordion__view-full button {
+  display: inline-block;
+  font-size: var(--font-size-description, 1.4rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.5);
+  text-underline-offset: 0.3rem;
+  transition:
+    color var(--transition-base),
+    text-decoration-color var(--transition-base),
+    transform var(--transition-fast);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  line-height: 1.5;
+}
+
+/* Hover State - Read More Link */
+.shipping-accordion__view-full:hover .shipping-accordion__view-full-link,
+.shipping-accordion__view-full:hover span,
+.shipping-accordion__view-full:hover button,
+.shipping-accordion__view-full-link:hover {
+  color: rgb(var(--color-purple, 107, 70, 193));
+  text-decoration-color: rgba(var(--color-purple, 107, 70, 193), 0.7);
+  transform: translateX(4px);
+}
+
+/* Active State */
+.shipping-accordion__view-full:active .shipping-accordion__view-full-link,
+.shipping-accordion__view-full:active span,
+.shipping-accordion__view-full:active button,
+.shipping-accordion__view-full-link:active {
+  transform: translateX(2px);
+}
+
+/* Remove Button Styling */
+.shipping-accordion__view-full button,
+.shipping-accordion__view-full .xo-btn,
+.shipping-accordion__view-full [class*="button"] {
+  background: none;
+  border: none;
+  padding: 0;
+  min-width: auto;
+  min-height: auto;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-decoration: inherit;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Modal Trigger - Ensure It's a Link, Not Button */
+.shipping-accordion__view-full xo-modal-trigger,
+.shipping-accordion__view-full [xo-modal-trigger] {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Ensure No Button Classes Apply */
+.shipping-accordion__view-full.xo-btn,
+.shipping-accordion__view-full[class*="button"],
+.shipping-accordion__view-full[class*="btn"] {
+  background: none;
+  border: none;
+  padding: 0;
+  min-width: auto;
+  min-height: auto;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Product Page Specific - Parent Scoped */
+.xo-product-info-content .shipping-accordion__view-full,
+.main-product .shipping-accordion__view-full,
+section[class*="main-product"] .shipping-accordion__view-full {
+  display: inline-block;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+/* Responsive */
+@media (width <= 767px) {
+  .shipping-accordion__view-full-link,
+  .shipping-accordion__view-full span,
+  .shipping-accordion__view-full button {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,257 @@
+
+
+  --homepage-section-spacing-tablet: 64px;
+  --homepage-section-padding-top: 0px;
+  --homepage-section-padding-bottom: 0px;
+  --homepage-section-padding-top-mobile: 0px;
+  --homepage-section-padding-bottom-mobile: 0px;
+  --homepage-section-padding-top-tablet: 0px;
+  --homepage-section-padding-bottom-tablet: 0px;
+
+/* Target all sections and Shopify section wrapper divs - remove default padding and make it configurable */
+main#xo-main-content section,
+main#xo-main-content div[class*="shopify-section-template"],
+section.xo-section,
+section[class*="xo-section--"],
+div[class*="shopify-section-template"] {
+  /* Override padding via CSS variables - allows section settings to still work */
+  --pt: var(--homepage-section-padding-top);
+  --pb: var(--homepage-section-padding-bottom);
+
+  /* Directly set padding to ensure it's applied */
+  padding-top: var(--homepage-section-padding-top);
+  padding-bottom: var(--homepage-section-padding-bottom);
+
+  /* Reset margins to ensure consistency - will be set per section below */
+  margin-top: var(--homepage-section-spacing);
+  margin-bottom: var(--homepage-section-spacing);
+}
+
+/* Prevent margin collapsing between carousel and vastu section */
+
+/* Use padding on carousel bottom instead of margin to prevent collapse */
+main#xo-main-content section[class*="homepage-carousel"]:first-child,
+main#xo-main-content section[class*="slideshow"]:first-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Vastu section gets top margin (no collapse because carousel uses padding) */
+main#xo-main-content div[class*="vastu-kit-banner"],
+main#xo-main-content div[class*="vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="vastu-kit"],
+main#xo-main-content section[class*="slideshow"] + div[class*="vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="vastu-kit-banner"],
+main#xo-main-content section[class*="slideshow"] + div[class*="vastu-kit-banner"] {
+  margin-top: var(--homepage-section-spacing);
+  margin-bottom: var(--homepage-section-spacing);
+}
+
+/* Section-by-section margin control */
+
+/* Homepage sections in order:
+   1. homepage-carousel (slideshow-v1) - First section, no top margin
+   2. vastu-kit-banner (banner-v3) - 2rem top margin
+   3. vastu-best-seller-cards - 2rem top margin
+   4. vastu-hindi-statement - 2rem top margin
+   5. vastu-featured-products - 2rem top margin
+   6. testimonial-v2 - 2rem top margin
+   7. blog_v1_UzjtYd (blog-v1) - 2rem top margin
+   8. vastu-trust-bar - 2rem top margin
+   9. vastu-features-bar - 2rem top margin
+*/
+
+/* First section/div - no top margin, but has bottom margin */
+main#xo-main-content > section:first-child,
+main#xo-main-content > div:first-child,
+main#xo-main-content section:first-child,
+main#xo-main-content div:first-child,
+main#xo-main-content > section:first-child[class*="homepage-carousel"],
+main#xo-main-content > div:first-child[class*="homepage-carousel"],
+main#xo-main-content > section:first-child[class*="slideshow"],
+main#xo-main-content section:first-child[class*="homepage-carousel"],
+main#xo-main-content section:first-child[class*="slideshow"] {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Last section/div - no bottom margin (only applies to section/div itself, not children) */
+main#xo-main-content > section:last-child,
+main#xo-main-content > div:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure child elements maintain their spacing even in last section */
+main#xo-main-content > section:last-child .banner-v155__description,
+main#xo-main-content > section:last-child .vastu-hero__description,
+main#xo-main-content > div:last-child .banner-v155__description,
+main#xo-main-content > div:last-child .vastu-hero__description {
+  margin-bottom: 4.5rem !important;
+}
+
+/* Vastu Kit Banner - margin after carousel */
+
+/* Handle both direct sections and Shopify wrapper divs */
+
+/* Note: Shopify wraps some sections in div with class like "shopify-section-template--ID__section-id" */
+main#xo-main-content section[class*="homepage-carousel"] + section[class*="vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + section[class*="banner-v3"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="banner-v3"],
+main#xo-main-content section[class*="slideshow"] + section[class*="vastu-kit"],
+main#xo-main-content section[class*="slideshow"] + div[class*="vastu-kit"],
+main#xo-main-content section[class*="slideshow"] + section[class*="banner-v3"],
+main#xo-main-content section[class*="slideshow"] + div[class*="banner-v3"],
+main#xo-main-content section[class*="homepage-carousel"] + section[class*="xo-section--vastu-kit"],
+main#xo-main-content section[class*="homepage-carousel"] + div[class*="xo-section--vastu-kit"],
+main#xo-main-content section[class*="slideshow"] + section[class*="xo-section--vastu-kit"],
+main#xo-main-content section[class*="slideshow"] + div[class*="xo-section--vastu-kit"],
+/* More specific: target section/div that comes after homepage-carousel */
+main#xo-main-content > section:first-child + section,
+main#xo-main-content > section:first-child + div,
+main#xo-main-content section:first-child + section,
+main#xo-main-content section:first-child + div {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Vastu Best Seller Cards - margin after vastu-kit-banner */
+
+/* Handle both div wrapper and direct section */
+main#xo-main-content div[class*="vastu-kit"] + section[class*="vastu-best-seller"],
+main#xo-main-content div[class*="banner-v3"] + section[class*="vastu-best-seller"],
+main#xo-main-content section[class*="vastu-kit"] + section[class*="vastu-best-seller"],
+main#xo-main-content section[class*="banner-v3"] + section[class*="vastu-best-seller"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Vastu Hindi Statement - margin after best-seller */
+main#xo-main-content section[class*="vastu-best-seller"] + section[class*="vastu-hindi"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Vastu Featured Products - margin after hindi-statement */
+main#xo-main-content section[class*="vastu-hindi"] + section[class*="vastu-featured"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Testimonial - margin after featured-products */
+main#xo-main-content section[class*="vastu-featured"] + section[class*="testimonial"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Blog - margin after testimonial */
+main#xo-main-content section[class*="testimonial"] + section[class*="blog"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Trust Bar - margin after blog */
+main#xo-main-content section[class*="blog"] + section[class*="vastu-trust"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Features Bar - margin after trust bar or any section */
+main#xo-main-content section[class*="vastu-trust"] + section[class*="vastu-features"],
+main#xo-main-content section[class*="blog"] + section[class*="vastu-features"],
+main#xo-main-content section[class*="testimonial"] + section[class*="vastu-features"] {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Fallback: Any section/div following another section gets margin */
+main#xo-main-content > section + section,
+main#xo-main-content > section + div,
+main#xo-main-content > div + section,
+main#xo-main-content > div + div,
+main#xo-main-content section + section,
+main#xo-main-content section + div,
+main#xo-main-content div + section {
+  margin-top: var(--homepage-section-spacing);
+}
+
+/* Remove padding-bottom from slideshow/carousel sections */
+section[class*="slideshow-v1"],
+section[class*="slideshow-v28"],
+section[class*="homepage-carousel"] {
+  padding-bottom: 0;
+}
+
+/* Remove margin and padding from last elements in product cards */
+.vastu-best-seller-card:last-child,
+.vastu-featured-products__card:last-child,
+.vastu-best-seller-card__content > *:last-child,
+.vastu-featured-products__content > *:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Remove margin from blog sections (Shopify default) */
+section[class*="blog-v1"],
+section[class*="blog-v2"],
+section[class*="blog"] {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Remove bottom margin from blog sections */
+section[class*="blog-v1"] *:last-child,
+section[class*="blog-v2"] *:last-child,
+section[class*="blog"] *:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile: Smaller margins and padding for better mobile experience */
+@media (width <= 46.8125rem) {
+  main#xo-main-content {
+    --homepage-section-spacing: var(--homepage-section-spacing-mobile);
+    --homepage-section-padding-top: var(--homepage-section-padding-top-mobile);
+    --homepage-section-padding-bottom: var(--homepage-section-padding-bottom-mobile);
+  }
+  
+  main#xo-main-content section,
+  section.xo-section,
+  section[class*="xo-section--"] {
+    padding-top: var(--homepage-section-padding-top);
+    padding-bottom: var(--homepage-section-padding-bottom);
+    margin-bottom: var(--homepage-section-spacing);
+  }
+  
+  /* Last section on mobile - no bottom margin */
+  main#xo-main-content > section:last-child,
+  main#xo-main-content section:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Tablet: Medium margins and padding */
+@media (width >= 46.875rem) and (width <= 61.8125rem) {
+  main#xo-main-content {
+    --homepage-section-spacing: var(--homepage-section-spacing-tablet);
+    --homepage-section-padding-top: var(--homepage-section-padding-top-tablet);
+    --homepage-section-padding-bottom: var(--homepage-section-padding-bottom-tablet);
+  }
+  
+  main#xo-main-content section,
+  section.xo-section,
+  section[class*="xo-section--"] {
+    padding-top: var(--homepage-section-padding-top);
+    padding-bottom: var(--homepage-section-padding-bottom);
+  }
+}
+
+/* Vastu Trust Bar - Carousel Design */
+
+/* Trust Bar Header */
+.vastu-trust-bar__header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.vastu-trust-bar__title {
+  font-size: var(--title-font-size, 3.5rem);
+  font-weight: var(--title-font-weight, 700);
+  text-align: center;
+  margin: 0 0 1.5rem;
+  position: relative;
+  padding-bottom: 7rem;
+}

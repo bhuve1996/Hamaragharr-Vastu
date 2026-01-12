@@ -53,9 +53,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "breadcrumb-v2",
-    "order_content_1"
-  ]
+  "order": ["main", "breadcrumb-v2", "order_content_1"]
 }

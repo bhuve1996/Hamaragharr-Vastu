@@ -28,9 +28,5 @@
       }
     }
   },
-  "order": [
-    "breadcrumb-v2",
-    "main-article",
-    "related-article"
-  ]
+  "order": ["breadcrumb-v2", "main-article", "related-article"]
 }

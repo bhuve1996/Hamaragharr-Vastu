@@ -71,6 +71,9 @@
         <div class='vastu-product-showcase__description-text'>
           {{ section.settings.custom_description }}
         </div>
+        <a href='{{ product.url }}' class='vastu-product-showcase__read-more'>
+          {{ section.settings.read_more_text | default: 'Read More' }}
+        </a>
       </div>
     {% elsif product.description != blank %}
       <div class='vastu-product-showcase__description'>
@@ -148,12 +151,13 @@
             {%- else -%}
               {% assign button_text = 'products.product.sold_out' | t %}
             {%- endif -%}
-            {% render 'button', style: 'primary', text: button_text, block: true, size: 'md' %}
+            {% render 'button', style: 'secondary', text: button_text, block: true, size: 'md' %}
           </xo-cart-add>
         </xo-product-will-change>
       </div>
       
-      {% comment %} Buy Now Button {% endcomment %}
+      {% comment %} Buy Now Button - Commented out on homepage {% endcomment %}
+      {% comment %}
       {% if section.settings.show_buy_now and product.selling_plan_groups == empty %}
         <div class='vastu-product-showcase__buy-now'>
           <xo-product-will-change
@@ -168,6 +172,7 @@
           </xo-product-will-change>
         </div>
       {% endif %}
+      {% endcomment %}
     </div>
   {%- endform -%}
   

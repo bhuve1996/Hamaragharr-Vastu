@@ -1,0 +1,281 @@
+/* ============================================
+   VASTU COLLECTION CARDS - Product Cards in Collections
+   Equal Heights, Aspect Ratios, and Spacing
+   ============================================
+   
+   DISABLED - Now using unified vastu-product-card.css
+   This file is kept for reference but commented out.
+   
+   /*
+
+/* ============================================
+   GRID CONTAINER - Equal Height Cards
+   ============================================ */
+
+/* Collection Grid - Ensure equal height cards */
+xo-grid.filters-content__grid,
+xo-grid[class*="filters-content"],
+xo-grid[class*="collection"],
+main xo-grid:has(.xo-product-card),
+main xo-grid:has([class*="product-card"]) {
+  display: grid;
+  align-items: stretch;
+}
+
+/* Grid Items - Equal Heights */
+xo-grid.filters-content__grid > *,
+xo-grid[class*="filters-content"] > *,
+xo-grid[class*="collection"] > *,
+main xo-grid:has(.xo-product-card) > *,
+main xo-grid:has([class*="product-card"]) > * {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+/* ============================================
+   PRODUCT CARD - Equal Height Structure
+   ============================================ */
+
+/* Product Card Base - Full Height */
+.xo-product-card,
+[class*="product-card"],
+[class*="xo-product-card"] {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Product Card Link/Wrapper - Full Height */
+.xo-product-card > a,
+.xo-product-card > div,
+[class*="product-card"] > a,
+[class*="product-card"] > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================
+   PRODUCT CARD IMAGE - Aspect Ratio & Equal Height
+   ============================================ */
+
+/* Image Container - Respect Aspect Ratio */
+.xo-product-card__image,
+.xo-product-card__media,
+[class*="product-card"] [class*="image"],
+[class*="product-card"] [class*="media"],
+[class*="product-card"] img {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1; /* Default square, can be overridden */
+}
+
+/* Ensure aspect ratio is respected on both desktop and mobile */
+@media (width <= 767px) {
+  .xo-product-card__image,
+  .xo-product-card__media,
+  [class*="product-card"] [class*="image"],
+  [class*="product-card"] [class*="media"] {
+    aspect-ratio: 1 / 1; /* Maintain square on mobile */
+  }
+}
+
+@media (width >= 768px) {
+  .xo-product-card__image,
+  .xo-product-card__media,
+  [class*="product-card"] [class*="image"],
+  [class*="product-card"] [class*="media"] {
+    aspect-ratio: 1 / 1; /* Maintain square on desktop */
+  }
+}
+
+/* Image Element - Fill Container */
+.xo-product-card__image img,
+.xo-product-card__media img,
+[class*="product-card"] [class*="image"] img,
+[class*="product-card"] [class*="media"] img,
+[class*="product-card"] img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ============================================
+   PRODUCT CARD CONTENT - Flexible Growth
+   ============================================ */
+
+/* Card Content - Flexible, Grows to Fill */
+.xo-product-card__content,
+[class*="product-card"] [class*="content"],
+[class*="product-card"] [class*="info"] {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Card Content Inner - Proper Spacing */
+.xo-product-card__content > *,
+[class*="product-card"] [class*="content"] > * {
+  flex-shrink: 0;
+}
+
+/* Card Title - Prevent Overflow */
+.xo-product-card__title,
+[class*="product-card"] [class*="title"],
+[class*="product-card"] h3,
+[class*="product-card"] h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.4;
+}
+
+/* Card Price - Consistent Spacing */
+
+/* DISABLED - Now using unified vastu-product-card.css */
+
+/*
+.xo-product-card__price,
+[class*="product-card"] [class*="price"] {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+*/
+
+/* Card Actions - Push to Bottom */
+.xo-product-card__actions,
+[class*="product-card"] [class*="actions"],
+[class*="product-card"] [class*="add-to-cart"] {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+/* ============================================
+   SPACING BETWEEN CARDS
+   ============================================ */
+
+/* Grid Gap - Consistent Spacing */
+xo-grid.filters-content__grid {
+  gap: var(--xo-grid-col-gap, 2rem) var(--xo-grid-row-gap, 2rem);
+}
+
+/* Ensure proper spacing on mobile */
+@media (width <= 767px) {
+  xo-grid.filters-content__grid {
+    gap: var(--xo-grid-col-gap-mobile, 1.5rem) var(--xo-grid-row-gap-mobile, 1.5rem);
+  }
+}
+
+/* ============================================
+   CAROUSEL CARDS - Equal Heights
+   ============================================ */
+
+/* Carousel Container - Equal Heights */
+xo-carousel-list:has(.xo-product-card),
+xo-carousel-list:has([class*="product-card"]) {
+  display: flex;
+  align-items: stretch;
+}
+
+/* Carousel Slide - Full Height */
+xo-carousel-slide:has(.xo-product-card),
+xo-carousel-slide:has([class*="product-card"]) {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+/* Carousel Card - Full Height */
+xo-carousel-slide .xo-product-card,
+xo-carousel-slide [class*="product-card"] {
+  height: 100%;
+  width: 100%;
+}
+
+/* ============================================
+   RESPONSIVE - Mobile & Desktop
+   ============================================ */
+
+/* Mobile - Ensure aspect ratio maintained */
+@media (width <= 767px) {
+  .xo-product-card,
+  [class*="product-card"] {
+    min-height: auto;
+  }
+
+  .xo-product-card__image,
+  .xo-product-card__media,
+  [class*="product-card"] [class*="image"],
+  [class*="product-card"] [class*="media"] {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* Desktop - Ensure aspect ratio maintained */
+@media (width >= 768px) {
+  .xo-product-card,
+  [class*="product-card"] {
+    min-height: auto;
+  }
+
+  .xo-product-card__image,
+  .xo-product-card__media,
+  [class*="product-card"] [class*="image"],
+  [class*="product-card"] [class*="media"] {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* ============================================
+   OVERRIDE FOR CUSTOM ASPECT RATIOS
+   ============================================ */
+
+/* If a custom aspect ratio is set via CSS variable */
+.xo-product-card__image[style*="aspect-ratio"],
+.xo-product-card__media[style*="aspect-ratio"],
+[class*="product-card"] [class*="image"][style*="aspect-ratio"],
+[class*="product-card"] [class*="media"][style*="aspect-ratio"] {
+  aspect-ratio: var(--product-card-aspect-ratio, 1 / 1);
+}
+
+/* ============================================
+   SPECIFIC PRODUCT CARD STYLES
+   ============================================ */
+
+/* Product Card Style 1 */
+.xo-product-card--style1,
+.product-card-style1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Product Card Style 9 (Default) */
+.xo-product-card--style9,
+.product-card-style9 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Ensure all product card variants respect equal heights */
+[class*="product-card-style"] {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

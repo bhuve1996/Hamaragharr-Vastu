@@ -1,0 +1,139 @@
+/* ============================================
+   Vastu Help Address V1 - Icons Row (Like About Page)
+   ============================================ */
+.vastu-help-address-v1__section-title {
+  font-size: var(--title-font-size, 3.5rem);
+  font-weight: var(--title-font-weight, 700);
+  text-align: center;
+  margin: 0 0 3rem;
+  position: relative;
+  padding-bottom: 7rem;
+}
+
+.vastu-help-address-v1__section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--title-underline-width, 80px);
+  height: var(--title-underline-height, 4px);
+  background-color: var(--title-underline-color, #473855);
+  border-radius: 2px;
+}
+
+.vastu-help-address-v1__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgb(255 255 255 / 95%);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.vastu-help-address-v1__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+}
+
+.vastu-help-address-v1__icon {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.vastu-help-address-v1__item:hover .vastu-help-address-v1__icon {
+  transform: scale(1.1);
+  color: rgb(71 56 85);
+}
+
+.vastu-help-address-v1__icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.vastu-help-address-v1__icon img,
+.vastu-help-address-v1__icon .xo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vastu-help-address-v1__text {
+  font-size: var(--font-size-description, 1.6rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: rgb(71 56 85);
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (width <= 48rem) {
+  .vastu-help-address-v1__section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .vastu-help-address-v1__item {
+    padding: 1.5rem 1rem;
+  }
+
+  .vastu-help-address-v1__icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    margin-bottom: 1rem;
+  }
+
+  .vastu-help-address-v1__text {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   Vastu Help Address V2 - Circle with 4 Quadrants
+   ============================================ */
+.vastu-help-address-v2__section-title {
+  font-size: var(--title-font-size, 3.5rem);
+  font-weight: var(--title-font-weight, 700);
+  text-align: center;
+  margin: 0 0 3rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.vastu-help-address-v2__section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--title-underline-width, 80px);
+  height: var(--title-underline-height, 4px);
+  background-color: var(--title-underline-color, #473855);
+  border-radius: 2px;
+}
+
+.vastu-help-address-v2__circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

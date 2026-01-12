@@ -58,7 +58,5 @@
       }
     }
   },
-  "order": [
-    "footer-v4"
-  ]
+  "order": ["footer-v4"]
 }

@@ -33,9 +33,9 @@
         "fullwidth_margin": 0,
         "reverse": false,
         "gap": 30,
-        "title": "Return & Refund Policy",
-        "subtitle": "Hassle-Free Returns",
-        "description": "<p>At VastuKit, we want you to be completely satisfied with your purchase. If you are not satisfied, we offer a straightforward return and refund process.</p><p>Please review the following policy to understand our return and refund procedures.</p>",
+        "title": "Return, Exchange & Refund Policy",
+        "subtitle": "Effective Date: 21 July 2025",
+        "description": "<p>This Return, Exchange &amp; Refund Policy applies to all purchases made on <strong>www.hamaragharr.in</strong> (the \"Website\"). By placing an order, you acknowledge that you have read, understood, and explicitly agreed to this Policy along with our Terms &amp; Conditions, including acceptance through the mandatory forced-scroll confirmation at checkout.</p><h3>1. Scope of Policy</h3><p>This policy governs refunds, returns, and exchanges for:</p><ul><li>Physical products purchased through www.hamaragharr.in</li></ul><h3>2. Physical Product (No Refund Policy)</h3><p>All Physical Product Purchases offerings are strictly non-refundable and non-transferable once payment is completed.</p><h4>Exceptional Cases</h4><p>Any exception (including partial credits, access deferral, or alternative offerings) may be granted solely at the discretion of Hamaragharr Vastu Management. Such decisions are final, binding, and non-negotiable.</p><h3>3. Physical Products — Returns (Wrong Item Only)</h3><p>Returns for physical products are accepted only if an incorrect item was delivered.</p><h4>Eligibility Conditions</h4><ul><li><strong>Return Request Window:</strong> Within 7 days of delivery, and not later than 14 days from the purchase date</li><li><strong>Item Condition:</strong> Unused, uninstalled, with original tags intact</li><li><strong>Packaging:</strong> Original packaging must be preserved</li><li><strong>Proof:</strong> Clear open-box delivery video (mandatory), Valid receipt or order confirmation required</li></ul><h4>Return Process</h4><p>To initiate a return, contact us at <a href=\"mailto:support@hamaragharr.in\">support@hamaragharr.in</a> with your order details and issue description. Upon approval, return instructions and a shipping label (if applicable) will be shared.</p><p>Items returned without prior authorization will not be accepted.</p><h4>Return Address</h4><p><strong>Hamaragharr Vastu Corporation</strong><br>Faridabad, Haryana<br>Haryana, India</p><h3>4. Damaged, Defective, or Incorrect Items</h3><p>Please inspect your order immediately upon delivery. If the product is damaged, defective, or incorrect, contact us at <a href=\"mailto:support@hamaragharr.in\">support@hamaragharr.in</a> as soon as possible. We will assess the issue and provide a suitable resolution.</p><h4>Resolution</h4><p>Based on the case, our team may offer:</p><ul><li>Replacement of the product</li><li>Store credit (usable for future purchases)</li></ul><h3>5. Exchanges (Physical Products)</h3><p>Exchanges are permitted only in cases where an incorrect item was delivered.</p><p><strong>Process:</strong></p><ol><li>Complete the approved return process as outlined above</li><li>Once the return is accepted, place a new order for the correct item</li></ol><h3>6. Non-Returnable / Non-Exchangeable Items</h3><p>The following items are not eligible for return or exchange:</p><ul><li>Correctly delivered products</li><li>Used or damaged items (not due to our error)</li><li>Products without original packaging or tags</li><li>Items without proper proof (receipt or open-box video)</li><li>Customized, made-to-order, or vastu-energized products</li></ul><h3>7. Contact Information</h3><p>For questions related to returns, exchanges, or refunds, please contact us:</p><p>📧 <strong>Email:</strong> <a href=\"mailto:support@hamaragharr.in\">support@hamaragharr.in</a><br>📞 <strong>Phone:</strong> +91 8130340819</p><p>This policy is designed to protect both our customers and Hamaragharr Vastu Corporation while ensuring transparency and compliance with applicable consumer laws.</p>",
         "image": "",
         "hover": "scale_down",
         "color_scheme": "background-1",
@@ -53,9 +53,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "breadcrumb-v2",
-    "refund_content_1"
-  ]
+  "order": ["main", "breadcrumb-v2", "refund_content_1"]
 }

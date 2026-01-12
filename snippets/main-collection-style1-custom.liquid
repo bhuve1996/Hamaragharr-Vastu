@@ -16,7 +16,7 @@
   {%- else -%}
     {%- assign order_column = -1 -%}
   {%- endif -%}
-  <div style='--xs: 12; --sm: 12; --md: 4; --lg: 3; overflow:hidden' class='main-collection-style1__sidebar' aria-labelledby='verticalTitle'>
+  <div style='--xs: 12; --sm: 12; --md: 4; --lg: 4; overflow-x:hidden; overflow-y:visible; width: 100%;' class='main-collection-style1__sidebar' aria-labelledby='verticalTitle'>
     {% if section.settings.enable_filtering %}
       {% for filter in collection.filters %}
         {% render 'filters-fieldset', type: 'block', filter: filter %}
@@ -41,7 +41,7 @@
       {% endif %}
     {% endif %}
   </div>
-  <div style='--xs: 12; --sm: 12; --md: 8; --lg: 9;--order-md:{{ order_column }}'>
+  <div style='--xs: 12; --sm: 12; --md: 8; --lg: 8;--order-md:{{ order_column }}'>
     <div
       class='main-collection-style1__header'
     >

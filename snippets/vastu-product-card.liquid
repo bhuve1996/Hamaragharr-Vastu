@@ -1,0 +1,58 @@
+{% comment %}
+  Unified Product Card Snippet
+  Works in both carousel and grid contexts
+  Usage: {% render 'vastu-product-card', product: product, section: section, settings: settings %}
+{% endcomment %}
+
+{%- liquid
+  assign current_product = product
+  assign card_title_size = settings.card_title_font_size | default: 1.5
+  assign card_price_size = settings.card_price_font_size | default: 1.2
+  assign button_text = settings.button_text_add_to_cart | default: 'Add to Cart'
+  assign section_id = section.id | default: 'default'
+  assign block_id = block.id | default: ''
+  assign unique_id = section_id | append: '-' | append: block_id | append: '-' | append: current_product.id
+-%}
+
+<div class='vastu-product-card'>
+  <xo-product xo-product-id='{{ current_product.id }}' xo-section-id='{{ section_id }}' xo-product-information>
+    <a href='{{ current_product.url }}' class='vastu-product-card__link'>
+      <div class='vastu-product-card__image hover-style--scale-up'>
+        {% if current_product.price != blank %}
+          {%- assign price_formatted = current_product.price | money -%}
+          {%- assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' -%}
+          <div class='vastu-product-card__price' style='--card-price-size: {{ card_price_size }}rem;'>
+            {{ price_formatted }}
+          </div>
+        {% endif %}
+        {% if current_product.featured_image != blank %}
+          {% render 'image', image: current_product.featured_image, media_aspect_ratio: '4/3' %}
+        {% else %}
+          {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+      <div class='vastu-product-card__content'>
+        {% assign display_title = current_product.title | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7" %}
+        <h4 class='vastu-product-card__title' style='--card-title-size: {{ card_title_size }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h4>
+        {% if current_product.variants.size > 1 %}
+          <div class='vastu-product-card__add-to-cart' onclick='event.stopPropagation(); event.preventDefault();'>
+            <xo-modal-trigger xo-name='product-variant-modal-{{ unique_id }}' onclick='event.stopPropagation(); event.preventDefault();'>
+              {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+            </xo-modal-trigger>
+          </div>
+        {% else %}
+          <div class='vastu-product-card__add-to-cart' onclick='event.stopPropagation(); event.preventDefault();'>
+            <xo-cart-add {% if current_product.selected_or_first_available_variant.available == false %}xo-disabled{% endif %}>
+              {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+            </xo-cart-add>
+          </div>
+        {% endif %}
+      </div>
+    </a>
+    {% if current_product.variants.size > 1 %}
+      {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'center' %}
+    {% endif %}
+    {% render 'product-data', product: current_product %}
+  </xo-product>
+</div>
+

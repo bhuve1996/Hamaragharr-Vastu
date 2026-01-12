@@ -22,8 +22,5 @@
       }
     }
   },
-  "order": [
-    "breadcrumb-v2",
-    "main-blog"
-  ]
+  "order": ["breadcrumb-v2", "main-blog"]
 }

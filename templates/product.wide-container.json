@@ -208,10 +208,7 @@
           "settings": {}
         }
       },
-      "block_order": [
-        "tab1",
-        "tab2"
-      ],
+      "block_order": ["tab1", "tab2"],
       "settings": {
         "width": "wide",
         "padding_bottom": 0
@@ -224,98 +221,112 @@
           "type": "question",
           "settings": {
             "question": "How does this Vastu product work?",
-            "answer": "<p>This product works on <strong>traditional Vastu principles</strong> that help balance the five elements and energy flow in your space. When placed correctly, it supports positivity, harmony, and well-being.</p>"
+            "answer": "<p>This product works on <strong>traditional Vastu principles</strong> that help balance the five elements and energy flow in your space. When placed correctly, it supports positivity, harmony, and well-being.</p>",
+            "product_type": "all"
           }
         },
         "faq2": {
           "type": "question",
           "settings": {
             "question": "How long does it take to see results?",
-            "answer": "<p>Many customers start noticing changes in <strong>energy, peace, and positivity within a few days to a few weeks</strong>. Results may vary based on placement, belief, and environment.</p>"
+            "answer": "<p>Many customers start noticing changes in <strong>energy, peace, and positivity within a few days to a few weeks</strong>. Results may vary based on placement, belief, and environment.</p>",
+            "product_type": "all"
           }
         },
         "faq3": {
           "type": "question",
           "settings": {
             "question": "Is this product already energised?",
-            "answer": "<p>Yes. All Hamaragharr Vastu products are <strong>pre-energised</strong> before dispatch to ensure effective results from the time you install them.</p>"
+            "answer": "<p>Yes. All Hamaragharr Vastu products are <strong>pre-energised</strong> before dispatch to ensure effective results from the time you install them.</p>",
+            "product_type": "all"
           }
         },
         "faq4": {
           "type": "question",
           "settings": {
             "question": "Do I need a Vastu expert to install this?",
-            "answer": "<p>No. Every product comes with <strong>clear, step-by-step placement instructions</strong>, making it easy for anyone to install without professional help.</p>"
+            "answer": "<p>No. Every product comes with <strong>clear, step-by-step placement instructions</strong>, making it easy for anyone to install without professional help.</p>",
+            "product_type": "all"
           }
         },
         "faq5": {
           "type": "question",
           "settings": {
             "question": "Can I use this product in a rented home or apartment?",
-            "answer": "<p>Absolutely. Our Vastu remedies are <strong>non-invasive</strong> and do not require drilling, demolition, or permanent changes — ideal for <strong>rented homes and flats</strong>.</p>"
+            "answer": "<p>Absolutely. Our Vastu remedies are <strong>non-invasive</strong> and do not require drilling, demolition, or permanent changes — ideal for <strong>rented homes and flats</strong>.</p>",
+            "product_type": "all"
           }
         },
         "faq6": {
           "type": "question",
           "settings": {
             "question": "Where exactly should I place this product?",
-            "answer": "<p>Placement depends on the product and purpose. You will receive a <strong>direction-wise placement guide</strong> with your order. For any confusion, our team is available on <strong>WhatsApp support</strong>.</p>"
+            "answer": "<p>Placement depends on the product and purpose. You will receive a <strong>direction-wise placement guide</strong> with your order. For any confusion, our team is available on <strong>WhatsApp support</strong>.</p>",
+            "product_type": "all"
           }
         },
         "faq7": {
           "type": "question",
           "settings": {
             "question": "Can I use more than one Vastu product together?",
-            "answer": "<p>Yes. Multiple Vastu products can be used together as long as they are placed as per the provided guidelines. Many customers combine remedies for better results.</p>"
+            "answer": "<p>Yes. Multiple Vastu products can be used together as long as they are placed as per the provided guidelines. Many customers combine remedies for better results.</p>",
+            "product_type": "all"
           }
         },
         "faq8": {
           "type": "question",
           "settings": {
             "question": "Is Cash on Delivery (COD) available?",
-            "answer": "<p>Yes, <strong>COD is available across India</strong>, along with UPI, cards, and net banking.</p>"
+            "answer": "<p>Yes, <strong>COD is available across India</strong>, along with UPI, cards, and net banking.</p>",
+            "product_type": "all"
           }
         },
         "faq9": {
           "type": "question",
           "settings": {
             "question": "What if I don't see any difference?",
-            "answer": "<p>Vastu results depend on multiple factors such as placement, surroundings, and personal belief. If you have concerns, our team will <strong>guide you with placement corrections</strong>.</p>"
+            "answer": "<p>Vastu results depend on multiple factors such as placement, surroundings, and personal belief. If you have concerns, our team will <strong>guide you with placement corrections</strong>.</p>",
+            "product_type": "all"
           }
         },
         "faq10": {
           "type": "question",
           "settings": {
             "question": "Is this product suitable for gifting?",
-            "answer": "<p>Yes. Our Vastu products make <strong>thoughtful and meaningful gifts</strong> for housewarming, weddings, festivals, offices, and new beginnings.</p>"
+            "answer": "<p>Yes. Our Vastu products make <strong>thoughtful and meaningful gifts</strong> for housewarming, weddings, festivals, offices, and new beginnings.</p>",
+            "product_type": "all"
           }
         },
         "faq11": {
           "type": "question",
           "settings": {
             "question": "How is the product packed and delivered?",
-            "answer": "<p>All products are <strong>securely packed</strong> to avoid damage and shipped with reliable delivery partners across India.</p>"
+            "answer": "<p>All products are <strong>securely packed</strong> to avoid damage and shipped with reliable delivery partners across India.</p>",
+            "product_type": "all"
           }
         },
         "faq12": {
           "type": "question",
           "settings": {
             "question": "Whom can I contact for help or guidance?",
-            "answer": "<p>You can contact us easily via:<br>📲 <strong>WhatsApp Support</strong><br>📧 Email<br>📞 Customer care<br><br>We're happy to help you choose or place the right remedy.</p>"
+            "answer": "<p>You can contact us easily via:<br>📲 <strong>WhatsApp Support</strong><br>📧 Email<br>📞 Customer care<br><br>We're happy to help you choose or place the right remedy.</p>",
+            "product_type": "all"
           }
         },
         "faq13": {
           "type": "question",
           "settings": {
-            "question": "For Wall Paintings - Will the colours fade over time?",
-            "answer": "<p>No. We use high-quality, fade-resistant printing for long-lasting beauty.</p>"
+            "question": "Will the colours fade over time?",
+            "answer": "<p>No. We use high-quality, fade-resistant printing for long-lasting beauty.</p>",
+            "product_type": "wall painting"
           }
         },
         "faq14": {
           "type": "question",
           "settings": {
-            "question": "For Vastu Kits - Does this kit correct all Vastu dosh?",
-            "answer": "<p>The kit addresses <strong>common and major Vastu imbalances</strong>. For severe or structural defects, results may vary.</p>"
+            "question": "Does this kit correct all Vastu dosh?",
+            "answer": "<p>The kit addresses <strong>common and major Vastu imbalances</strong>. For severe or structural defects, results may vary.</p>",
+            "product_type": "vastu kit"
           }
         }
       },
