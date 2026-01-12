@@ -171,6 +171,10 @@ footer h3 {
     align-items: center;
     text-align: left;
   }
+
+  .footer-modern__payment {
+    justify-content: flex-start;
+  }
 }
 
 /* Social Media Icons */
@@ -215,7 +219,7 @@ footer h3 {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1rem;
 }
 
@@ -223,8 +227,8 @@ footer h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-sm, 0.75rem) var(--padding-md, 1rem);
-  font-size: var(--font-size-description, 1.2rem);
+  padding: var(--padding-sm, 0.5rem) var(--padding-md, 0.75rem);
+  font-size: 0.9rem;
   font-weight: var(--font-weight-semibold, 600);
   color: rgb(var(--color-text, 255, 255, 255));
   background-color: rgba(var(--color-text, 255, 255, 255), 0.1);
@@ -279,6 +283,22 @@ footer h3 {
   display: block;
   font-size: inherit;
   line-height: inherit;
+}
+
+/* Mobile Layout - Reduced Spacing for Payment Icons */
+@media (width <= 767px) {
+  .footer-modern__payment {
+    gap: 0.4rem;
+  }
+
+  .footer-modern__payment-icon {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .footer-modern__payment-icon + .footer-modern__payment-icon {
+    margin-left: 0;
+  }
 }
 
 /* Desktop Layout Adjustments */

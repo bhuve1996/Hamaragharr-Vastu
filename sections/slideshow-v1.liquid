@@ -27,9 +27,13 @@
               %}
               {% if use_overlay %}
                 {% comment %} Full-width banner with text overlay {% endcomment %}
+                {%- assign content_cols = section.settings.content_width_columns | default: 6 -%}
+                {%- comment -%} Calculate max-width based on grid columns: (columns / 12) * container width {%- endcomment -%}
+                {%- assign container_width = 1400 -%}
+                {%- assign content_max_width = container_width | times: content_cols | divided_by: 12 -%}
                 <div class='slideshow-v28__overlay-content' style='position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: flex-start; min-height: {{ section.settings.section_height_desktop }}px;'>
                   <xo-container class='xo-container--box'>
-                    <div class='slideshow-v28__text slideshow-v28__text--overlay' style='text-align: left; max-width: 800px; margin: 0;'>
+                    <div class='slideshow-v28__text slideshow-v28__text--overlay' style='text-align: left; --content-max-width: {{ content_max_width }}px; margin: 0; --content-cols: {{ content_cols }};'>
                       {%- capture subtitle -%}
                         {%- if block.settings.subtitle != blank -%}
                           <div class='slideshow-v28__subtitle' style='--fontsize:{{block.settings.subtitle_font_size}}; --fontweight:{{block.settings.subtitle_font_weight}}'>
@@ -39,15 +43,17 @@
                       {%- endcapture -%}
                       {%- capture title -%}
                         {%- if block.settings.title != blank -%}
+                          {%- assign title_text = block.settings.title | replace: ' &amp; ', ' &amp;<br>' | replace: ' & ', ' &amp;<br>' -%}
                           <h3 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
-                            {{ block.settings.title }}
+                            {{ title_text }}
                           </h3>
                         {%- endif -%}
                       {%- endcapture -%}
                       {%- capture description -%}
                         {%- if block.settings.description != blank -%}
+                          {%- assign desc_text = block.settings.description | replace: 'harmony', 'harmony<br>' | replace: 'Vastu Shastra', 'Vastu Shastra<br>' -%}
                           <p class='slideshow-v28__description' style='--fontsize:{{block.settings.description_font_size}}; --fontweight:{{block.settings.description_font_weight}}'>
-                            {{ block.settings.description }}
+                            {{ desc_text }}
                           </p>
                         {%- endif -%}
                       {%- endcapture -%}
@@ -126,15 +132,17 @@
                       {%- endcapture -%}
                       {%- capture title -%}
                         {%- if block.settings.title != blank -%}
+                          {%- assign title_text = block.settings.title | replace: ' &amp; ', ' &amp;<br>' | replace: ' & ', ' &amp;<br>' -%}
                           <h3 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
-                            {{ block.settings.title }}
+                            {{ title_text }}
                           </h3>
                         {%- endif -%}
                       {%- endcapture -%}
                       {%- capture description -%}
                         {%- if block.settings.description != blank -%}
+                          {%- assign desc_text = block.settings.description | replace: 'harmony', 'harmony<br>' | replace: 'Vastu Shastra', 'Vastu Shastra<br>' -%}
                           <p class='slideshow-v28__description' style='--fontsize:{{block.settings.description_font_size}}; --fontweight:{{block.settings.description_font_weight}}'>
-                            {{ block.settings.description }}
+                            {{ desc_text }}
                           </p>
                         {%- endif -%}
                       {%- endcapture -%}
@@ -216,6 +224,20 @@
       "id": "section_height_mobile",
       "label": "t:sections.slideshow_v1.settings.section_height_mobile.label",
       "default": 500
+    },
+    {
+      "type": "header",
+      "content": "Content Width Settings"
+    },
+    {
+      "type": "range",
+      "id": "content_width_columns",
+      "label": "Content Width (Desktop Grid Columns)",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "info": "Number of grid columns the content container should span on desktop (out of 12 columns)"
     },
     {
       "type": "header",

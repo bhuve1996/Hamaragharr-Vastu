@@ -1,3 +1,6 @@
+/* ============================================
+   UNUSED FILE - This file is NOT linked in any layout
+   ============================================ */
 
 .slideshow-v28__text--overlay .slideshow-v28__subtitle,
 .slideshow-v28__text--overlay .slideshow-v28__title,
@@ -5,6 +8,16 @@
   text-align: left;
   margin-left: 0;
   margin-right: auto;
+}
+
+/* Force line break after "&" in slideshow title */
+/* Since CSS can't directly insert line breaks in text, we use a workaround */
+/* The title text should have a line break character or we need to modify the template */
+/* For now, we'll ensure the title can wrap properly */
+.slideshow-v28__title {
+  white-space: pre-line;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .slideshow-v28__text--overlay .slideshow-v28__button,
@@ -34,7 +47,6 @@
   display: inline-block;
 }
 
-
 /* Responsive adjustments */
 @media (width <= 48rem) {
   /* Carousel title on mobile - adjust from 5rem to smaller size */
@@ -44,43 +56,42 @@
 
     --fontsize: 2.5rem;
   }
-  
+
   /* Mobile padding for carousel text */
   .slideshow-v28__text--overlay {
     padding-left: var(--xo-container-gap, 1.25rem);
     padding-right: var(--xo-container-gap, 1.25rem);
   }
-  
-  
+
   .banner-v155__title {
     font-size: 3.5rem;
   }
-  
+
   .banner-v155__subtitle {
     font-size: 2rem;
   }
-  
+
   .vastu-best-seller__section-title,
   .vastu-featured-products__section-title {
     font-size: 2.5rem;
   }
-  
+
   .vastu-featured-products__icon-svg {
     min-height: 9.375rem;
     padding: 1.5rem;
   }
-  
+
   .vastu-featured-products__icon-svg svg {
     max-width: 6.25rem;
     max-height: 6.25rem;
   }
-  
+
   .vastu-trust-bar__icon,
   .vastu-trust-bar__icon-svg {
-    width: 8rem; /* Doubled from 4rem to 8rem for mobile */
-    height: 8rem; /* Doubled from 4rem to 8rem for mobile */
+    width: 1.5rem;
+    height: 1.5rem;
   }
-  
+
   .vastu-features-bar__icon,
   .vastu-features-bar__icon-svg {
     width: 18rem;
@@ -88,7 +99,7 @@
     min-width: 18rem;
     min-height: 18rem;
   }
-  
+
   xo-carousel:has(.vastu-best-seller__pagination),
   xo-carousel:has(.vastu-featured-products__pagination),
   xo-carousel:has(.vastu-trust-bar__pagination),
@@ -113,7 +124,7 @@
   .product-recommendations xo-carousel {
     padding-bottom: 0;
   }
-  
+
   .slideshow-v28__pagination,
   .vastu-best-seller__pagination,
   .vastu-featured-products__pagination,
@@ -121,7 +132,7 @@
     bottom: -48px !important; /* Shift trust bar dots further down on mobile */
     margin-top: 32px; /* Additional spacing */
   }
-  
+
   .vastu-features-bar__pagination,
   .blog-v2__pagination,
   .product-recommendations__pagination,
@@ -129,7 +140,7 @@
     bottom: -24px; /* Adjusted for mobile - positioned below */
     margin-top: 24px; /* Additional spacing */
   }
-  
+
   .testimonial-v13__pagination {
     bottom: -2.5rem !important; /* Adjusted for mobile - positioned lower */
     margin-top: 1.5rem !important; /* Additional spacing */
@@ -166,7 +177,7 @@
   .product-recommendations xo-carousel {
     padding-bottom: 0;
   }
-  
+
   xo-carousel:has(.vastu-best-seller__pagination) xo-carousel-inner,
   xo-carousel:has(.vastu-featured-products__pagination) xo-carousel-inner,
   xo-carousel:has(.vastu-trust-bar__pagination) xo-carousel-inner,
@@ -206,7 +217,9 @@ section[class*="testimonial-v13"] xo-container {
   border-radius: 1rem;
   border-top: 4px solid rgb(255 255 255 / 20%);
   padding: 2.5rem 2rem;
-  box-shadow: 0 2px 12px rgb(0 0 0 / 20%), 0 1px 4px rgb(0 0 0 / 15%);
+  box-shadow:
+    0 2px 12px rgb(0 0 0 / 20%),
+    0 1px 4px rgb(0 0 0 / 15%);
   margin: 0 auto;
   position: relative;
 }
@@ -240,4 +253,6 @@ section[class*="testimonial-v13"] xo-carousel-slide {
   aspect-ratio: auto;
 }
 
-section[class*="testimonial-v2"] xo-carousel-slide .testimonial-v13__item,
+section[class*="testimonial-v2"] xo-carousel-slide .testimonial-v13__item {
+  /* Styles for testimonial item */
+}

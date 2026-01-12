@@ -1,3 +1,7 @@
+/* ============================================
+   UNUSED FILE - This file is NOT linked in any layout
+   ============================================ */
+
 /* ULTRA HIGH PRIORITY - Force price overlay visibility - TOP RIGHT - Match collection page styling */
 
 /* Target exact structure: xo-carousel-slide > xo-product > xo-animate > header > price-overlay */
@@ -24,4 +28,6 @@ section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-produ
 section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card--style2 .xo-product-card__header .xo-product-card__price-overlay,
 section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card--style3 .xo-product-card__header .xo-product-card__price-overlay,
 section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card--style4 .xo-product-card__header .xo-product-card__price-overlay,
-section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card--style5 .xo-product-card__header .xo-product-card__price-overlay,
+section[class*="product-recommendations"] xo-carousel-slide xo-product .xo-product-card--style5 .xo-product-card__header .xo-product-card__price-overlay {
+  /* Styles for price overlay */
+}

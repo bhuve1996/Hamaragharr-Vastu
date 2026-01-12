@@ -1,16 +1,20 @@
 /* ============================================
+   UNUSED FILE - This file is NOT linked in any layout
+   ============================================ */
+
+/* ============================================
    TYPOGRAPHY SYSTEM - Consistent Font Sizes
    ============================================ */
 :root {
   /* Typography Scale */
-  --font-size-tag: 1.25rem;          /* Tags/Badges - Increased from 1.1rem */
-  --font-size-description: 1.6rem;    /* Descriptions */
-  --font-size-subtitle: 1.6rem;       /* Subtitles */
-  --font-size-card-title: 1.5rem;     /* Card/Product Titles */
-  --font-size-heading: 3.5rem;        /* Section Headings */
-  --font-size-button: 2.5rem;         /* Buttons (Buy Now, etc) */
-  --font-size-number: 1.6rem;         /* Numbers/Stats */
-  
+  --font-size-tag: 1.25rem; /* Tags/Badges - Increased from 1.1rem */
+  --font-size-description: 1.6rem; /* Descriptions */
+  --font-size-subtitle: 1.6rem; /* Subtitles */
+  --font-size-card-title: 1.5rem; /* Card/Product Titles */
+  --font-size-heading: 3.5rem; /* Section Headings */
+  --font-size-button: 2.5rem; /* Buttons (Buy Now, etc) */
+  --font-size-number: 1.6rem; /* Numbers/Stats */
+
   /* Font Weights */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -50,4 +54,23 @@
   font-weight: normal; /* Don't apply bold to Hindi text */
   white-space: normal; /* Allow text to wrap naturally */
   word-wrap: break-word; /* Ensure long words wrap */
+  font-style: italic;
+}
+
+.vastu-hindi-statement__text--quoted::before {
+  content: '"';
+  font-size: 4rem;
+  line-height: 0;
+  vertical-align: -0.4em;
+  margin-right: 0.2em;
+  opacity: 0.8;
+}
+
+.vastu-hindi-statement__text--quoted::after {
+  content: '"';
+  font-size: 4rem;
+  line-height: 0;
+  vertical-align: -0.4em;
+  margin-left: 0.2em;
+  opacity: 0.8;
 }

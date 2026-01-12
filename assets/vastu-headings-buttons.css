@@ -1,3 +1,7 @@
+/* ============================================
+   UNUSED FILE - This file is NOT linked in any layout
+   ============================================ */
+
 .product-recommendations-section .xo-section-heading__title,
 section[class*="product-recommendations"] .xo-section-heading__title,
 section[id*="product-recommendations"] .xo-section-heading__title,
@@ -69,7 +73,9 @@ button,
   font-size: var(--font-size-button, 2.5rem);
   padding-left: 4.6875rem !important; /* 3.75rem * 1.25 = 4.6875rem (25% increase) */
   padding-right: 4.6875rem !important; /* 3.75rem * 1.25 = 4.6875rem (25% increase) */
-  min-height: calc(7.03125rem + var(--buttons-border-width, 0) * 2) !important; /* 5.625rem * 1.25 = 7.03125rem (25% increase) */
+  min-height: calc(
+    7.03125rem + var(--buttons-border-width, 0) * 2
+  ) !important; /* 5.625rem * 1.25 = 7.03125rem (25% increase) */
 }
 
 /* Override xo-btn text size with higher specificity */
@@ -116,6 +122,32 @@ button.xo-btn,
   max-width: 100% !important;
 }
 
+/* Fix for buttons with padding - allow text to be visible */
+.xo-btn[style*="padding-left"],
+.xo-btn[style*="padding-right"],
+.xo-btn[style*="padding:"] {
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.xo-btn[style*="padding-left"] .xo-btn__content,
+.xo-btn[style*="padding-right"] .xo-btn__content,
+.xo-btn[style*="padding:"] .xo-btn__content {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+.xo-btn[style*="padding-left"] .xo-btn__text,
+.xo-btn[style*="padding-right"] .xo-btn__text,
+.xo-btn[style*="padding:"] .xo-btn__text {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
 .xo-btn--small .xo-btn__text,
 .xo-btn--small .xo-btn__text[data-text] {
   font-size: 2rem !important; /* Increased text size for small buttons */
@@ -133,7 +165,7 @@ button.xo-btn,
 
 .vastu-best-seller__section-title::after,
 .vastu-featured-products__section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -20px;
   left: 50%;
@@ -146,7 +178,7 @@ button.xo-btn,
 
 /* Blog title underline - use fixed values to match other sections */
 .blog-v2__title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -20px;
   left: 50%;
@@ -332,4 +364,4 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagina
 }
 
 /* Ensure carousel inner content has no padding-bottom */
-xo-carousel:has(.vastu-best-seller__pagination) xo-carousel-inner,
+xo-carousel: has(.vastu-best-seller__pagination) xo-carousel-inner;

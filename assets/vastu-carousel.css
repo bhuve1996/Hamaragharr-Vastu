@@ -233,8 +233,7 @@ section[class*="slideshow"] .xo-background-lazyload {
   justify-content: center;
   margin: 0;
   width: 100%;
-  max-width: 50rem;
+  max-width: var(--content-max-width, 50rem); /* Use dynamic max-width from inline style, fallback to 50rem */
   padding-left: 0;
   padding-right: 0;
 }
-

@@ -14,8 +14,8 @@
   top: 0;
 }
 
-xo-gallery{
-    width:100%;
+xo-gallery {
+  width: 100%;
 }
 
 .vastu-product-showcase .xo-product-info-media-style1,
@@ -71,6 +71,19 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     align-items: stretch;
     width: 100% !important;
     max-width: 100% !important;
+  }
+
+  /* Override grid column sizes: Equal columns (6 and 6) */
+
+  /* Target the image column - override inline style */
+  .vastu-product-showcase xo-animate:has(.xo-product-info-media-style1) {
+    --md: 6 !important; /* Image column: 6 columns */
+  }
+
+  /* Target the text/content column - override inline style */
+  .vastu-product-showcase xo-animate.vastu-product-showcase__right,
+  .vastu-product-showcase xo-animate:has(.vastu-product-showcase__right) {
+    --md: 6 !important; /* Text column: 6 columns */
   }
 
   .vastu-product-showcase xo-animate {

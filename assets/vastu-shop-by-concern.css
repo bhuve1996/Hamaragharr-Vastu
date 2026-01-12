@@ -1,4 +1,4 @@
-/* Vastu Shop by Concern Section */
+/* Vastu Shop by Concern Section - Simple Black & White Theme */
 .vastu-shop-by-concern__section-title {
   font-size: var(--title-font-size, var(--font-size-heading, 3.5rem));
   font-weight: var(--title-font-weight, var(--font-weight-bold, 700));
@@ -10,6 +10,7 @@
   width: 100%;
   line-height: 1.2;
   padding-bottom: 7rem;
+  color: #000;
 }
 
 .vastu-shop-by-concern__section-title::after {
@@ -20,7 +21,8 @@
   transform: translateX(-50%);
   width: var(--title-underline-width, 80px);
   height: var(--title-underline-height, 4px);
-  background-color: var(--title-underline-color, #473855);
+  background-color: #000;
+  border-radius: 2px;
 }
 
 /* Accordion Container */
@@ -32,18 +34,18 @@
 }
 
 .vastu-shop-by-concern__item {
-  margin-bottom: 1rem;
-  background: #fff;
-  border: 2px solid rgb(136 112 142 / 25%);
+  margin-bottom: 1.5rem;
+  background: transparent;
+  border: 1px solid #473855;
   border-radius: 0.75rem;
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgb(136 112 142 / 15%);
+  box-shadow: 0 2px 12px rgb(71 56 85 / 20%);
 }
 
 .vastu-shop-by-concern__item:hover {
-  border-color: rgb(136 112 142 / 40%);
-  box-shadow: 0 4px 16px rgb(136 112 142 / 25%);
+  border-color: #473855;
+  box-shadow: 0 4px 20px rgb(71 56 85 / 30%);
   transform: translateY(-2px);
 }
 
@@ -54,7 +56,7 @@
   justify-content: space-between;
   padding: 1.5rem 2rem;
   cursor: pointer;
-  background: rgb(186 170 200);
+  background: transparent;
   transition: all 0.3s ease;
   border: none;
   width: 100%;
@@ -63,7 +65,12 @@
 }
 
 .vastu-shop-by-concern__trigger:hover {
-  background: rgb(186 170 200 / 90%);
+  background: transparent;
+}
+
+.vastu-shop-by-concern__trigger[aria-expanded="true"] {
+  background: transparent;
+  border-bottom: 1px solid #473855;
 }
 
 .vastu-shop-by-concern__trigger-content {
@@ -77,7 +84,7 @@
 .vastu-shop-by-concern__trigger-title {
   font-size: 2rem;
   font-weight: var(--font-weight-bold, 700);
-  color: rgb(71 56 85);
+  color: #473855;
   margin: 0 0 0.5rem;
   line-height: 1.4;
   text-align: left;
@@ -86,7 +93,7 @@
 .vastu-shop-by-concern__trigger-question {
   font-size: var(--font-size-description, 1.6rem);
   font-weight: var(--font-weight-medium, 500);
-  color: rgb(71 56 85);
+  color: #6f5784;
   margin: 0;
   line-height: 1.6;
   text-align: left;
@@ -94,15 +101,24 @@
 
 .vastu-shop-by-concern__trigger-icon {
   flex-shrink: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
-  color: rgb(71 56 85);
+  transition: all 0.3s ease;
+  color: #473855;
   position: relative;
   z-index: 1;
+  background: transparent;
+  border-radius: 50%;
+  border: 2px solid #473855;
+}
+
+.vastu-shop-by-concern__trigger:hover .vastu-shop-by-concern__trigger-icon {
+  color: #473855;
+  background: transparent;
+  transform: scale(1.1);
 }
 
 .vastu-shop-by-concern__trigger-icon svg {
@@ -114,46 +130,22 @@
 }
 
 /* Accordion Collapse Content */
-
-/* Keep first accordion item open by default */
-.vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__collapse {
-  display: block !important;
-  max-height: none !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
 .vastu-shop-by-concern__collapse {
   overflow: hidden;
-  background: rgb(136 112 142 / 5%);
-}
-
-/* aria-expanded is an HTML attribute, not a CSS property - removed */
-
-/* .vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__trigger {
-  aria-expanded: true;
-} */
-
-.vastu-shop-by-concern__accordion
-  > xo-animate:first-child
-  .vastu-shop-by-concern__trigger[aria-expanded="true"]
-  + .vastu-shop-by-concern__collapse,
-.vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__collapse[style*="display: block"] {
-  display: block !important;
-  max-height: none !important;
-  opacity: 1 !important;
+  background: transparent;
 }
 
 .vastu-shop-by-concern__content {
   padding: 1.5rem 2rem 2rem;
   text-align: left;
-  background: rgb(136 112 142 / 5%);
+  background: transparent;
+  color: #473855;
 }
 
 .vastu-shop-by-concern__card-description {
   font-size: var(--font-size-description, 1.6rem);
   line-height: 1.75;
-  color: rgb(0 0 0 / 80%);
+  color: #473855;
   margin: 0 0 1.5rem;
   text-align: left;
 }
@@ -171,10 +163,25 @@
 .vastu-shop-by-concern__recommended-title {
   font-size: 1.875rem;
   font-weight: var(--font-weight-semibold, 600);
-  color: rgb(71 56 85);
+  color: #473855;
   margin: 0 0 1rem;
   padding-top: 1.5rem;
   text-align: left;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.vastu-shop-by-concern__benefits-title::before,
+.vastu-shop-by-concern__recommended-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background-color: #473855;
+  border-radius: 2px;
 }
 
 .vastu-shop-by-concern__benefits-title:first-of-type,
@@ -194,11 +201,22 @@
 .vastu-shop-by-concern__recommended-list li {
   font-size: var(--font-size-description, 1.6rem);
   line-height: 1.75;
-  color: rgb(0 0 0 / 80%);
+  color: #473855;
   margin-bottom: 0.75rem;
-  padding-left: 0;
+  padding-left: 2rem;
   text-align: left;
   list-style-position: outside;
+  position: relative;
+}
+
+.vastu-shop-by-concern__benefits-list li::before,
+.vastu-shop-by-concern__recommended-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #473855;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .vastu-shop-by-concern__benefits-list li:last-child,
@@ -209,7 +227,7 @@
 .vastu-shop-by-concern__cta {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgb(136 112 142 / 20%);
+  border-top: 1px solid #473855;
   text-align: left;
 }
 
@@ -217,15 +235,22 @@
   display: inline-block;
   font-size: var(--font-size-description, 1.6rem);
   font-weight: var(--font-weight-semibold, 600);
-  color: rgb(136 112 142);
+  color: #473855;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   text-align: left;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  background: transparent;
+  border: 1px solid #473855;
 }
 
 .vastu-shop-by-concern__cta-link:hover {
-  color: rgb(136 112 142 / 80%);
-  text-decoration: underline;
+  color: #473855;
+  background: transparent;
+  border-color: #473855;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgb(71 56 85 / 20%);
 }
 
 /* Product Carousel inside Accordion */
@@ -245,13 +270,13 @@
   background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .vastu-shop-by-concern__product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
 }
 
 .vastu-shop-by-concern__product-link {
@@ -286,7 +311,7 @@
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  background: rgba(71, 56, 85, 0.9);
+  background: rgb(71 56 85 / 90%);
   color: #ffffff;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
@@ -294,7 +319,7 @@
   font-weight: 600;
   z-index: 2;
   backdrop-filter: blur(4px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
 }
 
 .vastu-shop-by-concern__product-content {
@@ -324,7 +349,7 @@
   min-height: calc(var(--card-title-size, 1.5rem) * 1.4 * 2);
   height: calc(var(--card-title-size, 1.5rem) * 1.4 * 2);
   flex-shrink: 0;
-  color: rgb(71, 56, 85);
+  color: #FFF;
 }
 
 .vastu-shop-by-concern__product-add-to-cart {
@@ -356,10 +381,10 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
   justify-content: center;
   align-items: center;
   pointer-events: auto;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background-color: rgb(var(--color-secondary-button, 71, 56, 85));
-  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  background-color: #000;
+  color: rgb(255 255 255);
   font-size: var(--font-size-description, 1.6rem);
   font-weight: var(--font-weight-semibold, 600);
   text-decoration: none;
@@ -368,15 +393,25 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
     transform 0.2s ease;
   position: relative;
   overflow: hidden;
-  border: none;
+  border: 1px solid #FFF;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
 }
 
 /* Secondary Button Style - Explicit */
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn--secondary,
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn.xo-btn--secondary,
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart button.xo-btn--secondary {
-  background-color: rgb(var(--color-secondary-button, 71, 56, 85));
-  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  background-color: #000;
+  color: rgb(255 255 255);
+  border: 1px solid #FFF;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+}
+
+section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn--secondary:hover,
+section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart button.xo-btn--secondary:hover {
+  background-color: #FFF;
+  color: #000;
+  border-color: #FFF;
 }
 
 /* Primary Button Style (White Background, Black Text) */
@@ -385,28 +420,27 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart button.xo-btn--primary {
   background-color: rgb(var(--color-button, 255, 255, 255));
   color: rgb(var(--color-button-text, 0, 0, 0));
-  border: 1px solid rgba(var(--color-border, 0, 0, 0), 0.1);
+  border: 1px solid rgb(var(--color-border, 0, 0, 0) / 10%);
 }
 
-section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn--secondary:hover,
-section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart button.xo-btn--secondary:hover,
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn:hover:not(.xo-btn--primary),
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart button:hover:not(.xo-btn--primary) {
-  background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
-  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(var(--color-secondary-button, 71, 56, 85), 0.3);
+  background-color: #FFF;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgb(255 255 255 / 30%);
+  border-color: #FFF;
 }
 
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn:active,
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart button:active {
   transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(var(--color-secondary-button, 71, 56, 85), 0.2);
+  box-shadow: 0 2px 6px rgb(var(--color-secondary-button, 71, 56, 85) / 20%);
 }
 
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn--primary:hover,
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart button.xo-btn--primary:hover {
-  background-color: rgba(var(--color-button, 255, 255, 255), 0.95);
+  background-color: rgb(var(--color-button, 255, 255, 255) / 95%);
   color: rgb(var(--color-button-text, 0, 0, 0));
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgb(0 0 0 / 10%);

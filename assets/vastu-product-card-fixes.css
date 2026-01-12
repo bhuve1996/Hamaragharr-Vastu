@@ -47,7 +47,10 @@ section[class*="product-recommendations"] xo-modal-trigger.xo-product-card > .xo
 
 /* Ensure the add-to-cart button inside xo-modal-trigger wrapper works correctly */
 .product-recommendations-section xo-modal-trigger.xo-product-card .xo-product-card__add-to-cart xo-modal-trigger,
-section[class*="product-recommendations"] xo-modal-trigger.xo-product-card .xo-product-card__add-to-cart xo-modal-trigger,
+section[class*="product-recommendations"]
+  xo-modal-trigger.xo-product-card
+  .xo-product-card__add-to-cart
+  xo-modal-trigger,
 .product-recommendations xo-modal-trigger.xo-product-card .xo-product-card__add-to-cart xo-modal-trigger {
   display: block !important;
   width: 100% !important;
@@ -293,22 +296,52 @@ xo-product-recommendations .xo-product-card__wishlist-container button *,
 /* Hide one wishlist button based on state - only show active one */
 
 /* Hide the "remove from wishlist" button when item is not in wishlist */
-.product-recommendations-section .xo-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-removed],
-section[class*="product-recommendations"] .xo-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-removed],
-.product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-removed],
-.section-collection-products .xo-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-removed],
-.filters-content .xo-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-removed] {
+.product-recommendations-section
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add:not([xo-removed])
+  .xo-product-card__icon[xo-removed],
+section[class*="product-recommendations"]
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add:not([xo-removed])
+  .xo-product-card__icon[xo-removed],
+.product-recommendations
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add:not([xo-removed])
+  .xo-product-card__icon[xo-removed],
+.section-collection-products
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add:not([xo-removed])
+  .xo-product-card__icon[xo-removed],
+.filters-content
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add:not([xo-removed])
+  .xo-product-card__icon[xo-removed] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
 }
 
 /* Hide the "add to wishlist" button when item is already in wishlist */
-.product-recommendations-section .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-added],
-section[class*="product-recommendations"] .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-added],
-.product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-added],
-.section-collection-products .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-added],
-.filters-content .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-added] {
+.product-recommendations-section
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-product-card__icon[xo-added],
+section[class*="product-recommendations"]
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-product-card__icon[xo-added],
+.product-recommendations
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-product-card__icon[xo-added],
+.section-collection-products
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-product-card__icon[xo-added],
+.filters-content
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-product-card__icon[xo-added] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
@@ -411,7 +444,10 @@ xo-product-recommendations .xo-product-card__add-to-cart button,
   border-radius: 0.75rem !important;
   font-size: var(--font-size-button, 2.5rem) !important;
   font-weight: 600 !important;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease !important;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -672,13 +708,13 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
     font-size: 2rem !important;
     line-height: 1.4 !important;
   }
-  
+
   .section-collection-products .xo-product-card__price-overlay,
   .filters-content .xo-product-card__price-overlay {
     font-size: 2rem !important;
     padding: 0.6rem 0.9rem !important;
   }
-  
+
   .section-collection-products .xo-product-card__add-to-cart .xo-btn,
   .section-collection-products .xo-product-card__add-to-cart button,
   .filters-content .xo-product-card__add-to-cart .xo-btn,
@@ -686,7 +722,7 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
     font-size: 1.8rem !important;
     padding: 0.6rem 1.2rem !important;
   }
-  
+
   .product-recommendations-section .xo-product-card__add-to-cart .xo-btn,
   .product-recommendations-section .xo-product-card__add-to-cart button,
   section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn,
@@ -857,9 +893,20 @@ section[class*="product-recommendations"] .xo-product-card__price-overlay,
 .section-collection-products .xo-product-card__price-overlay,
 .filters-content .xo-product-card__price-overlay,
 .product-recommendations-section .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
-section[class*="product-recommendations"] .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
-.product-recommendations-section xo-product .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
-section[class*="product-recommendations"] xo-product .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay {
+section[class*="product-recommendations"]
+  .xo-product-card--style1
+  .xo-product-card__header
+  .xo-product-card__price-overlay,
+.product-recommendations-section
+  xo-product
+  .xo-product-card--style1
+  .xo-product-card__header
+  .xo-product-card__price-overlay,
+section[class*="product-recommendations"]
+  xo-product
+  .xo-product-card--style1
+  .xo-product-card__header
+  .xo-product-card__price-overlay {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -1005,14 +1052,14 @@ xo-product-recommendations .xo-product-card__information .xo-product-card__price
     font-size: 2rem !important;
     line-height: 1.4 !important;
   }
-  
+
   .product-recommendations-section .xo-product-card__price-overlay,
   section[class*="product-recommendations"] .xo-product-card__price-overlay,
   .product-recommendations .xo-product-card__price-overlay {
     font-size: 2rem !important;
     padding: 0.6rem 0.9rem !important;
   }
-  
+
   .product-recommendations-section .xo-product-card__actions--style1 button,
   .product-recommendations-section .xo-product-card__actions button,
   section[class*="product-recommendations"] .xo-product-card__actions--style1 button,
@@ -1026,7 +1073,7 @@ xo-product-recommendations .xo-product-card__information .xo-product-card__price
     max-width: 3rem !important;
     max-height: 3rem !important;
   }
-  
+
   .product-recommendations-section .xo-product-card__actions--style1 button svg,
   .product-recommendations-section .xo-product-card__actions button svg,
   section[class*="product-recommendations"] .xo-product-card__actions--style1 button svg,
@@ -1036,7 +1083,7 @@ xo-product-recommendations .xo-product-card__information .xo-product-card__price
     width: 1.5rem !important;
     height: 1.5rem !important;
   }
-  
+
   /* Show carousel pagination dots on mobile */
   .product-recommendations-section .product-recommendations__pagination,
   .product-recommendations-section .product-recommendations__pagination--related,
@@ -1050,7 +1097,7 @@ xo-product-recommendations .xo-product-card__information .xo-product-card__price
     visibility: visible !important;
     opacity: 1 !important;
   }
-  
+
   .product-recommendations-section .product-recommendations__pagination .carousel-pagination-style3,
   .product-recommendations-section .product-recommendations__pagination--related .carousel-pagination-style3,
   section[class*="product-recommendations"] .product-recommendations__pagination .carousel-pagination-style3,
@@ -1062,7 +1109,7 @@ xo-product-recommendations .xo-product-card__information .xo-product-card__price
     visibility: visible !important;
     opacity: 1 !important;
   }
-  
+
   .product-recommendations-section .product-recommendations__pagination xo-carousel-pagination,
   .product-recommendations-section .product-recommendations__pagination--related xo-carousel-pagination,
   section[class*="product-recommendations"] .product-recommendations__pagination xo-carousel-pagination,
@@ -1243,7 +1290,10 @@ section[class*="product-recommendations"] .xo-product-card__header .xo-product-c
 
 /* Force wishlist container visibility and positioning */
 .product-recommendations-section .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
-section[class*="product-recommendations"] .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
+section[class*="product-recommendations"]
+  .xo-product-card
+  .xo-product-card__header
+  .xo-product-card__wishlist-container,
 .product-recommendations .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
 .section-collection-products .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
 .filters-content .xo-product-card .xo-product-card__header .xo-product-card__wishlist-container,
@@ -1275,12 +1325,18 @@ section[class*="product-recommendations"] .xo-product-card .xo-product-card__hea
 .section-collection-products .xo-product-card .xo-product-card__header .xo-product-card__actions--style9,
 .filters-content .xo-product-card .xo-product-card__header .xo-product-card__actions--style9,
 .product-recommendations-section .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style1,
-section[class*="product-recommendations"] .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style1,
+section[class*="product-recommendations"]
+  .xo-product-card:hover
+  .xo-product-card__header
+  .xo-product-card__actions--style1,
 .product-recommendations .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style1,
 .section-collection-products .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style1,
 .filters-content .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style1,
 .product-recommendations-section .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style9,
-section[class*="product-recommendations"] .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style9,
+section[class*="product-recommendations"]
+  .xo-product-card:hover
+  .xo-product-card__header
+  .xo-product-card__actions--style9,
 .product-recommendations .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style9,
 .section-collection-products .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style9,
 .filters-content .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style9 {

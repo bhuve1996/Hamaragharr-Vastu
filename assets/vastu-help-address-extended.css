@@ -1,4 +1,9 @@
 /* ============================================
+   UNUSED FILE - This file is NOT linked in any layout
+   vastu-help-address.css is used instead
+   ============================================ */
+
+/* ============================================
    Vastu Help Address V1 - Icons Row (Like About Page)
    ============================================ */
 .vastu-help-address-v1__section-title {
@@ -11,7 +16,7 @@
 }
 
 .vastu-help-address-v1__section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -20px;
   left: 50%;
@@ -32,7 +37,9 @@
   background: rgb(255 255 255 / 95%);
   border-radius: 12px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   height: 100%;
 }
 
@@ -51,7 +58,9 @@
   justify-content: center;
   margin-bottom: 1.5rem;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
 .vastu-help-address-v1__item:hover .vastu-help-address-v1__icon {
@@ -86,11 +95,11 @@
     font-size: 2rem;
     margin-bottom: 2rem;
   }
-  
+
   .vastu-help-address-v1__item {
     padding: 1.5rem 1rem;
   }
-  
+
   .vastu-help-address-v1__icon {
     width: 60px;
     height: 60px;
@@ -98,7 +107,7 @@
     min-height: 60px;
     margin-bottom: 1rem;
   }
-  
+
   .vastu-help-address-v1__text {
     font-size: 2rem;
   }
@@ -117,7 +126,7 @@
 }
 
 .vastu-help-address-v2__section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -20px;
   left: 50%;
@@ -156,7 +165,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
   cursor: pointer;
 }
 
@@ -219,7 +230,9 @@
   justify-content: center;
   margin-bottom: 0.75rem;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
 .vastu-help-address-v2__quadrant:hover .vastu-help-address-v2__icon {
@@ -266,7 +279,7 @@
 }
 
 .vastu-help-address-v2__center::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -283,18 +296,18 @@
     font-size: 2rem;
     margin-bottom: 2rem;
   }
-  
+
   .vastu-help-address-v2__circle-container {
     padding: 1rem;
     min-height: 300px;
   }
-  
+
   .vastu-help-address-v2__circle {
     width: 100%;
     max-width: 300px;
     height: auto;
   }
-  
+
   .vastu-help-address-v2__icon {
     width: 40px;
     height: 40px;
@@ -302,23 +315,22 @@
     min-height: 40px;
     margin-bottom: 0.5rem;
   }
-  
+
   .vastu-help-address-v2__text {
     font-size: 2rem;
   }
-  
+
   .vastu-help-address-v2__center {
     width: 60px;
     height: 60px;
   }
-  
+
   .vastu-help-address-v2__center::before {
     width: 45px;
     height: 45px;
   }
-  
+
   .vastu-help-address-v2__quadrant-content {
     padding: 1rem;
   }
 }
-

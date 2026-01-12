@@ -8,7 +8,8 @@
       </xo-animate>
     {% endif %}
     
-    <xo-grid style='--xs: 1; --sm: 2; --md: 2; --lg: 4; --xl: 4; --xxl: 4; --xo-grid-col-gap: {{ section.settings.gap }}px; --xo-grid-row-gap: {{ section.settings.gap }}px;'>
+    {% comment %} Desktop Grid View {% endcomment %}
+    <xo-grid class='vastu-help-address-v1__grid vastu-help-address-v1__grid--desktop' style='--xs: 1; --sm: 2; --md: 2; --lg: 4; --xl: 4; --xxl: 4; --xo-grid-col-gap: {{ section.settings.gap }}px; --xo-grid-row-gap: {{ section.settings.gap }}px;'>
       {% for block in section.blocks %}
         <xo-animate xo-cascade class='vastu-help-address-v1__item' {{ block.shopify_attributes }}>
           <div class='vastu-help-address-v1__icon'>
@@ -21,9 +22,47 @@
           {% if block.settings.text != blank %}
             <h3 class='vastu-help-address-v1__text'>{{ block.settings.text }}</h3>
           {% endif %}
+          {% if block.settings.description != blank %}
+            <div class='vastu-help-address-v1__description'>{{ block.settings.description }}</div>
+          {% endif %}
         </xo-animate>
       {% endfor %}
     </xo-grid>
+
+    {% comment %} Mobile Carousel View {% endcomment %}
+    <xo-carousel
+      class='vastu-help-address-v1__carousel vastu-help-address-v1__carousel--mobile'
+      xo-per-view='1'
+      xo-render-bullet='<span></span>'
+    >
+      <xo-carousel-inner>
+        <xo-carousel-list role='list' aria-label='Help Address Items'>
+          {% for block in section.blocks %}
+            <xo-carousel-slide
+              aria-roledescription='slide'
+              aria-label='{{ forloop.index }} of {{ forloop.length }}'
+            >
+              <div class='vastu-help-address-v1__item' {{ block.shopify_attributes }}>
+                <div class='vastu-help-address-v1__icon'>
+                  {% if block.settings.icon_svg != blank %}
+                    {{ block.settings.icon_svg }}
+                  {% elsif block.settings.icon_image != blank %}
+                    {% render 'image', image: block.settings.icon_image %}
+                  {% endif %}
+                </div>
+                {% if block.settings.text != blank %}
+                  <h3 class='vastu-help-address-v1__text'>{{ block.settings.text }}</h3>
+                {% endif %}
+                {% if block.settings.description != blank %}
+                  <div class='vastu-help-address-v1__description'>{{ block.settings.description }}</div>
+                {% endif %}
+              </div>
+            </xo-carousel-slide>
+          {% endfor %}
+        </xo-carousel-list>
+      </xo-carousel-inner>
+      {% render 'carousel-pagination-style3', class: 'vastu-help-address-v1__pagination' %}
+    </xo-carousel>
   </xo-container>
   {% render 'section-separator',
     enable_separator: section.settings.enable_separator,
@@ -235,6 +274,12 @@
           "id": "text",
           "label": "Text",
           "default": "Constant stress or negativity"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Our Vastu solutions help you overcome constant stress and negativity by creating positive energy flow in your space."
         }
       ]
     }
@@ -246,25 +291,29 @@
         {
           "type": "item",
           "settings": {
-            "text": "Constant stress or negativity"
+            "text": "Positive Energy",
+            "description": "Vastu principles aim to ensure a smooth and positive flow of energy throughout the home."
           }
         },
         {
           "type": "item",
           "settings": {
-            "text": "Lack of peace and harmony"
+            "text": "Improved Health",
+            "description": "Properly designed spaces, according to vastu, can support physical and mental well-being."
           }
         },
         {
           "type": "item",
           "settings": {
-            "text": "Financial delays or stagnation"
+            "text": "Financial Prosperity",
+            "description": "Vastu can align the energy of a space to attract good financial opportunities and wealth."
           }
         },
         {
           "type": "item",
           "settings": {
-            "text": "Health and mental fatigue"
+            "text": "Career Success",
+            "description": "Vastu when applied correctly leads to support in career growth and success in many areas and fields."
           }
         }
       ]

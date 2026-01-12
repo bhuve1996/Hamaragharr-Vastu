@@ -1,6 +1,3 @@
-  bottom: -1.25rem;
-  padding: 1.5rem;
-
 /* Product Variant Modal - Center Popup Style */
 .product-variant-modal__modal-content {
   background: #fff;
@@ -13,6 +10,19 @@
   box-shadow: 0 10px 40px rgb(0 0 0 / 20%);
   position: relative;
   margin: 0 auto;
+}
+
+/* Increase popup size on desktop */
+@media (width >= 768px) {
+  .product-variant-modal__modal-content {
+    max-width: 750px;
+    padding: 3rem;
+  }
+  
+  /* Maintain image size on desktop while keeping aspect ratio */
+  .product-variant-modal__product-image {
+    width: 100px;
+  }
 }
 
 /* Close button styling for modal */
@@ -71,15 +81,22 @@ xo-modal[xo-placement="center"]::before {
 .product-variant-modal__product-image {
   flex-shrink: 0;
   width: 100px;
-  height: 100px;
+  aspect-ratio: 4/3;
   border-radius: 0.5rem;
   overflow: hidden;
 }
 
-.product-variant-modal__product-image img {
+.product-variant-modal__product-image img,
+.product-variant-modal__product-image .xo-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Ensure the image container inside maintains aspect ratio */
+.product-variant-modal__product-image .xo-image {
+  height: 100%;
+  padding-top: 0;
 }
 
 .product-variant-modal__product-details {
@@ -133,6 +150,98 @@ xo-modal[xo-placement="center"]::before {
 .product-variant-modal__modal-content xo-cart-add {
   padding: 0;
   margin-bottom: 0;
+}
+
+/* Fix add to cart button in popups/modals - black background and white text */
+.product-variant-modal__modal-content xo-cart-add .xo-btn,
+.product-variant-modal__modal-content xo-cart-add button {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.product-variant-modal__modal-content xo-cart-add .xo-btn__text,
+.product-variant-modal__modal-content xo-cart-add .xo-btn__content,
+.product-variant-modal__modal-content xo-cart-add .xo-btn__text *,
+.product-variant-modal__modal-content xo-cart-add .xo-btn__content *,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn,
+xo-modal .product-variant-modal__modal-content xo-cart-add button,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__text,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__content,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__text *,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__content * {
+  color: #fff !important;
+}
+
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn,
+xo-modal .product-variant-modal__modal-content xo-cart-add button {
+  background-color: #000 !important;
+}
+
+/* Ensure button text elements are visible in popup - white text */
+.product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__text,
+.product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__content,
+.product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__text *,
+.product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__content *,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__text,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__content,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__text *,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__content * {
+  color: #fff !important;
+}
+
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary,
+.product-variant-modal__modal-content xo-cart-add .xo-btn--secondary {
+  background-color: #000 !important;
+}
+
+/* Primary button style in popup - black background and white text */
+.product-variant-modal__modal-content xo-cart-add .xo-btn--primary,
+.product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__text,
+.product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__content,
+.product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__text *,
+.product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__content *,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__text,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__content,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__text *,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__content * {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* General popup/modal add to cart button - black background and white text */
+xo-modal xo-cart-add .xo-btn,
+xo-modal xo-cart-add button {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+xo-modal xo-cart-add .xo-btn__text,
+xo-modal xo-cart-add .xo-btn__content,
+xo-modal xo-cart-add .xo-btn__text *,
+xo-modal xo-cart-add .xo-btn__content * {
+  color: #fff !important;
+}
+
+/* Secondary button in any popup - black background and white text */
+xo-modal xo-cart-add .xo-btn--secondary,
+xo-modal xo-cart-add .xo-btn--secondary .xo-btn__text,
+xo-modal xo-cart-add .xo-btn--secondary .xo-btn__content,
+xo-modal xo-cart-add .xo-btn--secondary .xo-btn__text *,
+xo-modal xo-cart-add .xo-btn--secondary .xo-btn__content * {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Primary button in any popup - black background and white text */
+xo-modal xo-cart-add .xo-btn--primary,
+xo-modal xo-cart-add .xo-btn--primary .xo-btn__text,
+xo-modal xo-cart-add .xo-btn--primary .xo-btn__content,
+xo-modal xo-cart-add .xo-btn--primary .xo-btn__text *,
+xo-modal xo-cart-add .xo-btn--primary .xo-btn__content * {
+  background-color: #000 !important;
+  color: #fff !important;
 }
 
 /* Add padding to radio button labels in product variant modal */
@@ -228,7 +337,9 @@ xo-modal[xo-placement="center"]::before {
     border-radius: 50% !important;
     cursor: pointer !important;
     opacity: 0.8 !important;
-    transition: opacity 0.3s ease, background 0.3s ease !important;
+    transition:
+      opacity 0.3s ease,
+      background 0.3s ease !important;
     pointer-events: auto !important;
     box-shadow: 0 2px 8px rgb(0 0 0 / 10%) !important;
   }
@@ -263,7 +374,7 @@ xo-modal[xo-placement="center"]::before {
   /* Arrow icon styling */
   .sticky-addcart__scroll-left::before,
   .sticky-addcart__scroll-right::before {
-    content: '' !important;
+    content: "" !important;
     width: 0.8rem !important;
     height: 0.8rem !important;
     border: 2px solid rgba(var(--color-foreground), 0.7) !important;
@@ -334,24 +445,24 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     display: flex !important;
     align-items: stretch !important;
   }
-  
+
   .vastu-product-showcase xo-animate {
     display: flex !important;
     flex-direction: column !important;
     height: 100% !important;
     align-items: stretch !important;
   }
-  
+
   /* Image section - align to top, no padding */
   .vastu-product-showcase xo-animate:first-of-type {
     align-items: flex-start !important;
   }
-  
+
   /* Additional desktop-specific overrides */
   .vastu-product-showcase .xo-product-info-media-style1 {
     align-self: flex-start !important;
   }
-  
+
   /* Right content section - stretch to match left height */
   .vastu-product-showcase__right {
     display: flex !important;
@@ -359,7 +470,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     height: 100% !important;
     justify-content: flex-start !important;
   }
-  
+
   .vastu-product-showcase__content {
     display: flex;
     flex-direction: column;
@@ -405,7 +516,9 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   color: rgb(71 56 85);
   text-decoration: none;
   margin-top: 0.5rem;
-  transition: color 0.3s ease, transform 0.2s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.2s ease;
 }
 
 .vastu-product-showcase__read-more:hover {
@@ -471,11 +584,11 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .vastu-product-showcase {
     padding: 2rem 0;
   }
-  
+
   .vastu-product-showcase__title {
     font-size: 2.5rem;
   }
-  
+
   /* Ensure all text in vastu-product-showcase is minimum 2rem on mobile */
   .vastu-product-showcase__price,
   .vastu-product-showcase__description,
@@ -495,7 +608,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .footer-v18__copyright-content {
     font-size: var(--font-size-description, 1.6rem);
   }
-  
+
   .footer-v18__heading,
   footer h2,
   footer h3 {
@@ -550,7 +663,9 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   text-decoration: none;
   font-size: var(--font-size-description, 1.6rem);
   line-height: 1.6;
-  transition: opacity 0.3s ease, color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease;
   display: inline-block;
   opacity: 0.85;
 }
@@ -586,7 +701,9 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   border-radius: 0.375rem;
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-text));
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .footer-modern__newsletter-input:focus {
@@ -609,9 +726,12 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   background-color: rgb(var(--color-button));
   color: rgb(var(--color-button-text));
   cursor: pointer;
-  transition: opacity 0.3s ease, transform 0.2s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.2s ease;
   text-align: center;
   white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .footer-modern__newsletter-button:hover {
@@ -655,7 +775,9 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   color: rgb(var(--color-text));
   text-decoration: none;
   border-radius: 50%;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
   opacity: 0.8;
 }
 
@@ -673,14 +795,14 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 .footer-modern__payment {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
 .footer-modern__payment-icon {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: rgb(var(--color-text));
   background-color: rgba(var(--color-text), 0.05);
@@ -778,10 +900,11 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     font-size: 0.95rem;
     padding: 0.75rem 1rem;
   }
-  
+
   .footer-modern__newsletter-button {
-    font-size: var(--font-size-button, 2.5rem);
+    font-size: 1.8rem;
     padding: 0.75rem 1rem;
+    text-transform: uppercase;
   }
 
   .footer-modern__bottom {
@@ -809,12 +932,17 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   }
 
   .footer-modern__payment {
-    gap: 0.75rem;
+    gap: 0.4rem;
+    justify-content: flex-start;
   }
 
   .footer-modern__payment-icon {
-    padding: 0.4rem 0.75rem;
-    font-size: 2rem;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .footer-modern__payment-icon + .footer-modern__payment-icon {
+    margin-left: 0;
   }
 
   .footer-modern__payment-image {
@@ -837,7 +965,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     font-weight: var(--font-weight-bold, 700);
     text-transform: uppercase;
   }
-  
+
   .footer-modern__newsletter-input {
     padding: 1rem 1.25rem;
     font-size: 1.6rem;
@@ -860,7 +988,9 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   border-radius: 1rem;
   border-top: 4px solid rgb(71 56 85 / 15%);
   padding: 3rem 2.5rem;
-  box-shadow: 0 4px 20px rgb(71 56 85 / 12%), 0 2px 8px rgb(71 56 85 / 8%);
+  box-shadow:
+    0 4px 20px rgb(71 56 85 / 12%),
+    0 2px 8px rgb(71 56 85 / 8%);
   margin: 0 auto;
   position: relative;
 }
@@ -948,7 +1078,7 @@ xo-cart-add.loading .xo-btn__loading {
 }
 
 .vastu-shop-by-concern__section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -20px;
   left: 50%;

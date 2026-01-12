@@ -36,7 +36,7 @@
         <h4 class='vastu-product-card__title' style='--card-title-size: {{ card_title_size }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h4>
         {% if current_product.variants.size > 1 %}
           <div class='vastu-product-card__add-to-cart' onclick='event.stopPropagation(); event.preventDefault();'>
-            <xo-modal-trigger xo-name='product-variant-modal-{{ unique_id }}' onclick='event.stopPropagation(); event.preventDefault();'>
+            <xo-modal-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}' onclick='event.stopPropagation(); event.preventDefault();'>
               {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
             </xo-modal-trigger>
           </div>
@@ -50,7 +50,7 @@
       </div>
     </a>
     {% if current_product.variants.size > 1 %}
-      {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'center' %}
+      {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'center', section: section %}
     {% endif %}
     {% render 'product-data', product: current_product %}
   </xo-product>

@@ -1,7 +1,9 @@
-
+/* ============================================
+   UNUSED FILE - This file is NOT linked in any layout
+   ============================================ */
 
 .vastu-trust-bar__title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -20px;
   left: 50%;
@@ -28,17 +30,17 @@
   .vastu-trust-bar__header {
     margin-bottom: 3rem;
   }
-  
+
   .vastu-trust-bar__title {
     font-size: 2rem;
     margin-bottom: 1rem;
     padding-bottom: 2.5rem;
   }
-  
+
   .vastu-trust-bar__title::after {
     bottom: 0px;
   }
-  
+
   .vastu-trust-bar__subtitle {
     font-size: 2rem;
   }
@@ -65,7 +67,9 @@
   flex-shrink: 0;
   margin-bottom: 1.5rem;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
 .vastu-trust-bar__item:hover .vastu-trust-bar__icon,
@@ -114,17 +118,17 @@
     min-height: 10rem;
     padding: 1.25rem 0.75rem;
   }
-  
+
   .vastu-trust-bar__icon,
   .vastu-trust-bar__icon-svg {
     width: 10rem; /* Doubled from 5rem to 10rem for mobile */
     height: 10rem; /* Doubled from 5rem to 10rem for mobile */
   }
-  
+
   .vastu-trust-bar__text {
     font-size: 2rem;
   }
-  
+
   .vastu-trust-bar__item-subtitle {
     font-size: 2rem;
   }
@@ -177,7 +181,9 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
   backdrop-filter: blur(10px);
   border-radius: 0.75rem;
   box-shadow: 0 0.5rem 1.5rem rgb(71 56 85 / 15%);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .vastu-features-bar__item:hover {
@@ -197,7 +203,9 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
   flex-shrink: 0;
   margin-bottom: 0.5rem;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
   overflow: visible;
 }
 
@@ -218,13 +226,19 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
   background: linear-gradient(135deg, rgb(71 56 85 / 5%) 0%, rgb(71 56 85 / 10%) 100%);
   border-radius: 0.75rem;
   padding: 1.5rem;
-  box-shadow: 0 0.5rem 1.5rem rgb(71 56 85 / 20%), inset 0 0 1rem rgb(255 255 255 / 30%);
+  box-shadow:
+    0 0.5rem 1.5rem rgb(71 56 85 / 20%),
+    inset 0 0 1rem rgb(255 255 255 / 30%);
   backdrop-filter: blur(5px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .vastu-features-bar__item:hover .vastu-features-bar__icon {
-  box-shadow: 0 0.75rem 2rem rgb(71 56 85 / 30%), inset 0 0 1.5rem rgb(255 255 255 / 40%);
+  box-shadow:
+    0 0.75rem 2rem rgb(71 56 85 / 30%),
+    inset 0 0 1.5rem rgb(255 255 255 / 40%);
 }
 
 .vastu-features-bar__icon .xo-image {
@@ -318,12 +332,12 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
   div[class*="shopify-section-template"][class*="vastu-features"] {
     padding-top: 2.5rem !important;
   }
-  
+
   .vastu-features-bar__item {
     min-height: 10rem;
     padding: 1.25rem 0.75rem;
   }
-  
+
   .vastu-features-bar__icon,
   .vastu-features-bar__icon-svg {
     width: 18rem;
@@ -331,7 +345,7 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
     min-width: 18rem;
     min-height: 18rem;
   }
-  
+
   .vastu-features-bar__icon .xo-image,
   .vastu-features-bar__icon .xo-image img,
   .vastu-features-bar__icon img {
@@ -340,7 +354,7 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
     min-width: 18rem;
     min-height: 18rem;
   }
-  
+
   .vastu-features-bar__icon .xo-image__placeholder,
   .vastu-features-bar__icon .xo-image__placeholder svg {
     max-width: 18rem;
@@ -348,7 +362,7 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
     min-width: 18rem;
     min-height: 18rem;
   }
-  
+
   .vastu-features-bar__text {
     font-size: var(--font-size-description, 1.6rem);
   }
@@ -381,5 +395,4 @@ section h3,
   display: inline-block;
   width: 100%;
   line-height: 1.2;
-}}
-
+}

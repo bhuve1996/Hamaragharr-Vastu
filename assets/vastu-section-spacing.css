@@ -1,12 +1,15 @@
+/* ============================================
+   UNUSED FILE - This file is NOT linked in any layout
+   Duplicate of vastu-sections-spacing.css (which IS used)
+   ============================================ */
 
-
-  --homepage-section-spacing-tablet: 64px;
-  --homepage-section-padding-top: 0px;
-  --homepage-section-padding-bottom: 0px;
-  --homepage-section-padding-top-mobile: 0px;
-  --homepage-section-padding-bottom-mobile: 0px;
-  --homepage-section-padding-top-tablet: 0px;
-  --homepage-section-padding-bottom-tablet: 0px;
+--homepage-section-spacing-tablet: 64px;
+--homepage-section-padding-top: 0px;
+--homepage-section-padding-bottom: 0px;
+--homepage-section-padding-top-mobile: 0px;
+--homepage-section-padding-bottom-mobile: 0px;
+--homepage-section-padding-top-tablet: 0px;
+--homepage-section-padding-bottom-tablet: 0px;
 
 /* Target all sections and Shopify section wrapper divs - remove default padding and make it configurable */
 main#xo-main-content section,
@@ -207,7 +210,7 @@ section[class*="blog"] *:last-child {
     --homepage-section-padding-top: var(--homepage-section-padding-top-mobile);
     --homepage-section-padding-bottom: var(--homepage-section-padding-bottom-mobile);
   }
-  
+
   main#xo-main-content section,
   section.xo-section,
   section[class*="xo-section--"] {
@@ -215,7 +218,7 @@ section[class*="blog"] *:last-child {
     padding-bottom: var(--homepage-section-padding-bottom);
     margin-bottom: var(--homepage-section-spacing);
   }
-  
+
   /* Last section on mobile - no bottom margin */
   main#xo-main-content > section:last-child,
   main#xo-main-content section:last-child {
@@ -230,7 +233,7 @@ section[class*="blog"] *:last-child {
     --homepage-section-padding-top: var(--homepage-section-padding-top-tablet);
     --homepage-section-padding-bottom: var(--homepage-section-padding-bottom-tablet);
   }
-  
+
   main#xo-main-content section,
   section.xo-section,
   section[class*="xo-section--"] {

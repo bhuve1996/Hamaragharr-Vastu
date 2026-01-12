@@ -1,7 +1,12 @@
-  color: rgb(71 56 85);
-  margin: 0 0 0.5rem;
-  line-height: 1.4;
-  text-align: left;
+/* ============================================
+   UNUSED FILE - This file is NOT linked in any layout
+   vastu-shop-by-concern.css is used instead
+   ============================================ */
+
+color: rgb(71 56 85);
+margin: 0 0 0.5rem;
+line-height: 1.4;
+text-align: left;
 
 .vastu-shop-by-concern__trigger-question {
   font-size: var(--font-size-description, 1.6rem);
@@ -47,7 +52,10 @@
   aria-expanded: true;
 } */
 
-.vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__trigger[aria-expanded="true"] + .vastu-shop-by-concern__collapse,
+.vastu-shop-by-concern__accordion
+  > xo-animate:first-child
+  .vastu-shop-by-concern__trigger[aria-expanded="true"]
+  + .vastu-shop-by-concern__collapse,
 .vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__collapse[style*="display: block"] {
   display: block !important;
   max-height: none !important;
@@ -158,7 +166,9 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .vastu-shop-by-concern__product-card:hover {
@@ -220,7 +230,6 @@
   box-sizing: border-box;
 }
 
-
 .vastu-shop-by-concern__product-title {
   font-size: var(--card-title-size, var(--font-size-card-title, 1.5rem));
   font-weight: 450;
@@ -267,7 +276,9 @@
   font-size: var(--font-size-description, 1.6rem);
   font-weight: var(--font-weight-semibold, 600);
   text-decoration: none;
-  transition: all 0.3s ease, transform 0.2s ease;
+  transition:
+    all 0.3s ease,
+    transform 0.2s ease;
   position: relative;
   overflow: hidden;
 }
@@ -370,7 +381,7 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
     gap: 1rem;
     width: 100%;
   }
-  
+
   .popup-newsletter-v1__form .field,
   .popup-newsletter-v3__form .field,
   .popup-newsletter-v4__form .field,
@@ -379,7 +390,7 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
     width: 100%;
     margin-bottom: 0;
   }
-  
+
   .popup-newsletter-v1__form button,
   .popup-newsletter-v3__form button,
   .popup-newsletter-v4__form button,
@@ -396,50 +407,50 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
     font-size: 2rem !important;
     min-height: 5rem;
   }
-  
+
   .popup-newsletter__container {
     max-width: 95vw !important;
     padding: 2rem 1.5rem !important;
   }
-  
+
   /* Shop by Concern - Mobile Font Size Fixes (Minimum 2rem) */
   .vastu-shop-by-concern__accordion {
     margin-top: 2rem;
   }
-  
+
   .vastu-shop-by-concern__section-title {
     font-size: 2.5rem !important;
     padding-bottom: 5rem;
   }
-  
+
   .vastu-shop-by-concern__trigger {
     padding: 1.5rem;
   }
-  
+
   .vastu-shop-by-concern__trigger-content {
     padding-right: 1rem;
   }
-  
+
   .vastu-shop-by-concern__trigger-title {
     font-size: 2rem !important;
     text-align: left;
   }
-  
+
   .vastu-shop-by-concern__trigger-question {
     font-size: 2rem !important;
     text-align: left;
   }
-  
+
   .vastu-shop-by-concern__content {
     padding: 1.5rem 1.5rem 2rem;
     text-align: left;
   }
-  
+
   .vastu-shop-by-concern__trigger-icon {
     width: 1.75rem;
     height: 1.75rem;
   }
-  
+
   .vastu-shop-by-concern__card-description {
     font-size: 2rem !important;
     text-align: left;

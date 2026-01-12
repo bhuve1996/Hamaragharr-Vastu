@@ -11,50 +11,25 @@
         {% endif %}
       </div>
     {% endif %}
-    <xo-carousel
-      xo-per-view='4'
-      xo-gap='30'
-      xo-speed='400'
-      xo-breakpoints='
-      {
-        992: {
-          perView: 3,
-        },
-        768: {
-          perView: 2,
-        },
-        576: {
-          perView: 1,
-        },
-      }
-      '
-      xo-render-bullet='<span></span>'
-    >
-      <xo-carousel-inner>
-        <xo-carousel-list role='list' aria-label='Trust Bar'>
-          {% for block in section.blocks %}
-            <xo-carousel-slide aria-roledescription='Trust Item' aria-label='{{ forloop.index }} of {{ forloop.length }}'>
-              <div class='vastu-trust-bar__item' {{ block.shopify_attributes }}>
-                {% if block.settings.icon != blank %}
-                  <div class='vastu-trust-bar__icon'>
-                    {% render 'image', image: block.settings.icon %}
-                  </div>
-                {% elsif block.settings.icon_svg != blank %}
-                  <div class='vastu-trust-bar__icon-svg'>{{ block.settings.icon_svg }}</div>
-                {% endif %}
-                {% if block.settings.text != blank %}
-                  <p class='vastu-trust-bar__text'>{{ block.settings.text }}</p>
-                {% endif %}
-                {% if block.settings.subtitle != blank %}
-                  <p class='vastu-trust-bar__item-subtitle'>{{ block.settings.subtitle }}</p>
-                {% endif %}
-              </div>
-            </xo-carousel-slide>
-          {% endfor %}
-        </xo-carousel-list>
-      </xo-carousel-inner>
-      {% render 'carousel-pagination-style3', class: 'vastu-trust-bar__pagination' %}
-    </xo-carousel>
+    <div class='vastu-trust-bar__grid' role='list' aria-label='Trust Bar'>
+      {% for block in section.blocks %}
+        <div class='vastu-trust-bar__item' role='listitem' aria-label='{{ forloop.index }} of {{ forloop.length }}' {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <div class='vastu-trust-bar__icon'>
+              {% render 'image', image: block.settings.icon %}
+            </div>
+          {% elsif block.settings.icon_svg != blank %}
+            <div class='vastu-trust-bar__icon-svg'>{{ block.settings.icon_svg }}</div>
+          {% endif %}
+          {% if block.settings.text != blank %}
+            <p class='vastu-trust-bar__text'>{{ block.settings.text }}</p>
+          {% endif %}
+          {% if block.settings.subtitle != blank %}
+            <p class='vastu-trust-bar__item-subtitle'>{{ block.settings.subtitle }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
   </xo-container>
     {% render 'section-separator',
     enable_separator: section.settings.enable_separator,

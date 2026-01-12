@@ -1,3 +1,8 @@
+/* ============================================
+   UNUSED FILE - This file is NOT linked in any layout
+   vastu-shipping-link.css is used instead
+   ============================================ */
+
 .filters-content .xo-product-card:hover .xo-product-card__header .xo-product-card__actions--style9 {
   display: none !important;
   visibility: hidden !important;
@@ -98,7 +103,7 @@
 /* Add arrow icon after text on hover */
 .xo-collapse-style2__view-full .xo-collapse-style2__read-more::after,
 .xo-collapse-style2__read-more::after {
-  content: '→';
+  content: "→";
   display: inline-block;
   transition: transform 0.3s ease;
   opacity: 0.6;
@@ -125,12 +130,12 @@
   .shipping-accordion__question {
     font-size: 2rem;
   }
-  
+
   .shipping-accordion__answer {
     font-size: 2rem;
     padding-left: calc(1rem + 22px + 1rem);
   }
-  
+
   .shipping-accordion__view-full-link {
     font-size: 1.6rem;
   }
@@ -168,7 +173,7 @@
   .shipping-content__return h3 {
     font-size: 2rem;
   }
-  
+
   .shipping-content__delivery > div,
   .shipping-content__return > div {
     font-size: 2rem;
@@ -196,12 +201,12 @@ xo-modal[xo-name="return-policy-modal"] .xo-modal-content__content {
   xo-modal[xo-name="return-policy-modal"] .xo-modal-content__inner {
     padding: 1.5rem;
   }
-  
+
   xo-modal[xo-name="shipping-policy-modal"] .xo-modal-content__body,
   xo-modal[xo-name="return-policy-modal"] .xo-modal-content__body {
     padding: 1rem;
   }
-  
+
   xo-modal[xo-name="shipping-policy-modal"] .xo-modal-content__content,
   xo-modal[xo-name="return-policy-modal"] .xo-modal-content__content {
     padding: 1.5rem !important;
@@ -242,18 +247,18 @@ h2.fieldset-block__title#vertical-title {
 
 /* Remove all padding from product card information on desktop only */
 @media (width >= 768px) {
-.product-recommendations-section .xo-product-card__information,
-section[class*="product-recommendations"] .xo-product-card__information,
+  .product-recommendations-section .xo-product-card__information,
+  section[class*="product-recommendations"] .xo-product-card__information,
   section[id*="product-recommendations"] .xo-product-card__information,
   section[id*="section-"] .xo-product-card__information,
-.product-recommendations .xo-product-card__information,
+  .product-recommendations .xo-product-card__information,
   .xo-section--product-recommendations .xo-product-card__information,
   xo-product-recommendations .xo-product-card__information,
-.section-collection-products .xo-product-card__information,
-.filters-content .xo-product-card__information {
+  .section-collection-products .xo-product-card__information,
+  .filters-content .xo-product-card__information {
     padding: 0 !important;
   }
-  
+
   .product-recommendations-section .xo-product-card__title,
   section[class*="product-recommendations"] .xo-product-card__title,
   section[id*="product-recommendations"] .xo-product-card__title,
@@ -268,8 +273,8 @@ section[class*="product-recommendations"] .xo-product-card__information,
   .product-recommendations .xo-product-card__title a,
   .xo-section--product-recommendations .xo-product-card__title a,
   xo-product-recommendations .xo-product-card__title a {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 

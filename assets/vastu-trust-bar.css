@@ -1,4 +1,12 @@
-/* Vastu Trust Bar - Carousel Design */
+/* Vastu Trust Bar - Grid Design (All items in one row) */
+
+/* Trust Bar Grid Container */
+.vastu-trust-bar__grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  width: 100%;
+}
 
 /* Trust Bar Header */
 .vastu-trust-bar__header {
@@ -69,6 +77,8 @@
   padding: 1.5rem 1rem;
   min-height: 11.25rem;
   justify-content: center;
+  flex: 1 1 0;
+  min-width: 0; /* Allow flex items to shrink below content size */
 }
 
 .vastu-trust-bar__icon,
@@ -122,6 +132,8 @@
   margin-top: 1rem;
   line-height: 1.5;
   color: rgb(var(--color-foreground, 0, 0, 0));
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .vastu-trust-bar__item-subtitle {
@@ -131,37 +143,41 @@
   line-height: 1.5;
   color: rgb(71 56 85 / 70%);
   text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
-/* Trust Bar Carousel Pagination */
-.vastu-trust-bar__pagination {
-  margin-top: 2rem;
-  position: absolute;
-  bottom: -40px !important; /* Shift dots further down */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
-
-/* Mobile adjustments for trust bar */
+/* Mobile adjustments for trust bar - All items in one row */
 @media (width <= 48rem) {
+  .vastu-trust-bar__grid {
+    gap: 0.75rem;
+  }
+
   .vastu-trust-bar__item {
-    min-height: 10rem;
-    padding: 1.25rem 0.75rem;
+    min-height: auto;
+    padding: 0.5rem 0.25rem;
+    flex: 1 1 0;
+    min-width: 0;
+    gap: 0.4rem;
   }
 
   .vastu-trust-bar__icon,
   .vastu-trust-bar__icon-svg {
-    width: 10rem; /* Doubled from 5rem to 10rem for mobile */
-    height: 10rem; /* Doubled from 5rem to 10rem for mobile */
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0.4rem;
   }
 
   .vastu-trust-bar__text {
-    font-size: 2rem;
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+    line-height: 1.2;
   }
 
   .vastu-trust-bar__item-subtitle {
-    font-size: 2rem;
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
+    line-height: 1.2;
   }
 }
 

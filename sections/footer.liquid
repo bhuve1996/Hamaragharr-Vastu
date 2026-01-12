@@ -45,10 +45,7 @@
                 <a href='/pages/return-refund-policy' class='footer-modern__link'>Return & Refund Policy</a>
               </li>
               <li class='footer-modern__list-item'>
-                <a href='/pages/delivery-information' class='footer-modern__link'>Delivery Information</a>
-              </li>
-              <li class='footer-modern__list-item'>
-                <a href='/pages/contact-us-1' class='footer-modern__link'>Contact Us</a>
+                <a href='{{ routes.blogs_url }}' class='footer-modern__link'>Blog</a>
               </li>
               <li class='footer-modern__list-item'>
                 <a href='{{ section.settings.amazon_link }}' class='footer-modern__link' {% if section.settings.amazon_link != blank %}target='_blank'{% endif %}>Shop on Amazon</a>
@@ -78,10 +75,7 @@
                 <a href='/pages/faq' class='footer-modern__link'>FAQ</a>
               </li>
               <li class='footer-modern__list-item'>
-                <a href='{{ routes.account_url }}' class='footer-modern__link'>My Account</a>
-              </li>
-              <li class='footer-modern__list-item'>
-                <a href='{{ routes.blogs_url }}' class='footer-modern__link'>Blog</a>
+                <a href='/pages/contact-us-1' class='footer-modern__link'>Contact Us</a>
               </li>
               <li class='footer-modern__list-item'>
                 <a href='/pages/how-to-order' class='footer-modern__link'>How to Order</a>
@@ -154,7 +148,15 @@
       <div class='footer-modern__bottom-content'>
         
         {% comment %} Social Media Icons {% endcomment %}
-        {%- if section.settings.show_social -%}
+        {%- liquid
+          assign has_social_links = false
+          if section.settings.show_social
+            if section.settings.social_facebook_link != blank or section.settings.social_instagram_link != blank or section.settings.social_youtube_link != blank or section.settings.social_twitter_link != blank or section.settings.social_pinterest_link != blank
+              assign has_social_links = true
+            endif
+          endif
+        -%}
+        {%- if has_social_links -%}
           <div class='footer-modern__social'>
             {%- if section.settings.social_facebook_link != blank -%}
               <a href='{{ section.settings.social_facebook_link }}' target='_blank' class='footer-modern__social-link' aria-label='Facebook'>

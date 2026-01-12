@@ -48,7 +48,9 @@ section[class*="testimonial-v13"] xo-container {
   padding: 1.75rem 1.5rem;
   text-align: center;
   position: relative;
-  box-shadow: 0 4px 20px rgb(71 56 85 / 12%), 0 2px 8px rgb(71 56 85 / 8%);
+  box-shadow:
+    0 4px 20px rgb(71 56 85 / 12%),
+    0 2px 8px rgb(71 56 85 / 8%);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 0;
   min-height: 240px;
@@ -78,7 +80,9 @@ section[class*="testimonial-v13"] xo-container {
 
 .testimonial-v13__item:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 30px rgb(71 56 85 / 20%), 0 4px 12px rgb(71 56 85 / 12%);
+  box-shadow:
+    0 8px 30px rgb(71 56 85 / 20%),
+    0 4px 12px rgb(71 56 85 / 12%);
   border-color: rgb(71 56 85 / 25%);
 }
 
@@ -163,32 +167,32 @@ section[class*="testimonial-v13"] xo-container {
     padding-top: 80px;
     padding-bottom: 80px;
   }
-  
+
   section[class*="testimonial-v2"] xo-container,
   section[class*="testimonial-v13"] xo-container {
     padding: 3rem 4rem;
   }
-  
+
   section[class*="testimonial-v2"] xo-carousel,
   section[class*="testimonial-v13"] xo-carousel {
     padding-left: 0;
     padding-right: 0;
     overflow: visible;
   }
-  
+
   section[class*="testimonial-v2"] xo-carousel-inner,
   section[class*="testimonial-v13"] xo-carousel-inner {
     overflow: visible;
     padding-left: 0;
     padding-right: 0;
   }
-  
+
   section[class*="testimonial-v2"] xo-carousel-list,
   section[class*="testimonial-v13"] xo-carousel-list {
     overflow: visible;
     gap: 40px; /* Add gap between slides */
   }
-  
+
   section[class*="testimonial-v2"] xo-carousel-slide,
   section[class*="testimonial-v13"] xo-carousel-slide {
     padding: 0 20px !important; /* Add padding between testimonials */
@@ -197,7 +201,7 @@ section[class*="testimonial-v13"] xo-container {
     flex: 0 0 calc(33.333% - 26.67px);
     max-width: calc(33.333% - 26.67px);
   }
-  
+
   .testimonial-v13__item {
     min-height: 260px;
     width: 100%;
@@ -213,17 +217,17 @@ section[class*="testimonial-v13"] xo-container {
     padding-top: 64px;
     padding-bottom: 64px;
   }
-  
+
   section[class*="testimonial-v2"] xo-container,
   section[class*="testimonial-v13"] xo-container {
     padding: 2.5rem 3rem;
   }
-  
+
   section[class*="testimonial-v2"] xo-carousel-list,
   section[class*="testimonial-v13"] xo-carousel-list {
     gap: 40px; /* Add gap between slides */
   }
-  
+
   section[class*="testimonial-v2"] xo-carousel-slide,
   section[class*="testimonial-v13"] xo-carousel-slide {
     padding: 0 20px !important; /* Add padding between testimonials */
@@ -232,7 +236,7 @@ section[class*="testimonial-v13"] xo-container {
     flex: 0 0 calc(50% - 20px);
     max-width: calc(50% - 20px);
   }
-  
+
   .testimonial-v13__item {
     min-height: 280px;
   }
@@ -245,12 +249,12 @@ section[class*="testimonial-v13"] xo-container {
     padding-top: 56px;
     padding-bottom: 56px;
   }
-  
+
   section[class*="testimonial-v2"] xo-container,
   section[class*="testimonial-v13"] xo-container {
     padding: 2rem 2.5rem;
   }
-  
+
   section[class*="testimonial-v2"] xo-carousel-slide,
   section[class*="testimonial-v13"] xo-carousel-slide {
     padding: 0 0.9375rem;
@@ -264,24 +268,24 @@ section[class*="testimonial-v13"] xo-container {
     padding-top: 48px;
     padding-bottom: 48px;
   }
-  
+
   section[class*="testimonial-v2"] xo-container,
   section[class*="testimonial-v13"] xo-container {
     padding: 2rem 1.5rem;
     border-radius: 0.75rem;
   }
-  
+
   section[class*="testimonial-v2"] xo-carousel,
   section[class*="testimonial-v13"] xo-carousel {
     overflow: hidden;
   }
-  
+
   section[class*="testimonial-v2"] xo-carousel-list,
   section[class*="testimonial-v13"] xo-carousel-list {
     display: flex;
     flex-wrap: nowrap;
   }
-  
+
   section[class*="testimonial-v2"] xo-carousel-slide,
   section[class*="testimonial-v13"] xo-carousel-slide {
     padding: 0;
@@ -291,12 +295,12 @@ section[class*="testimonial-v13"] xo-container {
     min-width: 0;
     box-sizing: border-box;
   }
-  
+
   .testimonial-v13__item {
     padding: 1.5rem 1.25rem;
     min-height: 240px;
   }
-  
+
   .testimonial-v13__item::before {
     font-size: 4rem;
     top: 0.5rem;
@@ -304,30 +308,30 @@ section[class*="testimonial-v13"] xo-container {
     color: #473855;
     background-color: transparent;
   }
-  
+
   .testimonial-v13__icon {
     margin-bottom: 1rem;
   }
-  
+
   .testimonial-v13__icon img {
     width: 3.5rem;
     height: 3.5rem;
   }
-  
+
   .testimonial-v13__testimonial {
     font-size: 2rem;
     line-height: 1.65;
     margin-bottom: 1rem;
   }
-  
+
   .testimonial-v13__name {
     font-size: 2rem;
   }
-  
+
   .testimonial-v13__position {
     font-size: 2rem;
   }
-  
+
   .testimonial-v13__customer {
     padding-top: 0.875rem;
   }
@@ -366,7 +370,7 @@ section[class*="testimonial-v13"] xo-container {
 }
 
 .banner-v155__title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2.25rem; /* Positioned in the middle of 4.5rem spacing (2.25rem from bottom) */
   left: 0;

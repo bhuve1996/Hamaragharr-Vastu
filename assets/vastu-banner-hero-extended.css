@@ -32,7 +32,7 @@
 }
 
 .banner-v155__description-list li::before {
-  content: '•';
+  content: "•";
   position: absolute;
   left: 0;
   font-size: 2rem; /* Match the font size of the text */
@@ -89,7 +89,9 @@
   border-radius: 1.25rem;
   overflow: hidden;
   box-shadow: 0 0.625rem 2.5rem rgb(71 56 85 / 15%);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
   background: transparent;
   padding: 0;
   width: 100%;
@@ -121,13 +123,6 @@
 .banner-v155__img:hover img,
 .banner-v155__img:hover picture img {
   transform: scale(1.05);
-}
-
-/* Enhanced Button Container - Equal spacing */
-.banner-v155__content .button,
-.banner-v155__content .xo-btn,
-.banner-v155__content button {
-  margin-top: 0; /* Spacing handled by description margin-bottom above */
 }
 
 /* Grid Item Enhancements */
@@ -266,33 +261,33 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   .xo-section-heading__title {
     font-size: 2.5rem;
   }
-  
+
   /* Vastu Kit Banner on mobile */
   .banner-v155__title {
     font-size: 3.5rem;
   }
-  
+
   /* Best sellers and featured products on mobile */
   .vastu-best-seller__section-title,
   .vastu-featured-products__section-title {
     font-size: 2.5rem;
   }
-  
+
   .banner-v155__description {
     font-size: 2rem;
     max-width: 100%;
   }
-  
+
   .banner-v155__img {
     padding: 0;
     border-radius: 1rem;
   }
-  
+
   .banner-v155__content {
     padding: 0 0 1.5rem;
     text-align: left;
   }
-  
+
   .banner-v155__item--left {
     padding-left: 0;
     padding-right: 0;
@@ -304,11 +299,11 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
 
     order: 2;
   }
-  
+
   .banner-v155__item--right {
     order: 1;
   }
-  
+
   .banner-v155__title::after {
     left: 50%;
     transform: translateX(-50%);
@@ -328,17 +323,6 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   display: inline-block;
 }
 
-/* Fix internal padding for boxed size options */
-.xo-product-info-variant .xo-field-radio--boxed .xo-field-radio__label,
-.xo-product-variant .xo-field-radio--boxed .xo-field-radio__label,
-.xo-product-info-variant .xo-field-radio--boxed2 .xo-field-radio__label,
-.xo-product-variant .xo-field-radio--boxed2 .xo-field-radio__label,
-.xo-product-info-variant .xo-field-radio--boxed3 .xo-field-radio__label,
-.xo-product-variant .xo-field-radio--boxed3 .xo-field-radio__label {
-  padding: 1.4rem 0.8rem !important;
-  min-height: auto;
-}
-
 .xo-product-info-variant .xo-field-radio,
 .xo-product-variant .xo-field-radio {
   min-width: auto;
@@ -351,6 +335,11 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
 .xo-product-variant__inner .xo-field-radio__label {
   flex: 1 1 auto;
   min-width: fit-content;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  white-space: nowrap !important;
 }
 
 /* Fix spacing for size options - reduce gap between variant options */
@@ -358,7 +347,6 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
 .xo-product-variant__inner {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 0.75rem !important;
   gap: 0.75rem !important;
   align-items: flex-start !important;
 }
@@ -371,14 +359,141 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   align-items: center !important;
 }
 
-/* Ensure variant labels are properly aligned */
-.xo-product-info-variant__inner .xo-field-radio__label,
-.xo-product-variant__inner .xo-field-radio__label {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  white-space: nowrap !important;
+/* Fix internal padding for boxed size options - must come after general label rules */
+.xo-product-info-content__variants
+  xo-product-variant.xo-product-info-variant__inner
+  label.xo-field-radio--boxed
+  .xo-field-radio__label,
+.xo-product-info-content__variants
+  xo-product-variant.xo-product-info-variant__inner
+  label.xo-field-radio--boxed2
+  .xo-field-radio__label,
+.xo-product-info-content__variants
+  xo-product-variant.xo-product-info-variant__inner
+  label.xo-field-radio--boxed3
+  .xo-field-radio__label,
+.xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed .xo-field-radio__label,
+.xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed2 .xo-field-radio__label,
+.xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed3 .xo-field-radio__label {
+  padding: 1.4rem 0.8rem !important;
+  min-height: auto !important;
+  width: auto !important;
+  min-width: fit-content !important;
 }
 
 /* Product Variant Modal - Hide by default and add padding */
+
+/* Collapse trigger styles */
+xo-collapse-trigger,
+xo-collapse-trigger.shipping-accordion__trigger,
+.shipping-accordion__trigger {
+  display: flex !important;
+  width: 100% !important;
+  justify-content: space-between !important;
+}
+
+/* Shipping accordion question styles */
+.shipping-accordion__question {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  justify-content: center !important;
+}
+
+/* Trust Badge - Fix sizing and SVG visibility */
+.trustbadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--bg-color, #f8f8f8);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.trustbadge--reverse {
+  flex-direction: column-reverse;
+}
+
+.trustbadge__text {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  color: rgb(var(--color-foreground, 0, 0, 0));
+}
+
+.trustbadge__image {
+  width: var(--width, 80%);
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trustbadge__image .xo-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+}
+
+.trustbadge__image .xo-image__placeholder {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+  opacity: 1;
+  padding-top: 0;
+  aspect-ratio: 980 / 700; /* Maintain SVG aspect ratio */
+}
+
+.trustbadge__image .xo-image__placeholder svg {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: auto;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  object-fit: contain;
+
+  /* Invert colors for better visibility on light background */
+  filter: invert(1) brightness(0.9);
+
+  /* Alternative options (uncomment to use):
+     - Darker without inversion: filter: brightness(0.2) contrast(1.3);
+     - Full inversion: filter: invert(1);
+     - No filter (original colors): filter: none;
+  */
+}
+
+.trustbadge__image .xo-image img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* Mobile adjustments */
+@media (width <= 48rem) {
+  .trustbadge {
+    padding: 1rem;
+  }
+
+  .trustbadge__text {
+    font-size: 1.4rem;
+  }
+
+  .trustbadge__image {
+    width: var(--width, 90%);
+  }
+}

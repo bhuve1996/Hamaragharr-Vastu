@@ -41,29 +41,6 @@
     {% endif %}
   {% endfor %}
   
-  {% comment %} Price {% endcomment %}
-  {% if section.settings.show_price %}
-    <div class='vastu-product-showcase__price'>
-      <xo-product-will-change xo-unique-id='product-price-{{ product.id }}'>
-        {% render 'price', product: product, use_variant: true, style: 'larger' %}
-      </xo-product-will-change>
-    </div>
-  {% endif %}
-  
-  {% comment %} Custom Text Blocks - After Price {% endcomment %}
-  {% for block in section.blocks %}
-    {% if block.type == 'custom_text' and block.settings.position == 'after_price' %}
-      <div class='vastu-product-showcase__custom-text' {{ block.shopify_attributes }}>
-        {% if block.settings.heading != blank %}
-          <h3 class='vastu-product-showcase__custom-heading'>{{ block.settings.heading | escape }}</h3>
-        {% endif %}
-        {% if block.settings.content != blank %}
-          <div class='vastu-product-showcase__custom-content'>{{ block.settings.content }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
-  {% endfor %}
-  
   {% comment %} Description {% endcomment %}
   {% if section.settings.show_description %}
     {% if section.settings.use_custom_description and section.settings.custom_description != blank %}
@@ -91,6 +68,29 @@
       </div>
     {% endif %}
   {% endif %}
+  
+  {% comment %} Price {% endcomment %}
+  {% if section.settings.show_price %}
+    <div class='vastu-product-showcase__price'>
+      <xo-product-will-change xo-unique-id='product-price-{{ product.id }}'>
+        {% render 'price', product: product, use_variant: true, style: 'larger' %}
+      </xo-product-will-change>
+    </div>
+  {% endif %}
+  
+  {% comment %} Custom Text Blocks - After Price {% endcomment %}
+  {% for block in section.blocks %}
+    {% if block.type == 'custom_text' and block.settings.position == 'after_price' %}
+      <div class='vastu-product-showcase__custom-text' {{ block.shopify_attributes }}>
+        {% if block.settings.heading != blank %}
+          <h3 class='vastu-product-showcase__custom-heading'>{{ block.settings.heading | escape }}</h3>
+        {% endif %}
+        {% if block.settings.content != blank %}
+          <div class='vastu-product-showcase__custom-content'>{{ block.settings.content }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
   
   {% comment %} Custom Text Blocks - After Description {% endcomment %}
   {% for block in section.blocks %}

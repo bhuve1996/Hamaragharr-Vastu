@@ -80,6 +80,32 @@ button.xo-btn,
   max-width: 100% !important;
 }
 
+/* Fix for buttons with padding - allow text to be visible */
+.xo-btn[style*="padding-left"],
+.xo-btn[style*="padding-right"],
+.xo-btn[style*="padding:"] {
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.xo-btn[style*="padding-left"] .xo-btn__content,
+.xo-btn[style*="padding-right"] .xo-btn__content,
+.xo-btn[style*="padding:"] .xo-btn__content {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+.xo-btn[style*="padding-left"] .xo-btn__text,
+.xo-btn[style*="padding-right"] .xo-btn__text,
+.xo-btn[style*="padding:"] .xo-btn__text {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
 .xo-btn--small .xo-btn__text,
 .xo-btn--small .xo-btn__text[data-text] {
   font-size: 2rem !important; /* Increased text size for small buttons */
