@@ -123,15 +123,17 @@
           {% endif %}
 
         {% when 'description' %}
-          <xo-animate
-            xo-cascade
-            {{ block.shopify_attributes }}
-            style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
-          >
-            <p class='xo-product-info-content__description'>
-              {{ product.description | strip_html | truncate: 230 }}
-            </p>
-          </xo-animate>
+          {% unless block.settings.hide_if_in_tabs %}
+            <xo-animate
+              xo-cascade
+              {{ block.shopify_attributes }}
+              style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
+            >
+              <p class='xo-product-info-content__description'>
+                {{ product.description | strip_html | truncate: 230 }}
+              </p>
+            </xo-animate>
+          {% endunless %}
 
         {% when 'visitor' %}
           <xo-animate
@@ -247,9 +249,9 @@
                 {%- for option in product.options_with_values -%}
                   <div class='xo-product-info-content__header-variant'>
                     <span style='font-weight:500'>{{ option.name | escape }}: </span>
-                    <xo-product-will-change xo-unique-id='product-variant-{{ option.name }}-{{ product.id }}' class='xo-product-info-variant__name'>
-                      {{ option.selected_value }}
-                    </xo-product-will-change>
+                    <xo-product-variant-selected xo-name='{{ option.name }}' class='xo-product-info-variant__name'>
+                      {{- option.selected_value -}}
+                    </xo-product-variant-selected>
                   </div>
                 {%- endfor -%}
               </div>
@@ -290,7 +292,12 @@
               show_delivery: block.settings.show_delivery,
               delivery: block.settings.delivery,
               show_return: block.settings.show_return,
-              return: block.settings.return
+              return: block.settings.return,
+              use_policy_content: block.settings.use_policy_content,
+              use_accordion: block.settings.use_accordion,
+              use_modal: block.settings.use_modal,
+              truncate_length: block.settings.truncate_length,
+              modal_width: block.settings.modal_width
             %}
           </xo-animate>
 
@@ -326,7 +333,15 @@
             {{ block.shopify_attributes }}
             style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
           >
-            {% render 'collapse-style2', title: block.settings.heading, content: block.settings.content, content_liquid: block.settings.content_liquid %}
+            {% render 'collapse-style2', 
+              title: block.settings.heading, 
+              content: block.settings.content, 
+              content_liquid: block.settings.content_liquid,
+              use_modal: block.settings.use_modal,
+              truncate_length: block.settings.truncate_length,
+              modal_width: block.settings.modal_width,
+              block_id: block.id
+            %}
           </xo-animate>
 
         {% when 'image' %}

@@ -6,16 +6,48 @@
   - content: {String} Content of the collapse-style2 (optional)
   - name: {String} Name of the collapse-style2 (optional)
   - icon: {String} Name of the icon to use. Default: 'chevron-down' (optional)
+  - use_modal: {boolean} Show full content in modal (optional, default: false)
+  - truncate_length: {number} Number of words to show in preview (optional, default: 50)
+  - modal_width: {string} Width of modal (optional, default: '90rem')
+  - block_id: {string} Block ID for unique modal name (optional)
 
   Usage:
-  {% render 'collapse'',
+  {% render 'collapse-style2',
     title: 'Title',
     content: 'Content',
-    icon: 'chevron-down'
+    icon: 'chevron-down',
+    use_modal: true,
+    truncate_length: 50,
+    modal_width: '90rem',
+    block_id: 'block-id'
   %}
 {% endcomment %}
 
 {% assign icon = icon | default: 'chevron-down' %}
+{% assign use_modal = use_modal | default: false %}
+{% assign truncate_length = truncate_length | default: 50 %}
+{% assign modal_width = modal_width | default: '90rem' %}
+{% assign modal_name = 'collapse-modal-' | append: block_id | default: 'default' %}
+
+{% comment %} Get the actual content {% endcomment %}
+{% if content_liquid != blank %}
+  {% assign full_content = content_liquid %}
+{% elsif content != blank %}
+  {% assign full_content = content %}
+{% else %}
+  {% assign full_content = '' %}
+{% endif %}
+
+{% comment %} Check if we should show modal {% endcomment %}
+{% assign show_modal_btn = false %}
+{% if use_modal and full_content != blank %}
+  {% assign content_text_only = full_content | strip_html %}
+  {% assign content_word_count = content_text_only | split: ' ' | size %}
+  {% if content_word_count > truncate_length %}
+    {% assign show_modal_btn = true %}
+    {% assign preview_content = full_content | truncatewords: truncate_length, '...' %}
+  {% endif %}
+{% endif %}
 
 <xo-collapse-trigger
   class='xo-collapse-style2__trigger'
@@ -36,15 +68,40 @@
     xo-name='{{ name }}'
   {% endif %}
 >
-  {% if content != blank %}
+  {% if show_modal_btn %}
     <div class='xo-collapse-style2__content xo-content'>
-      {{ content }}
+      <div class='xo-collapse-style2__preview'>
+        {{ preview_content }}
+      </div>
+      <xo-modal-trigger xo-name='{{ modal_name }}' class='xo-collapse-style2__view-full'>
+        <button type='button'>View Full {{ title }}</button>
+      </xo-modal-trigger>
     </div>
-  {% endif %}
+  {% else %}
+    {% if content != blank %}
+      <div class='xo-collapse-style2__content xo-content'>
+        {{ content }}
+      </div>
+    {% endif %}
 
-  {% if content_liquid != blank %}
-    <div class='xo-collapse-style2__content xo-content'>
-      {{ content_liquid }}
-    </div>
+    {% if content_liquid != blank %}
+      <div class='xo-collapse-style2__content xo-content'>
+        {{ content_liquid }}
+      </div>
+    {% endif %}
   {% endif %}
 </xo-collapse>
+
+{% comment %} Modal for full content {% endcomment %}
+{% if show_modal_btn %}
+  <xo-modal xo-name='{{ modal_name }}' xo-animate='fade-up' xo-portal='true' style='z-index: 9999;'>
+    {% render 'modal-content',
+      title: title,
+      content: full_content,
+      width: modal_width,
+      full_height: false,
+      animate: true,
+      header_separator: true
+    %}
+  </xo-modal>
+{% endif %}

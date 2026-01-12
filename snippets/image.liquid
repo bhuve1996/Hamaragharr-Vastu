@@ -28,7 +28,14 @@
   if image == blank and media_aspect_ratio == 'auto'
     assign image_svg_class = ' xo-image--svg'
   endif
-  assign alt = image.alt | escape | default: 'image'
+  # Use alt text if provided, otherwise try title, then use descriptive default
+  if image.alt != blank
+    assign alt = image.alt | escape
+  elsif image.title != blank
+    assign alt = image.title | escape
+  else
+    assign alt = 'Image'
+  endif
   if media_aspect_ratio == blank or media_aspect_ratio == 'auto'
     assign media_aspect_ratio = image.aspect_ratio
   endif

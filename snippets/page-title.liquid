@@ -1,12 +1,98 @@
+{%- liquid
+  # Use request.page_type for more reliable detection, fallback to template.name
+  assign page_type = request.page_type | default: template.name
+  
+  # Handle collection pages explicitly - check multiple ways to ensure we catch it
+  # Also check if page_title is incorrectly set to "homepage" when we have collection data
+  if collection and collection.handle != blank and collection.title != blank
+    if current_tags
+      assign final_title = current_tags | join: ' + ' | append: ' - ' | append: collection.title
+    else
+      assign final_title = collection.title
+    endif
+  elsif page_type == 'collection' and collection and collection.handle != blank
+    if current_tags
+      assign final_title = current_tags | join: ' + ' | append: ' - ' | append: collection.title
+    else
+      assign final_title = collection.title
+    endif
+  elsif template.name == 'collection' and collection and collection.handle != blank
+    if current_tags
+      assign final_title = current_tags | join: ' + ' | append: ' - ' | append: collection.title
+    else
+      assign final_title = collection.title
+    endif
+  # Handle product pages
+  elsif page_type == 'product' and product
+    assign final_title = product.title
+  elsif template.name == 'product' and product
+    assign final_title = product.title
+  # Handle article pages
+  elsif page_type == 'article' and article
+    assign final_title = article.title
+  elsif template.name == 'article' and article
+    assign final_title = article.title
+  # Handle blog pages
+  elsif page_type == 'blog' and blog
+    if current_tags
+      assign final_title = current_tags | join: ' + ' | append: ' - ' | append: blog.title
+    else
+      assign final_title = blog.title
+    endif
+  elsif template.name == 'blog' and blog
+    if current_tags
+      assign final_title = current_tags | join: ' + ' | append: ' - ' | append: blog.title
+    else
+      assign final_title = blog.title
+    endif
+  # Handle page pages
+  elsif page_type == 'page' and page
+    assign final_title = page.title
+  elsif template.name == 'page' and page
+    assign final_title = page.title
+  # Handle search pages
+  elsif page_type == 'search' or template.name == 'search'
+    if search.performed
+      assign final_title = 'general.search.title' | t | append: ': ' | append: search.terms
+    else
+      assign final_title = 'general.search.search' | t
+    endif
+  # Handle cart page
+  elsif page_type == 'cart' or template.name == 'cart'
+    assign final_title = 'cart.general.title' | t
+  # Handle customer account pages
+  elsif template.name == 'customers/account'
+    assign final_title = 'customer.account.title' | t
+  elsif template.name == 'customers/login'
+    assign final_title = 'customer.login_page.sign_in' | t
+  elsif template.name == 'customers/register'
+    assign final_title = 'customer.register.title' | t
+  elsif template.name == 'customers/addresses'
+    assign final_title = 'customer.addresses.title' | t
+  # Fallback to page_title if set, otherwise shop name
+  # But exclude if page_title contains "homepage" (case insensitive)
+  else
+    assign page_title_lower = page_title | downcase
+    assign is_homepage = false
+    if page_title_lower contains 'homepage'
+      assign is_homepage = true
+    endif
+    if page_title != blank and is_homepage == false
+      assign final_title = page_title
+    else
+      assign final_title = shop.name
+    endif
+  endif
+-%}
 <title>
-  {{ page_title }}
-  {%- if current_tags %}
+  {{ final_title | escape }}
+  {%- if current_tags and template.name != 'collection' and template.name != 'blog' %}
     &ndash; tagged "{{ current_tags | join: ', ' }}"
   {%- endif -%}
   {%- if current_page != 1 %}
-    &ndash; Page {{ current_page -}}
+    &ndash; Page {{ current_page }}
   {%- endif -%}
-  {%- unless page_title contains shop.name %}
+  {%- unless final_title contains shop.name %}
     &ndash; {{ shop.name | escape }}
   {%- endunless -%}
 </title>

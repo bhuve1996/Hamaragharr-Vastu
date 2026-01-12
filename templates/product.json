@@ -239,6 +239,9 @@
             "heading": "Shipping & return",
             "content": "",
             "content_liquid": "{% assign policy_content = shop.policies | where: 'title', 'Shipping policy' | first %} {{ policy_content.body }}",
+            "use_modal": true,
+            "truncate_length": 50,
+            "modal_width": "90rem",
             "padding_top": 0,
             "padding_bottom": 30
           }
@@ -308,6 +311,7 @@
     },
     "product-information-tabs": {
       "type": "product-information-tabs",
+      "disabled": true,
       "blocks": {
         "tab1": {
           "type": "description",
@@ -327,6 +331,7 @@
         "tab2"
       ],
       "settings": {
+        "enable_section": false,
         "width": "box",
         "color_scheme": "",
         "background_type": "color",
@@ -351,7 +356,7 @@
         "heading_align": "center",
         "products_to_show": 10,
         "columns_desktop": 4,
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "show_navigation": true,
         "show_navigation_mobile": false,
         "show_pagination": true,

@@ -16,9 +16,9 @@
   {% capture header %}
     <div class='xo-product-info-variant__header'>
       <span style='font-weight:500'>{{ option.name | escape }}:</span>
-      <xo-product-will-change xo-unique-id='product-variant-{{ option.name }}-{{ product.id }}' class='xo-product-info-variant__name'>
-        {{ option.selected_value }}
-      </xo-product-will-change>
+      <xo-product-variant-selected xo-name='{{ option.name }}' class='xo-product-info-variant__name'>
+        {{- option.selected_value -}}
+      </xo-product-variant-selected>
     </div>
   {% endcapture %}
 

@@ -1,4 +1,4 @@
-<div {% render 'section-attr' %} class="product-recommendations-section">
+<div {% render 'section-attr' %} class="product-recommendations-section" id="section-{{ section.id }}">
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
     {% if section.settings.distinct_color_scheme == true %}
@@ -111,7 +111,7 @@
     {
       "type": "select",
       "id": "columns_mobile",
-      "default": "2",
+      "default": "1",
       "label": "t:sections.product_recommendations.settings.columns_mobile.label",
       "options": [
         {

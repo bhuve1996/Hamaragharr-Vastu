@@ -5,6 +5,16 @@
 
 
 
+{% unless section.settings.enable_section %}
+  <style>
+    section[class*="product-information-tabs"][id*="{{ section.id }}"],
+    section.xo-section--{{ section.id }} {
+      display: none !important;
+    }
+  </style>
+{% endunless %}
+
+{% if section.settings.enable_section %}
 <div {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
@@ -70,6 +80,7 @@
     </xo-tabs>
   </xo-container>
 </div>
+{% endif %}
 
 {% schema %}
 {
@@ -77,6 +88,13 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_section",
+      "label": "Enable section",
+      "default": true,
+      "info": "Show or hide this product information tabs section"
+    },
     {
       "type": "select",
       "id": "width",

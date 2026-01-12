@@ -345,7 +345,7 @@
         "heading_align": "center",
         "products_to_show": 10,
         "columns_desktop": 4,
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "show_navigation": true,
         "show_navigation_mobile": false,
         "show_pagination": true,

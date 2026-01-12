@@ -771,6 +771,13 @@
       "limit": 1,
       "settings": [
         {
+          "type": "checkbox",
+          "id": "hide_if_in_tabs",
+          "label": "Hide if shown in tabs/accordion",
+          "default": false,
+          "info": "Hide this description block if product description is already shown in product information tabs or accordion sections"
+        },
+        {
           "type": "number",
           "id": "padding_top",
           "label": "t:sections.main_product.blocks.description.padding_top.label",
@@ -1155,6 +1162,49 @@
       "limit": 1,
       "settings": [
         {
+          "type": "header",
+          "content": "Display Options"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_accordion",
+          "label": "Display as accordion",
+          "default": true,
+          "info": "Show shipping and return information in an accordion format"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_modal",
+          "label": "Show full content in modal",
+          "default": false,
+          "info": "Display a preview in accordion and show full content in a popup modal when 'View Full Policy' is clicked"
+        },
+        {
+          "type": "number",
+          "id": "truncate_length",
+          "label": "Preview text length (words)",
+          "default": 50,
+          "info": "Number of words to show in accordion preview when modal is enabled (recommended: 20-200)"
+        },
+        {
+          "type": "text",
+          "id": "modal_width",
+          "label": "Modal width",
+          "default": "90rem",
+          "info": "Width of the modal popup (e.g., '90rem', '80%', '1200px')"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_policy_content",
+          "label": "Use shop policy content",
+          "default": false,
+          "info": "Use content from Shipping policy and Refund policy pages instead of custom content"
+        },
+        {
+          "type": "header",
+          "content": "Delivery Information"
+        },
+        {
           "type": "checkbox",
           "id": "show_delivery",
           "label": "t:sections.main_product.blocks.shipping.show_delivery.label",
@@ -1164,7 +1214,12 @@
           "type": "richtext",
           "id": "delivery",
           "label": "t:sections.main_product.blocks.shipping.delivery.label",
-          "default": "<p>Estimate delivery times: <strong>12-26 days</strong> (International), <strong>3-6 days</strong> (United States).</p>"
+          "default": "<p>Estimate delivery times: <strong>12-26 days</strong> (International), <strong>3-6 days</strong> (United States).</p>",
+          "info": "Only used if 'Use shop policy content' is disabled"
+        },
+        {
+          "type": "header",
+          "content": "Return Information"
         },
         {
           "type": "checkbox",
@@ -1176,7 +1231,12 @@
           "type": "richtext",
           "id": "return",
           "label": "t:sections.main_product.blocks.shipping.return.label",
-          "default": "<p>Return within <strong>45 days</strong> of purchase. Duties & taxes are non-refundable.</p>"
+          "default": "<p>Return within <strong>45 days</strong> of purchase. Duties & taxes are non-refundable.</p>",
+          "info": "Only used if 'Use shop policy content' is disabled"
+        },
+        {
+          "type": "header",
+          "content": "Spacing"
         },
         {
           "type": "number",
@@ -1391,6 +1451,31 @@
           "type": "liquid",
           "id": "content_liquid",
           "label": "t:sections.main_product.blocks.custom_collapse.content_liquid.label"
+        },
+        {
+          "type": "header",
+          "content": "Modal Options"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_modal",
+          "label": "Show full content in modal",
+          "default": false,
+          "info": "Display a preview in accordion and show full content in a popup modal"
+        },
+        {
+          "type": "number",
+          "id": "truncate_length",
+          "label": "Preview text length (words)",
+          "default": 50,
+          "info": "Number of words to show in preview when modal is enabled (recommended: 20-200)"
+        },
+        {
+          "type": "text",
+          "id": "modal_width",
+          "label": "Modal width",
+          "default": "90rem",
+          "info": "Width of the modal popup (e.g., '90rem', '80%', '1200px')"
         },
         {
           "type": "number",
