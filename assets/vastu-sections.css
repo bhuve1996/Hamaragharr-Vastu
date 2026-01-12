@@ -253,7 +253,7 @@ section[class*="vastu-best-seller"] xo-carousel-inner {
 .vastu-best-seller-card__actions-overlay .xo-product-card__icon .icon {
   display: block;
   margin: auto;
-  vertical-align: middle;
+  /* vertical-align removed - doesn't work with display: block */
   fill: currentColor; /* Use current color for SVG fill */
   color: inherit; /* Inherit color from button */
 }
@@ -901,7 +901,7 @@ h3.vastu-featured-products__title {
 .vastu-featured-products__actions-overlay .xo-product-card__icon .icon {
   display: block;
   margin: auto;
-  vertical-align: middle;
+  /* vertical-align removed - doesn't work with display: block */
   fill: currentColor; /* Use current color for SVG fill */
   color: inherit; /* Inherit color from button */
 }
@@ -3996,9 +3996,10 @@ xo-cart-add.loading .xo-btn__loading {
   visibility: visible !important;
 }
 
-.vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__trigger {
+/* aria-expanded is an HTML attribute, not a CSS property - removed */
+/* .vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__trigger {
   aria-expanded: true;
-}
+} */
 
 .vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__trigger[aria-expanded="true"] + .vastu-shop-by-concern__collapse,
 .vastu-shop-by-concern__accordion > xo-animate:first-child .vastu-shop-by-concern__collapse[style*="display: block"] {
@@ -5322,6 +5323,7 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
   margin-top: 0.5rem !important;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -5485,6 +5487,7 @@ xo-product-recommendations .xo-product-card__title a {
   margin-top: 0.5rem !important;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

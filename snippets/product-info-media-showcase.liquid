@@ -13,7 +13,8 @@
    - media_sticky: {Boolean} Enable position sticky (optional)
 {% endcomment %}
 
-{{ 'product-info-media-style1.css' | asset_url | stylesheet_tag }}
+{% comment %} CSS file removed - not found in assets {% endcomment %}
+{% comment %}{{ 'product-info-media-style1.css' | asset_url | stylesheet_tag }}{% endcomment %}
 
 {% comment %} Ensure product is available {% endcomment %}
 {% if product == blank %}

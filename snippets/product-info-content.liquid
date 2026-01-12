@@ -351,18 +351,14 @@
             style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
           >
             <a
-              href='
-                {%- if block.settings.link != blank -%}
-                  {{ block.settings.link }} {%- else -%}
-                  https://shopify.pxf.io/9gPaY0
-                {%- endif -%}
-              '
+              href='{%- if block.settings.link != blank -%}{{ block.settings.link }}{%- else -%}#{%- endif -%}'
               class='xo-product-info-content__image'
             >
               {%- if block.settings.image != blank -%}
                 {% render 'image', image: block.settings.image %}
               {%- else -%}
-                <img src='https://landing.shopilaunch.com/starter/productdetail_banner.jpg' width='1200' height='628' alt='affiliate' is='xo-lazyload' loading='lazy'>
+                {% comment %} Remote asset removed - use Shopify CDN asset instead {% endcomment %}
+                {% comment %}<img src='https://landing.shopilaunch.com/starter/productdetail_banner.jpg' width='1200' height='628' alt='affiliate' is='xo-lazyload' loading='lazy'>{% endcomment %}
               {%- endif -%}
             </a>
           </xo-animate>
