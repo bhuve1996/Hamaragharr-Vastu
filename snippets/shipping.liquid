@@ -66,7 +66,7 @@
                   {{ delivery_preview }}
                 </div>
                 <xo-modal-trigger xo-name='shipping-policy-modal' class='shipping-accordion__view-full'>
-                  <button type='button'>View Full Shipping Policy</button>
+                  <span class='shipping-accordion__view-full-link'>View More</span>
                 </xo-modal-trigger>
               {% else %}
                 {{ delivery_content }}
@@ -104,7 +104,7 @@
                   {{ return_preview }}
                 </div>
                 <xo-modal-trigger xo-name='return-policy-modal' class='shipping-accordion__view-full'>
-                  <button type='button'>View Full Return Policy</button>
+                  <span class='shipping-accordion__view-full-link'>View More</span>
                 </xo-modal-trigger>
               {% else %}
                 {{ return_content }}
