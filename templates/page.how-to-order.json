@@ -1,6 +1,13 @@
 {
   "sections": {
-    "breadcrumb_v2": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "breadcrumb-v2": {
       "type": "breadcrumb-v2",
       "settings": {
         "color_scheme": "",
@@ -16,23 +23,10 @@
         "padding_top": 50,
         "padding_bottom": 50
       }
-    },
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "color_scheme": "",
-        "background_type": "color",
-        "background_color": "",
-        "background_gradient": "",
-        "background_margin": 0,
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
     }
   },
   "order": [
-    "breadcrumb_v2",
-    "main"
+    "main",
+    "breadcrumb-v2"
   ]
 }
-
