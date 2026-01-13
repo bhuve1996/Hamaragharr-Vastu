@@ -106,7 +106,8 @@
               {{ block.shopify_attributes }}
               style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
             >
-              {%- for option in product.options_with_values -%}
+              {%- assign options_limit = 5 -%}
+              {%- for option in product.options_with_values limit: options_limit -%}
                 {% if option.name == 'Size' %}
                   <xo-animate xo-cascade {{ block.shopify_attributes }}>
                     {% render 'product-info-variant', option: option, style: block.settings.variants_style %}
@@ -217,6 +218,7 @@
           {% if gift_card_recipient_feature_active == false %}
             {% assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities | where: 'pick_up_enabled', true %}
             {% assign featured_media = product.selected_or_first_available_variant.featured_media %}
+            {% comment %}
             <xo-animate
               xo-cascade
               {{ block.shopify_attributes }}
@@ -224,6 +226,7 @@
             >
               {% render 'pickup-availability-item', pick_up_availabilities: pick_up_availabilities %}
             </xo-animate>
+            {% endcomment %}
             <xo-modal
               style='z-index: 9999;'
               xo-portal
@@ -246,7 +249,8 @@
               {% capture variant %}
               {% if product.options_with_values.size > 0 and product.options_with_values[0].name != 'Title' %}
               <div class='xo-product-info-content__variants xo-product-info-content__variants--header'>
-                {%- for option in product.options_with_values -%}
+                {%- assign options_limit_header = 5 -%}
+                {%- for option in product.options_with_values limit: options_limit_header -%}
                   <div class='xo-product-info-content__header-variant'>
                     <span style='font-weight:500'>{{ option.name | escape }}: </span>
                     <xo-product-variant-selected xo-name='{{ option.name }}' class='xo-product-info-variant__name'>

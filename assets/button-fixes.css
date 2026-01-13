@@ -1,0 +1,481 @@
+/* Button Border Radius Fix - Override 0rem to match other buttons */
+.xo-btn[style*="border-radius: 0rem"],
+.xo-btn[style*="border-radius:0rem"],
+.xo-btn[style*="border-radius: 0"],
+.xo-btn[style*="border-radius:0"],
+a.xo-btn[style*="border-radius: 0rem"],
+a.xo-btn[style*="border-radius:0rem"],
+a.xo-btn[style*="border-radius: 0"],
+a.xo-btn[style*="border-radius:0"],
+button.xo-btn[style*="border-radius: 0rem"],
+button.xo-btn[style*="border-radius:0rem"],
+button.xo-btn[style*="border-radius: 0"],
+button.xo-btn[style*="border-radius:0"] {
+  border-radius: 0.375rem !important;
+}
+
+/* Banner Carousel Button Fixes - Configurable */
+.slideshow-v28__text--overlay .xo-btn,
+.slideshow-v28__text--overlay .button,
+.slideshow-v28__text--overlay button,
+.banner-v155__content .xo-btn,
+.banner-v155__content .button,
+.banner-v155__content button {
+  background-color: var(--button-primary-bg-color, #fff);
+  color: var(--button-primary-text-color, #000);
+  border-radius: var(--button-border-radius, 8px);
+  border: 2px solid transparent;
+  transition:
+    background-color var(--button-transition-duration, 0.3s) ease,
+    color var(--button-transition-duration, 0.3s) ease,
+    border-color var(--button-transition-duration, 0.3s) ease,
+    transform calc(var(--button-transition-duration, 0.3s) * 0.67) ease;
+}
+
+.slideshow-v28__text--overlay .xo-btn:hover,
+.slideshow-v28__text--overlay .button:hover,
+.slideshow-v28__text--overlay button:hover,
+.banner-v155__content .xo-btn:hover,
+.banner-v155__content .button:hover,
+.banner-v155__content button:hover {
+  background-color: var(--button-secondary-bg-color, #473855);
+  color: var(--button-secondary-text-color, #fff);
+  border-color: var(--button-secondary-bg-color, #473855);
+  transform: translateY(var(--button-hover-transform-y, -1px));
+  box-shadow: 0 0 0 1px var(--button-secondary-bg-color, #473855);
+}
+
+.slideshow-v28__text--overlay .xo-btn__text,
+.slideshow-v28__text--overlay .xo-btn__content,
+.slideshow-v28__text--overlay .button-label,
+.banner-v155__content .xo-btn__text,
+.banner-v155__content .xo-btn__content,
+.banner-v155__content .button-label {
+  color: var(--button-primary-text-color, #000);
+  opacity: 1;
+  visibility: visible;
+}
+
+.slideshow-v28__text--overlay .xo-btn:hover .xo-btn__text,
+.slideshow-v28__text--overlay .xo-btn:hover .xo-btn__text[data-text],
+.slideshow-v28__text--overlay .xo-btn:hover .xo-btn__content,
+.slideshow-v28__text--overlay .xo-btn:hover .xo-btn__content *,
+.slideshow-v28__text--overlay .button:hover .button-label,
+.banner-v155__content .xo-btn:hover .xo-btn__text,
+.banner-v155__content .xo-btn:hover .xo-btn__text[data-text],
+.banner-v155__content .xo-btn:hover .xo-btn__content,
+.banner-v155__content .xo-btn:hover .xo-btn__content *,
+.banner-v155__content .button:hover .button-label {
+  color: var(--button-secondary-text-color, #fff);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Override slideshow button color when text color class is set - Higher specificity */
+.slideshow-v28__text--overlay .xo-btn--text-black,
+.slideshow-v28__text--overlay .xo-btn--text-black.xo-btn,
+.banner-v155__content .xo-btn--text-black,
+.banner-v155__content .xo-btn--text-black.xo-btn {
+  color: #000;
+}
+
+.slideshow-v28__text--overlay .xo-btn--text-black .xo-btn__text,
+.slideshow-v28__text--overlay .xo-btn--text-black .xo-btn__text[data-text],
+.slideshow-v28__text--overlay .xo-btn--text-black .xo-btn__content,
+.slideshow-v28__text--overlay .xo-btn--text-black .xo-btn__content *,
+.banner-v155__content .xo-btn--text-black .xo-btn__text,
+.banner-v155__content .xo-btn--text-black .xo-btn__text[data-text],
+.banner-v155__content .xo-btn--text-black .xo-btn__content,
+.banner-v155__content .xo-btn--text-black .xo-btn__content * {
+  color: #000;
+}
+
+.slideshow-v28__text--overlay .xo-btn--text-black:hover,
+.slideshow-v28__text--overlay .xo-btn--text-black.xo-btn:hover,
+.banner-v155__content .xo-btn--text-black:hover,
+.banner-v155__content .xo-btn--text-black.xo-btn:hover {
+  background-color: var(--button-secondary-bg-color, #473855);
+  color: var(--button-secondary-text-color, #fff);
+  border-color: var(--button-secondary-bg-color, #473855);
+}
+
+.slideshow-v28__text--overlay .xo-btn--text-black:hover .xo-btn__text,
+.slideshow-v28__text--overlay .xo-btn--text-black:hover .xo-btn__text[data-text],
+.slideshow-v28__text--overlay .xo-btn--text-black:hover .xo-btn__content,
+.slideshow-v28__text--overlay .xo-btn--text-black:hover .xo-btn__content *,
+.banner-v155__content .xo-btn--text-black:hover .xo-btn__text,
+.banner-v155__content .xo-btn--text-black:hover .xo-btn__text[data-text],
+.banner-v155__content .xo-btn--text-black:hover .xo-btn__content,
+.banner-v155__content .xo-btn--text-black:hover .xo-btn__content * {
+  color: var(--button-secondary-text-color, #fff);
+}
+
+.slideshow-v28__text--overlay .xo-btn--text-white,
+.slideshow-v28__text--overlay .xo-btn--text-white.xo-btn,
+.banner-v155__content .xo-btn--text-white,
+.banner-v155__content .xo-btn--text-white.xo-btn {
+  color: #fff;
+}
+
+.slideshow-v28__text--overlay .xo-btn--text-white .xo-btn__text,
+.slideshow-v28__text--overlay .xo-btn--text-white .xo-btn__text[data-text],
+.slideshow-v28__text--overlay .xo-btn--text-white .xo-btn__content,
+.slideshow-v28__text--overlay .xo-btn--text-white .xo-btn__content *,
+.banner-v155__content .xo-btn--text-white .xo-btn__text,
+.banner-v155__content .xo-btn--text-white .xo-btn__text[data-text],
+.banner-v155__content .xo-btn--text-white .xo-btn__content,
+.banner-v155__content .xo-btn--text-white .xo-btn__content * {
+  color: #fff;
+}
+
+.slideshow-v28__text--overlay .xo-btn--text-white:hover,
+.slideshow-v28__text--overlay .xo-btn--text-white.xo-btn:hover,
+.banner-v155__content .xo-btn--text-white:hover,
+.banner-v155__content .xo-btn--text-white.xo-btn:hover {
+  color: #fff;
+}
+
+.slideshow-v28__text--overlay .xo-btn--text-white:hover .xo-btn__text,
+.slideshow-v28__text--overlay .xo-btn--text-white:hover .xo-btn__text[data-text],
+.slideshow-v28__text--overlay .xo-btn--text-white:hover .xo-btn__content,
+.banner-v155__content .xo-btn--text-white:hover .xo-btn__text,
+.banner-v155__content .xo-btn--text-white:hover .xo-btn__text[data-text],
+.banner-v155__content .xo-btn--text-white:hover .xo-btn__content {
+  color: #fff;
+}
+
+/* Vastu Product Showcase Add to Cart Button - Text Visibility Fix */
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn__text,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn__content,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn__text *,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn__content *,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn__text,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn__content,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn__text *,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn__content * {
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  opacity: 1;
+  visibility: visible;
+}
+
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--secondary .xo-btn__text,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--secondary .xo-btn__content,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--secondary .xo-btn__text *,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--secondary .xo-btn__content *,
+section[class*="vastu-product-showcase"]
+  .vastu-product-showcase__add-to-cart
+  xo-cart-add
+  .xo-btn--secondary
+  .xo-btn__text,
+section[class*="vastu-product-showcase"]
+  .vastu-product-showcase__add-to-cart
+  xo-cart-add
+  .xo-btn--secondary
+  .xo-btn__content,
+section[class*="vastu-product-showcase"]
+  .vastu-product-showcase__add-to-cart
+  xo-cart-add
+  .xo-btn--secondary
+  .xo-btn__text
+  *,
+section[class*="vastu-product-showcase"]
+  .vastu-product-showcase__add-to-cart
+  xo-cart-add
+  .xo-btn--secondary
+  .xo-btn__content
+  * {
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  opacity: 1;
+  visibility: visible;
+}
+
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--secondary:hover .xo-btn__text,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--secondary:hover .xo-btn__content,
+section[class*="vastu-product-showcase"]
+  .vastu-product-showcase__add-to-cart
+  xo-cart-add
+  .xo-btn--secondary:hover
+  .xo-btn__text,
+section[class*="vastu-product-showcase"]
+  .vastu-product-showcase__add-to-cart
+  xo-cart-add
+  .xo-btn--secondary:hover
+  .xo-btn__content {
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Popup Add to Cart Button - Height Fix */
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn,
+xo-modal .product-variant-modal__modal-content xo-cart-add button,
+xo-modal xo-cart-add .xo-btn,
+xo-modal xo-cart-add button {
+  min-height: 4.5rem;
+  height: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__text,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__content,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__text *,
+xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__content *,
+xo-modal xo-cart-add .xo-btn__text,
+xo-modal xo-cart-add .xo-btn__content,
+xo-modal xo-cart-add .xo-btn__text *,
+xo-modal xo-cart-add .xo-btn__content * {
+  color: #fff;
+  opacity: 1;
+  visibility: visible;
+  line-height: 1.5;
+}
+
+/* Global Button Text with Data-Text Attribute - Configurable */
+.xo-btn__text[data-text],
+.xo-btn--md .xo-btn__text[data-text],
+.xo-btn .xo-btn__text[data-text],
+button .xo-btn__text[data-text],
+a .xo-btn__text[data-text],
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn__text[data-text],
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn__text[data-text],
+section[class*="vastu-best-seller"] .vastu-best-seller-card__add-to-cart .xo-btn__text[data-text],
+section[class*="vastu-featured-products"] .vastu-featured-products__add-to-cart .xo-btn__text[data-text],
+section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn__text[data-text],
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn__text[data-text],
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn__text[data-text],
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__text[data-text],
+.filters-content .xo-product-card__add-to-cart .xo-btn__text[data-text],
+xo-modal .xo-btn__text[data-text],
+xo-modal xo-cart-add .xo-btn__text[data-text] {
+  color: var(--button-text-data-text-color, #fff);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Slideshow Section - Button Text with Data-Text Attribute - Configurable via parent class */
+.slideshow-v28__text--overlay .xo-btn__text[data-text],
+.slideshow-v28__text--overlay .xo-btn .xo-btn__text[data-text],
+.slideshow-v28__text--overlay .xo-btn--md .xo-btn__text[data-text],
+.slideshow-v28__text--overlay button .xo-btn__text[data-text],
+.slideshow-v28__text--overlay a .xo-btn__text[data-text],
+section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn__text[data-text],
+section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn .xo-btn__text[data-text],
+section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn--md .xo-btn__text[data-text],
+section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn__text[data-text],
+section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn .xo-btn__text[data-text],
+section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--md .xo-btn__text[data-text] {
+  color: var(--slideshow-button-text-data-text-color, #000);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ensure slideshow buttons with text color class override the parent class rule */
+.slideshow-v28__text--overlay .xo-btn--text-black .xo-btn__text[data-text],
+.slideshow-v28__text--overlay .xo-btn--text-black.xo-btn .xo-btn__text[data-text],
+section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn--text-black .xo-btn__text[data-text],
+section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--text-black .xo-btn__text[data-text] {
+  color: #000;
+}
+
+.slideshow-v28__text--overlay .xo-btn--text-white .xo-btn__text[data-text],
+.slideshow-v28__text--overlay .xo-btn--text-white.xo-btn .xo-btn__text[data-text],
+section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn--text-white .xo-btn__text[data-text],
+section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--text-white .xo-btn__text[data-text] {
+  color: #fff;
+}
+
+.xo-btn__text[data-text]::before,
+.xo-btn__text[data-text]::after,
+.xo-btn--md .xo-btn__text[data-text]::before,
+.xo-btn--md .xo-btn__text[data-text]::after,
+.xo-btn .xo-btn__text[data-text]::before,
+.xo-btn .xo-btn__text[data-text]::after {
+  display: none;
+  content: none;
+  visibility: hidden;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Ensure hover states also use the global color */
+.xo-btn:hover .xo-btn__text[data-text],
+.xo-btn--secondary:hover .xo-btn__text[data-text],
+.xo-btn--primary:hover .xo-btn__text[data-text],
+button:hover .xo-btn__text[data-text],
+a:hover .xo-btn__text[data-text],
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+section[class*="vastu-product-showcase"]
+  .vastu-product-showcase__add-to-cart
+  xo-cart-add
+  .xo-btn:hover
+  .xo-btn__text[data-text],
+section[class*="vastu-best-seller"] .vastu-best-seller-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+section[class*="vastu-featured-products"] .vastu-featured-products__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+section[class*="vastu-shop-by-concern"]
+  .vastu-shop-by-concern__product-add-to-cart
+  .xo-btn:hover
+  .xo-btn__text[data-text],
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+.section-collection-products .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+.filters-content .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+xo-modal .xo-btn:hover .xo-btn__text[data-text],
+xo-modal xo-cart-add .xo-btn:hover .xo-btn__text[data-text] {
+  color: var(--button-text-data-text-color, #fff);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Newsletter Popup Button - Reduce Padding to Prevent Text Ellipsis */
+.popup-newsletter__container .popup-newsletter-v1 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v1 button,
+.popup-newsletter__container .popup-newsletter-v2 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v2 button,
+.popup-newsletter__container .popup-newsletter-v3 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v3 button,
+.popup-newsletter__container .popup-newsletter-v4 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v4 button,
+.popup-newsletter__container .popup-newsletter-v5 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v5 button,
+.popup-newsletter__container .popup-newsletter-v6 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v6 button {
+  padding-left: var(--button-padding-left, 16px);
+  padding-right: var(--button-padding-right, 16px);
+  overflow: visible;
+}
+
+.popup-newsletter__container .popup-newsletter-v1 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v1 button .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v2 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v2 button .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v3 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v3 button .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v4 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v4 button .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v5 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v5 button .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v6 .xo-btn .xo-btn__content,
+.popup-newsletter__container .popup-newsletter-v6 button .xo-btn__content {
+  overflow: visible;
+  text-overflow: clip;
+  max-width: none;
+  width: auto;
+}
+
+.popup-newsletter__container .popup-newsletter-v1 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v1 button .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v2 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v2 button .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v3 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v3 button .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v4 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v4 button .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v5 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v5 button .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v6 .xo-btn .xo-btn__text,
+.popup-newsletter__container .popup-newsletter-v6 button .xo-btn__text {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  max-width: none;
+  width: auto;
+  display: inline-block;
+}
+
+/* Button Text Color Override Classes - Configurable per button - Higher specificity to override inline styles and [data-text] rules */
+a.xo-btn--text-black.xo-btn,
+button.xo-btn--text-black.xo-btn,
+.xo-btn--text-black.xo-btn {
+  --text-color: #000;
+}
+
+a.xo-btn--text-black.xo-btn .xo-btn__text,
+a.xo-btn--text-black.xo-btn .xo-btn__text[data-text],
+a.xo-btn--text-black.xo-btn .xo-btn__content,
+a.xo-btn--text-black.xo-btn .xo-btn__content *,
+a.xo-btn--text-black.xo-btn .xo-btn__text *,
+button.xo-btn--text-black.xo-btn .xo-btn__text,
+button.xo-btn--text-black.xo-btn .xo-btn__text[data-text],
+button.xo-btn--text-black.xo-btn .xo-btn__content,
+button.xo-btn--text-black.xo-btn .xo-btn__content *,
+button.xo-btn--text-black.xo-btn .xo-btn__text *,
+.xo-btn--text-black.xo-btn .xo-btn__text,
+.xo-btn--text-black.xo-btn .xo-btn__text[data-text],
+.xo-btn--text-black.xo-btn .xo-btn__content,
+.xo-btn--text-black.xo-btn .xo-btn__content *,
+.xo-btn--text-black.xo-btn .xo-btn__text * {
+  color: #000;
+}
+
+/* Override the [data-text] global rule specifically for text-black buttons */
+a.xo-btn--text-black.xo-btn .xo-btn__text[data-text],
+button.xo-btn--text-black.xo-btn .xo-btn__text[data-text],
+.xo-btn--text-black.xo-btn .xo-btn__text[data-text],
+a.xo-btn--text-black.xo-btn--slide-up .xo-btn__text[data-text],
+button.xo-btn--text-black.xo-btn--slide-up .xo-btn__text[data-text],
+.xo-btn--text-black.xo-btn--slide-up .xo-btn__text[data-text] {
+  color: #000;
+}
+
+a.xo-btn--text-white.xo-btn,
+button.xo-btn--text-white.xo-btn,
+.xo-btn--text-white.xo-btn {
+  --text-color: #fff;
+}
+
+a.xo-btn--text-white.xo-btn .xo-btn__text,
+a.xo-btn--text-white.xo-btn .xo-btn__text[data-text],
+a.xo-btn--text-white.xo-btn .xo-btn__content,
+a.xo-btn--text-white.xo-btn .xo-btn__content *,
+a.xo-btn--text-white.xo-btn .xo-btn__text *,
+button.xo-btn--text-white.xo-btn .xo-btn__text,
+button.xo-btn--text-white.xo-btn .xo-btn__text[data-text],
+button.xo-btn--text-white.xo-btn .xo-btn__content,
+button.xo-btn--text-white.xo-btn .xo-btn__content *,
+button.xo-btn--text-white.xo-btn .xo-btn__text *,
+.xo-btn--text-white.xo-btn .xo-btn__text,
+.xo-btn--text-white.xo-btn .xo-btn__text[data-text],
+.xo-btn--text-white.xo-btn .xo-btn__content,
+.xo-btn--text-white.xo-btn .xo-btn__content *,
+.xo-btn--text-white.xo-btn .xo-btn__text * {
+  color: #fff;
+}
+
+a.xo-btn--text-black.xo-btn:hover .xo-btn__text,
+a.xo-btn--text-black.xo-btn:hover .xo-btn__text[data-text],
+a.xo-btn--text-black.xo-btn:hover .xo-btn__content,
+a.xo-btn--text-black.xo-btn:hover .xo-btn__text *,
+button.xo-btn--text-black.xo-btn:hover .xo-btn__text,
+button.xo-btn--text-black.xo-btn:hover .xo-btn__text[data-text],
+button.xo-btn--text-black.xo-btn:hover .xo-btn__content,
+button.xo-btn--text-black.xo-btn:hover .xo-btn__text *,
+.xo-btn--text-black.xo-btn:hover .xo-btn__text,
+.xo-btn--text-black.xo-btn:hover .xo-btn__text[data-text],
+.xo-btn--text-black.xo-btn:hover .xo-btn__content,
+.xo-btn--text-black.xo-btn:hover .xo-btn__text *,
+a.xo-btn--text-black.xo-btn--slide-up:hover .xo-btn__text[data-text],
+button.xo-btn--text-black.xo-btn--slide-up:hover .xo-btn__text[data-text],
+.xo-btn--text-black.xo-btn--slide-up:hover .xo-btn__text[data-text] {
+  color: #000;
+}
+
+a.xo-btn--text-white.xo-btn:hover .xo-btn__text,
+a.xo-btn--text-white.xo-btn:hover .xo-btn__text[data-text],
+a.xo-btn--text-white.xo-btn:hover .xo-btn__content,
+a.xo-btn--text-white.xo-btn:hover .xo-btn__text *,
+button.xo-btn--text-white.xo-btn:hover .xo-btn__text,
+button.xo-btn--text-white.xo-btn:hover .xo-btn__text[data-text],
+button.xo-btn--text-white.xo-btn:hover .xo-btn__content,
+button.xo-btn--text-white.xo-btn:hover .xo-btn__text *,
+.xo-btn--text-white.xo-btn:hover .xo-btn__text,
+.xo-btn--text-white.xo-btn:hover .xo-btn__text[data-text],
+.xo-btn--text-white.xo-btn:hover .xo-btn__content,
+.xo-btn--text-white.xo-btn:hover .xo-btn__text * {
+  color: #fff;
+}

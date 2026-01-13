@@ -57,7 +57,8 @@
   {% endif %}
   <div class='product-variant-modal__variant-list'>
     {% unless product.has_only_default_variant %}
-      {% for option in product.options_with_values %}
+      {%- assign options_limit_modal = 5 -%}
+      {% for option in product.options_with_values limit: options_limit_modal %}
         {% render 'product-variant', option: option, product: product, style: 'boxed' %}
       {% endfor %}
     {% endunless %}

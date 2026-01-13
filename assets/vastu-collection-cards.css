@@ -1,18 +1,3 @@
-/* ============================================
-   VASTU COLLECTION CARDS - Product Cards in Collections
-   Equal Heights, Aspect Ratios, and Spacing
-   ============================================
-   
-   DISABLED - Now using unified vastu-product-card.css
-   This file is kept for reference but commented out.
-   
-   /*
-
-/* ============================================
-   GRID CONTAINER - Equal Height Cards
-   ============================================ */
-
-/* Collection Grid - Allow natural height growth */
 xo-grid.filters-content__grid,
 xo-grid[class*="filters-content"],
 xo-grid[class*="collection"],
@@ -22,19 +7,6 @@ main xo-grid:has([class*="product-card"]) {
   align-items: start;
 }
 
-/* Grid Items - Equal Heights */
-xo-grid.filters-content__grid > *,
-xo-grid[class*="filters-content"] > *,
-xo-grid[class*="collection"] > *,
-main xo-grid:has(.xo-product-card) > *,
-main xo-grid:has([class*="product-card"]) > * {
-}
-
-/* ============================================
-   PRODUCT CARD - Equal Height Structure
-   ============================================ */
-
-/* Product Card Base - Full Height */
 .xo-product-card,
 [class*="product-card"],
 [class*="xo-product-card"] {
@@ -45,7 +17,6 @@ main xo-grid:has([class*="product-card"]) > * {
   align-items: stretch;
 }
 
-/* Product Card Link/Wrapper - Full Height */
 .xo-product-card > a,
 .xo-product-card > div,
 [class*="product-card"] > a,
@@ -58,11 +29,6 @@ main xo-grid:has([class*="product-card"]) > * {
   color: inherit;
 }
 
-/* ============================================
-   PRODUCT CARD IMAGE - Aspect Ratio & Equal Height
-   ============================================ */
-
-/* Image Container - Respect Aspect Ratio */
 .xo-product-card__image,
 .xo-product-card__media,
 [class*="product-card"] [class*="image"],
@@ -72,16 +38,15 @@ main xo-grid:has([class*="product-card"]) > * {
   width: 100%;
   overflow: hidden;
   flex-shrink: 0;
-  aspect-ratio: 1 / 1; /* Default square, can be overridden */
+  aspect-ratio: 1 / 1;
 }
 
-/* Ensure aspect ratio is respected on both desktop and mobile */
 @media (width <= 767px) {
   .xo-product-card__image,
   .xo-product-card__media,
   [class*="product-card"] [class*="image"],
   [class*="product-card"] [class*="media"] {
-    aspect-ratio: 1 / 1; /* Maintain square on mobile */
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -90,11 +55,10 @@ main xo-grid:has([class*="product-card"]) > * {
   .xo-product-card__media,
   [class*="product-card"] [class*="image"],
   [class*="product-card"] [class*="media"] {
-    aspect-ratio: 1 / 1; /* Maintain square on desktop */
+    aspect-ratio: 1 / 1;
   }
 }
 
-/* Image Element - Fill Container */
 .xo-product-card__image img,
 .xo-product-card__media img,
 [class*="product-card"] [class*="image"] img,
@@ -107,11 +71,6 @@ main xo-grid:has([class*="product-card"]) > * {
   display: block;
 }
 
-/* ============================================
-   PRODUCT CARD CONTENT - Flexible Growth
-   ============================================ */
-
-/* Card Content - Flexible, Grows to Fill */
 .xo-product-card__content,
 [class*="product-card"] [class*="content"],
 [class*="product-card"] [class*="info"] {
@@ -121,13 +80,11 @@ main xo-grid:has([class*="product-card"]) > * {
   min-height: 0;
 }
 
-/* Card Content Inner - Proper Spacing */
 .xo-product-card__content > *,
 [class*="product-card"] [class*="content"] > * {
   flex-shrink: 0;
 }
 
-/* Card Title - Prevent Overflow */
 .xo-product-card__title,
 [class*="product-card"] [class*="title"],
 [class*="product-card"] h3,
@@ -142,19 +99,6 @@ main xo-grid:has([class*="product-card"]) > * {
   line-height: 1.4;
 }
 
-/* Card Price - Consistent Spacing */
-
-/* DISABLED - Now using unified vastu-product-card.css */
-
-/*
-.xo-product-card__price,
-[class*="product-card"] [class*="price"] {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-*/
-
-/* Card Actions - Push to Bottom */
 .xo-product-card__actions,
 [class*="product-card"] [class*="actions"],
 [class*="product-card"] [class*="add-to-cart"] {
@@ -162,34 +106,22 @@ main xo-grid:has([class*="product-card"]) > * {
   padding-top: 1rem;
 }
 
-/* ============================================
-   SPACING BETWEEN CARDS
-   ============================================ */
-
-/* Grid Gap - Increased Spacing for Better Accommodation */
 xo-grid.filters-content__grid {
   gap: var(--xo-grid-col-gap, 3rem) var(--xo-grid-row-gap, 3rem);
 }
 
-/* Ensure proper spacing on mobile */
 @media (width <= 767px) {
   xo-grid.filters-content__grid {
     gap: var(--xo-grid-col-gap-mobile, 2rem) var(--xo-grid-row-gap-mobile, 2rem);
   }
 }
 
-/* ============================================
-   CAROUSEL CARDS - Equal Heights
-   ============================================ */
-
-/* Carousel Container - Equal Heights */
 xo-carousel-list:has(.xo-product-card),
 xo-carousel-list:has([class*="product-card"]) {
   display: flex;
   align-items: stretch;
 }
 
-/* Carousel Slide - Full Height */
 xo-carousel-slide:has(.xo-product-card),
 xo-carousel-slide:has([class*="product-card"]) {
   display: flex;
@@ -197,18 +129,12 @@ xo-carousel-slide:has([class*="product-card"]) {
   height: 100%;
 }
 
-/* Carousel Card - Full Height */
 xo-carousel-slide .xo-product-card,
 xo-carousel-slide [class*="product-card"] {
   height: 100%;
   width: 100%;
 }
 
-/* ============================================
-   RESPONSIVE - Mobile & Desktop
-   ============================================ */
-
-/* Mobile - Ensure aspect ratio maintained */
 @media (width <= 767px) {
   .xo-product-card,
   [class*="product-card"] {
@@ -223,7 +149,6 @@ xo-carousel-slide [class*="product-card"] {
   }
 }
 
-/* Desktop - Ensure aspect ratio maintained */
 @media (width >= 768px) {
   .xo-product-card,
   [class*="product-card"] {
@@ -238,11 +163,6 @@ xo-carousel-slide [class*="product-card"] {
   }
 }
 
-/* ============================================
-   OVERRIDE FOR CUSTOM ASPECT RATIOS
-   ============================================ */
-
-/* If a custom aspect ratio is set via CSS variable */
 .xo-product-card__image[style*="aspect-ratio"],
 .xo-product-card__media[style*="aspect-ratio"],
 [class*="product-card"] [class*="image"][style*="aspect-ratio"],
@@ -250,11 +170,6 @@ xo-carousel-slide [class*="product-card"] {
   aspect-ratio: var(--product-card-aspect-ratio, 1 / 1);
 }
 
-/* ============================================
-   SPECIFIC PRODUCT CARD STYLES
-   ============================================ */
-
-/* Product Card Style 1 */
 .xo-product-card--style1,
 .product-card-style1 {
   display: flex;
@@ -262,7 +177,6 @@ xo-carousel-slide [class*="product-card"] {
   height: 100%;
 }
 
-/* Product Card Style 9 (Default) */
 .xo-product-card--style9,
 .product-card-style9 {
   display: flex;
@@ -270,7 +184,6 @@ xo-carousel-slide [class*="product-card"] {
   height: 100%;
 }
 
-/* Ensure all product card variants respect equal heights */
 [class*="product-card-style"] {
   display: flex;
   flex-direction: column;

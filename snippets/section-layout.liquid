@@ -3,10 +3,18 @@
 
   Usage:
   {% render 'section-layout' %}
+  
+  When section width is 'fullwidth', uses content_width setting (defaults to 'wide')
+  to control inner container width. Otherwise uses section width directly.
 {% endcomment %}
 
 {% liquid
-  assign class_name = 'xo-container--' | append: section.settings.width
+  if section.settings.width == 'fullwidth'
+    assign content_width = section.settings.content_width | default: 'wide'
+    assign class_name = 'xo-container--' | append: content_width
+  else
+    assign class_name = 'xo-container--' | append: section.settings.width
+  endif
 %}
 
 class="{{ class_name }}" {% if section.settings.width == 'fullwidth' %}style="--padding: {{ section.settings.fullwidth_margin }}"{% endif %}

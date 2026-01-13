@@ -1,21 +1,8 @@
-/* ============================================
-   Vastu Why Kit - Benefits Section
-   ============================================ */
-
 .vastu-why-kit {
-  padding-top: var(--homepage-section-padding-top, 0);
-  padding-bottom: var(--homepage-section-padding-bottom, 0);
-  margin: 0 0 var(--homepage-section-spacing, 4rem) 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
   position: relative;
-}
-
-.vastu-why-kit__title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin: 0 0 4rem;
-  color: rgb(var(--color-foreground, 0, 0, 0));
-  line-height: 1.2;
 }
 
 .vastu-why-kit__grid {
@@ -41,21 +28,20 @@
   overflow: hidden;
 }
 
-/* Desktop hover effect - enhanced animation */
 @media (width > 48rem) {
   .vastu-why-kit__item:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
-    background: rgb(71 56 85) !important; /* Ensure theme purple on hover, override any color scheme */
+    background: rgb(71 56 85);
   }
 
   .vastu-why-kit__item:hover .vastu-why-kit__icon {
     transform: scale(1.1);
-    color: rgb(255 255 255) !important; /* Ensure white icon on hover */
+    color: rgb(255 255 255);
   }
 
   .vastu-why-kit__item:hover .vastu-why-kit__text {
-    color: rgb(255 255 255) !important; /* Ensure white text on hover */
+    color: rgb(255 255 255);
   }
 }
 
@@ -94,29 +80,22 @@
   color: rgb(255 255 255);
 }
 
-/* Hide carousel on mobile - use grid instead */
 .vastu-why-kit__carousel {
   display: none;
 }
 
-/* Mobile - single row with all items */
 @media (width <= 48rem) {
   .vastu-why-kit {
-    padding-top: var(--homepage-section-padding-top-mobile, 0);
-    padding-bottom: var(--homepage-section-padding-bottom-mobile, 0);
-    margin-top: var(--homepage-section-spacing-mobile, 2rem);
-    margin-bottom: var(--homepage-section-spacing-mobile, 2rem);
-  }
-
-  .vastu-why-kit__title {
-    font-size: 2.14rem;
-    margin-bottom: 2.14rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .vastu-why-kit__grid {
-    display: grid !important;
-    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-    gap: 0.4rem !important;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.4rem;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x proximity;
@@ -168,12 +147,7 @@
   }
 }
 
-/* Tablet adjustments */
 @media (width > 48rem) and (width <= 768px) {
-  .vastu-why-kit__title {
-    font-size: 3rem;
-  }
-
   .vastu-why-kit__icon {
     width: 72px;
     height: 72px;

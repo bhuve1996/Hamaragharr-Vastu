@@ -11,12 +11,28 @@
   else
     assign display_navigation_mobile = 'none'
   endif
-  if section.settings.show_pagination
+  if section.settings.show_pagination != blank
+    assign show_pagination_desktop = section.settings.show_pagination
+  elsif settings.carousel_show_pagination_desktop != blank
+    assign show_pagination_desktop = settings.carousel_show_pagination_desktop
+  else
+    assign show_pagination_desktop = true
+  endif
+  
+  if section.settings.show_pagination_mobile != blank
+    assign show_pagination_mobile = section.settings.show_pagination_mobile
+  elsif settings.carousel_show_pagination_mobile != blank
+    assign show_pagination_mobile = settings.carousel_show_pagination_mobile
+  else
+    assign show_pagination_mobile = true
+  endif
+  
+  if show_pagination_desktop
     assign display_pagination_desktop = 'block'
   else
     assign display_pagination_desktop = 'none'
   endif
-  if section.settings.show_pagination_mobile
+  if show_pagination_mobile
     assign display_pagination_mobile = 'block'
   else
     assign display_pagination_mobile = 'none'
@@ -31,7 +47,9 @@
     {% else %}
       {% assign color_scheme_chosen = settings.card_color_scheme %}
     {% endif %}
-    {% render 'section-heading', title: section.settings.heading_title, description: section.settings.heading_description, align: section.settings.heading_align %}
+    <xo-animate xo-cascade>
+      {% render 'section-heading', title: section.settings.heading_title, description: section.settings.heading_description, align: section.settings.heading_align %}
+    </xo-animate>
     {% render 'space', value: '2rem' %}
     <xo-carousel
       xo-per-view='{{ section.settings.columns_desktop }}'

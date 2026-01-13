@@ -1,4 +1,3 @@
-/* Product Variant Modal - Center Popup Style */
 .product-variant-modal__modal-content {
   background: #fff;
   border-radius: 1rem;
@@ -12,20 +11,17 @@
   margin: 0 auto;
 }
 
-/* Increase popup size on desktop */
 @media (width >= 768px) {
   .product-variant-modal__modal-content {
     max-width: 750px;
     padding: 3rem;
   }
-  
-  /* Maintain image size on desktop while keeping aspect ratio */
+
   .product-variant-modal__product-image {
     width: 100px;
   }
 }
 
-/* Close button styling for modal */
 .product-variant-modal__modal-content .product-variant-modal__close {
   position: absolute;
   top: 1rem;
@@ -64,7 +60,6 @@
   height: 1.5rem;
 }
 
-/* Modal overlay background */
 xo-modal[xo-placement="center"]::before {
   background: rgb(0 0 0 / 50%);
   backdrop-filter: blur(2px);
@@ -93,7 +88,6 @@ xo-modal[xo-placement="center"]::before {
   object-fit: cover;
 }
 
-/* Ensure the image container inside maintains aspect ratio */
 .product-variant-modal__product-image .xo-image {
   height: 100%;
   padding-top: 0;
@@ -152,11 +146,10 @@ xo-modal[xo-placement="center"]::before {
   margin-bottom: 0;
 }
 
-/* Fix add to cart button in popups/modals - black background and white text */
 .product-variant-modal__modal-content xo-cart-add .xo-btn,
 .product-variant-modal__modal-content xo-cart-add button {
-  background-color: #000 !important;
-  color: #fff !important;
+  background-color: #000;
+  color: #fff;
 }
 
 .product-variant-modal__modal-content xo-cart-add .xo-btn__text,
@@ -169,15 +162,14 @@ xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__text,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__content,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__text *,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__content * {
-  color: #fff !important;
+  color: #fff;
 }
 
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn,
 xo-modal .product-variant-modal__modal-content xo-cart-add button {
-  background-color: #000 !important;
+  background-color: #000;
 }
 
-/* Ensure button text elements are visible in popup - white text */
 .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__text,
 .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__content,
 .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__text *,
@@ -187,15 +179,14 @@ xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .x
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__content,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__text *,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__content * {
-  color: #fff !important;
+  color: #fff;
 }
 
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary,
 .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary {
-  background-color: #000 !important;
+  background-color: #000;
 }
 
-/* Primary button style in popup - black background and white text */
 .product-variant-modal__modal-content xo-cart-add .xo-btn--primary,
 .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__text,
 .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__content,
@@ -206,45 +197,41 @@ xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__content,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__text *,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__content * {
-  background-color: #000 !important;
-  color: #fff !important;
+  background-color: #000;
+  color: #fff;
 }
 
-/* General popup/modal add to cart button - black background and white text */
 xo-modal xo-cart-add .xo-btn,
 xo-modal xo-cart-add button {
-  background-color: #000 !important;
-  color: #fff !important;
+  background-color: #000;
+  color: #fff;
 }
 
 xo-modal xo-cart-add .xo-btn__text,
 xo-modal xo-cart-add .xo-btn__content,
 xo-modal xo-cart-add .xo-btn__text *,
 xo-modal xo-cart-add .xo-btn__content * {
-  color: #fff !important;
+  color: #fff;
 }
 
-/* Secondary button in any popup - black background and white text */
 xo-modal xo-cart-add .xo-btn--secondary,
 xo-modal xo-cart-add .xo-btn--secondary .xo-btn__text,
 xo-modal xo-cart-add .xo-btn--secondary .xo-btn__content,
 xo-modal xo-cart-add .xo-btn--secondary .xo-btn__text *,
 xo-modal xo-cart-add .xo-btn--secondary .xo-btn__content * {
-  background-color: #000 !important;
-  color: #fff !important;
+  background-color: #000;
+  color: #fff;
 }
 
-/* Primary button in any popup - black background and white text */
 xo-modal xo-cart-add .xo-btn--primary,
 xo-modal xo-cart-add .xo-btn--primary .xo-btn__text,
 xo-modal xo-cart-add .xo-btn--primary .xo-btn__content,
 xo-modal xo-cart-add .xo-btn--primary .xo-btn__text *,
 xo-modal xo-cart-add .xo-btn--primary .xo-btn__content * {
-  background-color: #000 !important;
-  color: #fff !important;
+  background-color: #000;
+  color: #fff;
 }
 
-/* Add padding to radio button labels in product variant modal */
 .product-variant-modal .xo-field-radio__label,
 .product-variant-modal__variant-list .xo-field-radio__label {
   padding: 0.75rem 1rem;
@@ -255,220 +242,195 @@ xo-modal xo-cart-add .xo-btn--primary .xo-btn__content * {
   margin-bottom: 0.5rem;
 }
 
-/* Hide Buy Now buttons - Disabled */
-
-/* Hide Buy Now everywhere except vastu-product-showcase */
 .buy-button__now:not(.vastu-product-showcase .buy-button__now),
 .sticky-addcart__buy-now {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
 }
 
-/* Show Buy Now in vastu-product-showcase */
 .vastu-product-showcase .buy-button__now {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  height: auto !important;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  height: auto;
 }
 
-/* Sticky add cart layout - separate columns for product, price, and options */
 .sticky-addcart__wrap {
-  display: flex !important;
-  align-items: center !important;
-  gap: 2rem !important;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .sticky-addcart__price {
-  display: flex !important;
-  align-items: center !important;
-  flex-shrink: 0 !important;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-/* Increase gap between product name and options in sticky add cart bar */
 .sticky-addcart__right {
-  margin-left: 0 !important;
+  margin-left: 0;
 }
 
-/* Mobile: Make sticky add cart scrollable with navigation arrows */
 @media (width <= 48rem) {
   .sticky-addcart__wrap {
-    position: relative !important;
-    overflow: auto hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    scroll-behavior: smooth !important;
-    scrollbar-width: none !important; /* Firefox */
-    -ms-overflow-style: none !important; /* IE and Edge */
-    gap: 1.5rem !important;
-    padding: 0 4rem !important; /* Space for arrows */
+    position: relative;
+    overflow: auto hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 1.5rem;
+    padding: 0 4rem;
   }
 
-  /* Hide scrollbar but keep functionality */
   .sticky-addcart__wrap::-webkit-scrollbar {
-    display: none !important; /* Chrome, Safari, Opera */
+    display: none;
   }
 
-  /* Prevent items from shrinking on mobile */
   .sticky-addcart__left,
   .sticky-addcart__price,
   .sticky-addcart__right {
-    flex-shrink: 0 !important;
-    min-width: auto !important;
+    flex-shrink: 0;
+    min-width: auto;
   }
 
-  /* Scroll navigation arrows */
   .sticky-addcart__scroll-left,
   .sticky-addcart__scroll-right {
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 10 !important;
-    width: 3rem !important;
-    height: 3rem !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: rgba(var(--color-background), 0.95) !important;
-    border: 1px solid rgba(var(--color-foreground), 0.1) !important;
-    border-radius: 50% !important;
-    cursor: pointer !important;
-    opacity: 0.8 !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--color-background), 0.95);
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.8;
     transition:
       opacity 0.3s ease,
-      background 0.3s ease !important;
-    pointer-events: auto !important;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 10%) !important;
+      background 0.3s ease;
+    pointer-events: auto;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
   }
 
   .sticky-addcart__scroll-left {
-    left: 0.5rem !important;
+    left: 0.5rem;
   }
 
   .sticky-addcart__scroll-right {
-    right: 0.5rem !important;
+    right: 0.5rem;
   }
 
   .sticky-addcart__scroll-left:hover,
   .sticky-addcart__scroll-right:hover {
-    opacity: 1 !important;
-    background: rgba(var(--color-background), 1) !important;
+    opacity: 1;
+    background: rgba(var(--color-background), 1);
   }
 
   .sticky-addcart__scroll-left:active,
   .sticky-addcart__scroll-right:active {
-    transform: translateY(-50%) scale(0.95) !important;
+    transform: translateY(-50%) scale(0.95);
   }
 
-  /* Hide arrows when at scroll boundaries */
   .sticky-addcart__scroll-left[data-disabled="true"],
   .sticky-addcart__scroll-right[data-disabled="true"] {
-    opacity: 0.3 !important;
-    cursor: not-allowed !important;
-    pointer-events: none !important;
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 
-  /* Arrow icon styling */
   .sticky-addcart__scroll-left::before,
   .sticky-addcart__scroll-right::before {
-    content: "" !important;
-    width: 0.8rem !important;
-    height: 0.8rem !important;
-    border: 2px solid rgba(var(--color-foreground), 0.7) !important;
-    border-top: none !important;
-    border-right: none !important;
+    content: "";
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 2px solid rgba(var(--color-foreground), 0.7);
+    border-top: none;
+    border-right: none;
   }
 
   .sticky-addcart__scroll-left::before {
-    transform: rotate(45deg) !important;
-    margin-left: 0.3rem !important;
+    transform: rotate(45deg);
+    margin-left: 0.3rem;
   }
 
   .sticky-addcart__scroll-right::before {
-    transform: rotate(-135deg) !important;
-    margin-right: 0.3rem !important;
+    transform: rotate(-135deg);
+    margin-right: 0.3rem;
   }
 }
 
-/* Hide Buy on Other Site - Disabled */
-
-/* Hide Buy on Other Site everywhere, including vastu-product-showcase */
 .xo-product-info-content__buy-othersite,
 [class*="buy-othersite"],
 [class*="buy-onsite"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
 }
 
-/* Vastu Product Showcase Styles */
 .vastu-product-showcase {
   padding: 4rem 0;
   margin-top: var(--homepage-section-spacing, 4rem);
   margin-bottom: var(--homepage-section-spacing, 4rem);
 }
 
-/* Override sticky positioning from product-info-content snippet - applies to all screen sizes */
 .vastu-product-showcase .xo-product-info-content {
-  position: relative !important;
-  top: 0 !important;
+  position: relative;
+  top: 0;
 }
 
-/* Override base theme CSS for xo-product-info-media-style1 - applies to all screen sizes */
-
-/* Must be after product-info-media-style1.css loads, so placed at end of file */
 .vastu-product-showcase .xo-product-info-media-style1,
 section.vastu-product-showcase .xo-product-info-media-style1,
 .vastu-product-showcase section .xo-product-info-media-style1 {
-  width: 100% !important;
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-  top: 0 !important;
-  position: relative !important;
+  width: 100%;
+  padding-top: 0;
+  margin-top: 0;
+  top: 0;
+  position: relative;
 }
 
-/* Ensure image container starts from top - applies to all screen sizes */
 .vastu-product-showcase .xo-product-info-media-style1__bottom {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+  padding-top: 0;
+  margin-top: 0;
 }
 
-/* Ensure equal heights for left and right sections on desktop */
 @media (width >= 768px) {
   .vastu-product-showcase xo-grid {
-    display: flex !important;
-    align-items: stretch !important;
+    display: flex;
+    align-items: stretch;
   }
 
   .vastu-product-showcase xo-animate {
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
-    align-items: stretch !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: stretch;
   }
 
-  /* Image section - align to top, no padding */
   .vastu-product-showcase xo-animate:first-of-type {
-    align-items: flex-start !important;
+    align-items: flex-start;
   }
 
-  /* Additional desktop-specific overrides */
   .vastu-product-showcase .xo-product-info-media-style1 {
-    align-self: flex-start !important;
+    align-self: flex-start;
   }
 
-  /* Right content section - stretch to match left height */
   .vastu-product-showcase__right {
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
-    justify-content: flex-start !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
   }
 
   .vastu-product-showcase__content {
@@ -550,7 +512,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   width: 100%;
 }
 
-/* Custom Text Blocks */
 .vastu-product-showcase__custom-text {
   margin: 1.5rem 0;
   padding: 1.5rem;
@@ -589,15 +550,13 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     font-size: 2.5rem;
   }
 
-  /* Ensure all text in vastu-product-showcase is minimum 2rem on mobile */
   .vastu-product-showcase__price,
   .vastu-product-showcase__description,
   .vastu-product-showcase__description p {
-    font-size: 2rem !important;
+    font-size: 2rem;
   }
 }
 
-/* Footer Mobile Responsive */
 @media (width <= 48rem) {
   footer,
   .footer-v18__description,
@@ -616,7 +575,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   }
 }
 
-/* Modern Footer Styles */
 .footer-modern {
   padding-top: 64px;
   padding-bottom: 2rem;
@@ -718,7 +676,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 
 .footer-modern__newsletter-button {
   padding: 0.875rem 1.5rem;
-  font-size: var(--font-size-button, 2.5rem);
+  font-size: var(--font-size-button, 1.6rem);
   font-weight: var(--font-weight-semibold, 600);
   line-height: 1.5;
   border: none;
@@ -850,7 +808,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   opacity: 1;
 }
 
-/* Newsletter Form Messages */
 .footer-modern .newsletter-form-message {
   margin-top: 0.75rem;
   font-size: 0.875rem;
@@ -868,7 +825,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   background-color: rgba(var(--color-success), 0.1);
 }
 
-/* Mobile Responsive */
 @media (width <= 48rem) {
   .footer-modern {
     padding-top: 3rem;
@@ -902,7 +858,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   }
 
   .footer-modern__newsletter-button {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     padding: 0.75rem 1rem;
     text-transform: uppercase;
   }
@@ -954,7 +910,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   }
 }
 
-/* Tablet Responsive */
 @media (width >= 48.1rem) and (width <= 64rem) {
   .footer-modern__columns {
     gap: 2.5rem;
@@ -973,16 +928,14 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   }
 }
 
-/* Hide blog card descriptions */
 .blog-v2__description,
 .xo-article-card__description,
 .article-card-style1__description,
 .article-card-style3__description,
 .article-card-style4__description {
-  display: none !important;
+  display: none;
 }
 
-/* FAQ Section - Container Box Shadow */
 .faq-content-wrapper {
   background: #fff;
   border-radius: 1rem;
@@ -1008,7 +961,6 @@ section[class*="product-faq"] {
   }
 }
 
-/* Fix product page add to cart button text color - respect button style */
 .buy-button xo-cart-add .xo-btn--primary .xo-btn__text,
 .buy-button xo-cart-add .xo-btn--primary .xo-btn__content,
 .buy-button xo-cart-add .xo-btn--primary .xo-btn__text *,
@@ -1025,10 +977,9 @@ xo-product-info-content .xo-btn--primary .xo-btn__text,
 xo-product-info-content .xo-btn--primary .xo-btn__content,
 xo-product-info-content .xo-btn--primary .xo-btn__text *,
 xo-product-info-content .xo-btn--primary .xo-btn__content * {
-  color: rgb(var(--color-button-text, 0, 0, 0)) !important;
+  color: rgb(var(--color-button-text, 0, 0, 0));
 }
 
-/* Ensure secondary buttons on product page have white text */
 .buy-button xo-cart-add .xo-btn--secondary .xo-btn__text,
 .buy-button xo-cart-add .xo-btn--secondary .xo-btn__content,
 .buy-button xo-cart-add .xo-btn--secondary .xo-btn__text *,
@@ -1045,25 +996,22 @@ xo-product-info-content .xo-btn--secondary .xo-btn__text,
 xo-product-info-content .xo-btn--secondary .xo-btn__content,
 xo-product-info-content .xo-btn--secondary .xo-btn__text *,
 xo-product-info-content .xo-btn--secondary .xo-btn__content * {
-  color: rgb(var(--color-secondary-button-text, 255, 255, 255)) !important;
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
 }
 
-/* Hide loading spinner when not loading */
 .xo-btn__loading {
-  display: none !important;
+  display: none;
 }
 
-/* Show loading spinner only when button is in loading state */
 .xo-btn[aria-busy="true"] .xo-btn__loading,
 .xo-btn.loading .xo-btn__loading,
 button[aria-busy="true"] .xo-btn__loading,
 button.loading .xo-btn__loading,
 xo-cart-add[aria-busy="true"] .xo-btn__loading,
 xo-cart-add.loading .xo-btn__loading {
-  display: block !important;
+  display: block;
 }
 
-/* Vastu Shop by Concern Section */
 .vastu-shop-by-concern__section-title {
   font-size: var(--title-font-size, var(--font-size-heading, 3.5rem));
   font-weight: var(--title-font-weight, var(--font-weight-bold, 700));
@@ -1077,18 +1025,8 @@ xo-cart-add.loading .xo-btn__loading {
   padding-bottom: 7rem;
 }
 
-.vastu-shop-by-concern__section-title::after {
-  content: "";
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--title-underline-width, 80px);
-  height: var(--title-underline-height, 4px);
-  background-color: var(--title-underline-color, #473855);
-}
+/* Underline removed - no underline for shop by concern heading */
 
-/* Accordion Container */
 .vastu-shop-by-concern__accordion {
   margin-top: 3rem;
   max-width: 900px;

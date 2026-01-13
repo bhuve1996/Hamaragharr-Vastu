@@ -145,4 +145,88 @@
       {%- endcase -%}
     </ol>
   </nav>
+  
+  {%- comment -%} Breadcrumb Structured Data (Schema.org) {%- endcomment -%}
+  {%- if settings.seo_enable_breadcrumb_schema != false -%}
+    {%- liquid
+      assign breadcrumb_list = ''
+      assign position = 1
+      
+      # Home
+      if position > 1
+        assign breadcrumb_list = breadcrumb_list | append: ','
+      endif
+      assign home_name = shop.name | json
+      assign home_url = request.origin | json
+      assign breadcrumb_list = breadcrumb_list | append: '{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: home_name | append: ',"item":' | append: home_url | append: '}'
+      assign position = position | plus: 1
+      
+      # Page-specific breadcrumbs
+      case t
+        when 'page'
+          if position > 1
+            assign breadcrumb_list = breadcrumb_list | append: ','
+          endif
+          assign page_name = page.title | json
+          assign page_url = request.origin | append: page.url | json
+          assign breadcrumb_list = breadcrumb_list | append: '{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: page_name | append: ',"item":' | append: page_url | append: '}'
+        when 'product'
+          if collection.url
+            if position > 1
+              assign breadcrumb_list = breadcrumb_list | append: ','
+            endif
+            assign collection_name = collection.title | json
+            assign collection_url = request.origin | append: collection.url | json
+            assign breadcrumb_list = breadcrumb_list | append: '{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: collection_name | append: ',"item":' | append: collection_url | append: '}'
+            assign position = position | plus: 1
+          endif
+          if position > 1
+            assign breadcrumb_list = breadcrumb_list | append: ','
+          endif
+          assign product_name = product.title | json
+          assign product_url = request.origin | append: product.url | json
+          assign breadcrumb_list = breadcrumb_list | append: '{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: product_name | append: ',"item":' | append: product_url | append: '}'
+        when 'collection'
+          if position > 1
+            assign breadcrumb_list = breadcrumb_list | append: ','
+          endif
+          assign collection_name = collection.title | json
+          assign collection_url = request.origin | append: collection.url | json
+          assign breadcrumb_list = breadcrumb_list | append: '{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: collection_name | append: ',"item":' | append: collection_url | append: '}'
+        when 'article'
+          if position > 1
+            assign breadcrumb_list = breadcrumb_list | append: ','
+          endif
+          assign blog_name = blog.title | json
+          assign blog_url = request.origin | append: blog.url | json
+          assign breadcrumb_list = breadcrumb_list | append: '{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: blog_name | append: ',"item":' | append: blog_url | append: '}'
+          assign position = position | plus: 1
+          if position > 1
+            assign breadcrumb_list = breadcrumb_list | append: ','
+          endif
+          assign article_name = article.title | json
+          assign article_url = request.origin | append: article.url | json
+          assign breadcrumb_list = breadcrumb_list | append: '{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: article_name | append: ',"item":' | append: article_url | append: '}'
+        when 'blog'
+          if position > 1
+            assign breadcrumb_list = breadcrumb_list | append: ','
+          endif
+          assign blog_name = blog.title | json
+          assign blog_url = request.origin | append: blog.url | json
+          assign breadcrumb_list = breadcrumb_list | append: '{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: blog_name | append: ',"item":' | append: blog_url | append: '}'
+      endcase
+    -%}
+    
+    {%- if breadcrumb_list != blank -%}
+      <script type='application/ld+json'>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {{ breadcrumb_list }}
+        ]
+      }
+      </script>
+    {%- endif -%}
+  {%- endif -%}
 {%- endunless -%}

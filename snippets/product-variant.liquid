@@ -35,17 +35,19 @@
         {% endif %}
       >
         {% liquid
-          for value in option.values
-            assign value_check = ''
-            for variant in product.variants
-              assign value = value | escape
-              assign checked = false
-              if option.selected_value == value
-                assign checked = true
-              endif
-              if variant.options contains value and value != value_check
-                assign value_check = value
-                render 'field-color', style: style, name: option.name, value: value, checked: checked, image: variant.featured_image, use_image: color_use_image, size: '1.4rem'
+          assign variant_limit = 30
+          assign values_limit = 10
+          for value in option.values limit: values_limit
+            assign value_escaped = value | escape
+            assign value_rendered = false
+            assign checked = false
+            if option.selected_value == value
+              assign checked = true
+            endif
+            for variant in product.variants limit: variant_limit
+              if variant.options contains value_escaped and value_rendered == false
+                assign value_rendered = true
+                render 'field-color', style: style, name: option.name, value: value_escaped, checked: checked, image: variant.featured_image, use_image: color_use_image, size: '1.4rem'
               endif
             endfor
           endfor

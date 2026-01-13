@@ -1,4 +1,3 @@
-/* Fallback for browsers that don't support :has() - target by parent section */
 section[class*="vastu-best-seller"] xo-carousel,
 section[class*="vastu-featured-products"] xo-carousel,
 section[class*="vastu-trust-bar"] xo-carousel,
@@ -16,7 +15,6 @@ section xo-carousel {
   padding-bottom: 0;
 }
 
-/* Carousel Pagination Positioning - Center All, Outside Content */
 .slideshow-v28__pagination,
 .vastu-trust-bar__pagination,
 .vastu-features-bar__pagination,
@@ -34,7 +32,6 @@ section xo-carousel {
   pointer-events: auto;
 }
 
-/* Testimonial pagination - positioned lower */
 .testimonial-v13__pagination {
   position: absolute;
   bottom: -2.5rem;
@@ -49,11 +46,10 @@ section xo-carousel {
   margin-top: 1.5rem;
 }
 
-/* Move vastu best seller and featured products pagination further below */
 .vastu-best-seller__pagination,
 .vastu-featured-products__pagination {
   position: absolute;
-  bottom: -32px; /* Moved further below (32px) */
+  bottom: -32px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -62,24 +58,22 @@ section xo-carousel {
   align-items: center;
   width: auto;
   pointer-events: auto;
-  margin-top: 32px; /* Additional spacing */
+  margin-top: 32px;
 }
 
-/* Blog pagination dots - positioned lower (matching best seller and featured products) */
 .blog-v2__pagination {
   position: absolute;
-  bottom: -32px; /* Moved further below (32px) - matching other sections */
+  bottom: -32px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  margin-top: 32px; /* Additional spacing */
+  margin-top: 32px;
 }
 
-/* Product recommendations pagination - positioned below carousel */
 .product-recommendations__pagination,
 .product-recommendations__pagination--related {
   position: absolute;
-  bottom: -32px; /* Moved further below (32px) - matching other sections */
+  bottom: -32px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -88,7 +82,7 @@ section xo-carousel {
   align-items: center;
   width: auto;
   pointer-events: auto;
-  margin-top: 32px; /* Additional spacing */
+  margin-top: 32px;
 }
 
 .carousel-pagination-style3__pagination-wrap {
@@ -98,23 +92,21 @@ section xo-carousel {
   width: 100%;
 }
 
-/* Carousel Pagination Bullets - Active State Styling for Vastu Section */
 .banner-v155__carousel-pagination xo-carousel-pagination span,
 section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination span,
 .banner-v155__carousel-pagination .carousel-pagination-style3__pagination span,
 section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-pagination-style3__pagination span {
-  display: inline-block !important;
-  width: 0.5rem !important;
-  height: 0.5rem !important;
-  border-radius: 50% !important;
-  background-color: rgb(71 56 85 / 30%) !important;
-  margin: 0 0.25rem !important;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: rgb(71 56 85 / 30%);
+  margin: 0 0.25rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  opacity: 1 !important;
+  opacity: 1;
 }
 
-/* Active bullet styling - Multiple selectors to catch all cases */
 .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span,
 section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span,
 .banner-v155__carousel-pagination xo-carousel-pagination span[aria-current="true"],
@@ -123,40 +115,37 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagina
 section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination span.is-active,
 .banner-v155__carousel-pagination xo-carousel-pagination span[class*="active"],
 section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination span[class*="active"] {
-  background-color: rgb(71 56 85) !important;
-  width: 0.75rem !important;
-  height: 0.75rem !important;
-  opacity: 1 !important;
+  background-color: rgb(71 56 85);
+  width: 0.75rem;
+  height: 0.75rem;
+  opacity: 1;
 }
 
-/* Target the bullet-active element directly */
 .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active,
 section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active {
-  display: inline-block !important;
+  display: inline-block;
 }
 
 .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span,
 section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination-bullet-active span {
-  background-color: rgb(71 56 85) !important;
-  width: 0.75rem !important;
-  height: 0.75rem !important;
-  opacity: 1 !important;
+  background-color: rgb(71 56 85);
+  width: 0.75rem;
+  height: 0.75rem;
+  opacity: 1;
 }
 
-/* Ensure pagination bullets are visible and styled */
 .banner-v155__carousel-pagination xo-carousel-pagination::part(bullet),
 section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination::part(bullet) {
-  background-color: rgb(71 56 85 / 30%) !important;
+  background-color: rgb(71 56 85 / 30%);
 }
 
 .banner-v155__carousel-pagination xo-carousel-pagination::part(bullet-active),
 section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagination::part(bullet-active) {
-  background-color: rgb(71 56 85) !important;
-  width: 0.75rem !important;
-  height: 0.75rem !important;
+  background-color: rgb(71 56 85);
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
-/* Ensure carousel inner content has no padding-bottom */
 xo-carousel:has(.vastu-best-seller__pagination) xo-carousel-inner,
 xo-carousel:has(.vastu-featured-products__pagination) xo-carousel-inner,
 xo-carousel:has(.vastu-trust-bar__pagination) xo-carousel-inner,
@@ -185,19 +174,17 @@ xo-carousel-inner {
   position: relative;
 }
 
-/* Ensure xo-container--box in slideshow doesn't blur background images */
 section[class*="homepage-carousel"] .slideshow-v28__overlay-content xo-container.xo-container--box,
 section[class*="slideshow"] .slideshow-v28__overlay-content xo-container.xo-container--box {
-  filter: none !important;
-  backdrop-filter: none !important;
-  background: transparent !important;
+  filter: none;
+  backdrop-filter: none;
+  background: transparent;
 }
 
-/* Ensure background images are behind the container and not blurred */
 section[class*="homepage-carousel"] .slideshow-bg,
 section[class*="slideshow"] .slideshow-bg {
-  filter: none !important;
-  backdrop-filter: none !important;
+  filter: none;
+  backdrop-filter: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -206,25 +193,23 @@ section[class*="slideshow"] .slideshow-bg {
   z-index: 0;
 }
 
-/* Make background image full width and cover entire area */
 section[class*="homepage-carousel"] .slideshow-bg-image__item,
 section[class*="homepage-carousel"] .slideshow-bg-image__url,
 section[class*="homepage-carousel"] .xo-background-lazyload,
 section[class*="slideshow"] .slideshow-bg-image__item,
 section[class*="slideshow"] .slideshow-bg-image__url,
 section[class*="slideshow"] .xo-background-lazyload {
-  width: 100% !important;
-  height: 100% !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
-  filter: none !important; /* Ensure no blur filter on background images */
-  backdrop-filter: none !important; /* Ensure no backdrop blur */
-  image-rendering: -webkit-optimize-contrast !important; /* Keep images sharp */
-  image-rendering: crisp-edges !important; /* Keep images sharp */
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  filter: none;
+  backdrop-filter: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
-/* Slideshow Text - Left Aligned for Homepage Carousel */
 .slideshow-v28__text--overlay {
   text-align: left;
   display: flex;
@@ -233,7 +218,7 @@ section[class*="slideshow"] .xo-background-lazyload {
   justify-content: center;
   margin: 0;
   width: 100%;
-  max-width: var(--content-max-width, 50rem); /* Use dynamic max-width from inline style, fallback to 50rem */
+  max-width: var(--content-max-width, 50rem);
   padding-left: 0;
   padding-right: 0;
 }

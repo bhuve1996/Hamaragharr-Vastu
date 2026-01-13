@@ -100,6 +100,111 @@
       --homepage-section-padding-bottom-mobile: 0px;
       --homepage-section-padding-top-tablet: 0px;
       --homepage-section-padding-bottom-tablet: 0px;
+      
+      /* Homepage heading settings - global defaults */
+      --homepage-heading-font-size: {{ settings.homepage_heading_font_size | default: 3.5 }}rem;
+      --homepage-heading-font-weight: {{ settings.homepage_heading_font_weight | default: 700 }};
+      --homepage-heading-color: {{ settings.homepage_heading_color | default: '#000000' }};
+      --homepage-heading-text-transform: {{ settings.homepage_heading_text_transform | default: 'uppercase' }};
+      --homepage-heading-line-height: {{ settings.homepage_heading_line_height | default: 1.2 }};
+      --homepage-heading-margin-bottom-desktop: {{ settings.homepage_heading_margin_bottom_desktop | default: 48 }}px;
+      --homepage-heading-margin-bottom-mobile: {{ settings.homepage_heading_margin_bottom_mobile | default: 32 }}px;
+      --homepage-heading-underline-color: {{ settings.homepage_heading_underline_color | default: '#473855' }};
+      --homepage-heading-underline-width: {{ settings.homepage_heading_underline_width | default: 80 }}px;
+      --homepage-heading-underline-height: {{ settings.homepage_heading_underline_height | default: 4 }}px;
+      --homepage-heading-underline-bottom-desktop: {{ settings.homepage_heading_underline_bottom_desktop | default: 24 }}px;
+      --homepage-heading-underline-bottom-mobile: {{ settings.homepage_heading_underline_bottom_mobile | default: 16 }}px;
+      
+      /* Global section spacing - configurable via theme settings */
+      --section-padding-top-desktop: {{ settings.section_padding_top_desktop | default: 16 }}px;
+      --section-padding-bottom-desktop: {{ settings.section_padding_bottom_desktop | default: 16 }}px;
+      --section-margin-top-desktop: {{ settings.section_margin_top_desktop | default: 16 }}px;
+      --section-margin-bottom-desktop: {{ settings.section_margin_bottom_desktop | default: 16 }}px;
+      --section-padding-top-mobile: {{ settings.section_padding_top_mobile | default: 12 }}px;
+      --section-padding-bottom-mobile: {{ settings.section_padding_bottom_mobile | default: 12 }}px;
+      --section-margin-top-mobile: {{ settings.section_margin_top_mobile | default: 12 }}px;
+      --section-margin-bottom-mobile: {{ settings.section_margin_bottom_mobile | default: 12 }}px;
+      
+      /* Section-to-section spacing (for .section+.section selector) */
+      --section-to-section-spacing-desktop: {{ settings.section_to_section_spacing_desktop | default: 0 }}px;
+      --section-to-section-spacing-mobile: {{ settings.section_to_section_spacing_mobile | default: 0 }}px;
+      
+      /* Global button settings */
+      --button-padding-left: {{ settings.button_padding_left | default: 24 }}px;
+      --button-padding-right: {{ settings.button_padding_right | default: 24 }}px;
+      --button-primary-bg-color: {{ settings.button_primary_bg_color | default: '#ffffff' }};
+      --button-primary-text-color: {{ settings.button_primary_text_color | default: '#000000' }};
+      --button-secondary-bg-color: {{ settings.button_secondary_bg_color | default: '#473855' }};
+      --button-secondary-text-color: {{ settings.button_secondary_text_color | default: '#ffffff' }};
+      --button-font-size: {{ settings.button_font_size | default: 1.5 }}rem;
+      --button-border-radius: {{ settings.button_border_radius | default: 0 }}px;
+      
+      /* Button hover effects */
+      --button-hover-transform-y: {{ settings.button_hover_transform_y | default: -1 }}px;
+      --button-hover-box-shadow-blur: {{ settings.button_hover_box_shadow_blur | default: 12 }}px;
+      --button-hover-box-shadow-spread: {{ settings.button_hover_box_shadow_spread | default: 0 }}px;
+      --button-hover-opacity: {{ settings.button_hover_opacity | default: 90 | divided_by: 100.0 }};
+      --button-transition-duration: {{ settings.button_transition_duration | default: 0.3 }}s;
+      --button-hover-bg-color-primary: {{ settings.button_hover_bg_color_primary | default: settings.button_primary_bg_color | default: '#ffffff' }};
+      --button-hover-bg-color-secondary: {{ settings.button_hover_bg_color_secondary | default: settings.button_secondary_bg_color | default: '#473855' }};
+      --button-hover-text-color-primary: {{ settings.button_hover_text_color_primary | default: settings.button_primary_text_color | default: '#000000' }};
+      --button-hover-text-color-secondary: {{ settings.button_hover_text_color_secondary | default: settings.button_secondary_text_color | default: '#ffffff' }};
+      --button-text-data-text-color: {{ settings.button_text_data_text_color | default: '#ffffff' }};
+      --slideshow-button-text-data-text-color: {{ settings.slideshow_button_text_data_text_color | default: '#000000' }};
+      {% comment %} RGB values for rgba usage - defaults for common colors {% endcomment %}
+      {% liquid
+        assign primary_bg = settings.button_primary_bg_color | default: '#ffffff'
+        assign secondary_bg = settings.button_secondary_bg_color | default: '#473855'
+        assign price_bg = settings.price_tag_background_color | default: '#473855'
+        if primary_bg == '#ffffff' or primary_bg == 'ffffff' or primary_bg == '#fff' or primary_bg == 'fff'
+          assign r1 = 255
+          assign g1 = 255
+          assign b1 = 255
+        elsif primary_bg == '#000000' or primary_bg == '000000' or primary_bg == '#000' or primary_bg == '000'
+          assign r1 = 0
+          assign g1 = 0
+          assign b1 = 0
+        else
+          assign r1 = 255
+          assign g1 = 255
+          assign b1 = 255
+        endif
+        if secondary_bg == '#473855' or secondary_bg == '473855'
+          assign r2 = 71
+          assign g2 = 56
+          assign b2 = 85
+        else
+          assign r2 = 71
+          assign g2 = 56
+          assign b2 = 85
+        endif
+        if price_bg == '#473855' or price_bg == '473855'
+          assign r3 = 71
+          assign g3 = 56
+          assign b3 = 85
+        else
+          assign r3 = 71
+          assign g3 = 56
+          assign b3 = 85
+        endif
+      %}
+      --button-primary-bg-color-rgb: {{ r1 }}, {{ g1 }}, {{ b1 }};
+      --button-secondary-bg-color-rgb: {{ r2 }}, {{ g2 }}, {{ b2 }};
+      --price-tag-background-color-rgb: {{ r3 }}, {{ g3 }}, {{ b3 }};
+      
+      /* Global price tag settings */
+      --price-tag-background-color: {{ settings.price_tag_background_color | default: '#473855' }};
+      --price-tag-background-opacity: {{ settings.price_tag_background_opacity | default: 90 | divided_by: 100.0 }};
+      --price-tag-text-color: {{ settings.price_tag_text_color | default: '#ffffff' }};
+      --price-tag-font-size: {{ settings.price_tag_font_size | default: 1.2 }}rem;
+      --price-tag-font-weight: {{ settings.price_tag_font_weight | default: 600 }};
+      --price-tag-padding-top: {{ settings.price_tag_padding_top | default: 8 }}px;
+      --price-tag-padding-bottom: {{ settings.price_tag_padding_bottom | default: 8 }}px;
+      --price-tag-padding-left: {{ settings.price_tag_padding_left | default: 12 }}px;
+      --price-tag-padding-right: {{ settings.price_tag_padding_right | default: 12 }}px;
+      --price-tag-border-radius: {{ settings.price_tag_border_radius | default: 8 }}px;
+      --price-tag-box-shadow-blur: {{ settings.price_tag_box_shadow_blur | default: 8 }}px;
+      --price-tag-backdrop-filter: {% if settings.price_tag_backdrop_filter %}blur(4px){% else %}none{% endif %};
       --media-shadow-visible: {% if settings.media_shadow_opacity > 0 %}1{% else %}0{% endif %};
 
       --page-width: {{ settings.page_width | divided_by: 10 }}rem;
@@ -167,8 +272,8 @@
       --drawer-backdrop-opacity: {{ settings.drawer_backdrop_opacity | divided_by: 100.0 }};
       --drawer-backdrop-blur: {{ settings.drawer_backdrop_blur }}px;
 
-      --spacing-sections-desktop: {{ settings.spacing_sections }}px;
-      --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 }}{% endif %}px;
+      --spacing-sections-desktop: {{ settings.section_to_section_spacing_desktop | default: 0 }}px;
+      --spacing-sections-mobile: {{ settings.section_to_section_spacing_mobile | default: 0 }}px;
 
       --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical }}px;
       --grid-desktop-horizontal-spacing: {{ settings.spacing_grid_horizontal }}px;

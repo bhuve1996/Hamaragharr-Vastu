@@ -9,7 +9,21 @@
   # Determine proper title for OG tags
   assign og_title = page_title | default: shop.name
   
-  if template.name == 'collection' and collection
+  # Handle homepage specifically
+  if template.name == 'index' or request.page_type == 'index'
+    if settings.seo_homepage_title != blank
+      assign og_title = settings.seo_homepage_title
+    elsif shop.metafields.custom.homepage_title != blank
+      assign og_title = shop.metafields.custom.homepage_title
+    else
+      assign og_title = 'Vastu Kit for Home & Office | Vastu Shastra Products | ' | append: shop.name
+    endif
+    if settings.seo_homepage_description != blank
+      assign og_description = settings.seo_homepage_description
+    elsif shop.metafields.custom.homepage_meta_description != blank
+      assign og_description = shop.metafields.custom.homepage_meta_description
+    endif
+  elsif template.name == 'collection' and collection
     if current_tags
       assign og_title = current_tags | join: ' + ' | append: ' - ' | append: collection.title
     else
@@ -67,6 +81,13 @@
     assign page_image = article.image
   elsif template.name == 'page' and page.image
     assign page_image = page.image
+  # Handle homepage - use custom OG image, shop logo, or first slideshow image
+  elsif template.name == 'index' or request.page_type == 'index'
+    if settings.seo_homepage_og_image != blank
+      assign page_image = settings.seo_homepage_og_image
+    elsif settings.logo != blank
+      assign page_image = settings.logo
+    endif
   endif
 %}
 

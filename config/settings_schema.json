@@ -1921,5 +1921,803 @@
         "info": "t:settings_schema.favicon.settings.favicon.info"
       }
     ]
+  },
+  {
+    "name": "SEO Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Global SEO Settings"
+      },
+      {
+        "type": "paragraph",
+        "content": "Configure global SEO settings for your store. These settings apply site-wide unless overridden on individual pages."
+      },
+      {
+        "type": "textarea",
+        "id": "seo_meta_keywords",
+        "label": "Meta Keywords",
+        "info": "Comma-separated keywords for SEO (e.g., vastu kit, vastu shastra, home vastu solutions). Note: Meta keywords have limited SEO value but some search engines still use them.",
+        "default": "vastu kit, vastu shastra, vastu remedies, home vastu solutions, vastu correction kit, vastu wall paintings"
+      },
+      {
+        "type": "select",
+        "id": "seo_robots_index",
+        "label": "Robots Index Setting",
+        "info": "Control how search engines index your site. 'index, follow' is recommended for most sites.",
+        "default": "index, follow",
+        "options": [
+          {
+            "value": "index, follow",
+            "label": "Index, Follow (Recommended)"
+          },
+          {
+            "value": "index, nofollow",
+            "label": "Index, No Follow"
+          },
+          {
+            "value": "noindex, follow",
+            "label": "No Index, Follow"
+          },
+          {
+            "value": "noindex, nofollow",
+            "label": "No Index, No Follow"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Homepage SEO"
+      },
+      {
+        "type": "image_picker",
+        "id": "seo_homepage_og_image",
+        "label": "Homepage Open Graph Image",
+        "info": "Image used when homepage is shared on social media. Recommended size: 1200x630px. If not set, will use shop logo or first slideshow image."
+      },
+      {
+        "type": "text",
+        "id": "seo_homepage_title",
+        "label": "Homepage Title Override",
+        "info": "Custom title for homepage. Leave blank to use default SEO-optimized title."
+      },
+      {
+        "type": "textarea",
+        "id": "seo_homepage_description",
+        "label": "Homepage Meta Description Override",
+        "info": "Custom meta description for homepage. Leave blank to use default SEO-optimized description."
+      },
+      {
+        "type": "header",
+        "content": "Structured Data (Schema.org)"
+      },
+      {
+        "type": "checkbox",
+        "id": "seo_enable_faq_schema",
+        "label": "Enable FAQ Schema",
+        "info": "Add FAQ structured data to FAQ sections for rich results in search.",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "seo_enable_breadcrumb_schema",
+        "label": "Enable Breadcrumb Schema",
+        "info": "Add breadcrumb structured data for better navigation in search results.",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "seo_enable_review_schema",
+        "label": "Enable Review/Rating Schema",
+        "info": "Add review structured data to testimonial sections for star ratings in search.",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Homepage Headings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Global Homepage Heading Settings"
+      },
+      {
+        "type": "paragraph",
+        "content": "These settings apply to all homepage section headings. Individual sections can override these settings."
+      },
+      {
+        "type": "range",
+        "id": "homepage_heading_font_size",
+        "min": 2,
+        "max": 6,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Heading Font Size",
+        "default": 3.5,
+        "info": "Default font size for all homepage section headings"
+      },
+      {
+        "type": "range",
+        "id": "homepage_heading_font_weight",
+        "min": 100,
+        "max": 900,
+        "step": 100,
+        "label": "Heading Font Weight",
+        "default": 700,
+        "info": "Default font weight for all homepage section headings"
+      },
+      {
+        "type": "color",
+        "id": "homepage_heading_color",
+        "label": "Heading Color",
+        "default": "#000000",
+        "info": "Default color for all homepage section headings"
+      },
+      {
+        "type": "select",
+        "id": "homepage_heading_text_transform",
+        "label": "Text Transform",
+        "default": "uppercase",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "uppercase",
+            "label": "Uppercase"
+          },
+          {
+            "value": "lowercase",
+            "label": "Lowercase"
+          },
+          {
+            "value": "capitalize",
+            "label": "Capitalize"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "homepage_heading_line_height",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Line Height",
+        "default": 1.2
+      },
+      {
+        "type": "header",
+        "content": "Heading Spacing & Underline"
+      },
+      {
+        "type": "range",
+        "id": "homepage_heading_margin_bottom_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Desktop)",
+        "default": 48,
+        "info": "Bottom margin for all homepage section headings on desktop"
+      },
+      {
+        "type": "range",
+        "id": "homepage_heading_margin_bottom_mobile",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Mobile)",
+        "default": 32,
+        "info": "Bottom margin for all homepage section headings on mobile"
+      },
+      {
+        "type": "checkbox",
+        "id": "homepage_heading_enable_underline",
+        "label": "Enable Underline",
+        "default": true,
+        "info": "Show underline below headings"
+      },
+      {
+        "type": "color",
+        "id": "homepage_heading_underline_color",
+        "label": "Underline Color",
+        "default": "#473855",
+        "info": "Color of the underline below headings"
+      },
+      {
+        "type": "range",
+        "id": "homepage_heading_underline_width",
+        "min": 0,
+        "max": 300,
+        "step": 4,
+        "unit": "px",
+        "label": "Underline Width",
+        "default": 80,
+        "info": "Width of the underline"
+      },
+      {
+        "type": "range",
+        "id": "homepage_heading_underline_height",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Underline Height",
+        "default": 4,
+        "info": "Height/thickness of the underline"
+      },
+      {
+        "type": "range",
+        "id": "homepage_heading_underline_bottom_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Underline Bottom Position (Desktop)",
+        "default": 24,
+        "info": "Distance from bottom of heading to underline on desktop"
+      },
+      {
+        "type": "range",
+        "id": "homepage_heading_underline_bottom_mobile",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Underline Bottom Position (Mobile)",
+        "default": 16,
+        "info": "Distance from bottom of heading to underline on mobile"
+      }
+    ]
+  },
+  {
+    "name": "Section Spacing",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Global Section Padding & Margin Settings"
+      },
+      {
+        "type": "paragraph",
+        "content": "These settings apply to all sections. Individual sections can override these settings."
+      },
+      {
+        "type": "header",
+        "content": "Desktop Settings"
+      },
+      {
+        "type": "range",
+        "id": "section_padding_top_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding Top (Desktop)",
+        "default": 16,
+        "info": "Default padding top for all sections on desktop"
+      },
+      {
+        "type": "range",
+        "id": "section_padding_bottom_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding Bottom (Desktop)",
+        "default": 16,
+        "info": "Default padding bottom for all sections on desktop"
+      },
+      {
+        "type": "range",
+        "id": "section_margin_top_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Top (Desktop)",
+        "default": 16,
+        "info": "Default margin top for all sections on desktop"
+      },
+      {
+        "type": "range",
+        "id": "section_margin_bottom_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Desktop)",
+        "default": 16,
+        "info": "Default margin bottom for all sections on desktop"
+      },
+      {
+        "type": "header",
+        "content": "Mobile Settings"
+      },
+      {
+        "type": "range",
+        "id": "section_padding_top_mobile",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding Top (Mobile)",
+        "default": 12,
+        "info": "Default padding top for all sections on mobile"
+      },
+      {
+        "type": "range",
+        "id": "section_padding_bottom_mobile",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding Bottom (Mobile)",
+        "default": 12,
+        "info": "Default padding bottom for all sections on mobile"
+      },
+      {
+        "type": "range",
+        "id": "section_margin_top_mobile",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Top (Mobile)",
+        "default": 12,
+        "info": "Default margin top for all sections on mobile"
+      },
+      {
+        "type": "range",
+        "id": "section_margin_bottom_mobile",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Mobile)",
+        "default": 12,
+        "info": "Default margin bottom for all sections on mobile"
+      },
+      {
+        "type": "header",
+        "content": "Section-to-Section Spacing"
+      },
+      {
+        "type": "paragraph",
+        "content": "Spacing between consecutive sections (using .section+.section selector)"
+      },
+      {
+        "type": "range",
+        "id": "section_to_section_spacing_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Section-to-Section Margin (Desktop)",
+        "default": 0,
+        "info": "Margin between consecutive sections on desktop"
+      },
+      {
+        "type": "range",
+        "id": "section_to_section_spacing_mobile",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Section-to-Section Margin (Mobile)",
+        "default": 0,
+        "info": "Margin between consecutive sections on mobile"
+      }
+    ]
+  },
+  {
+    "name": "Carousel Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Global Carousel Pagination (Dots) Settings"
+      },
+      {
+        "type": "paragraph",
+        "content": "These settings apply to all carousel sections. Individual sections can override these settings."
+      },
+      {
+        "type": "checkbox",
+        "id": "carousel_show_pagination_desktop",
+        "label": "Show Pagination Dots (Desktop)",
+        "default": true,
+        "info": "Show carousel pagination dots on desktop by default"
+      },
+      {
+        "type": "checkbox",
+        "id": "carousel_show_pagination_mobile",
+        "label": "Show Pagination Dots (Mobile)",
+        "default": true,
+        "info": "Show carousel pagination dots on mobile by default"
+      }
+    ]
+  },
+  {
+    "name": "Button Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Global Button Styling"
+      },
+      {
+        "type": "paragraph",
+        "content": "Configure global button styles. These settings apply to all buttons unless overridden."
+      },
+      {
+        "type": "header",
+        "content": "Button Padding"
+      },
+      {
+        "type": "range",
+        "id": "button_padding_left",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding Left",
+        "default": 24,
+        "info": "Left padding for buttons (prevents text ellipsis)"
+      },
+      {
+        "type": "range",
+        "id": "button_padding_right",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding Right",
+        "default": 24,
+        "info": "Right padding for buttons (prevents text ellipsis)"
+      },
+      {
+        "type": "header",
+        "content": "Button Colors - Primary"
+      },
+      {
+        "type": "color",
+        "id": "button_primary_bg_color",
+        "label": "Primary Background Color",
+        "default": "#ffffff",
+        "info": "Background color for primary buttons"
+      },
+      {
+        "type": "color",
+        "id": "button_primary_text_color",
+        "label": "Primary Text Color",
+        "default": "#000000",
+        "info": "Text color for primary buttons"
+      },
+      {
+        "type": "header",
+        "content": "Button Colors - Secondary"
+      },
+      {
+        "type": "color",
+        "id": "button_secondary_bg_color",
+        "label": "Secondary Background Color",
+        "default": "#473855",
+        "info": "Background color for secondary buttons"
+      },
+      {
+        "type": "color",
+        "id": "button_secondary_text_color",
+        "label": "Secondary Text Color",
+        "default": "#ffffff",
+        "info": "Text color for secondary buttons"
+      },
+      {
+        "type": "header",
+        "content": "Button Sizes"
+      },
+      {
+        "type": "range",
+        "id": "button_font_size",
+        "min": 1,
+        "max": 3,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Button Font Size",
+        "default": 1.5,
+        "info": "Default font size for buttons"
+      },
+      {
+        "type": "range",
+        "id": "button_border_radius",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Border Radius",
+        "default": 0,
+        "info": "Border radius for buttons"
+      },
+      {
+        "type": "header",
+        "content": "Button Hover Effects"
+      },
+      {
+        "type": "checkbox",
+        "id": "button_enable_hover",
+        "label": "Enable Hover Effects",
+        "default": true,
+        "info": "Enable hover effects on buttons"
+      },
+      {
+        "type": "range",
+        "id": "button_hover_transform_y",
+        "min": -10,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Hover Transform Y (translateY)",
+        "default": -1,
+        "info": "Vertical movement on hover (negative = up, positive = down)"
+      },
+      {
+        "type": "range",
+        "id": "button_hover_box_shadow_blur",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "label": "Hover Box Shadow Blur",
+        "default": 12,
+        "info": "Box shadow blur radius on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_hover_box_shadow_spread",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Hover Box Shadow Spread",
+        "default": 0,
+        "info": "Box shadow spread on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_hover_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Hover Background Opacity",
+        "default": 90,
+        "info": "Background opacity on hover (0-100%)"
+      },
+      {
+        "type": "range",
+        "id": "button_transition_duration",
+        "min": 0.1,
+        "max": 1,
+        "step": 0.1,
+        "unit": "s",
+        "label": "Transition Duration",
+        "default": 0.3,
+        "info": "Transition duration for button effects"
+      },
+      {
+        "type": "color",
+        "id": "button_hover_bg_color_primary",
+        "label": "Primary Hover Background Color",
+        "info": "Leave empty to use primary background color with opacity"
+      },
+      {
+        "type": "color",
+        "id": "button_hover_bg_color_secondary",
+        "label": "Secondary Hover Background Color",
+        "info": "Leave empty to use secondary background color with opacity"
+      },
+      {
+        "type": "color",
+        "id": "button_hover_text_color_primary",
+        "label": "Primary Hover Text Color",
+        "info": "Leave empty to use primary text color"
+      },
+      {
+        "type": "color",
+        "id": "button_hover_text_color_secondary",
+        "label": "Secondary Hover Text Color",
+        "info": "Leave empty to use secondary text color"
+      },
+      {
+        "type": "header",
+        "content": "Button Text with Data-Text Attribute"
+      },
+      {
+        "type": "color",
+        "id": "button_text_data_text_color",
+        "label": "Text Color (for buttons with slide-up effect)",
+        "default": "#ffffff",
+        "info": "Text color for buttons with data-text attribute (slide-up animation effect)"
+      },
+      {
+        "type": "color",
+        "id": "slideshow_button_text_data_text_color",
+        "label": "Slideshow Button Text Color (with slide-up effect)",
+        "default": "#000000",
+        "info": "Text color for slideshow section buttons with data-text attribute (slide-up animation effect). Default is black."
+      }
+    ]
+  },
+  {
+    "name": "Price Tag Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Global Price Tag Styling"
+      },
+      {
+        "type": "paragraph",
+        "content": "Configure global price tag styles. These settings apply to all price tags unless overridden."
+      },
+      {
+        "type": "color",
+        "id": "price_tag_background_color",
+        "label": "Background Color",
+        "default": "#473855",
+        "info": "Background color for price tags"
+      },
+      {
+        "type": "range",
+        "id": "price_tag_background_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Background Opacity",
+        "default": 90,
+        "info": "Background opacity for price tags (0-100%)"
+      },
+      {
+        "type": "color",
+        "id": "price_tag_text_color",
+        "label": "Text Color",
+        "default": "#ffffff",
+        "info": "Text color for price tags"
+      },
+      {
+        "type": "range",
+        "id": "price_tag_font_size",
+        "min": 0.8,
+        "max": 2,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Font Size",
+        "default": 1.2,
+        "info": "Font size for price tags"
+      },
+      {
+        "type": "range",
+        "id": "price_tag_font_weight",
+        "min": 100,
+        "max": 900,
+        "step": 100,
+        "label": "Font Weight",
+        "default": 600,
+        "info": "Font weight for price tags"
+      },
+      {
+        "type": "range",
+        "id": "price_tag_padding_top",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 8,
+        "info": "Top padding for price tags"
+      },
+      {
+        "type": "range",
+        "id": "price_tag_padding_bottom",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 8,
+        "info": "Bottom padding for price tags"
+      },
+      {
+        "type": "range",
+        "id": "price_tag_padding_left",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Left",
+        "default": 12,
+        "info": "Left padding for price tags"
+      },
+      {
+        "type": "range",
+        "id": "price_tag_padding_right",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Right",
+        "default": 12,
+        "info": "Right padding for price tags"
+      },
+      {
+        "type": "range",
+        "id": "price_tag_border_radius",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Border Radius",
+        "default": 8,
+        "info": "Border radius for price tags"
+      },
+      {
+        "type": "range",
+        "id": "price_tag_box_shadow_blur",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Box Shadow Blur",
+        "default": 8,
+        "info": "Box shadow blur for price tags"
+      },
+      {
+        "type": "checkbox",
+        "id": "price_tag_backdrop_filter",
+        "label": "Enable Backdrop Filter (Blur)",
+        "default": true,
+        "info": "Enable backdrop blur effect on price tags"
+      }
+    ]
+  },
+  {
+    "name": "Animation Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Global Animation Settings"
+      },
+      {
+        "type": "paragraph",
+        "content": "Configure animation settings for headings and elements across the site."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_heading_animations",
+        "label": "Enable Heading Animations",
+        "default": true,
+        "info": "Enable xo-animate for homepage headings"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_section_animations",
+        "label": "Enable Section Animations",
+        "default": true,
+        "info": "Enable xo-animate for section elements"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_cart_popup_animations",
+        "label": "Enable Cart Popup Animations",
+        "default": true,
+        "info": "Enable animations in add to cart popup"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_carousel_animations",
+        "label": "Enable Carousel Animations",
+        "default": true,
+        "info": "Enable animations in carousels"
+      }
+    ]
   }
 ]

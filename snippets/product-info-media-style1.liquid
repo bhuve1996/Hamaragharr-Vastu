@@ -63,7 +63,8 @@
                   {% endif %}
               {% endcase %}
             {%- endif -%}
-            {% for media in product.media %}
+            {% assign media_limit_thumb = 30 %}
+            {% for media in product.media limit: media_limit_thumb %}
               {% unless media.id == featured_media.id %}
                 {% case media.media_type %}
                   {% when 'image' %}
@@ -180,7 +181,8 @@
                   {% endif %}
               {% endcase %}
             {% endif %}
-            {% for media in product.media %}
+            {% assign media_limit_main = 30 %}
+            {% for media in product.media limit: media_limit_main %}
               {% unless media.id == featured_media.id %}
                 {% case media.media_type %}
                   {% when 'image' %}

@@ -1,10 +1,4 @@
-/* ============================================
-   VASTU RESPONSIVE - Mobile & Tablet Breakpoints
-   ============================================ */
-
-/* Mobile Breakpoint: max-width 48rem (768px) */
 @media (width <= 48rem) {
-  /* Typography Adjustments */
   .banner-v155__title {
     font-size: 3.5rem;
   }
@@ -25,13 +19,11 @@
     --fontsize: 2.5rem;
   }
 
-  /* Carousel Text Padding */
   .slideshow-v28__text--overlay {
     padding-left: var(--xo-container-gap, 1.25rem);
     padding-right: var(--xo-container-gap, 1.25rem);
   }
 
-  /* Featured Products Icon */
   .vastu-featured-products__icon-svg {
     min-height: 9.375rem;
     padding: var(--spacing-lg);
@@ -42,14 +34,12 @@
     max-height: 6.25rem;
   }
 
-  /* Trust Bar Icons */
   .vastu-trust-bar__icon,
   .vastu-trust-bar__icon-svg {
     width: 1.5rem;
     height: 1.5rem;
   }
 
-  /* Features Bar Icons */
   .vastu-features-bar__icon,
   .vastu-features-bar__icon-svg {
     width: 18rem;
@@ -58,7 +48,6 @@
     min-height: 18rem;
   }
 
-  /* Product Showcase */
   .vastu-product-showcase {
     padding: var(--spacing-xl) 0;
   }
@@ -73,7 +62,6 @@
     font-size: 2rem;
   }
 
-  /* Footer */
   footer,
   .footer-v18__description,
   .footer-v18__subtext,
@@ -90,7 +78,6 @@
     font-size: var(--font-size-card-title);
   }
 
-  /* Carousel Pagination */
   xo-carousel:has(.vastu-best-seller__pagination),
   xo-carousel:has(.vastu-featured-products__pagination),
   xo-carousel:has(.vastu-trust-bar__pagination),
@@ -121,9 +108,7 @@
   }
 }
 
-/* Tablet Breakpoint: 46.875rem - 61.8125rem (750px - 989px) */
 @media (width >= 46.875rem) and (width <= 61.8125rem) {
-  /* Carousel Padding */
   xo-carousel:has(.vastu-best-seller__pagination),
   xo-carousel:has(.vastu-featured-products__pagination),
   xo-carousel:has(.vastu-trust-bar__pagination),
@@ -144,6 +129,5 @@
 }
 
 /* Desktop Breakpoint: min-width 75rem (1200px) */
-@media (width >= 75rem) {
-  /* Desktop-specific styles can go here */
-}
+
+/* Desktop-specific styles can go here if needed */

@@ -12,12 +12,13 @@
 <xo-product-liquid-static>
   <script type='application/json'>
     {
-      {% for variant in product.variants %}
+      {%- assign variant_limit = 50 -%}
+      {%- for variant in product.variants limit: variant_limit -%}
         {{ variant.id }}: {
           price: `{% render 'price', variant: variant, reverse: false, card:true %}`,
           img: `{% render 'product-image', product: product, variant: variant, media_aspect_ratio: media_aspect_ratio %}`
-        },
-      {% endfor %}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
     }
   </script>
 </xo-product-liquid-static>

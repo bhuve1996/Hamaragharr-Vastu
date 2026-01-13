@@ -1,0 +1,99 @@
+/* Homepage Section Headings - Global Styles */
+.homepage-section-heading {
+  font-size: var(--homepage-heading-font-size, 3.5rem);
+  font-weight: var(--homepage-heading-font-weight, 700);
+  color: var(--homepage-heading-color, #000);
+  text-transform: var(--homepage-heading-text-transform, uppercase);
+  line-height: var(--homepage-heading-line-height, 1.2);
+  text-align: center;
+  margin: 0 0 var(--heading-margin-bottom-desktop, var(--homepage-heading-margin-bottom-desktop, 48px));
+  padding: 0;
+  position: relative;
+}
+
+/* Underline for headings */
+.homepage-section-heading[data-enable-underline="true"]::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-1 * var(--heading-underline-bottom-desktop, var(--homepage-heading-underline-bottom-desktop, 20px)));
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--heading-underline-width, var(--homepage-heading-underline-width, 80px));
+  height: var(--heading-underline-height, var(--homepage-heading-underline-height, 4px));
+  background-color: var(--heading-underline-color, var(--homepage-heading-underline-color, #473855));
+  border-radius: 2px;
+}
+
+/* Section-specific heading classes can override these defaults */
+.vastu-why-kit__title,
+.vastu-trust-bar__title,
+.vastu-help-address-v1__section-title,
+.vastu-shop-by-concern__section-title,
+.vastu-section-title,
+.blog-v2__title,
+.faq-v3__title,
+.vastu-hindi-statement__text {
+  font-size: var(--heading-font-size, var(--homepage-heading-font-size, 3.5rem));
+  font-weight: var(--heading-font-weight, var(--homepage-heading-font-weight, 700));
+  color: var(--heading-color, var(--homepage-heading-color, #000));
+  text-transform: var(--heading-text-transform, var(--homepage-heading-text-transform, uppercase));
+  line-height: var(--heading-line-height, var(--homepage-heading-line-height, 1.2));
+  text-align: center;
+  margin: 0 0 var(--heading-margin-bottom-desktop, var(--homepage-heading-margin-bottom-desktop, 48px));
+  padding: 0;
+  position: relative;
+}
+
+/* Underline for section-specific heading classes */
+.vastu-why-kit__title[data-enable-underline="true"]::after,
+.vastu-trust-bar__title[data-enable-underline="true"]::after,
+.vastu-help-address-v1__section-title[data-enable-underline="true"]::after,
+.vastu-shop-by-concern__section-title[data-enable-underline="true"]::after,
+.vastu-section-title[data-enable-underline="true"]::after,
+.blog-v2__title[data-enable-underline="true"]::after,
+.faq-v3__title[data-enable-underline="true"]::after,
+.vastu-hindi-statement__text[data-enable-underline="true"]::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-1 * var(--heading-underline-bottom-desktop, var(--homepage-heading-underline-bottom-desktop, 20px)));
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--heading-underline-width, var(--homepage-heading-underline-width, 80px));
+  height: var(--heading-underline-height, var(--homepage-heading-underline-height, 4px));
+  background-color: var(--heading-underline-color, var(--homepage-heading-underline-color, #473855));
+  border-radius: 2px;
+}
+
+/* Remove padding bottom from FAQ heading wrapper */
+.faq-v3__heading {
+  padding-bottom: 0;
+}
+
+/* Mobile responsive adjustments */
+@media (width <= 48rem) {
+  .homepage-section-heading,
+  .vastu-why-kit__title,
+  .vastu-trust-bar__title,
+  .vastu-help-address-v1__section-title,
+  .vastu-shop-by-concern__section-title,
+  .vastu-section-title,
+  .blog-v2__title,
+  .faq-v3__title,
+  .vastu-hindi-statement__text {
+    font-size: calc(var(--heading-font-size, var(--homepage-heading-font-size, 3.5rem)) * 0.6);
+    margin-bottom: var(--heading-margin-bottom-mobile, var(--homepage-heading-margin-bottom-mobile, 32px));
+  }
+
+  /* Mobile underline position */
+  .homepage-section-heading[data-enable-underline="true"]::after,
+  .vastu-why-kit__title[data-enable-underline="true"]::after,
+  .vastu-trust-bar__title[data-enable-underline="true"]::after,
+  .vastu-help-address-v1__section-title[data-enable-underline="true"]::after,
+  .vastu-shop-by-concern__section-title[data-enable-underline="true"]::after,
+  .vastu-section-title[data-enable-underline="true"]::after,
+  .blog-v2__title[data-enable-underline="true"]::after,
+  .faq-v3__title[data-enable-underline="true"]::after,
+  .vastu-hindi-statement__text[data-enable-underline="true"]::after {
+    bottom: calc(-1 * var(--heading-underline-bottom-mobile, var(--homepage-heading-underline-bottom-mobile, 16px)));
+  }
+}

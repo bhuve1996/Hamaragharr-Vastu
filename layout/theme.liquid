@@ -40,6 +40,11 @@
         sizes='180x180'
         href='{{ settings.favicon | image_url: width: 180, height: 180 }}'
       >
+      <link rel='shortcut icon' href='{{ settings.favicon | image_url: width: 32, height: 32 }}'>
+    {%- else -%}
+      {%- comment -%} Fallback favicon to prevent 404 errors {%- endcomment -%}
+      <link rel='icon' href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>'>
+      <link rel='shortcut icon' href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>'>
     {%- endif -%}
 
     {% render 'page-title' %}
@@ -47,7 +52,18 @@
     {%- liquid
       assign meta_description = page_description
       
-      if template.name == 'collection' and collection
+      # Handle homepage specifically for better SEO
+      if template.name == 'index' or request.page_type == 'index'
+        # Use a keyword-rich description for homepage if available
+        if shop.metafields.custom.homepage_meta_description != blank
+          assign meta_description = shop.metafields.custom.homepage_meta_description
+        elsif page_description != blank
+          assign meta_description = page_description
+        else
+          # Default SEO-optimized description for Vastu products
+          assign meta_description = 'Transform your home with authentic Vastu Shastra solutions. Complete Vastu Kit for home & office. Self-installation, no consultation needed. Shop Vastu remedies, wall paintings & correction kits online.'
+        endif
+      elsif template.name == 'collection' and collection
         if collection.description != blank
           assign meta_description = collection.description | strip_html | truncate: 160
         endif
@@ -76,6 +92,18 @@
       endif
     -%}
     <meta name='description' content='{{ meta_description | escape }}'>
+    
+    {%- comment -%} Meta Keywords (configurable via settings) {%- endcomment -%}
+    {%- if settings.seo_meta_keywords != blank -%}
+      <meta name='keywords' content='{{ settings.seo_meta_keywords | escape }}'>
+    {%- endif -%}
+    
+    {%- comment -%} Robots Meta Tag (configurable via settings) {%- endcomment -%}
+    {%- if settings.seo_robots_index != blank -%}
+      <meta name='robots' content='{{ settings.seo_robots_index }}'>
+    {%- else -%}
+      <meta name='robots' content='index, follow'>
+    {%- endif -%}
 
     {% render 'meta-tags' %}
 
@@ -93,7 +121,13 @@
     {{ 'vastu-product-page.css' | asset_url | stylesheet_tag }}
     {{ 'vastu-shipping-link.css' | asset_url | stylesheet_tag }}
     {{ 'vastu-buttons-hover.css' | asset_url | stylesheet_tag }}
+    {{ 'button-hover-effects.css' | asset_url | stylesheet_tag }}
+    {{ 'button-fixes.css' | asset_url | stylesheet_tag }}
+    {{ 'newsletter-button-mobile.css' | asset_url | stylesheet_tag }}
+    {{ 'price-tag-styles.css' | asset_url | stylesheet_tag }}
     {{ 'vastu-sections-spacing.css' | asset_url | stylesheet_tag }}
+    {{ 'section-spacing.css' | asset_url | stylesheet_tag }}
+    {{ 'homepage-headings.css' | asset_url | stylesheet_tag }}
     {{ 'vastu-why-kit.css' | asset_url | stylesheet_tag }}
     {{ 'vastu-product-showcase.css' | asset_url | stylesheet_tag }}
     {{ 'vastu-hindi-statement.css' | asset_url | stylesheet_tag }}
@@ -363,40 +397,10 @@
         setInterval(hideTrialBanner, 1000);
       })();
 
-      // Fix: Update product price when variant selection changes with loading indicator
+      // Update product price when variant selection changes
       (function() {
-        // Add loading indicator styles
-        const style = document.createElement('style');
-        style.textContent = `
-          .xo-price-loading {
-            position: relative;
-            min-height: 1.5em;
-            opacity: 0.6;
-          }
-          .xo-price-loading::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 16px;
-            height: 16px;
-            border: 2px solid currentColor;
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: xo-price-spin 0.6s linear infinite;
-          }
-          @keyframes xo-price-spin {
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-          }
-          .xo-price-loading .xo-price__container {
-            visibility: hidden;
-          }
-        `;
-        document.head.appendChild(style);
-
+        // Format money using Shopify's formatMoney if available
         function formatMoney(cents, format) {
-          // Use Shopify's formatMoney if available
           if (window.Shopify && window.Shopify.formatMoney) {
             return window.Shopify.formatMoney(cents, format);
           }
@@ -449,99 +453,95 @@
           return formatString.replace(placeholderRegex, formattedValue);
         }
 
-        function showPriceLoading(productId) {
-          const priceElements = document.querySelectorAll(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`);
-          priceElements.forEach(priceEl => {
-            const priceContainer = priceEl.querySelector('.xo-price');
-            if (priceContainer) {
-              priceContainer.classList.add('xo-price-loading');
-            }
-          });
-        }
-
-        function hidePriceLoading(productId) {
-          const priceElements = document.querySelectorAll(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`);
-          priceElements.forEach(priceEl => {
-            const priceContainer = priceEl.querySelector('.xo-price');
-            if (priceContainer) {
-              priceContainer.classList.remove('xo-price-loading');
-            }
-          });
-        }
-
-        function updateProductPrice(variantId, productId) {
-          // Show loading indicator
-          showPriceLoading(productId);
-          
-          // Find the product data element - search in the context of the product
-          const productContext = document.querySelector(`xo-product[xo-product-id="${productId}"]`) || document;
-          const productDataEl = productContext.querySelector(`xo-product-data script`);
-          
-          // Try to get variant data from product data
-          let variant = null;
-          if (productDataEl) {
-            try {
-              const productData = JSON.parse(productDataEl.textContent);
-              variant = productData.variants.find(v => v.id === variantId);
-            } catch (error) {
-              console.error('Error parsing product data:', error);
+        // Get product data from the DOM
+        function getProductData(productId) {
+          // Try to find product data in various contexts
+          // First, try to find in the form context (for popups/modals)
+          const variantInput = document.querySelector(`input[name="id"][value="${productId}"], input[name="id"]`);
+          let formContext = null;
+          if (variantInput) {
+            const form = variantInput.closest('form');
+            if (form) {
+              formContext = form.closest('xo-product, xo-modal, xo-toggle, [data-product-id]') || form;
             }
           }
           
-          // If variant not found in product data, try to fetch from server
-          if (!variant && productDataEl) {
-            try {
-              const productData = JSON.parse(productDataEl.textContent);
-              const productHandle = productData.handle;
-              if (productHandle && window.shopUrl) {
-                fetch(`${window.shopUrl}/products/${productHandle}?view=price&variant=${variantId}`)
-                  .then(response => response.text())
-                  .then(html => {
-                    // Parse the HTML to extract price
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const priceElements = document.querySelectorAll(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`);
-                    priceElements.forEach(priceEl => {
-                      const newPrice = doc.querySelector('.xo-price');
-                      if (newPrice) {
-                        const priceContainer = priceEl.querySelector('.xo-price');
-                        if (priceContainer) {
-                          priceContainer.innerHTML = newPrice.innerHTML;
-                          priceContainer.classList.remove('xo-price-loading');
-                        }
-                      }
-                    });
-                    hidePriceLoading(productId);
-                  })
-                  .catch(error => {
-                    console.error('Error fetching price from server:', error);
-                    hidePriceLoading(productId);
-                  });
-                return;
+          const contexts = [
+            document.querySelector(`xo-product[xo-product-id="${productId}"]`),
+            document.querySelector(`[data-product-id="${productId}"]`),
+            formContext,
+            document
+          ].filter(Boolean);
+          
+          for (const context of contexts) {
+            if (!context) continue;
+            const productDataEl = context.querySelector('xo-product-data script');
+            if (productDataEl) {
+              try {
+                return JSON.parse(productDataEl.textContent);
+              } catch (e) {
+                console.error('Error parsing product data:', e);
               }
-            } catch (error) {
-              console.error('Error getting product handle:', error);
+            }
+          }
+          return null;
+        }
+
+        // Update price for a specific product
+        function updateProductPrice(variantId, productId, contextElement) {
+          // Try to get product data from the context first, then fallback to global search
+          let productData = null;
+          
+          if (contextElement) {
+            const contextDataEl = contextElement.querySelector('xo-product-data script');
+            if (contextDataEl) {
+              try {
+                productData = JSON.parse(contextDataEl.textContent);
+              } catch (e) {}
             }
           }
           
-          if (!variant) {
-            hidePriceLoading(productId);
+          // If not found in context, try global search
+          if (!productData) {
+            productData = getProductData(productId);
+          }
+          
+          if (!productData) {
+            console.warn('Product data not found for product:', productId);
             return;
           }
           
-          // Use setTimeout to simulate async operation and show loading
-          setTimeout(() => {
-            try {
+          const variant = productData.variants.find(v => v.id === variantId);
+          if (!variant) {
+            console.warn('Variant not found:', variantId);
+            return;
+          }
+          
               // Get money format
               const moneyFormat = document.documentElement.getAttribute('xo-money-format') || 
                                  document.documentElement.getAttribute('xo-money-with-currency-format') || 
                                  '{{amount}}';
               
+          const currencyCodeEnabled = document.documentElement.hasAttribute('xo-currency-code-enabled');
+          
               // Format prices
               const price = variant.price;
-              const compareAtPrice = variant.compare_at_price;
+          const compareAtPrice = variant.compare_at_price || 0;
+          
               let moneyPrice = formatMoney(price, moneyFormat);
-              let moneyComparePrice = compareAtPrice ? formatMoney(compareAtPrice, moneyFormat) : null;
+          if (currencyCodeEnabled) {
+            const currencyFormat = document.documentElement.getAttribute('xo-money-with-currency-format') || moneyFormat;
+            moneyPrice = formatMoney(price, currencyFormat);
+          }
+          
+          let moneyComparePrice = null;
+          if (compareAtPrice > 0) {
+            moneyComparePrice = formatMoney(compareAtPrice, moneyFormat);
+            if (currencyCodeEnabled) {
+              const currencyFormat = document.documentElement.getAttribute('xo-money-with-currency-format') || moneyFormat;
+              moneyComparePrice = formatMoney(compareAtPrice, currencyFormat);
+            }
+          }
               
               // Replace currency symbols (Indian Rupee formatting)
               moneyPrice = moneyPrice.replace(/Rs\./g, '₹').replace(/Rs /g, '₹ ').replace(/INR/g, '₹');
@@ -549,25 +549,32 @@
                 moneyComparePrice = moneyComparePrice.replace(/Rs\./g, '₹').replace(/Rs /g, '₹ ').replace(/INR/g, '₹');
               }
               
-              // Find all price elements that need updating (in all contexts)
+          // Find all price elements that need updating
               const priceElements = document.querySelectorAll(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`);
               
               priceElements.forEach(priceEl => {
-                const priceContainer = priceEl.querySelector('.xo-price');
-                if (!priceContainer) return;
-                
-                // Get existing style classes
-                const existingStyle = priceContainer.className.match(/xo-price--\w+/);
-                const styleClass = existingStyle ? existingStyle[0] : '';
+            let priceContainer = priceEl.querySelector('.xo-price');
+            
+            // If price container doesn't exist, create it
+            if (!priceContainer) {
+              priceContainer = document.createElement('div');
+              priceContainer.className = 'xo-price';
+              priceContainer.setAttribute('role', 'status');
+              priceEl.appendChild(priceContainer);
+            }
+            
+            // Get existing style classes from price container
+            const styleMatch = priceContainer.className.match(/xo-price--(\w+)/);
+            const styleClass = styleMatch ? styleMatch[1] : '';
                 
                 // Create new price HTML
                 let newPriceHTML = '';
                 
-                if (compareAtPrice && compareAtPrice > price) {
+            if (compareAtPrice > 0 && compareAtPrice > price) {
                   // Sale price
                   newPriceHTML = `
                     <div class="xo-price__container">
-                      <div class="xo-price__sale${styleClass ? ' ' + styleClass : ''}">
+                  <div class="xo-price__sale${styleClass ? ' xo-price__sale--' + styleClass : ''}">
                         <div class="xo-visually-hidden xo-visually-hidden--inline">Sale price</div>
                         <span class="xo-price__item xo-price__item--accent">${moneyPrice}</span>
                         <div class="xo-visually-hidden xo-visually-hidden--inline">Regular price</div>
@@ -579,7 +586,7 @@
                   // Regular price
                   newPriceHTML = `
                     <div class="xo-price__container">
-                      <div class="xo-price__regular${styleClass ? ' ' + styleClass : ''}">
+                  <div class="xo-price__regular${styleClass ? ' xo-price__regular--' + styleClass : ''}">
                         <div class="xo-visually-hidden xo-visually-hidden--inline">Regular price</div>
                         <span class="xo-price__item">${moneyPrice}</span>
                       </div>
@@ -589,135 +596,165 @@
                 
                 // Update the price container
                 priceContainer.innerHTML = newPriceHTML;
-                priceContainer.classList.remove('xo-price-loading');
-              });
-              
-              hidePriceLoading(productId);
-            } catch (error) {
-              console.error('Error updating product price:', error);
-              hidePriceLoading(productId);
-            }
-          }, 50); // Small delay to show loading indicator
+          });
         }
 
-        // Track which forms have been initialized
-        const initializedForms = new WeakSet();
-        
-        function handleVariantChange() {
-          // Find all product forms - including in popups, modals, collections, etc.
-          const productForms = document.querySelectorAll('form[data-type="add-to-cart-form"], form[id^="product-form"], form[id*="product"], form.product-form');
-          
-          productForms.forEach(form => {
-            // Skip if already initialized
-            if (initializedForms.has(form)) return;
-            
-            const variantInput = form.querySelector('input[name="id"]');
-            if (!variantInput) return;
-            
-            // Get product ID from various sources
+        // Get product ID from form context
+        function getProductIdFromForm(form) {
+          // Try xo-product element
             const productEl = form.closest('xo-product');
-            let productId = productEl ? productEl.getAttribute('xo-product-id') : null;
+          if (productEl) {
+            const productId = productEl.getAttribute('xo-product-id');
+            if (productId) return productId;
+          }
             
-            if (!productId) {
-              // Try to get from form ID
+          // Try form ID
               const formId = form.id;
               const match = formId.match(/product-form-(\d+)/) || formId.match(/product-(\d+)/);
               if (match) {
-                productId = match[1];
-              }
+            return match[1];
             }
             
-            if (!productId) {
-              // Try to get from product data in the form's context
+          // Try product data in form context
               const contextEl = form.closest('xo-product, .product-card, .product-item, [data-product-id]');
               if (contextEl) {
                 const dataEl = contextEl.querySelector('xo-product-data script');
                 if (dataEl) {
                   try {
                     const productData = JSON.parse(dataEl.textContent);
-                    productId = productData.id;
+                return productData.id.toString();
                   } catch (e) {}
                 }
-                // Also check data attribute
-                if (!productId && contextEl.hasAttribute('data-product-id')) {
-                  productId = contextEl.getAttribute('data-product-id');
-                }
+            if (contextEl.hasAttribute('data-product-id')) {
+              return contextEl.getAttribute('data-product-id');
+            }
+          }
+          
+          return null;
+        }
+
+        // Handle variant change
+        function handleVariantChange(variantInput) {
+          const form = variantInput.closest('form');
+          if (!form) return;
+          
+          const variantId = parseInt(variantInput.value);
+          if (!variantId) return;
+          
+          const productId = getProductIdFromForm(form);
+          if (!productId) return;
+          
+          // Get context element (form, modal, etc.) for better product data lookup
+          const contextElement = form.closest('xo-product, xo-modal, xo-toggle, [data-product-id]') || form;
+          
+          updateProductPrice(variantId, productId, contextElement);
+        }
+
+        // Track last variant ID to detect changes
+        const variantTrackers = new WeakMap();
+        
+        // Initialize variant change listeners
+        function initVariantListeners() {
+          // Find all variant inputs
+          const variantInputs = document.querySelectorAll('input[name="id"]');
+          
+          variantInputs.forEach(variantInput => {
+            // Skip if already has listener
+            if (variantInput.dataset.priceListenerAdded) {
+              // Still check for value changes
+              const lastValue = variantTrackers.get(variantInput);
+              const currentValue = parseInt(variantInput.value);
+              if (lastValue !== currentValue && currentValue) {
+                variantTrackers.set(variantInput, currentValue);
+                handleVariantChange(variantInput);
               }
+              return;
             }
             
-            if (!productId) return;
+            variantInput.dataset.priceListenerAdded = 'true';
+            variantTrackers.set(variantInput, parseInt(variantInput.value));
             
-            // Mark as initialized
-            initializedForms.add(form);
-            
-            // Store the last variant ID to avoid unnecessary updates
-            let lastVariantId = parseInt(variantInput.value);
-            
-            // Function to check and update price
-            const checkAndUpdate = () => {
-              const currentVariantId = parseInt(variantInput.value);
-              if (currentVariantId && currentVariantId !== lastVariantId) {
-                lastVariantId = currentVariantId;
-                updateProductPrice(currentVariantId, productId);
+            // Listen for change and input events
+            const updateHandler = () => {
+              const currentValue = parseInt(variantInput.value);
+              const lastValue = variantTrackers.get(variantInput);
+              if (lastValue !== currentValue && currentValue) {
+                variantTrackers.set(variantInput, currentValue);
+                handleVariantChange(variantInput);
               }
             };
             
-            // Listen for variant changes on the input
-            variantInput.addEventListener('change', checkAndUpdate);
+            variantInput.addEventListener('change', updateHandler);
+            variantInput.addEventListener('input', updateHandler);
             
-            // Listen for variant selector changes - use event delegation for dynamic content
-            const handleVariantSelectorChange = (e) => {
-              const target = e.target;
-              if (target.matches('input[type="radio"][name^="option"], select[name^="option"], xo-product-variant input, xo-product-variant select, [data-variant-option]')) {
-                // Wait a bit for the variant ID to update
-                setTimeout(checkAndUpdate, 150);
-              }
-            };
-            
-            // Add listener to form
-            form.addEventListener('change', handleVariantSelectorChange);
-            
-            // Also listen for clicks on variant options (for color swatches, etc.)
-            form.addEventListener('click', (e) => {
-              const target = e.target.closest('[data-option], [data-variant], xo-product-variant, .variant-option');
-              if (target) {
-                setTimeout(checkAndUpdate, 150);
-              }
+            // Also watch for value attribute changes (for web components)
+            const valueObserver = new MutationObserver(() => {
+              setTimeout(updateHandler, 50);
             });
             
-            // Listen for custom events that might be fired by web components
-            form.addEventListener('variant:change', (e) => {
-              if (e.detail && e.detail.variantId) {
-                updateProductPrice(e.detail.variantId, productId);
-              }
+            valueObserver.observe(variantInput, {
+              attributes: true,
+              attributeFilter: ['value'],
+              childList: false,
+              subtree: false
             });
+            
+            // Periodic check for value changes (fallback for web components)
+            const checkInterval = setInterval(() => {
+              const currentValue = parseInt(variantInput.value);
+              const lastValue = variantTrackers.get(variantInput);
+              if (lastValue !== currentValue && currentValue) {
+                variantTrackers.set(variantInput, currentValue);
+                handleVariantChange(variantInput);
+              }
+            }, 300);
+            
+            // Clean up interval when input is removed
+            const disconnectObserver = new MutationObserver((mutations) => {
+              mutations.forEach((mutation) => {
+                mutation.removedNodes.forEach((node) => {
+                  if (node === variantInput || (node.nodeType === 1 && node.contains(variantInput))) {
+                    clearInterval(checkInterval);
+                    valueObserver.disconnect();
+                    disconnectObserver.disconnect();
+                  }
+                });
+              });
+            });
+            disconnectObserver.observe(document.body, { childList: true, subtree: true });
           });
         }
 
-        // Use event delegation for variant changes everywhere
+        // Use event delegation for variant option changes
         document.addEventListener('change', (e) => {
           const target = e.target;
+          
+          // Check if it's a variant option selector
           if (target.matches('input[type="radio"][name^="option"], select[name^="option"], xo-product-variant input, xo-product-variant select')) {
             const form = target.closest('form');
             if (form) {
               const variantInput = form.querySelector('input[name="id"]');
               if (variantInput) {
+                // Wait a bit for variant ID to update
                 setTimeout(() => {
-                  const variantId = parseInt(variantInput.value);
-                  if (variantId) {
-                    // Find product ID
-                    const productEl = form.closest('xo-product');
-                    let productId = productEl ? productEl.getAttribute('xo-product-id') : null;
-                    if (!productId) {
-                      const formId = form.id;
-                      const match = formId.match(/product-form-(\d+)/) || formId.match(/product-(\d+)/);
-                      if (match) productId = match[1];
-                    }
-                    if (productId) {
-                      updateProductPrice(variantId, productId);
-                    }
-                  }
-                }, 150);
+                  handleVariantChange(variantInput);
+                }, 100);
+              }
+            }
+          }
+        });
+
+        // Also listen for clicks on variant options (for color swatches, etc.)
+        document.addEventListener('click', (e) => {
+          const target = e.target.closest('[data-option], [data-variant], xo-product-variant, .variant-option, [data-variant-option]');
+          if (target) {
+            const form = target.closest('form');
+            if (form) {
+              const variantInput = form.querySelector('input[name="id"]');
+              if (variantInput) {
+                setTimeout(() => {
+                  handleVariantChange(variantInput);
+                }, 100);
               }
             }
           }
@@ -725,7 +762,7 @@
 
         // Initialize on DOM ready
         function init() {
-          handleVariantChange();
+          initVariantListeners();
         }
         
         if (document.readyState === 'loading') {
@@ -734,12 +771,12 @@
           init();
         }
         
-        // Also handle dynamically added forms (popups, modals, AJAX loaded content)
-        const formObserver = new MutationObserver(() => {
-          handleVariantChange();
+        // Handle dynamically added forms (popups, modals, AJAX loaded content)
+        const observer = new MutationObserver(() => {
+          initVariantListeners();
         });
         
-        formObserver.observe(document.body, {
+        observer.observe(document.body, {
           childList: true,
           subtree: true
         });
@@ -933,6 +970,80 @@
           });
         } else {
           setTimeout(monitorCartDrawer, 500);
+        }
+      })();
+
+      // Global viewport resize listener to handle mobile/desktop switching in dev tools
+      (function() {
+        let resizeTimeout = null;
+        let lastViewportWidth = window.innerWidth;
+        let isMobile = window.innerWidth <= 767; // Common mobile breakpoint
+        
+        function updateViewportClasses() {
+          const currentWidth = window.innerWidth;
+          const newIsMobile = currentWidth <= 767;
+          const html = document.documentElement;
+          
+          // Only update if viewport category actually changed
+          if (newIsMobile !== isMobile || Math.abs(currentWidth - lastViewportWidth) > 50) {
+            // Remove existing classes
+            html.classList.remove('is-mobile', 'is-desktop');
+            
+            // Add appropriate class
+            if (newIsMobile) {
+              html.classList.add('is-mobile');
+            } else {
+              html.classList.add('is-desktop');
+            }
+            
+            // Update state
+            isMobile = newIsMobile;
+            lastViewportWidth = currentWidth;
+            
+            // Dispatch custom event for other components to react
+            window.dispatchEvent(new CustomEvent('viewport:changed', {
+              detail: {
+                width: currentWidth,
+                isMobile: newIsMobile,
+                isDesktop: !newIsMobile
+              }
+            }));
+            
+            // Force layout recalculation
+            void html.offsetHeight;
+          }
+        }
+        
+        // Debounced resize handler
+        function handleResize() {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            updateViewportClasses();
+          }, 150);
+        }
+        
+        // Listen for resize events
+        window.addEventListener('resize', handleResize, { passive: true });
+        
+        // Also listen for orientation changes (mobile devices)
+        window.addEventListener('orientationchange', () => {
+          setTimeout(updateViewportClasses, 200);
+        });
+        
+        // Use ResizeObserver for more accurate viewport detection
+        if (window.ResizeObserver) {
+          const resizeObserver = new ResizeObserver(() => {
+            handleResize();
+          });
+          
+          resizeObserver.observe(document.documentElement);
+        }
+        
+        // Initial setup
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', updateViewportClasses);
+        } else {
+          updateViewportClasses();
         }
       })();
     </script>

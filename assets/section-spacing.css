@@ -1,0 +1,62 @@
+/* Global Section Spacing - Desktop */
+.xo-section {
+  padding-top: var(--section-padding-top-desktop, 16px);
+  padding-bottom: var(--section-padding-bottom-desktop, 16px);
+  margin-top: var(--section-margin-top-desktop, 16px);
+  margin-bottom: var(--section-margin-bottom-desktop, 16px);
+}
+
+/* Section-level overrides (desktop) */
+.xo-section[style*="--section-padding-top-desktop"] {
+  padding-top: var(--section-padding-top-desktop);
+}
+
+.xo-section[style*="--section-padding-bottom-desktop"] {
+  padding-bottom: var(--section-padding-bottom-desktop);
+}
+
+.xo-section[style*="--section-margin-top-desktop"] {
+  margin-top: var(--section-margin-top-desktop);
+}
+
+.xo-section[style*="--section-margin-bottom-desktop"] {
+  margin-bottom: var(--section-margin-bottom-desktop);
+}
+
+/* Global Section Spacing - Mobile */
+@media (width <= 48rem) {
+  .xo-section {
+    padding-top: var(--section-padding-top-mobile, 12px);
+    padding-bottom: var(--section-padding-bottom-mobile, 12px);
+    margin-top: var(--section-margin-top-mobile, 12px);
+    margin-bottom: var(--section-margin-bottom-mobile, 12px);
+  }
+
+  /* Section-level overrides (mobile) */
+  .xo-section[style*="--section-padding-top-mobile"] {
+    padding-top: var(--section-padding-top-mobile);
+  }
+
+  .xo-section[style*="--section-padding-bottom-mobile"] {
+    padding-bottom: var(--section-padding-bottom-mobile);
+  }
+
+  .xo-section[style*="--section-margin-top-mobile"] {
+    margin-top: var(--section-margin-top-mobile);
+  }
+
+  .xo-section[style*="--section-margin-bottom-mobile"] {
+    margin-bottom: var(--section-margin-bottom-mobile);
+  }
+}
+
+/* Section-to-section spacing (for .section+.section selector) */
+@media (width >= 768px) {
+  .section + .section {
+    margin-top: var(--section-to-section-spacing-desktop, 0);
+  }
+}
+
+.section + .section {
+  margin-top: var(--section-to-section-spacing-mobile, 0);
+}

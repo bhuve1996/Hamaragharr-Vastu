@@ -8,7 +8,8 @@
       </xo-animate>
     {% endif %}
     <xo-collapse-provider xo-duration='300'>
-      {%- for block in section.blocks -%}
+      {%- assign blocks_limit = 20 -%}
+      {%- for block in section.blocks limit: blocks_limit -%}
         {% if block.settings.question != blank %}
           {% comment %} Check if this FAQ should be shown for this product {% endcomment %}
           {% assign show_faq = false %}
@@ -27,9 +28,10 @@
               {% assign show_faq = true %}
             {% endif %}
             
-            {% comment %} Check product tags {% endcomment %}
+            {% comment %} Check product tags - limited and early exit {% endcomment %}
             {% unless show_faq %}
-              {% for tag in product.tags %}
+              {% assign tags_limit = 10 %}
+              {% for tag in product.tags limit: tags_limit %}
                 {% assign tag_lower = tag | downcase %}
                 {% if tag_lower == product_type_lower or tag_lower contains product_type_lower %}
                   {% assign show_faq = true %}
@@ -38,9 +40,10 @@
               {% endfor %}
             {% endunless %}
             
-            {% comment %} Check product collections {% endcomment %}
+            {% comment %} Check product collections - limited and early exit {% endcomment %}
             {% unless show_faq %}
-              {% for collection in product.collections %}
+              {% assign collections_limit = 5 %}
+              {% for collection in product.collections limit: collections_limit %}
                 {% assign collection_title_lower = collection.title | downcase %}
                 {% if collection_title_lower contains product_type_lower %}
                   {% assign show_faq = true %}
@@ -79,6 +82,8 @@
       {%- endfor -%}
     </xo-collapse-provider>
   </xo-container>
+  {%- comment -%} FAQ Structured Data (Schema.org) {%- endcomment -%}
+  {% render 'faq-schema', section: section %}
     {% render 'section-separator',
     enable_separator: section.settings.enable_separator,
     separator_color: section.settings.separator_color,

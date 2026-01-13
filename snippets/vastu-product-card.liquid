@@ -51,8 +51,24 @@
     </a>
     {% if current_product.variants.size > 1 %}
       {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'center', section: section %}
+      {% comment %} product-data is already rendered inside product-variant-modal {% endcomment %}
+    {% else %}
+      {% comment %} Minimal product-data for single variant products (only first variant needed) {% endcomment %}
+      <xo-product-data>
+        <script type='application/json'>
+          {
+            "id": {{ current_product.id }},
+            "handle": {{ current_product.handle | json }},
+            "variants": [{
+              "id": {{ current_product.selected_or_first_available_variant.id }},
+              "price": {{ current_product.selected_or_first_available_variant.price }},
+              "available": {{ current_product.selected_or_first_available_variant.available }}
+            }],
+            "available": {{ current_product.available }}
+          }
+        </script>
+      </xo-product-data>
     {% endif %}
-    {% render 'product-data', product: current_product %}
   </xo-product>
 </div>
 

@@ -19,6 +19,7 @@
   - background_color: {String} background color of button
   - border_color: {String} border color of button
   - text_color: {String} text color of button
+  - text_color_class: {String} CSS class for text color override (e.g., 'black', 'white')
   - width: {Number} width of the button
   - block: {Boolean} whether the button is a block element
   - radius: {Number} border radius of the button
@@ -57,6 +58,7 @@
     {%- if settings.buttons_effect %} xo-btn--{{ settings.buttons_effect }}{% endif -%}
     {%- if loading %} xo-btn--loading{% endif -%}
     {%- if block %} xo-btn--block{% endif -%}
+    {%- if text_color_class %} xo-btn--text-{{ text_color_class }}{% endif -%}
     {%- if class %} {{ class }}{% endif -%}
   '
   {% if disabled %}
@@ -65,14 +67,26 @@
   {% if attrs %}
     {{ attrs }}
   {% endif %}
-  style='
-    {%- if background_color != null %}--bg-color: {{ background_color }};{% elsif style == 'secondary' %}--bg-color: rgb(var(--color-secondary-button, 71, 56, 85));{% elsif style == 'primary' %}--bg-color: rgb(var(--color-button, 255, 255, 255));{% endif -%}
-    {%- if border_color != null %}--border-color: {{ border_color }};{% endif -%}
-    {%- if text_color != null %}--text-color: {{ text_color }};{% elsif style == 'secondary' %}--text-color: rgb(var(--color-secondary-button-text, 255, 255, 255));{% elsif style == 'primary' %}--text-color: rgb(var(--color-button-text, 0, 0, 0));{% endif -%}
-    {%- if width != null %}--width: {{ width }};{% endif -%}
-    {%- if radius != null %}border-radius: {{ radius }}rem;{% endif -%}
-    {%- if padding != null and style != 'link' %}padding-left: {{ padding }}rem; padding-right: {{ padding }}rem;{% endif -%}
-  '
+  {%- if text_color_class == blank -%}
+    style='
+      {%- if background_color != null %}--bg-color: {{ background_color }};{% elsif style == 'secondary' %}--bg-color: {{ settings.button_secondary_bg_color | default: '#473855' }};{% elsif style == 'primary' %}--bg-color: {{ settings.button_primary_bg_color | default: '#ffffff' }};{% endif -%}
+      {%- if border_color != null %}--border-color: {{ border_color }};{% endif -%}
+      {%- if text_color != null %}--text-color: {{ text_color }};{% elsif style == 'secondary' %}--text-color: {{ settings.button_secondary_text_color | default: '#ffffff' }};{% elsif style == 'primary' %}--text-color: {{ settings.button_primary_text_color | default: '#000000' }};{% endif -%}
+      {%- if width != null %}--width: {{ width }};{% endif -%}
+      {%- if radius != null %}border-radius: {{ radius }}rem;{% elsif settings.button_border_radius != null and settings.button_border_radius > 0 %}border-radius: {{ settings.button_border_radius }}px;{% endif -%}
+      {%- if padding != null and style != 'link' %}padding-left: {{ padding }}rem; padding-right: {{ padding }}rem;{% elsif style != 'link' %}padding-left: {{ settings.button_padding_left | default: 24 }}px; padding-right: {{ settings.button_padding_right | default: 24 }}px;{% endif -%}
+      font-size: {{ settings.button_font_size | default: 1.5 }}rem;
+    '
+  {%- else -%}
+    style='
+      {%- if background_color != null %}--bg-color: {{ background_color }};{% elsif style == 'secondary' %}--bg-color: {{ settings.button_secondary_bg_color | default: '#473855' }};{% elsif style == 'primary' %}--bg-color: {{ settings.button_primary_bg_color | default: '#ffffff' }};{% endif -%}
+      {%- if border_color != null %}--border-color: {{ border_color }};{% endif -%}
+      {%- if width != null %}--width: {{ width }};{% endif -%}
+      {%- if radius != null %}border-radius: {{ radius }}rem;{% elsif settings.button_border_radius != null and settings.button_border_radius > 0 %}border-radius: {{ settings.button_border_radius }}px;{% endif -%}
+      {%- if padding != null and style != 'link' %}padding-left: {{ padding }}rem; padding-right: {{ padding }}rem;{% elsif style != 'link' %}padding-left: {{ settings.button_padding_left | default: 24 }}px; padding-right: {{ settings.button_padding_right | default: 24 }}px;{% endif -%}
+      font-size: {{ settings.button_font_size | default: 1.5 }}rem;
+    '
+  {%- endif -%}
 {% endcapture %}
 
 {% capture content %}

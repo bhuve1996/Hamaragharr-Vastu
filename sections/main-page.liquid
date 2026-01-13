@@ -1,7 +1,11 @@
 <div {% render 'section-attr' %}>
   <xo-container>
-    <h1>{{ page.title | escape }}</h1>
-    <div>{{ page.content }}</div>
+    <xo-animate xo-cascade>
+      <h1>{{ page.title | escape }}</h1>
+    </xo-animate>
+    <xo-animate xo-cascade>
+      <div>{{ page.content }}</div>
+    </xo-animate>
   </xo-container>
 </div>
 

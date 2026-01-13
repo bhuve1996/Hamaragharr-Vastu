@@ -1,9 +1,4 @@
-/* ============================================
-   VASTU BASE - Variables, Typography, Utilities
-   ============================================ */
-
 :root {
-  /* Typography Scale */
   --font-size-tag: 1.25rem;
   --font-size-description: 1.6rem;
   --font-size-subtitle: 1.6rem;
@@ -11,14 +6,10 @@
   --font-size-heading: 3.5rem;
   --font-size-button: 2.5rem;
   --font-size-number: 1.6rem;
-
-  /* Font Weights */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-
-  /* Colors - RGB values for use with rgb() */
   --color-secondary-button: 71, 56, 85;
   --color-secondary-button-text: 255, 255, 255;
   --color-primary-bg: 255, 255, 255;
@@ -28,14 +19,10 @@
   --color-purple: 107, 70, 193;
   --color-purple-light: 186, 170, 200;
   --color-dark: 71, 56, 85;
-
-  /* Colors - Hex values for direct use */
   --color-hex-secondary: #473855;
   --color-hex-purple: #6b46c1;
   --color-hex-white: #fff;
   --color-hex-black: #000;
-
-  /* Padding - General */
   --padding-xs: 0.5rem;
   --padding-sm: 0.75rem;
   --padding-md: 1rem;
@@ -43,8 +30,6 @@
   --padding-xl: 2rem;
   --padding-2xl: 3rem;
   --padding-3xl: 4rem;
-
-  /* Padding - Specific Components */
   --padding-badge-v: 0.375rem;
   --padding-badge-h: 0.75rem;
   --padding-button-v: 0.75rem;
@@ -54,8 +39,6 @@
   --padding-price: 0.5rem;
   --padding-price-overlay-v: 0.5rem;
   --padding-price-overlay-h: 0.75rem;
-
-  /* Margin - General */
   --margin-xs: 0.5rem;
   --margin-sm: 0.75rem;
   --margin-md: 1rem;
@@ -63,8 +46,6 @@
   --margin-xl: 2rem;
   --margin-2xl: 3rem;
   --margin-3xl: 4rem;
-
-  /* Margin - Specific Components */
   --margin-heading-bottom: 48px;
   --margin-section-heading-bottom: 3rem;
   --margin-title-bottom: 0.75rem;
@@ -72,16 +53,10 @@
   --margin-price-bottom: 0.5rem;
   --margin-button-top: 2rem;
   --margin-description-bottom: 32px;
-
-  /* Homepage Heading Spacing - Consistent across all sections */
-
-  /* Underline centered in spacing: equal space above and below underline */
-  --heading-spacing-total: 6rem; /* Total spacing below heading text */
-  --heading-padding-bottom: 6rem; /* Space for underline area (half above, half below) */
-  --heading-underline-bottom: 3rem; /* Underline centered: 3rem from text, 3rem from content */
-  --heading-margin-bottom: 3rem; /* Space below underline before content */
-
-  /* Spacing - General (for gap, etc.) */
+  --heading-spacing-total: 6rem;
+  --heading-padding-bottom: 6rem;
+  --heading-underline-bottom: 3rem;
+  --heading-margin-bottom: 3rem;
   --spacing-xs: 0.5rem;
   --spacing-sm: 0.75rem;
   --spacing-md: 1rem;
@@ -89,41 +64,26 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
-
-  /* Section Spacing */
   --homepage-section-spacing: 64px;
   --homepage-section-spacing-mobile: 64px;
   --homepage-section-spacing-tablet: 64px;
   --homepage-section-padding-top: 0px;
   --homepage-section-padding-bottom: 0px;
-
-  /* Border Radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.875rem;
   --radius-full: 50%;
-
-  /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-base: 0.3s ease;
   --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* Shadows */
   --shadow-sm: 0 2px 6px rgb(0 0 0 / 10%);
   --shadow-md: 0 4px 12px rgb(0 0 0 / 15%);
   --shadow-lg: 0 8px 30px rgb(0 0 0 / 20%);
-
-  /* Z-index Scale */
   --z-base: 1;
   --z-overlay: 10;
   --z-modal: 100;
 }
 
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
-
-/* Flexbox Utilities */
 .vastu-flex {
   display: flex;
 }
@@ -146,7 +106,6 @@
   align-items: stretch;
 }
 
-/* Text Utilities */
 .vastu-text-center {
   text-align: center;
 }
@@ -159,9 +118,6 @@
   text-transform: uppercase;
 }
 
-/* Heading Utility - Base class for all section headings */
-
-/* Always use with parent class, never standalone */
 .vastu-heading {
   font-size: var(--title-font-size, var(--font-size-heading));
   font-weight: var(--title-font-weight, var(--font-weight-bold));
@@ -174,7 +130,6 @@
   line-height: 1.2;
 }
 
-/* Section Heading with Underline - Use with parent class */
 .vastu-section-heading {
   text-align: center;
   margin-bottom: 3rem;
@@ -193,7 +148,6 @@
   border-radius: 2px;
 }
 
-/* Spacing Utilities */
 .vastu-mt-auto {
   margin-top: auto;
 }
@@ -202,7 +156,6 @@
   margin-bottom: 0;
 }
 
-/* Visibility Utilities */
 .vastu-overflow-visible {
   overflow: visible;
 }
@@ -211,11 +164,6 @@
   pointer-events: auto;
 }
 
-/* ============================================
-   COMMON PATTERNS
-   ============================================ */
-
-/* Card Base Pattern */
 .vastu-card-base {
   display: flex;
   flex-direction: column;
@@ -223,7 +171,6 @@
   align-items: stretch;
 }
 
-/* Image Container Pattern */
 .vastu-image-container {
   position: relative;
   width: 100%;
@@ -239,7 +186,6 @@
   transition: transform var(--transition-base);
 }
 
-/* Badge Pattern */
 .vastu-badge {
   position: absolute;
   top: var(--badge-top, var(--spacing-sm));
@@ -255,7 +201,6 @@
   line-height: 1.2;
 }
 
-/* Price Overlay Pattern */
 .vastu-price-overlay {
   position: absolute;
   top: var(--spacing-sm);
@@ -272,7 +217,6 @@
   box-shadow: var(--shadow-md);
 }
 
-/* Actions Overlay Pattern */
 .vastu-actions-overlay {
   position: absolute;
   top: var(--spacing-sm);
@@ -299,7 +243,6 @@
   z-index: calc(var(--z-overlay) + 1);
 }
 
-/* Icon Button Pattern */
 .vastu-icon-button {
   opacity: 1;
   visibility: visible;
@@ -353,7 +296,3 @@
     background-color var(--transition-base),
     color var(--transition-base);
 }
-
-/* Note: Button styles are now section-specific and parent-scoped */
-
-/* See vastu-product-showcase.css, vastu-cards.css, vastu-shop-by-concern.css for button implementations */

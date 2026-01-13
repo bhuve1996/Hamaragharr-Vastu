@@ -23,6 +23,41 @@
   if section.settings.padding_bottom != null
     assign padding_bottom = '--pb: ' | append: section.settings.padding_bottom | append: ';'
   endif
+  
+  comment
+    Section-level spacing overrides (desktop)
+    Only output if value is > 0 (0 means use global setting)
+  endcomment
+  if section.settings.section_padding_top_desktop != null and section.settings.section_padding_top_desktop > 0
+    assign section_padding_top_desktop = '--section-padding-top-desktop: ' | append: section.settings.section_padding_top_desktop | append: 'px;'
+  endif
+  if section.settings.section_padding_bottom_desktop != null and section.settings.section_padding_bottom_desktop > 0
+    assign section_padding_bottom_desktop = '--section-padding-bottom-desktop: ' | append: section.settings.section_padding_bottom_desktop | append: 'px;'
+  endif
+  if section.settings.section_margin_top_desktop != null and section.settings.section_margin_top_desktop > 0
+    assign section_margin_top_desktop = '--section-margin-top-desktop: ' | append: section.settings.section_margin_top_desktop | append: 'px;'
+  endif
+  if section.settings.section_margin_bottom_desktop != null and section.settings.section_margin_bottom_desktop > 0
+    assign section_margin_bottom_desktop = '--section-margin-bottom-desktop: ' | append: section.settings.section_margin_bottom_desktop | append: 'px;'
+  endif
+  
+  comment
+    Section-level spacing overrides (mobile)
+    Only output if value is > 0 (0 means use global setting)
+  endcomment
+  if section.settings.section_padding_top_mobile != null and section.settings.section_padding_top_mobile > 0
+    assign section_padding_top_mobile = '--section-padding-top-mobile: ' | append: section.settings.section_padding_top_mobile | append: 'px;'
+  endif
+  if section.settings.section_padding_bottom_mobile != null and section.settings.section_padding_bottom_mobile > 0
+    assign section_padding_bottom_mobile = '--section-padding-bottom-mobile: ' | append: section.settings.section_padding_bottom_mobile | append: 'px;'
+  endif
+  if section.settings.section_margin_top_mobile != null and section.settings.section_margin_top_mobile > 0
+    assign section_margin_top_mobile = '--section-margin-top-mobile: ' | append: section.settings.section_margin_top_mobile | append: 'px;'
+  endif
+  if section.settings.section_margin_bottom_mobile != null and section.settings.section_margin_bottom_mobile > 0
+    assign section_margin_bottom_mobile = '--section-margin-bottom-mobile: ' | append: section.settings.section_margin_bottom_mobile | append: 'px;'
+  endif
+  
   unless style
     assign style = ''
   endunless
@@ -33,5 +68,13 @@ class="{{ class_name -}}
 {{- background_gradient -}}
 {{- background_margin -}}
 {{- padding_top -}}
-{{- padding_bottom }}
+{{- padding_bottom -}}
+{{- section_padding_top_desktop -}}
+{{- section_padding_bottom_desktop -}}
+{{- section_margin_top_desktop -}}
+{{- section_margin_bottom_desktop -}}
+{{- section_padding_top_mobile -}}
+{{- section_padding_bottom_mobile -}}
+{{- section_margin_top_mobile -}}
+{{- section_margin_bottom_mobile }}
 {{- style }}"

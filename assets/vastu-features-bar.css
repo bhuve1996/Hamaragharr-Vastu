@@ -1,4 +1,3 @@
-/* Vastu Features Bar - Carousel Design (Duplicate of Trust Bar) */
 main#xo-main-content section[class*="vastu-features-bar"],
 main#xo-main-content section[class*="vastu-features"],
 main#xo-main-content div[class*="vastu-features-bar"],
@@ -6,7 +5,7 @@ main#xo-main-content div[class*="vastu-features"],
 section[class*="vastu-features-bar"],
 section[class*="vastu-features"],
 div[class*="shopify-section-template"][class*="vastu-features"] {
-  padding-top: 64px !important;
+  padding-top: 64px;
 }
 
 .vastu-features-bar__item {
@@ -62,7 +61,6 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
   fill: currentColor;
 }
 
-/* Image styling for features bar */
 .vastu-features-bar__icon {
   background: linear-gradient(135deg, rgb(71 56 85 / 5%) 0%, rgb(71 56 85 / 10%) 100%);
   border-radius: 0.75rem;
@@ -123,7 +121,6 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
   filter: drop-shadow(0 0.25rem 0.5rem rgb(71 56 85 / 20%));
 }
 
-/* Ensure placeholder images are visible */
 .vastu-features-bar__icon .xo-image__placeholder {
   width: 100%;
   height: 100%;
@@ -157,12 +154,10 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
   color: rgb(var(--color-foreground, 0, 0, 0));
 }
 
-/* Features Bar Carousel Pagination */
 .vastu-features-bar__pagination {
   margin-top: 2rem;
 }
 
-/* Mobile adjustments for features bar */
 @media (width <= 48rem) {
   main#xo-main-content section[class*="vastu-features-bar"],
   main#xo-main-content section[class*="vastu-features"],
@@ -171,7 +166,7 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
   section[class*="vastu-features-bar"],
   section[class*="vastu-features"],
   div[class*="shopify-section-template"][class*="vastu-features"] {
-    padding-top: 2.5rem !important;
+    padding-top: 2.5rem;
   }
 
   .vastu-features-bar__item {

@@ -135,7 +135,7 @@
       },
       "block_order": ["slide_1", "slideshow_7KaQdB", "slideshow_RB3T9p"],
       "settings": {
-        "width": "fullwidth",
+        "width": "wide",
         "fullwidth_margin": 0,
         "section_height_desktop": 600,
         "section_height_mobile": 400,
@@ -153,9 +153,9 @@
       "settings": {
         "title": "Why Vastu Kit?",
         "gap": 30,
-        "width": "box",
-        "padding_top": 80,
-        "padding_bottom": 80,
+        "width": "wide",
+        "padding_top": 0,
+        "padding_bottom": 0,
         "background_type": "color",
         "enable_separator": false
       },
@@ -264,7 +264,7 @@
       },
       "block_order": ["item_1", "item_2", "item_3", "item_4"],
       "settings": {
-        "width": "box",
+        "width": "wide",
         "title": "What Does It Help Address?",
         "title_font_size": 3.5,
         "title_font_weight": 700,
@@ -275,11 +275,11 @@
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
-        "padding_top": 80,
-        "padding_bottom": 80,
+        "padding_top": 0,
+        "padding_bottom": 0,
         "enable_separator": false,
         "separator_color": "#473855",
-        "separator_height": 2,
+        "separator_height": 1,
         "separator_width": 10,
         "separator_padding_top": 0,
         "separator_padding_bottom": 0
@@ -361,7 +361,7 @@
         "padding_bottom": 0,
         "enable_separator": false,
         "separator_color": "#473855",
-        "separator_height": 2,
+        "separator_height": 1,
         "separator_width": 10,
         "separator_padding_top": 0,
         "separator_padding_bottom": 0,
@@ -381,14 +381,14 @@
     "vastu-hindi-statement": {
       "type": "vastu-hindi-statement",
       "settings": {
-        "width": "box",
+        "width": "wide",
         "hindi_text": "When your home is in balance, your life begins to breathe again.",
         "english_subtext": "",
         "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
         "background_type": "color",
         "background_color": "#473855",
-        "padding_top": 24,
-        "padding_bottom": 24
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "vastu-shop-by-concern": {
@@ -478,7 +478,7 @@
         "concern_4"
       ],
       "settings": {
-        "width": "box",
+        "width": "wide",
         "title": "Shop by Concern",
         "title_font_size": 3.5,
         "title_font_weight": 700,
@@ -488,11 +488,11 @@
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
-        "padding_top": 80,
-        "padding_bottom": 80,
+        "padding_top": 0,
+        "padding_bottom": 0,
         "enable_separator": false,
         "separator_color": "#473855",
-        "separator_height": 2,
+        "separator_height": 1,
         "separator_width": 10,
         "separator_padding_top": 0,
         "separator_padding_bottom": 0,
@@ -543,7 +543,7 @@
       },
       "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"],
       "settings": {
-        "width": "box",
+        "width": "wide",
         "title": "Why Choose Us",
         "title_font_size": 3.5,
         "title_font_weight": 700,
@@ -553,11 +553,11 @@
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#fafafa",
-        "padding_top": 32,
-        "padding_bottom": 32,
+        "padding_top": 0,
+        "padding_bottom": 0,
         "enable_separator": false,
         "separator_color": "#473855",
-        "separator_height": 2,
+        "separator_height": 1,
         "separator_width": 10,
         "separator_padding_top": 0,
         "separator_padding_bottom": 0
@@ -705,11 +705,11 @@
         "review_15"
       ],
       "settings": {
-        "width": "fullwidth",
+        "width": "wide",
         "fullwidth_margin": 0,
         "reverse": false,
         "auto_play": true,
-        "columns_limit": 6,
+        "columns_limit": 5,
         "limit": 6,
         "gap": 30,
         "access_token": "",
@@ -729,7 +729,7 @@
         "padding_bottom": 0,
         "enable_separator": false,
         "separator_color": "#473855",
-        "separator_height": 2,
+        "separator_height": 1,
         "separator_width": 10,
         "separator_padding_top": 0,
         "separator_padding_bottom": 0
@@ -739,12 +739,12 @@
       "type": "blog-v1",
       "name": "t:sections.blog_v1.presets.name",
       "settings": {
-        "width": "box",
+        "width": "wide",
         "fullwidth_margin": 0,
         "title": "Our Blog",
         "blog": "vastu-remedy",
         "articles_limit": 8,
-        "columns_limit": 3,
+        "columns_limit": 4,
         "gap": 30,
         "auto_play": false,
         "hover": "scale_up",
@@ -764,7 +764,7 @@
         "padding_bottom": 0,
         "enable_separator": false,
         "separator_color": "#473855",
-        "separator_height": 2,
+        "separator_height": 1,
         "separator_width": 10,
         "separator_padding_top": 0,
         "separator_padding_bottom": 0
@@ -817,7 +817,7 @@
         "question_4"
       ],
       "settings": {
-        "width": "box",
+        "width": "wide",
         "fullwidth_margin": 0,
         "subtitle": "Have Questions?",
         "title": "Frequently Asked Questions",
@@ -831,8 +831,8 @@
         "background_video_animation": "none",
         "background_overlay": "",
         "background_margin": 0,
-        "padding_top": 64,
-        "padding_bottom": 64
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },

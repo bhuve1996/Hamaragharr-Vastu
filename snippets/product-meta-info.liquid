@@ -8,9 +8,11 @@
   >
     SKU :
     <span>
-      {%- for variant in product.variants %}
-        {{ variant.sku }}
-      {% endfor -%}
+      {%- if product.selected_or_first_available_variant.sku != blank -%}
+        {{ product.selected_or_first_available_variant.sku }}
+      {%- elsif product.variants.first.sku != blank -%}
+        {{ product.variants.first.sku }}
+      {%- endif -%}
     </span>
   </p>
   <p

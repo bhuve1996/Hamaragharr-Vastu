@@ -7,9 +7,7 @@
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
     {% if section.settings.title != blank %}
-      <xo-animate xo-cascade>
-        <h2 class='vastu-why-kit__title'>{{ section.settings.title }}</h2>
-      </xo-animate>
+      {% render 'homepage-heading', title: section.settings.title, section: section, class: 'vastu-why-kit__title' %}
     {% endif %}
     
     <xo-grid class='vastu-why-kit__grid' style='--xs: 5; --sm: 5; --md: 3; --lg: 5; --xl: 5; --xxl: 5; --xo-grid-col-gap: {{ section.settings.gap }}px; --xo-grid-row-gap: {{ section.settings.gap }}px;'>
@@ -49,7 +47,7 @@
       "type": "select",
       "id": "width",
       "label": "t:sections.all.width.label",
-      "default": "box",
+      "default": "wide",
       "options": [
         {
           "value": "box",
@@ -66,10 +64,180 @@
       ]
     },
     {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content Width (when section is fullwidth)",
+      "default": "wide",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        }
+      ],
+      "info": "Controls the width of inner content when section width is set to fullwidth"
+    },
+    {
       "type": "text",
       "id": "title",
       "label": "Section Title",
       "default": "Why Vastu Kit?"
+    },
+    {
+      "type": "header",
+      "content": "Heading Style (Overrides Global Settings)"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 0,
+      "max": 6,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Font Size",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "title_font_weight",
+      "min": 0,
+      "max": 900,
+      "step": 100,
+      "label": "Font Weight",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Text Color",
+      "info": "Leave empty to use global setting"
+    },
+    {
+      "type": "select",
+      "id": "title_text_transform",
+      "label": "Text Transform",
+      "options": [
+        {
+          "value": "",
+          "label": "Use Global Setting"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "range",
+      "id": "title_line_height",
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "label": "Line Height",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "checkbox",
+      "id": "title_enable_animation",
+      "label": "Enable Heading Animation",
+      "info": "Leave unchecked to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "title_margin_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting (16px)"
+    },
+    {
+      "type": "range",
+      "id": "title_margin_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting (12px)"
+    },
+    {
+      "type": "checkbox",
+      "id": "title_enable_underline",
+      "label": "Enable Underline",
+      "info": "Leave unchecked to use global setting"
+    },
+    {
+      "type": "color",
+      "id": "title_underline_color",
+      "label": "Underline Color",
+      "info": "Leave empty to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "title_underline_width",
+      "min": 0,
+      "max": 300,
+      "step": 4,
+      "unit": "px",
+      "label": "Underline Width",
+      "default": 0,
+      "info": "Set to 0 to use global setting (80px)"
+    },
+    {
+      "type": "range",
+      "id": "title_underline_height",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Underline Height",
+      "default": 0,
+      "info": "Set to 0 to use global setting (4px)"
+    },
+    {
+      "type": "range",
+      "id": "title_underline_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Underline Bottom Position (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting (8px)"
+    },
+    {
+      "type": "range",
+      "id": "title_underline_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Underline Bottom Position (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting (6px)"
     },
     {
       "type": "range",
@@ -120,6 +288,102 @@
       "id": "padding_bottom",
       "label": "t:sections.all.padding_bottom.label",
       "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing (Overrides Global Settings)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Leave empty to use global settings. Desktop: 8px default, Mobile: 4px default"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
     },
     {
       "type": "header",

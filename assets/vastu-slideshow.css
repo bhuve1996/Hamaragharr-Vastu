@@ -1,7 +1,3 @@
-/* ============================================
-   UNUSED FILE - This file is NOT linked in any layout
-   ============================================ */
-
 .slideshow-v28__text--overlay .slideshow-v28__subtitle,
 .slideshow-v28__text--overlay .slideshow-v28__title,
 .slideshow-v28__text--overlay .slideshow-v28__description {
@@ -10,10 +6,6 @@
   margin-right: auto;
 }
 
-/* Force line break after "&" in slideshow title */
-/* Since CSS can't directly insert line breaks in text, we use a workaround */
-/* The title text should have a line break character or we need to modify the template */
-/* For now, we'll ensure the title can wrap properly */
 .slideshow-v28__title {
   white-space: pre-line;
   word-break: break-word;
@@ -27,7 +19,6 @@
   display: inline-block;
 }
 
-/* Ensure regular slideshow text (non-overlay) is also left-aligned for consistency */
 .slideshow-v28__text:not(.slideshow-v28__text--overlay) {
   text-align: left;
 }
@@ -47,9 +38,7 @@
   display: inline-block;
 }
 
-/* Responsive adjustments */
 @media (width <= 48rem) {
-  /* Carousel title on mobile - adjust from 5rem to smaller size */
   .slideshow-v28__title,
   .slideshow-v28__text--overlay .slideshow-v28__title {
     font-size: 2.5rem;
@@ -57,7 +46,6 @@
     --fontsize: 2.5rem;
   }
 
-  /* Mobile padding for carousel text */
   .slideshow-v28__text--overlay {
     padding-left: var(--xo-container-gap, 1.25rem);
     padding-right: var(--xo-container-gap, 1.25rem);
@@ -129,29 +117,24 @@
   .vastu-best-seller__pagination,
   .vastu-featured-products__pagination,
   .vastu-trust-bar__pagination {
-    bottom: -48px !important; /* Shift trust bar dots further down on mobile */
-    margin-top: 32px; /* Additional spacing */
+    bottom: -48px;
+    margin-top: 32px;
   }
 
   .vastu-features-bar__pagination,
   .blog-v2__pagination,
   .product-recommendations__pagination,
   .product-recommendations__pagination--related {
-    bottom: -24px; /* Adjusted for mobile - positioned below */
-    margin-top: 24px; /* Additional spacing */
+    bottom: -24px;
+    margin-top: 24px;
   }
 
   .testimonial-v13__pagination {
-    bottom: -2.5rem !important; /* Adjusted for mobile - positioned lower */
-    margin-top: 1.5rem !important; /* Additional spacing */
+    bottom: -2.5rem;
+    margin-top: 1.5rem;
   }
-
-  /* Mobile section padding - use template values for consistent spacing */
-
-  /* No override needed - sections will use their template padding values */
 }
 
-/* Tablet: Medium padding for pagination (consistent with section margins) */
 @media (width >= 46.875rem) and (width <= 61.8125rem) {
   xo-carousel:has(.vastu-best-seller__pagination),
   xo-carousel:has(.vastu-featured-products__pagination),
@@ -201,7 +184,6 @@
   }
 }
 
-/* Testimonials Section - Complete Redesign */
 section[class*="testimonial-v2"],
 section[class*="testimonial-v13"] {
   padding-top: 80px;
@@ -210,7 +192,6 @@ section[class*="testimonial-v13"] {
   position: relative;
 }
 
-/* Testimonials Section - Box Shadow Container */
 section[class*="testimonial-v2"] xo-container,
 section[class*="testimonial-v13"] xo-container {
   background: #473855;
@@ -224,7 +205,6 @@ section[class*="testimonial-v13"] xo-container {
   position: relative;
 }
 
-/* Testimonial Carousel - 3 per view on desktop */
 section[class*="testimonial-v2"] xo-carousel,
 section[class*="testimonial-v13"] xo-carousel {
   padding-bottom: 0;
@@ -248,11 +228,9 @@ section[class*="testimonial-v13"] xo-carousel-slide {
   height: 100%;
   overflow: visible;
   box-sizing: border-box;
-  padding: 0 20px !important; /* Add padding between testimonials */
+  padding: 0 20px;
   width: 100%;
   aspect-ratio: auto;
 }
 
-section[class*="testimonial-v2"] xo-carousel-slide .testimonial-v13__item {
-  /* Styles for testimonial item */
-}
+/* Testimonial item styles are handled by testimonial component */

@@ -69,6 +69,23 @@
     assign final_title = 'customer.register.title' | t
   elsif template.name == 'customers/addresses'
     assign final_title = 'customer.addresses.title' | t
+  # Handle homepage/index page
+  elsif page_type == 'index' or template.name == 'index'
+    # Use custom homepage title if available via metafield, otherwise use SEO-optimized default
+    if shop.metafields.custom.homepage_title != blank
+      assign final_title = shop.metafields.custom.homepage_title
+    elsif page_title != blank
+      assign page_title_lower = page_title | downcase
+      if page_title_lower contains 'homepage'
+        # Use SEO-optimized title for homepage
+        assign final_title = 'Vastu Kit for Home & Office | Vastu Shastra Products | ' | append: shop.name
+      else
+        assign final_title = page_title
+      endif
+    else
+      # SEO-optimized default homepage title
+      assign final_title = 'Vastu Kit for Home & Office | Vastu Shastra Products | ' | append: shop.name
+    endif
   # Fallback to page_title if set, otherwise shop name
   # But exclude if page_title contains "homepage" (case insensitive)
   else

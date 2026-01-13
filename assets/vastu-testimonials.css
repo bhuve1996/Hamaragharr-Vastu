@@ -1,4 +1,3 @@
-/* Purple background for testimonial section */
 section[class*="testimonial-v2"] .xo-section-bg,
 section[class*="testimonial-v2"] .xo-section-bg-image__item,
 section[class*="testimonial-v2"] .xo-section-bg-image__url,
@@ -24,23 +23,21 @@ section[class*="testimonial-v13"] xo-carousel-list {
   background-image: none;
 }
 
-/* Ensure section itself has background color */
 section[class*="testimonial-v2"],
 section[class*="testimonial-v13"] {
   background: #473855;
   background-color: #473855;
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
 }
 
-/* Add padding to testimonial carousel container */
 section[class*="testimonial-v2"] xo-container,
 section[class*="testimonial-v13"] xo-container {
   padding: 2rem;
   box-sizing: border-box;
 }
 
-/* Modern Testimonial Card Design */
 .testimonial-v13__item {
   background: #fff;
   border: 2px solid rgb(71 56 85 / 15%);
@@ -86,7 +83,6 @@ section[class*="testimonial-v13"] xo-container {
   border-color: rgb(71 56 85 / 25%);
 }
 
-/* Customer Image - Modern Circular Design - Only show if image exists */
 .testimonial-v13__icon {
   margin-bottom: 1.5rem;
   opacity: 1;
@@ -115,7 +111,6 @@ section[class*="testimonial-v13"] xo-container {
   transform: scale(1.05);
 }
 
-/* Testimonial Text - Clean Typography */
 .testimonial-v13__testimonial {
   font-size: var(--font-size-description, 1.6rem);
   line-height: 1.7;
@@ -130,7 +125,6 @@ section[class*="testimonial-v13"] xo-container {
   font-weight: 400;
 }
 
-/* Customer Info - Elegant Styling */
 .testimonial-v13__customer {
   display: flex;
   flex-direction: column;
@@ -160,7 +154,6 @@ section[class*="testimonial-v13"] xo-container {
   font-weight: 400;
 }
 
-/* Desktop - 3 testimonials side by side */
 @media (width >= 75rem) {
   section[class*="testimonial-v2"],
   section[class*="testimonial-v13"] {
@@ -170,7 +163,7 @@ section[class*="testimonial-v13"] xo-container {
 
   section[class*="testimonial-v2"] xo-container,
   section[class*="testimonial-v13"] xo-container {
-    padding: 3rem 4rem;
+    padding: 0;
   }
 
   section[class*="testimonial-v2"] xo-carousel,
@@ -190,14 +183,14 @@ section[class*="testimonial-v13"] xo-container {
   section[class*="testimonial-v2"] xo-carousel-list,
   section[class*="testimonial-v13"] xo-carousel-list {
     overflow: visible;
-    gap: 40px; /* Add gap between slides */
+    gap: 40px;
   }
 
   section[class*="testimonial-v2"] xo-carousel-slide,
   section[class*="testimonial-v13"] xo-carousel-slide {
-    padding: 0 20px !important; /* Add padding between testimonials */
+    padding: 0 20px;
     box-sizing: border-box;
-    width: calc(33.333% - 26.67px); /* Account for 40px gap */
+    width: calc(33.333% - 26.67px);
     flex: 0 0 calc(33.333% - 26.67px);
     max-width: calc(33.333% - 26.67px);
   }
@@ -210,7 +203,6 @@ section[class*="testimonial-v13"] xo-container {
   }
 }
 
-/* Tablet - 2 testimonials side by side */
 @media (width >= 62rem) and (width <= 74.9375rem) {
   section[class*="testimonial-v2"],
   section[class*="testimonial-v13"] {
@@ -225,14 +217,14 @@ section[class*="testimonial-v13"] xo-container {
 
   section[class*="testimonial-v2"] xo-carousel-list,
   section[class*="testimonial-v13"] xo-carousel-list {
-    gap: 40px; /* Add gap between slides */
+    gap: 40px;
   }
 
   section[class*="testimonial-v2"] xo-carousel-slide,
   section[class*="testimonial-v13"] xo-carousel-slide {
-    padding: 0 20px !important; /* Add padding between testimonials */
+    padding: 0 20px;
     box-sizing: border-box;
-    width: calc(50% - 20px); /* Account for 40px gap */
+    width: calc(50% - 20px);
     flex: 0 0 calc(50% - 20px);
     max-width: calc(50% - 20px);
   }
@@ -242,7 +234,6 @@ section[class*="testimonial-v13"] xo-container {
   }
 }
 
-/* Tablet */
 @media (width <= 61.9375rem) and (width >= 48.0625rem) {
   section[class*="testimonial-v2"],
   section[class*="testimonial-v13"] {
@@ -261,7 +252,6 @@ section[class*="testimonial-v13"] xo-container {
   }
 }
 
-/* Mobile Responsive */
 @media (width <= 48rem) {
   section[class*="testimonial-v2"],
   section[class*="testimonial-v13"] {
@@ -337,21 +327,18 @@ section[class*="testimonial-v13"] xo-container {
   }
 }
 
-/* Vastu Kit Banner Section - Enhanced Styling */
 .banner-v155 {
   position: relative;
 }
 
-/* Vastu Kit Section Background - Apply to all banner-v3 sections with enhanced styling */
 .banner-v155 > div {
   position: relative;
 }
 
-/* Enhanced Content Styling for Banner Sections */
 .banner-v155__content {
-  padding: 0 0 1.25rem; /* Remove top padding, keep bottom */
-  align-self: stretch !important;
-  max-width: none !important;
+  padding: 0 0 1.25rem;
+  align-self: stretch;
+  max-width: none;
   width: 100%;
   flex: 1;
   text-align: left;
@@ -363,7 +350,7 @@ section[class*="testimonial-v13"] xo-container {
   text-transform: uppercase;
   letter-spacing: 0.125rem;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
-  margin-bottom: 4.5rem; /* Increased equal spacing between elements */
+  margin-bottom: 4.5rem;
   margin-top: 0;
   opacity: 0.8;
   text-align: left;
@@ -372,7 +359,7 @@ section[class*="testimonial-v13"] xo-container {
 .banner-v155__title::after {
   content: "";
   position: absolute;
-  bottom: -2.25rem; /* Positioned in the middle of 4.5rem spacing (2.25rem from bottom) */
+  bottom: -2.25rem;
   left: 0;
   width: 5rem;
   height: 0.25rem;
@@ -382,16 +369,15 @@ section[class*="testimonial-v13"] xo-container {
 
 .banner-v155__description {
   font-size: 2rem;
-  line-height: 1.4; /* Reduced line height from 1.6 to 1.4 for better spacing */
+  line-height: 1.4;
   color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
-  margin-bottom: 4.5rem !important; /* Increased equal spacing between elements - includes spacing before button - important to override last-child rule */
+  margin-bottom: 4.5rem;
   margin-top: 0;
   max-width: 90%;
   text-align: left;
-  word-spacing: 0.05em; /* Slight word spacing for better readability */
+  word-spacing: 0.05em;
 }
 
-/* Style the intro text in description */
 .banner-v155__description-intro {
   white-space: pre-line;
 }

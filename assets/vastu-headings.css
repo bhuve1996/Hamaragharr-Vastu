@@ -1,21 +1,3 @@
-/* ============================================
-   VASTU HEADINGS - Class-Based System
-   Always use classes, always scope with parent
-   ============================================ */
-
-/* Homepage Heading Spacing System:
-   - padding-bottom: 6rem - Creates space for underline area
-   - ::after bottom: 3rem - Positions underline at center (3rem from text, 3rem from content)
-   - margin-bottom: 3rem - Creates space below underline before content
-   Total spacing: 3rem (text to underline) + 3rem (underline to content) = 6rem
-   Underline is centered: equal 3rem spacing above and below
-*/
-
-/* ============================================
-   GLOBAL HEADING RULES - All Headings Uppercase
-   ============================================ */
-
-/* All headings in sections should be uppercase (except Hindi statement) */
 section h1:not(.vastu-hindi-statement__text),
 section h2:not(.banner-v155__title, .vastu-hindi-statement__text),
 section h3:not(.vastu-hindi-statement__text),
@@ -31,7 +13,6 @@ main#xo-main-content section h6:not(.vastu-hindi-statement__text) {
   text-transform: uppercase;
 }
 
-/* Section title classes - Ensure uppercase */
 section [class*="__section-title"],
 section [class*="__title"]:not(.banner-v155__title, .vastu-hindi-statement__text),
 section [class*="__heading"]:not(.vastu-hindi-statement__text),
@@ -39,7 +20,6 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   text-transform: uppercase;
 }
 
-/* Base Heading Class - Use this for all section headings */
 .vastu-heading {
   font-size: var(--title-font-size, var(--font-size-heading));
   font-weight: var(--title-font-weight, var(--font-weight-bold));
@@ -52,30 +32,11 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   line-height: 1.2;
 }
 
-/* Section Heading with Underline - Center Aligned */
-
-/* Underline centered: padding-bottom creates space, underline at center, margin-bottom creates space after */
 .vastu-section-heading {
   text-align: center;
   margin-bottom: var(--heading-margin-bottom, var(--margin-section-heading-bottom, 3rem));
   padding-bottom: var(--heading-padding-bottom, 6rem);
 }
-
-.vastu-section-heading::after {
-  content: "";
-  position: absolute;
-  bottom: var(--heading-underline-bottom, 3rem); /* Centered: 3rem from text, 3rem from content */
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--title-underline-width, 80px);
-  height: var(--title-underline-height, 4px);
-  background-color: var(--title-underline-color, var(--color-hex-secondary));
-  border-radius: 2px;
-}
-
-/* ============================================
-   BEST SELLER SECTION - Independent
-   ============================================ */
 
 .vastu-best-seller .vastu-heading,
 .vastu-best-seller .vastu-section-heading,
@@ -85,24 +46,6 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   padding-bottom: var(--heading-padding-bottom, 6rem);
 }
 
-.vastu-best-seller .vastu-heading::after,
-.vastu-best-seller .vastu-section-heading::after,
-.vastu-best-seller__section-title::after {
-  content: "";
-  position: absolute;
-  bottom: var(--heading-underline-bottom, 3rem); /* Centered in spacing */
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--title-underline-width, 80px);
-  height: var(--title-underline-height, 4px);
-  background-color: var(--title-underline-color, var(--color-hex-secondary));
-  border-radius: 2px;
-}
-
-/* ============================================
-   FEATURED PRODUCTS SECTION - Independent
-   ============================================ */
-
 .vastu-featured-products .vastu-heading,
 .vastu-featured-products .vastu-section-heading,
 .vastu-featured-products__section-title {
@@ -111,49 +54,13 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   padding-bottom: var(--heading-padding-bottom, 6rem);
 }
 
-.vastu-featured-products .vastu-heading::after,
-.vastu-featured-products .vastu-section-heading::after,
-.vastu-featured-products__section-title::after {
-  content: "";
-  position: absolute;
-  bottom: var(--heading-underline-bottom, 3rem); /* Centered in spacing */
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--title-underline-width, 80px);
-  height: var(--title-underline-height, 4px);
-  background-color: var(--title-underline-color, var(--color-hex-secondary));
-  border-radius: 2px;
-}
-
-/* ============================================
-   SHOP BY CONCERN SECTION - Independent
-   ============================================ */
-
 .vastu-shop-by-concern .vastu-heading,
 .vastu-shop-by-concern .vastu-section-heading,
 .vastu-shop-by-concern__section-title {
   text-align: center;
   margin-bottom: var(--heading-margin-bottom, var(--margin-section-heading-bottom, 3rem));
-  padding-bottom: var(--heading-padding-bottom, 6rem);
+  padding-bottom: 0; /* No underline, so no extra padding needed */
 }
-
-.vastu-shop-by-concern .vastu-heading::after,
-.vastu-shop-by-concern .vastu-section-heading::after,
-.vastu-shop-by-concern__section-title::after {
-  content: "";
-  position: absolute;
-  bottom: var(--heading-underline-bottom, 3rem); /* Centered in spacing */
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--title-underline-width, 80px);
-  height: var(--title-underline-height, 4px);
-  background-color: var(--title-underline-color, var(--color-hex-secondary));
-  border-radius: 2px;
-}
-
-/* ============================================
-   HELP ADDRESS SECTIONS - Independent
-   ============================================ */
 
 .vastu-help-address-v1 .vastu-heading,
 .vastu-help-address-v1 .vastu-section-heading,
@@ -161,20 +68,6 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   text-align: center;
   margin-bottom: var(--heading-margin-bottom, var(--margin-section-heading-bottom, 3rem));
   padding-bottom: var(--heading-padding-bottom, 6rem);
-}
-
-.vastu-help-address-v1 .vastu-heading::after,
-.vastu-help-address-v1 .vastu-section-heading::after,
-.vastu-help-address-v1__section-title::after {
-  content: "";
-  position: absolute;
-  bottom: var(--heading-underline-bottom, 3rem); /* Centered in spacing */
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--title-underline-width, 80px);
-  height: var(--title-underline-height, 4px);
-  background-color: var(--title-underline-color, var(--color-hex-secondary));
-  border-radius: 2px;
 }
 
 .vastu-help-address-v2 .vastu-heading,
@@ -185,24 +78,6 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   padding-bottom: var(--heading-padding-bottom, 6rem);
 }
 
-.vastu-help-address-v2 .vastu-heading::after,
-.vastu-help-address-v2 .vastu-section-heading::after,
-.vastu-help-address-v2__section-title::after {
-  content: "";
-  position: absolute;
-  bottom: var(--heading-underline-bottom, 3rem); /* Centered in spacing */
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--title-underline-width, 80px);
-  height: var(--title-underline-height, 4px);
-  background-color: var(--title-underline-color, var(--color-hex-secondary));
-  border-radius: 2px;
-}
-
-/* ============================================
-   BANNER SECTIONS - Independent
-   ============================================ */
-
 .banner-v3 .vastu-heading,
 .banner-v3 .banner-v155__title {
   font-size: 4.375rem;
@@ -210,10 +85,6 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   text-align: left;
   text-transform: uppercase;
 }
-
-/* ============================================
-   PRODUCT SHOWCASE - Independent
-   ============================================ */
 
 .vastu-product-showcase .vastu-heading,
 .vastu-product-showcase__title {
@@ -225,23 +96,17 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   text-transform: uppercase;
 }
 
-/* Product Description Headings - Scoped to Product Context */
 .vastu-product-showcase__description .vastu-heading,
 .vastu-product-showcase__description-text .vastu-heading {
   text-align: center;
   margin-bottom: var(--margin-description-bottom);
 }
 
-/* ============================================
-   PRODUCT INFORMATION TABS - Independent
-   ============================================ */
-
 .product-information-tabs .vastu-heading {
   text-align: center;
   margin-bottom: var(--margin-description-bottom);
 }
 
-/* Product Page Description Headings - Left Aligned (Override center) */
 .xo-product-info-content__description .vastu-heading {
   text-align: left;
   margin-bottom: var(--margin-description-bottom);
@@ -252,10 +117,6 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   transform: none;
 }
 
-/* ============================================
-   BLOG SECTIONS - Independent
-   ============================================ */
-
 .blog-v2 .vastu-heading,
 .blog-v2__section-title {
   text-align: center;
@@ -263,31 +124,10 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   padding-bottom: var(--heading-padding-bottom, 6rem);
 }
 
-.blog-v2 .vastu-heading::after,
-.blog-v2__section-title::after {
-  content: "";
-  position: absolute;
-  bottom: var(--heading-underline-bottom, 3rem); /* Centered in spacing */
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--title-underline-width, 80px);
-  height: var(--title-underline-height, 4px);
-  background-color: var(--title-underline-color, var(--color-hex-secondary));
-  border-radius: 2px;
-}
-
-/* ============================================
-   PRODUCT RECOMMENDATIONS - Independent
-   ============================================ */
-
 .product-recommendations-section .vastu-heading,
 .product-recommendations-section .xo-section-heading__title {
   margin-bottom: var(--margin-description-bottom);
 }
-
-/* ============================================
-   HINDI STATEMENT - Independent
-   ============================================ */
 
 .vastu-hindi-statement .vastu-heading,
 .vastu-hindi-statement__text {
@@ -323,7 +163,6 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   opacity: 0.8;
 }
 
-/* Higher specificity selectors - must come after lower specificity ones */
 .product-information-tabs .xo-tabs-pane .vastu-heading {
   text-align: center;
   margin-bottom: var(--margin-description-bottom);

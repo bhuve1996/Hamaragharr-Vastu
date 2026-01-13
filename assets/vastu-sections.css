@@ -1,26 +1,5 @@
 /* ============================================
-   VASTU SECTIONS - MAIN FILE
-   This file has been split into smaller, focused files.
-   All styles have been moved to individual component files:
-   
-   - vastu-typography.css (Typography system & Hindi statement)
-   - vastu-section-spacing.css (Section spacing and margins)
-   - vastu-trust-features.css (Trust bar & Features bar)
-   - vastu-headings-buttons.css (Section headings & buttons)
-   - vastu-carousel-pagination.css (Carousel pagination)
-   - vastu-slideshow.css (Slideshow/carousel styles)
-   - vastu-testimonials.css (Testimonials section)
-   - vastu-banner-hero-extended.css (Banner & Hero sections)
-   - vastu-product-page.css (Product page styles)
-   - vastu-shop-by-concern-extended.css (Shop by concern section)
-   - vastu-shipping.css (Shipping accordion)
-   - vastu-product-recommendations.css (Product recommendations)
-   - vastu-faq.css (FAQ section)
-   - vastu-menu.css (Menu submenu fixes)
-   - vastu-help-address-extended.css (Help address sections)
-   - vastu-product-card-fixes.css (Product card fixes)
-   - vastu-cards-legacy.css (Legacy card styles - may be unused)
-   
-   This file is kept for reference but should not contain any styles.
-   All styles should be in the individual component files above.
+   VASTU SECTIONS - REFERENCE FILE
+   This file is kept for reference only.
+   See CSS_CLEANUP_SUMMARY.md for file organization.
    ============================================ */

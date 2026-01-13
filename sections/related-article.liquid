@@ -3,7 +3,27 @@
 <div {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
-    {% render 'section-heading', title: section.settings.heading_title, align: section.settings.heading_align %}
+    <xo-animate xo-cascade>
+      {% render 'section-heading', title: section.settings.heading_title, align: section.settings.heading_align %}
+    </xo-animate>
+    {% comment %} Carousel pagination settings - section level overrides global {% endcomment %}
+    {% liquid
+      if section.settings.show_pagination_desktop != blank
+        assign show_pagination_desktop = section.settings.show_pagination_desktop
+      elsif settings.carousel_show_pagination_desktop != blank
+        assign show_pagination_desktop = settings.carousel_show_pagination_desktop
+      else
+        assign show_pagination_desktop = true
+      endif
+      
+      if section.settings.show_pagination_mobile != blank
+        assign show_pagination_mobile = section.settings.show_pagination_mobile
+      elsif settings.carousel_show_pagination_mobile != blank
+        assign show_pagination_mobile = settings.carousel_show_pagination_mobile
+      else
+        assign show_pagination_mobile = true
+      endif
+    %}
     <xo-carousel
       xo-per-view='{{section.settings.columns_desktop}}'
       class='related-article__carousel'
@@ -42,7 +62,11 @@
         </xo-carousel-list>
       </xo-carousel-inner>
       {% render 'carousel-navigation-style1', display_navigation_desktop: 'flex', display_navigation_mobile: 'none' %}
-      {% render 'carousel-pagination-style3', class: 'related-article__pagination' %}
+      {% if show_pagination_desktop or show_pagination_mobile %}
+        <div class='related-article__pagination' style='--display-desktop: {% if show_pagination_desktop %}block{% else %}none{% endif %}; --display-mobile: {% if show_pagination_mobile %}block{% else %}none{% endif %};'>
+          {% render 'carousel-pagination-style3' %}
+        </div>
+      {% endif %}
     </xo-carousel>
   </xo-container>
 </div>
@@ -375,6 +399,26 @@
       "id": "padding_bottom",
       "label": "t:sections.all.padding_bottom.label",
       "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Carousel Pagination (Overrides Global Settings)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Leave unchecked to use global carousel pagination settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination_desktop",
+      "label": "Show Pagination Dots (Desktop)",
+      "info": "Leave unchecked to use global setting"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination_mobile",
+      "label": "Show Pagination Dots (Mobile)",
+      "info": "Leave unchecked to use global setting"
     }
   ]
 }

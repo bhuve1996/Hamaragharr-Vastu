@@ -1,18 +1,16 @@
 .banner-v155__description p {
-  margin-bottom: 0.75rem; /* Reduced spacing between paragraphs */
+  margin-bottom: 0.75rem;
 }
 
-/* Style the heading in description */
 .banner-v155__description-heading {
   font-size: 2.2rem;
   font-weight: 700;
   color: rgb(var(--color-foreground, 0, 0, 0));
-  margin-top: 2.5rem; /* Increased top margin */
-  margin-bottom: 1rem; /* Reduced bottom margin */
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
   line-height: 1.4;
 }
 
-/* Style the bullet list in description */
 .banner-v155__description-list {
   list-style: none;
   padding: 0;
@@ -22,11 +20,11 @@
 
 .banner-v155__description-list li {
   font-size: 2rem;
-  line-height: 1.4; /* Reduced line height from 1.6 to 1.4 to match description spacing */
+  line-height: 1.4;
   color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
   padding-left: 2rem;
   position: relative;
-  margin-bottom: 0.5rem; /* Reduced spacing between bullet points */
+  margin-bottom: 0.5rem;
   display: flex;
   align-items: flex-start;
 }
@@ -35,54 +33,49 @@
   content: "•";
   position: absolute;
   left: 0;
-  font-size: 2rem; /* Match the font size of the text */
+  font-size: 2rem;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   font-weight: 700;
-  line-height: 1.4; /* Match the line-height of the text (reduced from 1.6) */
-  top: 0; /* Align with top of text */
+  line-height: 1.4;
+  top: 0;
 }
 
-/* Add spacing above button for equal spacing */
 .banner-v155__content .button,
 .banner-v155__content .xo-btn,
 .banner-v155__content button {
-  margin-top: 0; /* Button spacing handled by description margin-bottom */
+  margin-top: 0;
 }
 
-/* Vastu Hero Section - Equal spacing between elements */
 .vastu-hero__content {
-  padding-top: 0; /* Remove top padding */
+  padding-top: 0;
 }
 
 .vastu-hero__subtitle {
-  margin-bottom: 4.5rem; /* Increased equal spacing between elements */
+  margin-bottom: 4.5rem;
   margin-top: 0;
 }
 
 .vastu-hero__title {
-  margin-bottom: 4.5rem; /* Increased equal spacing between elements */
+  margin-bottom: 4.5rem;
   margin-top: 0;
 }
 
 .vastu-hero__description {
-  margin-bottom: 4.5rem !important; /* Increased equal spacing between elements - includes spacing before button - important to override last-child rule */
+  margin-bottom: 4.5rem;
   margin-top: 0;
 }
 
 .vastu-hero__content .button,
 .vastu-hero__content .xo-btn,
 .vastu-hero__content button {
-  margin-top: 0; /* Spacing handled by description margin-bottom above */
+  margin-top: 0;
 }
-
-/* Vastu Hindi Statement - Spacing handled by main rule above */
 
 .vastu-hindi-statement__subtext {
   margin-bottom: 0;
-  margin-top: 0; /* Equal spacing - handled by text margin-bottom above */
+  margin-top: 0;
 }
 
-/* Enhanced Image Styling */
 .banner-v155__img {
   position: relative;
   display: block;
@@ -125,14 +118,13 @@
   transform: scale(1.05);
 }
 
-/* Grid Item Enhancements */
 .banner-v155__item--left {
   display: flex;
   align-items: center;
-  padding-right: 0 !important;
+  padding-right: 0;
 
-  --pr: 0 !important;
-  --prrps: 0 !important;
+  --pr: 0;
+  --prrps: 0;
 }
 
 .banner-v155__item--right {
@@ -171,12 +163,11 @@
   box-shadow: none;
 }
 
-/* Carousel Image Visibility Fix - Proper Carousel Behavior */
 .banner-v155__item--right xo-carousel {
   width: 100%;
   position: relative;
   overflow: visible;
-  padding-bottom: 3rem; /* Space for pagination dots */
+  padding-bottom: 3rem;
 }
 
 .banner-v155__item--right xo-carousel-inner {
@@ -219,42 +210,39 @@
   opacity: 1;
 }
 
-/* Vastu Banner Carousel Pagination - Move dots lower */
 .banner-v155__carousel-pagination,
 section[class*="banner-v3"] .banner-v155__carousel-pagination,
 section[class*="banner-v155"] .banner-v155__carousel-pagination,
 .banner-v155__item--right .banner-v155__carousel-pagination,
 .banner-v155__item--right .carousel-pagination-style3 {
-  position: absolute !important;
-  bottom: 0.5rem !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  z-index: 100 !important;
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .banner-v155__carousel-pagination .carousel-pagination-style3__pagination-wrap,
 section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-pagination-style3__pagination-wrap {
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  display: flex;
+  visibility: visible;
+  opacity: 1;
 }
 
 @media (width <= 48rem) {
   .banner-v155__carousel-pagination,
   section[class*="banner-v3"] .banner-v155__carousel-pagination,
   section[class*="banner-v155"] .banner-v155__carousel-pagination {
-    bottom: -1.5rem !important;
+    bottom: -1.5rem;
     margin-top: 0.75rem;
   }
 }
 
-/* Mobile Responsive */
 @media (width <= 48rem) {
-  /* Mobile: Scale down headings proportionally */
   .blog-v2__title,
   section h2,
   section h3,
@@ -262,12 +250,10 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
     font-size: 2.5rem;
   }
 
-  /* Vastu Kit Banner on mobile */
   .banner-v155__title {
     font-size: 3.5rem;
   }
 
-  /* Best sellers and featured products on mobile */
   .vastu-best-seller__section-title,
   .vastu-featured-products__section-title {
     font-size: 2.5rem;
@@ -310,7 +296,6 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   }
 }
 
-/* Product Page - Increase width for variant option labels */
 .xo-product-info-variant .xo-field-radio__label,
 .xo-product-variant .xo-field-radio__label {
   min-width: auto;
@@ -319,7 +304,7 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  padding: 1.4rem 0.8rem !important;
+  padding: 1.4rem 0.8rem;
   display: inline-block;
 }
 
@@ -330,36 +315,33 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   max-width: 100%;
 }
 
-/* Ensure labels can expand to fit content */
 .xo-product-info-variant__inner .xo-field-radio__label,
 .xo-product-variant__inner .xo-field-radio__label {
   flex: 1 1 auto;
   min-width: fit-content;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  white-space: nowrap !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
 }
 
-/* Fix spacing for size options - reduce gap between variant options */
 .xo-product-info-variant__inner,
 .xo-product-variant__inner {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 0.75rem !important;
-  align-items: flex-start !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-start;
 }
 
 .xo-product-info-variant__inner .xo-field-radio,
 .xo-product-variant__inner .xo-field-radio {
-  margin: 0 !important;
-  flex: 0 0 auto !important;
-  display: flex !important;
-  align-items: center !important;
+  margin: 0;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
 }
 
-/* Fix internal padding for boxed size options - must come after general label rules */
 .xo-product-info-content__variants
   xo-product-variant.xo-product-info-variant__inner
   label.xo-field-radio--boxed
@@ -375,32 +357,27 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
 .xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed .xo-field-radio__label,
 .xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed2 .xo-field-radio__label,
 .xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed3 .xo-field-radio__label {
-  padding: 1.4rem 0.8rem !important;
-  min-height: auto !important;
-  width: auto !important;
-  min-width: fit-content !important;
+  padding: 1.4rem 0.8rem;
+  min-height: auto;
+  width: auto;
+  min-width: fit-content;
 }
 
-/* Product Variant Modal - Hide by default and add padding */
-
-/* Collapse trigger styles */
 xo-collapse-trigger,
 xo-collapse-trigger.shipping-accordion__trigger,
 .shipping-accordion__trigger {
-  display: flex !important;
-  width: 100% !important;
-  justify-content: space-between !important;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
-/* Shipping accordion question styles */
 .shipping-accordion__question {
-  display: flex !important;
-  align-items: center !important;
-  gap: 4px !important;
-  justify-content: center !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
 }
 
-/* Trust Badge - Fix sizing and SVG visibility */
 .trustbadge {
   display: flex;
   flex-direction: column;
@@ -452,7 +429,7 @@ xo-collapse-trigger.shipping-accordion__trigger,
   visibility: visible;
   opacity: 1;
   padding-top: 0;
-  aspect-ratio: 980 / 700; /* Maintain SVG aspect ratio */
+  aspect-ratio: 980 / 700;
 }
 
 .trustbadge__image .xo-image__placeholder svg {
@@ -464,15 +441,7 @@ xo-collapse-trigger.shipping-accordion__trigger,
   visibility: visible;
   opacity: 1;
   object-fit: contain;
-
-  /* Invert colors for better visibility on light background */
   filter: invert(1) brightness(0.9);
-
-  /* Alternative options (uncomment to use):
-     - Darker without inversion: filter: brightness(0.2) contrast(1.3);
-     - Full inversion: filter: invert(1);
-     - No filter (original colors): filter: none;
-  */
 }
 
 .trustbadge__image .xo-image img {
@@ -483,7 +452,6 @@ xo-collapse-trigger.shipping-accordion__trigger,
   object-fit: contain;
 }
 
-/* Mobile adjustments */
 @media (width <= 48rem) {
   .trustbadge {
     padding: 1rem;

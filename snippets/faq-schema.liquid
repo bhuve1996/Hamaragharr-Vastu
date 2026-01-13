@@ -1,0 +1,49 @@
+{% comment %}
+  Renders FAQ structured data (Schema.org)
+  
+  Accepts:
+  - section: {Object} Section object with FAQ blocks
+  
+  Usage:
+  {% render 'faq-schema', section: section %}
+{% endcomment %}
+
+{%- if settings.seo_enable_faq_schema != false -%}
+  {%- liquid
+    assign faq_count = 0
+    assign blocks_limit_schema = 20
+    
+    for block in section.blocks limit: blocks_limit_schema
+      if block.type == 'question' and block.settings.question != blank and block.settings.answer != blank
+        assign faq_count = faq_count | plus: 1
+      endif
+    endfor
+  -%}
+  
+  {%- if faq_count > 0 -%}
+    <script type='application/ld+json'>
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- assign first_item = true -%}
+        {%- for block in section.blocks limit: blocks_limit_schema -%}
+          {%- if block.type == 'question' and block.settings.question != blank and block.settings.answer != blank -%}
+            {%- unless first_item -%},{%- endunless -%}
+            {%- assign first_item = false -%}
+            {
+              "@type": "Question",
+              "name": {{ block.settings.question | strip_html | json }},
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": {{ block.settings.answer | strip_html | json }}
+              }
+            }
+          {%- endif -%}
+        {%- endfor -%}
+      ]
+    }
+    </script>
+  {%- endif -%}
+{%- endif -%}
+

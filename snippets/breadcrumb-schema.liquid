@@ -1,0 +1,44 @@
+{% comment %}
+  Renders Breadcrumb structured data (Schema.org)
+  
+  Accepts:
+  - breadcrumb_items: {Array} Array of breadcrumb items with name and url
+  
+  Usage:
+  {% render 'breadcrumb-schema', breadcrumb_items: breadcrumb_items %}
+{% endcomment %}
+
+{%- if settings.seo_enable_breadcrumb_schema != false -%}
+  {%- liquid
+    assign breadcrumb_list = ''
+    assign position = 1
+    
+    for item in breadcrumb_items
+      if item.name != blank and item.url != blank
+        if position > 1
+          assign breadcrumb_list = breadcrumb_list | append: ','
+        endif
+        
+        assign item_name = item.name | escape
+        assign item_url = item.url | escape
+        
+        assign breadcrumb_item = '{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: item_name | append: '","item":"' | append: item_url | append: '"}'
+        assign breadcrumb_list = breadcrumb_list | append: breadcrumb_item
+        assign position = position | plus: 1
+      endif
+    endfor
+  -%}
+  
+  {%- if position > 1 -%}
+    <script type='application/ld+json'>
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {{ breadcrumb_list }}
+      ]
+    }
+    </script>
+  {%- endif -%}
+{%- endif -%}
+

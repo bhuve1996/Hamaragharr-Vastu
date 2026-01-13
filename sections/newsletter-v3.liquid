@@ -3,7 +3,7 @@
 {% assign placeholder = 'newsletter.email' | t %}
 {% assign button_text = 'newsletter.button_label' | t %}
 
-<section {% render 'section-attr' %}>
+<section {% render 'section-attr' %} style="{% if section.settings.button_font_size_mobile > 0 %}--newsletter-button-font-size-mobile: {{ section.settings.button_font_size_mobile }}rem;{% endif %}">
   {% render 'section-bg-image' %}
   <div class='newsletter-v4'>
     <xo-container {% render 'section-layout' %}>
@@ -38,7 +38,7 @@
                 {% endcapture %}
               {% render 'field-input', type: 'email', name: 'contact[email]', value: value, label: placeholder, attr: attr %}
               {% assign aria_label = 'newsletter.button_label' | t %}
-              {% render 'button', text: button_text, style: 'secondary', mode: section.settings.button_mode, type: 'submit', aria_label: aria_label %}
+              {% render 'button', text: button_text, style: 'secondary', mode: section.settings.button_mode, type: 'submit', aria_label: aria_label, class: 'newsletter-v3__signup-button' %}
             </div>
             {% render 'newsletter-form-message', form: form %}
           {%- endform -%}
@@ -117,6 +117,17 @@
         }
       ],
       "default": "dark"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size_mobile",
+      "min": 0,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Button Font Size (Mobile)",
+      "default": 0,
+      "info": "Font size for sign up button on mobile. Set to 0 to use default size."
     },
     {
       "type": "header",

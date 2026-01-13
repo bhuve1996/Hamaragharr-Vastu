@@ -42,9 +42,9 @@
         "fullwidth_margin": 0,
         "reverse": false,
         "gap": 30,
-        "title": "About VastuKit",
-        "subtitle": "Transform Your Home with Ancient Wisdom",
-        "description": "VastuKit brings the timeless principles of Vastu Shastra into modern homes. We believe that your living space should be a sanctuary of positive energy, balance, and prosperity. Our carefully crafted products are designed to align your home with natural forces, creating harmony and well-being for you and your family.",
+        "title": "About Us",
+        "subtitle": "",
+        "description": "Every home has a story.\nAnd so does Hamaragharr.\nIt was born from a simple but deeply felt question:\n\"Why does a home that has everything still feel unsettled?\"\n\nAcross India, millions of families live in beautiful houses—yet experience constant stress, frequent arguments, unexplained financial blocks, disturbed sleep, or emotional distance. Often, people are told that the solution lies outside them: expensive consultations, fear-based remedies, or lifelong dependency on someone else to \"fix\" their space.\n\nWe believed there had to be a better, more honest way.",
         "image": "",
         "hover": "scale_down",
         "color_scheme": "background-1",
@@ -68,9 +68,9 @@
         "fullwidth_margin": 0,
         "reverse": true,
         "gap": 30,
-        "title": "Our Mission",
-        "subtitle": "Bringing Balance to Modern Living",
-        "description": "At VastuKit, we are dedicated to making Vastu principles accessible to everyone. Whether you live in a traditional home or a modern apartment, our non-invasive solutions help you create a space that supports your well-being, prosperity, and peace of mind. Every product is pre-energized and comes with clear placement instructions, making it easy for anyone to benefit from Vastu wisdom.",
+        "title": "Our Belief: Your Home's Energy Should Be in Your Control",
+        "subtitle": "",
+        "description": "Hamaragharr was created to give that control back to you.\nThe Hamaragharr Self Vastu Kit is the result of years of learning, observation, and real-life experiences—designed for people who want clarity, empowerment, and balance, not fear or dependency.\n\nThis is not about superstition.\nThis is about alignment.\n\nWhy Vastu Matters—Now More Than Ever\nVastu Shastra is an ancient Indian science that originated thousands of years ago, rooted in the understanding of nature's five elements and their interaction with human life. Our ancestors knew that when a living space is aligned with natural energies, it supports health, relationships, prosperity, and peace.\n\nIn today's world, we spend more time indoors than ever before—working from home, raising families, managing stress, and chasing goals. When the energy of that space is disturbed, it silently impacts every aspect of life.\n\nThat's why Vastu is no longer optional.\nIt's a necessity for modern living.",
         "image": "",
         "hover": "scale_down",
         "color_scheme": "background-1",
@@ -88,40 +88,17 @@
       }
     },
     "about_v3": {
-      "type": "about-v2",
-      "blocks": {
-        "about_box_1": {
-          "type": "about",
-          "settings": {
-            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" height=\"60\" width=\"60\"><path d=\"M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S274.1 336 256 336zM289.1 128H241.9c-26 0-41.9 16.1-41.9 41.9V242c0 23.5 15.9 41.9 41.9 41.9h48.2c26 0 41.9-16.1 41.9-41.9V169.9C330.1 144.1 315.1 128 289.1 128z\"/></svg>",
-            "title": "Pre-Energized Products",
-            "subtitle": "All our Vastu products are pre-energized before dispatch, ensuring effective results from the moment you install them."
-          }
-        },
-        "about_box_2": {
-          "type": "about",
-          "settings": {
-            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" height=\"60\" width=\"60\"><path d=\"M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S274.1 336 256 336zM289.1 128H241.9c-26 0-41.9 16.1-41.9 41.9V242c0 23.5 15.9 41.9 41.9 41.9h48.2c26 0 41.9-16.1 41.9-41.9V169.9C330.1 144.1 315.1 128 289.1 128z\"/></svg>",
-            "title": "Easy Installation",
-            "subtitle": "Every product comes with clear, step-by-step placement instructions, making it easy for anyone to install without professional help."
-          }
-        },
-        "about_box_3": {
-          "type": "about",
-          "settings": {
-            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" height=\"60\" width=\"60\"><path d=\"M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S274.1 336 256 336zM289.1 128H241.9c-26 0-41.9 16.1-41.9 41.9V242c0 23.5 15.9 41.9 41.9 41.9h48.2c26 0 41.9-16.1 41.9-41.9V169.9C330.1 144.1 315.1 128 289.1 128z\"/></svg>",
-            "title": "Expert Support",
-            "subtitle": "Our team is available via WhatsApp, email, and customer care to help you choose and place the right remedy for your space."
-          }
-        }
-      },
-      "block_order": ["about_box_1", "about_box_2", "about_box_3"],
+      "type": "about-v1",
       "settings": {
         "width": "box",
         "fullwidth_margin": 0,
-        "columns_limit": 3,
+        "reverse": false,
         "gap": 30,
-        "auto_play": false,
+        "title": "Why Hamaragharr Is the Best in the Market Today",
+        "subtitle": "",
+        "description": "What makes Hamaragharr truly different is its philosophy:\n• Self-guided – You don't need to depend on anyone\n• Ethical – No fear, no exaggeration, no manipulation\n• Practical – Simple steps that fit real homes and real lives\n• Transparent – Clear guidance, nothing hidden\n• Accessible – Designed for every household, not just a few\n\nIt is proudly recognized as the World's First Self Vastu Kit, created so that anyone can balance their space confidently—without confusion or ongoing costs.\n\nImpact That Goes Beyond Walls\nToday, thousands of families across India use Hamaragharr to realign their homes—and with that, their lives. Improved harmony, better focus, calmer relationships, and a renewed sense of stability are not coincidences; they are outcomes of living in balance.\n\nBecause when your home is aligned, life flows better.\n\nOur Promise\nHamaragharr is not here to scare you.\nIt is here to support you.\nNot to create dependency—\nbut to create empowerment.\n\nYour home should feel like a place of strength, peace, and growth.\nAnd with Hamaragharr, that balance begins with you.",
+        "image": "",
+        "hover": "scale_down",
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",

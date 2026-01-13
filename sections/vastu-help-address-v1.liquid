@@ -4,7 +4,7 @@
   <xo-container {% render 'section-layout' %}>
     {% if section.settings.title != blank %}
       <xo-animate xo-cascade>
-        <h2 class='vastu-help-address-v1__section-title' style='--title-font-size: {{ section.settings.title_font_size | default: 3.5 }}rem; --title-font-weight: {{ section.settings.title_font_weight | default: 700 }}; --title-underline-color: {{ section.settings.title_underline_color | default: "#473855" }}; --title-underline-width: {{ section.settings.title_underline_width | default: 80 }}px; --title-underline-height: {{ section.settings.title_underline_height | default: 4 }}px;'>{{ section.settings.title | upcase }}</h2>
+        {% render 'homepage-heading', title: section.settings.title, section: section, class: 'vastu-help-address-v1__section-title' %}
       </xo-animate>
     {% endif %}
     
@@ -28,6 +28,17 @@
         </xo-animate>
       {% endfor %}
     </xo-grid>
+
+    {% comment %} Carousel pagination settings - section level overrides global {% endcomment %}
+    {% liquid
+      if section.settings.show_pagination_mobile != blank
+        assign show_pagination_mobile = section.settings.show_pagination_mobile
+      elsif settings.carousel_show_pagination_mobile != blank
+        assign show_pagination_mobile = settings.carousel_show_pagination_mobile
+      else
+        assign show_pagination_mobile = true
+      endif
+    %}
 
     {% comment %} Mobile Carousel View {% endcomment %}
     <xo-carousel
@@ -61,7 +72,9 @@
           {% endfor %}
         </xo-carousel-list>
       </xo-carousel-inner>
-      {% render 'carousel-pagination-style3', class: 'vastu-help-address-v1__pagination' %}
+      {% if show_pagination_mobile %}
+        {% render 'carousel-pagination-style3', class: 'vastu-help-address-v1__pagination' %}
+      {% endif %}
     </xo-carousel>
   </xo-container>
   {% render 'section-separator',
@@ -84,7 +97,7 @@
       "type": "select",
       "id": "width",
       "label": "t:sections.all.width.label",
-      "default": "box",
+      "default": "wide",
       "options": [
         {
           "value": "box",
@@ -101,6 +114,23 @@
       ]
     },
     {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content Width (when section is fullwidth)",
+      "default": "wide",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        }
+      ],
+      "info": "Controls the width of inner content when section width is set to fullwidth"
+    },
+    {
       "type": "text",
       "id": "title",
       "label": "Section Title",
@@ -108,52 +138,156 @@
     },
     {
       "type": "header",
-      "content": "Heading Styling"
+      "content": "Heading Style (Overrides Global Settings)"
     },
     {
       "type": "range",
       "id": "title_font_size",
-      "min": 2,
+      "min": 0,
       "max": 6,
       "step": 0.1,
       "unit": "rem",
-      "label": "Title Font Size",
-      "default": 3.5
+      "label": "Font Size",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
     },
     {
       "type": "range",
       "id": "title_font_weight",
-      "min": 400,
+      "min": 0,
       "max": 900,
       "step": 100,
-      "label": "Title Font Weight",
-      "default": 700
+      "label": "Font Weight",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Text Color",
+      "info": "Leave empty to use global setting"
+    },
+    {
+      "type": "select",
+      "id": "title_text_transform",
+      "label": "Text Transform",
+      "options": [
+        {
+          "value": "",
+          "label": "Use Global Setting"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "range",
+      "id": "title_line_height",
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "label": "Line Height",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "checkbox",
+      "id": "title_enable_animation",
+      "label": "Enable Heading Animation",
+      "info": "Leave unchecked to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "title_margin_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting (16px)"
+    },
+    {
+      "type": "range",
+      "id": "title_margin_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting (12px)"
+    },
+    {
+      "type": "checkbox",
+      "id": "title_enable_underline",
+      "label": "Enable Underline",
+      "info": "Leave unchecked to use global setting"
     },
     {
       "type": "color",
       "id": "title_underline_color",
-      "label": "Title Underline Color",
-      "default": "#473855"
+      "label": "Underline Color",
+      "info": "Leave empty to use global setting"
     },
     {
       "type": "range",
       "id": "title_underline_width",
-      "min": 40,
-      "max": 200,
-      "step": 10,
+      "min": 0,
+      "max": 300,
+      "step": 4,
       "unit": "px",
-      "label": "Title Underline Width",
-      "default": 80
+      "label": "Underline Width",
+      "default": 0,
+      "info": "Set to 0 to use global setting (80px)"
     },
     {
       "type": "range",
       "id": "title_underline_height",
-      "min": 2,
-      "max": 10,
+      "min": 0,
+      "max": 20,
       "step": 1,
       "unit": "px",
-      "label": "Title Underline Height",
-      "default": 4
+      "label": "Underline Height",
+      "default": 0,
+      "info": "Set to 0 to use global setting (4px)"
+    },
+    {
+      "type": "range",
+      "id": "title_underline_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Underline Bottom Position (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting (8px)"
+    },
+    {
+      "type": "range",
+      "id": "title_underline_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Underline Bottom Position (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting (6px)"
     },
     {
       "type": "range",
@@ -207,6 +341,102 @@
     },
     {
       "type": "header",
+      "content": "Section Spacing (Overrides Global Settings)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Leave empty to use global settings. Desktop: 8px default, Mobile: 4px default"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "header",
       "content": "Section Separator"
     },
     {
@@ -225,11 +455,11 @@
       "type": "range",
       "id": "separator_height",
       "min": 1,
-      "max": 10,
-      "step": 1,
+      "max": 11,
+      "step": 2,
       "unit": "px",
       "label": "Separator Height",
-      "default": 2
+      "default": 1
     },
     {
       "type": "range",
@@ -252,6 +482,20 @@
       "id": "separator_padding_bottom",
       "label": "Separator Padding Bottom",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Carousel Pagination (Overrides Global Settings)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Leave unchecked to use global carousel pagination settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination_mobile",
+      "label": "Show Pagination Dots (Mobile)",
+      "info": "Leave unchecked to use global setting"
     }
   ],
   "blocks": [

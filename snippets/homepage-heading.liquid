@@ -1,0 +1,182 @@
+{% comment %}
+  Renders a homepage section heading with global and section-level settings
+  
+  Accepts:
+  - title: {String} The heading text
+  - section: {Object} Section object for section-level overrides
+  - class: {String} Additional CSS classes
+  
+  Usage:
+  {% render 'homepage-heading', title: section.settings.title, section: section, class: 'custom-class' %}
+{% endcomment %}
+
+{% liquid
+  if section.settings.title_font_size != blank and section.settings.title_font_size > 0
+    assign heading_font_size = section.settings.title_font_size
+  elsif settings.homepage_heading_font_size != blank and settings.homepage_heading_font_size > 0
+    assign heading_font_size = settings.homepage_heading_font_size
+  else
+    assign heading_font_size = 3.5
+  endif
+  
+  if section.settings.title_font_weight != blank and section.settings.title_font_weight > 0
+    assign heading_font_weight = section.settings.title_font_weight
+  elsif settings.homepage_heading_font_weight != blank and settings.homepage_heading_font_weight > 0
+    assign heading_font_weight = settings.homepage_heading_font_weight
+  else
+    assign heading_font_weight = 700
+  endif
+  
+  if section.settings.title_line_height != blank and section.settings.title_line_height > 0
+    assign heading_line_height = section.settings.title_line_height
+  elsif settings.homepage_heading_line_height != blank and settings.homepage_heading_line_height > 0
+    assign heading_line_height = settings.homepage_heading_line_height
+  else
+    assign heading_line_height = 1.2
+  endif
+  
+  if section.settings.title_color != blank
+    assign heading_color = section.settings.title_color
+  elsif settings.homepage_heading_color != blank
+    assign heading_color = settings.homepage_heading_color
+  else
+    assign heading_color = '#000000'
+  endif
+  
+  if section.settings.title_text_transform != blank and section.settings.title_text_transform != ''
+    assign heading_text_transform = section.settings.title_text_transform
+  elsif settings.homepage_heading_text_transform != blank and settings.homepage_heading_text_transform != ''
+    assign heading_text_transform = settings.homepage_heading_text_transform
+  else
+    assign heading_text_transform = 'uppercase'
+  endif
+  
+  if section.settings.title_line_height != blank and section.settings.title_line_height > 0
+    assign heading_line_height = section.settings.title_line_height
+  elsif settings.homepage_heading_line_height != blank and settings.homepage_heading_line_height > 0
+    assign heading_line_height = settings.homepage_heading_line_height
+  else
+    assign heading_line_height = 1.2
+  endif
+  
+  comment
+    Margin bottom settings
+  endcomment
+  if section.settings.title_margin_bottom_desktop != null and section.settings.title_margin_bottom_desktop > 0
+    assign heading_margin_bottom_desktop = section.settings.title_margin_bottom_desktop
+  elsif settings.homepage_heading_margin_bottom_desktop != blank and settings.homepage_heading_margin_bottom_desktop > 0
+    assign heading_margin_bottom_desktop = settings.homepage_heading_margin_bottom_desktop
+  else
+    assign heading_margin_bottom_desktop = 48
+  endif
+  
+  if section.settings.title_margin_bottom_mobile != null and section.settings.title_margin_bottom_mobile > 0
+    assign heading_margin_bottom_mobile = section.settings.title_margin_bottom_mobile
+  elsif settings.homepage_heading_margin_bottom_mobile != blank and settings.homepage_heading_margin_bottom_mobile > 0
+    assign heading_margin_bottom_mobile = settings.homepage_heading_margin_bottom_mobile
+  else
+    assign heading_margin_bottom_mobile = 32
+  endif
+  
+  comment
+    Underline settings - check if section has the setting defined in schema
+    In Liquid, false != blank is true, so we check if it's explicitly set (not blank)
+    If section setting is blank (not in schema), fall back to global setting
+    Special case: Hindi section always has underline disabled (check by class name)
+  endcomment
+  if class != blank and class contains 'vastu-hindi-statement'
+    assign heading_enable_underline = false
+  elsif section.settings.title_enable_underline != blank
+    assign heading_enable_underline = section.settings.title_enable_underline
+  else
+    assign heading_enable_underline = settings.homepage_heading_enable_underline | default: true
+  endif
+  
+  if section.settings.title_underline_color != blank
+    assign heading_underline_color = section.settings.title_underline_color
+  elsif settings.homepage_heading_underline_color != blank
+    assign heading_underline_color = settings.homepage_heading_underline_color
+  else
+    assign heading_underline_color = '#473855'
+  endif
+  
+  if section.settings.title_underline_width != null and section.settings.title_underline_width > 0
+    assign heading_underline_width = section.settings.title_underline_width
+  elsif settings.homepage_heading_underline_width != blank and settings.homepage_heading_underline_width > 0
+    assign heading_underline_width = settings.homepage_heading_underline_width
+  else
+    assign heading_underline_width = 80
+  endif
+  
+  if section.settings.title_underline_height != null and section.settings.title_underline_height > 0
+    assign heading_underline_height = section.settings.title_underline_height
+  elsif settings.homepage_heading_underline_height != blank and settings.homepage_heading_underline_height > 0
+    assign heading_underline_height = settings.homepage_heading_underline_height
+  else
+    assign heading_underline_height = 4
+  endif
+  
+  comment
+    Underline bottom position - only use section-level if > 0
+  endcomment
+  if section.settings.title_underline_bottom_desktop != null and section.settings.title_underline_bottom_desktop > 0
+    assign heading_underline_bottom_desktop = section.settings.title_underline_bottom_desktop
+    assign has_underline_bottom_desktop_override = true
+  else
+    assign heading_underline_bottom_desktop = settings.homepage_heading_underline_bottom_desktop | default: 24
+    assign has_underline_bottom_desktop_override = false
+  endif
+  
+  if section.settings.title_underline_bottom_mobile != null and section.settings.title_underline_bottom_mobile > 0
+    assign heading_underline_bottom_mobile = section.settings.title_underline_bottom_mobile
+    assign has_underline_bottom_mobile_override = true
+  else
+    assign heading_underline_bottom_mobile = settings.homepage_heading_underline_bottom_mobile | default: 16
+    assign has_underline_bottom_mobile_override = false
+  endif
+  
+  assign heading_class = 'homepage-section-heading'
+  if class != blank
+    assign heading_class = heading_class | append: ' ' | append: class
+  endif
+%}
+
+{% if title != blank %}
+  {% liquid
+    if section.settings.title_enable_animation != blank
+      assign enable_animation = section.settings.title_enable_animation
+    else
+      assign enable_animation = settings.enable_heading_animations | default: true
+    endif
+  %}
+  
+  {% if enable_animation %}
+    <xo-animate xo-cascade>
+  {% endif %}
+  <h2 class="{{ heading_class }}" style="
+    --heading-font-size: {{ heading_font_size }}rem;
+    --heading-font-weight: {{ heading_font_weight }};
+    --heading-color: {{ heading_color }};
+    --heading-text-transform: {{ heading_text_transform }};
+    --heading-line-height: {{ heading_line_height }};
+    {% if section.settings.title_margin_bottom_desktop != null and section.settings.title_margin_bottom_desktop > 0 %}--heading-margin-bottom-desktop: {{ heading_margin_bottom_desktop }}px;
+    {% endif %}{% if section.settings.title_margin_bottom_mobile != null and section.settings.title_margin_bottom_mobile > 0 %}--heading-margin-bottom-mobile: {{ heading_margin_bottom_mobile }}px;
+    {% endif %}{% if section.settings.title_underline_color != blank %}--heading-underline-color: {{ heading_underline_color }};
+    {% endif %}{% if section.settings.title_underline_width != null and section.settings.title_underline_width > 0 %}--heading-underline-width: {{ heading_underline_width }}px;
+    {% endif %}{% if section.settings.title_underline_height != null and section.settings.title_underline_height > 0 %}--heading-underline-height: {{ heading_underline_height }}px;
+    {% endif %}{% if has_underline_bottom_desktop_override %}--heading-underline-bottom-desktop: {{ heading_underline_bottom_desktop }}px;
+    {% endif %}{% if has_underline_bottom_mobile_override %}--heading-underline-bottom-mobile: {{ heading_underline_bottom_mobile }}px;
+    {% endif %}font-size: var(--heading-font-size);
+    font-weight: var(--heading-font-weight);
+    color: var(--heading-color);
+    text-transform: var(--heading-text-transform);
+    line-height: var(--heading-line-height);
+    text-align: center;
+    margin: 0 0 var(--heading-margin-bottom-desktop, var(--homepage-heading-margin-bottom-desktop, 48px));
+    padding: 0;
+  " data-enable-underline="{{ heading_enable_underline }}">{{ title }}</h2>
+  {% if enable_animation %}
+    </xo-animate>
+  {% endif %}
+{% endif %}
+

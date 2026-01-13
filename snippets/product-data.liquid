@@ -13,10 +13,27 @@
     {
       "id": {{ product.id }},
       "handle": {{ product.handle | json }},
-      "variants": {{ product.variants | json }},
-      "media": {{ product.media | json }},
+      "variants": [
+        {%- assign variant_limit = 20 -%}
+        {%- for variant in product.variants limit: variant_limit -%}
+          {
+            "id": {{ variant.id }},
+            "price": {{ variant.price }},
+            "available": {{ variant.available }},
+            "options": {{ variant.options | json }}
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ],
+      "media": [
+        {%- for media_item in product.media limit: 15 -%}
+          {
+            "id": {{ media_item.id }},
+            "media_type": {{ media_item.media_type | json }}
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ],
       "options": {{ product.options | json }},
-      "available": {{ product.available }},
+      "available": {{ product.available }}
     }
   </script>
 </xo-product-data>

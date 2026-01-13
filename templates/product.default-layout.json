@@ -193,6 +193,7 @@
     },
     "product-information-tabs": {
       "type": "product-information-tabs",
+      "disabled": true,
       "blocks": {
         "tab1": {
           "type": "liquid",
@@ -213,6 +214,7 @@
     },
     "product-faq": {
       "type": "product-faq",
+      "disabled": true,
       "blocks": {
         "faq1": {
           "type": "question",
@@ -355,6 +357,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "heading_title": "You Might Also Like"
       }

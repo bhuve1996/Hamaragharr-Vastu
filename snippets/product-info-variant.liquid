@@ -26,7 +26,8 @@
     {% capture options %}
       <xo-product-variant>
         {% liquid
-        for value in option.values
+        assign values_limit_select = 20
+        for value in option.values limit: values_limit_select
         assign checked = false
         if option.selected_value == value
         assign checked = true
@@ -62,17 +63,19 @@
         if style == 'image'
           assign color_use_image = true
         endif
-        for value in option.values
-          assign value_check = ''
-          for variant in product.variants
-            assign value = value | escape
-            assign checked = false
-            if option.selected_value == value
-              assign checked = true
-            endif
-            if variant.options contains value and value != value_check
-              assign value_check = value
-              render 'field-color-style2', style: style, name: option.name, value: value, checked: checked, image: variant.featured_image, use_image: color_use_image, size: '4rem', media_aspect_ratio: media_aspect_ratio
+        assign variant_limit = 30
+        assign values_limit = 10
+        for value in option.values limit: values_limit
+          assign value_escaped = value | escape
+          assign value_rendered = false
+          assign checked = false
+          if option.selected_value == value
+            assign checked = true
+          endif
+          for variant in product.variants limit: variant_limit
+            if variant.options contains value_escaped and value_rendered == false
+              assign value_rendered = true
+              render 'field-color-style2', style: style, name: option.name, value: value_escaped, checked: checked, image: variant.featured_image, use_image: color_use_image, size: '4rem', media_aspect_ratio: media_aspect_ratio
             endif
           endfor
         endfor
@@ -82,7 +85,8 @@
     {{ header }}
     <xo-product-variant class='xo-product-info-variant__inner'>
       {% liquid
-        for value in option.values
+        assign values_limit_boxed = 30
+        for value in option.values limit: values_limit_boxed
           assign value = value | escape
           assign checked = false
           if option.selected_value == value
@@ -97,7 +101,8 @@
     {{ header }}
     <xo-product-variant class='xo-product-info-variant__inner'>
       {% liquid
-        for value in option.values
+        assign values_limit_boxed2 = 30
+        for value in option.values limit: values_limit_boxed2
           assign value = value | escape
           assign checked = false
           if option.selected_value == value
@@ -110,7 +115,8 @@
   {% else %}
     <xo-product-variant class='xo-product-info-variant__inner xo-product-info-variant__inner--radio'>
       {% liquid
-        for value in option.values
+        assign values_limit_radio = 30
+        for value in option.values limit: values_limit_radio
           assign value = value | escape
           assign checked = false
           if option.selected_value == value

@@ -35,21 +35,31 @@
             </ul>
           {%- else -%}
             <ul role='list' class='footer-modern__list list-unstyled'>
-              <li class='footer-modern__list-item'>
-                <a href='/pages/privacy-policy' class='footer-modern__link'>Privacy Policy</a>
-              </li>
-              <li class='footer-modern__list-item'>
-                <a href='/pages/terms-conditions' class='footer-modern__link'>Terms & Conditions</a>
-              </li>
-              <li class='footer-modern__list-item'>
-                <a href='/pages/return-refund-policy' class='footer-modern__link'>Return & Refund Policy</a>
-              </li>
-              <li class='footer-modern__list-item'>
-                <a href='{{ routes.blogs_url }}' class='footer-modern__link'>Blog</a>
-              </li>
-              <li class='footer-modern__list-item'>
-                <a href='{{ section.settings.amazon_link }}' class='footer-modern__link' {% if section.settings.amazon_link != blank %}target='_blank'{% endif %}>Shop on Amazon</a>
-              </li>
+              {%- if section.settings.info_privacy_enable != false -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ section.settings.info_privacy_link | default: "/pages/privacy-policy" }}' class='footer-modern__link'>{{ section.settings.info_privacy_text | default: 'Privacy Policy' }}</a>
+                </li>
+              {%- endif -%}
+              {%- if section.settings.info_terms_enable != false -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ section.settings.info_terms_link | default: "/pages/terms-conditions" }}' class='footer-modern__link'>{{ section.settings.info_terms_text | default: 'Terms & Conditions' }}</a>
+                </li>
+              {%- endif -%}
+              {%- if section.settings.info_return_enable != false -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ section.settings.info_return_link | default: "/pages/return-refund-policy" }}' class='footer-modern__link'>{{ section.settings.info_return_text | default: 'Return & Refund Policy' }}</a>
+                </li>
+              {%- endif -%}
+              {%- if section.settings.info_blog_enable != false -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ section.settings.info_blog_link | default: "/pages/blogs" }}' class='footer-modern__link'>{{ section.settings.info_blog_text | default: 'Blog' }}</a>
+                </li>
+              {%- endif -%}
+              {%- if section.settings.amazon_link != blank -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ section.settings.amazon_link }}' class='footer-modern__link' {% if section.settings.amazon_link != blank %}target='_blank'{% endif %}>{{ section.settings.amazon_link_text | default: 'Shop on Amazon' }}</a>
+                </li>
+              {%- endif -%}
             </ul>
           {%- endif -%}
         </xo-animate>
@@ -71,21 +81,21 @@
             </ul>
           {%- else -%}
             <ul role='list' class='footer-modern__list list-unstyled'>
-              <li class='footer-modern__list-item'>
-                <a href='/pages/faq' class='footer-modern__link'>FAQ</a>
-              </li>
-              <li class='footer-modern__list-item'>
-                <a href='/pages/contact-us-1' class='footer-modern__link'>Contact Us</a>
-              </li>
-              <li class='footer-modern__list-item'>
-                <a href='/pages/how-to-order' class='footer-modern__link'>How to Order</a>
-              </li>
-              <li class='footer-modern__list-item'>
-                <a href='/pages/track-order' class='footer-modern__link'>Track Order</a>
-              </li>
-              <li class='footer-modern__list-item'>
-                <a href='{{ section.settings.payment_link }}' class='footer-modern__link' {% if section.settings.payment_link != blank %}target='_blank'{% endif %}>Payment Link</a>
-              </li>
+              {%- if section.settings.support_faq_enable != false -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ section.settings.support_faq_link | default: "/pages/faq" }}' class='footer-modern__link'>{{ section.settings.support_faq_text | default: 'FAQ' }}</a>
+                </li>
+              {%- endif -%}
+              {%- if section.settings.support_contact_enable != false -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ section.settings.support_contact_link | default: "/pages/contact-us-1" }}' class='footer-modern__link'>{{ section.settings.support_contact_text | default: 'Contact Us' }}</a>
+                </li>
+              {%- endif -%}
+              {%- if section.settings.payment_link != blank -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ section.settings.payment_link }}' class='footer-modern__link' {% if section.settings.payment_link != blank %}target='_blank'{% endif %}>{{ section.settings.payment_link_text | default: 'Payment Link' }}</a>
+                </li>
+              {%- endif -%}
             </ul>
           {%- endif -%}
         </xo-animate>
@@ -129,6 +139,7 @@
                   name='commit'
                   id='Subscribe'
                   aria-label='{{ "newsletter.button_label" | t }}'
+                  {% if section.settings.newsletter_button_font_size != blank %}style='font-size: {{ section.settings.newsletter_button_font_size }}rem;'{% endif %}
                 >
                   {{ section.settings.newsletter_button_text | default: 'Sign Up' }}
                 </button>
@@ -145,6 +156,7 @@
   {% comment %} Bottom Section - Social Media & Payment Icons {% endcomment %}
   <div class='footer-modern__bottom'>
     <xo-container>
+      {% comment %} First Row: Social Media & Payment Icons {% endcomment %}
       <div class='footer-modern__bottom-content'>
         
         {% comment %} Social Media Icons {% endcomment %}
@@ -220,20 +232,25 @@
           </div>
         {%- endif -%}
 
-        {% comment %} Copyright {% endcomment %}
-        {%- if section.settings.copyright != blank -%}
+      </div>
+
+      {% comment %} Second Row: Copyright {% endcomment %}
+      {%- if section.settings.copyright != blank -%}
+        <div class='footer-modern__copyright-wrapper'>
           <div class='footer-modern__copyright'>
             {{ section.settings.copyright }}
           </div>
-        {%- else -%}
+        </div>
+      {%- else -%}
+        <div class='footer-modern__copyright-wrapper'>
           <div class='footer-modern__copyright'>
             <small>&copy; Copyright {{ 'now' | date: '%Y' }} | {{ shop.name | escape | link_to: routes.root_url }}</small>
             <small>{{ powered_by_link }}</small>
           </div>
-        {%- endif -%}
+        </div>
+      {%- endif -%}
 
-      </div>
-  </xo-container>
+    </xo-container>
   </div>
 </footer>
 
@@ -283,13 +300,95 @@
       "type": "link_list",
       "id": "info_menu",
       "label": "Information Menu",
-      "info": "If no menu is selected, default links will be shown"
+      "info": "If no menu is selected, you can configure individual links below"
+    },
+    {
+      "type": "checkbox",
+      "id": "info_privacy_enable",
+      "label": "Show Privacy Policy Link",
+      "default": true,
+      "info": "Used when Information Menu is not set"
+    },
+    {
+      "type": "url",
+      "id": "info_privacy_link",
+      "label": "Privacy Policy Link",
+      "info": "Used when Information Menu is not set. Default: /pages/privacy-policy"
+    },
+    {
+      "type": "text",
+      "id": "info_privacy_text",
+      "label": "Privacy Policy Text",
+      "default": "Privacy Policy"
+    },
+    {
+      "type": "checkbox",
+      "id": "info_terms_enable",
+      "label": "Show Terms & Conditions Link",
+      "default": true,
+      "info": "Used when Information Menu is not set"
+    },
+    {
+      "type": "url",
+      "id": "info_terms_link",
+      "label": "Terms & Conditions Link",
+      "info": "Used when Information Menu is not set. Default: /pages/terms-conditions"
+    },
+    {
+      "type": "text",
+      "id": "info_terms_text",
+      "label": "Terms & Conditions Text",
+      "default": "Terms & Conditions"
+    },
+    {
+      "type": "checkbox",
+      "id": "info_return_enable",
+      "label": "Show Return & Refund Policy Link",
+      "default": true,
+      "info": "Used when Information Menu is not set"
+    },
+    {
+      "type": "url",
+      "id": "info_return_link",
+      "label": "Return & Refund Policy Link",
+      "info": "Used when Information Menu is not set. Default: /pages/return-refund-policy"
+    },
+    {
+      "type": "text",
+      "id": "info_return_text",
+      "label": "Return & Refund Policy Text",
+      "default": "Return & Refund Policy"
+    },
+    {
+      "type": "checkbox",
+      "id": "info_blog_enable",
+      "label": "Show Blog Link",
+      "default": true,
+      "info": "Used when Information Menu is not set"
+    },
+    {
+      "type": "url",
+      "id": "info_blog_link",
+      "label": "Blog Link",
+      "info": "Used when Information Menu is not set. Default: /pages/blogs"
+    },
+    {
+      "type": "text",
+      "id": "info_blog_text",
+      "label": "Blog Link Text",
+      "default": "Blog"
     },
     {
       "type": "url",
       "id": "amazon_link",
       "label": "Shop on Amazon Link",
       "info": "Link to your Amazon store"
+    },
+    {
+      "type": "text",
+      "id": "amazon_link_text",
+      "label": "Amazon Link Text",
+      "default": "Shop on Amazon"
     },
     {
       "type": "header",
@@ -305,13 +404,57 @@
       "type": "link_list",
       "id": "support_menu",
       "label": "Support Menu",
-      "info": "If no menu is selected, default links will be shown"
+      "info": "If no menu is selected, you can configure individual links below"
+    },
+    {
+      "type": "checkbox",
+      "id": "support_faq_enable",
+      "label": "Show FAQ Link",
+      "default": true,
+      "info": "Used when Support Menu is not set"
+    },
+    {
+      "type": "url",
+      "id": "support_faq_link",
+      "label": "FAQ Link",
+      "info": "Used when Support Menu is not set. Default: /pages/faq"
+    },
+    {
+      "type": "text",
+      "id": "support_faq_text",
+      "label": "FAQ Link Text",
+      "default": "FAQ"
+    },
+    {
+      "type": "checkbox",
+      "id": "support_contact_enable",
+      "label": "Show Contact Us Link",
+      "default": true,
+      "info": "Used when Support Menu is not set"
+    },
+    {
+      "type": "url",
+      "id": "support_contact_link",
+      "label": "Contact Us Link",
+      "info": "Used when Support Menu is not set. Default: /pages/contact-us-1"
+    },
+    {
+      "type": "text",
+      "id": "support_contact_text",
+      "label": "Contact Us Link Text",
+      "default": "Contact Us"
     },
     {
       "type": "url",
       "id": "payment_link",
       "label": "Payment Link",
       "info": "Link to payment page"
+    },
+    {
+      "type": "text",
+      "id": "payment_link_text",
+      "label": "Payment Link Text",
+      "default": "Payment Link"
     },
     {
       "type": "header",
@@ -341,6 +484,17 @@
       "id": "newsletter_button_text",
       "label": "Newsletter Button Text",
       "default": "Sign Up"
+    },
+    {
+      "type": "range",
+      "id": "newsletter_button_font_size",
+      "label": "Newsletter Button Font Size",
+      "min": 1.0,
+      "max": 3.0,
+      "step": 0.1,
+      "default": 1.6,
+      "unit": "rem",
+      "info": "Adjust the font size of the newsletter signup button"
     },
     {
       "type": "header",

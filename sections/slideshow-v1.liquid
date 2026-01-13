@@ -44,9 +44,15 @@
                       {%- capture title -%}
                         {%- if block.settings.title != blank -%}
                           {%- assign title_text = block.settings.title | replace: ' &amp; ', ' &amp;<br>' | replace: ' & ', ' &amp;<br>' -%}
-                          <h3 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
-                            {{ title_text }}
-                          </h3>
+                          {%- if forloop.first -%}
+                            <h1 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
+                              {{ title_text }}
+                            </h1>
+                          {%- else -%}
+                            <h2 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
+                              {{ title_text }}
+                            </h2>
+                          {%- endif -%}
                         {%- endif -%}
                       {%- endcapture -%}
                       {%- capture description -%}
@@ -66,7 +72,8 @@
                             style: block.settings.button_style,
                             size: block.settings.button_size,
                             radius: block.settings.button_radius,
-                            padding: block.settings.button_padding
+                            padding: block.settings.button_padding,
+                            text_color_class: block.settings.button_text_color_class
                           %}
                         {%- endif -%}
                       {%- endcapture -%}
@@ -133,9 +140,15 @@
                       {%- capture title -%}
                         {%- if block.settings.title != blank -%}
                           {%- assign title_text = block.settings.title | replace: ' &amp; ', ' &amp;<br>' | replace: ' & ', ' &amp;<br>' -%}
-                          <h3 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
-                            {{ title_text }}
-                          </h3>
+                          {%- if forloop.first -%}
+                            <h1 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
+                              {{ title_text }}
+                            </h1>
+                          {%- else -%}
+                            <h2 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
+                              {{ title_text }}
+                            </h2>
+                          {%- endif -%}
                         {%- endif -%}
                       {%- endcapture -%}
                       {%- capture description -%}
@@ -155,7 +168,8 @@
                             style: block.settings.button_style,
                             size: block.settings.button_size,
                             radius: block.settings.button_radius,
-                            padding: block.settings.button_padding
+                            padding: block.settings.button_padding,
+                            text_color_class: block.settings.button_text_color_class
                           %}
                         {%- endif -%}
                       {%- endcapture -%}
@@ -190,7 +204,7 @@
       "type": "select",
       "id": "width",
       "label": "t:sections.all.width.label",
-      "default": "box",
+      "default": "wide",
       "options": [
         {
           "value": "box",
@@ -732,6 +746,27 @@
           "step": 0.2,
           "unit": "rem",
           "default": 1.4
+        },
+        {
+          "type": "select",
+          "id": "button_text_color_class",
+          "label": "Button Text Color",
+          "info": "Override button text color. Use 'black' for black text, 'white' for white text, or leave empty to use default.",
+          "options": [
+            {
+              "value": "",
+              "label": "Default (from button style)"
+            },
+            {
+              "value": "black",
+              "label": "Black"
+            },
+            {
+              "value": "white",
+              "label": "White"
+            }
+          ],
+          "default": ""
         },
         {
           "type": "select",

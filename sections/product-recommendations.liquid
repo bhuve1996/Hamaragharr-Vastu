@@ -6,7 +6,9 @@
     {% else %}
       {% assign color_scheme_chosen = settings.card_color_scheme %}
     {% endif %}
-    {% render 'section-heading', title: section.settings.heading_title, description: section.settings.heading_description, align: section.settings.heading_align %}
+    <xo-animate xo-cascade>
+      {% render 'section-heading', title: section.settings.heading_title, description: section.settings.heading_description, align: section.settings.heading_align %}
+    </xo-animate>
     {% render 'space', value: '3rem' %}
     {% render 'product-recommendations',
       intent: 'related',

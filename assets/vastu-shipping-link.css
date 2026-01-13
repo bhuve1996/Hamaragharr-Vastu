@@ -1,9 +1,3 @@
-/* ============================================
-   VASTU SHIPPING LINK - Read More Link Styling
-   Parent-scoped: .shipping-accordion
-   ============================================ */
-
-/* View Full Link - Read More Style (Not Button) */
 .shipping-accordion__view-full,
 .shipping-accordion .shipping-accordion__view-full,
 .shipping-content .shipping-accordion__view-full {
@@ -17,7 +11,6 @@
   appearance: none;
 }
 
-/* View Full Link Text - Read More Style */
 .shipping-accordion__view-full-link,
 .shipping-accordion .shipping-accordion__view-full-link,
 .shipping-accordion__view-full span,
@@ -41,7 +34,6 @@
   line-height: 1.5;
 }
 
-/* Hover State - Read More Link */
 .shipping-accordion__view-full:hover .shipping-accordion__view-full-link,
 .shipping-accordion__view-full:hover span,
 .shipping-accordion__view-full:hover button,
@@ -51,7 +43,6 @@
   transform: translateX(4px);
 }
 
-/* Active State */
 .shipping-accordion__view-full:active .shipping-accordion__view-full-link,
 .shipping-accordion__view-full:active span,
 .shipping-accordion__view-full:active button,
@@ -59,7 +50,6 @@
   transform: translateX(2px);
 }
 
-/* Remove Button Styling */
 .shipping-accordion__view-full button,
 .shipping-accordion__view-full .xo-btn,
 .shipping-accordion__view-full [class*="button"] {
@@ -76,7 +66,6 @@
   border-radius: 0;
 }
 
-/* Modal Trigger - Ensure It's a Link, Not Button */
 .shipping-accordion__view-full xo-modal-trigger,
 .shipping-accordion__view-full [xo-modal-trigger] {
   display: inline-block;
@@ -87,7 +76,6 @@
   text-decoration: none;
 }
 
-/* Ensure No Button Classes Apply */
 .shipping-accordion__view-full.xo-btn,
 .shipping-accordion__view-full[class*="button"],
 .shipping-accordion__view-full[class*="btn"] {
@@ -100,7 +88,6 @@
   border-radius: 0;
 }
 
-/* Product Page Specific - Parent Scoped */
 .xo-product-info-content .shipping-accordion__view-full,
 .main-product .shipping-accordion__view-full,
 section[class*="main-product"] .shipping-accordion__view-full {
@@ -109,7 +96,6 @@ section[class*="main-product"] .shipping-accordion__view-full {
   text-align: left;
 }
 
-/* Responsive */
 @media (width <= 767px) {
   .shipping-accordion__view-full-link,
   .shipping-accordion__view-full span,
