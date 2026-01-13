@@ -2529,21 +2529,357 @@
       },
       {
         "type": "header",
-        "content": "Button Text with Data-Text Attribute"
+        "content": "Primary Button Hover Effects - Individual Configurations"
+      },
+      {
+        "type": "paragraph",
+        "content": "Configure hover effects for different types of primary buttons separately."
+      },
+      {
+        "type": "header",
+        "content": "Type 1: Light Primary Buttons Hover"
+      },
+      {
+        "type": "color",
+        "id": "button_light_primary_hover_bg_color",
+        "label": "Background Color",
+        "default": "#ffffff",
+        "info": "Background color for light primary buttons on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_light_primary_hover_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Background Opacity",
+        "default": 90,
+        "info": "Background opacity on hover (0-100%)"
+      },
+      {
+        "type": "color",
+        "id": "button_light_primary_hover_text_color",
+        "label": "Text Color",
+        "default": "#000000",
+        "info": "Text color for light primary buttons on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_light_primary_hover_transform_y",
+        "min": -10,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Transform Y (Vertical Movement)",
+        "default": -1,
+        "info": "Vertical movement on hover (negative = up, positive = down)"
+      },
+      {
+        "type": "range",
+        "id": "button_light_primary_hover_box_shadow_blur",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Box Shadow Blur",
+        "default": 12,
+        "info": "Box shadow blur radius on hover"
+      },
+      {
+        "type": "color",
+        "id": "button_light_primary_hover_box_shadow_color",
+        "label": "Box Shadow Color",
+        "default": "#000000",
+        "info": "Box shadow color on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_light_primary_hover_box_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Box Shadow Opacity",
+        "default": 20,
+        "info": "Box shadow opacity on hover (0-100%)"
+      },
+      {
+        "type": "header",
+        "content": "Type 2: General Primary Buttons Hover"
+      },
+      {
+        "type": "color",
+        "id": "button_primary_hover_bg_color",
+        "label": "Background Color",
+        "default": "#ffffff",
+        "info": "Background color for general primary buttons on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_primary_hover_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Background Opacity",
+        "default": 90,
+        "info": "Background opacity on hover (0-100%)"
+      },
+      {
+        "type": "color",
+        "id": "button_primary_hover_text_color",
+        "label": "Text Color",
+        "default": "#000000",
+        "info": "Text color for general primary buttons on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_primary_hover_transform_y",
+        "min": -10,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Transform Y (Vertical Movement)",
+        "default": -1,
+        "info": "Vertical movement on hover (negative = up, positive = down)"
+      },
+      {
+        "type": "range",
+        "id": "button_primary_hover_box_shadow_blur",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Box Shadow Blur",
+        "default": 12,
+        "info": "Box shadow blur radius on hover"
+      },
+      {
+        "type": "color",
+        "id": "button_primary_hover_box_shadow_color",
+        "label": "Box Shadow Color",
+        "default": "#000000",
+        "info": "Box shadow color on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_primary_hover_box_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Box Shadow Opacity",
+        "default": 20,
+        "info": "Box shadow opacity on hover (0-100%)"
+      },
+      {
+        "type": "header",
+        "content": "Type 3: Best Seller Section Primary Buttons Hover"
+      },
+      {
+        "type": "color",
+        "id": "button_best_seller_primary_hover_bg_color",
+        "label": "Background Color",
+        "default": "#ffffff",
+        "info": "Background color for best seller section primary buttons on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_best_seller_primary_hover_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Background Opacity",
+        "default": 90,
+        "info": "Background opacity on hover (0-100%)"
+      },
+      {
+        "type": "color",
+        "id": "button_best_seller_primary_hover_text_color",
+        "label": "Text Color",
+        "default": "#000000",
+        "info": "Text color for best seller section primary buttons on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_best_seller_primary_hover_transform_y",
+        "min": -10,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Transform Y (Vertical Movement)",
+        "default": -1,
+        "info": "Vertical movement on hover (negative = up, positive = down)"
+      },
+      {
+        "type": "range",
+        "id": "button_best_seller_primary_hover_box_shadow_blur",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Box Shadow Blur",
+        "default": 12,
+        "info": "Box shadow blur radius on hover"
+      },
+      {
+        "type": "color",
+        "id": "button_best_seller_primary_hover_box_shadow_color",
+        "label": "Box Shadow Color",
+        "default": "#000000",
+        "info": "Box shadow color on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_best_seller_primary_hover_box_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Box Shadow Opacity",
+        "default": 20,
+        "info": "Box shadow opacity on hover (0-100%)"
+      },
+      {
+        "type": "header",
+        "content": "Type 4: Featured Products Section Primary Buttons Hover"
+      },
+      {
+        "type": "color",
+        "id": "button_featured_products_primary_hover_bg_color",
+        "label": "Background Color",
+        "default": "#ffffff",
+        "info": "Background color for featured products section primary buttons on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_featured_products_primary_hover_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Background Opacity",
+        "default": 90,
+        "info": "Background opacity on hover (0-100%)"
+      },
+      {
+        "type": "color",
+        "id": "button_featured_products_primary_hover_text_color",
+        "label": "Text Color",
+        "default": "#000000",
+        "info": "Text color for featured products section primary buttons on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_featured_products_primary_hover_transform_y",
+        "min": -10,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "Transform Y (Vertical Movement)",
+        "default": -1,
+        "info": "Vertical movement on hover (negative = up, positive = down)"
+      },
+      {
+        "type": "range",
+        "id": "button_featured_products_primary_hover_box_shadow_blur",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Box Shadow Blur",
+        "default": 12,
+        "info": "Box shadow blur radius on hover"
+      },
+      {
+        "type": "color",
+        "id": "button_featured_products_primary_hover_box_shadow_color",
+        "label": "Box Shadow Color",
+        "default": "#000000",
+        "info": "Box shadow color on hover"
+      },
+      {
+        "type": "range",
+        "id": "button_featured_products_primary_hover_box_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Box Shadow Opacity",
+        "default": 20,
+        "info": "Box shadow opacity on hover (0-100%)"
+      },
+      {
+        "type": "header",
+        "content": "Button Text Configuration"
+      },
+      {
+        "type": "paragraph",
+        "content": "Configure text colors for two types of buttons: regular buttons and buttons with slide-up animation effect (data-text attribute)."
+      },
+      {
+        "type": "header",
+        "content": "Type 1: Regular Buttons (without data-text attribute)"
+      },
+      {
+        "type": "color",
+        "id": "button_text_regular_color",
+        "label": "Regular Button Text Color",
+        "default": "#ffffff",
+        "info": "Text color for regular buttons without data-text attribute. Applies to .xo-btn__text and .xo-btn__content elements."
+      },
+      {
+        "type": "color",
+        "id": "button_text_regular_hover_color",
+        "label": "Regular Button Text Color (Hover)",
+        "default": "#ffffff",
+        "info": "Text color for regular buttons on hover state. Leave empty to use the regular button text color."
+      },
+      {
+        "type": "header",
+        "content": "Type 2: Buttons with Data-Text Attribute (slide-up effect)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Buttons with data-text attribute have two subtypes: global/regular buttons and slideshow-specific buttons."
+      },
+      {
+        "type": "header",
+        "content": "Type 2A: Global/Regular Buttons with Data-Text (product cards, modals, etc.)"
       },
       {
         "type": "color",
         "id": "button_text_data_text_color",
-        "label": "Text Color (for buttons with slide-up effect)",
+        "label": "Global Button Text Color (with slide-up effect)",
         "default": "#ffffff",
-        "info": "Text color for buttons with data-text attribute (slide-up animation effect)"
+        "info": "Text color for global/regular buttons with data-text attribute (slide-up animation effect). Applies to product cards, modals, and other non-slideshow buttons with .xo-btn__text[data-text] elements."
+      },
+      {
+        "type": "color",
+        "id": "button_text_data_text_hover_color",
+        "label": "Global Button Text Color - Hover (with slide-up effect)",
+        "default": "#ffffff",
+        "info": "Text color for global/regular buttons with data-text on hover. Leave empty to use the global button text color."
+      },
+      {
+        "type": "header",
+        "content": "Type 2B: Slideshow Buttons with Data-Text"
       },
       {
         "type": "color",
         "id": "slideshow_button_text_data_text_color",
         "label": "Slideshow Button Text Color (with slide-up effect)",
         "default": "#000000",
-        "info": "Text color for slideshow section buttons with data-text attribute (slide-up animation effect). Default is black."
+        "info": "Text color for slideshow section buttons with data-text attribute (slide-up animation effect). Applies to buttons within .slideshow-v28__text--overlay sections. Default is black."
+      },
+      {
+        "type": "color",
+        "id": "slideshow_button_text_data_text_hover_color",
+        "label": "Slideshow Button Text Color - Hover (with slide-up effect)",
+        "default": "#000000",
+        "info": "Text color for slideshow buttons with data-text on hover. Leave empty to use the slideshow button text color."
       }
     ]
   },

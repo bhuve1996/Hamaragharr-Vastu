@@ -961,6 +961,7 @@ section[class*="product-faq"] {
   }
 }
 
+/* COMMENTED OUT - User requested removal
 .buy-button xo-cart-add .xo-btn--primary .xo-btn__text,
 .buy-button xo-cart-add .xo-btn--primary .xo-btn__content,
 .buy-button xo-cart-add .xo-btn--primary .xo-btn__text *,
@@ -979,6 +980,7 @@ xo-product-info-content .xo-btn--primary .xo-btn__text *,
 xo-product-info-content .xo-btn--primary .xo-btn__content * {
   color: rgb(var(--color-button-text, 0, 0, 0));
 }
+*/
 
 .buy-button xo-cart-add .xo-btn--secondary .xo-btn__text,
 .buy-button xo-cart-add .xo-btn--secondary .xo-btn__content,

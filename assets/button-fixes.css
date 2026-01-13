@@ -234,7 +234,121 @@ xo-modal xo-cart-add .xo-btn__content * {
   line-height: 1.5;
 }
 
+/* ============================================
+   TYPE 1: REGULAR BUTTONS (without data-text attribute)
+   ============================================ */
+
+/* Global Regular Button Text - Configurable */
+
+/* COMMENTED OUT - User requested removal
+.xo-btn__text:not([data-text]),
+.xo-btn--md .xo-btn__text:not([data-text]),
+.xo-btn .xo-btn__text:not([data-text]),
+button .xo-btn__text:not([data-text]),
+a .xo-btn__text:not([data-text]),
+.xo-btn__content,
+.xo-btn--md .xo-btn__content,
+.xo-btn .xo-btn__content,
+button .xo-btn__content,
+a .xo-btn__content,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn__text:not([data-text]),
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn__content,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn__text:not([data-text]),
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn__content,
+section[class*="vastu-best-seller"] .vastu-best-seller-card__add-to-cart .xo-btn__text:not([data-text]),
+section[class*="vastu-best-seller"] .vastu-best-seller-card__add-to-cart .xo-btn__content,
+section[class*="vastu-featured-products"] .vastu-featured-products__add-to-cart .xo-btn__text:not([data-text]),
+section[class*="vastu-featured-products"] .vastu-featured-products__add-to-cart .xo-btn__content,
+section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn__text:not([data-text]),
+section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn__content,
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn__text:not([data-text]),
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn__content,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn__text:not([data-text]),
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn__content,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__text:not([data-text]),
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__content,
+.filters-content .xo-product-card__add-to-cart .xo-btn__text:not([data-text]),
+.filters-content .xo-product-card__add-to-cart .xo-btn__content,
+xo-modal .xo-btn__text:not([data-text]),
+xo-modal .xo-btn__content,
+xo-modal xo-cart-add .xo-btn__text:not([data-text]),
+xo-modal xo-cart-add .xo-btn__content {
+  color: var(--button-text-regular-color, #fff);
+  opacity: 1;
+  visibility: visible;
+}
+*/
+
+/* Regular Button Text Hover State - Configurable */
+
+/* COMMENTED OUT - User requested removal
+.xo-btn:hover .xo-btn__text:not([data-text]),
+.xo-btn:hover .xo-btn__content,
+.xo-btn--secondary:hover .xo-btn__text:not([data-text]),
+.xo-btn--secondary:hover .xo-btn__content,
+.xo-btn--primary:hover .xo-btn__text:not([data-text]),
+.xo-btn--primary:hover .xo-btn__content,
+button:hover .xo-btn__text:not([data-text]),
+button:hover .xo-btn__content,
+a:hover .xo-btn__text:not([data-text]),
+a:hover .xo-btn__content,
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn:hover .xo-btn__text:not([data-text]),
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn:hover .xo-btn__content,
+section[class*="vastu-product-showcase"]
+  .vastu-product-showcase__add-to-cart
+  xo-cart-add
+  .xo-btn:hover
+  .xo-btn__text:not([data-text]),
+section[class*="vastu-product-showcase"]
+  .vastu-product-showcase__add-to-cart
+  xo-cart-add
+  .xo-btn:hover
+  .xo-btn__content,
+section[class*="vastu-best-seller"] .vastu-best-seller-card__add-to-cart .xo-btn:hover .xo-btn__text:not([data-text]),
+section[class*="vastu-best-seller"] .vastu-best-seller-card__add-to-cart .xo-btn:hover .xo-btn__content,
+section[class*="vastu-featured-products"] .vastu-featured-products__add-to-cart .xo-btn:hover .xo-btn__text:not([data-text]),
+section[class*="vastu-featured-products"] .vastu-featured-products__add-to-cart .xo-btn:hover .xo-btn__content,
+section[class*="vastu-shop-by-concern"]
+  .vastu-shop-by-concern__product-add-to-cart
+  .xo-btn:hover
+  .xo-btn__text:not([data-text]),
+section[class*="vastu-shop-by-concern"]
+  .vastu-shop-by-concern__product-add-to-cart
+  .xo-btn:hover
+  .xo-btn__content,
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text:not([data-text]),
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__content,
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text:not([data-text]),
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__content,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text:not([data-text]),
+.section-collection-products .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__content,
+.filters-content .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text:not([data-text]),
+.filters-content .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__content,
+xo-modal .xo-btn:hover .xo-btn__text:not([data-text]),
+xo-modal .xo-btn:hover .xo-btn__content,
+xo-modal xo-cart-add .xo-btn:hover .xo-btn__text:not([data-text]),
+xo-modal xo-cart-add .xo-btn:hover .xo-btn__content {
+  color: var(--button-text-regular-hover-color, var(--button-text-regular-color, #fff));
+  opacity: 1;
+  visibility: visible;
+}
+*/
+
+/* ============================================
+   TYPE 2: BUTTONS WITH DATA-TEXT ATTRIBUTE (slide-up effect)
+   ============================================ */
+
+/* ============================================
+   TYPE 2A: GLOBAL/REGULAR BUTTONS WITH DATA-TEXT
+   (product cards, modals, etc. - NOT slideshow)
+   ============================================ */
+
 /* Global Button Text with Data-Text Attribute - Configurable */
+.xo-btn__text[data-text] {
+  color: inherit;
+}
+
+/* COMMENTED OUT - User requested removal
 .xo-btn__text[data-text],
 .xo-btn--md .xo-btn__text[data-text],
 .xo-btn .xo-btn__text[data-text],
@@ -255,6 +369,44 @@ xo-modal xo-cart-add .xo-btn__text[data-text] {
   opacity: 1;
   visibility: visible;
 }
+*/
+
+/* Global Buttons with Data-Text - Hover State - Configurable */
+
+/* COMMENTED OUT - User requested removal
+.xo-btn:hover .xo-btn__text[data-text],
+.xo-btn--secondary:hover .xo-btn__text[data-text],
+.xo-btn--primary:hover .xo-btn__text[data-text],
+button:hover .xo-btn__text[data-text],
+a:hover .xo-btn__text[data-text],
+section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+section[class*="vastu-product-showcase"]
+  .vastu-product-showcase__add-to-cart
+  xo-cart-add
+  .xo-btn:hover
+  .xo-btn__text[data-text],
+section[class*="vastu-best-seller"] .vastu-best-seller-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+section[class*="vastu-featured-products"] .vastu-featured-products__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+section[class*="vastu-shop-by-concern"]
+  .vastu-shop-by-concern__product-add-to-cart
+  .xo-btn:hover
+  .xo-btn__text[data-text],
+.product-recommendations-section .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+.section-collection-products .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+.filters-content .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
+xo-modal .xo-btn:hover .xo-btn__text[data-text],
+xo-modal xo-cart-add .xo-btn:hover .xo-btn__text[data-text] {
+  color: var(--button-text-data-text-hover-color, var(--button-text-data-text-color, #fff));
+  opacity: 1;
+  visibility: visible;
+}
+*/
+
+/* ============================================
+   TYPE 2B: SLIDESHOW BUTTONS WITH DATA-TEXT
+   (slideshow sections only)
+   ============================================ */
 
 /* Slideshow Section - Button Text with Data-Text Attribute - Configurable via parent class */
 .slideshow-v28__text--overlay .xo-btn__text[data-text],
@@ -269,6 +421,23 @@ section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn__text[data-
 section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn .xo-btn__text[data-text],
 section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--md .xo-btn__text[data-text] {
   color: var(--slideshow-button-text-data-text-color, #000);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Slideshow Buttons with Data-Text - Hover State - Configurable */
+.slideshow-v28__text--overlay .xo-btn:hover .xo-btn__text[data-text],
+.slideshow-v28__text--overlay .xo-btn--secondary:hover .xo-btn__text[data-text],
+.slideshow-v28__text--overlay .xo-btn--primary:hover .xo-btn__text[data-text],
+.slideshow-v28__text--overlay button:hover .xo-btn__text[data-text],
+.slideshow-v28__text--overlay a:hover .xo-btn__text[data-text],
+section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn:hover .xo-btn__text[data-text],
+section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn--secondary:hover .xo-btn__text[data-text],
+section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn--primary:hover .xo-btn__text[data-text],
+section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn:hover .xo-btn__text[data-text],
+section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--secondary:hover .xo-btn__text[data-text],
+section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--primary:hover .xo-btn__text[data-text] {
+  color: var(--slideshow-button-text-data-text-hover-color, var(--slideshow-button-text-data-text-color, #000));
   opacity: 1;
   visibility: visible;
 }
@@ -303,34 +472,6 @@ section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--text-white
   overflow: hidden;
 }
 
-/* Ensure hover states also use the global color */
-.xo-btn:hover .xo-btn__text[data-text],
-.xo-btn--secondary:hover .xo-btn__text[data-text],
-.xo-btn--primary:hover .xo-btn__text[data-text],
-button:hover .xo-btn__text[data-text],
-a:hover .xo-btn__text[data-text],
-section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
-section[class*="vastu-product-showcase"]
-  .vastu-product-showcase__add-to-cart
-  xo-cart-add
-  .xo-btn:hover
-  .xo-btn__text[data-text],
-section[class*="vastu-best-seller"] .vastu-best-seller-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
-section[class*="vastu-featured-products"] .vastu-featured-products__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
-section[class*="vastu-shop-by-concern"]
-  .vastu-shop-by-concern__product-add-to-cart
-  .xo-btn:hover
-  .xo-btn__text[data-text],
-.product-recommendations-section .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
-section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
-.section-collection-products .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
-.filters-content .xo-product-card__add-to-cart .xo-btn:hover .xo-btn__text[data-text],
-xo-modal .xo-btn:hover .xo-btn__text[data-text],
-xo-modal xo-cart-add .xo-btn:hover .xo-btn__text[data-text] {
-  color: var(--button-text-data-text-color, #fff);
-  opacity: 1;
-  visibility: visible;
-}
 
 /* Newsletter Popup Button - Reduce Padding to Prevent Text Ellipsis */
 .popup-newsletter__container .popup-newsletter-v1 .xo-btn,

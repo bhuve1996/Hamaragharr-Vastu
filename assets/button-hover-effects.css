@@ -40,13 +40,42 @@ xo-modal button.xo-btn--secondary:hover {
     box-shadow var(--button-transition-duration, 0.3s) ease;
 }
 
+/* ============================================
+   PRIMARY BUTTON HOVER EFFECTS - SEPARATED BY TYPE
+   ============================================ */
+
+/* Type 1: Light Primary Buttons Hover - Individual Configuration */
 .xo-btn--light.xo-btn--primary:hover,
 .xo-btn.xo-btn--light.xo-btn--primary:hover,
 button.xo-btn--light.xo-btn--primary:hover,
-a.xo-btn--light.xo-btn--primary:hover,
+a.xo-btn--light.xo-btn--primary:hover {
+  background-color: rgba(var(--button-light-primary-hover-bg-color-rgb, 255, 255, 255), var(--button-light-primary-hover-opacity, 0.9));
+  color: var(--button-light-primary-hover-text-color, #000);
+  transform: translateY(var(--button-light-primary-hover-transform-y, -1px));
+  box-shadow: 0 4px var(--button-light-primary-hover-box-shadow-blur, 12px) rgba(var(--button-light-primary-hover-box-shadow-color-rgb, 0, 0, 0), var(--button-light-primary-hover-box-shadow-opacity, 0.2));
+  transition:
+    background-color var(--button-transition-duration, 0.3s) ease,
+    color var(--button-transition-duration, 0.3s) ease,
+    transform calc(var(--button-transition-duration, 0.3s) * 0.67) ease,
+    box-shadow var(--button-transition-duration, 0.3s) ease;
+}
+
+/* Type 2: General Primary Buttons Hover - Individual Configuration */
 .xo-btn--primary:hover,
 button.xo-btn--primary:hover,
-a.xo-btn--primary:hover,
+a.xo-btn--primary:hover {
+  background-color: rgba(var(--button-primary-hover-bg-color-rgb, 255, 255, 255), var(--button-primary-hover-opacity, 0.9));
+  color: var(--button-primary-hover-text-color, #000);
+  transform: translateY(var(--button-primary-hover-transform-y, -1px));
+  box-shadow: 0 4px var(--button-primary-hover-box-shadow-blur, 12px) rgba(var(--button-primary-hover-box-shadow-color-rgb, 0, 0, 0), var(--button-primary-hover-box-shadow-opacity, 0.2));
+  transition:
+    background-color var(--button-transition-duration, 0.3s) ease,
+    color var(--button-transition-duration, 0.3s) ease,
+    transform calc(var(--button-transition-duration, 0.3s) * 0.67) ease,
+    box-shadow var(--button-transition-duration, 0.3s) ease;
+}
+
+/* Type 3: Best Seller Section Primary Buttons Hover - Individual Configuration */
 section[class*="vastu-best-seller"]
   .vastu-best-seller-card__content
   .vastu-best-seller-card__add-to-cart
@@ -54,7 +83,19 @@ section[class*="vastu-best-seller"]
 section[class*="vastu-best-seller"]
   .vastu-best-seller-card__content
   .vastu-best-seller-card__add-to-cart
-  button.xo-btn--primary:hover,
+  button.xo-btn--primary:hover {
+  background-color: rgba(var(--button-best-seller-primary-hover-bg-color-rgb, 255, 255, 255), var(--button-best-seller-primary-hover-opacity, 0.9));
+  color: var(--button-best-seller-primary-hover-text-color, #000);
+  transform: translateY(var(--button-best-seller-primary-hover-transform-y, -1px));
+  box-shadow: 0 4px var(--button-best-seller-primary-hover-box-shadow-blur, 12px) rgba(var(--button-best-seller-primary-hover-box-shadow-color-rgb, 0, 0, 0), var(--button-best-seller-primary-hover-box-shadow-opacity, 0.2));
+  transition:
+    background-color var(--button-transition-duration, 0.3s) ease,
+    color var(--button-transition-duration, 0.3s) ease,
+    transform calc(var(--button-transition-duration, 0.3s) * 0.67) ease,
+    box-shadow var(--button-transition-duration, 0.3s) ease;
+}
+
+/* Type 4: Featured Products Section Primary Buttons Hover - Individual Configuration */
 section[class*="vastu-featured-products"]
   .vastu-featured-products__content
   .vastu-featured-products__add-to-cart
@@ -63,10 +104,10 @@ section[class*="vastu-featured-products"]
   .vastu-featured-products__content
   .vastu-featured-products__add-to-cart
   button.xo-btn--primary:hover {
-  background-color: rgba(var(--button-primary-bg-color-rgb, 255, 255, 255), var(--button-hover-opacity, 0.9));
-  color: var(--button-primary-text-color, #000);
-  transform: translateY(var(--button-hover-transform-y, -1px));
-  box-shadow: 0 4px var(--button-hover-box-shadow-blur, 12px) rgba(var(--button-primary-bg-color-rgb, 0, 0, 0), 0.2);
+  background-color: rgba(var(--button-featured-products-primary-hover-bg-color-rgb, 255, 255, 255), var(--button-featured-products-primary-hover-opacity, 0.9));
+  color: var(--button-featured-products-primary-hover-text-color, #000);
+  transform: translateY(var(--button-featured-products-primary-hover-transform-y, -1px));
+  box-shadow: 0 4px var(--button-featured-products-primary-hover-box-shadow-blur, 12px) rgba(var(--button-featured-products-primary-hover-box-shadow-color-rgb, 0, 0, 0), var(--button-featured-products-primary-hover-box-shadow-opacity, 0.2));
   transition:
     background-color var(--button-transition-duration, 0.3s) ease,
     color var(--button-transition-duration, 0.3s) ease,

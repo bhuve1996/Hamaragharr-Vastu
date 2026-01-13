@@ -67,24 +67,17 @@
   {% if attrs %}
     {{ attrs }}
   {% endif %}
-  {%- if text_color_class == blank -%}
+  {%- liquid
+    assign has_inline_styles = false
+    if border_color != null or width != null or radius != null or settings.button_border_radius != null and settings.button_border_radius > 0
+      assign has_inline_styles = true
+    endif
+  -%}
+  {%- if has_inline_styles -%}
     style='
-      {%- if background_color != null %}--bg-color: {{ background_color }};{% elsif style == 'secondary' %}--bg-color: {{ settings.button_secondary_bg_color | default: '#473855' }};{% elsif style == 'primary' %}--bg-color: {{ settings.button_primary_bg_color | default: '#ffffff' }};{% endif -%}
-      {%- if border_color != null %}--border-color: {{ border_color }};{% endif -%}
-      {%- if text_color != null %}--text-color: {{ text_color }};{% elsif style == 'secondary' %}--text-color: {{ settings.button_secondary_text_color | default: '#ffffff' }};{% elsif style == 'primary' %}--text-color: {{ settings.button_primary_text_color | default: '#000000' }};{% endif -%}
-      {%- if width != null %}--width: {{ width }};{% endif -%}
-      {%- if radius != null %}border-radius: {{ radius }}rem;{% elsif settings.button_border_radius != null and settings.button_border_radius > 0 %}border-radius: {{ settings.button_border_radius }}px;{% endif -%}
-      {%- if padding != null and style != 'link' %}padding-left: {{ padding }}rem; padding-right: {{ padding }}rem;{% elsif style != 'link' %}padding-left: {{ settings.button_padding_left | default: 24 }}px; padding-right: {{ settings.button_padding_right | default: 24 }}px;{% endif -%}
-      font-size: {{ settings.button_font_size | default: 1.5 }}rem;
-    '
-  {%- else -%}
-    style='
-      {%- if background_color != null %}--bg-color: {{ background_color }};{% elsif style == 'secondary' %}--bg-color: {{ settings.button_secondary_bg_color | default: '#473855' }};{% elsif style == 'primary' %}--bg-color: {{ settings.button_primary_bg_color | default: '#ffffff' }};{% endif -%}
       {%- if border_color != null %}--border-color: {{ border_color }};{% endif -%}
       {%- if width != null %}--width: {{ width }};{% endif -%}
       {%- if radius != null %}border-radius: {{ radius }}rem;{% elsif settings.button_border_radius != null and settings.button_border_radius > 0 %}border-radius: {{ settings.button_border_radius }}px;{% endif -%}
-      {%- if padding != null and style != 'link' %}padding-left: {{ padding }}rem; padding-right: {{ padding }}rem;{% elsif style != 'link' %}padding-left: {{ settings.button_padding_left | default: 24 }}px; padding-right: {{ settings.button_padding_right | default: 24 }}px;{% endif -%}
-      font-size: {{ settings.button_font_size | default: 1.5 }}rem;
     '
   {%- endif -%}
 {% endcapture %}

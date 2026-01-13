@@ -149,8 +149,182 @@
       --button-hover-bg-color-secondary: {{ settings.button_hover_bg_color_secondary | default: settings.button_secondary_bg_color | default: '#473855' }};
       --button-hover-text-color-primary: {{ settings.button_hover_text_color_primary | default: settings.button_primary_text_color | default: '#000000' }};
       --button-hover-text-color-secondary: {{ settings.button_hover_text_color_secondary | default: settings.button_secondary_text_color | default: '#ffffff' }};
+      
+      /* Primary Button Hover Effects - Individual Configurations */
+      /* Type 1: Light Primary Buttons Hover */
+      {% liquid
+        assign light_primary_bg = settings.button_light_primary_hover_bg_color | default: '#ffffff'
+        if light_primary_bg == '#ffffff' or light_primary_bg == 'ffffff' or light_primary_bg == '#fff' or light_primary_bg == 'fff'
+          assign r_light_primary = 255
+          assign g_light_primary = 255
+          assign b_light_primary = 255
+        elsif light_primary_bg == '#000000' or light_primary_bg == '000000' or light_primary_bg == '#000' or light_primary_bg == '000'
+          assign r_light_primary = 0
+          assign g_light_primary = 0
+          assign b_light_primary = 0
+        else
+          assign r_light_primary = 255
+          assign g_light_primary = 255
+          assign b_light_primary = 255
+        endif
+      %}
+      --button-light-primary-hover-bg-color-rgb: {{ r_light_primary }}, {{ g_light_primary }}, {{ b_light_primary }};
+      --button-light-primary-hover-opacity: {{ settings.button_light_primary_hover_opacity | default: 90 | divided_by: 100.0 }};
+      --button-light-primary-hover-text-color: {{ settings.button_light_primary_hover_text_color | default: '#000000' }};
+      --button-light-primary-hover-transform-y: {{ settings.button_light_primary_hover_transform_y | default: -1 }}px;
+      --button-light-primary-hover-box-shadow-blur: {{ settings.button_light_primary_hover_box_shadow_blur | default: 12 }}px;
+      {% liquid
+        assign light_primary_shadow = settings.button_light_primary_hover_box_shadow_color | default: '#000000'
+        if light_primary_shadow == '#ffffff' or light_primary_shadow == 'ffffff' or light_primary_shadow == '#fff' or light_primary_shadow == 'fff'
+          assign r_light_primary_shadow = 255
+          assign g_light_primary_shadow = 255
+          assign b_light_primary_shadow = 255
+        elsif light_primary_shadow == '#000000' or light_primary_shadow == '000000' or light_primary_shadow == '#000' or light_primary_shadow == '000'
+          assign r_light_primary_shadow = 0
+          assign g_light_primary_shadow = 0
+          assign b_light_primary_shadow = 0
+        else
+          assign r_light_primary_shadow = 0
+          assign g_light_primary_shadow = 0
+          assign b_light_primary_shadow = 0
+        endif
+      %}
+      --button-light-primary-hover-box-shadow-color-rgb: {{ r_light_primary_shadow }}, {{ g_light_primary_shadow }}, {{ b_light_primary_shadow }};
+      --button-light-primary-hover-box-shadow-opacity: {{ settings.button_light_primary_hover_box_shadow_opacity | default: 20 | divided_by: 100.0 }};
+      
+      /* Type 2: General Primary Buttons Hover */
+      {% liquid
+        assign primary_bg = settings.button_primary_hover_bg_color | default: '#ffffff'
+        if primary_bg == '#ffffff' or primary_bg == 'ffffff' or primary_bg == '#fff' or primary_bg == 'fff'
+          assign r_primary = 255
+          assign g_primary = 255
+          assign b_primary = 255
+        elsif primary_bg == '#000000' or primary_bg == '000000' or primary_bg == '#000' or primary_bg == '000'
+          assign r_primary = 0
+          assign g_primary = 0
+          assign b_primary = 0
+        else
+          assign r_primary = 255
+          assign g_primary = 255
+          assign b_primary = 255
+        endif
+      %}
+      --button-primary-hover-bg-color-rgb: {{ r_primary }}, {{ g_primary }}, {{ b_primary }};
+      --button-primary-hover-opacity: {{ settings.button_primary_hover_opacity | default: 90 | divided_by: 100.0 }};
+      --button-primary-hover-text-color: {{ settings.button_primary_hover_text_color | default: '#000000' }};
+      --button-primary-hover-transform-y: {{ settings.button_primary_hover_transform_y | default: -1 }}px;
+      --button-primary-hover-box-shadow-blur: {{ settings.button_primary_hover_box_shadow_blur | default: 12 }}px;
+      {% liquid
+        assign primary_shadow = settings.button_primary_hover_box_shadow_color | default: '#000000'
+        if primary_shadow == '#ffffff' or primary_shadow == 'ffffff' or primary_shadow == '#fff' or primary_shadow == 'fff'
+          assign r_primary_shadow = 255
+          assign g_primary_shadow = 255
+          assign b_primary_shadow = 255
+        elsif primary_shadow == '#000000' or primary_shadow == '000000' or primary_shadow == '#000' or primary_shadow == '000'
+          assign r_primary_shadow = 0
+          assign g_primary_shadow = 0
+          assign b_primary_shadow = 0
+        else
+          assign r_primary_shadow = 0
+          assign g_primary_shadow = 0
+          assign b_primary_shadow = 0
+        endif
+      %}
+      --button-primary-hover-box-shadow-color-rgb: {{ r_primary_shadow }}, {{ g_primary_shadow }}, {{ b_primary_shadow }};
+      --button-primary-hover-box-shadow-opacity: {{ settings.button_primary_hover_box_shadow_opacity | default: 20 | divided_by: 100.0 }};
+      
+      /* Type 3: Best Seller Section Primary Buttons Hover */
+      {% liquid
+        assign best_seller_bg = settings.button_best_seller_primary_hover_bg_color | default: '#ffffff'
+        if best_seller_bg == '#ffffff' or best_seller_bg == 'ffffff' or best_seller_bg == '#fff' or best_seller_bg == 'fff'
+          assign r_best_seller = 255
+          assign g_best_seller = 255
+          assign b_best_seller = 255
+        elsif best_seller_bg == '#000000' or best_seller_bg == '000000' or best_seller_bg == '#000' or best_seller_bg == '000'
+          assign r_best_seller = 0
+          assign g_best_seller = 0
+          assign b_best_seller = 0
+        else
+          assign r_best_seller = 255
+          assign g_best_seller = 255
+          assign b_best_seller = 255
+        endif
+      %}
+      --button-best-seller-primary-hover-bg-color-rgb: {{ r_best_seller }}, {{ g_best_seller }}, {{ b_best_seller }};
+      --button-best-seller-primary-hover-opacity: {{ settings.button_best_seller_primary_hover_opacity | default: 90 | divided_by: 100.0 }};
+      --button-best-seller-primary-hover-text-color: {{ settings.button_best_seller_primary_hover_text_color | default: '#000000' }};
+      --button-best-seller-primary-hover-transform-y: {{ settings.button_best_seller_primary_hover_transform_y | default: -1 }}px;
+      --button-best-seller-primary-hover-box-shadow-blur: {{ settings.button_best_seller_primary_hover_box_shadow_blur | default: 12 }}px;
+      {% liquid
+        assign best_seller_shadow = settings.button_best_seller_primary_hover_box_shadow_color | default: '#000000'
+        if best_seller_shadow == '#ffffff' or best_seller_shadow == 'ffffff' or best_seller_shadow == '#fff' or best_seller_shadow == 'fff'
+          assign r_best_seller_shadow = 255
+          assign g_best_seller_shadow = 255
+          assign b_best_seller_shadow = 255
+        elsif best_seller_shadow == '#000000' or best_seller_shadow == '000000' or best_seller_shadow == '#000' or best_seller_shadow == '000'
+          assign r_best_seller_shadow = 0
+          assign g_best_seller_shadow = 0
+          assign b_best_seller_shadow = 0
+        else
+          assign r_best_seller_shadow = 0
+          assign g_best_seller_shadow = 0
+          assign b_best_seller_shadow = 0
+        endif
+      %}
+      --button-best-seller-primary-hover-box-shadow-color-rgb: {{ r_best_seller_shadow }}, {{ g_best_seller_shadow }}, {{ b_best_seller_shadow }};
+      --button-best-seller-primary-hover-box-shadow-opacity: {{ settings.button_best_seller_primary_hover_box_shadow_opacity | default: 20 | divided_by: 100.0 }};
+      
+      /* Type 4: Featured Products Section Primary Buttons Hover */
+      {% liquid
+        assign featured_bg = settings.button_featured_products_primary_hover_bg_color | default: '#ffffff'
+        if featured_bg == '#ffffff' or featured_bg == 'ffffff' or featured_bg == '#fff' or featured_bg == 'fff'
+          assign r_featured = 255
+          assign g_featured = 255
+          assign b_featured = 255
+        elsif featured_bg == '#000000' or featured_bg == '000000' or featured_bg == '#000' or featured_bg == '000'
+          assign r_featured = 0
+          assign g_featured = 0
+          assign b_featured = 0
+        else
+          assign r_featured = 255
+          assign g_featured = 255
+          assign b_featured = 255
+        endif
+      %}
+      --button-featured-products-primary-hover-bg-color-rgb: {{ r_featured }}, {{ g_featured }}, {{ b_featured }};
+      --button-featured-products-primary-hover-opacity: {{ settings.button_featured_products_primary_hover_opacity | default: 90 | divided_by: 100.0 }};
+      --button-featured-products-primary-hover-text-color: {{ settings.button_featured_products_primary_hover_text_color | default: '#000000' }};
+      --button-featured-products-primary-hover-transform-y: {{ settings.button_featured_products_primary_hover_transform_y | default: -1 }}px;
+      --button-featured-products-primary-hover-box-shadow-blur: {{ settings.button_featured_products_primary_hover_box_shadow_blur | default: 12 }}px;
+      {% liquid
+        assign featured_shadow = settings.button_featured_products_primary_hover_box_shadow_color | default: '#000000'
+        if featured_shadow == '#ffffff' or featured_shadow == 'ffffff' or featured_shadow == '#fff' or featured_shadow == 'fff'
+          assign r_featured_shadow = 255
+          assign g_featured_shadow = 255
+          assign b_featured_shadow = 255
+        elsif featured_shadow == '#000000' or featured_shadow == '000000' or featured_shadow == '#000' or featured_shadow == '000'
+          assign r_featured_shadow = 0
+          assign g_featured_shadow = 0
+          assign b_featured_shadow = 0
+        else
+          assign r_featured_shadow = 0
+          assign g_featured_shadow = 0
+          assign b_featured_shadow = 0
+        endif
+      %}
+      --button-featured-products-primary-hover-box-shadow-color-rgb: {{ r_featured_shadow }}, {{ g_featured_shadow }}, {{ b_featured_shadow }};
+      --button-featured-products-primary-hover-box-shadow-opacity: {{ settings.button_featured_products_primary_hover_box_shadow_opacity | default: 20 | divided_by: 100.0 }};
+      
+      /* Type 1: Regular buttons (without data-text attribute) */
+      --button-text-regular-color: {{ settings.button_text_regular_color | default: '#ffffff' }};
+      --button-text-regular-hover-color: {{ settings.button_text_regular_hover_color | default: settings.button_text_regular_color | default: '#ffffff' }};
+      /* Type 2: Buttons with data-text attribute (slide-up effect) */
+      /* Type 2A: Global/Regular buttons with data-text */
       --button-text-data-text-color: {{ settings.button_text_data_text_color | default: '#ffffff' }};
+      --button-text-data-text-hover-color: {{ settings.button_text_data_text_hover_color | default: settings.button_text_data_text_color | default: '#ffffff' }};
+      /* Type 2B: Slideshow buttons with data-text */
       --slideshow-button-text-data-text-color: {{ settings.slideshow_button_text_data_text_color | default: '#000000' }};
+      --slideshow-button-text-data-text-hover-color: {{ settings.slideshow_button_text_data_text_hover_color | default: settings.slideshow_button_text_data_text_color | default: '#000000' }};
       {% comment %} RGB values for rgba usage - defaults for common colors {% endcomment %}
       {% liquid
         assign primary_bg = settings.button_primary_bg_color | default: '#ffffff'
