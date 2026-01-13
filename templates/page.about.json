@@ -12,6 +12,11 @@
     "main": {
       "type": "main-page",
       "settings": {
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "background_margin": 0,
         "padding_top": 28,
         "padding_bottom": 28
       }
@@ -23,8 +28,6 @@
         "background_type": "color",
         "background_color": "#f3f3f3",
         "background_gradient": "",
-        "background_image_desktop": "shopify://shop_images/bg_page.jpg",
-        "background_image_mobile": "shopify://shop_images/bg_page.jpg",
         "use_parallax": false,
         "background_image_animation": "none",
         "background_video_url": "",
@@ -45,7 +48,6 @@
         "title": "About Us",
         "subtitle": "",
         "description": "Every home has a story.\nAnd so does Hamaragharr.\nIt was born from a simple but deeply felt question:\n\"Why does a home that has everything still feel unsettled?\"\n\nAcross India, millions of families live in beautiful houses—yet experience constant stress, frequent arguments, unexplained financial blocks, disturbed sleep, or emotional distance. Often, people are told that the solution lies outside them: expensive consultations, fear-based remedies, or lifelong dependency on someone else to \"fix\" their space.\n\nWe believed there had to be a better, more honest way.",
-        "image": "",
         "hover": "scale_down",
         "color_scheme": "background-1",
         "background_type": "color",
@@ -71,7 +73,6 @@
         "title": "Our Belief: Your Home's Energy Should Be in Your Control",
         "subtitle": "",
         "description": "Hamaragharr was created to give that control back to you.\nThe Hamaragharr Self Vastu Kit is the result of years of learning, observation, and real-life experiences—designed for people who want clarity, empowerment, and balance, not fear or dependency.\n\nThis is not about superstition.\nThis is about alignment.\n\nWhy Vastu Matters—Now More Than Ever\nVastu Shastra is an ancient Indian science that originated thousands of years ago, rooted in the understanding of nature's five elements and their interaction with human life. Our ancestors knew that when a living space is aligned with natural energies, it supports health, relationships, prosperity, and peace.\n\nIn today's world, we spend more time indoors than ever before—working from home, raising families, managing stress, and chasing goals. When the energy of that space is disturbed, it silently impacts every aspect of life.\n\nThat's why Vastu is no longer optional.\nIt's a necessity for modern living.",
-        "image": "",
         "hover": "scale_down",
         "color_scheme": "background-1",
         "background_type": "color",
@@ -97,34 +98,12 @@
         "title": "Why Hamaragharr Is the Best in the Market Today",
         "subtitle": "",
         "description": "What makes Hamaragharr truly different is its philosophy:\n• Self-guided – You don't need to depend on anyone\n• Ethical – No fear, no exaggeration, no manipulation\n• Practical – Simple steps that fit real homes and real lives\n• Transparent – Clear guidance, nothing hidden\n• Accessible – Designed for every household, not just a few\n\nIt is proudly recognized as the World's First Self Vastu Kit, created so that anyone can balance their space confidently—without confusion or ongoing costs.\n\nImpact That Goes Beyond Walls\nToday, thousands of families across India use Hamaragharr to realign their homes—and with that, their lives. Improved harmony, better focus, calmer relationships, and a renewed sense of stability are not coincidences; they are outcomes of living in balance.\n\nBecause when your home is aligned, life flows better.\n\nOur Promise\nHamaragharr is not here to scare you.\nIt is here to support you.\nNot to create dependency—\nbut to create empowerment.\n\nYour home should feel like a place of strength, peace, and growth.\nAnd with Hamaragharr, that balance begins with you.",
-        "image": "",
         "hover": "scale_down",
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
         "background_gradient": "",
         "use_parallax": true,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "newsletter_v1": {
-      "type": "newsletter-v1",
-      "settings": {
-        "svg": "",
-        "title": "Stay Connected",
-        "subtitle": "Subscribe to our newsletter for Vastu tips, product updates, and special offers",
-        "button_mode": "dark",
-        "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
-        "background_type": "color",
-        "background_color": "#473855",
-        "background_gradient": "",
-        "use_parallax": false,
         "background_image_animation": "none",
         "background_video_url": "",
         "background_video_animation": "none",
@@ -140,7 +119,6 @@
     "breadcrumb-v2",
     "about_v1",
     "about_v2",
-    "about_v3",
-    "newsletter_v1"
+    "about_v3"
   ]
 }

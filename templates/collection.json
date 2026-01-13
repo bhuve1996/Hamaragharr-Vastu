@@ -1,14 +1,62 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main-collection": {
       "type": "main-collection",
       "settings": {
-        "menu_sidebar": "categories",
+        "width": "box",
+        "products_per_page": 12,
+        "columns_desktop": 3,
+        "collection_style": "sidebar",
+        "sidebar": "left",
+        "filter_style": "drawer",
+        "product_loadtype": "paginate",
+        "product_layout": "grid",
+        "menu_title": "CATEGORIES",
+        "menu_sidebar": "",
+        "show_bestsell": false,
+        "bestsell_title": "BEST SELLERS",
+        "products_bestsell_limit": 8,
+        "columns_bestsell": 3,
         "bestsell_collection": "frontpage",
+        "show_pagination": true,
+        "show_pagination_mobile": false,
+        "show_banner_modern": false,
+        "banner_modern_link": "",
+        "show_banner": false,
+        "banner_link": "",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "product_card_show_image": true,
         "product_card_show_vendor": false,
-        "product_card_show_description": false
+        "product_card_show_description": false,
+        "product_card_show_quick_add": true,
+        "product_card_show_quick_view": true,
+        "product_card_show_wishlist": true,
+        "product_card_show_price": true,
+        "product_card_show_badge": true,
+        "product_card_aspect_ratio": "1/1",
+        "card_color_scheme": "",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
       }
     }
   },
-  "order": ["main-collection"]
+  "order": [
+    "main-collection"
+  ]
 }

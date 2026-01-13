@@ -312,7 +312,6 @@
     },
     "product-information-tabs": {
       "type": "product-information-tabs",
-      "disabled": false,
       "blocks": {
         "tab1": {
           "type": "description",
@@ -327,7 +326,10 @@
           }
         }
       },
-      "block_order": ["tab1", "tab2"],
+      "block_order": [
+        "tab1",
+        "tab2"
+      ],
       "settings": {
         "enable_section": false,
         "width": "box",
@@ -347,7 +349,6 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "disabled": false,
       "settings": {
         "width": "box",
         "layout": "carousel",
@@ -378,7 +379,6 @@
     },
     "product_faq_V8NFqF": {
       "type": "product-faq",
-      "disabled": false,
       "blocks": {
         "question_xW3a8G": {
           "type": "question",
