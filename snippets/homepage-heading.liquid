@@ -19,6 +19,14 @@
     assign heading_font_size = 3.5
   endif
   
+  if section.settings.title_font_size_mobile != blank and section.settings.title_font_size_mobile > 0
+    assign heading_font_size_mobile = section.settings.title_font_size_mobile
+  elsif settings.homepage_heading_font_size_mobile != blank and settings.homepage_heading_font_size_mobile > 0
+    assign heading_font_size_mobile = settings.homepage_heading_font_size_mobile
+  else
+    assign heading_font_size_mobile = 2.1
+  endif
+  
   if section.settings.title_font_weight != blank and section.settings.title_font_weight > 0
     assign heading_font_weight = section.settings.title_font_weight
   elsif settings.homepage_heading_font_weight != blank and settings.homepage_heading_font_weight > 0
@@ -117,22 +125,18 @@
   endif
   
   comment
-    Underline bottom position - only use section-level if > 0
+    Underline bottom position - always set section variable, use homepage value as default
   endcomment
   if section.settings.title_underline_bottom_desktop != null and section.settings.title_underline_bottom_desktop > 0
     assign heading_underline_bottom_desktop = section.settings.title_underline_bottom_desktop
-    assign has_underline_bottom_desktop_override = true
   else
     assign heading_underline_bottom_desktop = settings.homepage_heading_underline_bottom_desktop | default: 24
-    assign has_underline_bottom_desktop_override = false
   endif
   
   if section.settings.title_underline_bottom_mobile != null and section.settings.title_underline_bottom_mobile > 0
     assign heading_underline_bottom_mobile = section.settings.title_underline_bottom_mobile
-    assign has_underline_bottom_mobile_override = true
   else
     assign heading_underline_bottom_mobile = settings.homepage_heading_underline_bottom_mobile | default: 16
-    assign has_underline_bottom_mobile_override = false
   endif
   
   assign heading_class = 'homepage-section-heading'
@@ -153,28 +157,25 @@
   {% if enable_animation %}
     <xo-animate xo-cascade>
   {% endif %}
-  <h2 class="{{ heading_class }}" style="
-    --heading-font-size: {{ heading_font_size }}rem;
-    --heading-font-weight: {{ heading_font_weight }};
-    --heading-color: {{ heading_color }};
-    --heading-text-transform: {{ heading_text_transform }};
-    --heading-line-height: {{ heading_line_height }};
-    {% if section.settings.title_margin_bottom_desktop != null and section.settings.title_margin_bottom_desktop > 0 %}--heading-margin-bottom-desktop: {{ heading_margin_bottom_desktop }}px;
-    {% endif %}{% if section.settings.title_margin_bottom_mobile != null and section.settings.title_margin_bottom_mobile > 0 %}--heading-margin-bottom-mobile: {{ heading_margin_bottom_mobile }}px;
-    {% endif %}{% if section.settings.title_underline_color != blank %}--heading-underline-color: {{ heading_underline_color }};
-    {% endif %}{% if section.settings.title_underline_width != null and section.settings.title_underline_width > 0 %}--heading-underline-width: {{ heading_underline_width }}px;
-    {% endif %}{% if section.settings.title_underline_height != null and section.settings.title_underline_height > 0 %}--heading-underline-height: {{ heading_underline_height }}px;
-    {% endif %}{% if has_underline_bottom_desktop_override %}--heading-underline-bottom-desktop: {{ heading_underline_bottom_desktop }}px;
-    {% endif %}{% if has_underline_bottom_mobile_override %}--heading-underline-bottom-mobile: {{ heading_underline_bottom_mobile }}px;
-    {% endif %}font-size: var(--heading-font-size);
-    font-weight: var(--heading-font-weight);
-    color: var(--heading-color);
-    text-transform: var(--heading-text-transform);
-    line-height: var(--heading-line-height);
-    text-align: center;
-    margin: 0 0 var(--heading-margin-bottom-desktop, var(--homepage-heading-margin-bottom-desktop, 48px));
-    padding: 0;
-  " data-enable-underline="{{ heading_enable_underline }}">{{ title }}</h2>
+  {% comment %}
+    Only set CSS variables for section-level overrides
+    Global settings are handled via CSS hierarchy
+  {% endcomment %}
+  <h2 class="{{ heading_class }}" {% if section.settings.title_font_size != blank and section.settings.title_font_size > 0 or section.settings.title_font_size_mobile != blank and section.settings.title_font_size_mobile > 0 or section.settings.title_font_weight != blank and section.settings.title_font_weight > 0 or section.settings.title_color != blank or section.settings.title_text_transform != blank or section.settings.title_line_height != blank and section.settings.title_line_height > 0 or section.settings.title_margin_bottom_desktop != null and section.settings.title_margin_bottom_desktop > 0 or section.settings.title_margin_bottom_mobile != null and section.settings.title_margin_bottom_mobile > 0 or section.settings.title_underline_color != blank or section.settings.title_underline_width != null and section.settings.title_underline_width > 0 or section.settings.title_underline_height != null and section.settings.title_underline_height > 0 or has_underline_bottom_desktop_override or has_underline_bottom_mobile_override %}style="
+    {% if section.settings.title_font_size != blank and section.settings.title_font_size > 0 %}--section-heading-font-size-desktop: {{ heading_font_size }}rem;
+    {% endif %}{% if section.settings.title_font_size_mobile != blank and section.settings.title_font_size_mobile > 0 %}--section-heading-font-size-mobile: {{ heading_font_size_mobile }}rem;
+    {% endif %}{% if section.settings.title_font_weight != blank and section.settings.title_font_weight > 0 %}--section-heading-font-weight-desktop: {{ heading_font_weight }};
+    {% endif %}{% if section.settings.title_color != blank %}--homepage-heading-color: {{ heading_color }};
+    {% endif %}{% if section.settings.title_text_transform != blank and section.settings.title_text_transform != '' %}--homepage-heading-text-transform: {{ heading_text_transform }};
+    {% endif %}{% if section.settings.title_line_height != blank and section.settings.title_line_height > 0 %}--section-heading-line-height-desktop: {{ heading_line_height }};
+    {% endif %}{% if section.settings.title_margin_bottom_desktop != null and section.settings.title_margin_bottom_desktop > 0 %}--section-heading-margin-bottom-desktop: {{ heading_margin_bottom_desktop }}px;
+    {% endif %}{% if section.settings.title_margin_bottom_mobile != null and section.settings.title_margin_bottom_mobile > 0 %}--section-heading-margin-bottom-mobile: {{ heading_margin_bottom_mobile }}px;
+    {% endif %}    {% if section.settings.title_underline_color != blank %}--section-heading-underline-color: {{ heading_underline_color }};
+    {% endif %}{% if section.settings.title_underline_width != null and section.settings.title_underline_width > 0 %}--section-heading-underline-width: {{ heading_underline_width }}px;
+    {% endif %}{% if section.settings.title_underline_height != null and section.settings.title_underline_height > 0 %}--section-heading-underline-height: {{ heading_underline_height }}px;
+    {% endif %}--section-heading-underline-bottom-desktop: {{ heading_underline_bottom_desktop }}px;
+    --section-heading-underline-bottom-mobile: {{ heading_underline_bottom_mobile }}px;
+  "{% endif %} data-enable-underline="{{ heading_enable_underline }}">{{ title }}</h2>
   {% if enable_animation %}
     </xo-animate>
   {% endif %}

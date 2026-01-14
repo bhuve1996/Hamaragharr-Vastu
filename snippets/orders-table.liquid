@@ -21,16 +21,20 @@
                 {{ order.created_at | time_tag: format: 'date' }}
               </td>
               <td role='cell' class='xo-orders-table__body-row-item' data-th='{{ 'customer.orders.payment_status' | t }}'>
-                {{ order.financial_status_label }}
+                {%- assign payment_status = order.financial_status_label -%}
+                {%- assign payment_status = payment_status | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' -%}
+                {{ payment_status }}
               </td>
               <td role='cell' class='xo-orders-table__body-row-item' data-th='{{ 'customer.orders.fulfillment_status' | t }}'>
                 {{ order.fulfillment_status_label }}
               </td>
               <td role='cell' class='xo-orders-table__body-row-item' data-th='{{ 'customer.orders.total' | t }}'>
                 {% if settings.currency_code_enabled %}
-                  {{ order.total_price | money_with_currency }}
+                  {%- assign total_price = order.total_price | money_with_currency -%}
+                  {{ total_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}
                 {% else %}
-                  {{ order.total_price | money }}
+                  {%- assign total_price = order.total_price | money -%}
+                  {{ total_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}
                 {% endif %}
               </td>
             </tr>

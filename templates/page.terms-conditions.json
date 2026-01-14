@@ -36,7 +36,7 @@
         "title": "Terms & Conditions",
         "subtitle": "Please Read Carefully",
         "description": "<p>Welcome to VastuKit. These Terms and Conditions govern your use of our website and services. By accessing or using our website, you agree to be bound by these terms.</p><p>If you do not agree with any part of these terms, please do not use our website or services.</p>",
-        "image": "",
+        "image": "shopify://shop_images/bg_page.jpg",
         "hover": "scale_down",
         "color_scheme": "background-1",
         "background_type": "color",

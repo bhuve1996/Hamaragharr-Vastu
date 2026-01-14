@@ -119,15 +119,15 @@
 }
 
 .vastu-heading {
-  font-size: var(--title-font-size, var(--font-size-heading));
-  font-weight: var(--title-font-weight, var(--font-weight-bold));
+  font-size: var(--title-font-size, var(--font-size-heading, var(--global-heading-font-size-desktop, 3.5rem)));
+  font-weight: var(--title-font-weight, var(--font-weight-bold, var(--global-heading-font-weight-desktop, 700)));
   text-transform: uppercase;
-  margin-bottom: 48px;
+  margin-bottom: var(--global-heading-margin-bottom-desktop, 48px);
   padding: 0;
   position: relative;
   display: inline-block;
   width: 100%;
-  line-height: 1.2;
+  line-height: var(--global-heading-line-height-desktop, 1.2);
 }
 
 .vastu-section-heading {

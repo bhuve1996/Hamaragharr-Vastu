@@ -12,11 +12,15 @@
         <li class='discounts__discount discounts__discount--position'>
           {%- render 'icon', name: 'discount' -%}
           {{ discount.title | escape }}
-          {% if settings.currency_code_enabled %}
-            (-{{ discount.total_allocated_amount | money_with_currency }})
-          {% else %}
-            (-{{ discount.total_allocated_amount | money }})
-          {% endif %}
+          {% liquid
+            if settings.currency_code_enabled
+              assign discount_amount = discount.total_allocated_amount | money_with_currency
+            else
+              assign discount_amount = discount.total_allocated_amount | money
+            endif
+            assign discount_amount = discount_amount | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR'
+          %}
+          (-{{ discount_amount }})
         </li>
       {%- endfor -%}
     </ul>

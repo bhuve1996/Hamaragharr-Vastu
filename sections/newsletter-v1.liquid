@@ -3,6 +3,7 @@
 {% assign placeholder = 'newsletter.email' | t %}
 {% assign button_text = 'newsletter.button_label' | t %}
 
+{% if section.settings.enable_section %}
 <section {% render 'section-attr' %}{% if section.settings.button_font_size_mobile > 0 %} style="--newsletter-button-font-size-mobile: {{ section.settings.button_font_size_mobile }}rem;"{% endif %}>
   {% render 'section-bg-image' %}
   <xo-container>
@@ -59,6 +60,7 @@
     padding_bottom: section.settings.separator_padding_bottom
   %}
 </section>
+{% endif %}
 
 {% schema %}
 {
@@ -66,6 +68,12 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_section",
+      "label": "Enable Newsletter Section",
+      "default": true
+    },
     {
       "type": "html",
       "id": "svg",

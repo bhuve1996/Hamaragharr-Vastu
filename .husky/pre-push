@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# CSS build disabled - will minify at the end
+# echo "🔨 Building and minifying CSS before push..."
+# npm run build:css

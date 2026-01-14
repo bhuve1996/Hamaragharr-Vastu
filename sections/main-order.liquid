@@ -10,7 +10,7 @@
         {% render 'order-table' %}
       </div>
       <div class='xo-order-detail__detail' style='--md: 12; --lg: 3'>
-        {% render 'order-bill' %}
+        {% render 'order-bill', contact_type: section.settings.contact_type %}
       </div>
     </xo-grid>
   </xo-container>
@@ -83,6 +83,31 @@
       "id": "padding_bottom",
       "label": "t:sections.all.padding_bottom.label",
       "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Contact Information"
+    },
+    {
+      "type": "select",
+      "id": "contact_type",
+      "label": "Display Contact Information",
+      "info": "Choose whether to display phone number, email, or both on the order summary page",
+      "options": [
+        {
+          "value": "email",
+          "label": "Email only"
+        },
+        {
+          "value": "phone",
+          "label": "Phone only"
+        },
+        {
+          "value": "both",
+          "label": "Both email and phone"
+        }
+      ],
+      "default": "email"
     }
   ]
 }

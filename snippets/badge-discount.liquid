@@ -15,12 +15,14 @@
   <span>
     {{- label -}}
     {% if discount.total_allocated_amount %}
-      (-{{ discount.total_allocated_amount | money }})
+      {%- assign discount_amount = discount.total_allocated_amount | money -%}
+      {%- assign discount_amount = discount_amount | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' -%}
+      (-{{ discount_amount }})
     {% endif %}
     {% if discount_allocation.amount %}
-      (-
-      {{- discount_allocation.amount | money -}}
-      )
+      {%- assign allocation_amount = discount_allocation.amount | money -%}
+      {%- assign allocation_amount = allocation_amount | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' -%}
+      (-{{ allocation_amount }})
     {% endif %}
   </span>
 </span>

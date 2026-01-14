@@ -1,3 +1,4 @@
+{%- assign contact_type = contact_type | default: 'email' -%}
 <div class='xo-order-bill'>
   <div>
     <xo-animate xo-cascade class='xo-order-bill__nav-title'>{{ 'customer.order.billing_address' | t }} </xo-animate>
@@ -6,11 +7,21 @@
       class='xo-order-bill__payment-status'
     >
       <span class='xo-order-bill__payment-status-text'> {{ 'customer.order.payment_status' | t }}: </span>
-      {{ order.financial_status_label }}
+      {%- assign payment_status = order.financial_status_label -%}
+      {%- comment -%} Replace dollar sign with ₹ for COD and other payment methods {%- endcomment -%}
+      {%- if payment_status contains 'COD' or payment_status contains 'Cash on Delivery' or payment_status contains '$' -%}
+        {%- assign payment_status = payment_status | replace: '$', '₹' | replace: 'USD', 'INR' | replace: ' $', ' ₹' -%}
+      {%- endif -%}
+      {{ payment_status }}
     </xo-animate>
     <xo-animate xo-cascade class='xo-order-bill__user'>
       <div class='xo-order-bill__user-name'>{{ customer.name }}</div>
-      <div class='xo-order-bill__user-phone'>{{ customer.phone }}</div>
+      {%- if contact_type == 'email' or contact_type == 'both' -%}
+        <div class='xo-order-bill__user-contact'>{{ customer.email | default: order.email }}</div>
+      {%- endif -%}
+      {%- if contact_type == 'phone' or contact_type == 'both' -%}
+        <div class='xo-order-bill__user-contact'>{{ customer.phone }}</div>
+      {%- endif -%}
     </xo-animate>
     <xo-animate xo-cascade class='xo-order-bill__address'>
       {{ order.billing_address.company }}
@@ -31,7 +42,12 @@
     </xo-animate>
     <xo-animate xo-cascade class='xo-order-bill__user'>
       <div class='xo-order-bill__user-name'>{{ order.shipping_address.name }}</div>
-      <div class='xo-order-bill__user-phone'>{{ order.shipping_address.phone }}</div>
+      {%- if contact_type == 'email' or contact_type == 'both' -%}
+        <div class='xo-order-bill__user-contact'>{{ order.email | default: customer.email }}</div>
+      {%- endif -%}
+      {%- if contact_type == 'phone' or contact_type == 'both' -%}
+        <div class='xo-order-bill__user-contact'>{{ order.shipping_address.phone }}</div>
+      {%- endif -%}
     </xo-animate>
     <xo-animate xo-cascade class='xo-order-bill__address'>
       {{- order.shipping_address.company }}

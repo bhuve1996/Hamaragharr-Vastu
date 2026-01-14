@@ -108,11 +108,24 @@ main xo-grid:has([class*="product-card"]) {
 
 xo-grid.filters-content__grid {
   gap: var(--xo-grid-col-gap, 3rem) var(--xo-grid-row-gap, 3rem);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 @media (width <= 767px) {
   xo-grid.filters-content__grid {
     gap: var(--xo-grid-col-gap-mobile, 2rem) var(--xo-grid-row-gap-mobile, 2rem);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+  
+  xo-grid.filters-content__grid > * {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 
@@ -188,4 +201,33 @@ xo-carousel-slide [class*="product-card"] {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+/* Fix overflow on mobile for collection pages */
+@media (width <= 767px) {
+  .section-collection-products,
+  .main-collection-style1__header,
+  .filters-content,
+  xo-filters-content {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+  
+  .main-collection-style1__header > *,
+  .filters-content > *,
+  xo-filters-content > * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure wrapper divs don't overflow */
+  .main-collection-style1__header + div,
+  div:has(.filters-content__grid) {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
 }

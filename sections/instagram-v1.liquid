@@ -1,5 +1,6 @@
 
 
+{% if section.settings.enable_section %}
 {% capture breakpoints %}
   {% if section.settings.limit >= 5 %}
     xo-breakpoints='
@@ -99,6 +100,7 @@
     padding_bottom: section.settings.separator_padding_bottom
   %}
 </section>
+{% endif %}
 
 {% schema %}
 {
@@ -106,6 +108,12 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_section",
+      "label": "Enable Instagram Section",
+      "default": true
+    },
     {
       "type": "select",
       "id": "width",

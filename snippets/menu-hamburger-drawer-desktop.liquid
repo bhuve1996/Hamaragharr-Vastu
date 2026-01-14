@@ -63,6 +63,14 @@
         class='menu-hamburger-drawer-desktop__list list-unstyled{% if event_type == 'hover' %} menu-hamburger-drawer-desktop--hover{% else %} menu-hamburger-drawer-desktop--click{% endif %}'
       >
         {% for link in menu.links %}
+          {% liquid
+            assign link_url = link.url
+            assign link_title_lower = link.title | downcase | strip
+            assign link_title_clean = link_title_lower | split: '[' | first | split: '(' | first | strip
+            if link_title_clean == 'home' or link_url == '/' or link_url == '/index' or link_url == '/pages/home' or link_url == '/pages/homepage'
+              assign link_url = '/'
+            endif
+          %}
           {% comment %} Submenu disabled - DISABLED: Submenus are disabled {% endcomment %}
           {% capture submenu %}
             {% comment %}
@@ -127,7 +135,7 @@
               <xo-mega-menu class='menu-hamburger-drawer-desktop__mega-menu' xo-name='header-mega-menu' xo-index='{{ forloop.index0 }}'></xo-mega-menu>
               <a
                 class='menu-hamburger-drawer-desktop__link'
-                href='{{ link.url }}'
+                href='{{ link_url }}'
                 title='{{ link.title | escape | split: '[' | first }}'
                 {% if link.current %}
                   aria-current='page'
@@ -169,7 +177,7 @@
               <xo-mega-menu class='menu-hamburger-drawer-desktop__mega-menu' xo-name='header-mega-menu' xo-index='{{ forloop.index0 }}'></xo-mega-menu>
               <a
                 class='menu-hamburger-drawer-desktop__link'
-                href='{{ link.url }}'
+                href='{{ link_url }}'
                 title='{{ link.title | escape }}'
                 {% if link.current %}
                   aria-current='page'

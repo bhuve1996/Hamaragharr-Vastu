@@ -4,7 +4,7 @@ button.xo-btn--light.xo-btn--secondary:hover,
 a.xo-btn--light.xo-btn--secondary:hover {
   background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
-  transform: translateY(-1px);
+  transform: none;
   box-shadow: 0 4px 12px rgba(var(--color-secondary-button, 71, 56, 85), 0.3);
   transition:
     background-color var(--transition-base, 0.3s ease),
@@ -56,7 +56,7 @@ button.xo-btn--block.xo-btn--light.xo-btn--secondary:hover,
 a.xo-btn--block.xo-btn--light.xo-btn--secondary:hover {
   background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
-  transform: translateY(-1px);
+  transform: none;
   box-shadow: 0 4px 12px rgba(var(--color-secondary-button, 71, 56, 85), 0.3);
 }
 
@@ -66,7 +66,7 @@ button.xo-btn--md.xo-btn--light.xo-btn--secondary:hover,
 a.xo-btn--md.xo-btn--light.xo-btn--secondary:hover {
   background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
-  transform: translateY(-1px);
+  transform: none;
   box-shadow: 0 4px 12px rgba(var(--color-secondary-button, 71, 56, 85), 0.3);
 }
 
@@ -76,7 +76,7 @@ button.xo-btn--slide-up.xo-btn--light.xo-btn--secondary:hover,
 a.xo-btn--slide-up.xo-btn--light.xo-btn--secondary:hover {
   background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
-  transform: translateY(-2px);
+  transform: none;
   box-shadow: 0 6px 16px rgba(var(--color-secondary-button, 71, 56, 85), 0.35);
 }
 
@@ -86,7 +86,7 @@ button.xo-btn--light.xo-btn--secondary.xo-btn--md.xo-btn--slide-up.xo-btn--block
 a.xo-btn--light.xo-btn--secondary.xo-btn--md.xo-btn--slide-up.xo-btn--block:hover {
   background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
-  transform: translateY(-2px);
+  transform: none;
   box-shadow: 0 6px 16px rgba(var(--color-secondary-button, 71, 56, 85), 0.35);
 }
 

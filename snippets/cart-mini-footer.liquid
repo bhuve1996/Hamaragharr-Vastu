@@ -3,6 +3,7 @@
   if settings.currency_code_enabled
     assign total_price = cart.total_price | money_with_currency
   endif
+  assign total_price = total_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR'
 %}
 
 <div class='xo-cart-mini-footer'>
@@ -16,7 +17,9 @@
         <li class='xo-cart-mini-footer__discount'>
           {%- render 'icon', name: 'discount' -%}
           {{ discount.title | escape }}
-          (-{{ discount.total_allocated_amount | money }})
+          {%- assign discount_amount = discount.total_allocated_amount | money -%}
+          {%- assign discount_amount = discount_amount | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' -%}
+          (-{{ discount_amount }})
         </li>
       {%- endfor -%}
     </ul>

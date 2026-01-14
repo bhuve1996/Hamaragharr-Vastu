@@ -1,27 +1,3 @@
-/* Commented out - now using global configurable section spacing system */
-
-/* .vastu-product-showcase {
-  margin: 0;
-  padding: 0;
-  position: relative;
-} */
-
-/* Commented out - now using global configurable section spacing system */
-
-/* @media (width >= 768px) {
-  .section + .section {
-    margin: 0;
-    padding: 0;
-  }
-} */
-
-/* Commented out - now using global configurable section spacing system */
-
-/* .section + .section {
-  margin: 0;
-  padding: 0;
-} */
-
 main#xo-main-content .section-separator,
 main#xo-main-content section .section-separator,
 main#xo-main-content div[class*="shopify-section-template"] .section-separator,

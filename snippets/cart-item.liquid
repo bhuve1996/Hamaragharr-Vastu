@@ -29,10 +29,12 @@
         if settings.currency_code_enabled
           assign original_price = item.original_price | money_with_currency
         endif
+        assign original_price = original_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR'
         assign final_price = item.final_price | money
         if settings.currency_code_enabled
           assign final_price = item.final_price | money_with_currency
         endif
+        assign final_price = final_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR'
       %}
       {%- if item.original_price != item.final_price -%}
         <div class='xo-cart-item__discounted-prices'>

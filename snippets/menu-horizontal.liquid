@@ -30,6 +30,14 @@
 {% if menu != blank %}
   <ul role='list' class='xo-menu-horizontal list-unstyled{% if event_type == 'hover' %} xo-menu-horizontal--hover{% else %} xo-menu-horizontal--click{% endif %}'>
     {% for link in menu.links %}
+      {% liquid
+        assign link_url = link.url
+        assign link_title_lower = link.title | downcase | strip
+        assign link_title_clean = link_title_lower | split: '[' | first | split: '(' | first | strip
+        if link_title_clean == 'home' or link_url == '/' or link_url == '/index' or link_url == '/pages/home' or link_url == '/pages/homepage'
+          assign link_url = '/'
+        endif
+      %}
       <li
         class='xo-menu-horizontal__item{% if event_type == 'hover' %} xo-menu-horizontal__item--hover{% else %} xo-menu-horizontal__item--click{% endif %}'
         style='--padding:{{ navigation_padding_item }}'
@@ -42,7 +50,7 @@
         {% if link.title contains '[' %}
           <a
             class='xo-menu-horizontal__link'
-            href='{{ link.url }}'
+            href='{{ link_url }}'
             title='{{link.title | escape | split: '[' | first }}'
             {% if link.current %}
               aria-current='page'
@@ -74,7 +82,7 @@
         {% else %}
           <a
             class='xo-menu-horizontal__link'
-            href='{{ link.url }}'
+            href='{{ link_url }}'
             title='{{ link.title | escape }}'
             {% if link.current %}
               aria-current='page'

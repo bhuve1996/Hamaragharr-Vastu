@@ -4,8 +4,18 @@
 .popup-newsletter__container .popup-newsletter-v4__subtitle,
 .popup-newsletter__container .popup-newsletter-v5__subtitle,
 .popup-newsletter__container .popup-newsletter-v6__subtitle {
-  font-size: 0.9rem;
+  font-size: 1.08rem;
   line-height: 1.4;
+}
+
+/* Title styling - increase by 20% */
+.popup-newsletter__container .popup-newsletter-v1__title,
+.popup-newsletter__container .popup-newsletter-v2__title,
+.popup-newsletter__container .popup-newsletter-v3__title,
+.popup-newsletter__container .popup-newsletter-v4__title,
+.popup-newsletter__container .popup-newsletter-v5__title,
+.popup-newsletter__container .popup-newsletter-v6__title {
+  font-size: calc(1em * 1.2);
 }
 
 .popup-newsletter__container .popup-newsletter-v1__description,
@@ -58,7 +68,7 @@
 .popup-newsletter__container .popup-newsletter-v6 .xo-btn__text,
 .popup-newsletter__container .popup-newsletter-v6 .xo-btn--secondary .xo-btn__text,
 .popup-newsletter__container .popup-newsletter-v6 button.xo-btn--secondary .xo-btn__text {
-  font-size: 0.85rem;
+  font-size: 2rem;
   line-height: 1.4;
   white-space: nowrap;
   overflow: hidden;
@@ -101,6 +111,16 @@
 }
 
 @media (width <= 767px) {
+  /* Add spacing below title on mobile */
+  .popup-newsletter__container .popup-newsletter-v1__title,
+  .popup-newsletter__container .popup-newsletter-v2__title,
+  .popup-newsletter__container .popup-newsletter-v3__title,
+  .popup-newsletter__container .popup-newsletter-v4__title,
+  .popup-newsletter__container .popup-newsletter-v5__title,
+  .popup-newsletter__container .popup-newsletter-v6__title {
+    margin-bottom: 1.5rem;
+  }
+
   .popup-newsletter__container .popup-newsletter-v1 .xo-btn .xo-btn__text,
   .popup-newsletter__container .popup-newsletter-v1 button .xo-btn__text,
   .popup-newsletter__container .popup-newsletter-v1 .xo-btn__text,
@@ -131,8 +151,39 @@
   .popup-newsletter__container .popup-newsletter-v6 .xo-btn__text,
   .popup-newsletter__container .popup-newsletter-v6 .xo-btn--secondary .xo-btn__text,
   .popup-newsletter__container .popup-newsletter-v6 button.xo-btn--secondary .xo-btn__text {
-    font-size: 0.75rem;
+    font-size: 1.5rem;
     line-height: 1.3;
+  }
+
+  /* Fix placeholder overflow on mobile */
+  .popup-newsletter__container .popup-newsletter-v1__form,
+  .popup-newsletter__container .popup-newsletter-v2__form,
+  .popup-newsletter__container .popup-newsletter-v3__form,
+  .popup-newsletter__container .popup-newsletter-v4__form,
+  .popup-newsletter__container .popup-newsletter-v5__form,
+  .popup-newsletter__container .popup-newsletter-v6__form {
+    margin-top: 1.5rem;
+  }
+
+  .popup-newsletter__container .popup-newsletter-v1__form .xo-field-input,
+  .popup-newsletter__container .popup-newsletter-v2__form .xo-field-input,
+  .popup-newsletter__container .popup-newsletter-v3__form .xo-field-input,
+  .popup-newsletter__container .popup-newsletter-v4__form .xo-field-input,
+  .popup-newsletter__container .popup-newsletter-v5__form .xo-field-input,
+  .popup-newsletter__container .popup-newsletter-v6__form .xo-field-input {
+    margin-bottom: 0.5rem;
+  }
+
+  .popup-newsletter__container .popup-newsletter-v1__form .xo-field-input__placeholder,
+  .popup-newsletter__container .popup-newsletter-v2__form .xo-field-input__placeholder,
+  .popup-newsletter__container .popup-newsletter-v3__form .xo-field-input__placeholder,
+  .popup-newsletter__container .popup-newsletter-v4__form .xo-field-input__placeholder,
+  .popup-newsletter__container .popup-newsletter-v5__form .xo-field-input__placeholder,
+  .popup-newsletter__container .popup-newsletter-v6__form .xo-field-input__placeholder {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
   }
 
   .popup-newsletter-v3__close-text {

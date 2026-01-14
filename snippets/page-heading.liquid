@@ -19,7 +19,21 @@
 <div class='xo-page-heading{% if align != blank %} xo-page-heading--{{ align }}{% endif %}'>
   <{{ title_tag }} class='xo-page-heading__title'>
     {% if title != blank %}
-      {{ title | escape }}
+      {% comment %} If title is provided but it's "Homepage" and we're on a collection page, use collection title instead {% endcomment %}
+      {% assign title_lower = title | downcase %}
+      {% if title_lower contains 'homepage' and template.name == 'collection' and collection %}
+        {% if collection.title != blank %}
+          {% if current_tags %}
+            {{ current_tags | join: ' + ' | escape }}
+          {% else %}
+            {{ collection.title | escape }}
+          {% endif %}
+        {% else %}
+          {{ title | escape }}
+        {% endif %}
+      {% else %}
+        {{ title | escape }}
+      {% endif %}
     {% else %}
       {% if template.name == 'product' %}
         {% liquid
@@ -38,11 +52,21 @@
           endif
         %}
         {{ product_title | escape }}
-      {% elsif template.name == 'collection' and collection.handle %}
-        {% if current_tags %}
-          {{ current_tags | join: ' + ' | escape }}
+      {% elsif template.name == 'collection' and collection %}
+        {% comment %} Collection page - use collection title, even if page_title is "Homepage" {% endcomment %}
+        {% if collection.handle != blank %}
+          {% if current_tags %}
+            {{ current_tags | join: ' + ' | escape }}
+          {% else %}
+            {{ collection.title | escape }}
+          {% endif %}
         {% else %}
-          {{ collection.title | escape }}
+          {% comment %} Collection exists but no handle - still use title if available {% endcomment %}
+          {% if collection.title != blank %}
+            {{ collection.title | escape }}
+          {% else %}
+            {{ shop.name | escape }}
+          {% endif %}
         {% endif %}
       {% elsif template.name == 'blog' %}
         {% if current_tags %}
@@ -69,7 +93,24 @@
           {{ 'general.search.search' | t }}
         {%- endif -%}
       {% else %}
-        {{ page_title | escape }}
+        {% comment %} Fallback to page_title, but exclude if it's "Homepage" and we're on a collection page {% endcomment %}
+        {% assign page_title_lower = page_title | downcase %}
+        {% if page_title_lower contains 'homepage' %}
+          {% comment %} If page_title is "Homepage", check if we're on a collection page and use collection title instead {% endcomment %}
+          {% if template.name == 'collection' and collection %}
+            {% if collection.title != blank %}
+              {{ collection.title | escape }}
+            {% else %}
+              {{ shop.name | escape }}
+            {% endif %}
+          {% elsif template.name == 'index' or request.page_type == 'index' %}
+            {{ shop.name | escape }}
+          {% else %}
+            {{ page_title | escape }}
+          {% endif %}
+        {% else %}
+          {{ page_title | escape }}
+        {% endif %}
       {% endif %}
     {% endif %}
   </{{ title_tag }}>

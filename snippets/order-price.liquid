@@ -5,20 +5,20 @@
         <span class='xo-visually-hidden'>{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
       <dd class='regular-price'>
-        <s>{{ item.original_price | money }}</s>
+        <s>{%- assign orig_price = item.original_price | money -%}{{ orig_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</s>
       </dd>
       <dt>
         <span class='xo-visually-hidden'>{{ 'products.product.price.sale_price' | t }}</span>
       </dt>
       <dd>
-        <span>{{ item.final_price | money }}</span>
+        <span>{%- assign final_price = item.final_price | money -%}{{ final_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</span>
       </dd>
     {%- else -%}
       <dt>
         <span class='xo-visually-hidden'>{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
       <dd>
-        {{ item.original_price | money }}
+        {%- assign orig_price = item.original_price | money -%}{{ orig_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}
       </dd>
     {%- endif -%}
     {%- if item.unit_price_measurement -%}
@@ -37,7 +37,7 @@
             {%- endif -%}
             {{ item.unit_price_measurement.reference_unit }}
           {%- endcapture -%}
-          <span data-unit-price>{{ item.unit_price | money }}</span>
+          <span data-unit-price>{%- assign unit_price = item.unit_price | money -%}{{ unit_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</span>
           {{- unit_price_separator -}}
           {{- unit_price_base_unit -}}
         </span>
@@ -45,5 +45,5 @@
     {%- endif -%}
   </dl>
 {%- else -%}
-  <span>{{ item.final_price | money }}</span>
+  <span>{%- assign final_price = item.final_price | money -%}{{ final_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</span>
 {%- endif -%}

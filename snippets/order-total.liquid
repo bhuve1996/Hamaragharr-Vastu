@@ -5,16 +5,16 @@
         <span class='visually-hidden'>{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
       <dd class='regular-price'>
-        <s>{{ item.original_line_price | money }}</s>
+        <s>{%- assign orig_line_price = item.original_line_price | money -%}{{ orig_line_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</s>
       </dd>
       <dt>
         <span class='visually-hidden'>{{ 'products.product.price.sale_price' | t }}</span>
       </dt>
       <dd>
-        <span>{{ item.final_line_price | money }}</span>
+        <span>{%- assign final_line_price = item.final_line_price | money -%}{{ final_line_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</span>
       </dd>
     </dl>
   {%- else -%}
-    {{ item.original_line_price | money }}
+    {%- assign orig_line_price = item.original_line_price | money -%}{{ orig_line_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}
   {%- endif -%}
 </div>

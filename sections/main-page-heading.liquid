@@ -2,10 +2,22 @@
   {% render 'section-bg-image' %}
   <xo-container>
     <xo-animate xo-cascade>
+      {%- liquid
+        # If we're on a collection page and the title is "Homepage", use collection title instead
+        assign heading_title = section.settings.title
+        if template.name == 'collection' and collection
+          assign title_lower = section.settings.title | downcase
+          if title_lower contains 'homepage' or section.settings.title == blank
+            if collection.title != blank
+              assign heading_title = collection.title
+            endif
+          endif
+        endif
+      -%}
       {%
         render 'page-heading',
         title_tag: section.settings.title_tag,
-        title: section.settings.title,
+        title: heading_title,
         description: section.settings.description,
         align: section.settings.align,
       %}

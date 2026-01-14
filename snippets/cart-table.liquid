@@ -22,10 +22,12 @@
             if settings.currency_code_enabled
               assign original_line_price = item.original_line_price | money_with_currency
             endif
+            assign original_line_price = original_line_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR'
             assign final_line_price = item.final_line_price | money
             if settings.currency_code_enabled
               assign final_line_price = item.final_line_price | money_with_currency
             endif
+            assign final_line_price = final_line_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR'
           %}
           <tr role='row' class='xo-table__body-row'>
             <td role='cell' data-th='Product'>

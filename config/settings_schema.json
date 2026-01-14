@@ -428,6 +428,1005 @@
     ]
   },
   {
+    "name": "Global Typography Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Global Font Sizes & Typography"
+      },
+      {
+        "type": "paragraph",
+        "content": "Configure global font sizes, line heights, and font weights for all text elements. These settings apply site-wide. Individual sections can override these settings."
+      },
+      {
+        "type": "header",
+        "content": "Headings - Desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_heading_font_size_desktop",
+        "min": 1.5,
+        "max": 6,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Heading Font Size (Desktop)",
+        "default": 3.5,
+        "info": "Default font size for all headings on desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_heading_line_height_desktop",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Heading Line Height (Desktop)",
+        "default": 1.2,
+        "info": "Line height for headings on desktop"
+      },
+      {
+        "type": "select",
+        "id": "global_heading_font_weight_desktop",
+        "label": "Heading Font Weight (Desktop)",
+        "default": "700",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Headings - Mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_heading_font_size_mobile",
+        "min": 1,
+        "max": 4,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Heading Font Size (Mobile)",
+        "default": 2.1,
+        "info": "Default font size for all headings on mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_heading_line_height_mobile",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Heading Line Height (Mobile)",
+        "default": 1.2,
+        "info": "Line height for headings on mobile"
+      },
+      {
+        "type": "select",
+        "id": "global_heading_font_weight_mobile",
+        "label": "Heading Font Weight (Mobile)",
+        "default": "700",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Body Text - Desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_body_font_size_desktop",
+        "min": 1,
+        "max": 2.5,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Body Font Size (Desktop)",
+        "default": 1.6,
+        "info": "Default font size for body text on desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_body_line_height_desktop",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Body Line Height (Desktop)",
+        "default": 1.5,
+        "info": "Line height for body text on desktop"
+      },
+      {
+        "type": "select",
+        "id": "global_body_font_weight_desktop",
+        "label": "Body Font Weight (Desktop)",
+        "default": "400",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Body Text - Mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_body_font_size_mobile",
+        "min": 0.8,
+        "max": 2,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Body Font Size (Mobile)",
+        "default": 1.5,
+        "info": "Default font size for body text on mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_body_line_height_mobile",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Body Line Height (Mobile)",
+        "default": 1.5,
+        "info": "Line height for body text on mobile"
+      },
+      {
+        "type": "select",
+        "id": "global_body_font_weight_mobile",
+        "label": "Body Font Weight (Mobile)",
+        "default": "400",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Subtitles - Desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_subtitle_font_size_desktop",
+        "min": 1,
+        "max": 3,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Subtitle Font Size (Desktop)",
+        "default": 1.6,
+        "info": "Default font size for subtitles on desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_subtitle_line_height_desktop",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Subtitle Line Height (Desktop)",
+        "default": 1.4,
+        "info": "Line height for subtitles on desktop"
+      },
+      {
+        "type": "select",
+        "id": "global_subtitle_font_weight_desktop",
+        "label": "Subtitle Font Weight (Desktop)",
+        "default": "400",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Subtitles - Mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_subtitle_font_size_mobile",
+        "min": 0.8,
+        "max": 2.5,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Subtitle Font Size (Mobile)",
+        "default": 1.5,
+        "info": "Default font size for subtitles on mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_subtitle_line_height_mobile",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Subtitle Line Height (Mobile)",
+        "default": 1.4,
+        "info": "Line height for subtitles on mobile"
+      },
+      {
+        "type": "select",
+        "id": "global_subtitle_font_weight_mobile",
+        "label": "Subtitle Font Weight (Mobile)",
+        "default": "400",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Card Titles - Desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_card_title_font_size_desktop",
+        "min": 1,
+        "max": 3,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Card Title Font Size (Desktop)",
+        "default": 1.5,
+        "info": "Default font size for card titles on desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_card_title_line_height_desktop",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Card Title Line Height (Desktop)",
+        "default": 1.3,
+        "info": "Line height for card titles on desktop"
+      },
+      {
+        "type": "select",
+        "id": "global_card_title_font_weight_desktop",
+        "label": "Card Title Font Weight (Desktop)",
+        "default": "600",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Card Titles - Mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_card_title_font_size_mobile",
+        "min": 0.8,
+        "max": 2.5,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Card Title Font Size (Mobile)",
+        "default": 1.3,
+        "info": "Default font size for card titles on mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_card_title_line_height_mobile",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Card Title Line Height (Mobile)",
+        "default": 1.3,
+        "info": "Line height for card titles on mobile"
+      },
+      {
+        "type": "select",
+        "id": "global_card_title_font_weight_mobile",
+        "label": "Card Title Font Weight (Mobile)",
+        "default": "600",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Descriptions - Desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_description_font_size_desktop",
+        "min": 1,
+        "max": 2.5,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Description Font Size (Desktop)",
+        "default": 1.6,
+        "info": "Default font size for descriptions on desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_description_line_height_desktop",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Description Line Height (Desktop)",
+        "default": 1.5,
+        "info": "Line height for descriptions on desktop"
+      },
+      {
+        "type": "select",
+        "id": "global_description_font_weight_desktop",
+        "label": "Description Font Weight (Desktop)",
+        "default": "400",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Descriptions - Mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_description_font_size_mobile",
+        "min": 0.8,
+        "max": 2,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Description Font Size (Mobile)",
+        "default": 1.5,
+        "info": "Default font size for descriptions on mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_description_line_height_mobile",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Description Line Height (Mobile)",
+        "default": 1.5,
+        "info": "Line height for descriptions on mobile"
+      },
+      {
+        "type": "select",
+        "id": "global_description_font_weight_mobile",
+        "label": "Description Font Weight (Mobile)",
+        "default": "400",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Tags/Badges - Desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_tag_font_size_desktop",
+        "min": 0.8,
+        "max": 2,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Tag/Badge Font Size (Desktop)",
+        "default": 1.2,
+        "info": "Default font size for tags and badges on desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_tag_line_height_desktop",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Tag/Badge Line Height (Desktop)",
+        "default": 1.2,
+        "info": "Line height for tags and badges on desktop"
+      },
+      {
+        "type": "select",
+        "id": "global_tag_font_weight_desktop",
+        "label": "Tag/Badge Font Weight (Desktop)",
+        "default": "600",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Tags/Badges - Mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_tag_font_size_mobile",
+        "min": 0.7,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Tag/Badge Font Size (Mobile)",
+        "default": 1.1,
+        "info": "Default font size for tags and badges on mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_tag_line_height_mobile",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "label": "Tag/Badge Line Height (Mobile)",
+        "default": 1.2,
+        "info": "Line height for tags and badges on mobile"
+      },
+      {
+        "type": "select",
+        "id": "global_tag_font_weight_mobile",
+        "label": "Tag/Badge Font Weight (Mobile)",
+        "default": "600",
+        "options": [
+          {
+            "value": "100",
+            "label": "Thin (100)"
+          },
+          {
+            "value": "200",
+            "label": "ExtraLight (200)"
+          },
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          },
+          {
+            "value": "800",
+            "label": "ExtraBold (800)"
+          },
+          {
+            "value": "900",
+            "label": "Black (900)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Text Spacing & Margins"
+      },
+      {
+        "type": "paragraph",
+        "content": "Configure margin/spacing below text elements for consistent spacing throughout the site."
+      },
+      {
+        "type": "header",
+        "content": "Heading Margins - Desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_heading_margin_bottom_desktop",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Desktop)",
+        "default": 48,
+        "info": "Spacing below headings on desktop"
+      },
+      {
+        "type": "header",
+        "content": "Heading Margins - Mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_heading_margin_bottom_mobile",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Mobile)",
+        "default": 32,
+        "info": "Spacing below headings on mobile"
+      },
+      {
+        "type": "header",
+        "content": "Body Text Margins - Desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_body_margin_bottom_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Desktop)",
+        "default": 16,
+        "info": "Spacing below body text paragraphs on desktop"
+      },
+      {
+        "type": "header",
+        "content": "Body Text Margins - Mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_body_margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Mobile)",
+        "default": 16,
+        "info": "Spacing below body text paragraphs on mobile"
+      },
+      {
+        "type": "header",
+        "content": "Subtitle Margins - Desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_subtitle_margin_bottom_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Desktop)",
+        "default": 24,
+        "info": "Spacing below subtitles on desktop"
+      },
+      {
+        "type": "header",
+        "content": "Subtitle Margins - Mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_subtitle_margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Mobile)",
+        "default": 20,
+        "info": "Spacing below subtitles on mobile"
+      },
+      {
+        "type": "header",
+        "content": "Card Title Margins - Desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_card_title_margin_bottom_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Desktop)",
+        "default": 12,
+        "info": "Spacing below card titles on desktop"
+      },
+      {
+        "type": "header",
+        "content": "Card Title Margins - Mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_card_title_margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Mobile)",
+        "default": 12,
+        "info": "Spacing below card titles on mobile"
+      },
+      {
+        "type": "header",
+        "content": "Description Margins - Desktop"
+      },
+      {
+        "type": "range",
+        "id": "global_description_margin_bottom_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Desktop)",
+        "default": 24,
+        "info": "Spacing below descriptions on desktop"
+      },
+      {
+        "type": "header",
+        "content": "Description Margins - Mobile"
+      },
+      {
+        "type": "range",
+        "id": "global_description_margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Margin Bottom (Mobile)",
+        "default": 20,
+        "info": "Spacing below descriptions on mobile"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.layout.name",
     "settings": [
       {
@@ -2032,9 +3031,20 @@
         "max": 6,
         "step": 0.1,
         "unit": "rem",
-        "label": "Heading Font Size",
+        "label": "Heading Font Size (Desktop)",
         "default": 3.5,
-        "info": "Default font size for all homepage section headings"
+        "info": "Default font size for all homepage section headings on desktop"
+      },
+      {
+        "type": "range",
+        "id": "homepage_heading_font_size_mobile",
+        "min": 1,
+        "max": 4,
+        "step": 0.1,
+        "unit": "rem",
+        "label": "Heading Font Size (Mobile)",
+        "default": 2.1,
+        "info": "Default font size for all homepage section headings on mobile (default is 0.6 of desktop size)"
       },
       {
         "type": "range",

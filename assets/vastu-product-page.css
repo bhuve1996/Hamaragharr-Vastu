@@ -444,27 +444,21 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 .vastu-product-showcase__content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-}
-
-.vastu-product-showcase__title {
-  font-size: var(--font-size-heading, 3rem);
-  font-weight: var(--font-weight-bold, 700);
-  color: rgb(var(--color-foreground));
-  margin: 0 0 1rem;
-  line-height: 1.2;
+  gap: 0;
 }
 
 .vastu-product-showcase__price {
   font-size: var(--font-size-price, 2rem);
   font-weight: var(--font-weight-semibold, 600);
   color: rgb(var(--color-foreground));
+  margin-bottom: 1rem;
 }
 
 .vastu-product-showcase__description {
   font-size: var(--font-size-description, 1.6rem);
   line-height: 1.6;
   color: rgb(var(--color-foreground));
+  margin-bottom: 1rem;
 }
 
 .vastu-product-showcase__description-text {
@@ -544,10 +538,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 @media (width <= 767px) {
   .vastu-product-showcase {
     padding: 2rem 0;
-  }
-
-  .vastu-product-showcase__title {
-    font-size: 2.5rem;
   }
 
   .vastu-product-showcase__price,
@@ -961,27 +951,6 @@ section[class*="product-faq"] {
   }
 }
 
-/* COMMENTED OUT - User requested removal
-.buy-button xo-cart-add .xo-btn--primary .xo-btn__text,
-.buy-button xo-cart-add .xo-btn--primary .xo-btn__content,
-.buy-button xo-cart-add .xo-btn--primary .xo-btn__text *,
-.buy-button xo-cart-add .xo-btn--primary .xo-btn__content *,
-.buy-button .xo-btn--primary .xo-btn__text,
-.buy-button .xo-btn--primary .xo-btn__content,
-.buy-button .xo-btn--primary .xo-btn__text *,
-.buy-button .xo-btn--primary .xo-btn__content *,
-xo-product-info-content xo-cart-add .xo-btn--primary .xo-btn__text,
-xo-product-info-content xo-cart-add .xo-btn--primary .xo-btn__content,
-xo-product-info-content xo-cart-add .xo-btn--primary .xo-btn__text *,
-xo-product-info-content xo-cart-add .xo-btn--primary .xo-btn__content *,
-xo-product-info-content .xo-btn--primary .xo-btn__text,
-xo-product-info-content .xo-btn--primary .xo-btn__content,
-xo-product-info-content .xo-btn--primary .xo-btn__text *,
-xo-product-info-content .xo-btn--primary .xo-btn__content * {
-  color: rgb(var(--color-button-text, 0, 0, 0));
-}
-*/
-
 .buy-button xo-cart-add .xo-btn--secondary .xo-btn__text,
 .buy-button xo-cart-add .xo-btn--secondary .xo-btn__content,
 .buy-button xo-cart-add .xo-btn--secondary .xo-btn__text *,
@@ -1012,19 +981,6 @@ button.loading .xo-btn__loading,
 xo-cart-add[aria-busy="true"] .xo-btn__loading,
 xo-cart-add.loading .xo-btn__loading {
   display: block;
-}
-
-.vastu-shop-by-concern__section-title {
-  font-size: var(--title-font-size, var(--font-size-heading, 3.5rem));
-  font-weight: var(--title-font-weight, var(--font-weight-bold, 700));
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 3rem;
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  line-height: 1.2;
-  padding-bottom: 7rem;
 }
 
 /* Underline removed - no underline for shop by concern heading */

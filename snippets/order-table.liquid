@@ -46,20 +46,20 @@
                       <span class='xo-visually-hidden'>{{ 'products.product.price.regular_price' | t }}</span>
                     </dt>
                     <dd class='regular-price'>
-                      <s>{{ line_item.original_price | money }}</s>
+                      <s>{%- assign orig_price = line_item.original_price | money -%}{{ orig_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</s>
                     </dd>
                     <dt>
                       <span class='xo-visually-hidden'>{{ 'products.product.price.sale_price' | t }}</span>
                     </dt>
                     <dd>
-                      <span>{{ line_item.final_price | money }}</span>
+                      <span>{%- assign final_price = line_item.final_price | money -%}{{ final_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</span>
                     </dd>
                   {%- else -%}
                     <dt>
                       <span class='xo-visually-hidden'>{{ 'products.product.price.regular_price' | t }}</span>
                     </dt>
                     <dd>
-                      {{ line_item.original_price | money }}
+                      {%- assign orig_price = line_item.original_price | money -%}{{ orig_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}
                     </dd>
                   {%- endif -%}
                   {%- if line_item.unit_price_measurement -%}
@@ -77,7 +77,7 @@
                 {%- endif -%}
                 {{ line_item.unit_price_measurement.reference_unit }}
               {%- endcapture -%}
-                        <span data-unit-price>{{ line_item.unit_price | money }}</span>
+                        <span data-unit-price>{%- assign unit_price = line_item.unit_price | money -%}{{ unit_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</span>
                         {{- unit_price_separator -}}
                         {{- unit_price_base_unit -}}
                       </span>
@@ -85,7 +85,7 @@
                   {%- endif -%}
                 </dl>
               {%- else -%}
-                <span>{{ line_item.final_price | money }}</span>
+                <span>{%- assign final_price = line_item.final_price | money -%}{{ final_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</span>
               {%- endif -%}
             </td>
             <td role='cell' data-th='{{ 'customer.order.quantity' | t }}'>
@@ -98,17 +98,17 @@
                     <span class='xo-visually-hidden'>{{ 'products.product.price.regular_price' | t }}</span>
                   </dt>
                   <dd class='regular-price'>
-                    <s>{{ line_item.original_line_price | money }}</s>
+                    <s>{%- assign orig_line_price = line_item.original_line_price | money -%}{{ orig_line_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</s>
                   </dd>
                   <dt>
                     <span class='xo-visually-hidden'>{{ 'products.product.price.sale_price' | t }}</span>
                   </dt>
                   <dd>
-                    <span>{{ line_item.final_line_price | money }}</span>
+                    <span>{%- assign final_line_price = line_item.final_line_price | money -%}{{ final_line_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</span>
                   </dd>
                 </dl>
               {%- else -%}
-                {{ line_item.original_line_price | money }}
+                {%- assign orig_line_price = line_item.original_line_price | money -%}{{ orig_line_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}
               {%- endif -%}
             </td>
           </tr>
@@ -119,12 +119,12 @@
   <div class='xo-order-table__bill'>
     <xo-animate xo-cascade class='xo-order-table__bill-row'>
       <div class='xo-order-table__bill-row-name'>{{ 'customer.order.subtotal' | t }}</div>
-      <div class='xo-order-table__bill-row-fee'>{{ order.line_items_subtotal_price | money }}</div>
+      <div class='xo-order-table__bill-row-fee'>{%- assign subtotal = order.line_items_subtotal_price | money -%}{{ subtotal | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</div>
     </xo-animate>
     {%- for shipping_method in order.shipping_methods -%}
       <xo-animate xo-cascade class='xo-order-table__bill-row'>
         <div class='xo-order-table__bill-row-name'>{{ shipping_method.title | escape }}</div>
-        <div class='xo-order-table__bill-row-fee'>{{ shipping_method.price | money }}</div>
+        <div class='xo-order-table__bill-row-fee'>{%- assign shipping_price = shipping_method.price | money -%}{{ shipping_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</div>
       </xo-animate>
     {%- endfor -%}
     {%- if order.total_duties -%}
@@ -133,7 +133,7 @@
           {{ tax_line.title | escape }}
           {{ tax_line.rate | times: 100 }}%
         </div>
-        <div class='xo-order-table__bill-row-fee'>{{ tax_line.price | money }}</div>
+        <div class='xo-order-table__bill-row-fee'>{%- assign tax_price = tax_line.price | money -%}{{ tax_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</div>
       </xo-animate>
     {%- endif -%}
     {%- for tax_line in order.tax_lines -%}
@@ -141,12 +141,12 @@
         <div class='xo-order-table__bill-row-name'>
           {{ 'customer.order.total_duties' | t }}
         </div>
-        <div class='xo-order-table__bill-row-fee'>{{ order.total_duties | money }}</div>
+        <div class='xo-order-table__bill-row-fee'>{%- assign duties = order.total_duties | money -%}{{ duties | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</div>
       </xo-animate>
     {%- endfor -%}
   </div>
   <xo-animate xo-cascade class='xo-order-table__total'>
     <div class='xo-order-table__bill-row-name'>{{ 'customer.order.total' | t }}</div>
-    <div class='xo-order-table__bill-row-fee'>{{ order.total_price | money_with_currency }}</div>
+    <div class='xo-order-table__bill-row-fee'>{%- assign total_price = order.total_price | money_with_currency -%}{{ total_price | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' }}</div>
   </xo-animate>
 </div>

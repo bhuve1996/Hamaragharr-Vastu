@@ -1,0 +1,190 @@
+{% comment %}
+  Thank You Page Section
+  Displays a thank you message after order confirmation
+{% endcomment %}
+
+<div {% render 'section-attr' %}>
+  {% render 'section-bg-image' %}
+  <xo-container>
+    <xo-grid>
+      <div style='--md: 12; --lg: 8; margin: 0 auto;'>
+        <xo-animate xo-cascade class='thank-you-page'>
+          <div class='thank-you-page__content' style='text-align: center; padding: 60px 20px;'>
+            {%- if section.settings.show_icon -%}
+              <div class='thank-you-page__icon' style='font-size: 80px; margin-bottom: 30px;'>
+                {{ section.settings.icon | default: '✓' }}
+              </div>
+            {%- endif -%}
+            
+            <h1 class='thank-you-page__title' style='font-size: 2.5rem; margin-bottom: 20px; font-weight: bold;'>
+              {{ section.settings.title | default: 'Thank You for Your Purchase!' }}
+            </h1>
+            
+            {%- if section.settings.message != blank -%}
+              <div class='thank-you-page__message' style='font-size: 1.2rem; margin-bottom: 40px; line-height: 1.6; color: #666;'>
+                {{ section.settings.message }}
+              </div>
+            {%- endif -%}
+            
+            {%- if section.settings.show_order_info and checkout.order_id -%}
+              <div class='thank-you-page__order-info' style='background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 40px;'>
+                <p style='margin: 0; font-size: 1rem;'>
+                  <strong>Order Number:</strong> {{ checkout.order_number }}
+                </p>
+              </div>
+            {%- endif -%}
+            
+            <div class='thank-you-page__actions' style='display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;'>
+              {%- if section.settings.show_continue_shopping -%}
+                <a href='{{ routes.collections_url }}' class='button button--primary' style='padding: 15px 40px; text-decoration: none; display: inline-block; border-radius: 5px; font-weight: 600;'>
+                  {{ section.settings.continue_shopping_text | default: 'Continue Shopping' }}
+                </a>
+              {%- endif -%}
+              
+              {%- if section.settings.show_track_order and checkout.order_id -%}
+                <a href='{{ routes.account_orders_url }}' class='button button--secondary' style='padding: 15px 40px; text-decoration: none; display: inline-block; border-radius: 5px; font-weight: 600; background: #f0f0f0; color: #333;'>
+                  {{ section.settings.track_order_text | default: 'Track Your Order' }}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+        </xo-animate>
+      </div>
+    </xo-grid>
+  </xo-container>
+  {% render 'section-separator',
+    enable_separator: section.settings.enable_separator,
+    separator_color: section.settings.separator_color,
+    separator_height: section.settings.separator_height,
+    separator_width: section.settings.separator_width,
+    padding_top: section.settings.separator_padding_top,
+    padding_bottom: section.settings.separator_padding_bottom
+  %}
+</div>
+
+{% schema %}
+{
+  "name": "Thank You Page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "label": "Show Icon",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "icon",
+      "label": "Icon (emoji or text)",
+      "default": "✓"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Thank You for Your Purchase!"
+    },
+    {
+      "type": "richtext",
+      "id": "message",
+      "label": "Message",
+      "default": "<p>Your order has been confirmed and will be processed shortly. We appreciate your business!</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_order_info",
+      "label": "Show Order Information",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_continue_shopping",
+      "label": "Show Continue Shopping Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "continue_shopping_text",
+      "label": "Continue Shopping Button Text",
+      "default": "Continue Shopping"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_track_order",
+      "label": "Show Track Order Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "track_order_text",
+      "label": "Track Order Button Text",
+      "default": "Track Your Order"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "Background Type",
+      "options": [
+        {
+          "value": "color",
+          "label": "Color"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Thank You Page"
+    }
+  ]
+}
+{% endschema %}

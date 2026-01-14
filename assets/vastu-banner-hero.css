@@ -38,9 +38,6 @@ h2.banner-v155__title,
 .banner-v155__content h2.banner-v155__title,
 section[class*="banner-v3"] .banner-v155__title,
 section[class*="banner-v3"] h2.banner-v155__title {
-  font-size: 4.375rem;
-  font-weight: 700;
-  line-height: 1.2;
   color: rgb(var(--color-foreground, 0, 0, 0));
   margin-bottom: 2.5rem;
   position: relative;

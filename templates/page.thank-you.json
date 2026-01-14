@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "main-page-heading": {
+      "type": "main-page-heading",
+      "settings": {
+        "padding_top": 50,
+        "padding_bottom": 20,
+        "title": "Thank You!",
+        "align": "center"
+      }
+    },
+    "thank-you-content": {
+      "type": "thank-you-page",
+      "settings": {
+        "show_icon": true,
+        "icon": "\u2713",
+        "title": "Thank You for Your Purchase!",
+        "message": "<p>Your order has been confirmed and will be processed shortly. We appreciate your business and look forward to serving you again!</p><p>You will receive an email confirmation with your order details shortly.</p>",
+        "show_order_info": false,
+        "show_continue_shopping": true,
+        "continue_shopping_text": "Continue Shopping",
+        "show_track_order": true,
+        "track_order_text": "Track Your Order",
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main-page-heading",
+    "thank-you-content"
+  ]
+}

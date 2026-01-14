@@ -1,0 +1,23 @@
+{%- comment -%}
+  Apply section-level typography overrides via inline CSS variables
+  Usage: {% render 'section-typography-styles', section: section %}
+  
+  This snippet outputs inline styles that override global typography settings
+  for the current section based on section.settings values.
+{%- endcomment -%}
+{%- if section.settings.heading_font_size_desktop != blank or section.settings.heading_font_size_mobile != blank or section.settings.heading_line_height_desktop != blank or section.settings.heading_line_height_mobile != blank or section.settings.heading_font_weight_desktop != blank or section.settings.heading_font_weight_mobile != blank or section.settings.body_font_size_desktop != blank or section.settings.body_font_size_mobile != blank or section.settings.body_line_height_desktop != blank or section.settings.body_line_height_mobile != blank or section.settings.body_font_weight_desktop != blank or section.settings.body_font_weight_mobile != blank -%}
+  style="
+    {%- if section.settings.heading_font_size_desktop != blank -%}--section-heading-font-size-desktop: {{ section.settings.heading_font_size_desktop }}rem;{%- endif -%}
+    {%- if section.settings.heading_font_size_mobile != blank -%}--section-heading-font-size-mobile: {{ section.settings.heading_font_size_mobile }}rem;{%- endif -%}
+    {%- if section.settings.heading_line_height_desktop != blank -%}--section-heading-line-height-desktop: {{ section.settings.heading_line_height_desktop }};{%- endif -%}
+    {%- if section.settings.heading_line_height_mobile != blank -%}--section-heading-line-height-mobile: {{ section.settings.heading_line_height_mobile }};{%- endif -%}
+    {%- if section.settings.heading_font_weight_desktop != blank -%}--section-heading-font-weight-desktop: {{ section.settings.heading_font_weight_desktop }};{%- endif -%}
+    {%- if section.settings.heading_font_weight_mobile != blank -%}--section-heading-font-weight-mobile: {{ section.settings.heading_font_weight_mobile }};{%- endif -%}
+    {%- if section.settings.body_font_size_desktop != blank -%}--section-body-font-size-desktop: {{ section.settings.body_font_size_desktop }}rem;{%- endif -%}
+    {%- if section.settings.body_font_size_mobile != blank -%}--section-body-font-size-mobile: {{ section.settings.body_font_size_mobile }}rem;{%- endif -%}
+    {%- if section.settings.body_line_height_desktop != blank -%}--section-body-line-height-desktop: {{ section.settings.body_line_height_desktop }};{%- endif -%}
+    {%- if section.settings.body_line_height_mobile != blank -%}--section-body-line-height-mobile: {{ section.settings.body_line_height_mobile }};{%- endif -%}
+    {%- if section.settings.body_font_weight_desktop != blank -%}--section-body-font-weight-desktop: {{ section.settings.body_font_weight_desktop }};{%- endif -%}
+    {%- if section.settings.body_font_weight_mobile != blank -%}--section-body-font-weight-mobile: {{ section.settings.body_font_weight_mobile }};{%- endif -%}
+  "
+{%- endif -%}

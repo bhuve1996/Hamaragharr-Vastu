@@ -1,0 +1,208 @@
+/* Global Typography System - Uses CSS Variables from Settings */
+
+/* Base Typography - Desktop */
+body,
+p,
+span,
+div,
+li,
+td,
+th {
+  font-size: var(--global-body-font-size-desktop, 1.6rem);
+  line-height: var(--global-body-line-height-desktop, 1.5);
+  font-weight: var(--global-body-font-weight-desktop, 400);
+}
+
+/* Body text paragraphs - Desktop */
+p {
+  margin-bottom: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
+}
+
+/* Headings - Desktop */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.vastu-heading,
+.homepage-section-heading,
+.vastu-section-title,
+.vastu-why-kit__title,
+.vastu-trust-bar__title,
+.vastu-help-address-v1__section-title,
+.vastu-shop-by-concern__section-title,
+.vastu-section-heading,
+.blog-v2__title,
+.faq-v3__title,
+.banner-v155__title,
+.slideshow-v28__title,
+.vastu-best-seller__section-title,
+.vastu-featured-products__section-title,
+.vastu-product-showcase__title {
+  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem));
+  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
+  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700));
+  margin-bottom: var(--section-heading-margin-bottom-desktop, var(--global-heading-margin-bottom-desktop, 48px));
+}
+
+/* Subtitles - Desktop */
+.subtitle,
+.banner-v155__subtitle,
+.slideshow-v28__subtitle,
+.vastu-subtitle {
+  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop, 1.6rem));
+  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop, 1.4));
+  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 400));
+  margin-bottom: var(--section-subtitle-margin-bottom-desktop, var(--global-subtitle-margin-bottom-desktop, 24px));
+}
+
+/* Card Titles - Desktop */
+.vastu-card-title,
+.product-card__title,
+.collection-card__title,
+.article-card__title,
+.card-title {
+  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop, 1.5rem));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 600));
+  margin-bottom: var(--section-card-title-margin-bottom-desktop, var(--global-card-title-margin-bottom-desktop, 12px));
+}
+
+/* Descriptions - Desktop */
+.description,
+.vastu-description,
+.product-card__description,
+.vastu-product-showcase__description,
+.vastu-product-showcase__description p,
+.footer-v18__description {
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
+  font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
+  margin-bottom: var(--section-description-margin-bottom-desktop, var(--global-description-margin-bottom-desktop, 24px));
+}
+
+/* Tags/Badges - Desktop */
+.vastu-badge,
+.badge,
+.tag,
+.price-tag {
+  font-size: var(--section-tag-font-size-desktop, var(--global-tag-font-size-desktop, 1.25rem));
+  line-height: var(--section-tag-line-height-desktop, var(--global-tag-line-height-desktop, 1.2));
+  font-weight: var(--section-tag-font-weight-desktop, var(--global-tag-font-weight-desktop, 600));
+}
+
+/* Mobile Typography - Apply to all text elements */
+@media (width <= 48rem) {
+  /* Base Typography - Mobile */
+  body,
+  p,
+  span,
+  div,
+  li,
+  td,
+  th,
+  footer,
+  .footer-v18__description,
+  .footer-v18__subtext,
+  .footer-v18__list-item,
+  .footer-v18__list-item a,
+  .footer-v18__copyright,
+  .footer-v18__copyright-content {
+    font-size: var(--section-body-font-size-mobile, var(--global-body-font-size-mobile, 1.5rem));
+    line-height: var(--section-body-line-height-mobile, var(--global-body-line-height-mobile, 1.5));
+    font-weight: var(--section-body-font-weight-mobile, var(--global-body-font-weight-mobile, 400));
+  }
+
+  /* Body text paragraphs - Mobile */
+  p {
+    margin-bottom: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+  }
+
+  /* Headings - Mobile */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .vastu-heading {
+    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
+    line-height: var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2));
+    font-weight: var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700));
+    margin-bottom: var(--section-heading-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px));
+  }
+
+  .homepage-section-heading,
+  .vastu-section-title,
+  .vastu-why-kit__title,
+  .vastu-trust-bar__title,
+  .vastu-help-address-v1__section-title,
+  .vastu-shop-by-concern__section-title,
+  .vastu-section-heading,
+  .blog-v2__title,
+  .faq-v3__title,
+  .banner-v155__title,
+  .slideshow-v28__title,
+  .slideshow-v28__text--overlay .slideshow-v28__title,
+  .vastu-best-seller__section-title,
+  .vastu-featured-products__section-title,
+  .vastu-product-showcase__title,
+  footer h2,
+  footer h3 {
+    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
+    line-height: var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2));
+    font-weight: var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700));
+    margin-bottom: var(--section-heading-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px));
+  }
+
+  /* Subtitles - Mobile */
+  .subtitle,
+  .banner-v155__subtitle,
+  .slideshow-v28__subtitle,
+  .vastu-subtitle {
+    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile, 1.5rem));
+    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile, 1.4));
+    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 400));
+    margin-bottom: var(--section-subtitle-margin-bottom-mobile, var(--global-subtitle-margin-bottom-mobile, 20px));
+  }
+
+  /* Card Titles - Mobile */
+  .vastu-card-title,
+  .product-card__title,
+  .collection-card__title,
+  .article-card__title,
+  .card-title {
+    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile, 1.3rem));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile, 1.3));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 600));
+    margin-bottom: var(--section-card-title-margin-bottom-mobile, var(--global-card-title-margin-bottom-mobile, 12px));
+  }
+
+  /* Descriptions - Mobile */
+  .description,
+  .vastu-description,
+  .product-card__description,
+  .vastu-product-showcase__description,
+  .vastu-product-showcase__description p,
+  .vastu-product-showcase__price,
+  .footer-v18__description {
+    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
+    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
+    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
+    margin-bottom: var(--section-description-margin-bottom-mobile, var(--global-description-margin-bottom-mobile, 20px));
+  }
+
+  /* Tags/Badges - Mobile */
+  .vastu-badge,
+  .badge,
+  .tag,
+  .price-tag {
+    font-size: var(--section-tag-font-size-mobile, var(--global-tag-font-size-mobile, 1.1rem));
+    line-height: var(--section-tag-line-height-mobile, var(--global-tag-line-height-mobile, 1.2));
+    font-weight: var(--section-tag-font-weight-mobile, var(--global-tag-font-weight-mobile, 600));
+  }
+}
+
+/* Section-level overrides - These can be set via inline styles in sections */
+/* Example: style="--section-heading-font-size-desktop: 4rem; --section-heading-font-size-mobile: 2.5rem;" */

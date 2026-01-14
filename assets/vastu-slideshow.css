@@ -39,29 +39,13 @@
 }
 
 @media (width <= 48rem) {
-  .slideshow-v28__title,
-  .slideshow-v28__text--overlay .slideshow-v28__title {
-    font-size: 2.5rem;
-
-    --fontsize: 2.5rem;
-  }
-
   .slideshow-v28__text--overlay {
     padding-left: var(--xo-container-gap, 1.25rem);
     padding-right: var(--xo-container-gap, 1.25rem);
   }
 
-  .banner-v155__title {
-    font-size: 3.5rem;
-  }
-
   .banner-v155__subtitle {
     font-size: 2rem;
-  }
-
-  .vastu-best-seller__section-title,
-  .vastu-featured-products__section-title {
-    font-size: 2.5rem;
   }
 
   .vastu-featured-products__icon-svg {

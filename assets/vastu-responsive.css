@@ -1,22 +1,22 @@
 @media (width <= 48rem) {
   .banner-v155__title {
-    font-size: 3.5rem;
+    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
   }
 
   .banner-v155__subtitle {
-    font-size: 2rem;
+    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile, 1.5rem));
   }
 
   .vastu-best-seller__section-title,
   .vastu-featured-products__section-title {
-    font-size: 2.5rem;
+    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
   }
 
   .slideshow-v28__title,
   .slideshow-v28__text--overlay .slideshow-v28__title {
-    font-size: 2.5rem;
+    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
 
-    --fontsize: 2.5rem;
+    --fontsize: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
   }
 
   .slideshow-v28__text--overlay {
@@ -53,13 +53,13 @@
   }
 
   .vastu-product-showcase__title {
-    font-size: 2.5rem;
+    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
   }
 
   .vastu-product-showcase__price,
   .vastu-product-showcase__description,
   .vastu-product-showcase__description p {
-    font-size: 2rem;
+    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
   }
 
   footer,
@@ -69,13 +69,13 @@
   .footer-v18__list-item a,
   .footer-v18__copyright,
   .footer-v18__copyright-content {
-    font-size: var(--font-size-description);
+    font-size: var(--section-body-font-size-mobile, var(--global-body-font-size-mobile, 1.5rem));
   }
 
   .footer-v18__heading,
   footer h2,
   footer h3 {
-    font-size: var(--font-size-card-title);
+    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
   }
 
   xo-carousel:has(.vastu-best-seller__pagination),
@@ -105,6 +105,17 @@
   .testimonial-v13__pagination {
     bottom: -2.5rem;
     margin-top: 1.5rem;
+  }
+
+  /* Blog carousel mobile fix - ensure carousel works properly on mobile */
+  section[class*="blog-v1"] xo-carousel,
+  section[class*="blog-v2"] xo-carousel {
+    overflow: hidden;
+  }
+
+  section[class*="blog-v1"] xo-carousel-slide,
+  section[class*="blog-v2"] xo-carousel-slide {
+    flex-shrink: 0;
   }
 }
 

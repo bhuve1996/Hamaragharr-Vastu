@@ -20,7 +20,7 @@
       <div class='vastu-product-card__image hover-style--scale-up'>
         {% if current_product.price != blank %}
           {%- assign price_formatted = current_product.price | money -%}
-          {%- assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' -%}
+          {%- assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' -%}
           <div class='vastu-product-card__price' style='--card-price-size: {{ card_price_size }}rem;'>
             {{ price_formatted }}
           </div>

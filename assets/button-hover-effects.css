@@ -30,7 +30,7 @@ xo-modal .xo-btn--secondary:hover,
 xo-modal button.xo-btn--secondary:hover {
   background-color: rgba(var(--button-secondary-bg-color-rgb, 71, 56, 85), var(--button-hover-opacity, 0.9));
   color: var(--button-secondary-text-color, #fff);
-  transform: translateY(var(--button-hover-transform-y, -1px));
+  transform: none;
   box-shadow: 0 4px var(--button-hover-box-shadow-blur, 12px)
     rgba(var(--button-secondary-bg-color-rgb, 71, 56, 85), 0.3);
   transition:
@@ -51,7 +51,7 @@ button.xo-btn--light.xo-btn--primary:hover,
 a.xo-btn--light.xo-btn--primary:hover {
   background-color: rgba(var(--button-light-primary-hover-bg-color-rgb, 255, 255, 255), var(--button-light-primary-hover-opacity, 0.9));
   color: var(--button-light-primary-hover-text-color, #000);
-  transform: translateY(var(--button-light-primary-hover-transform-y, -1px));
+  transform: none;
   box-shadow: 0 4px var(--button-light-primary-hover-box-shadow-blur, 12px) rgba(var(--button-light-primary-hover-box-shadow-color-rgb, 0, 0, 0), var(--button-light-primary-hover-box-shadow-opacity, 0.2));
   transition:
     background-color var(--button-transition-duration, 0.3s) ease,
@@ -66,7 +66,7 @@ button.xo-btn--primary:hover,
 a.xo-btn--primary:hover {
   background-color: rgba(var(--button-primary-hover-bg-color-rgb, 255, 255, 255), var(--button-primary-hover-opacity, 0.9));
   color: var(--button-primary-hover-text-color, #000);
-  transform: translateY(var(--button-primary-hover-transform-y, -1px));
+  transform: none;
   box-shadow: 0 4px var(--button-primary-hover-box-shadow-blur, 12px) rgba(var(--button-primary-hover-box-shadow-color-rgb, 0, 0, 0), var(--button-primary-hover-box-shadow-opacity, 0.2));
   transition:
     background-color var(--button-transition-duration, 0.3s) ease,
@@ -86,7 +86,7 @@ section[class*="vastu-best-seller"]
   button.xo-btn--primary:hover {
   background-color: rgba(var(--button-best-seller-primary-hover-bg-color-rgb, 255, 255, 255), var(--button-best-seller-primary-hover-opacity, 0.9));
   color: var(--button-best-seller-primary-hover-text-color, #000);
-  transform: translateY(var(--button-best-seller-primary-hover-transform-y, -1px));
+  transform: none;
   box-shadow: 0 4px var(--button-best-seller-primary-hover-box-shadow-blur, 12px) rgba(var(--button-best-seller-primary-hover-box-shadow-color-rgb, 0, 0, 0), var(--button-best-seller-primary-hover-box-shadow-opacity, 0.2));
   transition:
     background-color var(--button-transition-duration, 0.3s) ease,
@@ -106,7 +106,7 @@ section[class*="vastu-featured-products"]
   button.xo-btn--primary:hover {
   background-color: rgba(var(--button-featured-products-primary-hover-bg-color-rgb, 255, 255, 255), var(--button-featured-products-primary-hover-opacity, 0.9));
   color: var(--button-featured-products-primary-hover-text-color, #000);
-  transform: translateY(var(--button-featured-products-primary-hover-transform-y, -1px));
+  transform: none;
   box-shadow: 0 4px var(--button-featured-products-primary-hover-box-shadow-blur, 12px) rgba(var(--button-featured-products-primary-hover-box-shadow-color-rgb, 0, 0, 0), var(--button-featured-products-primary-hover-box-shadow-opacity, 0.2));
   transition:
     background-color var(--button-transition-duration, 0.3s) ease,
@@ -163,6 +163,6 @@ a.xo-btn--light.xo-btn--secondary {
 .xo-btn.xo-btn--slide-up.xo-btn--light.xo-btn--secondary:hover,
 button.xo-btn--slide-up.xo-btn--light.xo-btn--secondary:hover,
 a.xo-btn--slide-up.xo-btn--light.xo-btn--secondary:hover {
-  transform: translateY(calc(var(--button-hover-transform-y, -1px) * 2));
+  transform: none;
   box-shadow: 0 6px 16px rgba(var(--button-secondary-bg-color-rgb, 71, 56, 85), 0.35);
 }

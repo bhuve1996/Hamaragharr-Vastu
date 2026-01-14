@@ -1,7 +1,16 @@
 
+{% liquid
+  assign header_style = ''
+  if section.settings.background_type == 'color' and section.settings.background_color != blank
+    assign header_style = 'background-color: ' | append: section.settings.background_color | append: ';'
+  elsif section.settings.background_type == 'gradient' and section.settings.background_gradient != blank
+    assign header_style = 'background: ' | append: section.settings.background_gradient | append: ';'
+  endif
+%}
 
 <header
   class='header-v14 {% if section.settings.transparent and template contains 'index' or template contains 'home' %} header-v14--transparent {% endif %}'
+  {% if header_style != blank %}style='{{ header_style }}'{% endif %}
 >
   <xo-sticky
     xo-direction='{{ section.settings.sticky_type }}'
@@ -393,6 +402,7 @@
       "id": "background_color",
       "label": "t:sections.all.background_color.label",
       "alpha": true,
+      "default": "#473855",
       "visible_if": "{{ section.settings.background_type == 'color' }}"
     },
     {

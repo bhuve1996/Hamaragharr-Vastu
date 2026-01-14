@@ -8,7 +8,9 @@
     "format": "prettier --write \"**/*.{css,json}\"",
     "format:check": "prettier --check \"**/*.{css,json}\"",
     "lint:css": "stylelint \"assets/**/*.css\"",
-    "lint:css:fix": "stylelint \"assets/**/*.css\" --fix"
+    "lint:css:fix": "stylelint \"assets/**/*.css\" --fix",
+    "build:css": "node scripts/build-css.js",
+    "prepush": "npm run build:css"
   },
   "devDependencies": {
     "husky": "^9.0.11",

@@ -1,7 +1,16 @@
 
+{% liquid
+  assign header_style = ''
+  if section.settings.background_type == 'color' and section.settings.background_color != blank
+    assign header_style = 'background-color: ' | append: section.settings.background_color | append: ';'
+  elsif section.settings.background_type == 'gradient' and section.settings.background_gradient != blank
+    assign header_style = 'background: ' | append: section.settings.background_gradient | append: ';'
+  endif
+%}
 
 <header
   class='header-v6 {% if section.settings.transparent and template contains 'index' or template contains 'home' %} header-v6--transparent {% endif %}'
+  {% if header_style != blank %}style='{{ header_style }}'{% endif %}
 >
   {% if section.settings.enable_topbar %}
     {% assign topbar_background_color = '--topbar-bg-color: ' | append: section.settings.topbar_background_color | append: ';' %}
@@ -534,6 +543,7 @@
       "id": "background_color",
       "label": "t:sections.all.background_color.label",
       "alpha": true,
+      "default": "#473855",
       "visible_if": "{{ section.settings.background_type == 'color' }}"
     },
     {

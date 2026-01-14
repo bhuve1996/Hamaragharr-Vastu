@@ -88,13 +88,26 @@
     endif
   # Fallback to page_title if set, otherwise shop name
   # But exclude if page_title contains "homepage" (case insensitive)
+  # Also check if we're on a collection page and use collection title instead
   else
     assign page_title_lower = page_title | downcase
     assign is_homepage = false
     if page_title_lower contains 'homepage'
       assign is_homepage = true
     endif
-    if page_title != blank and is_homepage == false
+    
+    # If page_title is "Homepage" and we're on a collection page, use collection title
+    if is_homepage and template.name == 'collection' and collection
+      if collection.title != blank
+        if current_tags
+          assign final_title = current_tags | join: ' + ' | append: ' - ' | append: collection.title
+        else
+          assign final_title = collection.title
+        endif
+      else
+        assign final_title = shop.name
+      endif
+    elsif page_title != blank and is_homepage == false
       assign final_title = page_title
     else
       assign final_title = shop.name

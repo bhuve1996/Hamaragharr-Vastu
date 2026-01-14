@@ -54,22 +54,6 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   padding-bottom: var(--heading-padding-bottom, 6rem);
 }
 
-.vastu-shop-by-concern .vastu-heading,
-.vastu-shop-by-concern .vastu-section-heading,
-.vastu-shop-by-concern__section-title {
-  text-align: center;
-  margin-bottom: var(--heading-margin-bottom, var(--margin-section-heading-bottom, 3rem));
-  padding-bottom: 0; /* No underline, so no extra padding needed */
-}
-
-.vastu-help-address-v1 .vastu-heading,
-.vastu-help-address-v1 .vastu-section-heading,
-.vastu-help-address-v1__section-title {
-  text-align: center;
-  margin-bottom: var(--heading-margin-bottom, var(--margin-section-heading-bottom, 3rem));
-  padding-bottom: var(--heading-padding-bottom, 6rem);
-}
-
 .vastu-help-address-v2 .vastu-heading,
 .vastu-help-address-v2 .vastu-section-heading,
 .vastu-help-address-v2__section-title {
@@ -88,11 +72,8 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 
 .vastu-product-showcase .vastu-heading,
 .vastu-product-showcase__title {
-  font-size: var(--font-size-heading, 3rem);
-  font-weight: var(--font-weight-bold);
   color: rgb(var(--color-foreground));
   margin: 0 0 1rem;
-  line-height: 1.2;
   text-transform: uppercase;
 }
 

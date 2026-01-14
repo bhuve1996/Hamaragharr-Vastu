@@ -36,6 +36,14 @@
   <div class='menu-hamburger-drawer-mobile__content color-{{ hamburger_drawer_color_scheme }}' style='{{ background_color }} {{ background_gradient }}'>
     <div>
       {% for link in menu.links %}
+        {% liquid
+          assign link_url = link.url
+          assign link_title_lower = link.title | downcase | strip
+          assign link_title_clean = link_title_lower | split: '[' | first | split: '(' | first | strip
+          if link_title_clean == 'home' or link_url == '/' or link_url == '/index' or link_url == '/pages/home' or link_url == '/pages/homepage'
+            assign link_url = '/'
+          endif
+        %}
         {% comment %} Submenu disabled - DISABLED: Submenus are disabled {% endcomment %}
         {% capture submenu %}
           {% comment %}
@@ -88,7 +96,7 @@
           {% comment %} Convert to simple link - DISABLED: Submenus are disabled {% endcomment %}
           <a
             class='menu-hamburger-drawer-mobile__link'
-            href='{{ link.url }}'
+            href='{{ link_url }}'
             title='{{ link.title | escape | split: '[' | first  }}'
             {% if link.current %}
               aria-current='page'
@@ -153,7 +161,7 @@
           {% comment %} Convert to simple link - DISABLED: Submenus are disabled {% endcomment %}
           <a
             class='menu-hamburger-drawer-mobile__link'
-            href='{{ link.url }}'
+            href='{{ link_url }}'
             title='{{ link.title | escape }}'
             {% if link.current %}
               aria-current='page'
