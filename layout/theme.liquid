@@ -552,7 +552,75 @@
               }
               
           // Find all price elements that need updating
-              const priceElements = document.querySelectorAll(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`);
+          // First try to find within context (modal, toggle, etc.), then fallback to global search
+          let priceElements = [];
+          
+          // Always search in open modals first (for popup price updates)
+          const openModal = document.querySelector('xo-modal[open], xo-toggle[open]');
+          if (openModal) {
+            const modalContent = openModal.querySelector('.product-variant-modal__modal-content, .product-variant-modal__toggle-content');
+            if (modalContent) {
+              // Try exact ID match in modal
+              priceElements = Array.from(modalContent.querySelectorAll(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`));
+              
+              // If not found, try to find by class in modal
+              if (priceElements.length === 0) {
+                const modalPriceContainer = modalContent.querySelector('.product-variant-modal__product-price');
+                if (modalPriceContainer) {
+                  const modalPriceEl = modalPriceContainer.querySelector('xo-product-will-change');
+                  if (modalPriceEl) {
+                    priceElements = [modalPriceEl];
+                  }
+                }
+              }
+            }
+          }
+          
+          // If not found in open modal, try context element
+          if (priceElements.length === 0 && contextElement) {
+            // Try exact ID match first
+            priceElements = Array.from(contextElement.querySelectorAll(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`));
+            
+            // If not found, try to find by class in modal
+            if (priceElements.length === 0) {
+              const modalPriceContainer = contextElement.querySelector('.product-variant-modal__product-price');
+              if (modalPriceContainer) {
+                const modalPriceEl = modalPriceContainer.querySelector('xo-product-will-change');
+                if (modalPriceEl) {
+                  priceElements = [modalPriceEl];
+                }
+              }
+            }
+            
+            // Also try finding any price element with product-price in the ID within context
+            if (priceElements.length === 0) {
+              const contextPriceEls = contextElement.querySelectorAll('xo-product-will-change[xo-unique-id*="product-price"]');
+              if (contextPriceEls.length > 0) {
+                priceElements = Array.from(contextPriceEls);
+              }
+            }
+          }
+          
+          // If not found in context, do global search (but prioritize modals)
+          if (priceElements.length === 0) {
+            // First check all modals
+            const allModals = document.querySelectorAll('xo-modal, xo-toggle');
+            for (const modal of allModals) {
+              const modalContent = modal.querySelector('.product-variant-modal__modal-content, .product-variant-modal__toggle-content');
+              if (modalContent) {
+                const modalPriceEl = modalContent.querySelector(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`);
+                if (modalPriceEl) {
+                  priceElements = [modalPriceEl];
+                  break;
+                }
+              }
+            }
+          }
+          
+          // Final fallback - global search
+          if (priceElements.length === 0) {
+            priceElements = Array.from(document.querySelectorAll(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`));
+          }
               
               priceElements.forEach(priceEl => {
             let priceContainer = priceEl.querySelector('.xo-price');
@@ -635,21 +703,110 @@
           return null;
         }
 
-        // Handle variant change
+        // Handle variant change - works with both forms and web components
         function handleVariantChange(variantInput) {
-          const form = variantInput.closest('form');
-          if (!form) return;
+          const form = variantInput ? variantInput.closest('form') : null;
           
-          const variantId = parseInt(variantInput.value);
+          let variantId = null;
+          let productId = null;
+          let contextElement = null;
+          
+          if (variantInput && form) {
+            // Traditional form approach
+            variantId = parseInt(variantInput.value);
           if (!variantId) return;
           
-          const productId = getProductIdFromForm(form);
+            productId = getProductIdFromForm(form);
           if (!productId) return;
           
-          // Get context element (form, modal, etc.) for better product data lookup
-          const contextElement = form.closest('xo-product, xo-modal, xo-toggle, [data-product-id]') || form;
+            contextElement = variantInput.closest('xo-product, xo-modal, xo-toggle, .product-variant-modal__modal-content, .product-variant-modal__toggle-content, [data-product-id]') || 
+                           form.closest('xo-product, xo-modal, xo-toggle, .product-variant-modal__modal-content, .product-variant-modal__toggle-content, [data-product-id]') || 
+                           form;
+          } else if (variantInput) {
+            // Web component approach - variant input might not be in a form
+            variantId = parseInt(variantInput.value);
+            if (!variantId) return;
+            
+            contextElement = variantInput.closest('xo-product, xo-modal, xo-toggle, .product-variant-modal__modal-content, .product-variant-modal__toggle-content, [data-product-id]');
+            
+            if (contextElement) {
+              const productDataEl = contextElement.querySelector('xo-product-data script');
+              if (productDataEl) {
+                try {
+                  const productData = JSON.parse(productDataEl.textContent);
+                  productId = productData.id.toString();
+                } catch (e) {}
+              }
+            }
+            
+            if (!productId) {
+              // Try to get product ID from modal name or other attributes
+              const modal = variantInput.closest('xo-modal, xo-toggle');
+              if (modal) {
+                const modalName = modal.getAttribute('xo-name');
+                if (modalName) {
+                  const match = modalName.match(/product-variant-modal-(\d+)/);
+                  if (match) {
+                    productId = match[1];
+                  }
+                }
+              }
+            }
+          }
+          
+          if (!variantId || !productId) return;
+          
+          // Always try to find the modal context for price updates
+          if (!contextElement) {
+            // Try to find any open modal/toggle that might contain the price
+            const openModal = document.querySelector('xo-modal[open], xo-toggle[open]');
+            if (openModal) {
+              const modalContent = openModal.querySelector('.product-variant-modal__modal-content, .product-variant-modal__toggle-content');
+              if (modalContent) {
+                contextElement = modalContent;
+                // Try to get product ID from modal if not already found
+                if (!productId) {
+                  const modalName = openModal.getAttribute('xo-name');
+                  if (modalName) {
+                    const match = modalName.match(/product-variant-modal-(\d+)/);
+                    if (match) {
+                      productId = match[1];
+                    }
+                  }
+                }
+              }
+            }
+          }
+          
+          if (!productId) return;
           
           updateProductPrice(variantId, productId, contextElement);
+        }
+        
+        // Get product ID from modal context
+        function getProductIdFromModal(modalContext) {
+          if (!modalContext) return null;
+          
+          const productDataEl = modalContext.querySelector('xo-product-data script');
+          if (productDataEl) {
+            try {
+              const productData = JSON.parse(productDataEl.textContent);
+              return productData.id.toString();
+            } catch (e) {}
+          }
+          
+          const modal = modalContext.closest('xo-modal, xo-toggle');
+          if (modal) {
+            const modalName = modal.getAttribute('xo-name');
+            if (modalName) {
+              const match = modalName.match(/product-variant-modal-(\d+)/);
+              if (match) {
+                return match[1];
+              }
+            }
+          }
+          
+          return null;
         }
 
         // Track last variant ID to detect changes
@@ -732,34 +889,269 @@
           const target = e.target;
           
           // Check if it's a variant option selector
-          if (target.matches('input[type="radio"][name^="option"], select[name^="option"], xo-product-variant input, xo-product-variant select')) {
-            const form = target.closest('form');
+          if (target.matches('input[type="radio"][name^="option"], select[name^="option"], xo-product-variant input, xo-product-variant select, .xo-field-radio input')) {
+            // Find form - check in modal/toggle context first
+            const modalContext = target.closest('xo-modal, xo-toggle, .product-variant-modal__modal-content, .product-variant-modal__toggle-content');
+            const form = modalContext ? modalContext.querySelector('form') : target.closest('form');
+            
             if (form) {
               const variantInput = form.querySelector('input[name="id"]');
               if (variantInput) {
-                // Wait a bit for variant ID to update
+                // Wait a bit for variant ID to update (web components may need time)
                 setTimeout(() => {
                   handleVariantChange(variantInput);
-                }, 100);
+                }, 250);
+              }
+            } else {
+              // If no form found, try to find variant input directly in modal context
+              if (modalContext) {
+                const variantInput = modalContext.querySelector('input[name="id"]');
+                if (variantInput) {
+                  setTimeout(() => {
+                    handleVariantChange(variantInput);
+                  }, 250);
+                } else {
+                  // Try modal variant change handler
+                  setTimeout(() => {
+                    handleModalVariantChange(modalContext);
+                  }, 250);
+                }
+              } else {
+                // Even if no modal context found, check if there's an open modal and update its price
+                const openModal = document.querySelector('xo-modal[open], xo-toggle[open]');
+                if (openModal) {
+                  setTimeout(() => {
+                    const modalContent = openModal.querySelector('.product-variant-modal__modal-content, .product-variant-modal__toggle-content');
+                    if (modalContent) {
+                      const variantInput = modalContent.querySelector('input[name="id"]');
+                      if (variantInput) {
+                        handleVariantChange(variantInput);
+                      } else {
+                        handleModalVariantChange(modalContent);
+                      }
+                    }
+                  }, 250);
+                }
               }
             }
           }
         });
 
+        // Function to find variant ID from selected options in modal
+        function findVariantIdFromOptions(modalContext) {
+          if (!modalContext) return null;
+          
+          // Get product data
+          const productDataEl = modalContext.querySelector('xo-product-data script');
+          if (!productDataEl) return null;
+          
+          let productData;
+          try {
+            productData = JSON.parse(productDataEl.textContent);
+          } catch (e) {
+            return null;
+          }
+          
+          // Get all selected option values
+          const selectedOptions = {};
+          const variantComponents = modalContext.querySelectorAll('xo-product-variant');
+          
+          variantComponents.forEach(component => {
+            const radioInput = component.querySelector('input[type="radio"]:checked');
+            if (radioInput) {
+              const optionName = radioInput.name;
+              const optionValue = radioInput.value;
+              selectedOptions[optionName] = optionValue;
+            }
+          });
+          
+          // Also check for option inputs directly
+          const optionInputs = modalContext.querySelectorAll('input[name^="option"]:checked');
+          optionInputs.forEach(input => {
+            selectedOptions[input.name] = input.value;
+          });
+          
+          // Find matching variant
+          if (productData.variants) {
+            for (const variant of productData.variants) {
+              let matches = true;
+              const variantOptions = variant.options || [];
+              
+              // Check if variant matches selected options
+              let optionIndex = 0;
+              for (const optionName in selectedOptions) {
+                if (selectedOptions.hasOwnProperty(optionName)) {
+                  const selectedValue = selectedOptions[optionName];
+                  // Option names are usually "option1", "option2", "option3"
+                  const optionKey = 'option' + (optionIndex + 1);
+                  if (variant[optionKey] !== selectedValue && variantOptions[optionIndex] !== selectedValue) {
+                    matches = false;
+                    break;
+                  }
+                  optionIndex++;
+                }
+              }
+              
+              if (matches && Object.keys(selectedOptions).length > 0) {
+                return variant.id;
+              }
+            }
+          }
+          
+          return null;
+        }
+
         // Also listen for clicks on variant options (for color swatches, etc.)
         document.addEventListener('click', (e) => {
-          const target = e.target.closest('[data-option], [data-variant], xo-product-variant, .variant-option, [data-variant-option]');
+          const target = e.target.closest('[data-option], [data-variant], xo-product-variant, .variant-option, [data-variant-option], .xo-field-radio, .xo-field-radio__label, .xo-field-radio input, input[type="radio"][name^="option"]');
           if (target) {
-            const form = target.closest('form');
+            // Find form - check in modal/toggle context first
+            const modalContext = target.closest('xo-modal, xo-toggle, .product-variant-modal__modal-content, .product-variant-modal__toggle-content');
+            const form = modalContext ? modalContext.querySelector('form') : target.closest('form');
+            
             if (form) {
               const variantInput = form.querySelector('input[name="id"]');
               if (variantInput) {
                 setTimeout(() => {
                   handleVariantChange(variantInput);
-                }, 100);
+                }, 300);
+              }
+            } else {
+              // If no form found, try to find variant input directly in modal context
+              if (modalContext) {
+                const variantInput = modalContext.querySelector('input[name="id"]');
+                if (variantInput) {
+                  setTimeout(() => {
+                    handleVariantChange(variantInput);
+                  }, 300);
+                } else {
+                  // Try to calculate variant ID from selected options
+                  setTimeout(() => {
+                    const variantId = findVariantIdFromOptions(modalContext);
+                    if (variantId) {
+                    const productId = getProductIdFromModal(modalContext);
+                    if (productId) {
+                      updateProductPrice(variantId, productId, modalContext);
+                    }
+                    }
+                  }, 300);
+                }
+              } else {
+                // Even if no modal context found, check if there's an open modal
+                const openModal = document.querySelector('xo-modal[open], xo-toggle[open]');
+                if (openModal) {
+                  setTimeout(() => {
+                    const modalContent = openModal.querySelector('.product-variant-modal__modal-content, .product-variant-modal__toggle-content');
+                    if (modalContent) {
+                      const variantId = findVariantIdFromOptions(modalContent);
+                      if (variantId) {
+                        const productId = getProductIdFromModal(modalContent);
+                        if (productId) {
+                          updateProductPrice(variantId, productId, modalContent);
+                        }
+                      }
+                    }
+                  }, 300);
+                }
               }
             }
           }
+        });
+        
+        // Watch for variant changes in modals using MutationObserver
+        function watchModalForVariantChanges() {
+          const modals = document.querySelectorAll('xo-modal, xo-toggle');
+          
+          modals.forEach(modal => {
+            if (modal.dataset.variantWatcherAdded) return;
+            modal.dataset.variantWatcherAdded = 'true';
+            
+            const modalContent = modal.querySelector('.product-variant-modal__modal-content, .product-variant-modal__toggle-content');
+            if (!modalContent) return;
+            
+            // Watch for changes in variant inputs and web components
+            const variantObserver = new MutationObserver(() => {
+              const variantInput = modalContent.querySelector('input[name="id"]');
+              if (variantInput) {
+                const currentVariantId = parseInt(variantInput.value);
+                const lastVariantId = parseInt(modalContent.dataset.lastVariantId || '0');
+                
+                if (currentVariantId && currentVariantId !== lastVariantId) {
+                  modalContent.dataset.lastVariantId = currentVariantId;
+                  setTimeout(() => {
+                    handleVariantChange(variantInput);
+                  }, 150);
+                }
+              } else {
+                // Try to calculate variant ID from selected options
+                const calculatedVariantId = findVariantIdFromOptions(modalContent);
+                if (calculatedVariantId) {
+                  const lastVariantId = parseInt(modalContent.dataset.lastVariantId || '0');
+                  if (calculatedVariantId !== lastVariantId) {
+                    modalContent.dataset.lastVariantId = calculatedVariantId;
+                    const productId = getProductIdFromModal(modalContent);
+                    if (productId) {
+                      updateProductPrice(calculatedVariantId, productId, modalContent);
+                    }
+                  }
+                }
+              }
+            });
+            
+            variantObserver.observe(modalContent, {
+              childList: true,
+              subtree: true,
+              attributes: true,
+              attributeFilter: ['value', 'data-variant-id', 'variant-id']
+            });
+            
+            // Also periodically check for variant changes (fallback for web components)
+            const checkInterval = setInterval(() => {
+              if (!document.body.contains(modal)) {
+                clearInterval(checkInterval);
+                variantObserver.disconnect();
+                return;
+              }
+              
+              const variantInput = modalContent.querySelector('input[name="id"]');
+              if (variantInput) {
+                const currentVariantId = parseInt(variantInput.value);
+                const lastVariantId = parseInt(modalContent.dataset.lastVariantId || '0');
+                
+                if (currentVariantId && currentVariantId !== lastVariantId) {
+                  modalContent.dataset.lastVariantId = currentVariantId;
+                  handleVariantChange(variantInput);
+                }
+              } else {
+                // Try to calculate variant ID from selected options
+                const calculatedVariantId = findVariantIdFromOptions(modalContent);
+                if (calculatedVariantId) {
+                  const lastVariantId = parseInt(modalContent.dataset.lastVariantId || '0');
+                  if (calculatedVariantId !== lastVariantId) {
+                    modalContent.dataset.lastVariantId = calculatedVariantId;
+                    
+                    const productId = getProductIdFromModal(modalContent);
+                    if (productId) {
+                      updateProductPrice(calculatedVariantId, productId, modalContent);
+                    }
+                  }
+                }
+              }
+            }, 300);
+          });
+        }
+        
+        // Initialize modal watchers
+        watchModalForVariantChanges();
+        
+        // Watch for new modals being added
+        const modalObserver = new MutationObserver(() => {
+          watchModalForVariantChanges();
+        });
+        
+        modalObserver.observe(document.body, {
+          childList: true,
+          subtree: true
         });
 
         // Initialize on DOM ready

@@ -296,3 +296,23 @@
     background-color var(--transition-base),
     color var(--transition-base);
 }
+
+/* Cart table price fix - prevent currency symbol and price from breaking into two lines */
+.xo-cart-table__price {
+  white-space: nowrap;
+  word-break: keep-all;
+  display: inline-block;
+  min-width: fit-content;
+}
+
+.xo-cart-table__price * {
+  white-space: nowrap;
+  display: inline;
+}
+
+/* Ensure the table cell containing the price has enough width */
+.xo-table td[data-th="Total"],
+.xo-table .xo-table__body-row td:last-child {
+  white-space: nowrap;
+  min-width: 120px;
+}
