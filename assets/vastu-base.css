@@ -169,8 +169,6 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   --z-base: 1;
   --z-overlay: 10;
   --z-modal: 100;
-  --section-padding-bottom-desktop: 80px;
-  --section-padding-bottom-mobile: 50px;
 }
 
 .vastu-flex {
