@@ -670,3 +670,95 @@ section:has(.vastu-product-card) xo-carousel-slide,
 section:has(.vastu-product-card) xo-carousel-inner {
   overflow: visible;
 }
+
+/* Featured collection section - ensure cards display properly */
+section[class*="featured-collection"] .vastu-product-card,
+.featured-collection .vastu-product-card {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+section[class*="featured-collection"] xo-carousel-slide .vastu-product-card,
+.featured-collection xo-carousel-slide .vastu-product-card {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure price is visible and positioned correctly */
+section[class*="featured-collection"] .vastu-product-card .vastu-product-card__price,
+.featured-collection .vastu-product-card .vastu-product-card__price {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  color: #fff;
+  background: rgb(71 56 85 / 90%);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: var(--card-price-size, 1.2rem);
+  font-weight: 600;
+  z-index: 2;
+  display: inline-block;
+  white-space: nowrap;
+  width: auto;
+  max-width: calc(100% - 1.5rem);
+}
+
+/* Ensure title is visible */
+section[class*="featured-collection"] .vastu-product-card .vastu-product-card__title,
+.featured-collection .vastu-product-card .vastu-product-card__title {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  color: rgb(71 56 85);
+  margin: 0 0 0.75rem;
+}
+
+/* Ensure add to cart button is visible and properly sized */
+section[class*="featured-collection"] .vastu-product-card .vastu-product-card__add-to-cart,
+.featured-collection .vastu-product-card .vastu-product-card__add-to-cart {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+section[class*="featured-collection"] .vastu-product-card .vastu-product-card__add-to-cart .xo-btn,
+.featured-collection .vastu-product-card .vastu-product-card__add-to-cart .xo-btn,
+section[class*="featured-collection"] .vastu-product-card .vastu-product-card__add-to-cart button,
+.featured-collection .vastu-product-card .vastu-product-card__add-to-cart button {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  width: 100%;
+}
+
+/* Ensure content area is visible */
+section[class*="featured-collection"] .vastu-product-card .vastu-product-card__content,
+.featured-collection .vastu-product-card .vastu-product-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  visibility: visible;
+  opacity: 1;
+  padding: 1.5rem;
+}
+
+/* Add padding below cards to create space for pagination dots */
+section[class*="featured-collection"] xo-carousel-inner,
+.featured-collection xo-carousel-inner,
+section[class*="featured-collection"] xo-carousel-list,
+.featured-collection xo-carousel-list {
+  padding-bottom: 3rem;
+}
+
+section[class*="featured-collection"] xo-carousel,
+.featured-collection xo-carousel {
+  padding-bottom: 0;
+}

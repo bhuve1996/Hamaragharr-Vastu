@@ -67,11 +67,13 @@
             </td>
             <td role='cell' data-th='Stock' class='wishlist-table__stock'>
               <xo-product xo-section-id='{{ section.id }}' xo-product-id='{{ product.id }}' xo-line='{{ forloop.index }}'>
-                {% if product.available %}
-                  {{ 'sections.wishlist.in_stock' | t }}
-                {% else %}
-                  {{ 'sections.wishlist.out_stock' | t }}
-                {% endif %}
+                <span class='wishlist-table__stock-text' data-stock-status>
+                  {% if product.available %}
+                    {{ 'sections.wishlist.in_stock' | t }}
+                  {% else %}
+                    {{ 'sections.wishlist.out_stock' | t }}
+                  {% endif %}
+                </span>
                 {% render 'product-data', product: product %}
               </xo-product>
             </td>

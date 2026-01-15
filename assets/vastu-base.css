@@ -1060,3 +1060,91 @@ xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/articles/"]) {
   text-decoration: none;
   color: inherit;
 }
+
+/* Fix price display - ensure rupee symbol and amount are on one line */
+.xo-price__regular,
+.wishlist-table .xo-price__regular {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.xo-price__regular .xo-price__item,
+.wishlist-table .xo-price__regular .xo-price__item {
+  display: inline;
+  white-space: nowrap;
+}
+
+.xo-price__regular .xo-visually-hidden,
+.wishlist-table .xo-price__regular .xo-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.xo-price__container,
+.wishlist-table .xo-price__container {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Fix stock status alignment - ensure consistency with header */
+
+/* Target the third column header (Stock Status) */
+.wishlist-table .xo-table__head-row th:nth-child(3),
+.wishlist-table th[role="columnheader"]:nth-child(3) {
+  text-align: right;
+}
+
+/* Target the stock status cell content */
+.wishlist-table__stock,
+.wishlist-table td[data-th="Stock"],
+.wishlist-table .xo-table__body-row td.wishlist-table__stock {
+  text-align: right;
+}
+
+.wishlist-table__stock *,
+.wishlist-table td[data-th="Stock"] *,
+.wishlist-table .xo-table__body-row td.wishlist-table__stock *,
+.wishlist-table__stock xo-product,
+.wishlist-table td[data-th="Stock"] xo-product {
+  text-align: right;
+  display: inline-block;
+}
+
+/* Hide product data JSON and script tags in stock status cell */
+.wishlist-table__stock xo-product-data,
+.wishlist-table__stock script[type="application/json"],
+.wishlist-table__stock xo-product-data *,
+.wishlist-table td[data-th="Stock"] xo-product-data,
+.wishlist-table td[data-th="Stock"] script[type="application/json"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* Ensure stock status text is visible */
+.wishlist-table__stock-text,
+.wishlist-table__stock [data-stock-status] {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  text-align: right;
+}
+
+/* Remove max-width constraint from main-wishlist__inner to allow wide layout */
+.main-wishlist__inner {
+  max-width: none !important;
+  margin: 0 !important;
+  width: 100%;
+}

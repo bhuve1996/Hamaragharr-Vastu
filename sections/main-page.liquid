@@ -1,8 +1,11 @@
 <div {% render 'section-attr' %}>
   <xo-container>
-    <xo-animate xo-cascade>
-      <h1>{{ page.title | escape }}</h1>
-    </xo-animate>
+    {%- comment -%} Hide page title on wishlist page since main-page-heading section handles it {%- endcomment -%}
+    {% unless template.suffix == 'wishlist' %}
+      <xo-animate xo-cascade>
+        <h1>{{ page.title | escape }}</h1>
+      </xo-animate>
+    {% endunless %}
     <xo-animate xo-cascade>
       <div>{{ page.content }}</div>
     </xo-animate>
