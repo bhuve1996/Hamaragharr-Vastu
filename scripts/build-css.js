@@ -39,7 +39,8 @@ const cssFiles = [
   'vastu-help-address.css',
   'vastu-blog.css',
   'vastu-faq.css',
-  'vastu-responsive.css'
+  'vastu-responsive.css',
+  'vastu-global-typography.css'
 ];
 
 const assetsDir = path.join(__dirname, '..', 'assets');

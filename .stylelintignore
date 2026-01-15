@@ -4,4 +4,6 @@ build/
 *.min.css
 *.backup
 .shopify/
+**/vastu-combined.css
+**/vastu-combined.min.css
 

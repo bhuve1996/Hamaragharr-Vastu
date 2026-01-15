@@ -40,5 +40,12 @@
       }
     ]
   },
-  "ignoreFiles": ["**/*.min.css", "node_modules/**", "dist/**", "build/**"]
+  "ignoreFiles": [
+    "**/*.min.css",
+    "**/vastu-combined.css",
+    "**/vastu-combined.min.css",
+    "node_modules/**",
+    "dist/**",
+    "build/**"
+  ]
 }
