@@ -133,11 +133,7 @@
           }
         }
       },
-      "block_order": [
-        "slide_1",
-        "slideshow_7KaQdB",
-        "slideshow_RB3T9p"
-      ],
+      "block_order": ["slide_1", "slideshow_7KaQdB", "slideshow_RB3T9p"],
       "settings": {
         "width": "wide",
         "fullwidth_margin": 0,
@@ -266,12 +262,7 @@
           }
         }
       },
-      "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4"
-      ],
+      "block_order": ["item_1", "item_2", "item_3", "item_4"],
       "settings": {
         "width": "wide",
         "title": "What Does It Help Address?",
@@ -522,12 +513,7 @@
           }
         }
       },
-      "block_order": [
-        "trust_1",
-        "trust_2",
-        "trust_3",
-        "trust_4"
-      ],
+      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"],
       "settings": {
         "width": "wide",
         "title": "Why Choose Us",

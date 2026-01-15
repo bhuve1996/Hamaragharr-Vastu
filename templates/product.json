@@ -326,10 +326,7 @@
           }
         }
       },
-      "block_order": [
-        "tab1",
-        "tab2"
-      ],
+      "block_order": ["tab1", "tab2"],
       "settings": {
         "enable_section": false,
         "width": "box",

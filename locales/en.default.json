@@ -173,6 +173,9 @@
       "email": "Email"
     },
     "cart": {
+      "general": {
+        "title": "Shopping Cart"
+      },
       "title": "Shopping Cart",
       "caption": "Cart items",
       "remove_title": "Remove {{ title }}",
@@ -559,6 +562,8 @@
       "minutes_short": "Mins",
       "seconds_short": "Secs",
       "expired": "Expired"
-    }
+    },
+    "shop_all": "Shop All",
+    "all_products": "All Products"
   }
 }

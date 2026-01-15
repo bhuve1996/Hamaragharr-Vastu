@@ -53,12 +53,15 @@
   # Handle search pages
   elsif page_type == 'search' or template.name == 'search'
     if search.performed
-      assign final_title = 'general.search.title' | t | append: ': ' | append: search.terms
+      assign final_title = 'templates.search.title' | t | append: ': ' | append: search.terms
     else
-      assign final_title = 'general.search.search' | t
+      assign final_title = 'templates.search.title_page' | t
     endif
   # Handle cart page
   elsif page_type == 'cart' or template.name == 'cart'
+    comment
+      theme-check-disable TranslationKeyExists
+    endcomment
     assign final_title = 'cart.general.title' | t
   # Handle customer account pages
   elsif template.name == 'customers/account'

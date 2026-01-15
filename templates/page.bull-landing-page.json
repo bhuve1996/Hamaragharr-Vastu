@@ -1,0 +1,175 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "background_margin": 0,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "breadcrumb_v2_Dg7QiX": {
+      "type": "breadcrumb-v2",
+      "name": "t:sections.breadcrumb_v2.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "about_v1_xkHUyW": {
+      "type": "about-v1",
+      "name": "t:sections.about_v1.presets.name",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "reverse": false,
+        "gap": 30,
+        "title": "Blog VastuKit",
+        "subtitle": "Transform Your Home with Ancient Wisdom",
+        "description": "VastuKit brings the timeless principles of Vastu Shastra into modern homes. We believe that your living space should be a sanctuary of positive energy, balance, and prosperity. Our carefully crafted products are designed to align your home with natural forces, creating harmony and well-being for you and your family.",
+        "image": "shopify://shop_images/Hanging-lights.jpg",
+        "hover": "scale_up",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "about_v1_xh6qY7": {
+      "type": "about-v1",
+      "name": "t:sections.about_v1.presets.name",
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "reverse": false,
+        "gap": 30,
+        "title": "Our Mission",
+        "subtitle": "Bringing Balance to Modern Living",
+        "description": "At VastuKit, we are dedicated to making Vastu principles accessible to everyone. Whether you live in a traditional home or a modern apartment, our non-invasive solutions help you create a space that supports your well-being, prosperity, and peace of mind. Every product is pre-energized and comes with clear placement instructions, making it easy for anyone to benefit from Vastu wisdom.",
+        "image": "shopify://shop_images/WaterFrame6.png",
+        "hover": "scale_up",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "about_v2_KqgkdH": {
+      "type": "about-v2",
+      "blocks": {
+        "about_BbTPxX": {
+          "type": "about",
+          "settings": {
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" height=\"60\" width=\"60\"><path d=\"M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S274.1 336 256 336zM289.1 128H241.9c-26 0-41.9 16.1-41.9 41.9V242c0 23.5 15.9 41.9 41.9 41.9h48.2c26 0 41.9-16.1 41.9-41.9V169.9C330.1 144.1 315.1 128 289.1 128z\"></path></svg>",
+            "title": "Pre-Energized Products",
+            "subtitle": "All our Vastu products are pre-energized before dispatch, ensuring effective results from the moment you install them."
+          }
+        },
+        "about_gR46MT": {
+          "type": "about",
+          "settings": {
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" height=\"60\" width=\"60\"><path d=\"M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S274.1 336 256 336zM289.1 128H241.9c-26 0-41.9 16.1-41.9 41.9V242c0 23.5 15.9 41.9 41.9 41.9h48.2c26 0 41.9-16.1 41.9-41.9V169.9C330.1 144.1 315.1 128 289.1 128z\"></path></svg>",
+            "title": "Easy Installation",
+            "subtitle": "Every product comes with clear, step-by-step placement instructions, making it easy for anyone to install without professional help."
+          }
+        },
+        "about_PtWiYL": {
+          "type": "about",
+          "settings": {
+            "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" height=\"60\" width=\"60\"><path d=\"M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S274.1 336 256 336zM289.1 128H241.9c-26 0-41.9 16.1-41.9 41.9V242c0 23.5 15.9 41.9 41.9 41.9h48.2c26 0 41.9-16.1 41.9-41.9V169.9C330.1 144.1 315.1 128 289.1 128z\"></path></svg>",
+            "title": "Expert Support",
+            "subtitle": "Our team is available via WhatsApp, email, and customer care to help you choose and place the right remedy for your space."
+          }
+        }
+      },
+      "block_order": ["about_BbTPxX", "about_gR46MT", "about_PtWiYL"],
+      "settings": {
+        "width": "box",
+        "fullwidth_margin": 0,
+        "columns_limit": 3,
+        "gap": 30,
+        "auto_play": false,
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "newsletter_v1_748PiC": {
+      "type": "newsletter-v1",
+      "settings": {
+        "svg": "",
+        "title": "Stay Connected",
+        "subtitle": "Subscribe to our newsletter for Vastu tips, product updates, and special offers",
+        "button_mode": "dark",
+        "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
+        "background_type": "color",
+        "background_color": "#473855",
+        "background_gradient": "",
+        "use_parallax": false,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "breadcrumb_v2_Dg7QiX",
+    "about_v1_xkHUyW",
+    "about_v1_xh6qY7",
+    "about_v2_KqgkdH",
+    "newsletter_v1_748PiC"
+  ]
+}

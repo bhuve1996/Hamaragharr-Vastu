@@ -126,7 +126,7 @@
   </span>
 {% endcapture %}
 
-{% if text != '' %}
+{% if text != '' or icon != nil or image != nil %}
   {% if link %}
     <a {{ general_attr }} href='{{ link }}'>
       {{ content }}

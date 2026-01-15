@@ -19,9 +19,14 @@
     --fontsize: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
   }
 
+  .slideshow-v28__overlay-content {
+    align-items: flex-end !important;
+    padding-bottom: 2rem;
+  }
+
   .slideshow-v28__text--overlay {
-    padding-left: var(--xo-container-gap, 1.25rem);
-    padding-right: var(--xo-container-gap, 1.25rem);
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .vastu-featured-products__icon-svg {

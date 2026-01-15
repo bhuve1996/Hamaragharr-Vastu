@@ -1,5 +1,18 @@
-
-
+{% liquid
+  assign modal_width = section.settings.modal_width | default: '100%'
+  assign modal_height = section.settings.modal_height | default: '80vh'
+  assign modal_max_width = section.settings.modal_max_width | default: '100%'
+  assign modal_padding = section.settings.modal_padding | default: '2rem'
+  assign backdrop_color = section.settings.backdrop_color | default: '#000000'
+  assign backdrop_opacity = section.settings.backdrop_opacity | default: 50
+  assign modal_bg_color = section.settings.modal_bg_color | default: '#ffffff'
+  assign text_color = section.settings.text_color | default: '#000000'
+  assign button_bg_color = section.settings.button_bg_color | default: '#473855'
+  assign button_text_color = section.settings.button_text_color | default: '#ffffff'
+  assign border_color = section.settings.border_color | default: '#473855'
+  assign border_opacity = section.settings.border_opacity | default: 10
+  assign border_opacity_decimal = border_opacity | divided_by: 100.0
+%}
 <xo-modal
   class='search'
   xo-name='search'
@@ -7,6 +20,8 @@
   xo-animate='slide-down'
   xo-placement='top-left'
   xo-autofocus
+  xo-backdrop-color='{{ backdrop_color }}{{ backdrop_opacity }}'
+  style='--search-modal-max-width: {{ modal_max_width }}; --search-modal-bg: {{ modal_bg_color }}; --search-text-color: {{ text_color }}; --search-button-bg: {{ button_bg_color }}; --search-button-text: {{ button_text_color }}; --search-border-color: {{ border_color }}; --search-border-opacity: {{ border_opacity_decimal }}'
 >
   {% capture content %}
     <div {% render 'section-attr' %}>
@@ -26,7 +41,7 @@
       </xo-container>
     </div>
   {% endcapture %}
-  {% render 'modal-content', full_width: true, content: content, scroll_disabled: true, padding: 0 %}
+  {% render 'modal-content', full_width: true, content: content, scroll_disabled: true, padding: modal_padding, width: modal_width, height: modal_height %}
 </xo-modal>
 
 {% schema %}
@@ -34,6 +49,102 @@
   "name": "t:sections.search.name",
   "class": "section-predictive-search",
   "settings": [
+    {
+      "type": "header",
+      "content": "Modal Settings"
+    },
+    {
+      "type": "text",
+      "id": "modal_width",
+      "label": "Modal Width",
+      "default": "100%",
+      "info": "Modal width (e.g., 100%, 90rem, 1200px)"
+    },
+    {
+      "type": "text",
+      "id": "modal_max_width",
+      "label": "Modal Max Width",
+      "default": "100%",
+      "info": "Maximum width for desktop (e.g., 100%, 90rem, 1200px)"
+    },
+    {
+      "type": "text",
+      "id": "modal_height",
+      "label": "Modal Height",
+      "default": "80vh",
+      "info": "Modal height (e.g., 80vh, 70vh, 600px)"
+    },
+    {
+      "type": "text",
+      "id": "modal_padding",
+      "label": "Modal Padding",
+      "default": "2rem",
+      "info": "Padding inside modal (e.g., 2rem, 1.5rem)"
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "backdrop_color",
+      "label": "Overlay Background Color",
+      "default": "#000000",
+      "info": "Color of the backdrop overlay when search is open (opacity controlled below)"
+    },
+    {
+      "type": "range",
+      "id": "backdrop_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 50,
+      "info": "Opacity of the backdrop overlay (0-100%)"
+    },
+    {
+      "type": "color",
+      "id": "modal_bg_color",
+      "label": "Modal Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#473855"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#473855",
+      "info": "Color for borders and dividers"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Border Opacity",
+      "default": 10,
+      "info": "Opacity of borders (0-100%)"
+    },
     {
       "type": "select",
       "id": "width",

@@ -6,6 +6,10 @@
       "type": "xo-cart-mini",
       "settings": {}
     },
+    "search": {
+      "type": "search",
+      "settings": {}
+    },
     "quick-view": {
       "type": "quick-view",
       "settings": {}
@@ -19,5 +23,11 @@
       "settings": {}
     }
   },
-  "order": ["cart", "popup-newsletter", "popup-promotion", "quick-view"]
+  "order": [
+    "cart",
+    "search",
+    "popup-newsletter",
+    "popup-promotion",
+    "quick-view"
+  ]
 }

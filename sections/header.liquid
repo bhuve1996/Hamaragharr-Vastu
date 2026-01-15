@@ -32,7 +32,7 @@
                 menu: section.settings.menu,
                 event_type: section.settings.event_type,
                 hamburger_type: section.settings.hamburger_type,
-                top: '5rem',
+                top: '0',
                 submenu_color_scheme: section.settings.submenu_color_scheme,
                 hamburger_drawer_color_scheme: section.settings.hamburger_drawer_color_scheme
               %}
@@ -50,7 +50,7 @@
                   menu: section.settings.menu,
                   event_type: section.settings.event_type,
                   hamburger_type: section.settings.hamburger_type,
-                  top: '5rem',
+                  top: '0',
                   submenu_color_scheme: section.settings.submenu_color_scheme,
                   hamburger_drawer_color_scheme: section.settings.hamburger_drawer_color_scheme
                 %}
@@ -58,7 +58,7 @@
             {% endif %}
           </nav>
           <div class='header-v14__logo'>
-            <a href='/' class='header-v14__logo-desktop'>
+            <a href='{{ routes.root_url }}' class='header-v14__logo-desktop'>
               {%- if section.settings.logo_desktop != blank -%}
                 {%- assign logo_alt = section.settings.logo_desktop.alt | default: shop.name | escape -%}
                 {%- assign width = section.settings.logo_desktop_width %}
@@ -74,7 +74,7 @@
                 <span class='h4 header-v14__logo-placeholder'>{{ shop.name | escape }}</span>
               {%- endif -%}
             </a>
-            <a href='/' class='header-v14__logo-mobile'>
+            <a href='{{ routes.root_url }}' class='header-v14__logo-mobile'>
               {%- if section.settings.logo_mobile != blank -%}
                 {%- assign logo_alt = section.settings.logo_mobile.alt | default: shop.name | escape -%}
                 {%- assign width = section.settings.logo_mobile_width %}

@@ -531,18 +531,28 @@ section[id*="section-"] .xo-product-card__add-to-cart,
 .xo-section--product-recommendations .xo-product-card__add-to-cart,
 xo-product-recommendations .xo-product-card__add-to-cart,
 .section-collection-products .xo-product-card__add-to-cart,
-.filters-content .xo-product-card__add-to-cart {
-  margin-top: 1rem;
+.filters-content .xo-product-card__add-to-cart,
+.filters-content .vastu-product-card__add-to-cart,
+.main-search .vastu-product-card__add-to-cart,
+.filters-content__grid .vastu-product-card__add-to-cart,
+.filters-content__item-wrapper .vastu-product-card__add-to-cart {
+  margin-top: auto;
   width: 100%;
   min-width: 100%;
   max-width: 100%;
-  display: block;
-  visibility: visible;
-  opacity: 1;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   height: auto;
   min-height: auto;
   max-height: none;
   box-sizing: border-box;
+  padding: 0 1.5rem 1.5rem;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  flex-shrink: 0;
 }
 
 .product-recommendations-section .xo-product-card__add-to-cart .xo-btn,
@@ -562,26 +572,46 @@ section[id*="section-"] .xo-product-card__add-to-cart button,
 .xo-section--product-recommendations .xo-product-card__add-to-cart button,
 xo-product-recommendations .xo-product-card__add-to-cart button,
 .section-collection-products .xo-product-card__add-to-cart button,
-.filters-content .xo-product-card__add-to-cart button {
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-  background-color: rgb(71 56 85 / 90%);
-  color: #fff;
+.filters-content .xo-product-card__add-to-cart button,
+.filters-content .vastu-product-card__add-to-cart .xo-btn,
+.filters-content .vastu-product-card__add-to-cart button,
+.filters-content .vastu-product-card__add-to-cart xo-cart-add,
+.filters-content .vastu-product-card__add-to-cart xo-modal-trigger,
+.main-search .vastu-product-card__add-to-cart .xo-btn,
+.main-search .vastu-product-card__add-to-cart button,
+.main-search .vastu-product-card__add-to-cart xo-cart-add,
+.main-search .vastu-product-card__add-to-cart xo-modal-trigger,
+.filters-content__grid .vastu-product-card__add-to-cart .xo-btn,
+.filters-content__grid .vastu-product-card__add-to-cart button,
+.filters-content__grid .vastu-product-card__add-to-cart xo-cart-add,
+.filters-content__grid .vastu-product-card__add-to-cart xo-modal-trigger,
+.filters-content__item-wrapper .vastu-product-card__add-to-cart .xo-btn,
+.filters-content__item-wrapper .vastu-product-card__add-to-cart button,
+.filters-content__item-wrapper .vastu-product-card__add-to-cart xo-cart-add,
+.filters-content__item-wrapper .vastu-product-card__add-to-cart xo-modal-trigger {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  background-color: rgb(var(--color-secondary-button, 71, 56, 85));
+  color: rgb(var(--color-secondary-button-text, 255, 255, 255));
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
-  font-size: var(--font-size-button, 2.5rem);
-  font-weight: 600;
+  font-size: var(--font-size-description, 1.6rem);
+  font-weight: var(--font-weight-semibold, 600);
   transition:
     background-color 0.3s ease,
     transform 0.2s ease,
     box-shadow 0.3s ease;
-  display: flex;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   align-items: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
+  pointer-events: auto;
+  white-space: nowrap;
 }
 
 .product-recommendations-section .xo-product-card__add-to-cart .xo-btn__content,
@@ -1292,7 +1322,9 @@ div[id*="promo-banner"] {
   margin-bottom: 0;
 }
 
-xo-collapse-trigger, xo-collapse-trigger.shipping-accordion__trigger, .shipping-accordion__trigger {
+xo-collapse-trigger,
+xo-collapse-trigger.shipping-accordion__trigger,
+.shipping-accordion__trigger {
   display: flex;
   width: 100%;
   justify-content: space-between;

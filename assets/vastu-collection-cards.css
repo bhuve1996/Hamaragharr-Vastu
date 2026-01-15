@@ -121,7 +121,7 @@ xo-grid.filters-content__grid {
     overflow-x: hidden;
     box-sizing: border-box;
   }
-  
+
   xo-grid.filters-content__grid > * {
     min-width: 0;
     max-width: 100%;
@@ -214,14 +214,14 @@ xo-carousel-slide [class*="product-card"] {
     overflow-x: hidden;
     box-sizing: border-box;
   }
-  
+
   .main-collection-style1__header > *,
   .filters-content > *,
   xo-filters-content > * {
     max-width: 100%;
     box-sizing: border-box;
   }
-  
+
   /* Ensure wrapper divs don't overflow */
   .main-collection-style1__header + div,
   div:has(.filters-content__grid) {

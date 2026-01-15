@@ -1,65 +1,225 @@
+{% liquid
+  assign money_format = 100 | money
+  if settings.currency_code_enabled
+    assign money_format = 100 | money_with_currency
+  endif
+%}
 
+{%- liquid
+  # Calculate product count only (excluding pages, articles, etc.)
+  # Also count actual products in current page to verify results exist
+  assign product_count = search.results_count
+  assign actual_products_on_page = 0
+  
+  if search.performed
+    # Count actual products in current page (excluding unwanted items)
+    for item in search.results
+      if item.object_type == 'product'
+        assign item_url_lower = item.url | downcase
+        assign item_handle_lower = item.handle | downcase
+        assign item_title_lower = item.title | downcase
+        assign should_exclude = false
+        
+        if item_url_lower contains 'sitemap' or item_handle_lower contains 'sitemap' or item_title_lower contains 'sitemap'
+          assign should_exclude = true
+        elsif item_url_lower contains 'avada-sitemap'
+          assign should_exclude = true
+        elsif item_url_lower contains '/pages/new-year-gifts-collection' and item_url_lower contains '_pos=' and item_url_lower contains '_sid='
+          assign should_exclude = true
+        elsif item_url_lower contains '_pos=' or item_url_lower contains '_sid=' or item_url_lower contains '_ss='
+          assign should_exclude = true
+        endif
+        
+        unless should_exclude
+          assign actual_products_on_page = actual_products_on_page | plus: 1
+        endunless
+      endif
+    endfor
+    
+    # Check if URL has type=product parameter
+    if request.url contains 'type=product' or request.url contains '&type=product'
+      assign product_count = search.results_count
+    else
+      # Estimate total product count based on ratio
+      assign total_on_page = search.results.size
+      if total_on_page > 0 and actual_products_on_page > 0
+        assign product_ratio = actual_products_on_page | times: 1.0 | divided_by: total_on_page
+        assign product_count = search.results_count | times: product_ratio | round
+      else
+        assign product_count = actual_products_on_page
+      endif
+    endif
+  endif
+-%}
 
-<div {% render 'section-attr' %}>
+<div {% render 'section-attr' %} class='main-search-page'>
   <xo-filters-top></xo-filters-top>
-  <xo-filters xo-section-id='{{ section.id }}' xo-money-format='{{ 100 | money }}'>
+  <xo-filters xo-section-id='{{ section.id }}' xo-money-format='{{ money_format }}' xo-results-count='{{ product_count }}'>
     <xo-container {% render 'section-layout' %}>
       <div class='main-search__header'>
         <div class='main-search__search'>
-          <h2 class='main-search__title'>{{ 'templates.search.title_page' | t }}</h2>
+          <h2 class='main-search__title'>
+            {%- if search.performed -%}
+              {{ 'templates.search.title' | t }}
+            {%- else -%}
+              {{ 'templates.search.title_page' | t }}
+            {%- endif -%}
+          </h2>
           <form action='{{ routes.search_url }}' method='get' role='search' class='search'>
+            <input type='hidden' name='type' value='product'>
             {% liquid
               assign value = search.terms | escape
-              if search.performed
-                assign label = 'templates.search.title' | t
-              else
-                assign label = 'general.search.search' | t
-              endif
+              assign label = 'general.search.search' | t
               render 'predictive-search-style2', value: value, label: label
             %}
           </form>
         </div>
         {%- if search.performed -%}
-          {%- if search.results_count > 0 -%}
-            <p role='status' class='main-search__status'>{{ 'templates.search.results_with_count_and_term' | t: terms: search.terms, count: search.results_count }}</p>
-          {%- endif -%}
-          {%- if search.results_count == 0 and search.filters == empty -%}
+          {%- if actual_products_on_page > 0 or product_count > 0 -%}
+            <div class='main-search__results-count'>
+              <p role='status' class='main-search__status'>
+                {{ 'templates.search.results_with_count_and_term' | t: terms: search.terms, count: product_count }}
+              </p>
+            </div>
+          {%- else -%}
             <p role='status' class='main-search__status'>{{ 'templates.search.no_results' | t: terms: search.terms }}</p>
           {%- endif -%}
         {%- endif -%}
       </div>
-      {%- if search.performed and search.results_count > 0 -%}
+      {%- if search.performed -%}
         {% render 'filters-refine' %}
-        {%- case section.settings.search_style -%}
-          {%- when 'sidebar' -%}
-            {% render 'main-search-style1' %}
-          {%- when 'fullwidth' -%}
-            {% render 'main-search-style2' %}
-        {%- endcase -%}
+        {% render 'filters-search-content-simple',
+          items_per_page: section.settings.items_per_page,
+          columns_mobile: section.settings.columns_mobile,
+          columns_desktop: section.settings.columns_desktop
+        %}
       {%- endif -%}
     </xo-container>
   </xo-filters>
 </div>
 
 <script>
-  const buttonEl = document.querySelectorAll('.xo-facets__button-item');
-  const contentEl = document.querySelectorAll('.filters-content__grid');
-  const triggerToggle = document.querySelector('#main-search-style2__trigger-toggle');
-  const contentToggle = document.querySelector('#main-search-style2__toggle');
-  //group button change layout
-  for (let i = 0; i < buttonEl.length; i++) {
-    buttonEl[i].addEventListener('click', function (e) {
-      let number = Number(buttonEl[i].innerHTML);
-      for (let i = 0; i < contentEl.length; i++) {
-        contentEl[i].style = `--xs: {{ columns_mobile }}; --sm: {{ columns_mobile }}; --md: {{ columns_desktop | minus: 1 }};--lg:${number}`;
+  // Clear search button handler
+  (function() {
+    function setupClearButton() {
+      const clearButton = document.querySelector('.xo-predictive-search__input--style2 .xo-predictive-search__clear');
+      const searchInput = document.querySelector('#predictive-search');
+      
+      function toggleClearButton() {
+        if (clearButton && searchInput) {
+          if (searchInput.value && searchInput.value.trim() !== '') {
+            clearButton.style.display = 'flex';
+          } else {
+            clearButton.style.display = 'none';
+          }
+        }
       }
-    });
-  }
-  //toggle sidebar
-  triggerToggle?.addEventListener('click', function (e) {
-    contentToggle.classList.toggle('xo-active');
-    triggerToggle.classList.toggle('xo-active');
-  });
+      
+      if (clearButton && searchInput) {
+        // Initial state
+        toggleClearButton();
+        
+        // Show/hide on input
+        searchInput.addEventListener('input', toggleClearButton);
+        searchInput.addEventListener('keyup', toggleClearButton);
+        
+        // Clear button click handler
+        clearButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          searchInput.value = '';
+          searchInput.focus();
+          toggleClearButton();
+          
+          // Redirect to search page without query
+          const searchUrl = new URL(window.location.origin + '{{ routes.search_url }}');
+          searchUrl.searchParams.set('type', 'product');
+          window.location.href = searchUrl.toString();
+        });
+      }
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupClearButton);
+    } else {
+      setupClearButton();
+    }
+  })();
+  
+  // Update search results count to show only products
+  (function() {
+    function updateProductCount() {
+      const filtersElement = document.querySelector('xo-filters');
+      let totalProductCount = 0;
+      
+      // Count actual visible product cards first
+      const productCards = document.querySelectorAll('.filters-content__grid .vastu-product-card');
+      totalProductCount = productCards.length;
+      
+      // If we have visible cards, use that count
+      if (totalProductCount > 0) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchTerms = urlParams.get('q') || urlParams.get('search') || '';
+        
+        const countDisplay = document.querySelector('.main-search__status');
+        if (countDisplay) {
+          const countText = totalProductCount === 1 
+            ? totalProductCount + ' result found for "' + searchTerms + '"'
+            : totalProductCount + ' results found for "' + searchTerms + '"';
+          countDisplay.textContent = countText;
+          
+          // Update parent container visibility
+          const resultsCountContainer = countDisplay.closest('.main-search__results-count');
+          if (resultsCountContainer) {
+            resultsCountContainer.style.display = 'block';
+          }
+          
+          // Hide any "no results" messages
+          const noResultsMsg = document.querySelector('.main-search__status');
+          if (noResultsMsg && noResultsMsg.textContent.includes('No results')) {
+            noResultsMsg.style.display = 'none';
+          }
+        }
+        
+        if (filtersElement) {
+          filtersElement.setAttribute('xo-results-count', totalProductCount);
+        }
+      } else {
+        // Check if there are actually no results or if they're just not loaded yet
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchTerms = urlParams.get('q') || urlParams.get('search') || '';
+        
+        if (filtersElement && filtersElement.hasAttribute('xo-results-count')) {
+          const attrCount = parseInt(filtersElement.getAttribute('xo-results-count')) || 0;
+          if (attrCount === 0 && searchTerms) {
+            // Only show "no results" if we're sure there are none
+            const countDisplay = document.querySelector('.main-search__status');
+            if (countDisplay && !countDisplay.textContent.includes('result')) {
+              countDisplay.textContent = 'No results found for "' + searchTerms + '". Check the spelling or use a different word or phrase.';
+              countDisplay.style.display = 'block';
+            }
+          }
+        }
+      }
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateProductCount);
+    } else {
+      updateProductCount();
+    }
+    
+    setTimeout(updateProductCount, 500);
+    setTimeout(updateProductCount, 1500);
+    
+    const filtersContent = document.querySelector('xo-filters-content');
+    if (filtersContent) {
+      const observer = new MutationObserver(function() {
+        setTimeout(updateProductCount, 100);
+      });
+      observer.observe(filtersContent, { childList: true, subtree: true });
+    }
+  })();
 </script>
 
 {% schema %}
@@ -95,7 +255,39 @@
       "max": 24,
       "step": 1,
       "default": 12,
-      "label": "t:sections.main_search.settings.items_per_page.label"
+      "label": "t:sections.main_collection.settings.products_per_page.label"
+    },
+    {
+      "type": "select",
+      "id": "product_loadtype",
+      "label": "t:sections.main_collection.settings.product_loadtype.label",
+      "options": [
+        {
+          "value": "paginate",
+          "label": "t:sections.main_collection.settings.product_loadtype.option_1.label"
+        },
+        {
+          "value": "infinity",
+          "label": "t:sections.main_collection.settings.product_loadtype.option_2.label"
+        }
+      ],
+      "default": "paginate"
+    },
+    {
+      "type": "select",
+      "id": "product_layout",
+      "label": "t:sections.main_collection.settings.product_layout.label",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:sections.main_collection.settings.product_layout.option_1.label"
+        },
+        {
+          "value": "list",
+          "label": "t:sections.main_collection.settings.product_layout.option_2.label"
+        }
+      ],
+      "default": "grid"
     },
     {
       "type": "range",
@@ -105,38 +297,6 @@
       "step": 1,
       "default": 3,
       "label": "t:sections.main_search.settings.columns_desktop.label"
-    },
-    {
-      "type": "select",
-      "id": "search_style",
-      "label": "t:sections.main_search.settings.search_style.label",
-      "options": [
-        {
-          "value": "sidebar",
-          "label": "t:sections.main_search.settings.search_style.option_1.label"
-        },
-        {
-          "value": "fullwidth",
-          "label": "t:sections.main_search.settings.search_style.option_2.label"
-        }
-      ],
-      "default": "sidebar"
-    },
-    {
-      "type": "select",
-      "id": "sidebar",
-      "label": "t:sections.main_search.settings.sidebar.label",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.main_search.settings.sidebar.option_1.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.main_search.settings.sidebar.option_2.label"
-        }
-      ],
-      "default": "left"
     },
     {
       "type": "select",
@@ -161,7 +321,7 @@
     },
     {
       "type": "header",
-      "content": "t:sections.main_search.settings.filt_sort_heading.content"
+      "content": "t:sections.main_collection.settings.filt_sort_heading.content"
     },
     {
       "type": "checkbox",
@@ -198,6 +358,32 @@
     {
       "type": "header",
       "content": "t:sections.all.product_card_heading.content"
+    },
+    {
+      "type": "text",
+      "id": "button_text_add_to_cart",
+      "label": "Add to Cart Button Text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "range",
+      "id": "card_title_font_size",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Card Title Font Size",
+      "default": 1.5
+    },
+    {
+      "type": "range",
+      "id": "card_price_font_size",
+      "min": 0.8,
+      "max": 2,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Card Price Font Size",
+      "default": 1.2
     },
     {
       "type": "checkbox",
@@ -257,34 +443,6 @@
       "type": "color_scheme",
       "id": "card_color_scheme",
       "label": "t:sections.all.card_color_scheme.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.article_card_header.content"
-    },
-    {
-      "type": "checkbox",
-      "id": "article_card_show_image",
-      "default": true,
-      "label": "t:sections.all.article_card_show_image.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "article_card_show_date",
-      "default": true,
-      "label": "t:sections.all.article_card_show_date.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "article_card_show_excerpt",
-      "default": false,
-      "label": "t:sections.all.article_card_show_excerpt.label"
-    },
-    {
-      "type": "color_scheme",
-      "id": "article_card_color_scheme",
-      "default": "scheme_1",
-      "label": "t:sections.all.article_card_color_scheme.label"
     },
     {
       "type": "header",

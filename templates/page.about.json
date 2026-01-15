@@ -114,11 +114,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "breadcrumb-v2",
-    "about_v1",
-    "about_v2",
-    "about_v3"
-  ]
+  "order": ["main", "breadcrumb-v2", "about_v1", "about_v2", "about_v3"]
 }

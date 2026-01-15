@@ -10,28 +10,52 @@ h2.homepage-section-heading {
   display: inline-block;
   width: 100%;
   text-align: center;
-  
+
   /* Typography - Desktop */
-  font-size: var(--section-heading-font-size-desktop, var(--homepage-heading-font-size, var(--global-heading-font-size-desktop, 3.5rem)));
-  font-weight: var(--section-heading-font-weight-desktop, var(--homepage-heading-font-weight, var(--global-heading-font-weight-desktop, 700)));
-  line-height: var(--section-heading-line-height-desktop, var(--homepage-heading-line-height, var(--global-heading-line-height-desktop, 1.2)));
+  font-size: var(
+    --section-heading-font-size-desktop,
+    var(--homepage-heading-font-size, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  font-weight: var(
+    --section-heading-font-weight-desktop,
+    var(--homepage-heading-font-weight, var(--global-heading-font-weight-desktop, 700))
+  );
+  line-height: var(
+    --section-heading-line-height-desktop,
+    var(--homepage-heading-line-height, var(--global-heading-line-height-desktop, 1.2))
+  );
   color: var(--homepage-heading-color, var(--global-heading-color, #000));
   text-transform: var(--homepage-heading-text-transform, uppercase);
-  
+
   /* Spacing - Desktop */
-  margin-bottom: var(--section-heading-margin-bottom-desktop, var(--homepage-heading-margin-bottom-desktop, var(--global-heading-margin-bottom-desktop, 48px)));
+  margin-bottom: var(
+    --section-heading-margin-bottom-desktop,
+    var(--homepage-heading-margin-bottom-desktop, var(--global-heading-margin-bottom-desktop, 48px))
+  );
 }
 
 /* Mobile styles */
 @media (width <= 48rem) {
   h2.homepage-section-heading {
     /* Typography - Mobile */
-    font-size: var(--section-heading-font-size-mobile, var(--homepage-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem)));
-    font-weight: var(--section-heading-font-weight-mobile, var(--homepage-heading-font-weight, var(--global-heading-font-weight-mobile, 700)));
-    line-height: var(--section-heading-line-height-mobile, var(--homepage-heading-line-height, var(--global-heading-line-height-mobile, 1.2)));
-    
+    font-size: var(
+      --section-heading-font-size-mobile,
+      var(--homepage-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem))
+    );
+    font-weight: var(
+      --section-heading-font-weight-mobile,
+      var(--homepage-heading-font-weight, var(--global-heading-font-weight-mobile, 700))
+    );
+    line-height: var(
+      --section-heading-line-height-mobile,
+      var(--homepage-heading-line-height, var(--global-heading-line-height-mobile, 1.2))
+    );
+
     /* Spacing - Mobile */
-    margin-bottom: var(--section-heading-margin-bottom-mobile, var(--homepage-heading-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px)));
+    margin-bottom: var(
+      --section-heading-margin-bottom-mobile,
+      var(--homepage-heading-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px))
+    );
   }
 }
 
@@ -41,7 +65,9 @@ h2.homepage-section-heading {
 h2.homepage-section-heading[data-enable-underline="true"]::after {
   content: "";
   position: absolute;
-  bottom: calc(var(--section-heading-underline-bottom-desktop, var(--homepage-heading-underline-bottom-desktop, 24px)) * -1);
+  bottom: calc(
+    var(--section-heading-underline-bottom-desktop, var(--homepage-heading-underline-bottom-desktop, 24px)) * -1
+  );
   left: 50%;
   transform: translateX(-50%);
   width: var(--section-heading-underline-width, var(--homepage-heading-underline-width, 80px));
@@ -53,7 +79,9 @@ h2.homepage-section-heading[data-enable-underline="true"]::after {
 /* Mobile underline positioning */
 @media (width <= 48rem) {
   h2.homepage-section-heading[data-enable-underline="true"]::after {
-    bottom: calc(var(--section-heading-underline-bottom-mobile, var(--homepage-heading-underline-bottom-mobile, 16px)) * -1);
+    bottom: calc(
+      var(--section-heading-underline-bottom-mobile, var(--homepage-heading-underline-bottom-mobile, 16px)) * -1
+    );
   }
 }
 

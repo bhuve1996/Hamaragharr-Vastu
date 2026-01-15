@@ -12,7 +12,7 @@
     "main": {
       "type": "main-search",
       "settings": {
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "enable_filtering": true,
         "enable_sorting": true,
         "padding_top": 36,

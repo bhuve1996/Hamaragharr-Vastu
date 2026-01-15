@@ -1,5 +1,7 @@
-{{ 'filters-search-content.css' | asset_url | stylesheet_tag }}
-
+{% comment %}theme-check-disable OrphanedSnippet{% endcomment %}
+{% comment %}
+  This snippet is used by main-search-style1 and main-search-style2
+{% endcomment %}
 {% assign items_per_page = section.settings.items_per_page | default: 20 %}
 
 <xo-filters-content>
@@ -15,49 +17,81 @@
           style='--xs: {{ section.settings.columns_mobile }}; --sm: {{ section.settings.columns_mobile }}; --md: {{ section.settings.columns_desktop | minus: 1 }}; --lg: {{ section.settings.columns_desktop }}'
         >
           {%- for item in search.results -%}
-            {%- case item.object_type -%}
-              {%- when 'product' -%}
-                {% liquid
-                  assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1
-                  assign placeholder_image = 'product-apparel-' | append: placeholder_image_index
-                %}
-                {% render 'product-card-styles',
-                  product_card_style: settings.product_card_style_layout,
-                  product: item,
-                  variant_modal_placement: settings.variant_modal_placement,
-                  show_image: section.settings.product_card_show_image,
-                  product_card_media_type: settings.product_card_media_type,
-                  show_vendor: section.settings.product_card_show_vendor,
-                  show_description: section.settings.product_card_show_description,
-                  show_quick_add: section.settings.product_card_show_quick_add,
-                  show_quick_view: section.settings.product_card_show_quick_view,
-                  show_wishlist: section.settings.product_card_show_wishlist,
-                  show_price: section.settings.product_card_show_price,
-                  show_badge: section.settings.product_card_show_badge,
-                  media_aspect_ratio: section.settings.product_card_aspect_ratio,
-                  color_scheme: section.settings.card_color_scheme,
-                  placeholder_image: placeholder_image
-                %}
-              {%- when 'article' -%}
-                {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
-                {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
-                {% render 'article-card-style1',
-                  article: item,
-                  media_aspect_ratio: section.settings.product_card_aspect_ratio,
-                  show_image: section.settings.article_card_show_image,
-                  show_date: section.settings.article_card_show_date,
-                  show_excerpt: section.settings.article_card_show_excerpt,
-                  placeholder_image: placeholder_image,
-                  color_scheme: section.settings.article_card_color_scheme
-                %}
-              {%- when 'page' -%}
-                <div>
-                  <a href='{{ item.url }}' class='filters-content__page' style='--aspect-ratio:{{ section.settings.product_card_aspect_ratio }}'>
-                    <span>{{ 'templates.search.page' | t }}</span>
-                    <span>{{ item.title | truncate: 50 | escape }}</span>
-                  </a>
-                </div>
-            {%- endcase -%}
+            {%- liquid
+              assign should_exclude = false
+              assign item_url_lower = item.url | downcase
+              assign item_handle_lower = item.handle | downcase
+              assign item_title_lower = item.title | downcase
+              
+              if item.object_type == 'page'
+                if item_url_lower contains 'sitemap' or item_handle_lower contains 'sitemap' or item_title_lower contains 'sitemap'
+                  assign should_exclude = true
+                elsif item_url_lower contains 'avada-sitemap'
+                  assign should_exclude = true
+                elsif item_url_lower contains '/pages/new-year-gifts-collection' and item_url_lower contains '_pos=' and item_url_lower contains '_sid='
+                  assign should_exclude = true
+                elsif item_url_lower contains '_pos=' or item_url_lower contains '_sid=' or item_url_lower contains '_ss='
+                  assign should_exclude = true
+                endif
+              endif
+            -%}
+            {%- liquid
+              assign show_product = section.settings.show_products | default: true
+              comment
+                assign show_article = section.settings.show_articles | default: false
+              endcomment
+              assign show_page = section.settings.show_pages | default: false
+              assign show_type_badge = section.settings.show_type_badge | default: true
+            -%}
+            {%- unless should_exclude -%}
+              {%- case item.object_type -%}
+                {%- when 'product' -%}
+                  {%- if show_product -%}
+                    <div class='filters-content__item-wrapper' data-type='product'>
+                      {% render 'vastu-product-card',
+                        product: item,
+                        section: section,
+                        settings: section.settings
+                      %}
+                    </div>
+                  {%- endif -%}
+                {%- comment -%}
+                  Blog/Article rendering - commented out since show_articles is disabled by default
+                  Uncomment this block if you want to enable blog articles in search results
+                {%- when 'article' -%}
+                  {%- if show_article -%}
+                    <div class='filters-content__item-wrapper' data-type='article'>
+                      {% if show_type_badge %}
+                        <span class='filters-content__type-badge filters-content__type-badge--article'>Blog</span>
+                      {% endif %}
+                      {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+                      {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
+                      {% render 'article-card-style1',
+                        article: item,
+                        media_aspect_ratio: section.settings.product_card_aspect_ratio,
+                        show_image: section.settings.article_card_show_image,
+                        show_date: section.settings.article_card_show_date,
+                        show_excerpt: section.settings.article_card_show_excerpt,
+                        placeholder_image: placeholder_image,
+                        color_scheme: section.settings.article_card_color_scheme
+                      %}
+                    </div>
+                  {%- endif -%}
+                {%- endcomment -%}
+                {%- when 'page' -%}
+                  {%- if show_page -%}
+                    <div class='filters-content__item-wrapper' data-type='page'>
+                      {% if show_type_badge %}
+                        <span class='filters-content__type-badge filters-content__type-badge--page'>Page</span>
+                      {% endif %}
+                      <a href='{{ item.url }}' class='filters-content__page' style='--aspect-ratio:{{ section.settings.product_card_aspect_ratio }}'>
+                        <span>{{ 'templates.search.page' | t }}</span>
+                        <span>{{ item.title | truncate: 50 | escape }}</span>
+                      </a>
+                    </div>
+                  {%- endif -%}
+              {%- endcase -%}
+            {%- endunless -%}
           {%- endfor -%}
         </xo-grid>
         <xo-filters-paginate>

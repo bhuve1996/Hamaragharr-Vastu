@@ -34,7 +34,5 @@
       }
     }
   },
-  "order": [
-    "footer"
-  ]
+  "order": ["footer"]
 }

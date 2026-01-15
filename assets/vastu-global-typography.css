@@ -79,7 +79,10 @@ h6,
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
   line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
-  margin-bottom: var(--section-description-margin-bottom-desktop, var(--global-description-margin-bottom-desktop, 24px));
+  margin-bottom: var(
+    --section-description-margin-bottom-desktop,
+    var(--global-description-margin-bottom-desktop, 24px)
+  );
 }
 
 /* Tags/Badges - Desktop */
@@ -190,7 +193,10 @@ h6,
     font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
     line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
     font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
-    margin-bottom: var(--section-description-margin-bottom-mobile, var(--global-description-margin-bottom-mobile, 20px));
+    margin-bottom: var(
+      --section-description-margin-bottom-mobile,
+      var(--global-description-margin-bottom-mobile, 20px)
+    );
   }
 
   /* Tags/Badges - Mobile */
@@ -205,4 +211,5 @@ h6,
 }
 
 /* Section-level overrides - These can be set via inline styles in sections */
+
 /* Example: style="--section-heading-font-size-desktop: 4rem; --section-heading-font-size-mobile: 2.5rem;" */

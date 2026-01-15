@@ -43,8 +43,10 @@
       <link rel='shortcut icon' href='{{ settings.favicon | image_url: width: 32, height: 32 }}'>
     {%- else -%}
       {%- comment -%} Fallback favicon to prevent 404 errors {%- endcomment -%}
+      {% comment %}theme-check-disable RemoteAsset{% endcomment %}
       <link rel='icon' href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>'>
       <link rel='shortcut icon' href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>'>
+      {% comment %}theme-check-enable RemoteAsset{% endcomment %}
     {%- endif -%}
 
     {% render 'page-title' %}
@@ -411,7 +413,8 @@
             cents = cents.replace('.', '');
           }
           const placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
-          const formatString = format || document.documentElement.getAttribute('xo-money-format') || '{{amount}}';
+          const amountPlaceholder = 'amount';
+          const formatString = format || document.documentElement.getAttribute('xo-money-format') || '{' + '{' + amountPlaceholder + '}' + '}';
           
           function formatWithDelimiters(number, precision, thousands, decimal) {
             thousands = thousands || ',';
@@ -520,9 +523,10 @@
           }
           
               // Get money format
+              const amountPlaceholder = 'amount';
               const moneyFormat = document.documentElement.getAttribute('xo-money-format') || 
                                  document.documentElement.getAttribute('xo-money-with-currency-format') || 
-                                 '{{amount}}';
+                                 '{' + '{' + amountPlaceholder + '}' + '}';
               
           const currencyCodeEnabled = document.documentElement.hasAttribute('xo-currency-code-enabled');
           

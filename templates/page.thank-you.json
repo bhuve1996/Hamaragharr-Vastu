@@ -29,8 +29,5 @@
       }
     }
   },
-  "order": [
-    "main-page-heading",
-    "thank-you-content"
-  ]
+  "order": ["main-page-heading", "thank-you-content"]
 }

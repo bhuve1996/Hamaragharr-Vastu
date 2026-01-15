@@ -1,3 +1,4 @@
+{% comment %}theme-check-disable OrphanedSnippet{% endcomment %}
 {% comment %}
   Renders a main-search-style2.
 
@@ -25,20 +26,22 @@
         {% render 'main-search-mobile' %}
         {% render 'facets', results: search, enable_sorting: section.settings.enable_sorting, columns_desktop: section.settings.columns_desktop %}
       </div>
-      <div class='main-search-style2__grid' id='main-search-style2__toggle'>
-        {% if section.settings.enable_filtering %}
-          <div class='main-search-style2__sidebar' aria-labelledby='verticalTitle'>
-            {% for filter in search.filters %}
-              {% render 'filters-fieldset', type: 'block', filter: filter %}
-            {% endfor %}
+      <div class='main-search-style2__content-wrapper'>
+        <div class='main-search-style2__grid' id='main-search-style2__toggle'>
+          {% if section.settings.enable_filtering %}
+            <div class='main-search-style2__sidebar' aria-labelledby='verticalTitle'>
+              {% for filter in search.filters %}
+                {% render 'filters-fieldset', type: 'block', filter: filter %}
+              {% endfor %}
+            </div>
+          {% endif %}
+          <div class='main-search-style2__content-wrap'>
+            {% render 'filters-search-content',
+              items_per_page: section.settings.items_per_page,
+              columns_mobile: section.settings.columns_mobile,
+              columns_desktop: section.settings.columns_desktop
+            %}
           </div>
-        {% endif %}
-        <div class='main-search-style2__content-wrap'>
-          {% render 'filters-search-content',
-            items_per_page: section.settings.items_per_page,
-            columns_mobile: section.settings.columns_mobile,
-            columns_desktop: section.settings.columns_desktop
-          %}
         </div>
       </div>
     {%- when 'drawer' -%}
@@ -71,11 +74,13 @@
         {% render 'main-search-mobile' %}
         {% render 'facets', results: search, enable_sorting: section.settings.enable_sorting, columns_desktop: section.settings.columns_desktop %}
       </div>
-      {% render 'filters-search-content',
-        items_per_page: section.settings.items_per_page,
-        columns_mobile: section.settings.columns_mobile,
-        columns_desktop: section.settings.columns_desktop
-      %}
+      <div class='main-search-style2__content-wrapper'>
+        {% render 'filters-search-content',
+          items_per_page: section.settings.items_per_page,
+          columns_mobile: section.settings.columns_mobile,
+          columns_desktop: section.settings.columns_desktop
+        %}
+      </div>
     {%- when 'dropdown' -%}
       <div
         class='
@@ -105,10 +110,12 @@
           </xo-grid>
         </xo-collapse>
       {% endif %}
-      {% render 'filters-search-content',
-        items_per_page: section.settings.items_per_page,
-        columns_mobile: section.settings.columns_mobile,
-        columns_desktop: section.settings.columns_desktop
-      %}
+      <div class='main-search-style2__content-wrapper'>
+        {% render 'filters-search-content',
+          items_per_page: section.settings.items_per_page,
+          columns_mobile: section.settings.columns_mobile,
+          columns_desktop: section.settings.columns_desktop
+        %}
+      </div>
   {%- endcase -%}
 </div>

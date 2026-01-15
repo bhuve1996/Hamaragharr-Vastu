@@ -1,3 +1,4 @@
+{% comment %}theme-check-disable OrphanedSnippet{% endcomment %}
 {% comment %}
   Renders a main-search-style1.
 
@@ -25,11 +26,13 @@
         {% render 'main-search-mobile' %}
         {% render 'facets', results: search, enable_sorting: section.settings.enable_sorting, columns_desktop: section.settings.columns_desktop %}
       </div>
-      {% render 'filters-search-content',
-        items_per_page: section.settings.items_per_page,
-        columns_mobile: section.settings.columns_mobile,
-        columns_desktop: section.settings.columns_desktop
-      %}
+      <div class='main-search-style1__content'>
+        {% render 'filters-search-content',
+          items_per_page: section.settings.items_per_page,
+          columns_mobile: section.settings.columns_mobile,
+          columns_desktop: section.settings.columns_desktop
+        %}
+      </div>
     </div>
   {% else %}
     <div style='--xs: 12;'>
@@ -40,11 +43,13 @@
         {% render 'main-search-mobile' %}
         {% render 'facets', results: search, enable_sorting: section.settings.enable_sorting, columns_desktop: section.settings.columns_desktop %}
       </div>
-      {% render 'filters-search-content',
-        items_per_page: section.settings.items_per_page,
-        columns_mobile: section.settings.columns_mobile,
-        columns_desktop: section.settings.columns_desktop
-      %}
+      <div class='main-search-style1__content'>
+        {% render 'filters-search-content',
+          items_per_page: section.settings.items_per_page,
+          columns_mobile: section.settings.columns_mobile,
+          columns_desktop: section.settings.columns_desktop
+        %}
+      </div>
     </div>
   {% endif %}
 </xo-grid>
