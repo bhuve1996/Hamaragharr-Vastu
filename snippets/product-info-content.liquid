@@ -14,13 +14,10 @@
   {%- endif -%}
 >
   <xo-collapse-provider>
+    {% comment %} Render vendor, title, and price blocks first {% endcomment %}
     {% for block in section.blocks %}
-      {% case block.type %}
-        {% when '@app' %}
-          <xo-animate xo-cascade>
-            {% render block %}
-          </xo-animate>
-
+      {% if block.type == 'vendor' or block.type == 'title' or block.type == 'price' %}
+        {% case block.type %}
         {% when 'vendor' %}
           <xo-animate
             xo-cascade
@@ -88,6 +85,35 @@
                 {% render 'badge', product: product, type: block.settings.type %}
               {% endif %}
             </xo-product-will-change>
+          </xo-animate>
+        {% endcase %}
+      {% endif %}
+    {% endfor %}
+    
+    {% comment %} Render buy_button block after title and price {% endcomment %}
+    {% for block in section.blocks %}
+      {% if block.type == 'buy_button' %}
+        <xo-animate
+          xo-cascade
+          {{ block.shopify_attributes }}
+          style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
+        >
+          {% render 'buy-button',
+            show_gift_card_recipient: block.settings.show_gift_card_recipient,
+            show_dynamic_checkout: block.settings.show_dynamic_checkout,
+            show_checkbox: block.settings.show_checkbox
+          %}
+        </xo-animate>
+      {% endif %}
+    {% endfor %}
+    
+    {% comment %} Render all other blocks except vendor, title, price, and buy_button {% endcomment %}
+    {% for block in section.blocks %}
+      {% unless block.type == 'vendor' or block.type == 'title' or block.type == 'price' or block.type == 'buy_button' %}
+      {% case block.type %}
+        {% when '@app' %}
+          <xo-animate xo-cascade>
+            {% render block %}
           </xo-animate>
 
         {% when 'countdown_time' %}
@@ -167,19 +193,6 @@
             style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
           >
             {% render 'countdown-stock', product: product, block: block %}
-          </xo-animate>
-
-        {% when 'buy_button' %}
-          <xo-animate
-            xo-cascade
-            {{ block.shopify_attributes }}
-            style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
-          >
-            {% render 'buy-button',
-              show_gift_card_recipient: block.settings.show_gift_card_recipient,
-              show_dynamic_checkout: block.settings.show_dynamic_checkout,
-              show_checkbox: block.settings.show_checkbox
-            %}
           </xo-animate>
 
         {% when 'buy_othersite' %}
@@ -439,6 +452,7 @@
             {% endif %}
           </xo-animate>
       {% endcase %}
+      {% endunless %}
     {% endfor %}
   </xo-collapse-provider>
 </div>

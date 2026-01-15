@@ -621,9 +621,26 @@
             }
           }
           
-          // Final fallback - global search
+          // Also check sticky-addcart explicitly
+          const stickyAddcart = document.querySelector('.sticky-addcart, .sticky-addcart-desktop');
+          if (stickyAddcart) {
+            const stickyPriceEl = stickyAddcart.querySelector(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`);
+            if (stickyPriceEl && !priceElements.includes(stickyPriceEl)) {
+              priceElements.push(stickyPriceEl);
+            }
+          }
+          
+          // Final fallback - global search (should find all including sticky-addcart)
           if (priceElements.length === 0) {
             priceElements = Array.from(document.querySelectorAll(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`));
+          } else {
+            // Even if we found some, make sure we get ALL price elements including sticky-addcart
+            const allPriceElements = Array.from(document.querySelectorAll(`xo-product-will-change[xo-unique-id="product-price-${productId}"]`));
+            allPriceElements.forEach(el => {
+              if (!priceElements.includes(el)) {
+                priceElements.push(el);
+              }
+            });
           }
               
               priceElements.forEach(priceEl => {
@@ -894,9 +911,10 @@
           
           // Check if it's a variant option selector
           if (target.matches('input[type="radio"][name^="option"], select[name^="option"], xo-product-variant input, xo-product-variant select, .xo-field-radio input')) {
-            // Find form - check in modal/toggle context first
+            // Find form - check in modal/toggle context first, then sticky-addcart
             const modalContext = target.closest('xo-modal, xo-toggle, .product-variant-modal__modal-content, .product-variant-modal__toggle-content');
-            const form = modalContext ? modalContext.querySelector('form') : target.closest('form');
+            const stickyContext = target.closest('.sticky-addcart, .sticky-addcart-desktop, xo-sticky');
+            const form = modalContext ? modalContext.querySelector('form') : (stickyContext ? stickyContext.querySelector('form') : target.closest('form'));
             
             if (form) {
               const variantInput = form.querySelector('input[name="id"]');
@@ -907,7 +925,7 @@
                 }, 250);
               }
             } else {
-              // If no form found, try to find variant input directly in modal context
+              // If no form found, try to find variant input directly in modal context or sticky-addcart
               if (modalContext) {
                 const variantInput = modalContext.querySelector('input[name="id"]');
                 if (variantInput) {
@@ -918,6 +936,14 @@
                   // Try modal variant change handler
                   setTimeout(() => {
                     handleModalVariantChange(modalContext);
+                  }, 250);
+                }
+              } else if (stickyContext) {
+                // Handle sticky-addcart specifically
+                const variantInput = stickyContext.querySelector('input[name="id"]');
+                if (variantInput) {
+                  setTimeout(() => {
+                    handleVariantChange(variantInput);
                   }, 250);
                 }
               } else {
@@ -1009,9 +1035,10 @@
         document.addEventListener('click', (e) => {
           const target = e.target.closest('[data-option], [data-variant], xo-product-variant, .variant-option, [data-variant-option], .xo-field-radio, .xo-field-radio__label, .xo-field-radio input, input[type="radio"][name^="option"]');
           if (target) {
-            // Find form - check in modal/toggle context first
+            // Find form - check in modal/toggle context first, then sticky-addcart
             const modalContext = target.closest('xo-modal, xo-toggle, .product-variant-modal__modal-content, .product-variant-modal__toggle-content');
-            const form = modalContext ? modalContext.querySelector('form') : target.closest('form');
+            const stickyContext = target.closest('.sticky-addcart, .sticky-addcart-desktop, xo-sticky');
+            const form = modalContext ? modalContext.querySelector('form') : (stickyContext ? stickyContext.querySelector('form') : target.closest('form'));
             
             if (form) {
               const variantInput = form.querySelector('input[name="id"]');
@@ -1021,7 +1048,7 @@
                 }, 300);
               }
             } else {
-              // If no form found, try to find variant input directly in modal context
+              // If no form found, try to find variant input directly in modal context or sticky-addcart
               if (modalContext) {
                 const variantInput = modalContext.querySelector('input[name="id"]');
                 if (variantInput) {
@@ -1038,6 +1065,14 @@
                       updateProductPrice(variantId, productId, modalContext);
                     }
                     }
+                  }, 300);
+                }
+              } else if (stickyContext) {
+                // Handle sticky-addcart specifically
+                const variantInput = stickyContext.querySelector('input[name="id"]');
+                if (variantInput) {
+                  setTimeout(() => {
+                    handleVariantChange(variantInput);
                   }, 300);
                 }
               } else {
