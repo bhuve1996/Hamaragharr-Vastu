@@ -13,338 +13,132 @@
   position: relative;
 }
 
-.vastu-product-card__wishlist-container {
+/* Wishlist button - top left of product card */
+.vastu-product-card__wishlist {
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
-  z-index: 999;
-  display: block;
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  height: auto;
-}
-
-/* Ensure wishlist icons are visible and clickable */
-.vastu-product-card__wishlist-container .xo-product-card__wishlist {
-  display: block;
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
-  position: relative;
-}
-
-.vastu-product-card__wishlist-container xo-products-fetcher-add {
-  pointer-events: auto;
-  position: relative;
-  display: block;
-  cursor: pointer;
-}
-
-.vastu-product-card__wishlist-container xo-tooltip {
-  pointer-events: auto;
-  position: relative;
-  display: flex;
-  cursor: pointer;
-}
-
-.vastu-product-card__wishlist-container xo-tooltip button {
-  pointer-events: auto;
-  cursor: pointer;
-}
-
-.vastu-product-card__wishlist-container .xo-product-card__icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  min-height: 2.5rem;
-  max-width: 2.5rem;
-  max-height: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.vastu-product-card__wishlist-container button,
-.vastu-product-card__wishlist-container .vastu-wishlist-btn {
+  z-index: 30;
   width: 3.5rem;
   height: 3.5rem;
   min-width: 3.5rem;
   min-height: 3.5rem;
   max-width: 3.5rem;
   max-height: 3.5rem;
-  padding: 0;
-  margin: 0;
-  border-radius: 50%;
-  background-color: #fff;
-  color: #000;
-  border: 2px solid #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   pointer-events: auto;
-  cursor: pointer;
-  position: relative;
-  z-index: 1000;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  margin: 0;
+  padding: 0;
 }
 
-.vastu-product-card__wishlist-container button:hover,
-.vastu-product-card__wishlist-container .vastu-wishlist-btn:hover {
+.vastu-product-card__wishlist xo-products-fetcher-add {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  min-width: 3.5rem;
+  min-height: 3.5rem;
+  max-width: 3.5rem;
+  max-height: 3.5rem;
+  pointer-events: auto;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  z-index: 32;
+}
+
+.vastu-product-card__wishlist xo-products-fetcher-add * {
+  pointer-events: auto;
+}
+
+/* Base tooltip styling - positioning and size only, visibility controlled by state rules */
+.vastu-product-card__wishlist xo-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  min-width: 3.5rem;
+  min-height: 3.5rem;
+  max-width: 3.5rem;
+  max-height: 3.5rem;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  margin: 0;
+  padding: 0;
+  z-index: 31;
+
+  /* Hide by default, shown by state-specific rules */
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* When NOT wishlisted (parent has NO xo-added attribute) - show xo-added tooltip with white background and black heart */
+.vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added]:hover {
   background-color: #f5f5f5;
   transform: scale(1.05);
-  border-color: #000;
   box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
 }
 
-.vastu-product-card__wishlist-container button svg,
-.vastu-product-card__wishlist-container .vastu-wishlist-btn svg,
-.vastu-product-card__wishlist-container .xo-btn__icon svg,
-.vastu-product-card__wishlist-container button .xo-btn__icon svg {
-  width: 2rem !important;
-  height: 2rem !important;
-  color: #000 !important;
-  fill: #000 !important;
-  stroke: none !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Ensure icon path is visible - override inline styles */
-.vastu-product-card__wishlist-container .vastu-wishlist-btn svg path[fill],
-.vastu-product-card__wishlist-container button svg path[fill] {
-  fill: inherit !important;
-}
-
-.vastu-product-card__wishlist-container button svg path,
-.vastu-product-card__wishlist-container .vastu-wishlist-btn svg path,
-.vastu-product-card__wishlist-container .xo-btn__icon svg path,
-.vastu-product-card__wishlist-container button .xo-btn__icon svg path,
-.vastu-product-card__wishlist-container button svg *,
-.vastu-product-card__wishlist-container .vastu-wishlist-btn svg *,
-.vastu-product-card__wishlist-container .xo-btn__icon svg *,
-.vastu-product-card__wishlist-container button svg g,
-.vastu-product-card__wishlist-container .vastu-wishlist-btn svg g,
-.vastu-product-card__wishlist-container .xo-btn__icon svg g,
-.vastu-product-card__wishlist-container button svg g path,
-.vastu-product-card__wishlist-container .vastu-wishlist-btn svg g path,
-.vastu-product-card__wishlist-container button svg #path14,
-.vastu-product-card__wishlist-container .vastu-wishlist-btn svg #path14 {
-  fill: #000 !important;
-  stroke: none !important;
-  color: #000 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  fill-opacity: 1 !important;
-}
-
-/* Hide the wrong state icons and tooltips */
-.vastu-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-removed],
-.vastu-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) xo-tooltip[xo-removed] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-}
-
-.vastu-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-added],
-.vastu-product-card__wishlist-container xo-products-fetcher-add[xo-removed] xo-tooltip[xo-added] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-}
-
-/* Ensure wishlist icons are always visible when in correct state */
-.vastu-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-removed] {
-  display: flex;
-  visibility: visible;
-  opacity: 1;
-}
-
-.vastu-product-card__wishlist-container xo-products-fetcher-add:not([xo-removed]) .xo-product-card__icon[xo-added] {
-  display: flex;
-  visibility: visible;
-  opacity: 1;
-}
-
-/* When wishlisted (xo-removed state), show filled/inverted icon - BLACK background with WHITE filled heart */
-.vastu-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-product-card__icon[xo-removed] button,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  .vastu-wishlist-btn {
-  background-color: #000 !important;
-  color: #fff !important;
-  border-color: #000 !important;
-}
-
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  button:hover,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  .vastu-wishlist-btn:hover {
-  background-color: #000 !important;
-  border-color: #000 !important;
-}
-
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  button
-  svg,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  .vastu-wishlist-btn
-  svg,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  .xo-btn__icon
-  svg {
-  color: #fff !important;
-  fill: #fff !important;
-  stroke: #fff !important;
-}
-
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  button
-  svg
-  path,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  .vastu-wishlist-btn
-  svg
-  path,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  .xo-btn__icon
-  svg
-  path,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  button
-  svg
-  *,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  .vastu-wishlist-btn
-  svg
-  *,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add[xo-removed]
-  .xo-product-card__icon[xo-removed]
-  .xo-btn__icon
-  svg
-  * {
-  fill: #fff !important;
-  stroke: #fff !important;
-  color: #fff !important;
-}
-
-/* When not wishlisted (xo-added state), show outline icon - WHITE background with BLACK filled heart */
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  button,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  .vastu-wishlist-btn {
-  background-color: #fff !important;
-  color: #000 !important;
-  border-color: #000 !important;
-  border-width: 2px !important;
-}
-
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  button:hover,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  .vastu-wishlist-btn:hover {
-  background-color: #f5f5f5 !important;
-  border-color: #000 !important;
-}
-
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  button
-  svg,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  .xo-btn__icon
-  svg {
-  color: #000 !important;
-  fill: transparent !important;
-  stroke: #000 !important;
-  stroke-width: 2.5 !important;
-}
-
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  button
-  svg
-  path,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  .xo-btn__icon
-  svg
-  path,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  button
-  svg
-  *,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  .xo-btn__icon
-  svg
-  * {
-  fill: transparent !important;
-  stroke: #000 !important;
-  stroke-width: 2.5 !important;
-  color: #000 !important;
-}
-
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  button
-  svg
-  path,
-.vastu-product-card__wishlist-container
-  xo-products-fetcher-add:not([xo-removed])
-  .xo-product-card__icon[xo-added]
-  .xo-btn__icon
-  svg
-  path {
-  fill: transparent !important;
-  stroke: #000 !important;
+.vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg,
+.vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg path,
+.vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg g path,
+.vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg * {
+  width: 2rem;
+  height: 2rem;
+  fill: #000;
+  stroke: none;
   color: #000;
-  stroke-width: 2.5;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* When wishlisted (parent has xo-added attribute) - show xo-removed tooltip with black background and white heart */
+.vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  background-color: #000;
+  border: 2px solid #000;
+}
+
+.vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed]:hover {
+  background-color: #000;
+  border-color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+}
+
+.vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg,
+.vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg path,
+.vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg g path,
+.vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg * {
+  width: 2rem;
+  height: 2rem;
+  fill: #fff;
+  stroke: none;
+  color: #fff;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .vastu-product-card:hover {
@@ -686,6 +480,29 @@ main section .vastu-product-card .xo-product-card__price {
   text-overflow: ellipsis;
   line-height: 1.2;
   padding: 0 0.5rem;
+  transform: none !important;
+  translate: 0 0 !important;
+  transition: none !important;
+}
+
+.vastu-product-card__add-to-cart .xo-btn__text:active,
+.vastu-product-card__add-to-cart .xo-btn__text:focus,
+.vastu-product-card__add-to-cart .xo-btn__content:active,
+.vastu-product-card__add-to-cart .xo-btn__content:focus {
+  transform: none !important;
+  translate: 0 0 !important;
+}
+
+.vastu-product-card__add-to-cart .xo-btn:active .xo-btn__text,
+.vastu-product-card__add-to-cart .xo-btn:active .xo-btn__content,
+.vastu-product-card__add-to-cart .xo-btn:focus .xo-btn__text,
+.vastu-product-card__add-to-cart .xo-btn:focus .xo-btn__content,
+.vastu-product-card__add-to-cart button:active .xo-btn__text,
+.vastu-product-card__add-to-cart button:active .xo-btn__content,
+.vastu-product-card__add-to-cart button:focus .xo-btn__text,
+.vastu-product-card__add-to-cart button:focus .xo-btn__content {
+  transform: none !important;
+  translate: 0 0 !important;
 }
 
 .vastu-product-card__add-to-cart .xo-btn__text[data-text]::before,

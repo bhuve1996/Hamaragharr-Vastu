@@ -15,23 +15,17 @@
 
 <div class='vastu-product-card'>
   <xo-product xo-product-id='{{ current_product.id }}' xo-section-id='{{ section_id }}' xo-product-information>
-    {% comment %} Wishlist button - top left (outside link to prevent bubbling) {% endcomment %}
+    {% comment %} Wishlist button - top left {% endcomment %}
     {% if show_wishlist %}
-      <div class='vastu-product-card__wishlist-container'>
-        {% comment %} add to wishlist {% endcomment %}
-        <xo-products-fetcher-add xo-type="wishlist" class="xo-product-card__wishlist">
-          <xo-tooltip xo-title='{{ 'products.product.add_to_wishlist' | t }}' class="xo-product-card__icon xo-product-card__icon-wishlist" xo-added>
-            <button type="button" class="vastu-wishlist-btn" aria-label='{{ 'products.product.add_to_wishlist' | t }}'>
-              {% render 'icon', name: 'heart', icon_size: '20', color: '#000' %}
-            </button>
+      <div class='vastu-product-card__wishlist'>
+        <xo-products-fetcher-add xo-type='wishlist'>
+          <xo-tooltip xo-title='{{ 'products.product.add_to_wishlist' | t }}' xo-added>
+            {% render 'icon', name: 'heart', icon_size: '20' %}
           </xo-tooltip>
         </xo-products-fetcher-add>
-        {% comment %} remove wishlist {% endcomment %}
-        <xo-products-fetcher-add xo-type="wishlist" class="xo-product-card__wishlist">
-          <xo-tooltip xo-title='{{ 'products.product.remove_from_wishlist' | t }}' class="xo-product-card__icon xo-product-card__icon-wishlist" xo-removed>
-            <button type="button" class="vastu-wishlist-btn" aria-label='{{ 'products.product.remove_from_wishlist' | t }}'>
-              {% render 'icon', name: 'heart', icon_size: '20', color: '#fff' %}
-            </button>
+        <xo-products-fetcher-add xo-type='wishlist'>
+          <xo-tooltip xo-title='{{ 'products.product.remove_from_wishlist' | t }}' xo-removed>
+            {% render 'icon', name: 'heart', icon_size: '20' %}
           </xo-tooltip>
         </xo-products-fetcher-add>
       </div>
@@ -93,46 +87,36 @@
 </div>
 
 <script>
-  // Prevent product link from intercepting wishlist button clicks
+  // Prevent product link from intercepting wishlist clicks
   (function() {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', setupWishlistClickHandler);
-    } else {
-      setupWishlistClickHandler();
-    }
-    
     function setupWishlistClickHandler() {
       document.querySelectorAll('.vastu-product-card').forEach(function(card) {
-        const wishlistContainer = card.querySelector('.vastu-product-card__wishlist-container');
+        const wishlist = card.querySelector('.vastu-product-card__wishlist');
         const productLink = card.querySelector('.vastu-product-card__link');
         
-        if (wishlistContainer && productLink && !wishlistContainer.dataset.handlerAdded) {
-          wishlistContainer.dataset.handlerAdded = 'true';
+        if (wishlist && productLink && !wishlist.dataset.handlerAdded) {
+          wishlist.dataset.handlerAdded = 'true';
           
-          // Stop clicks on wishlist from propagating to the link
-          wishlistContainer.addEventListener('click', function(e) {
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-          }, true); // Use capture phase
-          
-          // Prevent link from navigating when clicking wishlist
+          // Only prevent product link from handling clicks on wishlist
+          // Don't stop propagation so the web component can handle the click
           productLink.addEventListener('click', function(e) {
-            const clickedElement = e.target;
-            const isWishlistClick = clickedElement.closest('.vastu-product-card__wishlist-container') ||
-                                   clickedElement.closest('xo-products-fetcher-add') ||
-                                   clickedElement.closest('xo-tooltip') ||
-                                   clickedElement.closest('.xo-product-card__wishlist');
-            
-            if (isWishlistClick) {
+            if (e.target.closest('.vastu-product-card__wishlist')) {
               e.preventDefault();
               e.stopPropagation();
-              e.stopImmediatePropagation();
               return false;
             }
           }, false);
         }
       });
     }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupWishlistClickHandler);
+    } else {
+      setupWishlistClickHandler();
+    }
+    
+    setTimeout(setupWishlistClickHandler, 500);
   })();
 </script>
 

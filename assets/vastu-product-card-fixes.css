@@ -638,10 +638,13 @@ xo-product-recommendations .xo-product-card__add-to-cart .xo-btn__content,
 section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn__text,
 .product-recommendations .xo-product-card__add-to-cart .xo-btn__text,
 .section-collection-products .xo-product-card__add-to-cart .xo-btn__text,
-.filters-content .xo-product-card__add-to-cart .xo-btn__text {
+.filters-content .xo-product-card__add-to-cart .xo-btn__text,
+.vastu-product-card__add-to-cart .xo-btn__text,
+.vastu-product-card__add-to-cart .xo-btn__content {
   position: relative;
-  transform: none;
-  translate: 0 0;
+  transform: none !important;
+  translate: 0 0 !important;
+  transition: none !important;
   display: inline-block;
   width: auto;
   max-width: 100%;
@@ -651,6 +654,30 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn_
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0 0.5rem;
+}
+
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__text:active,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn__text:focus,
+.filters-content .xo-product-card__add-to-cart .xo-btn__text:active,
+.filters-content .xo-product-card__add-to-cart .xo-btn__text:focus,
+.vastu-product-card__add-to-cart .xo-btn__text:active,
+.vastu-product-card__add-to-cart .xo-btn__text:focus,
+.vastu-product-card__add-to-cart .xo-btn__content:active,
+.vastu-product-card__add-to-cart .xo-btn__content:focus {
+  transform: none !important;
+  translate: 0 0 !important;
+}
+
+.section-collection-products .xo-product-card__add-to-cart .xo-btn:active .xo-btn__text,
+.section-collection-products .xo-product-card__add-to-cart .xo-btn:active .xo-btn__content,
+.filters-content .xo-product-card__add-to-cart .xo-btn:active .xo-btn__text,
+.filters-content .xo-product-card__add-to-cart .xo-btn:active .xo-btn__content,
+.vastu-product-card__add-to-cart .xo-btn:active .xo-btn__text,
+.vastu-product-card__add-to-cart .xo-btn:active .xo-btn__content,
+.vastu-product-card__add-to-cart button:active .xo-btn__text,
+.vastu-product-card__add-to-cart button:active .xo-btn__content {
+  transform: none !important;
+  translate: 0 0 !important;
 }
 
 .product-recommendations-section .xo-product-card__add-to-cart .xo-btn__text[data-text]::before,
