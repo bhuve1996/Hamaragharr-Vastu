@@ -109,11 +109,16 @@
   height: 2rem !important;
   color: #000 !important;
   fill: #000 !important;
-  stroke: #000 !important;
-  stroke-width: 2 !important;
+  stroke: none !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+}
+
+/* Ensure icon path is visible - override inline styles */
+.vastu-product-card__wishlist-container .vastu-wishlist-btn svg path[fill],
+.vastu-product-card__wishlist-container button svg path[fill] {
+  fill: inherit !important;
 }
 
 .vastu-product-card__wishlist-container button svg path,
@@ -125,14 +130,18 @@
 .vastu-product-card__wishlist-container .xo-btn__icon svg *,
 .vastu-product-card__wishlist-container button svg g,
 .vastu-product-card__wishlist-container .vastu-wishlist-btn svg g,
-.vastu-product-card__wishlist-container .xo-btn__icon svg g {
+.vastu-product-card__wishlist-container .xo-btn__icon svg g,
+.vastu-product-card__wishlist-container button svg g path,
+.vastu-product-card__wishlist-container .vastu-wishlist-btn svg g path,
+.vastu-product-card__wishlist-container button svg #path14,
+.vastu-product-card__wishlist-container .vastu-wishlist-btn svg #path14 {
   fill: #000 !important;
-  stroke: #000 !important;
-  stroke-width: 2 !important;
+  stroke: none !important;
   color: #000 !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+  fill-opacity: 1 !important;
 }
 
 /* Hide the wrong state icons and tooltips */
