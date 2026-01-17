@@ -156,9 +156,32 @@
               {{ block.shopify_attributes }}
               style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
             >
-              <p class='xo-product-info-content__description'>
-                {{ product.description | strip_html | truncate: 230 }}
-              </p>
+              {% assign description_html = product.description %}
+              {% assign description_text_plain = product.description | strip_html %}
+              {% assign truncated_text_plain = description_text_plain | truncate: 230 %}
+              {% assign is_truncated = false %}
+              {% if description_text_plain.size > 230 %}
+                {% assign is_truncated = true %}
+              {% endif %}
+              <div class='xo-product-info-content__description-wrapper'>
+                <div class='xo-product-info-content__description' data-full-text='{{ description_html | escape }}' data-truncated='{{ is_truncated }}'>
+                  {% if is_truncated %}
+                    <div class='xo-product-info-content__description-truncated'>{{ truncated_text_plain }}</div>
+                    <div class='xo-product-info-content__description-full' style='display: none;'>{{ description_html }}</div>
+                  {% else %}
+                    {{ description_html }}
+                  {% endif %}
+                </div>
+                {% if is_truncated %}
+                  {% assign read_more_text = 'products.product.read_more' | t %}
+                  {% if read_more_text == blank %}
+                    {% assign read_more_text = 'Read more' %}
+                  {% endif %}
+                  <button type='button' class='xo-product-info-content__description-read-more' onclick='this.previousElementSibling.querySelector(".xo-product-info-content__description-truncated").style.display="none"; this.previousElementSibling.querySelector(".xo-product-info-content__description-full").style.display="block"; this.style.display="none";'>
+                    {{ read_more_text }}
+                  </button>
+                {% endif %}
+              </div>
             </xo-animate>
           {% endunless %}
 

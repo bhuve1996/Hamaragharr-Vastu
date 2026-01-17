@@ -330,6 +330,8 @@
       "choose_options": "Choose options",
       "choose_product_options": "Choose options for {{ product_name }}",
       "description": "Description",
+      "read_more": "Read more",
+      "no_description": "No description available.",
       "on_sale": "Sale",
       "product_variants": "Product variants",
       "media": {
