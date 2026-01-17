@@ -172,6 +172,7 @@
         "367088f1-d502-47f7-b8b1-1c3f0e2221ce": {
           "type": "shipping",
           "settings": {
+            "use_accordion": false,
             "show_delivery": true,
             "delivery": "<p>Estimate delivery times: <strong>12-26 days</strong> (International), <strong>3-6 days</strong> (United States).</p>",
             "show_return": true,
@@ -322,7 +323,8 @@
         "tab2": {
           "type": "shipping",
           "settings": {
-            "header": "Shipping & return"
+            "header": "Shipping & return",
+            "use_accordion": false
           }
         }
       },

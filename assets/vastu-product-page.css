@@ -998,3 +998,13 @@ xo-cart-add.loading .xo-btn__loading {
   border: 2px solid rgb(136 112 142 / 25%);
   border-radius: 0.75rem;
 }
+
+/* Disable shipping accordion and shipping content on product pages */
+.main-product .shipping-accordion,
+.xo-product-info-content .shipping-accordion,
+section[class*="main-product"] .shipping-accordion,
+.main-product .shipping-content,
+.xo-product-info-content .shipping-content,
+section[class*="main-product"] .shipping-content {
+  display: none !important;
+}

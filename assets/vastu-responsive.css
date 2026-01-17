@@ -90,6 +90,18 @@
   section[class*="vastu-featured-products"] xo-carousel,
   section[class*="vastu-trust-bar"] xo-carousel {
     padding-bottom: 0;
+    overflow: visible;
+  }
+
+  /* Ensure sections have enough bottom padding for pagination on mobile */
+  section[class*="vastu-best-seller"]:has(.vastu-best-seller__pagination),
+  section[class*="vastu-featured-products"]:has(.vastu-featured-products__pagination) {
+    padding-bottom: 4rem;
+  }
+
+  section[class*="testimonial-v13"]:has(.testimonial-v13__pagination),
+  section[class*="testimonial-v2"]:has(.testimonial-v13__pagination) {
+    padding-bottom: 4rem;
   }
 
   .slideshow-v28__pagination,
@@ -110,6 +122,41 @@
   .testimonial-v13__pagination {
     bottom: -2.5rem;
     margin-top: 1.5rem;
+    display: var(--display-mobile, flex) !important;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .vastu-best-seller__pagination,
+  .vastu-featured-products__pagination {
+    display: var(--display-mobile, flex) !important;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Ensure pagination dots are visible on mobile */
+  .vastu-best-seller__pagination xo-carousel-pagination span,
+  .vastu-featured-products__pagination xo-carousel-pagination span,
+  .testimonial-v13__pagination xo-carousel-pagination span,
+  .vastu-best-seller__pagination .carousel-pagination-style3__pagination span,
+  .vastu-featured-products__pagination .carousel-pagination-style3__pagination span,
+  .testimonial-v13__pagination .carousel-pagination-style3__pagination span {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 0.5rem !important;
+    height: 0.5rem !important;
+  }
+
+  .vastu-best-seller__pagination xo-carousel-pagination-bullet-active span,
+  .vastu-featured-products__pagination xo-carousel-pagination-bullet-active span,
+  .testimonial-v13__pagination xo-carousel-pagination-bullet-active span,
+  .vastu-best-seller__pagination xo-carousel-pagination span[aria-current="true"],
+  .vastu-featured-products__pagination xo-carousel-pagination span[aria-current="true"],
+  .testimonial-v13__pagination xo-carousel-pagination span[aria-current="true"] {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    opacity: 1 !important;
   }
 
   /* Blog carousel mobile fix - ensure carousel works properly on mobile */

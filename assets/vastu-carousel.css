@@ -61,6 +61,21 @@ section xo-carousel {
   margin-top: 32px;
 }
 
+/* Use CSS variables to control visibility on desktop and mobile */
+.vastu-best-seller__pagination,
+.vastu-featured-products__pagination,
+.testimonial-v13__pagination {
+  display: var(--display-desktop, flex);
+}
+
+@media (width <= 48rem) {
+  .vastu-best-seller__pagination,
+  .vastu-featured-products__pagination,
+  .testimonial-v13__pagination {
+    display: var(--display-mobile, flex);
+  }
+}
+
 .blog-v2__pagination {
   position: absolute;
   bottom: -32px;
@@ -90,6 +105,45 @@ section xo-carousel {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+/* Ensure pagination dots are visible for best seller and testimonial carousels */
+.vastu-best-seller__pagination xo-carousel-pagination span,
+.vastu-featured-products__pagination xo-carousel-pagination span,
+.testimonial-v13__pagination xo-carousel-pagination span,
+.vastu-best-seller__pagination .carousel-pagination-style3__pagination span,
+.vastu-featured-products__pagination .carousel-pagination-style3__pagination span,
+.testimonial-v13__pagination .carousel-pagination-style3__pagination span {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: rgb(71 56 85 / 30%);
+  margin: 0 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.vastu-best-seller__pagination xo-carousel-pagination-bullet-active span,
+.vastu-featured-products__pagination xo-carousel-pagination-bullet-active span,
+.testimonial-v13__pagination xo-carousel-pagination-bullet-active span,
+.vastu-best-seller__pagination xo-carousel-pagination span[aria-current="true"],
+.vastu-featured-products__pagination xo-carousel-pagination span[aria-current="true"],
+.testimonial-v13__pagination xo-carousel-pagination span[aria-current="true"],
+.vastu-best-seller__pagination xo-carousel-pagination span.is-active,
+.vastu-featured-products__pagination xo-carousel-pagination span.is-active,
+.testimonial-v13__pagination xo-carousel-pagination span.is-active,
+.vastu-best-seller__pagination xo-carousel-pagination span[class*="active"],
+.vastu-featured-products__pagination xo-carousel-pagination span[class*="active"],
+.testimonial-v13__pagination xo-carousel-pagination span[class*="active"],
+.vastu-best-seller__pagination .carousel-pagination-style3__pagination span[aria-current="true"],
+.vastu-featured-products__pagination .carousel-pagination-style3__pagination span[aria-current="true"],
+.testimonial-v13__pagination .carousel-pagination-style3__pagination span[aria-current="true"] {
+  background-color: rgb(71 56 85);
+  width: 0.75rem;
+  height: 0.75rem;
+  opacity: 1;
 }
 
 .banner-v155__carousel-pagination xo-carousel-pagination span,

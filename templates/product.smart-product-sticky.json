@@ -114,7 +114,9 @@
         },
         "367088f1-d502-47f7-b8b1-1c3f0e2221ce": {
           "type": "shipping",
-          "settings": {}
+          "settings": {
+            "use_accordion": false
+          }
         },
         "cac56f9f-8acd-4ad3-bdcc-54a1403984cf": {
           "type": "complementary",
@@ -204,7 +206,9 @@
         },
         "tab2": {
           "type": "shipping",
-          "settings": {}
+          "settings": {
+            "use_accordion": false
+          }
         }
       },
       "block_order": ["tab1", "tab2"],

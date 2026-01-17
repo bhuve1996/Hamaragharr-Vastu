@@ -50,7 +50,7 @@
     {% endif %}
     <xo-carousel
       xo-per-view='{{ section.settings.columns_carousel }}'
-      {% if section.settings.auto_play %}
+      {% if section.settings.auto_play != false %}
         xo-autoplay='5000'
       {% endif %}
       xo-speed='2000'

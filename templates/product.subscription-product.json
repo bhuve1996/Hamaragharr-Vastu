@@ -179,7 +179,8 @@
             "show_return": true,
             "return": "<p>Return within <strong>45 days</strong> of purchase. Duties & taxes are non-refundable.</p>",
             "padding_top": 0,
-            "padding_bottom": 30
+            "padding_bottom": 30,
+            "use_accordion": false
           }
         },
         "cac56f9f-8acd-4ad3-bdcc-54a1403984cf": {
@@ -318,7 +319,8 @@
         "tab2": {
           "type": "shipping",
           "settings": {
-            "header": "Shipping & return"
+            "header": "Shipping & return",
+            "use_accordion": false
           }
         }
       },

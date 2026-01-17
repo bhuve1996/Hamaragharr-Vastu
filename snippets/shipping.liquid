@@ -15,7 +15,9 @@
   {% render 'shipping', show_delivery: show_delivery, show_return: show_return, delivery: delivery, return: return, use_policy_content: use_policy_content, use_accordion: use_accordion, use_modal: use_modal, truncate_length: truncate_length, modal_width: modal_width %}
 {% endcomment %}
 
-{% assign use_accordion = use_accordion | default: true %}
+{% if use_accordion == nil %}
+  {% assign use_accordion = false %}
+{% endif %}
 {% assign use_policy_content = use_policy_content | default: false %}
 {% assign use_modal = use_modal | default: false %}
 {% assign truncate_length = truncate_length | default: 50 %}

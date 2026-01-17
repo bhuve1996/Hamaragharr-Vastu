@@ -3205,7 +3205,7 @@
         "step": 2,
         "unit": "px",
         "label": "Padding Top (Desktop)",
-        "default": 16,
+        "default": 20,
         "info": "Default padding top for all sections on desktop"
       },
       {
@@ -3216,7 +3216,7 @@
         "step": 2,
         "unit": "px",
         "label": "Padding Bottom (Desktop)",
-        "default": 16,
+        "default": 20,
         "info": "Default padding bottom for all sections on desktop"
       },
       {
@@ -3227,7 +3227,7 @@
         "step": 2,
         "unit": "px",
         "label": "Margin Top (Desktop)",
-        "default": 16,
+        "default": 20,
         "info": "Default margin top for all sections on desktop"
       },
       {
@@ -3238,7 +3238,7 @@
         "step": 2,
         "unit": "px",
         "label": "Margin Bottom (Desktop)",
-        "default": 16,
+        "default": 20,
         "info": "Default margin bottom for all sections on desktop"
       },
       {
@@ -3253,7 +3253,7 @@
         "step": 2,
         "unit": "px",
         "label": "Padding Top (Mobile)",
-        "default": 12,
+        "default": 14,
         "info": "Default padding top for all sections on mobile"
       },
       {
@@ -3264,7 +3264,7 @@
         "step": 2,
         "unit": "px",
         "label": "Padding Bottom (Mobile)",
-        "default": 12,
+        "default": 14,
         "info": "Default padding bottom for all sections on mobile"
       },
       {
@@ -3275,7 +3275,7 @@
         "step": 2,
         "unit": "px",
         "label": "Margin Top (Mobile)",
-        "default": 12,
+        "default": 14,
         "info": "Default margin top for all sections on mobile"
       },
       {
@@ -3286,7 +3286,7 @@
         "step": 2,
         "unit": "px",
         "label": "Margin Bottom (Mobile)",
-        "default": 12,
+        "default": 14,
         "info": "Default margin bottom for all sections on mobile"
       },
       {
