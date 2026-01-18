@@ -31,7 +31,7 @@
 
   .vastu-featured-products__icon-svg {
     min-height: 9.375rem;
-    padding: var(--spacing-lg);
+    padding: var(--global-body-margin-bottom-desktop, 1.5rem);
   }
 
   .vastu-featured-products__icon-svg svg {
@@ -54,7 +54,7 @@
   }
 
   .vastu-product-showcase {
-    padding: var(--spacing-xl) 0;
+    padding: var(--global-body-margin-bottom-desktop, 2rem) 0;
   }
 
   .vastu-product-showcase__title {

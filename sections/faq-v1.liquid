@@ -4,10 +4,13 @@
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
     <div class="faq-content-wrapper">
-    <div class='faq-v3__heading'>
+    <div class='faq-v3__heading' style="margin-bottom: 0 !important; margin-top: 0 !important;">
+      {%- comment -%} Subtitle hidden per request {%- endcomment -%}
+      {%- comment -%}
       {%- if section.settings.subtitle != blank -%}
         <xo-animate xo-cascade class='faq-v3__subtitle'>{{ section.settings.subtitle }}</xo-animate>
       {%- endif -%}
+      {%- endcomment -%}
       {%- if section.settings.title -%}
         <xo-animate xo-cascade>
           {% render 'homepage-heading', title: section.settings.title, section: section, class: 'faq-v3__title' %}

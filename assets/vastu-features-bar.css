@@ -147,7 +147,7 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
 }
 
 .vastu-features-bar__text {
-  font-size: var(--font-size-description, 1.6rem);
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
   font-weight: var(--font-weight-medium, 500);
   margin: 0;
   line-height: 1.5;
@@ -200,6 +200,6 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
   }
 
   .vastu-features-bar__text {
-    font-size: var(--font-size-description, 1.6rem);
+    font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
   }
 }

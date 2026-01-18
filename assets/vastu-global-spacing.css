@@ -1,0 +1,397 @@
+/* ========================================
+   CLEAN SPACING SYSTEM
+   Uses ONLY config variables - NO hardcoded values
+   Handles padding, margins, and spacing for all elements
+   ======================================== */
+
+/* CSS Variables from Settings - Set via settings-adapter.liquid */
+
+/* All spacing comes from Global Typography Settings and Section Spacing Settings */
+
+/* ========================================
+   SECTION SPACING (Padding & Margins)
+   ======================================== */
+
+/* Desktop - Section Padding & Margins */
+
+/* ========================================
+   SECTION BORDERS & SHADOWS
+   Apply to ALL sections for visual distinction
+   ======================================== */
+
+/* Apply shadows to all section elements - subtle and beautiful */
+section,
+div.xo-section,
+div.vastu-section-spacing,
+.xo-section,
+.vastu-section-spacing,
+main section,
+main div.xo-section,
+main .xo-section {
+  /* Section shadows for visual distinction - single subtle shadow only */
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+  position: relative;
+}
+
+/* Dedicated class for section spacing - only sections with this class get spacing */
+.vastu-section-spacing {
+  padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 0));
+  padding-bottom: var(--section-padding-bottom-desktop, var(--global-section-padding-bottom-desktop, 0));
+  margin-top: var(--section-margin-top-desktop, var(--global-section-margin-top-desktop, 0));
+  margin-bottom: var(--section-margin-bottom-desktop, var(--global-section-margin-bottom-desktop, 0));
+}
+
+/* Light backgrounds - use darker shadow */
+section[class*="background-1"],
+section[class*="color-background-1"],
+div[class*="background-1"],
+div[class*="color-background-1"],
+.xo-section[class*="background-1"],
+.xo-section[class*="color-background-1"],
+.vastu-section-spacing[class*="background-1"],
+.vastu-section-spacing[class*="color-background-1"],
+section[style*="background-color: #fff"],
+section[style*="background-color: #ffffff"],
+section[style*="background-color: rgb(255, 255, 255)"],
+div[style*="background-color: #fff"],
+div[style*="background-color: #ffffff"],
+div[style*="background-color: rgb(255, 255, 255)"] {
+  box-shadow: 0 2px 10px rgb(0 0 0 / 8%);
+}
+
+/* Dark backgrounds - use stronger shadow */
+section[class*="background-2"],
+section[class*="color-background-2"],
+div[class*="background-2"],
+div[class*="color-background-2"],
+.xo-section[class*="background-2"],
+.xo-section[class*="color-background-2"],
+.vastu-section-spacing[class*="background-2"],
+.vastu-section-spacing[class*="color-background-2"],
+section[style*="background-color: #473855"],
+section[style*="background-color: rgb(71, 56, 85)"],
+div[style*="background-color: #473855"],
+div[style*="background-color: rgb(71, 56, 85)"] {
+  box-shadow: 0 2px 10px rgb(0 0 0 / 25%);
+}
+
+/* Mobile - Section Padding & Margins */
+@media (width <= 48rem) {
+  section,
+  div.xo-section,
+  div.vastu-section-spacing,
+  .xo-section,
+  .vastu-section-spacing {
+    /* Subtle shadow on mobile */
+    box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
+  }
+
+  .vastu-section-spacing {
+    padding-top: var(--section-padding-top-mobile, var(--global-section-padding-top-mobile, 0));
+    padding-bottom: var(--section-padding-bottom-mobile, var(--global-section-padding-bottom-mobile, 0));
+    margin-top: var(--section-margin-top-mobile, var(--global-section-margin-top-mobile, 0));
+    margin-bottom: var(--section-margin-bottom-mobile, var(--global-section-margin-bottom-mobile, 0));
+  }
+}
+
+/* Remove top spacing for homepage carousel section */
+.xo-section--template--26072419696953__homepage-carousel.vastu-section-spacing,
+section.xo-section--template--26072419696953__homepage-carousel.vastu-section-spacing {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+@media (width <= 48rem) {
+  .xo-section--template--26072419696953__homepage-carousel.vastu-section-spacing,
+  section.xo-section--template--26072419696953__homepage-carousel.vastu-section-spacing {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* Section-to-section spacing */
+
+/* Commented out per request */
+
+/*
+.section + .section {
+  margin-top: var(--section-to-section-spacing-mobile, var(--global-section-to-section-spacing-mobile, 0));
+}
+
+@media (width >= 48rem) {
+  .section + .section {
+    margin-top: var(--section-to-section-spacing-desktop, var(--global-section-to-section-spacing-desktop, 0));
+  }
+}
+*/
+
+/* ========================================
+   TEXT ELEMENT MARGINS (Typography Spacing)
+   ======================================== */
+
+/* Desktop - Heading Margins */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.vastu-heading,
+.homepage-section-heading,
+.vastu-section-title,
+.vastu-section-heading,
+.xo-section-heading__title,
+.vastu-why-kit__title,
+.vastu-trust-bar__title,
+.vastu-help-address-v1__section-title,
+.vastu-shop-by-concern__section-title,
+.vastu-best-seller__section-title,
+.vastu-featured-products__section-title,
+.vastu-product-showcase__title,
+.blog-v2__title,
+.faq-v3__title,
+.banner-v155__title,
+.slideshow-v28__title {
+  margin-bottom: var(--section-heading-margin-bottom-desktop, var(--global-heading-margin-bottom-desktop, 48px));
+}
+
+/* Mobile - Heading Margins */
+@media (width <= 48rem) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
+  .vastu-heading,
+  .homepage-section-heading,
+  .vastu-section-title,
+  .vastu-section-heading,
+  .xo-section-heading__title,
+  .vastu-why-kit__title,
+  .vastu-trust-bar__title,
+  .vastu-help-address-v1__section-title,
+  .vastu-shop-by-concern__section-title,
+  .vastu-best-seller__section-title,
+  .vastu-featured-products__section-title,
+  .vastu-product-showcase__title,
+  .blog-v2__title,
+  .faq-v3__title,
+  .banner-v155__title,
+  .slideshow-v28__title,
+  footer h2,
+  footer h3 {
+    margin-bottom: var(--section-heading-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px));
+  }
+}
+
+/* Remove margin from FAQ heading wrapper - placed after heading margins to override */
+.faq-v3__heading,
+.faq-content-wrapper .faq-v3__heading,
+section .faq-v3__heading,
+.faq-section-wrapper .faq-v3__heading {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* Remove margin-bottom from FAQ title heading */
+.homepage-section-heading.faq-v3__title,
+.faq-v3__title.homepage-section-heading {
+  margin-bottom: 0;
+}
+
+/* Desktop - Subtitle Margins */
+.subtitle,
+.vastu-subtitle,
+.banner-v155__subtitle,
+.slideshow-v28__subtitle {
+  margin-bottom: var(--section-subtitle-margin-bottom-desktop, var(--global-subtitle-margin-bottom-desktop, 24px));
+}
+
+/* Mobile - Subtitle Margins */
+@media (width <= 48rem) {
+  .subtitle,
+  .vastu-subtitle,
+  .banner-v155__subtitle,
+  .slideshow-v28__subtitle {
+    margin-bottom: var(--section-subtitle-margin-bottom-mobile, var(--global-subtitle-margin-bottom-mobile, 20px));
+  }
+}
+
+/* Desktop - Body Text Margins */
+p {
+  margin-bottom: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
+}
+
+/* Mobile - Body Text Margins */
+@media (width <= 48rem) {
+  p {
+    margin-bottom: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+  }
+}
+
+/* Desktop - Card Title Margins */
+.vastu-card-title,
+.product-card__title,
+.collection-card__title,
+.article-card__title,
+.card-title,
+.vastu-product-card__title,
+.vastu-best-seller-card__title,
+.vastu-featured-products__title {
+  margin-bottom: var(--section-card-title-margin-bottom-desktop, var(--global-card-title-margin-bottom-desktop, 12px));
+}
+
+/* Mobile - Card Title Margins */
+@media (width <= 48rem) {
+  .vastu-card-title,
+  .product-card__title,
+  .collection-card__title,
+  .article-card__title,
+  .card-title,
+  .vastu-product-card__title,
+  .vastu-best-seller-card__title,
+  .vastu-featured-products__title {
+    margin-bottom: var(--section-card-title-margin-bottom-mobile, var(--global-card-title-margin-bottom-mobile, 12px));
+  }
+}
+
+/* Desktop - Description Margins */
+.description,
+.vastu-description,
+.product-card__description,
+.vastu-product-showcase__description,
+.vastu-product-showcase__description p,
+.footer-v18__description {
+  margin-bottom: var(--section-description-margin-bottom-desktop, var(--global-description-margin-bottom-desktop, 24px));
+}
+
+/* Mobile - Description Margins */
+@media (width <= 48rem) {
+  .description,
+  .vastu-description,
+  .product-card__description,
+  .vastu-product-showcase__description,
+  .vastu-product-showcase__description p,
+  .vastu-product-showcase__price,
+  .footer-v18__description {
+    margin-bottom: var(--section-description-margin-bottom-mobile, var(--global-description-margin-bottom-mobile, 20px));
+  }
+}
+
+/* ========================================
+   COMPONENT-SPECIFIC SPACING
+   ======================================== */
+
+/* Remove hardcoded margins from common elements - use config instead */
+.banner-v155__subtitle,
+.banner-v155__title,
+.banner-v155__description,
+.banner-v155__description-heading,
+.banner-v155__description-list li {
+  margin-top: 0;
+}
+
+.banner-v155__subtitle {
+  margin-bottom: var(--section-subtitle-margin-bottom-desktop, var(--global-subtitle-margin-bottom-desktop, 24px));
+}
+
+.banner-v155__title {
+  margin-bottom: var(--section-heading-margin-bottom-desktop, var(--global-heading-margin-bottom-desktop, 48px));
+}
+
+.banner-v155__description {
+  margin-bottom: var(--section-description-margin-bottom-desktop, var(--global-description-margin-bottom-desktop, 24px));
+}
+
+.banner-v155__description-heading {
+  margin-top: var(--section-description-margin-bottom-desktop, var(--global-description-margin-bottom-desktop, 24px));
+  margin-bottom: var(--section-heading-margin-bottom-desktop, var(--global-heading-margin-bottom-desktop, 48px));
+}
+
+.banner-v155__description-list {
+  margin-top: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
+}
+
+.banner-v155__description-list li {
+  margin-bottom: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
+}
+
+/* Mobile adjustments for banner */
+@media (width <= 48rem) {
+  .banner-v155__subtitle {
+    margin-bottom: var(--section-subtitle-margin-bottom-mobile, var(--global-subtitle-margin-bottom-mobile, 20px));
+  }
+
+  .banner-v155__title {
+    margin-bottom: var(--section-heading-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px));
+  }
+
+  .banner-v155__description {
+    margin-bottom: var(--section-description-margin-bottom-mobile, var(--global-description-margin-bottom-mobile, 20px));
+  }
+
+  .banner-v155__description-heading {
+    margin-top: var(--section-description-margin-bottom-mobile, var(--global-description-margin-bottom-mobile, 20px));
+    margin-bottom: var(--section-heading-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px));
+  }
+
+  .banner-v155__description-list {
+    margin-top: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+  }
+
+  .banner-v155__description-list li {
+    margin-bottom: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+  }
+}
+
+/* Hero section spacing */
+.vastu-hero__subtitle,
+.vastu-hero__title,
+.vastu-hero__description {
+  margin-top: 0;
+}
+
+.vastu-hero__subtitle {
+  margin-bottom: var(--section-subtitle-margin-bottom-desktop, var(--global-subtitle-margin-bottom-desktop, 24px));
+}
+
+.vastu-hero__title {
+  margin-bottom: var(--section-heading-margin-bottom-desktop, var(--global-heading-margin-bottom-desktop, 48px));
+}
+
+.vastu-hero__description {
+  margin-bottom: var(--section-description-margin-bottom-desktop, var(--global-description-margin-bottom-desktop, 24px));
+}
+
+@media (width <= 48rem) {
+  .vastu-hero__subtitle {
+    margin-bottom: var(--section-subtitle-margin-bottom-mobile, var(--global-subtitle-margin-bottom-mobile, 20px));
+  }
+
+  .vastu-hero__title {
+    margin-bottom: var(--section-heading-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px));
+  }
+
+  .vastu-hero__description {
+    margin-bottom: var(--section-description-margin-bottom-mobile, var(--global-description-margin-bottom-mobile, 20px));
+  }
+}
+
+/* ========================================
+   SECTION-LEVEL OVERRIDES
+   Sections can set CSS variables to override global settings
+   Example: style="--section-heading-margin-bottom-desktop: 60px;"
+   ======================================== */

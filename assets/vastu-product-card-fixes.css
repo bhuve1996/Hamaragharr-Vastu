@@ -597,7 +597,7 @@ xo-product-recommendations .xo-product-card__add-to-cart button,
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
-  font-size: var(--font-size-description, 1.6rem);
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
   font-weight: var(--font-weight-semibold, 600);
   transition:
     background-color 0.3s ease,
@@ -875,13 +875,15 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
   .section-collection-products .xo-product-card__title a,
   .filters-content .xo-product-card__title,
   .filters-content .xo-product-card__title a {
-    font-size: 2rem;
-    line-height: 1.4;
+    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile, 1.3rem));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 600));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile, 1.3));
   }
 
   .section-collection-products .xo-product-card__price-overlay,
   .filters-content .xo-product-card__price-overlay {
-    font-size: 2rem;
+    font-size: var(--card-price-size, var(--global-card-price-font-size-mobile));
+    font-weight: var(--global-card-price-font-weight-mobile, var(--font-weight-bold, 700));
     padding: 0.6rem 0.9rem;
   }
 
@@ -889,7 +891,8 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
   .section-collection-products .xo-product-card__add-to-cart button,
   .filters-content .xo-product-card__add-to-cart .xo-btn,
   .filters-content .xo-product-card__add-to-cart button {
-    font-size: 1.8rem;
+    font-size: var(--button-font-size-mobile, var(--global-body-font-size-mobile));
+    font-weight: var(--button-font-weight-mobile, var(--global-body-font-weight-mobile, 400));
     padding: 0.6rem 1.2rem;
   }
 
@@ -899,7 +902,8 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
   section[class*="product-recommendations"] .xo-product-card__add-to-cart button,
   .product-recommendations .xo-product-card__add-to-cart .xo-btn,
   .product-recommendations .xo-product-card__add-to-cart button {
-    font-size: 1.8rem;
+    font-size: var(--button-font-size-mobile, var(--global-body-font-size-mobile));
+    font-weight: var(--button-font-weight-mobile, var(--global-body-font-weight-mobile, 400));
     padding: 0.6rem 1.2rem;
   }
 }
@@ -1082,7 +1086,7 @@ section[class*="product-recommendations"]
   color: #fff;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
-  font-size: var(--card-price-size, 1.2rem);
+  font-size: var(--global-card-price-font-size-desktop);
   font-weight: 600;
   z-index: 999;
   backdrop-filter: blur(4px);
@@ -1107,7 +1111,7 @@ section[class*="product-recommendations"] .xo-product-card__price-overlay,
   color: #fff;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
-  font-size: var(--card-price-size, 1.2rem);
+  font-size: var(--global-card-price-font-size-desktop);
   font-weight: 600;
   z-index: 2;
   backdrop-filter: blur(4px);
@@ -1421,7 +1425,7 @@ section[class*="product-recommendations"] .xo-product-card__header .xo-product-c
   color: #fff;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
-  font-size: var(--card-price-size, 1.2rem);
+  font-size: var(--global-card-price-font-size-desktop);
   font-weight: 600;
   z-index: 5;
   backdrop-filter: blur(4px);

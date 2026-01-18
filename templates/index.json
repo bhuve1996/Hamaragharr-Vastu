@@ -160,35 +160,35 @@
         "benefit_1": {
           "type": "why_kit_benefit",
           "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 448 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z\"></path><text x=\"224\" y=\"380\" font-size=\"48\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\" dominant-baseline=\"middle\">₹</text></svg>",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M211.8 0c7.8 0 14.3 5.7 16.7 13.2C240.8 51.9 277.1 80 320 80s79.2-28.1 91.5-66.8C413.9 5.7 420.4 0 428.2 0h12.6c22.5 0 44.2 7.9 61.5 22.3L628.5 127.4c6.6 5.5 10.7 13.5 11.4 22.1s-2.1 17.1-7.8 23.6l-56 64c-11.4 13.1-31.2 14.6-44.6 3.5L480 197.7V448c0 35.3-28.7 64-64 64H224c-35.3 0-64-28.7-64-64V197.7l-51.5 42.9c-13.3 11.1-33.1 9.6-44.6-3.5l-56-64c-5.7-6.5-8.5-15-7.8-23.6s4.8-16.6 11.4-22.1L137.7 22.3C155 7.9 176.7 0 199.2 0h12.6zM64 288H576V448c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V288zM96 160v48H544V160H96z\"></path></svg>",
             "text": "No Consultation"
           }
         },
         "benefit_2": {
           "type": "why_kit_benefit",
           "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 640 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M64 32C28.7 32 0 60.7 0 96V352c0 35.3 28.7 64 64 64H240l-32-32H64V320H211.2l-32-32H64V256H179.2l-32-32H64V192H147.2l-32-32H64V128h51.2L83.2 96H64V96c0-17.7 14.3-32 32-32H544c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H413.3l32 32H544c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm448 96c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V128zm32 0v64c0 17.7 14.3 32 32 32s32-14.3 32-32V128c0-17.7-14.3-32-32-32s-32 14.3-32 32zM480 256c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V256zm32 0v64c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-17.7-14.3-32-32-32s-32 14.3-32 32z\"></path></svg>",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 576 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-17 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24zM256 192c-35.3 0-64 28.7-64 64v48h128V256c0-35.3-28.7-64-64-64zM96 224c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H192V224H96zm288 0V352H480c17.7 0 32-14.3 32-32V256c0-17.7-14.3-32-32-32H384z\"></path></svg>",
             "text": "No Demolition"
           }
         },
         "benefit_3": {
           "type": "why_kit_benefit",
           "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M336 352c97.2 0 176-78.8 176-176c0-97.2-78.8-176-176-176c-97.2 0-176 78.8-176 176c0 97.2 78.8 176 176 176zM336 96c44.2 0 80 35.8 80 80s-35.8 80-80 80s-80-35.8-80-80s35.8-80 80-80zM167.1 342.1c-40.9-24.5-73.1-57.1-97.1-97.1L54.2 256C49.1 256 45 252 45 246.9c0-1.9 .6-3.7 1.8-5.2L67.3 208c7-8.5 17.8-13.3 28.9-12.4c5.5 .5 10.8 2.2 15.4 5.1l0 0 0 0 .1 .1 .1 .1 27.4 21.9c25.2 20.2 38.4 51.7 34.6 82.7l-2.2 20.8c-.5 5.1-4.6 9-9.7 9c-1.9 0-3.8-.6-5.3-1.8l-33-26.4zm266.4-19.6c.6-5.5 2.2-10.8 5.1-15.4l0 0 0 0 .1-.1 .1-.1 21.9-27.4c20.2-25.2 51.7-38.4 82.7-34.6l20.8 2.2c5.1 .5 9 4.6 9 9.7c0 1.9-.6 3.8-1.8 5.3l-26.4 33c-24.5 40.9-57.1 73.1-97.1 97.1L345.8 256c-5.1 0-9-4.1-9.7-9.1l-2.2-20.8c-3.8-31 9.4-62.5 34.6-82.7l27.4-21.9c4.6-2.9 9.9-4.6 15.4-5.1c11.1-.9 21.9 3.9 28.9 12.4l20.5 33.8c1.2 1.5 1.8 3.3 1.8 5.2c0 5.1-4.1 9.1-9.1 9.1l-15.7-1.7zM393.4 9.4c12.5-12.5 32.8-12.5 45.3 0l64 64c12.5 12.5 12.5 32.8 0 45.3l-176 176c-12.5 12.5-32.8 12.5-45.3 0l-64-64c-12.5-12.5-12.5-32.8 0-45.3l176-176z\"></path><path d=\"M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192c12.5-12.5 32.8-12.5 45.3 0z\"></path></svg>",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.3 49.2 86.2H272zM192 128a128 128 0 1 1 0 256 128 128 0 1 1 0-256zM105.1 182.6c12.5-12.5 32.8-12.5 45.3 0l64 64c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0l-64-64c-12.5-12.5-12.5-32.8 0-45.3zm173.3 0c12.5 12.5 12.5 32.8 0 45.3l-64 64c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l64-64c12.5-12.5 32.8-12.5 45.3 0z\"></path></svg>",
             "text": "Easy Solutions"
           }
         },
         "benefit_4": {
           "type": "why_kit_benefit",
           "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 320 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M160 0c17.7 0 32 14.3 32 32V66.7c1.6 0 3.1 .1 4.7 .2l4.7 .3c12.3 .7 23.8 4.3 33.7 9.6c14.8 7.9 27.2 19.4 35.9 33.5l24.2 36.2c5.3 7.9 8.1 17 8.1 26.2c0 23.2-18.8 42-42 42c-7.5 0-14.7-2-20.9-5.7l-7.9-4.7c-6.1-3.6-13.1-5.7-20.4-5.7H151.2c-9.3 0-18.2 4.1-24.2 11.2l-15.2 18.9c-9.6 11.9-22.9 19.1-37.3 21.2c-1.2 .1-2.4 .2-3.6 .2H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H50.5c1.9 0 3.8-.2 5.6-.5c5.1-.7 9.8-2.5 13.7-5.4l15.2-18.9c15.6-19.4 38.8-31.2 63.4-31.2H186.6c7.3 0 14.3-2.1 20.4-5.7l7.9-4.7c6.2-3.7 13.4-5.7 20.9-5.7c23.2 0 42-18.8 42-42c0-9.2-2.8-18.3-8.1-26.2l-24.2-36.2c-8.7-14.1-21.1-25.6-35.9-33.5c-10-5.3-21.5-8.9-33.7-9.6c-1.6-.1-3.1-.2-4.7-.2V32c0-17.7 14.3-32 32-32zM80 128a16 16 0 1 0 -32 0 16 16 0 1 0 32 0zm224 0a16 16 0 1 0 32 0 16 16 0 1 0 -32 0zM32 288c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h96v56c0 30.9 25.1 56 56 56h48c30.9 0 56-25.1 56-56V352h96c17.7 0 32-14.3 32-32V320c0-17.7-14.3-32-32-32H32zm128 64H64v32h96V352zm128 0H224v32h64V352z\"></path><text x=\"160\" y=\"280\" font-size=\"120\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\" dominant-baseline=\"middle\">₹</text></svg>",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M160 0c17.7 0 32 14.3 32 32V66.7c23.9 4.3 45.6 13.4 64.3 26.8l-25.1 25.1c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l25.1-25.1c13.4 18.7 22.5 40.4 26.8 64.3H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H286.3c-4.3 23.9-13.4 45.6-26.8 64.3l25.1 25.1c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0l-25.1-25.1c-18.7 13.4-40.4 22.5-64.3 26.8V448c0 17.7-14.3 32-32 32s-32-14.3-32-32V445.3c-23.9-4.3-45.6-13.4-64.3-26.8l-25.1 25.1c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l25.1-25.1C33.7 333.6 24.6 311.9 20.3 288H32c17.7 0 32-14.3 32-32s-14.3-32-32-32H20.3c4.3-23.9 13.4-45.6 26.8-64.3L22 146.5c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l25.1 25.1c18.7-13.4 40.4-22.5 64.3-26.8V32c0-17.7 14.3-32 32-32zM80 256a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm160 0a48 48 0 1 0 0-96 48 48 0 1 0 0 96z\"></path></svg>",
             "text": "Value For Money"
           }
         },
         "benefit_5": {
           "type": "why_kit_benefit",
           "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 512 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 35.8-27.2 44.1l-57.1 28.5c-15.4 7.7-31.3 13.5-47.6 17.2l-12.9 2.8c-26.5 5.7-53.2 8.4-80.1 8.4c-26.8 0-53.5-2.7-80-8.2l-13-2.8c-16.3-3.7-32.2-9.5-47.6-17.2L74.2 288.1C57.5 279.8 47 262.5 47 244c0-26.5 21.5-48 48-48h143.9c-13.7-23.1-23.5-48.5-28.8-75.2l-2.3-11.4c-5.2-26 11.7-51.3 37.7-56.5c26-5.2 51.3 11.7 56.5 37.7l2.3 11.4c3.5 17.4 9.6 34.1 17.9 49.7c5.2-12.1 11.5-23.7 18.8-34.5l6-9.1c5.9-8.9 15.2-14.6 25.3-15.8zM27.4 384H288c10.1 0 19.6 4.7 25.6 12.8l64 96c4.8 7.2 7.4 15.8 7.4 24.6c0 21.8-17.7 39.5-39.5 39.5H39.5C17.7 557.5 0 539.8 0 518c0-8.4 2.5-16.6 7.2-23.6l64-96c6-8.1 15.5-12.8 25.6-12.8H27.4z\"></path></svg>",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" fill=\"currentColor\" width=\"64\" height=\"64\"><path d=\"M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4h54.1l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109V104c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 425.6 0 443.1V488c0 13.3 10.7 24 24 24H68.9c17.5 0 34.3-7.2 47-19.9L233 372.7c-7.4-4.3-15.3-7.9-23.6-10.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5c-2.8-12.5-7.1-24.5-12.8-35.7c0 0 0 0 0 0l-1.1-2.2c-1.3-2.4-2.6-4.8-4.1-7.1c-5.2-8.1-11.4-15.5-18.5-22.2L407 9.4C397.9 .1 385.8-2.5 375.2 1.2S361.7 12.1 358 22.8l-14.5 42.4c-1.9 5.5-4.4 10.8-7.4 15.8c-16.2 27.2-27.1 58.2-31.4 91.1l63.5 63.5c32.9-4.3 63.9-15.2 91.1-31.4c5-3 10.3-5.5 15.8-7.4L487.2 154c10.7-3.7 21.8-2.1 30.5 3.2s14.9 13.3 18.6 24c3.7 10.6 3.1 22.7-2.6 32.8l-17.6 30.6c-1.3 2.3-2.7 4.6-4.1 6.9c0 0 0 0 0 0c-8.1 13.9-18.5 26.4-30.9 36.9c-2.4 2-4.9 3.9-7.4 5.7c-2.5 1.8-5 3.5-7.6 5.1c0 0 0 0 0 0c-2.7 1.6-5.4 3.1-8.2 4.5c-11.2 5.7-23.2 10-35.7 12.8c-9.8 2.1-20 3.2-30.5 3.2V144z\"></path></svg>",
             "text": "Self Installation"
           }
         }
@@ -355,67 +355,31 @@
         "show_pagination_mobile": false
       }
     },
-    "vastu-best-seller-cards": {
-      "type": "vastu-best-seller-cards",
-      "blocks": {
-        "card_4CEkpr": {
-          "type": "card",
-          "settings": {
-            "product": "golden-dawn-seven-horses-vastu-painting-enhance-the-positive-energy-success-and-harmony"
-          }
-        },
-        "card_nEFWRM": {
-          "type": "card",
-          "settings": {
-            "product": "framed-bull-painting-for-vastu-solution-strength-stability-and-prosperity"
-          }
-        },
-        "card_CNyNy3": {
-          "type": "card",
-          "settings": {
-            "product": "white-owl-vastu-wall-painting-symbol-of-wisdom-wealth-protection"
-          }
-        },
-        "card_LfqaYg": {
-          "type": "card",
-          "settings": {
-            "product": "framed-7-horses-painting-for-vastu-solution-enhance-positivity-success"
-          }
-        },
-        "card_gDdbeW": {
-          "type": "card",
-          "settings": {
-            "product": "golden-tree-of-life-vastu-wall-painting-symbol-of-wealth-growth-abundance"
-          }
-        }
-      },
-      "block_order": [
-        "card_4CEkpr",
-        "card_nEFWRM",
-        "card_CNyNy3",
-        "card_LfqaYg",
-        "card_gDdbeW"
-      ],
+    "vastu-grid-carousel-homepage": {
+      "type": "vastu-grid-carousel",
       "settings": {
-        "width": "wide",
-        "title": "Best Sellers",
-        "title_font_size": 3.5,
-        "title_font_weight": 700,
-        "title_color": "",
-        "title_text_transform": "",
-        "title_line_height": 0,
-        "title_enable_animation": false,
-        "title_margin_bottom_desktop": 0,
-        "title_margin_bottom_mobile": 0,
-        "title_enable_underline": false,
-        "title_underline_color": "#473855",
-        "title_underline_width": 80,
-        "title_underline_height": 4,
-        "title_underline_bottom_desktop": 0,
-        "title_underline_bottom_mobile": 0,
+        "heading_title": "Best Seller",
+        "heading_description": "",
+        "heading_align": "center",
+        "collection": "all",
+        "products_limit": 4,
+        "view_more_limit": 4,
+        "columns_desktop": 4,
+        "view_more_text": "View More",
+        "show_navigation": true,
+        "show_pagination": true,
+        "width": "fullwidth",
+        "fullwidth_margin": 0,
+        "card_title_font_size": 1.5,
+        "card_price_font_size": 1.2,
+        "button_text_add_to_cart": "Add to Cart",
+        "show_wishlist": true,
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
+        "background_gradient": "",
+        "background_image_desktop": "",
+        "background_image_mobile": "",
         "padding_top": 0,
         "padding_bottom": 0,
         "section_padding_top_desktop": 0,
@@ -425,18 +389,7 @@
         "section_padding_top_mobile": 0,
         "section_padding_bottom_mobile": 0,
         "section_margin_top_mobile": 0,
-        "section_margin_bottom_mobile": 0,
-        "enable_separator": false,
-        "separator_color": "#473855",
-        "separator_height": 1,
-        "separator_width": 10,
-        "separator_padding_top": 0,
-        "separator_padding_bottom": 0,
-        "button_text_add_to_cart": "Add to Cart",
-        "card_title_font_size": 1.5,
-        "card_price_font_size": 1.2,
-        "show_pagination_desktop": false,
-        "show_pagination_mobile": false
+        "section_margin_bottom_mobile": 0
       }
     },
     "vastu-hindi-statement": {
@@ -1022,7 +975,7 @@
     "vastu-why-kit",
     "vastu-product-showcase",
     "vastu-help-address-v1",
-    "vastu-best-seller-cards",
+    "vastu-grid-carousel-homepage",
     "vastu-hindi-statement",
     "vastu-shop-by-concern",
     "vastu-trust-bar",

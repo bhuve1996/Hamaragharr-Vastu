@@ -100,16 +100,13 @@
                     <a href='{{ article.url }}'>
                       <h3 class='blog-v2__item-title'>
                         {%- if block.settings.custom_title != blank -%}
-                          {{ block.settings.custom_title | truncate: 50 | escape }}
+                          {{ block.settings.custom_title | escape }}
                         {%- else -%}
-                          {{ article.title | truncate: 50 | escape }}
+                          {{ article.title | escape }}
                         {%- endif -%}
                       </h3>
                     </a>
-                    <a href='{{ article.url }}' class='blog-v2__button'>
-                      <span>{{ block.settings.button_text | default: section.settings.button_text }}</span>
-                      {% render 'icon', name: 'icon-arrow', icon_size: '15' %}
-                    </a>
+                    {%- comment -%} Read more button removed per user request {%- endcomment -%}
                   </xo-animate>
                 {%- else -%}
                   <xo-animate xo-cascade>
@@ -135,13 +132,10 @@
                     </div>
                     <a href='{{ article.url }}'>
                       <h3 class='blog-v2__item-title'>
-                        {{ article.title | truncate: 50 | escape }}
+                        {{ article.title | escape }}
                       </h3>
                     </a>
-                    <a href='{{ article.url }}' class='blog-v2__button'>
-                      <span>{{ section.settings.button_text }}</span>
-                      {% render 'icon', name: 'icon-arrow', icon_size: '15' %}
-                    </a>
+                    {%- comment -%} Read more button removed per user request {%- endcomment -%}
                   </xo-animate>
                 {%- else -%}
                   <xo-animate xo-cascade>

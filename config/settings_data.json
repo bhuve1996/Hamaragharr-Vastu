@@ -76,6 +76,7 @@
     "spacing_sections": 64,
     "spacing_grid_horizontal": 30,
     "spacing_grid_vertical": 30,
+    "homepage_heading_enable_underline": false,
     "buttons_background_opacity": 100,
     "variant_style": "boxed",
     "variant_color_style": "color",

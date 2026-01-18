@@ -91,8 +91,14 @@
     In Liquid, false != blank is true, so we check if it's explicitly set (not blank)
     If section setting is blank (not in schema), fall back to global setting
     Special case: Hindi section always has underline disabled (check by class name)
+    Global setting takes precedence - if global is false, disable everywhere
   endcomment
   if class != blank and class contains 'vastu-hindi-statement'
+    assign heading_enable_underline = false
+  elsif settings.homepage_heading_enable_underline == false
+    comment
+      Global setting is explicitly false - disable underlines everywhere regardless of section settings
+    endcomment
     assign heading_enable_underline = false
   elsif section.settings.title_enable_underline != blank
     assign heading_enable_underline = section.settings.title_enable_underline

@@ -1,30 +1,29 @@
 .banner-v155__description p {
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
 }
 
 .banner-v155__description-heading {
-  font-size: 2.2rem;
+  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem));
   font-weight: 700;
   color: rgb(var(--color-foreground, 0, 0, 0));
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  /* Margins handled by vastu-global-spacing.css */
+  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
 }
 
 .banner-v155__description-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: 1rem;
+  /* Margin-top handled by vastu-global-spacing.css */
 }
 
 .banner-v155__description-list li {
-  font-size: 2rem;
-  line-height: 1.4;
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
-  padding-left: 2rem;
+  padding-left: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
   position: relative;
-  margin-bottom: 0.5rem;
+  /* Margin-bottom handled by vastu-global-spacing.css */
   display: flex;
   align-items: flex-start;
 }
@@ -33,10 +32,10 @@
   content: "•";
   position: absolute;
   left: 0;
-  font-size: 2rem;
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   font-weight: 700;
-  line-height: 1.4;
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   top: 0;
 }
 
@@ -51,17 +50,17 @@
 }
 
 .vastu-hero__subtitle {
-  margin-bottom: 4.5rem;
+  /* Margin-bottom handled by vastu-global-spacing.css */
   margin-top: 0;
 }
 
 .vastu-hero__title {
-  margin-bottom: 4.5rem;
+  /* Margin-bottom handled by vastu-global-spacing.css */
   margin-top: 0;
 }
 
 .vastu-hero__description {
-  margin-bottom: 4.5rem;
+  /* Margin-bottom handled by vastu-global-spacing.css */
   margin-top: 0;
 }
 
@@ -163,12 +162,12 @@
   box-shadow: none;
 }
 
-.banner-v155__item--right xo-carousel {
-  width: 100%;
-  position: relative;
-  overflow: visible;
-  padding-bottom: 3rem;
-}
+  .banner-v155__item--right xo-carousel {
+    width: 100%;
+    position: relative;
+    overflow: visible;
+    padding-bottom: var(--section-padding-bottom-desktop, var(--global-section-padding-bottom-desktop, 20px));
+  }
 
 .banner-v155__item--right xo-carousel-inner {
   width: 100%;
@@ -238,7 +237,7 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   section[class*="banner-v3"] .banner-v155__carousel-pagination,
   section[class*="banner-v155"] .banner-v155__carousel-pagination {
     bottom: -1.5rem;
-    margin-top: 0.75rem;
+    margin-top: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
   }
 }
 
@@ -247,11 +246,11 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   section h2,
   section h3,
   .xo-section-heading__title {
-    font-size: 2.5rem;
+    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
   }
 
   .banner-v155__description {
-    font-size: 2rem;
+    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
     max-width: 100%;
   }
 
@@ -261,7 +260,7 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   }
 
   .banner-v155__content {
-    padding: 0 0 1.5rem;
+    padding: 0 0 var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
     text-align: left;
   }
 
@@ -295,7 +294,7 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  padding: 1.4rem 0.8rem;
+  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
   display: inline-block;
 }
 
@@ -348,7 +347,7 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
 .xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed .xo-field-radio__label,
 .xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed2 .xo-field-radio__label,
 .xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed3 .xo-field-radio__label {
-  padding: 1.4rem 0.8rem;
+  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
   min-height: auto;
   width: auto;
   min-width: fit-content;
@@ -375,7 +374,7 @@ xo-collapse-trigger.shipping-accordion__trigger,
   align-items: center;
   gap: 1rem;
   background-color: var(--bg-color, #f8f8f8);
-  padding: 1.5rem;
+  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
   border-radius: 0.5rem;
   width: 100%;
   max-width: 100%;
@@ -387,8 +386,9 @@ xo-collapse-trigger.shipping-accordion__trigger,
 }
 
 .trustbadge__text {
-  font-size: 1.6rem;
-  font-weight: 500;
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
+  font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   text-align: center;
   margin: 0;
   color: rgb(var(--color-foreground, 0, 0, 0));
@@ -445,11 +445,13 @@ xo-collapse-trigger.shipping-accordion__trigger,
 
 @media (width <= 48rem) {
   .trustbadge {
-    padding: 1rem;
+    padding: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
   }
 
   .trustbadge__text {
-    font-size: 1.4rem;
+    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
+    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
+    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
   }
 
   .trustbadge__image {

@@ -25,7 +25,7 @@ h2.homepage-section-heading {
     var(--homepage-heading-line-height, var(--global-heading-line-height-desktop, 1.2))
   );
   color: var(--homepage-heading-color, var(--global-heading-color, #000));
-  text-transform: var(--homepage-heading-text-transform, uppercase);
+  text-transform: var(--homepage-heading-text-transform, none);
 
   /* Spacing - Desktop */
   margin-bottom: var(

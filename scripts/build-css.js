@@ -25,12 +25,15 @@ const cssFiles = [
   'price-tag-styles.css',
   'vastu-sections-spacing.css',
   'section-spacing.css',
+  'vastu-global-spacing.css',
   'homepage-headings.css',
   'vastu-why-kit.css',
   'vastu-product-showcase.css',
   'vastu-hindi-statement.css',
   'vastu-footer.css',
   'vastu-carousel.css',
+  'vastu-grid-carousel.css',
+  'vastu-topbar-promotion.css',
   'vastu-banner-hero.css',
   'vastu-banner-hero-extended.css',
   'vastu-trust-bar.css',
@@ -40,7 +43,8 @@ const cssFiles = [
   'vastu-blog.css',
   'vastu-faq.css',
   'vastu-responsive.css',
-  'vastu-global-typography.css'
+  'vastu-global-typography.css',
+  'vastu-card-image-radius.css'
 ];
 
 const assetsDir = path.join(__dirname, '..', 'assets');

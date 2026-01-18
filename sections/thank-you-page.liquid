@@ -11,24 +11,24 @@
         <xo-animate xo-cascade class='thank-you-page'>
           <div class='thank-you-page__content' style='text-align: center; padding: 60px 20px;'>
             {%- if section.settings.show_icon -%}
-              <div class='thank-you-page__icon' style='font-size: 80px; margin-bottom: 30px;'>
+              <div class='thank-you-page__icon' style='font-size: var(--global-heading-font-size-desktop, 3.5rem); margin-bottom: 30px;'>
                 {{ section.settings.icon | default: '✓' }}
               </div>
             {%- endif -%}
             
-            <h1 class='thank-you-page__title' style='font-size: 2.5rem; margin-bottom: 20px; font-weight: bold;'>
+            <h1 class='thank-you-page__title'>
               {{ section.settings.title | default: 'Thank You for Your Purchase!' }}
             </h1>
             
             {%- if section.settings.message != blank -%}
-              <div class='thank-you-page__message' style='font-size: 1.2rem; margin-bottom: 40px; line-height: 1.6; color: #666;'>
+              <div class='thank-you-page__message description'>
                 {{ section.settings.message }}
               </div>
             {%- endif -%}
             
             {%- if section.settings.show_order_info and checkout.order_id -%}
               <div class='thank-you-page__order-info' style='background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 40px;'>
-                <p style='margin: 0; font-size: 1rem;'>
+                <p>
                   <strong>Order Number:</strong> {{ checkout.order_number }}
                 </p>
               </div>

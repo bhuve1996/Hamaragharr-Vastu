@@ -1,0 +1,596 @@
+{% comment %}
+  Grid/Carousel Section
+  - Mobile: 2 cards per row (grid, no carousel)
+  - Desktop: Full bleed carousel
+  - View More button (loads 4 products max by default)
+{% endcomment %}
+
+{{ 'vastu-grid-carousel.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign collection = section.settings.collection
+  assign products_limit = section.settings.products_limit | default: 4
+  assign view_more_limit = section.settings.view_more_limit | default: 4
+  assign columns_desktop = section.settings.columns_desktop | default: 4
+  
+  if collection == blank or collection.products.size == 0
+    assign has_products = false
+  else
+    assign has_products = true
+  endif
+-%}
+
+<div {% render 'section-attr' %}>
+  {% render 'section-bg-image' %}
+  
+  {% unless has_products %}
+    <xo-container>
+      <p>No products available in this collection.</p>
+    </xo-container>
+  {% else %}
+  
+  {% if section.settings.width == 'fullwidth' %}
+    {% comment %} Full bleed carousel on desktop {% endcomment %}
+    <div class='vastu-grid-carousel__wrapper'>
+      <xo-container class='vastu-grid-carousel__container'>
+        <xo-animate xo-cascade>
+          {% render 'homepage-heading', title: section.settings.heading_title, section: section %}
+        </xo-animate>
+        {% render 'space', value: '2rem' %}
+      </xo-container>
+      
+      {% comment %} Mobile Grid (hidden on desktop) {% endcomment %}
+      <div class='vastu-grid-carousel__mobile-grid'>
+        <xo-container>
+          <xo-grid style='--xs: 2; --sm: 2; --md: 2; --lg: 2; --xl: 2; --xo-grid-col-gap: 10px; --xo-grid-row-gap: 20px;' class='vastu-grid-carousel__grid'>
+            {%- for product in collection.products -%}
+              <div class='vastu-grid-carousel__grid-item{% if forloop.index > products_limit %} vastu-grid-carousel__grid-item--hidden{% endif %}'>
+                {% render 'vastu-grid-card',
+                  product: product,
+                  section: section,
+                  settings: section.settings
+                %}
+              </div>
+            {%- endfor -%}
+          </xo-grid>
+          
+          {% comment %} View More Button for Mobile {% endcomment %}
+          {% if collection.products.size > products_limit %}
+            <div class='vastu-grid-carousel__view-more-wrapper'>
+              <button 
+                type='button' 
+                class='vastu-grid-carousel__view-more-btn'
+                data-section-id='{{ section.id }}'
+                data-current-limit='{{ products_limit }}'
+                data-increment='{{ view_more_limit }}'
+                data-total-products='{{ collection.products.size }}'
+                data-layout='mobile'
+              >
+                {{ section.settings.view_more_text | default: 'View More' }}
+              </button>
+            </div>
+          {% endif %}
+        </xo-container>
+      </div>
+      
+      {% comment %} Desktop Carousel (hidden on mobile) - Full Bleed {% endcomment %}
+      <div class='vastu-grid-carousel__desktop-carousel vastu-grid-carousel__desktop-carousel--fullwidth'>
+        <xo-carousel
+          xo-per-view='{{ columns_desktop }}'
+          xo-gap='20'
+          xo-speed='400'
+          xo-breakpoints='{"768": {"perView": 2}, "992": {"perView": {{ columns_desktop }}}}'
+          xo-render-bullet='<span></span>'
+          class='vastu-grid-carousel__carousel'
+        >
+          <xo-carousel-inner>
+            <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
+              {%- for product in collection.products -%}
+                <xo-carousel-slide 
+                  aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                  aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
+                  data-product-index='{{ forloop.index }}'
+                >
+                  {% render 'vastu-grid-card',
+                    product: product,
+                    section: section,
+                    settings: section.settings
+                  %}
+                </xo-carousel-slide>
+              {%- endfor -%}
+            </xo-carousel-list>
+          </xo-carousel-inner>
+          {% if section.settings.show_navigation %}
+            {% render 'carousel-navigation-style1', display_navigation_desktop: 'flex', display_navigation_mobile: 'none' %}
+          {% endif %}
+          {% if section.settings.show_pagination %}
+            <div class='vastu-grid-carousel__pagination' style='--display-desktop: block; --display-mobile: none;'>
+              {% render 'carousel-pagination-style3' %}
+            </div>
+          {% endif %}
+        </xo-carousel>
+      </div>
+    </div>
+  {% else %}
+    {% comment %} Box/Wide container layout {% endcomment %}
+    <xo-container {% render 'section-layout' %}>
+      <xo-animate xo-cascade>
+        {% render 'homepage-heading', title: section.settings.heading_title, section: section %}
+      </xo-animate>
+      {% render 'space', value: '2rem' %}
+      
+      {% comment %} Mobile Grid {% endcomment %}
+      <div class='vastu-grid-carousel__mobile-grid'>
+        <xo-grid style='--xs: 2; --sm: 2; --md: 2; --lg: 2; --xl: 2; --xo-grid-col-gap: 10px; --xo-grid-row-gap: 20px;' class='vastu-grid-carousel__grid'>
+          {%- for product in collection.products -%}
+            <div class='vastu-grid-carousel__grid-item{% if forloop.index > products_limit %} vastu-grid-carousel__grid-item--hidden{% endif %}'>
+              {% render 'vastu-grid-card',
+                product: product,
+                section: section,
+                settings: section.settings
+              %}
+            </div>
+          {%- endfor -%}
+        </xo-grid>
+        
+        {% if collection.products.size > products_limit %}
+          <div class='vastu-grid-carousel__view-more-wrapper'>
+            <button 
+              type='button' 
+              class='vastu-grid-carousel__view-more-btn'
+              data-section-id='{{ section.id }}'
+              data-current-limit='{{ products_limit }}'
+              data-increment='{{ view_more_limit }}'
+              data-total-products='{{ collection.products.size }}'
+              data-layout='mobile'
+            >
+              {{ section.settings.view_more_text | default: 'View More' }}
+            </button>
+          </div>
+        {% endif %}
+      </div>
+      
+      {% comment %} Desktop Carousel {% endcomment %}
+      <div class='vastu-grid-carousel__desktop-carousel'>
+        <xo-carousel
+          xo-per-view='{{ columns_desktop }}'
+          xo-gap='20'
+          xo-speed='400'
+          xo-breakpoints='{"768": {"perView": 2}, "992": {"perView": {{ columns_desktop }}}}'
+          xo-render-bullet='<span></span>'
+          class='vastu-grid-carousel__carousel'
+        >
+          <xo-carousel-inner>
+            <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
+              {%- for product in collection.products -%}
+                <xo-carousel-slide 
+                  aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                  aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
+                  data-product-index='{{ forloop.index }}'
+                >
+                  {% render 'vastu-grid-card',
+                    product: product,
+                    section: section,
+                    settings: section.settings
+                  %}
+                </xo-carousel-slide>
+              {%- endfor -%}
+            </xo-carousel-list>
+          </xo-carousel-inner>
+          {% if section.settings.show_navigation %}
+            {% render 'carousel-navigation-style1', display_navigation_desktop: 'flex', display_navigation_mobile: 'none' %}
+          {% endif %}
+          {% if section.settings.show_pagination %}
+            <div class='vastu-grid-carousel__pagination' style='--display-desktop: block; --display-mobile: none;'>
+              {% render 'carousel-pagination-style3' %}
+            </div>
+          {% endif %}
+        </xo-carousel>
+      </div>
+    </xo-container>
+  {% endif %}
+  
+  {% endunless %}
+</div>
+
+<script>
+  (function() {
+    function initViewMore() {
+      document.querySelectorAll('.vastu-grid-carousel__view-more-btn').forEach(function(btn) {
+        if (btn.dataset.initialized) return;
+        btn.dataset.initialized = 'true';
+        
+        btn.addEventListener('click', function() {
+          const sectionId = this.dataset.sectionId;
+          const currentLimit = parseInt(this.dataset.currentLimit) || 4;
+          const increment = parseInt(this.dataset.increment) || 4;
+          const totalProducts = parseInt(this.dataset.totalProducts) || 0;
+          const layout = this.dataset.layout || 'mobile';
+          const newLimit = Math.min(currentLimit + increment, totalProducts);
+          
+          if (layout === 'mobile') {
+            // Show hidden grid items
+            // Find the button's parent section
+            const buttonParent = this.closest('.vastu-grid-carousel__mobile-grid');
+            if (buttonParent) {
+              const hiddenItems = buttonParent.querySelectorAll('.vastu-grid-carousel__grid-item--hidden');
+              const itemsToShow = Math.min(hiddenItems.length, increment);
+              
+              for (let i = 0; i < itemsToShow; i++) {
+                hiddenItems[i]?.classList.remove('vastu-grid-carousel__grid-item--hidden');
+              }
+              
+              // Update button state
+              this.dataset.currentLimit = newLimit.toString();
+              if (newLimit >= totalProducts || hiddenItems.length <= itemsToShow) {
+                this.style.display = 'none';
+                // Hide the wrapper when button is hidden
+                const wrapper = this.closest('.vastu-grid-carousel__view-more-wrapper');
+                if (wrapper) {
+                  wrapper.style.display = 'none';
+                  wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
+                }
+              }
+            }
+          } else {
+            // For desktop carousel, we need to reload the section or fetch more products
+            // For now, just hide the button if we've reached the limit
+            // In a production environment, you'd fetch more products via AJAX
+            const carousel = document.querySelector(`[data-section-id="${sectionId}"]`)?.closest('.vastu-grid-carousel__desktop-carousel')?.querySelector('.vastu-grid-carousel__carousel');
+            
+            // Update carousel if it exists
+            if (carousel && typeof carousel.update === 'function') {
+              setTimeout(function() {
+                if (carousel.xoCarousel && typeof carousel.xoCarousel.update === 'function') {
+                  carousel.xoCarousel.update();
+                } else if (typeof carousel.update === 'function') {
+                  carousel.update();
+                }
+              }, 100);
+            }
+          }
+        });
+      });
+    }
+    
+    // Wait for carousel to be initialized
+    function waitForCarousel() {
+      if (typeof customElements !== 'undefined' && customElements.get('xo-carousel')) {
+        initViewMore();
+      } else {
+        setTimeout(waitForCarousel, 100);
+      }
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(initViewMore, 500);
+        waitForCarousel();
+      });
+    } else {
+      setTimeout(initViewMore, 500);
+      waitForCarousel();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Vastu Grid Carousel",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_title",
+      "label": "Heading Title",
+      "default": "Featured Products"
+    },
+    {
+      "type": "textarea",
+      "id": "heading_description",
+      "label": "Heading Description"
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading Alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "default": 4,
+      "label": "Initial Products to Show"
+    },
+    {
+      "type": "range",
+      "id": "view_more_limit",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "Products to Load on View More"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 3,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "Desktop Columns"
+    },
+    {
+      "type": "text",
+      "id": "view_more_text",
+      "label": "View More Button Text",
+      "default": "View More"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show Carousel Navigation",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show Carousel Pagination",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Container Width",
+      "default": "fullwidth",
+      "options": [
+        {
+          "value": "box",
+          "label": "Box"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        },
+        {
+          "value": "fullwidth",
+          "label": "Full Width"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "id": "fullwidth_margin",
+      "label": "Full Width Margin (Desktop)",
+      "default": 0,
+      "info": "Margin on left and right when width is fullwidth"
+    },
+    {
+      "type": "header",
+      "content": "Card Styling"
+    },
+    {
+      "type": "range",
+      "id": "card_title_font_size",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Card Title Font Size",
+      "default": 1.5
+    },
+    {
+      "type": "range",
+      "id": "card_price_font_size",
+      "min": 1,
+      "max": 2.5,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Card Price Font Size",
+      "default": 1.2
+    },
+    {
+      "type": "text",
+      "id": "button_text_add_to_cart",
+      "label": "Add to Cart Button Text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_wishlist",
+      "label": "Show Wishlist Button",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section Styling"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "Background Type",
+      "options": [
+        {
+          "value": "color",
+          "label": "Color"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background Gradient",
+      "visible_if": "{{ section.settings.background_type == 'gradient' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_desktop",
+      "label": "Background Image (Desktop)",
+      "visible_if": "{{ section.settings.background_type == 'image' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "Background Image (Mobile)",
+      "visible_if": "{{ section.settings.background_type == 'image' }}"
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 50
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing (Overrides Global Settings)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Leave empty to use global settings. Desktop: 8px default, Mobile: 4px default"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vastu Grid Carousel"
+    }
+  ]
+}
+{% endschema %}

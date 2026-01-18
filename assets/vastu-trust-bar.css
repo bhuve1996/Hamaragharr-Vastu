@@ -13,9 +13,9 @@
 }
 
 .vastu-trust-bar__subtitle {
-  font-size: var(--subtitle-font-size, var(--font-size-description, 1.6rem));
-  font-weight: var(--font-weight-normal, 400);
-  line-height: 1.6;
+  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop)); /* 1.8rem = 18px */
+  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 500));
+  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop, 1.4));
   color: rgb(71 56 85 / 80%);
   margin: 0;
   text-align: center;
@@ -31,7 +31,9 @@
   }
 
   .vastu-trust-bar__subtitle {
-    font-size: 2rem;
+    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile)); /* 1.6rem = 16px */
+    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 500));
+    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile, 1.4));
   }
 }
 
@@ -40,7 +42,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1rem;
+  gap: 0; /* Remove unnecessary gapping */
   padding: 1.5rem 1rem;
   min-height: 11.25rem;
   justify-content: center;
@@ -49,6 +51,19 @@
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  transition: box-shadow 0.3s ease;
+}
+
+.vastu-trust-bar__item:hover {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+}
+
+.vastu-trust-bar__item > * {
+  margin-bottom: 0;
+}
+
+.vastu-trust-bar__item > *:last-child {
+  margin-bottom: 0;
 }
 
 .vastu-trust-bar__icon,
@@ -96,25 +111,39 @@
 }
 
 .vastu-trust-bar__text {
-  font-size: var(--font-size-card-title, 1.875rem);
-  font-weight: var(--font-weight-semibold, 600);
+  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop)); /* 2rem = 20px */
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
   margin: 0;
   margin-top: 1rem;
-  line-height: 1.5;
   color: rgb(var(--color-foreground, 0, 0, 0));
   word-wrap: break-word;
   overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-width: 100%;
 }
 
 .vastu-trust-bar__item-subtitle {
-  font-size: var(--font-size-description, 1.6rem);
-  font-weight: var(--font-weight-normal, 400);
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop)); /* 1.4rem = 14px */
+  font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   margin: 0.5rem 0 0;
-  line-height: 1.5;
   color: rgb(71 56 85 / 70%);
   text-align: center;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-width: 100%;
 }
 
 @media (width <= 48rem) {
@@ -137,15 +166,32 @@
     margin-bottom: 0.4rem;
   }
 
+  /* Mobile-specific smaller text - extra small size for mobile */
   .vastu-trust-bar__text {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* 9px - very small for mobile */
+    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
+    line-height: 1.4;
     margin-top: 0.2rem;
-    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-width: 100%;
   }
 
   .vastu-trust-bar__item-subtitle {
-    font-size: 0.75rem;
+    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile)); /* 1.3rem = 13px */
+    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
+    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
     margin-top: 0.2rem;
-    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-width: 100%;
   }
 }

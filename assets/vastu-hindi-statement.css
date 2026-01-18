@@ -19,7 +19,7 @@
 }
 
 .vastu-hindi-statement__text {
-  font-size: 2.5rem;
+  font-size: var(--global-body-font-size-desktop); /* 1.6rem = 16px */
   text-align: center;
   margin: 0 auto;
   position: relative;
@@ -35,7 +35,7 @@
 
 .vastu-hindi-statement__text--quoted::before {
   content: '"';
-  font-size: 4rem;
+  font-size: calc(var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 1.14);
   line-height: 0;
   vertical-align: -0.4em;
   margin-right: 0.2em;
@@ -44,7 +44,7 @@
 
 .vastu-hindi-statement__text--quoted::after {
   content: '"';
-  font-size: 4rem;
+  font-size: calc(var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 1.14);
   line-height: 0;
   vertical-align: -0.4em;
   margin-left: 0.2em;

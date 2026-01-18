@@ -1,3 +1,9 @@
+/* General button margin fixes */
+.xo-btn,
+button.xo-btn {
+  margin-bottom: 0;
+}
+
 /* Button Border Radius Fix - Override 0rem to match other buttons */
 .xo-btn[style*="border-radius: 0rem"],
 .xo-btn[style*="border-radius:0rem"],
@@ -213,8 +219,8 @@ xo-modal xo-cart-add .xo-btn,
 xo-modal xo-cart-add button {
   min-height: 4.5rem;
   height: auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
+  padding-bottom: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
   display: flex;
   align-items: center;
   justify-content: center;

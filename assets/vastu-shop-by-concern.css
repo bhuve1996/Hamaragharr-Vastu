@@ -55,20 +55,22 @@
 }
 
 .vastu-shop-by-concern__trigger-title {
-  font-size: 2rem;
-  font-weight: var(--font-weight-bold, 700);
+  /* Title should be larger - use card title size (20px) */
+  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop)); /* 2rem = 20px */
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
   color: #473855;
   margin: 0 0 0.5rem;
-  line-height: 1.4;
   text-align: left;
 }
 
 .vastu-shop-by-concern__trigger-question {
-  font-size: var(--font-size-description, 1.6rem);
-  font-weight: var(--font-weight-medium, 500);
+  /* Subtitle should be smaller - use description size (14px) */
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop)); /* 1.4rem = 14px */
+  font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   color: #6f5784;
   margin: 0;
-  line-height: 1.6;
   text-align: left;
 }
 
@@ -125,8 +127,7 @@
 }
 
 .vastu-shop-by-concern__card-description {
-  font-size: var(--font-size-description, 1.6rem);
-  line-height: 1.75;
+  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   margin: 0 0 1.5rem;
   text-align: left;
@@ -143,8 +144,7 @@
 
 .vastu-shop-by-concern__benefits-title,
 .vastu-shop-by-concern__recommended-title {
-  font-size: 1.875rem;
-  font-weight: var(--font-weight-semibold, 600);
+  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   margin: 0 0 1rem;
   padding-top: 1.5rem;
@@ -181,8 +181,7 @@
 
 .vastu-shop-by-concern__benefits-list li,
 .vastu-shop-by-concern__recommended-list li {
-  font-size: var(--font-size-description, 1.6rem);
-  line-height: 1.75;
+  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   margin-bottom: 0.75rem;
   padding-left: 2rem;
@@ -215,8 +214,7 @@
 
 .vastu-shop-by-concern__cta-link {
   display: inline-block;
-  font-size: var(--font-size-description, 1.6rem);
-  font-weight: var(--font-weight-semibold, 600);
+  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -254,8 +252,8 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
   padding: 0.75rem 1.5rem;
   background-color: #000;
   color: rgb(255 255 255);
-  font-size: var(--font-size-description, 1.6rem);
-  font-weight: var(--font-weight-semibold, 600);
+  font-size: var(--button-font-size, var(--global-body-font-size-desktop));
+  font-weight: var(--button-font-weight, var(--global-body-font-weight-desktop, 600));
   text-decoration: none;
   transition:
     all 0.3s ease,
@@ -395,7 +393,8 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
     width: 100%;
     margin: 0;
     padding: 1rem 2rem;
-    font-size: 2rem;
+    font-size: var(--button-font-size-mobile, var(--global-body-font-size-mobile));
+    font-weight: var(--button-font-weight-mobile, var(--global-body-font-weight-mobile, 400));
     min-height: 5rem;
   }
 
@@ -417,12 +416,18 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
   }
 
   .vastu-shop-by-concern__trigger-title {
-    font-size: 2rem;
+    /* Title should be larger - use card title size (18px mobile) */
+    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile)); /* 1.8rem = 18px */
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 700));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile, 1.3));
     text-align: left;
   }
 
   .vastu-shop-by-concern__trigger-question {
-    font-size: 2rem;
+    /* Subtitle should be smaller - use description size (13px mobile) */
+    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile)); /* 1.3rem = 13px */
+    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
+    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
     text-align: left;
   }
 
@@ -437,27 +442,27 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
   }
 
   .vastu-shop-by-concern__card-description {
-    font-size: 2rem;
+    /* Typography handled by vastu-global-typography.css */
     text-align: left;
   }
 
   .vastu-shop-by-concern__card-description p {
-    font-size: 2rem;
+    /* Typography handled by vastu-global-typography.css */
   }
 
   .vastu-shop-by-concern__benefits-title,
   .vastu-shop-by-concern__recommended-title {
-    font-size: 2rem;
+    /* Typography handled by vastu-global-typography.css */
     text-align: left;
   }
 
   .vastu-shop-by-concern__benefits-list li,
   .vastu-shop-by-concern__recommended-list li {
-    font-size: 2rem;
+    /* Typography handled by vastu-global-typography.css */
   }
 
   .vastu-shop-by-concern__cta-link {
-    font-size: 2rem;
+    /* Typography handled by vastu-global-typography.css */
   }
 
   .vastu-shop-by-concern__benefits-list,
@@ -467,18 +472,20 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
   }
 
   .vastu-shop-by-concern__product-title {
-    font-size: 2rem;
-    min-height: calc(2rem * 1.4 * 2);
-    height: calc(2rem * 1.4 * 2);
+    /* Typography handled by vastu-global-typography.css */
+    min-height: auto;
+    height: auto;
   }
 
   .vastu-shop-by-concern__product-price {
-    font-size: 2rem;
+    font-size: var(--card-price-size, var(--global-card-price-font-size-mobile));
+    font-weight: var(--global-card-price-font-weight-mobile, var(--font-weight-bold, 700));
   }
 
   .vastu-shop-by-concern__product-add-to-cart .xo-btn,
   .vastu-shop-by-concern__product-add-to-cart button {
-    font-size: 2rem;
+    font-size: var(--button-font-size-mobile, var(--global-body-font-size-mobile));
+    font-weight: var(--button-font-weight-mobile, var(--global-body-font-weight-mobile, 400));
     padding: 1rem 1.5rem;
   }
 }

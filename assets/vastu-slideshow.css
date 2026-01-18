@@ -10,6 +10,7 @@
   white-space: pre-line;
   word-break: break-word;
   overflow-wrap: break-word;
+  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop)); /* 3.5rem = 35px */
 }
 
 .slideshow-v28__text--overlay .slideshow-v28__button,
@@ -45,7 +46,9 @@
   }
 
   .banner-v155__subtitle {
-    font-size: 2rem;
+    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile, 1.5rem));
+    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 400));
+    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile, 1.4));
   }
 
   .vastu-featured-products__icon-svg {

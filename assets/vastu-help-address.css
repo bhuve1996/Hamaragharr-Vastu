@@ -71,21 +71,17 @@
 }
 
 .vastu-help-address-v1__text {
-  font-size: var(--font-size-description, 1.6rem);
-  font-weight: var(--font-weight-medium, 500);
+  /* Typography handled by vastu-global-typography.css */
   color: rgb(71 56 85);
   margin: 0 0 1rem;
-  line-height: 1.5;
   text-align: center;
   transition: color 0.3s ease;
 }
 
 .vastu-help-address-v1__description {
-  font-size: 1.4rem;
-  font-weight: 400;
+  /* Typography handled by vastu-global-typography.css */
   color: rgb(71 56 85 / 80%);
   margin: 0;
-  line-height: 1.6;
   text-align: center;
   transition: color 0.3s ease;
 }
@@ -123,13 +119,12 @@
   }
 
   .vastu-help-address-v1__text {
-    font-size: 1.8rem;
+    /* Typography handled by vastu-global-typography.css */
     margin-bottom: 1rem;
   }
 
   .vastu-help-address-v1__description {
-    font-size: 1.3rem;
-    line-height: 1.6;
+    /* Typography handled by vastu-global-typography.css */
   }
 }
 
@@ -198,8 +193,7 @@
 }
 
 .vastu-help-address-v2__section-title {
-  font-size: var(--title-font-size, 3.5rem);
-  font-weight: var(--title-font-weight, 700);
+  /* Typography handled by vastu-global-typography.css */
   text-align: center;
   margin: 0 0 3rem;
   position: relative;

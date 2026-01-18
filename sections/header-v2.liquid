@@ -16,50 +16,104 @@
     {% assign topbar_background_color = '--topbar-bg-color: ' | append: section.settings.topbar_background_color | append: ';' %}
     {% assign topbar_background_gradient = '--topbar-bg-gradient: ' | append: section.settings.topbar_background_gradient | append: ';' %}
     <div
+      id='header-v6__topbar'
       class='header-v6__topbar color-{{ section.settings.topbar_color_scheme }}'
       style='{{ topbar_background_color }} {{ topbar_background_gradient }}'
     >
+      <button class='header-v6__topbar-close' aria-label='Close topbar' title='Close'>
+        {% render 'icon', name: 'close', icon_size: '18', color: 'rgba(var(--color-foreground))' %}
+      </button>
       <xo-container {% render 'section-layout' %}>
-        <xo-grid style='--xs: 2'>
-          <div class='header-v6__information'>
-            {% if section.settings.topbar_phone != blank %}
-              <div class='header-v6__phone'>
-                <span class='header-v6__phone-label'>{{ 'customer.addresses.call' | t }}:</span>
-                <h4 class='header-v6__phone-text'>{{ section.settings.topbar_phone }}</h4>
+        {% liquid
+          assign has_social_icons = false
+          if section.settings.topbar_icon_1 != blank or section.settings.topbar_icon_2 != blank or section.settings.topbar_icon_3 != blank or section.settings.topbar_icon_4 != blank
+            assign has_social_icons = true
+          endif
+          assign has_selectors = false
+          if section.settings.currency_selector or section.settings.language_selector
+            assign has_selectors = true
+          endif
+          assign has_selector_content = false
+          if has_social_icons or has_selectors
+            assign has_selector_content = true
+          endif
+        %}
+        <xo-grid style='{% if has_selector_content %}--xs: 2{% else %}--xs: 1{% endif %}'>
+          <div class='header-v6__information header-v6__information--center'>
+            {% liquid
+              assign has_products = false
+              if section.settings.topbar_promotion_collection != blank and section.settings.topbar_promotion_collection.products.size > 0
+                assign has_products = true
+              endif
+            %}
+            {% if has_products %}
+              <div class='header-v6__promotion-carousel'>
+                <div class='header-v6__promotion-carousel-wrapper'>
+                  {% for product in section.settings.topbar_promotion_collection.products limit: 20 %}
+                    <a href='{{ product.url }}' class='header-v6__promotion-item'>
+                      <span class='header-v6__promotion-name'>{{ product.title }}</span>
+                    </a>
+                  {% endfor %}
+                </div>
               </div>
             {% endif %}
-            {% if section.settings.topbar_email != blank %}
-              <a href='{{ section.settings.topbar_email }}' class='header-v6__email'>{{ section.settings.topbar_email }}</a>
-            {% endif %}
+            {% unless has_products %}
+              <div class='header-v6__contact-icons'>
+                {% if section.settings.topbar_phone != blank %}
+                  <a href='tel:{{ section.settings.topbar_phone }}' class='header-v6__contact-icon header-v6__contact-icon--phone' aria-label='Call us: {{ section.settings.topbar_phone }}' title='{{ section.settings.topbar_phone }}'>
+                    {% render 'icon', name: 'phone1', icon_size: '20', color: 'rgba(var(--color-foreground))' %}
+                  </a>
+                {% endif %}
+                {% if section.settings.topbar_email != blank %}
+                  <a href='mailto:{{ section.settings.topbar_email }}' class='header-v6__contact-icon header-v6__contact-icon--email' aria-label='Email us: {{ section.settings.topbar_email }}' title='{{ section.settings.topbar_email }}'>
+                    {% render 'icon', name: 'email', icon_size: '20', color: 'rgba(var(--color-foreground))' %}
+                  </a>
+                {% endif %}
+              </div>
+            {% endunless %}
           </div>
-          <div class='header-v6__selector-wrap'>
-            <ul role='list' class='header-v6__social list-unstyled'>
-              <li>
-                <a href='{{ section.settings.topbar_link_1 }}'>{{ section.settings.topbar_icon_1 }}</a>
-              </li>
-              <li>
-                <a href='{{ section.settings.topbar_link_2 }}'>{{ section.settings.topbar_icon_2 }}</a>
-              </li>
-              <li>
-                <a href='{{ section.settings.topbar_link_3 }}'>{{ section.settings.topbar_icon_3 }}</a>
-              </li>
-              <li>
-                <a href='{{ section.settings.topbar_link_4 }}'>{{ section.settings.topbar_icon_4 }}</a>
-              </li>
-            </ul>
-            <div class='header-v6__selector'>
-              {% if section.settings.currency_selector %}
-                <div class='header-v6__currency'>
-                  {% render 'currency-select' %}
-                </div>
+          {% if has_selector_content %}
+            <div class='header-v6__selector-wrap header-v6__selector-wrap--right'>
+              {% if has_social_icons %}
+                <ul role='list' class='header-v6__social list-unstyled'>
+                  {% if section.settings.topbar_icon_1 != blank %}
+                    <li>
+                      <a href='{{ section.settings.topbar_link_1 }}'>{{ section.settings.topbar_icon_1 }}</a>
+                    </li>
+                  {% endif %}
+                  {% if section.settings.topbar_icon_2 != blank %}
+                    <li>
+                      <a href='{{ section.settings.topbar_link_2 }}'>{{ section.settings.topbar_icon_2 }}</a>
+                    </li>
+                  {% endif %}
+                  {% if section.settings.topbar_icon_3 != blank %}
+                    <li>
+                      <a href='{{ section.settings.topbar_link_3 }}'>{{ section.settings.topbar_icon_3 }}</a>
+                    </li>
+                  {% endif %}
+                  {% if section.settings.topbar_icon_4 != blank %}
+                    <li>
+                      <a href='{{ section.settings.topbar_link_4 }}'>{{ section.settings.topbar_icon_4 }}</a>
+                    </li>
+                  {% endif %}
+                </ul>
               {% endif %}
-              {% if section.settings.language_selector %}
-                <div class='header-v6__language'>
-                  {% render 'language-select' %}
+              {% if has_selectors %}
+                <div class='header-v6__selector'>
+                  {% if section.settings.currency_selector %}
+                    <div class='header-v6__currency'>
+                      {% render 'currency-select' %}
+                    </div>
+                  {% endif %}
+                  {% if section.settings.language_selector %}
+                    <div class='header-v6__language'>
+                      {% render 'language-select' %}
+                    </div>
+                  {% endif %}
                 </div>
               {% endif %}
             </div>
-          </div>
+          {% endif %}
         </xo-grid>
       </xo-container>
     </div>
@@ -212,6 +266,95 @@
   </xo-sticky>
 </header>
 
+<script>
+(function() {
+  // Topbar Close Functionality
+  function initTopbarClose() {
+    const topbar = document.getElementById('header-v6__topbar');
+    const closeButton = document.querySelector('.header-v6__topbar-close');
+    
+    if (!topbar || !closeButton) return;
+    
+    // Check if topbar was previously closed
+    const isClosed = localStorage.getItem('topbar-closed') === 'true';
+    if (isClosed) {
+      topbar.classList.add('topbar-closed');
+      return;
+    }
+    
+    // Handle close button click
+    closeButton.addEventListener('click', function() {
+      topbar.classList.add('topbar-closed');
+      localStorage.setItem('topbar-closed', 'true');
+    });
+  }
+  
+  // Topbar Promotion Carousel
+  function initTopbarPromotion() {
+    const carousel = document.querySelector('.header-v6__promotion-carousel');
+    if (!carousel) return;
+    
+    const items = carousel.querySelectorAll('.header-v6__promotion-item');
+    if (items.length === 0) return;
+    
+    let currentIndex = 0;
+    const totalItems = items.length;
+    const scrollDuration = 3000; // 3 seconds per product
+    
+    // Set first item as active
+    items[0].classList.add('active');
+    
+    function showNext() {
+      // Remove active from current
+      items[currentIndex].classList.remove('active');
+      
+      // Move to next
+      currentIndex = (currentIndex + 1) % totalItems;
+      
+      // Add active to next
+      items[currentIndex].classList.add('active');
+    }
+    
+    // Start auto-scroll
+    const intervalId = setInterval(showNext, scrollDuration);
+    
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => {
+      clearInterval(intervalId);
+    });
+    
+    // Resume on mouse leave
+    carousel.addEventListener('mouseleave', () => {
+      const newIntervalId = setInterval(showNext, scrollDuration);
+      // Store interval ID for cleanup if needed
+      carousel.dataset.intervalId = newIntervalId;
+    });
+  }
+  
+  // Initialize functions
+  function init() {
+    initTopbarClose();
+    initTopbarPromotion();
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  
+  // Re-initialize on theme editor section load
+  if (window.Shopify && window.Shopify.designMode) {
+    document.addEventListener('shopify:section:load', function(event) {
+      if (event.target.querySelector('.header-v6__topbar') || event.target.querySelector('.header-v6__promotion-carousel')) {
+        setTimeout(init, 100);
+      }
+    });
+  }
+})();
+</script>
+
 {% render 'header-ld-json' %}
 
 {% schema %}
@@ -294,6 +437,12 @@
       "id": "topbar_email",
       "label": "t:sections.header_v2.settings.topbar_email.label",
       "default": "hello@domain.com"
+    },
+    {
+      "type": "collection",
+      "id": "topbar_promotion_collection",
+      "label": "Promotion Products Collection",
+      "info": "Select a collection to display products in the topbar marquee. If empty, phone/email will be shown instead."
     },
     {
       "type": "html",

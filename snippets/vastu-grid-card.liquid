@@ -1,0 +1,121 @@
+{% comment %}
+  Grid/Carousel Product Card Snippet
+  Works in both carousel and grid contexts
+  Usage: {% render 'vastu-grid-card', product: product, section: section, settings: settings %}
+{% endcomment %}
+
+{%- liquid
+  assign current_product = product
+  assign card_title_size = settings.card_title_font_size | default: 1.5
+  assign card_price_size = settings.card_price_font_size | default: 1.2
+  assign button_text = settings.button_text_add_to_cart | default: 'Add to Cart'
+  assign section_id = section.id | default: 'default'
+  assign show_wishlist = settings.show_wishlist | default: true
+-%}
+
+<div class='vastu-grid-card'>
+  <xo-product xo-product-id='{{ current_product.id }}' xo-section-id='{{ section_id }}' xo-product-information>
+    {% comment %} Wishlist button - top left {% endcomment %}
+    {% if show_wishlist %}
+      <div class='vastu-grid-card__wishlist'>
+        <xo-products-fetcher-add xo-type='wishlist'>
+          <xo-tooltip xo-title='{{ 'products.product.add_to_wishlist' | t }}' xo-added>
+            {% render 'icon', name: 'heart', icon_size: '20' %}
+          </xo-tooltip>
+        </xo-products-fetcher-add>
+        <xo-products-fetcher-add xo-type='wishlist'>
+          <xo-tooltip xo-title='{{ 'products.product.remove_from_wishlist' | t }}' xo-removed>
+            {% render 'icon', name: 'heart', icon_size: '20' %}
+          </xo-tooltip>
+        </xo-products-fetcher-add>
+      </div>
+    {% endif %}
+    <a href='{{ current_product.url }}' class='vastu-grid-card__link'>
+      <div class='vastu-grid-card__image hover-style--scale-up'>
+        {% if current_product.price != blank %}
+          {%- assign price_formatted = current_product.price | money -%}
+          {%- assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' -%}
+          <div class='vastu-grid-card__price' style='--card-price-size: {{ card_price_size }}rem;'>
+            {{ price_formatted }}
+          </div>
+        {% endif %}
+        {% if current_product.featured_image != blank %}
+          {% render 'image', image: current_product.featured_image, media_aspect_ratio: '1/1' %}
+        {% else %}
+          {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+      <div class='vastu-grid-card__content'>
+        {% assign display_title = current_product.title | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7" %}
+        <h4 class='vastu-grid-card__title' style='--card-title-size: {{ card_title_size }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h4>
+      </div>
+    </a>
+    {% if current_product.variants.size > 1 %}
+      <div class='vastu-grid-card__add-to-cart'>
+        <xo-modal-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}'>
+          {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+        </xo-modal-trigger>
+      </div>
+    {% else %}
+      <div class='vastu-grid-card__add-to-cart'>
+        <xo-cart-add {% if current_product.selected_or_first_available_variant.available == false %}xo-disabled{% endif %}>
+          {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+        </xo-cart-add>
+      </div>
+    {% endif %}
+    {% if current_product.variants.size > 1 %}
+      {% render 'product-variant-modal', product: current_product, variant_modal_placement: 'center', section: section %}
+      {% comment %} product-data is already rendered inside product-variant-modal {% endcomment %}
+    {% else %}
+      {% comment %} Minimal product-data for single variant products (only first variant needed) {% endcomment %}
+      <xo-product-data>
+        <script type='application/json'>
+          {
+            "id": {{ current_product.id }},
+            "handle": {{ current_product.handle | json }},
+            "variants": [{
+              "id": {{ current_product.selected_or_first_available_variant.id }},
+              "price": {{ current_product.selected_or_first_available_variant.price }},
+              "available": {{ current_product.selected_or_first_available_variant.available }}
+            }],
+            "available": {{ current_product.available }}
+          }
+        </script>
+      </xo-product-data>
+    {% endif %}
+  </xo-product>
+</div>
+
+<script>
+  // Prevent product link from intercepting wishlist clicks
+  (function() {
+    function setupWishlistClickHandler() {
+      document.querySelectorAll('.vastu-grid-card').forEach(function(card) {
+        const wishlist = card.querySelector('.vastu-grid-card__wishlist');
+        const productLink = card.querySelector('.vastu-grid-card__link');
+        
+        if (wishlist && productLink && !wishlist.dataset.handlerAdded) {
+          wishlist.dataset.handlerAdded = 'true';
+          
+          // Only prevent product link from handling clicks on wishlist
+          // Don't stop propagation so the web component can handle the click
+          productLink.addEventListener('click', function(e) {
+            if (e.target.closest('.vastu-grid-card__wishlist')) {
+              e.preventDefault();
+              e.stopPropagation();
+              return false;
+            }
+          }, false);
+        }
+      });
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupWishlistClickHandler);
+    } else {
+      setupWishlistClickHandler();
+    }
+    
+    setTimeout(setupWishlistClickHandler, 500);
+  })();
+</script>

@@ -7,7 +7,7 @@
 }
 
 .banner-v155__content {
-  padding: 0 0 1.25rem;
+  padding: 0 0 var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
   align-self: stretch;
   max-width: none;
   width: 100%;
@@ -21,15 +21,15 @@
 }
 
 .banner-v155__subtitle {
-  font-size: 1rem;
+  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop, 1.6rem));
   font-weight: 600;
-  text-transform: uppercase;
+  /* Removed text-transform: uppercase - use natural case */
   letter-spacing: 0.125rem;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
-  margin-bottom: 2.5rem;
   margin-top: 0;
   opacity: 0.8;
   text-align: left;
+  /* Margin handled by vastu-global-spacing.css */
 }
 
 h2.banner-v155__title,
@@ -39,11 +39,19 @@ h2.banner-v155__title,
 section[class*="banner-v3"] .banner-v155__title,
 section[class*="banner-v3"] h2.banner-v155__title {
   color: rgb(var(--color-foreground, 0, 0, 0));
-  margin-bottom: 2.5rem;
   position: relative;
   text-align: left;
   white-space: pre-line;
-  text-transform: uppercase;
+  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop)); /* 3.5rem = 35px */
+  /* Removed text-transform: uppercase - use natural case */
+  /* Margin handled by vastu-global-spacing.css */
+}
+
+/* Buy Now button margin fix */
+.banner-v155__buy-now,
+.banner-v155 .xo-btn,
+.banner-v155 button {
+  margin-bottom: 0;
 }
 
 .banner-v155__title::after {
@@ -58,58 +66,57 @@ section[class*="banner-v3"] h2.banner-v155__title {
 }
 
 .banner-v155__description {
-  font-size: 2rem;
-  line-height: 1.4;
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
-  margin-bottom: 4.5rem;
   margin-top: 0;
   max-width: 90%;
   text-align: left;
   word-spacing: 0.05em;
+  /* Margin handled by vastu-global-spacing.css */
 }
 
 .banner-v155__description-intro {
   white-space: pre-line;
-  line-height: 1.4;
-  margin-bottom: 0.75rem;
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
+  margin-bottom: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
 }
 
 .banner-v155__description-heading {
-  font-size: 2.2rem;
+  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem));
   font-weight: 700;
   color: rgb(var(--color-foreground, 0, 0, 0));
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-  text-transform: uppercase;
+  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
+  /* Removed text-transform: uppercase - use natural case */
+  /* Margins handled by vastu-global-spacing.css */
 }
 
 .banner-v155__description-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: 1rem;
+  /* Margin-top handled by vastu-global-spacing.css */
 }
 
 .banner-v155__description-list li {
-  font-size: 2rem;
-  line-height: 1.4;
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
-  padding-left: 2rem;
+  padding-left: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
   position: relative;
-  margin-bottom: 0.5rem;
   display: flex;
   align-items: flex-start;
+  /* Margin-bottom handled by vastu-global-spacing.css */
 }
 
 .banner-v155__description-list li::before {
   content: "•";
   position: absolute;
   left: 0;
-  font-size: 2rem;
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   font-weight: 700;
-  line-height: 1.4;
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   top: 0;
 }
 
@@ -124,18 +131,18 @@ section[class*="banner-v3"] h2.banner-v155__title {
 }
 
 .vastu-hero__subtitle {
-  margin-bottom: 4.5rem;
+  /* Margin-bottom handled by vastu-global-spacing.css */
   margin-top: 0;
 }
 
 .vastu-hero__title {
-  margin-bottom: 4.5rem;
+  /* Margin-bottom handled by vastu-global-spacing.css */
   margin-top: 0;
   text-transform: uppercase;
 }
 
 .vastu-hero__description {
-  margin-bottom: 4.5rem;
+  /* Margin-bottom handled by vastu-global-spacing.css */
   margin-top: 0;
 }
 

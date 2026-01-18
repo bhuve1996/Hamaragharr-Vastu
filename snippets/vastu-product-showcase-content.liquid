@@ -18,12 +18,12 @@
     {% endif %}
   {% endfor %}
   
-  {% comment %} Title {% endcomment %}
+  {% comment %} Title - Use h2 (only one h1 per page) {% endcomment %}
   {% if section.settings.show_title %}
     {% if section.settings.use_custom_title and section.settings.custom_title != blank %}
-      <h1 class='vastu-product-showcase__title'>{{ section.settings.custom_title | escape }}</h1>
+      <h2 class='vastu-product-showcase__title'>{{ section.settings.custom_title | escape }}</h2>
     {% else %}
-      <h1 class='vastu-product-showcase__title'>{{ product.title | escape }}</h1>
+      <h2 class='vastu-product-showcase__title'>{{ product.title | escape }}</h2>
     {% endif %}
   {% endif %}
   

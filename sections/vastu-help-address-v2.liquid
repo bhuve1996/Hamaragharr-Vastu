@@ -7,7 +7,17 @@ UNUSED SECTION - Commented out as not used in any templates
   <xo-container {% render 'section-layout' %}>
     {% if section.settings.title != blank %}
       <xo-animate xo-cascade>
-        <h2 class='vastu-help-address-v2__section-title' style='--heading-font-size: {{ section.settings.title_font_size | default: 3.5 }}rem; --heading-font-weight: {{ section.settings.title_font_weight | default: 700 }}; --heading-underline-color: {{ section.settings.title_underline_color | default: "#473855" }}; --heading-underline-width: {{ section.settings.title_underline_width | default: 80 }}px; --heading-underline-height: {{ section.settings.title_underline_height | default: 4 }}px;'>{{ section.settings.title | upcase }}</h2>
+        {% if section.settings.title_font_size != blank and section.settings.title_font_size > 0 %}
+          {% assign heading_font_size = section.settings.title_font_size %}
+        {% else %}
+          {% assign heading_font_size = settings.homepage_heading_font_size | default: settings.global_heading_font_size_desktop | default: 3.5 %}
+        {% endif %}
+        {% if section.settings.title_font_weight != blank and section.settings.title_font_weight > 0 %}
+          {% assign heading_font_weight = section.settings.title_font_weight %}
+        {% else %}
+          {% assign heading_font_weight = settings.homepage_heading_font_weight | default: settings.global_heading_font_weight_desktop | default: 700 %}
+        {% endif %}
+        <h2 class='vastu-help-address-v2__section-title' style='{% if section.settings.title_font_size != blank and section.settings.title_font_size > 0 %}--section-heading-font-size-desktop: {{ heading_font_size }}rem;{% endif %}{% if section.settings.title_font_weight != blank and section.settings.title_font_weight > 0 %}--section-heading-font-weight-desktop: {{ heading_font_weight }};{% endif %}{% if section.settings.title_underline_color != blank %}--section-heading-underline-color: {{ section.settings.title_underline_color }};{% endif %}{% if section.settings.title_underline_width != blank and section.settings.title_underline_width > 0 %}--section-heading-underline-width: {{ section.settings.title_underline_width }}px;{% endif %}{% if section.settings.title_underline_height != blank and section.settings.title_underline_height > 0 %}--section-heading-underline-height: {{ section.settings.title_underline_height }}px;{% endif %}'>{{ section.settings.title | upcase }}</h2>
       </xo-animate>
     {% endif %}
     

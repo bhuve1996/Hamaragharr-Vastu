@@ -6,7 +6,7 @@
 {% endcomment %}
 
 {% liquid
-  assign class_name = 'xo-section xo-section--' | append: section.id
+  assign class_name = 'xo-section xo-section--' | append: section.id | append: ' vastu-section-spacing'
 
   if section.settings.background_color != blank
     assign background_color = '--bg-color: ' | append: section.settings.background_color | append: ';'

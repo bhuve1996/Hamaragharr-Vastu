@@ -1,0 +1,46 @@
+/* ========================================
+   CARD AND IMAGE BORDER RADIUS
+   Add rounded top corners to all cards and images (not icons)
+   ======================================== */
+
+/* All product/collection/article/blog cards - top corners only */
+.xo-product-card,
+[class*="product-card"]:not([class*="icon"]),
+[class*="collection-card"]:not([class*="icon"]),
+[class*="article-card"]:not([class*="icon"]),
+[class*="blog"] [class*="card"]:not([class*="icon"]),
+[class*="blog"] [class*="item"]:not([class*="icon"]) {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* All card images - top corners only (exclude icons) */
+[class*="product-card"] [class*="image"]:not([class*="icon"]),
+[class*="collection-card"] [class*="image"]:not([class*="icon"]),
+[class*="article-card"] [class*="image"]:not([class*="icon"]),
+[class*="blog"] [class*="image"]:not([class*="icon"]),
+[class*="card"] [class*="image"]:not([class*="icon"]),
+[class*="card"] img:not([class*="icon"]),
+[class*="item"] [class*="image"]:not([class*="icon"]),
+[class*="item"] img:not([class*="icon"]) {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* Images inside cards - top corners only */
+[class*="card"] img:not([class*="icon"]):not([class*="svg"]),
+[class*="item"] img:not([class*="icon"]):not([class*="svg"]),
+.xo-image:not([class*="icon"]) img {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* Ensure images in card containers get border-radius */
+[class*="card"] [class*="image"] img,
+[class*="card"] [class*="media"] img,
+[class*="item"] [class*="image"] img,
+[class*="item"] [class*="media"] img {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}

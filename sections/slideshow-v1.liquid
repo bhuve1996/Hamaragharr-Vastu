@@ -1,6 +1,6 @@
 
 
-<section class='{{ 'xo-section--' | append: section.id }}'>
+<section class='{{ 'xo-section--' | append: section.id }} vastu-section-spacing'>
   <xo-carousel
     xo-render-bullet='<span></span>'
     xo-type='{{ section.settings.carousel_type }}'
@@ -36,7 +36,7 @@
                     <div class='slideshow-v28__text slideshow-v28__text--overlay' style='text-align: left; --content-max-width: {{ content_max_width }}px; margin: 0; --content-cols: {{ content_cols }};'>
                       {%- capture subtitle -%}
                         {%- if block.settings.subtitle != blank -%}
-                          <div class='slideshow-v28__subtitle' style='--fontsize:{{block.settings.subtitle_font_size}}; --fontweight:{{block.settings.subtitle_font_weight}}'>
+                          <div class='slideshow-v28__subtitle' style='{% if block.settings.subtitle_font_size != blank and block.settings.subtitle_font_size > 0 %}--section-subtitle-font-size-desktop: {{ block.settings.subtitle_font_size }}rem;{% endif %}{% if block.settings.subtitle_font_weight != blank and block.settings.subtitle_font_weight > 0 %}--section-subtitle-font-weight-desktop: {{ block.settings.subtitle_font_weight }};{% endif %}'>
                             {{ block.settings.subtitle }}
                           </div>
                         {%- endif -%}
@@ -44,21 +44,16 @@
                       {%- capture title -%}
                         {%- if block.settings.title != blank -%}
                           {%- assign title_text = block.settings.title | replace: ' &amp; ', ' &amp;<br>' | replace: ' & ', ' &amp;<br>' -%}
-                          {%- if forloop.first -%}
-                            <h1 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
-                              {{ title_text }}
-                            </h1>
-                          {%- else -%}
-                            <h2 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
-                              {{ title_text }}
-                            </h2>
-                          {%- endif -%}
+                          {%- comment -%} Always use h2 for slideshow titles - only one h1 per page {%- endcomment -%}
+                          <h2 class='slideshow-v28__title'>
+                            {{ title_text }}
+                          </h2>
                         {%- endif -%}
                       {%- endcapture -%}
                       {%- capture description -%}
                         {%- if block.settings.description != blank -%}
                           {%- assign desc_text = block.settings.description | replace: 'harmony', 'harmony<br>' | replace: 'Vastu Shastra', 'Vastu Shastra<br>' -%}
-                          <p class='slideshow-v28__description' style='--fontsize:{{block.settings.description_font_size}}; --fontweight:{{block.settings.description_font_weight}}'>
+                          <p class='slideshow-v28__description' style='{% if block.settings.description_font_size != blank and block.settings.description_font_size > 0 %}--section-description-font-size-desktop: {{ block.settings.description_font_size }}rem;{% endif %}{% if block.settings.description_font_weight != blank and block.settings.description_font_weight > 0 %}--section-description-font-weight-desktop: {{ block.settings.description_font_weight }};{% endif %}'>
                             {{ desc_text }}
                           </p>
                         {%- endif -%}
@@ -132,7 +127,7 @@
                     <div style='--xs: 12;--md: 5; --start-md:{{start_column}}' class='slideshow-v28__text'>
                       {%- capture subtitle -%}
                         {%- if block.settings.subtitle != blank -%}
-                          <div class='slideshow-v28__subtitle' style='--fontsize:{{block.settings.subtitle_font_size}}; --fontweight:{{block.settings.subtitle_font_weight}}'>
+                          <div class='slideshow-v28__subtitle' style='{% if block.settings.subtitle_font_size != blank and block.settings.subtitle_font_size > 0 %}--section-subtitle-font-size-desktop: {{ block.settings.subtitle_font_size }}rem;{% endif %}{% if block.settings.subtitle_font_weight != blank and block.settings.subtitle_font_weight > 0 %}--section-subtitle-font-weight-desktop: {{ block.settings.subtitle_font_weight }};{% endif %}'>
                             {{ block.settings.subtitle }}
                           </div>
                         {%- endif -%}
@@ -140,21 +135,16 @@
                       {%- capture title -%}
                         {%- if block.settings.title != blank -%}
                           {%- assign title_text = block.settings.title | replace: ' &amp; ', ' &amp;<br>' | replace: ' & ', ' &amp;<br>' -%}
-                          {%- if forloop.first -%}
-                            <h1 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
-                              {{ title_text }}
-                            </h1>
-                          {%- else -%}
-                            <h2 class='slideshow-v28__title' style='--fontsize:{{block.settings.title_font_size}}; --fontweight:{{block.settings.title_font_weight}}'>
-                              {{ title_text }}
-                            </h2>
-                          {%- endif -%}
+                          {%- comment -%} Always use h2 for slideshow titles - only one h1 per page {%- endcomment -%}
+                          <h2 class='slideshow-v28__title'>
+                            {{ title_text }}
+                          </h2>
                         {%- endif -%}
                       {%- endcapture -%}
                       {%- capture description -%}
                         {%- if block.settings.description != blank -%}
                           {%- assign desc_text = block.settings.description | replace: 'harmony', 'harmony<br>' | replace: 'Vastu Shastra', 'Vastu Shastra<br>' -%}
-                          <p class='slideshow-v28__description' style='--fontsize:{{block.settings.description_font_size}}; --fontweight:{{block.settings.description_font_weight}}'>
+                          <p class='slideshow-v28__description' style='{% if block.settings.description_font_size != blank and block.settings.description_font_size > 0 %}--section-description-font-size-desktop: {{ block.settings.description_font_size }}rem;{% endif %}{% if block.settings.description_font_weight != blank and block.settings.description_font_weight > 0 %}--section-description-font-weight-desktop: {{ block.settings.description_font_weight }};{% endif %}'>
                             {{ desc_text }}
                           </p>
                         {%- endif -%}

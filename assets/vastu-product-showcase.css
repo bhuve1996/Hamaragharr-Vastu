@@ -146,33 +146,71 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 }
 
 .vastu-product-showcase__price {
-  font-size: var(--font-size-price, 2rem);
-  font-weight: var(--font-weight-semibold);
+  font-size: var(--global-card-price-font-size-desktop); /* 1.6rem = 16px */
+  font-weight: var(--global-card-price-font-weight-desktop, 700);
   color: rgb(var(--color-foreground));
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--global-body-margin-bottom-desktop, 1rem);
+}
+
+/* Quantity increase/decrease button font size to 16px */
+.vastu-product-showcase__quantity .xo-quantity-style2__button,
+.vastu-product-showcase__quantity xo-cart-quantity-minus,
+.vastu-product-showcase__quantity xo-cart-quantity-plus,
+.xo-quantity-style2__button,
+xo-cart-quantity-minus,
+xo-cart-quantity-plus {
+  font-size: var(--global-body-font-size-desktop); /* 1.6rem = 16px */
+}
+
+/* Add to cart button margin fix */
+.vastu-product-showcase__add-to-cart {
+  margin-bottom: 0;
 }
 
 .vastu-product-showcase__description {
-  font-size: var(--font-size-description);
+  font-size: var(--global-description-font-size-desktop, 1.6rem);
   line-height: 1.6;
   color: rgb(var(--color-foreground));
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--global-body-margin-bottom-desktop, 1rem);
 }
 
 .vastu-product-showcase__description-text {
-  margin-bottom: var(--spacing-md);
+  display: inline;
+  margin-bottom: 0;
+  margin-right: 0.5rem;
+}
+
+.vastu-product-showcase__description-text p {
+  display: inline;
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+.vastu-product-showcase__description-text p:not(:last-of-type)::after {
+  content: " ";
 }
 
 .vastu-product-showcase__read-more {
-  display: inline-block;
-  font-size: var(--font-size-description);
-  font-weight: var(--font-weight-semibold);
+  display: inline;
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
+  font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 600));
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   color: rgb(var(--color-secondary-button));
   text-decoration: none;
-  margin-top: var(--spacing-xs);
+  margin-top: 0;
+  margin-left: 0.5rem;
+  white-space: nowrap;
   transition:
     color var(--transition-base),
     transform var(--transition-fast);
+}
+
+@media (width <= 48rem) {
+  .vastu-product-showcase__read-more {
+    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
+    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 600));
+    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
+  }
 }
 
 .vastu-product-showcase__read-more:hover {
@@ -185,18 +223,18 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 }
 
 .vastu-product-showcase__variants {
-  margin: var(--spacing-md) 0;
+  margin: var(--global-body-margin-bottom-desktop, 1rem) 0;
 }
 
 .vastu-product-showcase__quantity {
-  margin: var(--spacing-md) 0;
+  margin: var(--global-body-margin-bottom-desktop, 1rem) 0;
 }
 
 .vastu-product-showcase__buttons {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-xl);
+  gap: var(--global-body-margin-bottom-desktop, 1.5rem);
+  margin-top: var(--global-body-margin-bottom-desktop, 2rem);
 }
 
 .vastu-product-showcase__add-to-cart,
@@ -256,14 +294,14 @@ section[class*="vastu-product-showcase"]
 }
 
 .vastu-product-showcase__custom-text {
-  margin: var(--spacing-lg) 0;
-  padding: var(--spacing-lg);
+  margin: var(--global-body-margin-bottom-desktop, 1.5rem) 0;
+  padding: var(--global-body-margin-bottom-desktop, 1.5rem);
   background-color: rgba(var(--color-background), 0.5);
   border-radius: var(--radius-md);
 }
 
 .vastu-product-showcase__custom-heading {
-  font-size: var(--font-size-heading, 2.5rem);
+  font-size: var(--global-heading-font-size-desktop, 3.5rem);
   font-weight: var(--font-weight-bold);
   color: rgb(var(--color-foreground));
   margin: 0 0 var(--spacing-md) 0;
@@ -271,7 +309,7 @@ section[class*="vastu-product-showcase"]
 }
 
 .vastu-product-showcase__custom-content {
-  font-size: var(--font-size-description);
+  font-size: var(--global-description-font-size-desktop, 1.6rem);
   line-height: 1.6;
   color: rgb(var(--color-foreground));
 }

@@ -726,8 +726,8 @@
         "step": 0.1,
         "unit": "rem",
         "label": "Subtitle Font Size (Desktop)",
-        "default": 1.6,
-        "info": "Default font size for subtitles on desktop"
+        "default": 1.8,
+        "info": "Default font size for subtitles on desktop (18px)"
       },
       {
         "type": "range",
@@ -795,8 +795,8 @@
         "step": 0.1,
         "unit": "rem",
         "label": "Subtitle Font Size (Mobile)",
-        "default": 1.5,
-        "info": "Default font size for subtitles on mobile"
+        "default": 1.6,
+        "info": "Default font size for subtitles on mobile (16px)"
       },
       {
         "type": "range",
@@ -864,8 +864,8 @@
         "step": 0.1,
         "unit": "rem",
         "label": "Card Title Font Size (Desktop)",
-        "default": 1.5,
-        "info": "Default font size for card titles on desktop"
+        "default": 2.0,
+        "info": "Default font size for card titles on desktop (20px)"
       },
       {
         "type": "range",
@@ -881,7 +881,7 @@
         "type": "select",
         "id": "global_card_title_font_weight_desktop",
         "label": "Card Title Font Weight (Desktop)",
-        "default": "600",
+        "default": "700",
         "options": [
           {
             "value": "100",
@@ -933,8 +933,8 @@
         "step": 0.1,
         "unit": "rem",
         "label": "Card Title Font Size (Mobile)",
-        "default": 1.3,
-        "info": "Default font size for card titles on mobile"
+        "default": 1.8,
+        "info": "Default font size for card titles on mobile (18px)"
       },
       {
         "type": "range",
@@ -950,7 +950,7 @@
         "type": "select",
         "id": "global_card_title_font_weight_mobile",
         "label": "Card Title Font Weight (Mobile)",
-        "default": "600",
+        "default": "700",
         "options": [
           {
             "value": "100",
@@ -1002,8 +1002,8 @@
         "step": 0.1,
         "unit": "rem",
         "label": "Description Font Size (Desktop)",
-        "default": 1.6,
-        "info": "Default font size for descriptions on desktop"
+        "default": 1.4,
+        "info": "Default font size for descriptions on desktop (14px)"
       },
       {
         "type": "range",
@@ -1071,8 +1071,8 @@
         "step": 0.1,
         "unit": "rem",
         "label": "Description Font Size (Mobile)",
-        "default": 1.5,
-        "info": "Default font size for descriptions on mobile"
+        "default": 1.3,
+        "info": "Default font size for descriptions on mobile (13px)"
       },
       {
         "type": "range",
