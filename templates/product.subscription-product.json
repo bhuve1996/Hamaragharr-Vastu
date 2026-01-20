@@ -174,13 +174,13 @@
         "367088f1-d502-47f7-b8b1-1c3f0e2221ce": {
           "type": "shipping",
           "settings": {
+            "use_accordion": false,
             "show_delivery": true,
             "delivery": "<p>Estimate delivery times: <strong>12-26 days</strong> (International), <strong>3-6 days</strong> (United States).</p>",
             "show_return": true,
             "return": "<p>Return within <strong>45 days</strong> of purchase. Duties & taxes are non-refundable.</p>",
             "padding_top": 0,
-            "padding_bottom": 30,
-            "use_accordion": false
+            "padding_bottom": 30
           }
         },
         "cac56f9f-8acd-4ad3-bdcc-54a1403984cf": {
@@ -319,12 +319,14 @@
         "tab2": {
           "type": "shipping",
           "settings": {
-            "header": "Shipping & return",
-            "use_accordion": false
+            "header": "Shipping & return"
           }
         }
       },
-      "block_order": ["tab1", "tab2"],
+      "block_order": [
+        "tab1",
+        "tab2"
+      ],
       "settings": {
         "width": "box",
         "color_scheme": "",

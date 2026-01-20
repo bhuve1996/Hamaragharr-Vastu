@@ -162,11 +162,16 @@
         "367088f1-d502-47f7-b8b1-1c3f0e2221ae": {
           "type": "image",
           "settings": {}
+        },
+        "areviews_reviews_importer_areviews_title_rating_8B97BE": {
+          "type": "shopify://apps/areviews-reviews-importer/blocks/AreviewsTitleRating/ab0ec5fe-c95b-4fd6-bfb8-db2a30d0756f",
+          "settings": {}
         }
       },
       "block_order": [
         "b9220087-e178-48b9-a33a-095a4119abaf",
         "bedc5e2d-642d-4448-8569-c7fcfd527042",
+        "areviews_reviews_importer_areviews_title_rating_8B97BE",
         "b1d95bc4-490b-4b8c-914a-89b1323d2a43",
         "b1d95bc4-490b-4b8c-914a-89b1323d2a41",
         "4dabf9d3-3372-4f5a-9edf-1e1f03527b1k",
@@ -205,12 +210,13 @@
         },
         "tab2": {
           "type": "shipping",
-          "settings": {
-            "use_accordion": false
-          }
+          "settings": {}
         }
       },
-      "block_order": ["tab1", "tab2"],
+      "block_order": [
+        "tab1",
+        "tab2"
+      ],
       "settings": {
         "padding_bottom": 0
       }
@@ -348,8 +354,8 @@
         "faq14"
       ],
       "settings": {
-        "title": "Frequently Asked Questions",
         "width": "box",
+        "title": "Frequently Asked Questions",
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
@@ -362,6 +368,24 @@
       "settings": {
         "heading_title": "You Might Also Like"
       }
+    },
+    "areviews_1768884056_4e918e": {
+      "type": "apps",
+      "blocks": {
+        "areviews_reviews_importer_areviews_display_reviews_DAF37B": {
+          "type": "shopify://apps/areviews-reviews-importer/blocks/AreviewsDisplayReviews/ab0ec5fe-c95b-4fd6-bfb8-db2a30d0756f",
+          "settings": {
+            "hide_areviews_title_rating": false,
+            "areviews_theme_font": "inherit",
+            "areviews_stars_colors": "#f3c621",
+            "areviews_write_reviews_botton_color": "#373737"
+          }
+        }
+      },
+      "block_order": [
+        "areviews_reviews_importer_areviews_display_reviews_DAF37B"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -369,6 +393,7 @@
     "main-product",
     "product-information-tabs",
     "product-faq",
-    "product-recommendations"
+    "product-recommendations",
+    "areviews_1768884056_4e918e"
   ]
 }

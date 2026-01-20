@@ -207,12 +207,13 @@
         },
         "tab2": {
           "type": "shipping",
-          "settings": {
-            "use_accordion": false
-          }
+          "settings": {}
         }
       },
-      "block_order": ["tab1", "tab2"],
+      "block_order": [
+        "tab1",
+        "tab2"
+      ],
       "settings": {
         "width": "wide",
         "padding_bottom": 0
@@ -351,8 +352,8 @@
         "faq14"
       ],
       "settings": {
-        "title": "Frequently Asked Questions",
         "width": "box",
+        "title": "Frequently Asked Questions",
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
