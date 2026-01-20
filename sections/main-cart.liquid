@@ -27,7 +27,9 @@
                 {% for block in section.blocks %}
                   {% case block.type %}
                     {% when '@app' %}
-                      {% render block %}
+                      <div class="widget-box" {{ block.shopify_attributes }}>
+                        {% render block %}
+                      </div>
                     {% when 'free_shipping' %}
                       {% render 'cart-free-shipping' %}
                       {% render 'space', value: '2rem' %}

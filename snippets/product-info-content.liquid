@@ -113,7 +113,9 @@
       {% case block.type %}
         {% when '@app' %}
           <xo-animate xo-cascade>
-            {% render block %}
+            <div class="widget-box" {{ block.shopify_attributes }}>
+              {% render block %}
+            </div>
           </xo-animate>
 
         {% when 'countdown_time' %}

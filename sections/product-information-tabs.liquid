@@ -71,7 +71,9 @@
             {% when '@app' %}
               <xo-tabs-pane xo-name='tab-{{ block.id }}'
                 ><xo-animate xo-type='fade-up'>
-                  {% render block %}
+                  <div class="widget-box" {{ block.shopify_attributes }}>
+                    {% render block %}
+                  </div>
                 </xo-animate>
               </xo-tabs-pane>
           {% endcase %}
