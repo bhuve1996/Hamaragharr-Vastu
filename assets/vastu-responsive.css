@@ -25,19 +25,20 @@
     padding-bottom: 2rem;
   }
 
-  /* Fix homepage carousel aspect ratio on mobile */
+  /* Fix homepage carousel aspect ratio on mobile - make it flexible to show full image */
   section[class*="homepage-carousel"] xo-carousel-slide,
   section[class*="slideshow"] xo-carousel-slide {
-    aspect-ratio: 16 / 9;
-    min-height: 300px;
+    aspect-ratio: auto !important;
+    min-height: 600px;
+    height: auto;
   }
 
   section[class*="homepage-carousel"] .slideshow-v28__overlay-content,
   section[class*="slideshow"] .slideshow-v28__overlay-content {
-    min-height: 300px !important;
+    min-height: 600px !important;
   }
 
-  /* Prevent image cropping on mobile - use contain instead of cover */
+  /* Fix mobile banner image - use contain to show full image without cropping */
   section[class*="homepage-carousel"] .slideshow-bg,
   section[class*="homepage-carousel"] .slideshow-bg-image__item,
   section[class*="homepage-carousel"] .slideshow-bg-image__url,
@@ -47,7 +48,15 @@
   section[class*="slideshow"] .slideshow-bg-image__url,
   section[class*="slideshow"] .xo-background-lazyload {
     background-size: contain !important;
-    background-position: center center;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+
+  /* Ensure the container can expand to show full image */
+  section[class*="homepage-carousel"] xo-carousel-slide > div,
+  section[class*="slideshow"] xo-carousel-slide > div {
+    min-height: 600px;
+    height: 100%;
   }
 
   .slideshow-v28__text--overlay {

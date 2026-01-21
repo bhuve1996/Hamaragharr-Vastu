@@ -12,30 +12,46 @@
   <div class='product-description-accordion'>
     <xo-collapse-provider xo-duration='300'>
       
-      {% comment %} Check if description has HTML headings (H2, H3, etc.) {% endcomment %}
+      {% comment %} Check if description has HTML headings (H2, H3, H4, etc.) {% endcomment %}
       {% assign has_h2 = false %}
       {% assign has_h3 = false %}
+      {% assign has_h4 = false %}
       {% if description_html contains '<h2' or description_html contains '<H2' %}
         {% assign has_h2 = true %}
       {% endif %}
       {% if description_html contains '<h3' or description_html contains '<H3' %}
         {% assign has_h3 = true %}
       {% endif %}
+      {% if description_html contains '<h4' or description_html contains '<H4' %}
+        {% assign has_h4 = true %}
+      {% endif %}
       
-      {% if has_h2 or has_h3 %}
+      {% if has_h2 or has_h3 or has_h4 %}
         {% comment %} Has HTML headings - split by headings and use as questions {% endcomment %}
         {% assign heading_tag = '<h2' %}
         {% if has_h3 and not has_h2 %}
           {% assign heading_tag = '<h3' %}
+        {% elsif has_h4 and not has_h2 and not has_h3 %}
+          {% assign heading_tag = '<h4' %}
         {% endif %}
         
+        {% comment %} Split by the primary heading tag and also check for other heading levels {% endcomment %}
         {% assign sections = description_html | split: heading_tag %}
         {% for section in sections %}
           {% if section != blank and forloop.index > 1 %}
             {% assign section_parts = section | split: '>' %}
             {% if section_parts.size > 1 %}
               {% assign heading_text = section_parts[1] | split: '</' | first | strip_html | strip %}
-              {% assign content_text = section | split: '>' | last | split: heading_tag | first %}
+              
+              {% comment %} Extract content until next heading (any level) {% endcomment %}
+              {% assign content_text = section | split: '>' | last %}
+              {% comment %} Remove any nested headings from content {% endcomment %}
+              {% assign content_text = content_text | split: '<h2' | first %}
+              {% assign content_text = content_text | split: '<h3' | first %}
+              {% assign content_text = content_text | split: '<h4' | first %}
+              {% assign content_text = content_text | split: '<H2' | first %}
+              {% assign content_text = content_text | split: '<H3' | first %}
+              {% assign content_text = content_text | split: '<H4' | first %}
               
               {% if heading_text != blank %}
                 <xo-animate xo-cascade class='faq-v3__row'>
@@ -70,6 +86,7 @@
             {% assign is_heading = false %}
             {% assign heading_text = '' %}
             
+            {% comment %} Check for bold text (both <b> and <strong> tags) {% endcomment %}
             {% if para_full contains '<b>' and para_full contains '</b>' %}
               {% comment %} Extract bold text {% endcomment %}
               {% assign bold_content = para_full | split: '<b>' | last | split: '</b>' | first | strip_html | strip %}
@@ -79,7 +96,7 @@
               {% if text_after_bold == blank or text_after_bold.size < 5 %}
                 {% assign is_heading = true %}
                 {% assign heading_text = bold_content %}
-              {% elsif bold_content.size > 15 and bold_content.size < 100 %}
+              {% elsif bold_content.size > 10 and bold_content.size < 150 %}
                 {% comment %} Large bold text at start is likely a heading {% endcomment %}
                 {% assign is_heading = true %}
                 {% assign heading_text = bold_content %}
@@ -88,10 +105,22 @@
               {% comment %} Also check for uppercase headings (like "BENEFITS", "INTRODUCING THE SOLUTION") {% endcomment %}
               {% if is_heading == false and bold_content != blank %}
                 {% assign bold_upper = bold_content | upcase %}
-                {% if bold_content == bold_upper and bold_content.size > 3 and bold_content.size < 80 %}
+                {% if bold_content == bold_upper and bold_content.size > 3 and bold_content.size < 100 %}
                   {% assign is_heading = true %}
                   {% assign heading_text = bold_content %}
                 {% endif %}
+              {% endif %}
+            {% elsif para_full contains '<strong>' and para_full contains '</strong>' %}
+              {% comment %} Also check for <strong> tags {% endcomment %}
+              {% assign bold_content = para_full | split: '<strong>' | last | split: '</strong>' | first | strip_html | strip %}
+              {% assign text_after_bold = para_full | split: '</strong>' | last | strip_html | strip %}
+              
+              {% if text_after_bold == blank or text_after_bold.size < 5 %}
+                {% assign is_heading = true %}
+                {% assign heading_text = bold_content %}
+              {% elsif bold_content.size > 10 and bold_content.size < 150 %}
+                {% assign is_heading = true %}
+                {% assign heading_text = bold_content %}
               {% endif %}
             {% endif %}
             
