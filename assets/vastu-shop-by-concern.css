@@ -364,6 +364,36 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
   overflow: visible;
 }
 
+/* Hide price overlay on image for shop by concern - price should only show in content area */
+section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price,
+section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price-overlay {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Ensure price in content area is visible and properly styled */
+section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__content .vastu-product-card__price {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  position: static;
+  background: transparent;
+  color: rgb(71 56 85);
+  padding: 0;
+  margin: 0.5rem 0 0;
+  font-size: var(--global-card-price-font-size-desktop);
+  font-weight: 600;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  white-space: normal;
+  width: auto;
+  max-width: 100%;
+  z-index: auto;
+}
+
 @media (width <= 48rem) {
   .popup-newsletter-v1__form,
   .popup-newsletter-v3__form,

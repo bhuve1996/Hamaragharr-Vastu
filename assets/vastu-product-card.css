@@ -677,6 +677,38 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card,
   height: 100%;
 }
 
+/* Hide price overlay on image for shop by concern - price should only show in content area */
+section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price,
+section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price-overlay {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: static !important;
+}
+
+/* Ensure price in content area is visible and properly styled for shop by concern */
+section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__content .vastu-product-card__price {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  background: transparent !important;
+  color: rgb(71 56 85) !important;
+  padding: 0 !important;
+  margin: 0.5rem 0 0 !important;
+  font-size: var(--global-card-price-font-size-desktop) !important;
+  font-weight: 600 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  white-space: normal !important;
+  width: auto !important;
+  max-width: 100% !important;
+  z-index: auto !important;
+  inset: auto !important;
+}
+
 section[class*="vastu-featured-products"] .vastu-product-card,
 .vastu-featured-products__grid .vastu-product-card {
   height: 100%;

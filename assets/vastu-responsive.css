@@ -21,6 +21,7 @@
 
   .slideshow-v28__overlay-content {
     align-items: flex-end !important;
+    padding-top: 2rem;
     padding-bottom: 2rem;
   }
 
@@ -36,6 +37,7 @@
     min-height: 300px !important;
   }
 
+  /* Prevent image cropping on mobile - use contain instead of cover */
   section[class*="homepage-carousel"] .slideshow-bg,
   section[class*="homepage-carousel"] .slideshow-bg-image__item,
   section[class*="homepage-carousel"] .slideshow-bg-image__url,
@@ -44,13 +46,36 @@
   section[class*="slideshow"] .slideshow-bg-image__item,
   section[class*="slideshow"] .slideshow-bg-image__url,
   section[class*="slideshow"] .xo-background-lazyload {
-    aspect-ratio: 16 / 9;
-    min-height: 300px;
+    background-size: contain !important;
+    background-position: center center;
   }
 
   .slideshow-v28__text--overlay {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  /* Add spacing to text elements in homepage carousel on mobile */
+  section[class*="homepage-carousel"] .slideshow-v28__text--overlay .slideshow-v28__subtitle,
+  section[class*="homepage-carousel"] .slideshow-v28__text--overlay .slideshow-v28__title,
+  section[class*="homepage-carousel"] .slideshow-v28__text--overlay .slideshow-v28__description,
+  section[class*="slideshow"] .slideshow-v28__text--overlay .slideshow-v28__subtitle,
+  section[class*="slideshow"] .slideshow-v28__text--overlay .slideshow-v28__title,
+  section[class*="slideshow"] .slideshow-v28__text--overlay .slideshow-v28__description {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  section[class*="homepage-carousel"] .slideshow-v28__text--overlay .slideshow-v28__subtitle:first-child,
+  section[class*="slideshow"] .slideshow-v28__text--overlay .slideshow-v28__subtitle:first-child {
+    margin-top: 0;
+  }
+
+  section[class*="homepage-carousel"] .slideshow-v28__text--overlay .slideshow-v28__button:last-child,
+  section[class*="homepage-carousel"] .slideshow-v28__text--overlay .button:last-child,
+  section[class*="slideshow"] .slideshow-v28__text--overlay .slideshow-v28__button:last-child,
+  section[class*="slideshow"] .slideshow-v28__text--overlay .button:last-child {
+    margin-bottom: 0;
   }
 
   .vastu-featured-products__icon-svg {

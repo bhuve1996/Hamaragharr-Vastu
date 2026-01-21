@@ -345,6 +345,7 @@ footer h3 {
 @media (width <= 48rem) {
   .footer-modern__payment {
     gap: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+    justify-content: center;
   }
 }
 
