@@ -29,16 +29,12 @@
   section[class*="homepage-carousel"] xo-carousel-slide,
   section[class*="slideshow"] xo-carousel-slide {
     aspect-ratio: auto !important;
-    min-height: 600px;
-    height: auto;
+    min-height: 250px !important;
+    max-height: 350px !important;
+    height: auto !important;
   }
 
-  section[class*="homepage-carousel"] .slideshow-v28__overlay-content,
-  section[class*="slideshow"] .slideshow-v28__overlay-content {
-    min-height: 600px !important;
-  }
-
-  /* Fix mobile banner image - use contain to show full image without cropping */
+  /* Stretch image to fill space while keeping content visible */
   section[class*="homepage-carousel"] .slideshow-bg,
   section[class*="homepage-carousel"] .slideshow-bg-image__item,
   section[class*="homepage-carousel"] .slideshow-bg-image__url,
@@ -47,7 +43,7 @@
   section[class*="slideshow"] .slideshow-bg-image__item,
   section[class*="slideshow"] .slideshow-bg-image__url,
   section[class*="slideshow"] .xo-background-lazyload {
-    background-size: contain !important;
+    background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
   }
@@ -55,8 +51,21 @@
   /* Ensure the container can expand to show full image */
   section[class*="homepage-carousel"] xo-carousel-slide > div,
   section[class*="slideshow"] xo-carousel-slide > div {
-    min-height: 600px;
-    height: 100%;
+    min-height: 250px !important;
+    max-height: 350px !important;
+    height: 100% !important;
+  }
+
+  /* Ensure overlay content is properly visible and positioned */
+  section[class*="homepage-carousel"] .slideshow-v28__overlay-content,
+  section[class*="slideshow"] .slideshow-v28__overlay-content {
+    min-height: 250px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 1.5rem !important;
+    position: relative !important;
+    z-index: 2 !important;
   }
 
   .slideshow-v28__text--overlay {
