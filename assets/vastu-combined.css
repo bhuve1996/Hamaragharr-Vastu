@@ -11654,7 +11654,7 @@ section[class*="testimonial-v13"] xo-container {
 }
 
 /* ========================================
-   vastu-shop-by-concern.css (15.5 KB)
+   vastu-shop-by-concern.css (16.4 KB)
    ======================================== */
 
 /* Underline removed - no underline for shop by concern heading */
@@ -12063,6 +12063,8 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .popup-newsletter-v1__form .field,
@@ -12071,9 +12073,35 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   .popup-newsletter-v5__form .field,
   .popup-newsletter-v6__form .field {
     width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+    box-sizing: border-box;
+  }
+
+  /* Fix input field overflow on mobile and add spacing */
+  .popup-newsletter-v1__form .xo-field-input,
+  .popup-newsletter-v3__form .xo-field-input,
+  .popup-newsletter-v4__form .xo-field-input,
+  .popup-newsletter-v5__form .xo-field-input,
+  .popup-newsletter-v6__form .xo-field-input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 1rem;
     margin-bottom: 0;
   }
 
+  .popup-newsletter-v1__form .xo-field-input__input,
+  .popup-newsletter-v3__form .xo-field-input__input,
+  .popup-newsletter-v4__form .xo-field-input__input,
+  .popup-newsletter-v5__form .xo-field-input__input,
+  .popup-newsletter-v6__form .xo-field-input__input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Fix button overflow on mobile */
   .popup-newsletter-v1__form button,
   .popup-newsletter-v3__form button,
   .popup-newsletter-v4__form button,
@@ -12085,11 +12113,13 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   .popup-newsletter-v5__form .xo-btn,
   .popup-newsletter-v6__form .xo-btn {
     width: 100%;
+    max-width: 100%;
     margin: 0;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     font-size: var(--button-font-size-mobile, var(--global-body-font-size-mobile));
     font-weight: var(--button-font-weight-mobile, var(--global-body-font-weight-mobile, 400));
     min-height: 5rem;
+    box-sizing: border-box;
   }
 
   .popup-newsletter__container {
@@ -12832,7 +12862,7 @@ section[class*="slideshow"] .xo-background-lazyload {
 }
 
 /* ========================================
-   vastu-grid-carousel.css (22.3 KB)
+   vastu-grid-carousel.css (24.4 KB)
    ======================================== */
 
 /* Vastu Grid Carousel Section Styles */
@@ -12949,12 +12979,33 @@ section[class*="vastu-grid-carousel"] {
     visibility: visible;
     opacity: 1;
     overflow: visible;
+    height: auto;
+    min-height: 0;
   }
 
   .vastu-grid-carousel__desktop-carousel xo-carousel {
     display: block;
     visibility: visible;
     overflow: visible;
+    height: auto;
+    min-height: 0;
+  }
+
+  .vastu-grid-carousel__desktop-carousel xo-carousel-inner {
+    height: auto;
+    min-height: 0;
+  }
+
+  .vastu-grid-carousel__desktop-carousel xo-carousel-list {
+    height: auto;
+    min-height: 0;
+    align-items: stretch;
+  }
+
+  .vastu-grid-carousel__desktop-carousel xo-carousel-slide {
+    height: auto;
+    min-height: 0;
+    align-items: stretch;
   }
 }
 
@@ -12988,6 +13039,8 @@ section[class*="vastu-grid-carousel"] {
     max-width: 100%;
     display: block;
     overflow: visible;
+    height: auto;
+    min-height: 0;
   }
 
   .vastu-grid-carousel__desktop-carousel--fullwidth xo-carousel-inner {
@@ -12996,6 +13049,8 @@ section[class*="vastu-grid-carousel"] {
     padding-left: 0;
     padding-right: 0;
     display: block;
+    height: auto;
+    min-height: 0;
   }
 
   .vastu-grid-carousel__desktop-carousel--fullwidth xo-carousel-list {
@@ -13004,18 +13059,46 @@ section[class*="vastu-grid-carousel"] {
     padding-right: 2rem;
     display: flex;
     overflow: visible;
+    height: auto;
+    min-height: 0;
+    align-items: stretch;
   }
 
   .vastu-grid-carousel__desktop-carousel--fullwidth xo-carousel-slide {
     padding-left: 0.625rem;
     padding-right: 0.625rem;
     display: flex;
+    height: auto;
+    min-height: 0;
+    align-items: stretch;
   }
 }
 
 section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel {
   width: 100%;
   overflow: visible;
+}
+
+@media (width >= 992px) {
+  section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel {
+    height: auto;
+    min-height: 0;
+  }
+
+  section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel-inner {
+    height: auto;
+    min-height: 0;
+  }
+
+  section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel-list {
+    height: auto;
+    min-height: 0;
+  }
+
+  section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel-slide {
+    height: auto;
+    min-height: 0;
+  }
 }
 
 section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel-inner {
@@ -13557,6 +13640,20 @@ xo-carousel-slide .vastu-grid-card {
   height: 100%;
 }
 
+/* Desktop: Constrain carousel slide height to fit content while maintaining card stretch */
+@media (width >= 992px) {
+  section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel-slide:has(.vastu-grid-card) {
+    height: auto;
+    min-height: 0;
+    align-items: stretch;
+  }
+
+  section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel-slide .vastu-grid-card {
+    height: 100%;
+    min-height: 0;
+  }
+}
+
 /* Grid item styling */
 .vastu-grid-carousel__grid-item {
   width: 100%;
@@ -13616,6 +13713,20 @@ xo-carousel:has(.vastu-grid-card) xo-carousel-list {
 section:has(.vastu-grid-card) xo-carousel-slide,
 section:has(.vastu-grid-card) xo-carousel-inner {
   overflow: visible;
+}
+
+/* Desktop: Ensure carousel list fits content height */
+@media (width >= 992px) {
+  section[class*="vastu-grid-carousel"]:has(.vastu-grid-card) .vastu-grid-carousel__desktop-carousel xo-carousel-list {
+    height: auto;
+    min-height: 0;
+    align-items: stretch;
+  }
+
+  section[class*="vastu-grid-carousel"]:has(.vastu-grid-card) .vastu-grid-carousel__desktop-carousel xo-carousel-inner {
+    height: auto;
+    min-height: 0;
+  }
 }
 
 /* Mobile responsive */
