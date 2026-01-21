@@ -8,43 +8,78 @@ const fs = require('fs');
 const path = require('path');
 
 // List of CSS files to combine (in order)
+// Excludes: vastu-combined.css, vastu-combined.min.css, main.min.css, xo-webcomponents.min.css (vendor files)
 const cssFiles = [
+  // Base and typography
+  'base.css',
   'vastu-base.css',
   'vastu-headings.css',
+  'vastu-global-typography.css',
+  'vastu-typography.css',
+  'homepage-headings.css',
+  
+  // Cards and components
   'vastu-cards.css',
   'vastu-collection-cards.css',
   'vastu-product-card.css',
   'vastu-product-card-fixes.css',
-  'vastu-popup-newsletter.css',
-  'vastu-product-page.css',
-  'vastu-shipping-link.css',
-  'vastu-buttons-hover.css',
-  'button-hover-effects.css',
-  'button-fixes.css',
-  'newsletter-button-mobile.css',
-  'price-tag-styles.css',
+  'vastu-card-image-radius.css',
+  
+  // Sections and spacing
+  'vastu-sections.css',
   'vastu-sections-spacing.css',
   'section-spacing.css',
   'vastu-global-spacing.css',
-  'homepage-headings.css',
-  'vastu-why-kit.css',
+  
+  // Product pages
+  'vastu-product-page.css',
   'vastu-product-showcase.css',
-  'vastu-hindi-statement.css',
-  'vastu-footer.css',
-  'vastu-carousel.css',
-  'vastu-grid-carousel.css',
-  'vastu-topbar-promotion.css',
+  'vastu-shipping-link.css',
+  'price-tag-styles.css',
+  
+  // Buttons
+  'vastu-buttons-hover.css',
+  'button-hover-effects.css',
+  'button-fixes.css',
+  
+  // Newsletter
+  'vastu-popup-newsletter.css',
+  'component-newsletter.css',
+  'newsletter-section.css',
+  'newsletter-button-mobile.css',
+  
+  // Homepage sections
   'vastu-banner-hero.css',
   'vastu-banner-hero-extended.css',
+  'vastu-why-kit.css',
+  'vastu-hindi-statement.css',
+  'vastu-topbar-promotion.css',
   'vastu-trust-bar.css',
   'vastu-testimonials.css',
   'vastu-shop-by-concern.css',
+  'vastu-features-bar.css',
+  'marquee-v1.css',
+  
+  // Carousels and slideshows
+  'vastu-carousel.css',
+  'vastu-grid-carousel.css',
+  'vastu-slideshow.css',
+  
+  // Footer and help
+  'vastu-footer.css',
   'vastu-help-address.css',
+  
+  // Blog and FAQ
   'vastu-blog.css',
   'vastu-faq.css',
-  'vastu-responsive.css',
-  'vastu-global-typography.css',
-  'vastu-card-image-radius.css'
+  
+  // Templates
+  'section-password.css',
+  'section-password-image-banner.css',
+  'template-giftcard.css',
+  
+  // Responsive
+  'vastu-responsive.css'
 ];
 
 const assetsDir = path.join(__dirname, '..', 'assets');
