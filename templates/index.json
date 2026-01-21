@@ -143,7 +143,7 @@
         "width": "wide",
         "fullwidth_margin": 0,
         "section_height_desktop": 600,
-        "section_height_mobile": 400,
+        "section_height_mobile": 300,
         "content_width_columns": 6,
         "carousel_type": "none",
         "changing_speed": 1000,
@@ -152,6 +152,65 @@
         "show_pagination": true,
         "padding_top": 0,
         "padding_bottom": 0
+      }
+    },
+    "homepage-marquee": {
+      "type": "marquee-v1",
+      "blocks": {
+        "item_1": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Free Shipping on Orders Above ₹500"
+          }
+        },
+        "item_2": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "100% Satisfaction Guaranteed"
+          }
+        },
+        "item_3": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Transform Your Home with Vastu"
+          }
+        },
+        "item_4": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Easy Self-Installation"
+          }
+        },
+        "item_5": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "No Consultation Required"
+          }
+        }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "item_4", "item_5"],
+      "settings": {
+        "speed": 30,
+        "direction": "left",
+        "gap": 30,
+        "font_size": 1.2,
+        "text_color": "#ffffff",
+        "background_color": "#000000",
+        "font_weight": 500,
+        "width": "fullwidth",
+        "fullwidth_margin": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "section_padding_top_desktop": 0,
+        "section_padding_bottom_desktop": 0,
+        "section_margin_top_desktop": 0,
+        "section_margin_bottom_desktop": 0,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0,
+        "section_margin_top_mobile": 0,
+        "section_margin_bottom_mobile": 0,
+        "pause_on_hover": true,
+        "color_scheme": ""
       }
     },
     "vastu-why-kit": {
@@ -972,8 +1031,9 @@
   },
   "order": [
     "homepage-carousel",
-    "vastu-why-kit",
+    "homepage-marquee",
     "vastu-product-showcase",
+    "vastu-why-kit",
     "vastu-help-address-v1",
     "vastu-grid-carousel-homepage",
     "vastu-hindi-statement",

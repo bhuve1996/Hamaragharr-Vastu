@@ -16,6 +16,25 @@ nav a {
 /* Topbar Close Button */
 .header-v6__topbar {
   position: relative;
+  background: #000 !important;
+  color: #fff !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Override any media queries that hide the topbar */
+@media (width <= 1199px) {
+  .header-v6__topbar {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+@media (width <= 48rem) {
+  .header-v6__topbar {
+    display: block !important;
+    visibility: visible !important;
+  }
 }
 
 .header-v6__topbar-close {
@@ -36,11 +55,12 @@ nav a {
   transition: all 0.3s ease;
   z-index: 10;
   opacity: 0.6;
+  color: #fff;
 }
 
 .header-v6__topbar-close:hover {
   opacity: 1;
-  background: rgba(var(--color-foreground), 0.1);
+  background: rgb(255 255 255 / 10%);
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -53,7 +73,7 @@ nav a {
 }
 
 .header-v6__topbar-close svg path {
-  fill: currentColor;
+  fill: #fff;
 }
 
 /* Hide topbar when closed */
@@ -70,13 +90,15 @@ nav a {
   }
 }
 
-/* Topbar Promotion Auto-Scroll Carousel Styles */
+/* Topbar Promotion Auto-Scroll Carousel Styles - Elegant Minimal Design */
 
 .header-v6__promotion-carousel {
   width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   overflow: hidden;
   position: relative;
-  height: 2.4rem;
+  height: 2.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,72 +115,81 @@ nav a {
 
 .header-v6__promotion-item {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
+  transform: translate(-50%, -50%) translateY(10px);
   width: auto;
-  max-width: 90%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 92%;
+  min-width: 0;
+  display: inline-block;
   text-decoration: none;
   color: inherit;
   opacity: 0;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
   pointer-events: none;
   text-align: center;
+  background: transparent;
+  padding: 0;
 }
 
 .header-v6__promotion-item.active {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translate(-50%, -50%) translateY(0);
   pointer-events: auto;
+  background: transparent;
 }
 
 .header-v6__promotion-item:hover {
-  opacity: 0.9;
-  transform: translateX(-50%) translateY(0) scale(1.05);
+  opacity: 1;
+  background: transparent;
 }
 
 .header-v6__promotion-name {
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
+  font-size: 1.35rem;
+  line-height: 1.5;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 3s ease infinite;
-  text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  transition:
+    color 0.3s ease,
+    font-weight 0.3s ease;
+  padding: calc(var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) * 1.2)
+    calc(var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) * 2.5);
 }
 
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+/* Active state - subtle emphasis */
+.header-v6__promotion-item.active .header-v6__promotion-name {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Hover effect */
+.header-v6__promotion-item:hover .header-v6__promotion-name {
+  color: #fff;
 }
 
 /* Responsive adjustments */
 @media (width <= 48rem) {
-  .header-v6__promotion-name {
-    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
-    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
-  }
-  
   .header-v6__promotion-carousel {
-    height: 2rem;
+    height: 3.2rem;
+    min-height: 3.2rem;
   }
-  
+
   .header-v6__promotion-item {
-    max-width: 95%;
+    max-width: 96%;
+  }
+
+  .header-v6__promotion-name {
+    font-size: 1.15rem;
+    padding: calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 1.2)
+      calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 2);
   }
 }
 
@@ -217,19 +248,16 @@ nav a {
   border-radius: 50%;
   text-decoration: none;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  background: linear-gradient(135deg, rgb(102 126 234 / 10%) 0%, rgb(118 75 162 / 10%) 100%);
   border: 2px solid transparent;
   position: relative;
   overflow: hidden;
 }
 
 .header-v6__contact-icon::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -239,8 +267,10 @@ nav a {
 .header-v6__contact-icon svg {
   position: relative;
   z-index: 1;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgb(102 126 234 / 30%));
   color: rgba(var(--color-foreground));
 }
 
@@ -258,13 +288,13 @@ nav a {
 }
 
 .header-v6__contact-icon--email svg {
-  filter: drop-shadow(0 2px 4px rgba(240, 147, 251, 0.3));
+  filter: drop-shadow(0 2px 4px rgb(240 147 251 / 30%));
 }
 
 .header-v6__contact-icon:hover {
   transform: translateY(-2px) scale(1.1);
-  border-color: rgba(102, 126, 234, 0.3);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  border-color: rgb(102 126 234 / 30%);
+  box-shadow: 0 4px 12px rgb(102 126 234 / 20%);
 }
 
 .header-v6__contact-icon:hover::before {
@@ -273,17 +303,17 @@ nav a {
 
 .header-v6__contact-icon:hover svg {
   transform: scale(1.1);
-  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.5));
-  color: #ffffff !important;
+  filter: drop-shadow(0 4px 8px rgb(255 255 255 / 50%));
+  color: #fff !important;
 }
 
 .header-v6__contact-icon:hover svg path {
-  fill: #ffffff !important;
+  fill: #fff !important;
 }
 
 .header-v6__contact-icon--email:hover {
-  border-color: rgba(240, 147, 251, 0.3);
-  box-shadow: 0 4px 12px rgba(240, 147, 251, 0.2);
+  border-color: rgb(240 147 251 / 30%);
+  box-shadow: 0 4px 12px rgb(240 147 251 / 20%);
 }
 
 /* Responsive adjustments */
@@ -291,17 +321,11 @@ nav a {
   .header-v6__contact-icons {
     gap: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
   }
-  
+
   .header-v6__contact-icon {
     width: 3.2rem;
     height: 3.2rem;
   }
-}
-
-.header-v6__promotion-carousel {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
 }
 
 .header-v6__selector-wrap {
@@ -323,11 +347,11 @@ nav a {
     grid-template-columns: 1fr;
     gap: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
   }
-  
+
   .header-v6__information--center {
     order: 1;
   }
-  
+
   .header-v6__selector-wrap--right {
     order: 2;
     justify-content: center;

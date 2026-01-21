@@ -76,7 +76,7 @@ xo-modal[xo-placement="center"]::before {
 .product-variant-modal__product-image {
   flex-shrink: 0;
   width: 100px;
-  aspect-ratio: 4/3;
+  aspect-ratio: 4 / 3;
   border-radius: 0.5rem;
   overflow: hidden;
 }
@@ -85,7 +85,7 @@ xo-modal[xo-placement="center"]::before {
 .product-variant-modal__product-image .xo-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .product-variant-modal__product-image .xo-image {
@@ -589,6 +589,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 .footer-modern__heading {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
   font-weight: var(--font-weight-bold, 700);
+
   /* Removed text-transform: uppercase - use natural case */
   margin-bottom: 1.5rem;
   color: rgb(var(--color-text));
@@ -681,6 +682,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     transform 0.2s ease;
   text-align: center;
   white-space: nowrap;
+
   /* Removed text-transform: uppercase - use natural case */
 }
 
@@ -831,6 +833,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .footer-modern__heading {
     font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
     font-weight: var(--font-weight-bold, 700);
+
     /* Removed text-transform: uppercase - use natural case */
     margin-bottom: 1.25rem;
   }
@@ -853,6 +856,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     font-size: var(--button-font-size-mobile, var(--global-body-font-size-mobile));
     padding: var(--button-padding-v-mobile, 0.75rem) var(--button-padding-h-mobile, 1rem);
     line-height: var(--global-body-line-height-mobile, 1.5);
+
     /* Removed text-transform: uppercase - use natural case */
   }
 
@@ -911,6 +915,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .footer-modern__heading {
     font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
     font-weight: var(--font-weight-bold, 700);
+
     /* Removed text-transform: uppercase - use natural case */
   }
 
@@ -1203,4 +1208,20 @@ section[class*="main-product"] .shipping-content {
 .xo-product-info-content__description-read-more:focus {
   outline: 2px solid rgb(71 56 85);
   outline-offset: 2px;
+}
+
+/* Mini Description Styles */
+.xo-product-info-content__description--mini {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgb(var(--color-foreground));
+  opacity: 0.9;
+}
+
+.xo-product-info-content__description--mini p {
+  margin: 0 0 0.5rem;
+}
+
+.xo-product-info-content__description--mini p:last-child {
+  margin-bottom: 0;
 }

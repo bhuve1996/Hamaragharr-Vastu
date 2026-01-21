@@ -778,6 +778,51 @@
           "info": "Hide this description block if product description is already shown in product information tabs or accordion sections"
         },
         {
+          "type": "header",
+          "content": "Mini Description Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_mini_description",
+          "label": "Enable Mini Description",
+          "default": true,
+          "info": "Show a short mini description at the top instead of the full description. The full description will still be available in the accordion below."
+        },
+        {
+          "type": "textarea",
+          "id": "custom_mini_description",
+          "label": "Custom Mini Description",
+          "info": "Enter a custom mini description. If left empty, it will use the product metafield 'custom.mini_description' or auto-generate from the full description."
+        },
+        {
+          "type": "select",
+          "id": "truncation_method",
+          "label": "Auto-Generation Method",
+          "info": "How to auto-generate mini description if custom text and metafield are not available",
+          "default": "words",
+          "options": [
+            {
+              "value": "words",
+              "label": "First X Words (Smart)"
+            },
+            {
+              "value": "sentence",
+              "label": "First Sentence"
+            },
+            {
+              "value": "paragraph",
+              "label": "First Paragraph"
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "id": "truncation_length",
+          "label": "Truncation Length (Words)",
+          "info": "Number of words to show when using 'First X Words' method (recommended: 30-100)",
+          "default": 50
+        },
+        {
           "type": "number",
           "id": "padding_top",
           "label": "t:sections.main_product.blocks.description.padding_top.label",

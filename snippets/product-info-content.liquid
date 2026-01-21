@@ -158,30 +158,102 @@
               {{ block.shopify_attributes }}
               style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
             >
-              {% assign description_html = product.description %}
-              {% assign description_text_plain = product.description | strip_html %}
-              {% assign truncated_text_plain = description_text_plain | truncate: 230 %}
-              {% assign is_truncated = false %}
-              {% if description_text_plain.size > 230 %}
-                {% assign is_truncated = true %}
-              {% endif %}
-              <div class='xo-product-info-content__description-wrapper'>
-                <div class='xo-product-info-content__description' data-full-text='{{ description_html | escape }}' data-truncated='{{ is_truncated }}'>
-                  {% if is_truncated %}
-                    <div class='xo-product-info-content__description-truncated'>{{ truncated_text_plain }}</div>
-                    <div class='xo-product-info-content__description-full' style='display: none;'>{{ description_html }}</div>
+              {% comment %} Mini Description Logic - Priority: Custom > Metafield > Auto-generated {% endcomment %}
+              {% assign mini_description = blank %}
+              {% assign use_mini_description = block.settings.use_mini_description %}
+              
+              {% if use_mini_description %}
+                {% comment %} Priority 1: Custom mini description (manually entered) {% endcomment %}
+                {% if block.settings.custom_mini_description != blank %}
+                  {% assign mini_description = block.settings.custom_mini_description %}
+                {% comment %} Priority 2: Metafield mini description {% endcomment %}
+                {% elsif product.metafields.custom.mini_description != blank %}
+                  {% assign mini_description = product.metafields.custom.mini_description %}
+                {% comment %} Priority 3: Auto-generate from full description (smart truncation) {% endcomment %}
+                {% elsif product.description != blank %}
+                  {% assign description_text_plain = product.description | strip_html %}
+                  {% assign truncation_method = block.settings.truncation_method | default: 'words' %}
+                  {% assign truncation_length = block.settings.truncation_length | default: 50 %}
+                  
+                  {% if truncation_method == 'sentence' %}
+                    {% comment %} Get first sentence {% endcomment %}
+                    {% assign first_period = description_text_plain | split: '.' | first %}
+                    {% assign first_exclamation = description_text_plain | split: '!' | first %}
+                    {% assign first_question = description_text_plain | split: '?' | first %}
+                    {% assign first_sentence = first_period %}
+                    {% if first_exclamation.size < first_sentence.size %}
+                      {% assign first_sentence = first_exclamation %}
+                    {% endif %}
+                    {% if first_question.size < first_sentence.size %}
+                      {% assign first_sentence = first_question %}
+                    {% endif %}
+                    {% if first_sentence.size > 0 %}
+                      {% assign mini_description = first_sentence | append: '.' %}
+                    {% else %}
+                      {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
+                    {% endif %}
+                  {% elsif truncation_method == 'paragraph' %}
+                    {% comment %} Get first paragraph from HTML or plain text {% endcomment %}
+                    {% assign description_html = product.description %}
+                    {% if description_html contains '<p>' %}
+                      {% assign p_parts = description_html | split: '<p>' %}
+                      {% if p_parts.size > 1 %}
+                        {% assign first_p = p_parts[1] | split: '</p>' | first %}
+                        {% if first_p != blank %}
+                          {% assign mini_description = first_p | strip_html | strip %}
+                        {% else %}
+                          {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
+                        {% endif %}
+                      {% else %}
+                        {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
+                      {% endif %}
+                    {% else %}
+                      {% assign first_newline = description_text_plain | split: '\n\n' | first %}
+                      {% if first_newline != blank and first_newline != description_text_plain %}
+                        {% assign mini_description = first_newline | strip %}
+                      {% else %}
+                        {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
+                      {% endif %}
+                    {% endif %}
                   {% else %}
-                    {{ description_html }}
+                    {% comment %} Default: Truncate by words {% endcomment %}
+                    {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
                   {% endif %}
-                </div>
-                {% if is_truncated %}
-                  {% assign read_more_text = 'products.product.read_more' | t %}
-                  {% if read_more_text == blank %}
-                    {% assign read_more_text = 'Read more' %}
+                {% endif %}
+              {% endif %}
+              
+              {% comment %} Display mini description if configured, otherwise show full description with truncation {% endcomment %}
+              <div class='xo-product-info-content__description-wrapper'>
+                {% if use_mini_description and mini_description != blank %}
+                  <div class='xo-product-info-content__description xo-product-info-content__description--mini'>
+                    {{ mini_description }}
+                  </div>
+                {% else %}
+                  {% comment %} Fallback to original behavior {% endcomment %}
+                  {% assign description_html = product.description %}
+                  {% assign description_text_plain = product.description | strip_html %}
+                  {% assign truncated_text_plain = description_text_plain | truncate: 230 %}
+                  {% assign is_truncated = false %}
+                  {% if description_text_plain.size > 230 %}
+                    {% assign is_truncated = true %}
                   {% endif %}
-                  <button type='button' class='xo-product-info-content__description-read-more' onclick='this.previousElementSibling.querySelector(".xo-product-info-content__description-truncated").style.display="none"; this.previousElementSibling.querySelector(".xo-product-info-content__description-full").style.display="block"; this.style.display="none";'>
-                    {{ read_more_text }}
-                  </button>
+                  <div class='xo-product-info-content__description' data-full-text='{{ description_html | escape }}' data-truncated='{{ is_truncated }}'>
+                    {% if is_truncated %}
+                      <div class='xo-product-info-content__description-truncated'>{{ truncated_text_plain }}</div>
+                      <div class='xo-product-info-content__description-full' style='display: none;'>{{ description_html }}</div>
+                    {% else %}
+                      {{ description_html }}
+                    {% endif %}
+                  </div>
+                  {% if is_truncated %}
+                    {% assign read_more_text = 'products.product.read_more' | t %}
+                    {% if read_more_text == blank %}
+                      {% assign read_more_text = 'Read more' %}
+                    {% endif %}
+                    <button type='button' class='xo-product-info-content__description-read-more' onclick='this.previousElementSibling.querySelector(".xo-product-info-content__description-truncated").style.display="none"; this.previousElementSibling.querySelector(".xo-product-info-content__description-full").style.display="block"; this.style.display="none";'>
+                      {{ read_more_text }}
+                    </button>
+                  {% endif %}
                 {% endif %}
               </div>
             </xo-animate>

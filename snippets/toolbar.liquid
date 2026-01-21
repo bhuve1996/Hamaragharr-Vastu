@@ -9,9 +9,13 @@
   assign template = template | split: '.' | first
   assign background_color = '--bg-color: ' | append: settings.toolbar_background_color | append: ';'
   assign background_gradient = '--bg-gradient: ' | append: settings.toolbar_background_gradient | append: ';'
+  assign is_homepage = false
+  if template == 'index' or template contains 'index' or template contains 'home'
+    assign is_homepage = true
+  endif
 %}
 
-{% if template != 'product' %}
+{% if settings.enable_toolbar and is_homepage %}
   <div class='toolbar color-{{ settings.toolbar_color_scheme }}' style='{{ background_color }} {{ background_gradient }}'>
     <a href='/collections/all' class='toolbar__item'>
       <span class='toolbar__item-content'>

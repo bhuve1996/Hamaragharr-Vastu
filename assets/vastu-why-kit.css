@@ -62,7 +62,11 @@
 .vastu-why-kit__icon svg {
   width: 100%;
   height: 100%;
-  fill: currentColor;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .vastu-why-kit__icon img,
@@ -174,7 +178,10 @@
   }
 
   .vastu-why-kit__text {
-    font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop)); /* 2rem = 20px */
+    font-size: var(
+      --section-card-title-font-size-desktop,
+      var(--global-card-title-font-size-desktop)
+    ); /* 2rem = 20px */
     font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
     line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
   }

@@ -6,6 +6,7 @@
   font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem));
   font-weight: 700;
   color: rgb(var(--color-foreground, 0, 0, 0));
+
   /* Margins handled by vastu-global-spacing.css */
   line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
 }
@@ -14,6 +15,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+
   /* Margin-top handled by vastu-global-spacing.css */
 }
 
@@ -23,6 +25,7 @@
   color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
   padding-left: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
   position: relative;
+
   /* Margin-bottom handled by vastu-global-spacing.css */
   display: flex;
   align-items: flex-start;
@@ -104,7 +107,7 @@
   height: auto;
   display: block;
   transition: transform 0.4s ease;
-  object-fit: cover;
+  object-fit: contain;
   max-width: 100%;
   background: transparent;
   border: none;
@@ -162,12 +165,12 @@
   box-shadow: none;
 }
 
-  .banner-v155__item--right xo-carousel {
-    width: 100%;
-    position: relative;
-    overflow: visible;
-    padding-bottom: var(--section-padding-bottom-desktop, var(--global-section-padding-bottom-desktop, 20px));
-  }
+.banner-v155__item--right xo-carousel {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  padding-bottom: var(--section-padding-bottom-desktop, var(--global-section-padding-bottom-desktop, 20px));
+}
 
 .banner-v155__item--right xo-carousel-inner {
   width: 100%;
@@ -294,7 +297,8 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px))
+    var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
   display: inline-block;
 }
 
@@ -347,7 +351,8 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
 .xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed .xo-field-radio__label,
 .xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed2 .xo-field-radio__label,
 .xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed3 .xo-field-radio__label {
-  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px))
+    var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
   min-height: auto;
   width: auto;
   min-width: fit-content;

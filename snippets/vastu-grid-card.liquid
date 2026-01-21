@@ -32,6 +32,8 @@
     {% endif %}
     <a href='{{ current_product.url }}' class='vastu-grid-card__link'>
       <div class='vastu-grid-card__image hover-style--scale-up'>
+        {% comment %} Price moved below image and name {% endcomment %}
+        {% comment %}
         {% if current_product.price != blank %}
           {%- assign price_formatted = current_product.price | money -%}
           {%- assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' -%}
@@ -39,6 +41,7 @@
             {{ price_formatted }}
           </div>
         {% endif %}
+        {% endcomment %}
         {% if current_product.featured_image != blank %}
           {% render 'image', image: current_product.featured_image, media_aspect_ratio: '1/1' %}
         {% else %}
@@ -48,6 +51,14 @@
       <div class='vastu-grid-card__content'>
         {% assign display_title = current_product.title | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7" %}
         <h4 class='vastu-grid-card__title' style='--card-title-size: {{ card_title_size }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h4>
+        {% comment %} Price displayed below image and name {% endcomment %}
+        {% if current_product.price != blank %}
+          {%- assign price_formatted = current_product.price | money -%}
+          {%- assign price_formatted = price_formatted | replace: 'Rs.', '₹' | replace: 'Rs ', '₹ ' | replace: 'INR', '₹' | replace: '$', '₹' | replace: 'USD', 'INR' -%}
+          <div class='vastu-grid-card__price' style='--card-price-size: {{ card_price_size }}rem;'>
+            {{ price_formatted }}
+          </div>
+        {% endif %}
       </div>
     </a>
     {% if current_product.variants.size > 1 %}

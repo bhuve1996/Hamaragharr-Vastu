@@ -50,24 +50,59 @@
           <xo-carousel-inner>
             <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
               {% for block in section.blocks %}
-                <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
-                  <div class='testimonial-v13__item'>
-                    {% if block.settings.icon_image != blank %}
-                      <div class='testimonial-v13__icon'>
-                        {%- render 'image', image: block.settings.icon_image -%}
+                {% if block.type == 'review' %}
+                  <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
+                    <div class='testimonial-v13__item'>
+                      {% comment %} Quote icon at top {% endcomment %}
+                      <div class='testimonial-v13__quote-icon'>
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.608l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.608l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" fill="currentColor"/>
+                        </svg>
                       </div>
-                    {% endif %}
-                    <div class='testimonial-v13__testimonial'>{{ block.settings.testimonial }}</div>
-                    <div class='testimonial-v13__customer'>
-                      {% if block.settings.name_customer %}
-                        <div class='testimonial-v13__name'>{{ block.settings.name_customer }}</div>
+                      
+                      {% comment %} Product image {% endcomment %}
+                      {% if block.settings.product_image != blank %}
+                        <div class='testimonial-v13__product-image'>
+                          {%- render 'image', image: block.settings.product_image -%}
+                        </div>
                       {% endif %}
-                      {% if block.settings.position %}
-                        <div class='testimonial-v13__position'>{{ block.settings.position }}</div>
+                      
+                      {% comment %} Star rating {% endcomment %}
+                      {% if block.settings.rating != blank %}
+                        <div class='testimonial-v13__rating'>
+                          {% assign rating = block.settings.rating | plus: 0 %}
+                          {% for i in (1..5) %}
+                            {% if i <= rating %}
+                              <span class='testimonial-v13__star testimonial-v13__star--filled'>★</span>
+                            {% else %}
+                              <span class='testimonial-v13__star testimonial-v13__star--empty'>★</span>
+                            {% endif %}
+                          {% endfor %}
+                        </div>
                       {% endif %}
+                      
+                      {% comment %} Testimonial text {% endcomment %}
+                      <div class='testimonial-v13__testimonial'>{{ block.settings.testimonial }}</div>
+                      
+                      {% comment %} Customer info {% endcomment %}
+                      <div class='testimonial-v13__customer'>
+                        {% if block.settings.icon_image != blank %}
+                          <div class='testimonial-v13__icon'>
+                            {%- render 'image', image: block.settings.icon_image -%}
+                          </div>
+                        {% endif %}
+                        <div class='testimonial-v13__customer-info'>
+                          {% if block.settings.name_customer %}
+                            <div class='testimonial-v13__name'>{{ block.settings.name_customer }}</div>
+                          {% endif %}
+                          {% if block.settings.position %}
+                            <div class='testimonial-v13__position'>{{ block.settings.position }}</div>
+                          {% endif %}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </xo-carousel-slide>
+                  </xo-carousel-slide>
+                {% endif %}
               {% endfor %}
             </xo-carousel-list>
           </xo-carousel-inner>
@@ -619,13 +654,30 @@
         {
           "type": "image_picker",
           "id": "icon_image",
-          "label": "t:sections.testimonial_v2.blocks.icon_image.label"
+          "label": "t:sections.testimonial_v2.blocks.icon_image.label",
+          "info": "Customer profile image"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image",
+          "info": "Image of the product being reviewed"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5,
+          "info": "Star rating (1-5 stars)"
         },
         {
           "type": "text",
           "id": "testimonial",
           "label": "t:sections.testimonial_v2.blocks.testimonial.label",
-          "default": "” I came to Dr Thiara with lumpy asymmetrical lips which I had done from elsewhere. He was excellent in discussing my options and was able to fix my lips using 2 sessions of lip fillers. I was wowed by the results and cannot recommend him highly enough!“"
+          "default": "\"I came to Dr Thiara with lumpy asymmetrical lips which I had done from elsewhere. He was excellent in discussing my options and was able to fix my lips using 2 sessions of lip fillers. I was wowed by the results and cannot recommend him highly enough!\""
         },
         {
           "type": "text",

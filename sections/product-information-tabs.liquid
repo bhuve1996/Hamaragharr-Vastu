@@ -46,14 +46,24 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'description' %}
-              <xo-tabs-pane xo-name='tab-{{ block.id }}'
-                ><xo-animate xo-type='fade-up'>{{ product.description }}</xo-animate></xo-tabs-pane
-              >
+              <xo-tabs-pane xo-name='tab-{{ block.id }}'>
+                <xo-animate xo-type='fade-up'>
+                  {% render 'product-description-accordion', description: product.description %}
+                </xo-animate>
+              </xo-tabs-pane>
             {% when 'shipping' %}
-              {% assign policy_content = shop.policies | where: 'title', 'Shipping policy' | first %}
-              <xo-tabs-pane xo-name='tab-{{ block.id }}'
-                ><xo-animate xo-type='fade-up'>{{ policy_content.body }}</xo-animate></xo-tabs-pane
-              >
+              <xo-tabs-pane xo-name='tab-{{ block.id }}'>
+                <xo-animate xo-type='fade-up'>
+                  {% assign policy_content = shop.policies | where: 'title', 'Shipping policy' | first %}
+                  {% assign refund_policy = shop.policies | where: 'title', 'Refund policy' | first %}
+                  {% render 'shipping-accordion', 
+                    delivery_content: policy_content.body, 
+                    return_content: refund_policy.body,
+                    show_delivery: true,
+                    show_return: true
+                  %}
+                </xo-animate>
+              </xo-tabs-pane>
             {% when 'content' %}
               {% if block.settings.content_page.content != blank %}
                 <xo-tabs-pane xo-name='tab-{{ block.id }}'

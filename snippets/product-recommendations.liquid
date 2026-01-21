@@ -44,7 +44,7 @@
       >
         {% for product in recommendations.products %}
           <div>
-            {% render 'vastu-product-card',
+            {% render 'vastu-grid-card',
               product: product,
               section: section,
               settings: section.settings
@@ -72,7 +72,7 @@
           <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
             {% for product in recommendations.products %}
               <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
-                {% render 'vastu-product-card',
+                {% render 'vastu-grid-card',
                   product: product,
                   section: section,
                   settings: section.settings

@@ -24,6 +24,30 @@
     padding-bottom: 2rem;
   }
 
+  /* Fix homepage carousel aspect ratio on mobile */
+  section[class*="homepage-carousel"] xo-carousel-slide,
+  section[class*="slideshow"] xo-carousel-slide {
+    aspect-ratio: 16 / 9;
+    min-height: 300px;
+  }
+
+  section[class*="homepage-carousel"] .slideshow-v28__overlay-content,
+  section[class*="slideshow"] .slideshow-v28__overlay-content {
+    min-height: 300px !important;
+  }
+
+  section[class*="homepage-carousel"] .slideshow-bg,
+  section[class*="homepage-carousel"] .slideshow-bg-image__item,
+  section[class*="homepage-carousel"] .slideshow-bg-image__url,
+  section[class*="homepage-carousel"] .xo-background-lazyload,
+  section[class*="slideshow"] .slideshow-bg,
+  section[class*="slideshow"] .slideshow-bg-image__item,
+  section[class*="slideshow"] .slideshow-bg-image__url,
+  section[class*="slideshow"] .xo-background-lazyload {
+    aspect-ratio: 16 / 9;
+    min-height: 300px;
+  }
+
   .slideshow-v28__text--overlay {
     padding-left: 0;
     padding-right: 0;

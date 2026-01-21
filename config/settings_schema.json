@@ -2893,6 +2893,12 @@
     "name": "t:settings_schema.toolbar.name",
     "settings": [
       {
+        "type": "checkbox",
+        "id": "enable_toolbar",
+        "label": "Enable toolbar",
+        "default": false
+      },
+      {
         "type": "color_scheme",
         "id": "toolbar_color_scheme",
         "label": "Color Scheme"

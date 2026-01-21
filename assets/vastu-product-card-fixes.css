@@ -796,7 +796,7 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
   max-height: 2.5rem;
   flex-shrink: 0;
   flex-grow: 0;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -827,7 +827,7 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
   padding: 0;
   margin: 0;
   border-radius: 50%;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   flex-shrink: 0;
   flex-grow: 0;
   display: flex;
@@ -981,7 +981,7 @@ section[class*="product-recommendations"] .xo-product-card__actions xo-cart-add,
   max-height: 2.5rem;
   flex-shrink: 0;
   flex-grow: 0;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1020,7 +1020,7 @@ section[class*="product-recommendations"] .xo-product-card__actions xo-cart-add 
   padding: 0;
   margin: 0;
   border-radius: 50%;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   flex-shrink: 0;
   flex-grow: 0;
   display: flex;

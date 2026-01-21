@@ -10,7 +10,8 @@
     "lint:css": "stylelint \"assets/**/*.css\"",
     "lint:css:fix": "stylelint \"assets/**/*.css\" --fix",
     "build:css": "node scripts/build-css.js",
-    "prepush": "npm run build:css"
+    "prepush": "npm run build:css",
+    "generate:mini-descriptions": "node scripts/generate-mini-descriptions.js"
   },
   "devDependencies": {
     "husky": "^9.0.11",
@@ -18,6 +19,9 @@
     "prettier": "^3.2.5",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   },
   "lint-staged": {
     "*.css": [
