@@ -111,6 +111,7 @@ footer h3 {
 .footer-modern__heading {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop, 1.5rem));
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 600));
+
   /* Removed text-transform: uppercase - use natural case */
   margin-bottom: var(--section-card-title-margin-bottom-desktop, var(--global-card-title-margin-bottom-desktop, 12px));
   color: rgb(var(--color-text));
@@ -189,7 +190,8 @@ footer h3 {
 
 .footer-modern__newsletter-input {
   width: 100%;
-  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
+  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px))
+    var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
   font-size: var(--global-body-font-size-desktop, 1.6rem);
   line-height: var(--global-body-line-height-desktop, 1.5);
   min-height: 5rem;
@@ -204,7 +206,8 @@ footer h3 {
 
 @media (width <= 48rem) {
   .footer-modern__newsletter-input {
-    padding: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+    padding: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px))
+      var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
     font-size: var(--global-body-font-size-mobile, 1.5rem);
     line-height: var(--global-body-line-height-mobile, 1.5);
   }
@@ -349,7 +352,8 @@ footer h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
+  padding: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px))
+    var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
   font-size: var(--section-tag-font-size-desktop, var(--global-tag-font-size-desktop, 1.25rem));
   font-weight: var(--section-tag-font-weight-desktop, var(--global-tag-font-weight-desktop, 600));
   color: rgb(var(--color-text, 255, 255, 255));
@@ -429,7 +433,8 @@ footer h3 {
 
 @media (width <= 767px) {
   .footer-modern__payment-icon {
-    padding: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+    padding: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px))
+      var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
   }
 }
 

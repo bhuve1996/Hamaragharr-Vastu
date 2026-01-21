@@ -283,7 +283,11 @@ h6,
   [class*="__product-title"]:not([class*="__description"]),
   [class*="__benefits-title"]:not([class*="__description"]),
   [class*="__recommended-title"]:not([class*="__description"]) {
-    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile)); /* 1.8rem = 18px */
+    font-size: var(
+      --section-card-title-font-size-mobile,
+      var(--global-card-title-font-size-mobile)
+    ); /* 1.8rem = 18px */
+
     line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
     font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 700));
 

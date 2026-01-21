@@ -1,4 +1,5 @@
 /* Removed text-transform: uppercase - headings should use natural case */
+
 /* section h1:not(.vastu-hindi-statement__text),
 section h2:not(.banner-v155__title, .vastu-hindi-statement__text),
 section h3:not(.vastu-hindi-statement__text),
@@ -24,6 +25,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .vastu-heading {
   font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
   font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop));
+
   /* Removed text-transform: uppercase - use natural case */
   margin-bottom: var(--global-heading-margin-bottom-desktop, 48px);
   padding: 0;
@@ -35,6 +37,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 
 .vastu-section-heading {
   text-align: center;
+
   /* Margin and padding handled by vastu-global-spacing.css */
 }
 
@@ -42,6 +45,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .vastu-best-seller .vastu-section-heading,
 .vastu-best-seller__section-title {
   text-align: center;
+
   /* Margin and padding handled by vastu-global-spacing.css */
 }
 
@@ -49,6 +53,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .vastu-featured-products .vastu-section-heading,
 .vastu-featured-products__section-title {
   text-align: center;
+
   /* Margin and padding handled by vastu-global-spacing.css */
 }
 
@@ -56,6 +61,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .vastu-help-address-v2 .vastu-section-heading,
 .vastu-help-address-v2__section-title {
   text-align: center;
+
   /* Margin and padding handled by vastu-global-spacing.css */
 }
 
@@ -63,7 +69,9 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .banner-v3 .banner-v155__title {
   font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem));
   text-align: left;
+
   /* Removed text-transform: uppercase - use natural case */
+
   /* Margin handled by vastu-global-spacing.css */
 }
 
@@ -73,7 +81,9 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
+
   /* margin-bottom handled by vastu-global-spacing.css - allow it to be set */
+
   /* Removed text-transform: uppercase - use natural case */
 }
 
@@ -101,6 +111,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .blog-v2 .vastu-heading,
 .blog-v2__section-title {
   text-align: center;
+
   /* Margin and padding handled by vastu-global-spacing.css */
 }
 

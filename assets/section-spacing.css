@@ -4,9 +4,11 @@
    ======================================== */
 
 /* This file is now integrated into vastu-global-spacing.css */
+
 /* Keeping this file for backward compatibility and section-level overrides */
 
 /* Global Section Spacing - Desktop */
+
 /* Dedicated class for section spacing - only sections with this class get spacing */
 .vastu-section-spacing {
   padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 0));
@@ -62,6 +64,7 @@
 /* Section-to-section spacing (for .section+.section selector) */
 
 /* Commented out per request */
+
 /*
 .section + .section {
   margin-top: var(--section-to-section-spacing-mobile, var(--global-section-to-section-spacing-mobile, 0));

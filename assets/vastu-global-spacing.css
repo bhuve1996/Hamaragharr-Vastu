@@ -283,7 +283,10 @@ p {
 .vastu-product-showcase__description,
 .vastu-product-showcase__description p,
 .footer-v18__description {
-  margin-bottom: var(--section-description-margin-bottom-desktop, var(--global-description-margin-bottom-desktop, 24px));
+  margin-bottom: var(
+    --section-description-margin-bottom-desktop,
+    var(--global-description-margin-bottom-desktop, 24px)
+  );
 }
 
 /* Mobile - Description Margins */
@@ -295,7 +298,10 @@ p {
   .vastu-product-showcase__description p,
   .vastu-product-showcase__price,
   .footer-v18__description {
-    margin-bottom: var(--section-description-margin-bottom-mobile, var(--global-description-margin-bottom-mobile, 20px));
+    margin-bottom: var(
+      --section-description-margin-bottom-mobile,
+      var(--global-description-margin-bottom-mobile, 20px)
+    );
   }
 }
 
@@ -321,7 +327,10 @@ p {
 }
 
 .banner-v155__description {
-  margin-bottom: var(--section-description-margin-bottom-desktop, var(--global-description-margin-bottom-desktop, 24px));
+  margin-bottom: var(
+    --section-description-margin-bottom-desktop,
+    var(--global-description-margin-bottom-desktop, 24px)
+  );
 }
 
 .banner-v155__description-heading {
@@ -348,7 +357,10 @@ p {
   }
 
   .banner-v155__description {
-    margin-bottom: var(--section-description-margin-bottom-mobile, var(--global-description-margin-bottom-mobile, 20px));
+    margin-bottom: var(
+      --section-description-margin-bottom-mobile,
+      var(--global-description-margin-bottom-mobile, 20px)
+    );
   }
 
   .banner-v155__description-heading {
@@ -381,7 +393,10 @@ p {
 }
 
 .vastu-hero__description {
-  margin-bottom: var(--section-description-margin-bottom-desktop, var(--global-description-margin-bottom-desktop, 24px));
+  margin-bottom: var(
+    --section-description-margin-bottom-desktop,
+    var(--global-description-margin-bottom-desktop, 24px)
+  );
 }
 
 @media (width <= 48rem) {
@@ -394,7 +409,10 @@ p {
   }
 
   .vastu-hero__description {
-    margin-bottom: var(--section-description-margin-bottom-mobile, var(--global-description-margin-bottom-mobile, 20px));
+    margin-bottom: var(
+      --section-description-margin-bottom-mobile,
+      var(--global-description-margin-bottom-mobile, 20px)
+    );
   }
 }
 

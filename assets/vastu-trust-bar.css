@@ -133,6 +133,7 @@
     --section-description-font-size-desktop,
     var(--global-description-font-size-desktop)
   ); /* 1.4rem = 14px */
+
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
   line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   margin: 0.5rem 0 0;

@@ -323,10 +323,7 @@
           }
         }
       },
-      "block_order": [
-        "tab1",
-        "tab2"
-      ],
+      "block_order": ["tab1", "tab2"],
       "settings": {
         "width": "box",
         "color_scheme": "",

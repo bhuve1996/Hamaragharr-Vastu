@@ -112,13 +112,11 @@ section[class*="vastu-grid-carousel"] {
     visibility: visible;
     opacity: 1;
     overflow: visible;
-    overflow: visible;
   }
 
   .vastu-grid-carousel__desktop-carousel xo-carousel {
     display: block;
     visibility: visible;
-    overflow: visible;
     overflow: visible;
   }
 }
@@ -153,12 +151,10 @@ section[class*="vastu-grid-carousel"] {
     max-width: 100%;
     display: block;
     overflow: visible;
-    overflow: visible;
   }
 
   .vastu-grid-carousel__desktop-carousel--fullwidth xo-carousel-inner {
     width: 100%;
-    overflow: visible;
     overflow: visible;
     padding-left: 0;
     padding-right: 0;
@@ -170,7 +166,6 @@ section[class*="vastu-grid-carousel"] {
     padding-left: 2rem;
     padding-right: 2rem;
     display: flex;
-    overflow: visible;
     overflow: visible;
   }
 
@@ -184,18 +179,15 @@ section[class*="vastu-grid-carousel"] {
 section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel {
   width: 100%;
   overflow: visible;
-  overflow: visible;
 }
 
 section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel-inner {
   width: 100%;
   overflow: visible;
-  overflow: visible;
 }
 
 section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel-list {
   width: 100%;
-  overflow: visible;
   overflow: visible;
 }
 
@@ -505,7 +497,6 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
 section .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
 section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price {
   position: static !important;
-  inset: auto !important;
   inset: auto !important;
   width: auto !important;
   max-width: 100% !important;
@@ -817,7 +808,6 @@ section:has(.vastu-grid-card) xo-carousel-inner {
   section .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
   section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price {
     position: static !important;
-    inset: auto !important;
     inset: auto !important;
     width: auto !important;
     max-width: 100% !important;

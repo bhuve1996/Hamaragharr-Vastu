@@ -1,5 +1,5 @@
 /* ========================================
-   vastu-base.css (36.4 KB)
+   vastu-base.css (36.3 KB)
    ======================================== */
 
 /* Mobile hamburger menu - fix links displaying inline */
@@ -1351,10 +1351,11 @@ xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/articles/"]) {
 }
 
 /* ========================================
-   vastu-headings.css (5.5 KB)
+   vastu-headings.css (5.6 KB)
    ======================================== */
 
 /* Removed text-transform: uppercase - headings should use natural case */
+
 /* section h1:not(.vastu-hindi-statement__text),
 section h2:not(.banner-v155__title, .vastu-hindi-statement__text),
 section h3:not(.vastu-hindi-statement__text),
@@ -1380,6 +1381,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .vastu-heading {
   font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
   font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop));
+
   /* Removed text-transform: uppercase - use natural case */
   margin-bottom: var(--global-heading-margin-bottom-desktop, 48px);
   padding: 0;
@@ -1391,6 +1393,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 
 .vastu-section-heading {
   text-align: center;
+
   /* Margin and padding handled by vastu-global-spacing.css */
 }
 
@@ -1398,6 +1401,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .vastu-best-seller .vastu-section-heading,
 .vastu-best-seller__section-title {
   text-align: center;
+
   /* Margin and padding handled by vastu-global-spacing.css */
 }
 
@@ -1405,6 +1409,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .vastu-featured-products .vastu-section-heading,
 .vastu-featured-products__section-title {
   text-align: center;
+
   /* Margin and padding handled by vastu-global-spacing.css */
 }
 
@@ -1412,6 +1417,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .vastu-help-address-v2 .vastu-section-heading,
 .vastu-help-address-v2__section-title {
   text-align: center;
+
   /* Margin and padding handled by vastu-global-spacing.css */
 }
 
@@ -1419,7 +1425,9 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .banner-v3 .banner-v155__title {
   font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem));
   text-align: left;
+
   /* Removed text-transform: uppercase - use natural case */
+
   /* Margin handled by vastu-global-spacing.css */
 }
 
@@ -1429,7 +1437,9 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
+
   /* margin-bottom handled by vastu-global-spacing.css - allow it to be set */
+
   /* Removed text-transform: uppercase - use natural case */
 }
 
@@ -1457,6 +1467,7 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .blog-v2 .vastu-heading,
 .blog-v2__section-title {
   text-align: center;
+
   /* Margin and padding handled by vastu-global-spacing.css */
 }
 
@@ -1522,7 +1533,7 @@ section[class*="main-product"] .xo-product-info-content__description .vastu-head
 }
 
 /* ========================================
-   vastu-cards.css (23.9 KB)
+   vastu-cards.css (24.0 KB)
    ======================================== */
 
 section[class*="vastu-best-seller"] xo-container.xo-container--wide,
@@ -2699,7 +2710,7 @@ xo-carousel-slide [class*="product-card"] {
 /* .vastu-product-card__image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   display: block;
   transition: transform 0.3s ease;
@@ -5596,6 +5607,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 .footer-modern__heading {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
   font-weight: var(--font-weight-bold, 700);
+
   /* Removed text-transform: uppercase - use natural case */
   margin-bottom: 1.5rem;
   color: rgb(var(--color-text));
@@ -5688,6 +5700,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     transform 0.2s ease;
   text-align: center;
   white-space: nowrap;
+
   /* Removed text-transform: uppercase - use natural case */
 }
 
@@ -5838,6 +5851,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .footer-modern__heading {
     font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
     font-weight: var(--font-weight-bold, 700);
+
     /* Removed text-transform: uppercase - use natural case */
     margin-bottom: 1.25rem;
   }
@@ -5860,6 +5874,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     font-size: var(--button-font-size-mobile, var(--global-body-font-size-mobile));
     padding: var(--button-padding-v-mobile, 0.75rem) var(--button-padding-h-mobile, 1rem);
     line-height: var(--global-body-line-height-mobile, 1.5);
+
     /* Removed text-transform: uppercase - use natural case */
   }
 
@@ -5918,6 +5933,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .footer-modern__heading {
     font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
     font-weight: var(--font-weight-bold, 700);
+
     /* Removed text-transform: uppercase - use natural case */
   }
 
@@ -7268,9 +7284,11 @@ main#xo-main-content section .section-separator__line {
    ======================================== */
 
 /* This file is now integrated into vastu-global-spacing.css */
+
 /* Keeping this file for backward compatibility and section-level overrides */
 
 /* Global Section Spacing - Desktop */
+
 /* Dedicated class for section spacing - only sections with this class get spacing */
 .vastu-section-spacing {
   padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 0));
@@ -7326,6 +7344,7 @@ main#xo-main-content section .section-separator__line {
 /* Section-to-section spacing (for .section+.section selector) */
 
 /* Commented out per request */
+
 /*
 .section + .section {
   margin-top: var(--section-to-section-spacing-mobile, var(--global-section-to-section-spacing-mobile, 0));
@@ -7339,7 +7358,7 @@ main#xo-main-content section .section-separator__line {
 */
 
 /* ========================================
-   vastu-global-spacing.css (12.2 KB)
+   vastu-global-spacing.css (12.3 KB)
    ======================================== */
 
 /* ========================================
@@ -8055,6 +8074,7 @@ h2.vastu-hindi-statement__text.homepage-section-heading::after {
       --section-card-title-font-size-desktop,
       var(--global-card-title-font-size-desktop)
     ); /* 2rem = 20px */
+
     font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
     line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
   }
@@ -8562,6 +8582,7 @@ footer h3 {
 .footer-modern__heading {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop, 1.5rem));
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 600));
+
   /* Removed text-transform: uppercase - use natural case */
   margin-bottom: var(--section-card-title-margin-bottom-desktop, var(--global-card-title-margin-bottom-desktop, 12px));
   color: rgb(var(--color-text));
@@ -9186,7 +9207,7 @@ section[class*="slideshow"] .xo-background-lazyload {
 }
 
 /* ========================================
-   vastu-grid-carousel.css (23.2 KB)
+   vastu-grid-carousel.css (22.3 KB)
    ======================================== */
 
 /* Vastu Grid Carousel Section Styles */
@@ -9196,16 +9217,14 @@ section[class*="slideshow"] .xo-background-lazyload {
   width: 100%;
   max-width: 100%;
   position: relative;
-  overflow-x: none;
-  overflow-y: visible;
+  overflow: none visible;
   box-sizing: border-box;
 }
 
 section[class*="vastu-grid-carousel"] {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden visible;
   box-sizing: border-box;
 }
 
@@ -9219,8 +9238,7 @@ section[class*="vastu-grid-carousel"] {
   display: block;
   width: 100%;
   position: relative;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden visible;
 }
 
 .vastu-grid-carousel__mobile-grid .vastu-grid-carousel__grid {
@@ -9228,8 +9246,7 @@ section[class*="vastu-grid-carousel"] {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden visible;
 }
 
 .vastu-grid-carousel__mobile-grid xo-container {
@@ -9254,6 +9271,7 @@ section[class*="vastu-grid-carousel"] {
 
   .vastu-grid-carousel__mobile-grid .vastu-grid-carousel__grid {
     --xo-grid-col-gap: 10px;
+
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
@@ -9306,16 +9324,12 @@ section[class*="vastu-grid-carousel"] {
     visibility: visible;
     opacity: 1;
     overflow: visible;
-    overflow-x: visible;
-    overflow-y: visible;
   }
 
   .vastu-grid-carousel__desktop-carousel xo-carousel {
     display: block;
     visibility: visible;
     overflow: visible;
-    overflow-x: visible;
-    overflow-y: visible;
   }
 }
 
@@ -9349,15 +9363,11 @@ section[class*="vastu-grid-carousel"] {
     max-width: 100%;
     display: block;
     overflow: visible;
-    overflow-x: visible;
-    overflow-y: visible;
   }
 
   .vastu-grid-carousel__desktop-carousel--fullwidth xo-carousel-inner {
     width: 100%;
     overflow: visible;
-    overflow-x: visible;
-    overflow-y: visible;
     padding-left: 0;
     padding-right: 0;
     display: block;
@@ -9369,8 +9379,6 @@ section[class*="vastu-grid-carousel"] {
     padding-right: 2rem;
     display: flex;
     overflow: visible;
-    overflow-x: visible;
-    overflow-y: visible;
   }
 
   .vastu-grid-carousel__desktop-carousel--fullwidth xo-carousel-slide {
@@ -9383,22 +9391,16 @@ section[class*="vastu-grid-carousel"] {
 section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel {
   width: 100%;
   overflow: visible;
-  overflow-x: visible;
-  overflow-y: visible;
 }
 
 section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel-inner {
   width: 100%;
   overflow: visible;
-  overflow-x: visible;
-  overflow-y: visible;
 }
 
 section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-carousel-list {
   width: 100%;
   overflow: visible;
-  overflow-x: visible;
-  overflow-y: visible;
 }
 
 /* Hidden items */
@@ -9708,10 +9710,6 @@ section .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
 section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price {
   position: static !important;
   inset: auto !important;
-  top: auto !important;
-  right: auto !important;
-  bottom: auto !important;
-  left: auto !important;
   width: auto !important;
   max-width: 100% !important;
   min-width: auto !important;
@@ -9786,10 +9784,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
 
 .vastu-grid-card__add-to-cart {
   margin-top: auto;
-  padding-top: 1.25rem;
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 1.5rem;
+  padding: 1.25rem 0 1.5rem;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -10001,10 +9996,7 @@ section:has(.vastu-grid-card) xo-carousel-inner {
 /* Mobile responsive */
 @media (width <= 767px) {
   .vastu-grid-card__content {
-    padding-top: 1.5rem;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 1.5rem 0 0;
   }
 
   .vastu-grid-card__title {
@@ -10029,10 +10021,6 @@ section:has(.vastu-grid-card) xo-carousel-inner {
   section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price {
     position: static !important;
     inset: auto !important;
-    top: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    left: auto !important;
     width: auto !important;
     max-width: 100% !important;
     background: transparent !important;
@@ -10055,10 +10043,7 @@ section:has(.vastu-grid-card) xo-carousel-inner {
     visibility: visible;
     opacity: 1;
     width: 100%;
-    padding-top: 1.25rem;
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 1.5rem;
+    padding: 1.25rem 0 1.5rem;
     margin-top: auto;
   }
 
@@ -10097,7 +10082,7 @@ section:has(.vastu-grid-card) xo-carousel-inner {
 }
 
 /* ========================================
-   vastu-topbar-promotion.css (8.8 KB)
+   vastu-topbar-promotion.css (8.1 KB)
    ======================================== */
 
 /* Menu Items - 13px */
@@ -10118,14 +10103,14 @@ nav a {
 /* Topbar Close Button */
 .header-v6__topbar {
   position: relative;
-  background: #000000 !important;
-  color: #ffffff !important;
+  background: #000 !important;
+  color: #fff !important;
   display: block !important;
   visibility: visible !important;
 }
 
 /* Override any media queries that hide the topbar */
-@media (max-width: 1199px) {
+@media (width <= 1199px) {
   .header-v6__topbar {
     display: block !important;
     visibility: visible !important;
@@ -10157,11 +10142,12 @@ nav a {
   transition: all 0.3s ease;
   z-index: 10;
   opacity: 0.6;
+  color: #fff;
 }
 
 .header-v6__topbar-close:hover {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -10174,11 +10160,7 @@ nav a {
 }
 
 .header-v6__topbar-close svg path {
-  fill: #ffffff;
-}
-
-.header-v6__topbar-close {
-  color: #ffffff;
+  fill: #fff;
 }
 
 /* Hide topbar when closed */
@@ -10199,6 +10181,8 @@ nav a {
 
 .header-v6__promotion-carousel {
   width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   overflow: hidden;
   position: relative;
   height: 2.6rem;
@@ -10259,25 +10243,23 @@ nav a {
   letter-spacing: 0.015em;
   position: relative;
   display: inline-block;
-  color: #ffffff;
+  color: #fff;
   transition:
     color 0.3s ease,
     font-weight 0.3s ease;
-  padding-top: calc(var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) * 1.2);
-  padding-bottom: calc(var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) * 1.2);
-  padding-left: calc(var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) * 2.5);
-  padding-right: calc(var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) * 2.5);
+  padding: calc(var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) * 1.2)
+    calc(var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) * 2.5);
 }
 
 /* Active state - subtle emphasis */
 .header-v6__promotion-item.active .header-v6__promotion-name {
-  color: #ffffff;
+  color: #fff;
   font-weight: 600;
 }
 
 /* Hover effect */
 .header-v6__promotion-item:hover .header-v6__promotion-name {
-  color: #ffffff;
+  color: #fff;
 }
 
 /* Responsive adjustments */
@@ -10293,10 +10275,8 @@ nav a {
 
   .header-v6__promotion-name {
     font-size: 1.15rem;
-    padding-top: calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 1.2);
-    padding-bottom: calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 1.2);
-    padding-left: calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 2);
-    padding-right: calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 2);
+    padding: calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 1.2)
+      calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 2);
   }
 }
 
@@ -10355,7 +10335,7 @@ nav a {
   border-radius: 50%;
   text-decoration: none;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  background: linear-gradient(135deg, rgb(102 126 234 / 10%) 0%, rgb(118 75 162 / 10%) 100%);
   border: 2px solid transparent;
   position: relative;
   overflow: hidden;
@@ -10364,10 +10344,7 @@ nav a {
 .header-v6__contact-icon::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -10380,7 +10357,7 @@ nav a {
   transition:
     transform 0.3s ease,
     filter 0.3s ease;
-  filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+  filter: drop-shadow(0 2px 4px rgb(102 126 234 / 30%));
   color: rgba(var(--color-foreground));
 }
 
@@ -10398,13 +10375,13 @@ nav a {
 }
 
 .header-v6__contact-icon--email svg {
-  filter: drop-shadow(0 2px 4px rgba(240, 147, 251, 0.3));
+  filter: drop-shadow(0 2px 4px rgb(240 147 251 / 30%));
 }
 
 .header-v6__contact-icon:hover {
   transform: translateY(-2px) scale(1.1);
-  border-color: rgba(102, 126, 234, 0.3);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  border-color: rgb(102 126 234 / 30%);
+  box-shadow: 0 4px 12px rgb(102 126 234 / 20%);
 }
 
 .header-v6__contact-icon:hover::before {
@@ -10413,17 +10390,17 @@ nav a {
 
 .header-v6__contact-icon:hover svg {
   transform: scale(1.1);
-  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.5));
-  color: #ffffff !important;
+  filter: drop-shadow(0 4px 8px rgb(255 255 255 / 50%));
+  color: #fff !important;
 }
 
 .header-v6__contact-icon:hover svg path {
-  fill: #ffffff !important;
+  fill: #fff !important;
 }
 
 .header-v6__contact-icon--email:hover {
-  border-color: rgba(240, 147, 251, 0.3);
-  box-shadow: 0 4px 12px rgba(240, 147, 251, 0.2);
+  border-color: rgb(240 147 251 / 30%);
+  box-shadow: 0 4px 12px rgb(240 147 251 / 20%);
 }
 
 /* Responsive adjustments */
@@ -10436,12 +10413,6 @@ nav a {
     width: 3.2rem;
     height: 3.2rem;
   }
-}
-
-.header-v6__promotion-carousel {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
 }
 
 .header-v6__selector-wrap {
@@ -10503,12 +10474,14 @@ nav a {
 .banner-v155__subtitle {
   font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop, 1.6rem));
   font-weight: 600;
+
   /* Removed text-transform: uppercase - use natural case */
   letter-spacing: 0.125rem;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin-top: 0;
   opacity: 0.8;
   text-align: left;
+
   /* Margin handled by vastu-global-spacing.css */
 }
 
@@ -10523,7 +10496,9 @@ section[class*="banner-v3"] h2.banner-v155__title {
   text-align: left;
   white-space: pre-line;
   font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop)); /* 3.5rem = 35px */
+
   /* Removed text-transform: uppercase - use natural case */
+
   /* Margin handled by vastu-global-spacing.css */
 }
 
@@ -10553,6 +10528,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
   max-width: 90%;
   text-align: left;
   word-spacing: 0.05em;
+
   /* Margin handled by vastu-global-spacing.css */
 }
 
@@ -10567,7 +10543,9 @@ section[class*="banner-v3"] h2.banner-v155__title {
   font-weight: 700;
   color: rgb(var(--color-foreground, 0, 0, 0));
   line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
+
   /* Removed text-transform: uppercase - use natural case */
+
   /* Margins handled by vastu-global-spacing.css */
 }
 
@@ -10575,6 +10553,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
   list-style: none;
   padding: 0;
   margin: 0;
+
   /* Margin-top handled by vastu-global-spacing.css */
 }
 
@@ -10586,6 +10565,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
   position: relative;
   display: flex;
   align-items: flex-start;
+
   /* Margin-bottom handled by vastu-global-spacing.css */
 }
 
@@ -10695,6 +10675,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
   font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem));
   font-weight: 700;
   color: rgb(var(--color-foreground, 0, 0, 0));
+
   /* Margins handled by vastu-global-spacing.css */
   line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
 }
@@ -10703,6 +10684,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
   list-style: none;
   padding: 0;
   margin: 0;
+
   /* Margin-top handled by vastu-global-spacing.css */
 }
 
@@ -10712,6 +10694,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
   color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
   padding-left: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
   position: relative;
+
   /* Margin-bottom handled by vastu-global-spacing.css */
   display: flex;
   align-items: flex-start;
@@ -11289,6 +11272,7 @@ xo-collapse-trigger.shipping-accordion__trigger,
     --section-description-font-size-desktop,
     var(--global-description-font-size-desktop)
   ); /* 1.4rem = 14px */
+
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
   line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   margin: 0.5rem 0 0;
@@ -11370,7 +11354,7 @@ xo-collapse-trigger.shipping-accordion__trigger,
 }
 
 /* ========================================
-   vastu-testimonials.css (10.9 KB)
+   vastu-testimonials.css (13.1 KB)
    ======================================== */
 
 section[class*="testimonial-v2"] .xo-section-bg,
@@ -11416,8 +11400,8 @@ section[class*="testimonial-v13"] xo-container {
 .testimonial-v13__item {
   background: #fff;
   border: 2px solid rgb(71 56 85 / 15%);
-  border-radius: 0.875rem;
-  padding: 1.75rem 1.5rem;
+  border-radius: 1rem;
+  padding: 2rem 1.75rem;
   text-align: center;
   position: relative;
   box-shadow:
@@ -11425,7 +11409,7 @@ section[class*="testimonial-v13"] xo-container {
     0 2px 8px rgb(71 56 85 / 8%);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 0;
-  min-height: 240px;
+  min-height: 280px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -11437,17 +11421,23 @@ section[class*="testimonial-v13"] xo-container {
   box-sizing: border-box;
 }
 
-.testimonial-v13__item::before {
-  content: '"';
+.testimonial-v13__quote-icon {
   position: absolute;
-  top: 0.75rem;
-  left: 1.5rem;
-  font-size: var(--global-heading-font-size-desktop);
-  font-family: Georgia, serif;
-  color: #473855;
-  background-color: transparent;
-  line-height: 1;
-  font-weight: bold;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  color: rgb(71 56 85 / 15%);
+  opacity: 0.6;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-v13__quote-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .testimonial-v13__item:hover {
@@ -11458,8 +11448,72 @@ section[class*="testimonial-v13"] xo-container {
   border-color: rgb(71 56 85 / 25%);
 }
 
+.testimonial-v13__product-image {
+  margin-bottom: 1.25rem;
+  width: 100%;
+  max-width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #f8f8f8;
+  box-shadow: 0 2px 8px rgb(71 56 85 / 10%);
+}
+
+.testimonial-v13__product-image:empty {
+  display: none;
+}
+
+.testimonial-v13__product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-v13__item:hover .testimonial-v13__product-image img {
+  transform: scale(1.05);
+}
+
+.testimonial-v13__rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-v13__star {
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #ffd700;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+  transition: transform 0.2s ease;
+}
+
+.testimonial-v13__star--filled {
+  color: #ffd700;
+}
+
+.testimonial-v13__star--empty {
+  color: #e0e0e0;
+}
+
+.testimonial-v13__item:hover .testimonial-v13__star--filled {
+  transform: scale(1.1);
+}
+
 .testimonial-v13__icon {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
+  margin-right: 0.75rem;
   opacity: 1;
   flex-shrink: 0;
   position: relative;
@@ -11472,13 +11526,13 @@ section[class*="testimonial-v13"] xo-container {
 }
 
 .testimonial-v13__icon img {
-  width: 4.5rem;
-  height: 4.5rem;
-  object-fit: contain;
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: cover;
   border-radius: 50%;
   filter: none;
-  border: 3px solid rgb(71 56 85 / 15%);
-  box-shadow: 0 4px 12px rgb(71 56 85 / 20%);
+  border: 2px solid rgb(71 56 85 / 15%);
+  box-shadow: 0 2px 8px rgb(71 56 85 / 15%);
   transition: transform 0.3s ease;
 }
 
@@ -11487,49 +11541,61 @@ section[class*="testimonial-v13"] xo-container {
 }
 
 .testimonial-v13__testimonial {
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.5rem));
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.6));
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
-  color: rgb(0 0 0 / 85%);
-  font-style: normal;
-  padding: 0; /* Decrease padding */
-  margin-bottom: 1rem; /* Reduced from 1.25rem */
+  color: rgb(0 0 0 / 80%);
+  font-style: italic;
+  padding: 0 0.5rem;
+  margin-bottom: 1.25rem;
   position: relative;
   flex-grow: 1;
   display: flex;
   align-items: center;
   z-index: 2;
+  text-align: center;
 }
 
 .testimonial-v13__customer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.25rem;
+  justify-content: center;
+  gap: 0.75rem;
   margin-top: auto;
   flex-shrink: 0;
   position: relative;
   z-index: 2;
-  padding-top: 1rem;
+  padding-top: 1.25rem;
   border-top: 1px solid rgb(71 56 85 / 15%);
   width: 100%;
 }
 
+.testimonial-v13__customer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  flex: 1;
+}
+
 .testimonial-v13__name {
-  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop, 1.5rem));
+  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop, 1.4rem));
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 600));
   line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
   color: rgb(71 56 85);
   margin: 0;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
+  text-align: left;
 }
 
 .testimonial-v13__position {
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
+  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.3rem));
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
-  color: rgb(0 0 0 / 70%);
+  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.4));
+  color: rgb(0 0 0 / 65%);
   margin: 0;
+  text-align: left;
 }
 
 @media (width >= 75rem) {
@@ -11574,10 +11640,32 @@ section[class*="testimonial-v13"] xo-container {
   }
 
   .testimonial-v13__item {
-    min-height: 260px;
+    min-height: 300px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    padding: 2.25rem 2rem;
+  }
+
+  .testimonial-v13__quote-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .testimonial-v13__product-image {
+    max-width: 140px;
+    height: 140px;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-v13__star {
+    font-size: 1.8rem;
+  }
+
+  .testimonial-v13__rating {
+    margin-bottom: 1.25rem;
   }
 }
 
@@ -11608,7 +11696,17 @@ section[class*="testimonial-v13"] xo-container {
   }
 
   .testimonial-v13__item {
-    min-height: 280px;
+    min-height: 320px;
+    padding: 2rem 1.75rem;
+  }
+
+  .testimonial-v13__product-image {
+    max-width: 130px;
+    height: 130px;
+  }
+
+  .testimonial-v13__star {
+    font-size: 1.7rem;
   }
 }
 
@@ -11665,32 +11763,56 @@ section[class*="testimonial-v13"] xo-container {
   }
 
   .testimonial-v13__item {
-    padding: 1.5rem 1.25rem;
-    min-height: 240px;
+    padding: 1.75rem 1.5rem;
+    min-height: 280px;
   }
 
-  .testimonial-v13__item::before {
-    font-size: var(--global-heading-font-size-mobile);
-    top: 0.5rem;
-    left: 1rem;
-    color: #473855;
-    background-color: transparent;
+  .testimonial-v13__quote-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 0.875rem;
+    right: 0.875rem;
+  }
+
+  .testimonial-v13__product-image {
+    max-width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-v13__star {
+    font-size: 1.4rem;
+  }
+
+  .testimonial-v13__rating {
+    margin-bottom: 0.875rem;
   }
 
   .testimonial-v13__icon {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+    margin-right: 0.625rem;
   }
 
   .testimonial-v13__icon img {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .testimonial-v13__customer {
+    flex-direction: row;
+    padding-top: 0.875rem;
+  }
+
+  .testimonial-v13__customer-info {
+    align-items: flex-start;
   }
 
   .testimonial-v13__testimonial {
-    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
-    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
+    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.4rem));
+    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.6));
     font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
     margin-bottom: 1rem;
+    padding: 0 0.25rem;
   }
 
   .testimonial-v13__name {
@@ -11703,10 +11825,6 @@ section[class*="testimonial-v13"] xo-container {
     font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
     font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
     line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
-  }
-
-  .testimonial-v13__customer {
-    padding-top: 0.875rem;
   }
 }
 
@@ -11731,6 +11849,7 @@ section[class*="testimonial-v13"] xo-container {
   font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop, 1.6rem));
   font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 400));
   line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop, 1.4));
+
   /* Removed text-transform: uppercase - use natural case */
   letter-spacing: 0.125rem;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
@@ -11843,6 +11962,7 @@ section[class*="testimonial-v13"] xo-container {
     --section-description-font-size-desktop,
     var(--global-description-font-size-desktop)
   ); /* 1.4rem = 14px */
+
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
   line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   color: #6f5784;
@@ -11990,6 +12110,7 @@ section[class*="testimonial-v13"] xo-container {
 
 .vastu-shop-by-concern__cta-link {
   display: inline-block;
+
   /* Typography handled by vastu-global-typography.css */
   color: #473855;
   text-decoration: none;
@@ -12197,6 +12318,7 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
       --section-card-title-font-size-mobile,
       var(--global-card-title-font-size-mobile)
     ); /* 1.8rem = 18px */
+
     font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 700));
     line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile, 1.3));
     text-align: left;
@@ -12208,6 +12330,7 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
       --section-description-font-size-mobile,
       var(--global-description-font-size-mobile)
     ); /* 1.3rem = 13px */
+
     font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
     line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
     text-align: left;
@@ -12485,7 +12608,7 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
 }
 
 /* ========================================
-   vastu-blog.css (3.1 KB)
+   vastu-blog.css (3.2 KB)
    ======================================== */
 
 .xo-btn__text[data-text]::before,
@@ -12578,13 +12701,16 @@ button.xo-btn,
     --section-card-title-font-size-desktop,
     var(--global-card-title-font-size-desktop)
   ) !important; /* 2rem = 20px */
+
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
   line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
   margin-top: var(
     --section-card-title-margin-bottom-desktop,
     var(--global-card-title-margin-bottom-desktop, 1rem)
   ); /* Add gap between image and title */
+
   margin-bottom: 0;
+
   /* Allow 2 lines instead of 1 */
   overflow: hidden;
   display: -webkit-box;
@@ -12611,6 +12737,7 @@ button.xo-btn,
       --section-card-title-font-size-mobile,
       var(--global-card-title-font-size-mobile)
     ) !important; /* 1.8rem = 18px */
+
     /* Allow 2 lines on mobile as well */
     -webkit-line-clamp: 2 !important;
     line-clamp: 2 !important;
@@ -12688,6 +12815,7 @@ xo-collapse[xo-active] {
     --section-description-font-size-desktop,
     var(--global-description-font-size-desktop)
   ); /* 1.4rem = 14px */
+
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
   line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   margin: 0;
@@ -12712,6 +12840,7 @@ xo-collapse[xo-active] {
       --section-card-title-font-size-mobile,
       var(--global-card-title-font-size-mobile)
     ); /* 1.8rem = 18px */
+
     padding: 0.875rem 1.25rem;
   }
 
@@ -12720,6 +12849,7 @@ xo-collapse[xo-active] {
       --section-description-font-size-mobile,
       var(--global-description-font-size-mobile)
     ); /* 1.3rem = 13px */
+
     padding: 0;
   }
 
@@ -13288,6 +13418,7 @@ h6,
       --section-card-title-font-size-mobile,
       var(--global-card-title-font-size-mobile)
     ); /* 1.8rem = 18px */
+
     line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
     font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 700));
 
@@ -13509,8 +13640,8 @@ footer,
 }
 
 /* Images inside cards - top corners only */
-[class*="card"] img:not([class*="icon"]):not([class*="svg"]),
-[class*="item"] img:not([class*="icon"]):not([class*="svg"]),
+[class*="card"] img:not([class*="icon"], [class*="svg"]),
+[class*="item"] img:not([class*="icon"], [class*="svg"]),
 .xo-image:not([class*="icon"]) img {
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;

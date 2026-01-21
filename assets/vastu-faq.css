@@ -45,7 +45,9 @@ section .faq-v3__heading,
   overflow: hidden;
   max-height: 0;
   padding: 0;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
 }
 
 /* FAQ Accordion Collapse when expanded */
@@ -59,7 +61,11 @@ xo-collapse[xo-active] {
 /* FAQ Accordion Answer (Content) - Typography handled by vastu-global-typography.css */
 .faq-v3__answer {
   color: rgb(var(--color-foreground, 0, 0, 0));
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop)); /* 1.4rem = 14px */
+  font-size: var(
+    --section-description-font-size-desktop,
+    var(--global-description-font-size-desktop)
+  ); /* 1.4rem = 14px */
+
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
   line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   margin: 0;
@@ -80,12 +86,20 @@ xo-collapse[xo-active] {
 
 @media (width <= 48rem) {
   .faq-v3__question {
-    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile)); /* 1.8rem = 18px */
+    font-size: var(
+      --section-card-title-font-size-mobile,
+      var(--global-card-title-font-size-mobile)
+    ); /* 1.8rem = 18px */
+
     padding: 0.875rem 1.25rem;
   }
 
   .faq-v3__answer {
-    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile)); /* 1.3rem = 13px */
+    font-size: var(
+      --section-description-font-size-mobile,
+      var(--global-description-font-size-mobile)
+    ); /* 1.3rem = 13px */
+
     padding: 0;
   }
 

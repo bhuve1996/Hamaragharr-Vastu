@@ -182,6 +182,7 @@
       --section-card-title-font-size-desktop,
       var(--global-card-title-font-size-desktop)
     ); /* 2rem = 20px */
+
     font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
     line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
   }

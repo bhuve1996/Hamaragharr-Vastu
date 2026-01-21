@@ -29,8 +29,8 @@
 }
 
 /* Images inside cards - top corners only */
-[class*="card"] img:not([class*="icon"]):not([class*="svg"]),
-[class*="item"] img:not([class*="icon"]):not([class*="svg"]),
+[class*="card"] img:not([class*="icon"], [class*="svg"]),
+[class*="item"] img:not([class*="icon"], [class*="svg"]),
 .xo-image:not([class*="icon"]) img {
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
