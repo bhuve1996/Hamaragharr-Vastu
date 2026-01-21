@@ -71,7 +71,15 @@
       --font-heading-family: {% if settings.font_heading_selection == 'shopify_fonts' %}{{ settings.type_header_font.family }}, {{settings.type_header_font.fallback_families }}{% else %}{{ settings.font_heading_selection }} {% endif %}, san-serif;
       --font-heading-style: {{ settings.font_heading_style }};
       --font-heading-weight: {{ settings.font_heading_weight }};
-      --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
+      {% liquid
+        assign body_scale_value = settings.body_scale | divided_by: 100.0
+        if body_scale_value > 1.5
+          assign body_scale_value = 1.5
+        elsif body_scale_value < 0.5
+          assign body_scale_value = 0.5
+        endif
+      %}
+      --font-body-scale: {{ body_scale_value }};
       --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
       /* Fix for new basehtml */
       --font-body-line-height: calc(1 + 0.8 / var(--font-body-scale));

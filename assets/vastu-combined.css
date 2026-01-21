@@ -604,7 +604,7 @@ input[type="checkbox"] {
 }
 
 /* ========================================
-   vastu-base.css (36.3 KB)
+   vastu-base.css (36.4 KB)
    ======================================== */
 
 /* Mobile hamburger menu - fix links displaying inline */
@@ -768,7 +768,7 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   --font-heading-family: Poppins, sans-serif;
   --font-heading-style: normal;
   --font-heading-weight: var(--global-heading-font-weight-desktop);
-  --font-body-scale: 1;
+  --font-body-scale: min(max(var(--font-body-scale, 1), 0.5), 1.5);
   --font-heading-scale: 1;
   --font-body-line-height: calc(1 + 0.8 / var(--font-body-scale));
   --font-custom-family: Poppins, sans-serif;
@@ -14836,7 +14836,7 @@ xo-collapse[xo-active] {
 /* Typography handled by vastu-global-typography.css - removed duplicate rule */
 
 /* ========================================
-   section-password.css (5.6 KB)
+   section-password.css (5.8 KB)
    ======================================== */
 
 *,
@@ -14847,7 +14847,9 @@ xo-collapse[xo-active] {
 
 html {
   box-sizing: border-box;
-  font-size: calc(var(--font-body-scale) * 100%);
+  /* Root font-size: 62.5% = 10px (when browser default is 16px) */
+  /* This ensures 1rem = 10px for easier calculations */
+  font-size: calc(min(max(var(--font-body-scale, 1), 0.5), 1.5) * 62.5%);
 }
 
 body {
