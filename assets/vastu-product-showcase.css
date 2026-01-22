@@ -248,7 +248,7 @@ section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart bu
 section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn--secondary,
 section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn.xo-btn--secondary,
 section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add button.xo-btn--secondary {
-  background-color: rgb(var(--color-secondary-button, 71, 56, 85));
+  background-color: black;
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
   border: none;
 }
@@ -256,7 +256,7 @@ section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo
 section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--secondary:hover,
 section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart button.xo-btn--secondary:hover,
 section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart xo-cart-add .xo-btn--secondary:hover {
-  background-color: rgba(var(--color-secondary-button, 71, 56, 85), 0.9);
+  background-color: rgb(0 0 0 / 90%);
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
 }
 
