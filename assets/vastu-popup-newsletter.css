@@ -193,3 +193,9 @@
     margin-top: 1.5rem;
   }
 }
+
+.popup-newsletter-v3__form .xo-field-input__input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  height: unset;
+}

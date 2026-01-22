@@ -136,13 +136,13 @@ footer h4,
 
 /* Footer spacing */
 .footer-modern {
-  padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 60px));
+  padding-top: 60px !important;
   padding-bottom: var(--section-padding-bottom-desktop, var(--global-section-padding-bottom-desktop, 20px));
 }
 
 @media (width <= 48rem) {
   .footer-modern {
-    padding-top: var(--section-padding-top-mobile, var(--global-section-padding-top-mobile, 40px));
+    padding-top: 40px !important;
     padding-bottom: var(--section-padding-bottom-mobile, var(--global-section-padding-bottom-mobile, 14px));
   }
 }

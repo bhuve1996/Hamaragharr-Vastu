@@ -9,17 +9,33 @@
 {{ 'vastu-grid-carousel.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
+  assign product_source = section.settings.product_source | default: 'collection'
   assign collection = section.settings.collection
   assign products_limit = section.settings.products_limit | default: 4
   assign view_more_limit = section.settings.view_more_limit | default: 4
   assign columns_desktop = section.settings.columns_desktop | default: 4
   
-  if collection == blank or collection.products.size == 0
+  if product_source == 'blocks'
     assign has_products = false
     assign total_products = 0
+    
+    for block in section.blocks
+      if block.type == 'product' and block.settings.product != blank
+        assign current_product_check = all_products[block.settings.product]
+        if current_product_check != blank
+          assign has_products = true
+          assign total_products = total_products | plus: 1
+        endif
+      endif
+    endfor
   else
-    assign has_products = true
-    assign total_products = collection.products.size
+    if collection == blank or collection.products.size == 0
+      assign has_products = false
+      assign total_products = 0
+    else
+      assign has_products = true
+      assign total_products = collection.products.size
+    endif
   endif
   
   assign has_more_products = false
@@ -33,7 +49,7 @@
   
   {% unless has_products %}
     <xo-container>
-      <p>No products available in this collection.</p>
+      <p>{% if product_source == 'blocks' %}No products added. Please add products using the blocks below.{% else %}No products available in this collection.{% endif %}</p>
     </xo-container>
   {% else %}
   
@@ -59,25 +75,49 @@
           >
             <xo-carousel-inner>
               <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
-                {%- for product in collection.products -%}
-                  {%- if forloop.index <= products_limit -%}
-                  <xo-carousel-slide 
-                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
-                    data-product-index='{{ forloop.index }}'
-                  >
-                    {% render 'vastu-grid-card',
-                      product: product,
-                      section: section,
-                      settings: section.settings
-                    %}
-                  </xo-carousel-slide>
-                  {%- else -%}
+                {%- if product_source == 'blocks' -%}
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'product' and block.settings.product != blank -%}
+                      {%- assign current_product = all_products[block.settings.product] -%}
+                      {%- if current_product != blank -%}
+                        {%- if forloop.index <= products_limit -%}
+                        <xo-carousel-slide 
+                          aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                          aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                          data-product-index='{{ forloop.index }}'
+                          {{ block.shopify_attributes }}
+                        >
+                          {% render 'vastu-grid-card',
+                            product: current_product,
+                            section: section,
+                            settings: section.settings
+                          %}
+                        </xo-carousel-slide>
+                        {%- else -%}
+                          <xo-carousel-slide 
+                            aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                            aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                            data-product-index='{{ forloop.index }}'
+                            class='vastu-grid-carousel__slide--hidden'
+                            {{ block.shopify_attributes }}
+                          >
+                            {% render 'vastu-grid-card',
+                              product: current_product,
+                              section: section,
+                              settings: section.settings
+                            %}
+                          </xo-carousel-slide>
+                        {%- endif -%}
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- else -%}
+                  {%- for product in collection.products -%}
+                    {%- if forloop.index <= products_limit -%}
                     <xo-carousel-slide 
                       aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
                       aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
                       data-product-index='{{ forloop.index }}'
-                      class='vastu-grid-carousel__slide--hidden'
                     >
                       {% render 'vastu-grid-card',
                         product: product,
@@ -85,8 +125,22 @@
                         settings: section.settings
                       %}
                     </xo-carousel-slide>
-                  {%- endif -%}
-                {%- endfor -%}
+                    {%- else -%}
+                      <xo-carousel-slide 
+                        aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                        aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
+                        data-product-index='{{ forloop.index }}'
+                        class='vastu-grid-carousel__slide--hidden'
+                      >
+                        {% render 'vastu-grid-card',
+                          product: product,
+                          section: section,
+                          settings: section.settings
+                        %}
+                      </xo-carousel-slide>
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endif -%}
               </xo-carousel-list>
             </xo-carousel-inner>
             {%- liquid
@@ -142,19 +196,41 @@
         >
           <xo-carousel-inner>
             <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
-              {%- for product in collection.products -%}
-                <xo-carousel-slide 
-                  aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                  aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
-                  data-product-index='{{ forloop.index }}'
-                >
-                  {% render 'vastu-grid-card',
-                    product: product,
-                    section: section,
-                    settings: section.settings
-                  %}
-                </xo-carousel-slide>
-              {%- endfor -%}
+              {%- if product_source == 'blocks' -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'product' and block.settings.product != blank -%}
+                    {%- assign current_product = all_products[block.settings.product] -%}
+                    {%- if current_product != blank -%}
+                      <xo-carousel-slide 
+                        aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                        aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                        data-product-index='{{ forloop.index }}'
+                        {{ block.shopify_attributes }}
+                      >
+                        {% render 'vastu-grid-card',
+                          product: current_product,
+                          section: section,
+                          settings: section.settings
+                        %}
+                      </xo-carousel-slide>
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- else -%}
+                {%- for product in collection.products -%}
+                  <xo-carousel-slide 
+                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
+                    data-product-index='{{ forloop.index }}'
+                  >
+                    {% render 'vastu-grid-card',
+                      product: product,
+                      section: section,
+                      settings: section.settings
+                    %}
+                  </xo-carousel-slide>
+                {%- endfor -%}
+              {%- endif -%}
             </xo-carousel-list>
           </xo-carousel-inner>
           {%- liquid
@@ -202,25 +278,49 @@
         >
           <xo-carousel-inner>
             <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
-              {%- for product in collection.products -%}
-                {%- if forloop.index <= products_limit -%}
-                <xo-carousel-slide 
-                  aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                  aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
-                  data-product-index='{{ forloop.index }}'
-                >
-                  {% render 'vastu-grid-card',
-                    product: product,
-                    section: section,
-                    settings: section.settings
-                  %}
-                </xo-carousel-slide>
-                {%- else -%}
+              {%- if product_source == 'blocks' -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'product' and block.settings.product != blank -%}
+                    {%- assign current_product = all_products[block.settings.product] -%}
+                    {%- if current_product != blank -%}
+                      {%- if forloop.index <= products_limit -%}
+                      <xo-carousel-slide 
+                        aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                        aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                        data-product-index='{{ forloop.index }}'
+                        {{ block.shopify_attributes }}
+                      >
+                        {% render 'vastu-grid-card',
+                          product: current_product,
+                          section: section,
+                          settings: section.settings
+                        %}
+                      </xo-carousel-slide>
+                      {%- else -%}
+                        <xo-carousel-slide 
+                          aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                          aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                          data-product-index='{{ forloop.index }}'
+                          class='vastu-grid-carousel__slide--hidden'
+                          {{ block.shopify_attributes }}
+                        >
+                          {% render 'vastu-grid-card',
+                            product: current_product,
+                            section: section,
+                            settings: section.settings
+                          %}
+                        </xo-carousel-slide>
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- else -%}
+                {%- for product in collection.products -%}
+                  {%- if forloop.index <= products_limit -%}
                   <xo-carousel-slide 
                     aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
                     aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
                     data-product-index='{{ forloop.index }}'
-                    class='vastu-grid-carousel__slide--hidden'
                   >
                     {% render 'vastu-grid-card',
                       product: product,
@@ -228,8 +328,22 @@
                       settings: section.settings
                     %}
                   </xo-carousel-slide>
-                {%- endif -%}
-              {%- endfor -%}
+                  {%- else -%}
+                    <xo-carousel-slide 
+                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                      aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
+                      data-product-index='{{ forloop.index }}'
+                      class='vastu-grid-carousel__slide--hidden'
+                    >
+                      {% render 'vastu-grid-card',
+                        product: product,
+                        section: section,
+                        settings: section.settings
+                      %}
+                    </xo-carousel-slide>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%}
             </xo-carousel-list>
           </xo-carousel-inner>
           {% render 'vastu-carousel-controls',
@@ -272,19 +386,41 @@
         >
           <xo-carousel-inner>
             <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
-              {%- for product in collection.products -%}
-                <xo-carousel-slide 
-                  aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                  aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
-                  data-product-index='{{ forloop.index }}'
-                >
-                  {% render 'vastu-grid-card',
-                    product: product,
-                    section: section,
-                    settings: section.settings
-                  %}
-                </xo-carousel-slide>
-              {%- endfor -%}
+              {%- if product_source == 'blocks' -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'product' and block.settings.product != blank -%}
+                    {%- assign current_product = all_products[block.settings.product] -%}
+                    {%- if current_product != blank -%}
+                      <xo-carousel-slide 
+                        aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                        aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                        data-product-index='{{ forloop.index }}'
+                        {{ block.shopify_attributes }}
+                      >
+                        {% render 'vastu-grid-card',
+                          product: current_product,
+                          section: section,
+                          settings: section.settings
+                        %}
+                      </xo-carousel-slide>
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- else -%}
+                {%- for product in collection.products -%}
+                  <xo-carousel-slide 
+                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
+                    data-product-index='{{ forloop.index }}'
+                  >
+                    {% render 'vastu-grid-card',
+                      product: product,
+                      section: section,
+                      settings: section.settings
+                    %}
+                  </xo-carousel-slide>
+                {%- endfor -%}
+              {%- endif -%}
             </xo-carousel-list>
           </xo-carousel-inner>
           {%- liquid
@@ -482,9 +618,27 @@
       ]
     },
     {
+      "type": "select",
+      "id": "product_source",
+      "label": "Product Source",
+      "default": "collection",
+      "options": [
+        {
+          "value": "collection",
+          "label": "From Collection"
+        },
+        {
+          "value": "blocks",
+          "label": "Individual Products (Blocks)"
+        }
+      ],
+      "info": "Choose to display products from a collection or select individual products using blocks"
+    },
+    {
       "type": "collection",
       "id": "collection",
-      "label": "Collection"
+      "label": "Collection",
+      "info": "Select a collection to display products from (only used when Product Source is 'From Collection')"
     },
     {
       "type": "range",
@@ -749,7 +903,21 @@
       "id": "padding_bottom",
       "label": "Padding Bottom",
       "default": 50
-    },
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "Select a product to add to the carousel"
+        }
+      ]
+    }
   ],
   "presets": [
     {

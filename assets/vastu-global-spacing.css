@@ -59,7 +59,7 @@ footer,
 footer[class*="vastu-section--"],
 .footer-modern,
 .footer-modern[class*="vastu-section--"] {
-  padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 60px)) !important;
+  padding-top: 60px !important;
 }
 
 /* Light backgrounds - use darker shadow */
@@ -132,7 +132,7 @@ div[style*="background-color: rgb(71, 56, 85)"] {
   footer[class*="vastu-section--"],
   .footer-modern,
   .footer-modern[class*="vastu-section--"] {
-    padding-top: var(--section-padding-top-mobile, var(--global-section-padding-top-mobile, 40px)) !important;
+    padding-top: 40px !important;
   }
 }
 

@@ -352,6 +352,17 @@ section[class*="slideshow"] .xo-background-lazyload {
   image-rendering: crisp-edges;
 }
 
+@media (width <= 768px) {
+  section[class*="homepage-carousel"] .slideshow-bg-image__item,
+  section[class*="homepage-carousel"] .slideshow-bg-image__url,
+  section[class*="homepage-carousel"] .xo-background-lazyload,
+  section[class*="slideshow"] .slideshow-bg-image__item,
+  section[class*="slideshow"] .slideshow-bg-image__url,
+  section[class*="slideshow"] .xo-background-lazyload {
+    min-height: 300px;
+  }
+}
+
 .slideshow-v28__text--overlay {
   text-align: left;
   display: flex;
