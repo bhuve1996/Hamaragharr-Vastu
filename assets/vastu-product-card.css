@@ -231,6 +231,47 @@ main section .vastu-product-card .vastu-product-card__image .vastu-product-card_
   text-overflow: ellipsis;
 }
 
+/* Hide price on image for collection and search pages - show in content area instead */
+.section-collection-products .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+.filters-content .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+.main-search .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+.section-collection-products main section .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+.filters-content main section .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+.main-search main section .vastu-product-card .vastu-product-card__image .vastu-product-card__price {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Show price in content area for collection and search pages - must override any absolute positioning */
+.section-collection-products .vastu-product-card .vastu-product-card__content .vastu-product-card__price,
+.filters-content .vastu-product-card .vastu-product-card__content .vastu-product-card__price,
+.main-search .vastu-product-card .vastu-product-card__content .vastu-product-card__price,
+.filters-content__grid .vastu-product-card .vastu-product-card__content .vastu-product-card__price {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  background: transparent !important;
+  color: rgb(71 56 85) !important;
+  padding: 0 !important;
+  margin: 0.75rem 0 0 !important;
+  font-size: var(--global-card-price-font-size-desktop) !important;
+  font-weight: var(--global-card-price-font-weight-desktop, 600) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  white-space: normal !important;
+  width: auto !important;
+  max-width: 100% !important;
+  z-index: auto !important;
+  inset: auto !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  bottom: auto !important;
+}
+
 .vastu-product-card__image .vastu-product-card__price,
 .vastu-product-card__image .vastu-product-card__price *,
 .vastu-product-card__image .vastu-product-card__price span,
@@ -271,6 +312,18 @@ main section .vastu-product-card .xo-product-card__price {
   font-weight: var(--global-body-font-weight-desktop);
   z-index: 2;
   display: inline-block;
+}
+
+/* Hide price overlay on image for collection and search pages */
+.section-collection-products .vastu-product-card .xo-product-card__price,
+.filters-content .vastu-product-card .xo-product-card__price,
+.main-search .vastu-product-card .xo-product-card__price,
+.section-collection-products .vastu-product-card [class*="product-card"] [class*="price"],
+.filters-content .vastu-product-card [class*="product-card"] [class*="price"],
+.main-search .vastu-product-card [class*="product-card"] [class*="price"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 .vastu-product-card__badge {
@@ -638,14 +691,51 @@ main xo-grid .vastu-product-card,
   flex-direction: column;
 }
 
-.filters-content__grid .vastu-product-card .vastu-product-card__price,
-.section-collection-products .vastu-product-card .vastu-product-card__price,
-.filters-content .vastu-product-card .vastu-product-card__price {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  color: #fff;
-  background: rgb(71 56 85 / 90%);
+/* Price in content area for collection and search pages - show at bottom - HIGHEST PRIORITY */
+.filters-content__grid .vastu-product-card .vastu-product-card__content .vastu-product-card__price,
+.section-collection-products .vastu-product-card .vastu-product-card__content .vastu-product-card__price,
+.filters-content .vastu-product-card .vastu-product-card__content .vastu-product-card__price,
+.main-search .vastu-product-card .vastu-product-card__content .vastu-product-card__price,
+.section-collection-products .vastu-product-card__content .vastu-product-card__price,
+.filters-content .vastu-product-card__content .vastu-product-card__price,
+.main-search .vastu-product-card__content .vastu-product-card__price,
+.filters-content__grid .vastu-product-card__content .vastu-product-card__price {
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  bottom: auto !important;
+  inset: auto !important;
+  color: rgb(71 56 85) !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0.75rem 0 0 !important;
+  font-size: var(--global-card-price-font-size-desktop) !important;
+  font-weight: var(--global-card-price-font-weight-desktop, 600) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  white-space: normal !important;
+  width: auto !important;
+  max-width: 100% !important;
+  min-width: auto !important;
+  height: auto !important;
+  z-index: auto !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  float: none !important;
+}
+
+/* Hide price on image for collection and search pages */
+.filters-content__grid .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+.section-collection-products .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+.filters-content .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+.main-search .vastu-product-card .vastu-product-card__image .vastu-product-card__price {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 .product-recommendations-section .vastu-product-card,

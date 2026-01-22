@@ -796,6 +796,7 @@ footer h4,
       --footer-h4-font-weight-mobile,
       var(--h4-font-weight-mobile, var(--global-heading-font-weight-mobile, 600))
     );
+    text-transform: uppercase;
   }
 }
 

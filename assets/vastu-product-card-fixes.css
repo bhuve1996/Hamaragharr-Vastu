@@ -857,6 +857,18 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
   position: relative;
 }
 
+/* Hide price overlay on collection and search pages - price should be in content area */
+.section-collection-products .xo-product-card__price-overlay,
+.filters-content .xo-product-card__price-overlay,
+.main-search .xo-product-card__price-overlay,
+.section-collection-products .xo-product-card__header .xo-product-card__price-overlay,
+.filters-content .xo-product-card__header .xo-product-card__price-overlay,
+.main-search .xo-product-card__header .xo-product-card__price-overlay {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
 .section-collection-products .xo-product-card__price-overlay .xo-price__item,
 .filters-content .xo-product-card__price-overlay .xo-price__item,
 .section-collection-products .xo-product-card__price-overlay span,
@@ -865,9 +877,30 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
   display: inline;
 }
 
+/* Show price in content area at bottom for collection and search pages */
 .section-collection-products .xo-product-card__information .xo-product-card__price,
-.filters-content .xo-product-card__information .xo-product-card__price {
-  display: none;
+.filters-content .xo-product-card__information .xo-product-card__price,
+.main-search .xo-product-card__information .xo-product-card__price {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  position: static;
+  background: transparent;
+  color: rgb(71 56 85);
+  padding: 0;
+  margin: 0.75rem 0 0;
+  font-size: var(--global-card-price-font-size-desktop);
+  font-weight: var(--global-card-price-font-weight-desktop, 600);
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  white-space: normal;
+  width: auto;
+  max-width: 100%;
+  z-index: auto;
+  inset: auto;
+  top: auto;
+  right: auto;
 }
 
 @media (width <= 48rem) {
@@ -880,11 +913,25 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
     line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile, 1.3));
   }
 
-  .section-collection-products .xo-product-card__price-overlay,
-  .filters-content .xo-product-card__price-overlay {
+  /* Ensure price in content area is visible on mobile for collection and search pages */
+  .section-collection-products .xo-product-card__information .xo-product-card__price,
+  .filters-content .xo-product-card__information .xo-product-card__price,
+  .main-search .xo-product-card__information .xo-product-card__price {
+    display: block;
+    visibility: visible;
+    opacity: 1;
     font-size: var(--card-price-size, var(--global-card-price-font-size-mobile));
     font-weight: var(--global-card-price-font-weight-mobile, var(--font-weight-bold, 700));
-    padding: 0.6rem 0.9rem;
+    margin: 0.5rem 0 0;
+  }
+  
+  /* Hide price overlay on mobile for collection and search pages */
+  .section-collection-products .xo-product-card__price-overlay,
+  .filters-content .xo-product-card__price-overlay,
+  .main-search .xo-product-card__price-overlay {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 
   .section-collection-products .xo-product-card__add-to-cart .xo-btn,
@@ -1054,13 +1101,9 @@ section[class*="product-recommendations"] .xo-product-card__actions .xo-product-
 .product-recommendations-section .xo-product-card__header .xo-product-card__price-overlay,
 section[class*="product-recommendations"] .xo-product-card__header .xo-product-card__price-overlay,
 .product-recommendations .xo-product-card__header .xo-product-card__price-overlay,
-.section-collection-products .xo-product-card__header .xo-product-card__price-overlay,
-.filters-content .xo-product-card__header .xo-product-card__price-overlay,
 .product-recommendations-section .xo-product-card__price-overlay,
 section[class*="product-recommendations"] .xo-product-card__price-overlay,
 .product-recommendations .xo-product-card__price-overlay,
-.section-collection-products .xo-product-card__price-overlay,
-.filters-content .xo-product-card__price-overlay,
 .product-recommendations-section .xo-product-card--style1 .xo-product-card__header .xo-product-card__price-overlay,
 section[class*="product-recommendations"]
   .xo-product-card--style1
@@ -1408,13 +1451,9 @@ xo-collapse-trigger.shipping-accordion__trigger,
 .product-recommendations-section .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
 section[class*="product-recommendations"] .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
 .product-recommendations .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
-.section-collection-products .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
-.filters-content .xo-product-card .xo-product-card__header .xo-product-card__price-overlay,
 .product-recommendations-section .xo-product-card__header .xo-product-card__price-overlay,
 section[class*="product-recommendations"] .xo-product-card__header .xo-product-card__price-overlay,
-.product-recommendations .xo-product-card__header .xo-product-card__price-overlay,
-.section-collection-products .xo-product-card__header .xo-product-card__price-overlay,
-.filters-content .xo-product-card__header .xo-product-card__price-overlay {
+.product-recommendations .xo-product-card__header .xo-product-card__price-overlay {
   display: block;
   visibility: visible;
   opacity: 1;

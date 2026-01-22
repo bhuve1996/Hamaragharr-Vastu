@@ -126,6 +126,7 @@
 
 .vastu-help-address-v1__carousel {
   position: relative;
+  overflow: visible;
 }
 
 .vastu-help-address-v1__carousel xo-carousel-inner {
@@ -133,19 +134,22 @@
   grid: none;
   position: relative;
   z-index: 9;
+  overflow: visible;
+  padding-right: 1rem;
 }
 
 .vastu-help-address-v1__carousel xo-carousel-list {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
+  overflow: visible;
 }
 
 .vastu-help-address-v1__carousel xo-carousel-slide {
-  flex: 0 0 100%;
-  max-width: 100%;
+  flex: 0 0 calc(85% - 1rem);
+  max-width: calc(85% - 1rem);
   min-width: 0;
-  padding: 0 0.5rem;
+  padding-right: 1rem;
 }
 
 .vastu-help-address-v1__carousel xo-carousel-slide .vastu-help-address-v1__item {
@@ -155,7 +159,7 @@
 
 .vastu-help-address-v1__pagination {
   position: absolute;
-  bottom: -2.5rem;
+  bottom: -1rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -164,7 +168,7 @@
   align-items: center;
   width: auto;
   pointer-events: auto;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .vastu-help-address-v1__pagination xo-carousel-pagination span {

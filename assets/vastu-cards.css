@@ -189,7 +189,7 @@ section[class*="vastu-best-seller"] xo-carousel {
   flex-direction: column;
   padding: var(--content-padding-top, var(--global-body-margin-bottom-desktop, 1.25rem))
     var(--content-padding-horizontal, var(--global-body-margin-bottom-desktop, 1.5rem))
-    var(--content-padding-bottom, var(--global-body-margin-bottom-desktop, 1.25rem))
+    0
     var(--content-padding-horizontal, var(--global-body-margin-bottom-desktop, 1.5rem));
   text-align: left;
   min-height: 0;

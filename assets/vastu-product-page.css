@@ -717,9 +717,9 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 }
 
 .footer-modern__payment-icon {
-  padding: 0.5rem 0.75rem;
-  font-size: var(--global-tag-font-size-desktop, 1.25rem);
-  font-weight: var(--global-tag-font-weight-desktop, 600);
+  padding: 0.375rem 0.625rem;
+  font-size: 0.875rem;
+  font-weight: var(--section-body-font-weight-desktop, var(--global-body-font-weight-desktop, 300));
   color: rgb(var(--color-text));
   background-color: rgba(var(--color-text), 0.05);
   border-radius: 0.25rem;
@@ -733,7 +733,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 }
 
 .footer-modern__payment-image {
-  max-height: 2.5rem;
+  max-height: 2rem;
   width: auto;
   opacity: 0.8;
   transition: opacity 0.3s ease;
@@ -842,8 +842,8 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   }
 
   .footer-modern__payment-icon {
-    padding: 0.35rem 0.5rem;
-    font-size: var(--global-tag-font-size-mobile, 1.1rem);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
   }
 
   .footer-modern__payment-icon + .footer-modern__payment-icon {
@@ -851,7 +851,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   }
 
   .footer-modern__payment-image {
-    max-height: 2rem;
+    max-height: 1.75rem;
   }
 
   .footer-modern__copyright {

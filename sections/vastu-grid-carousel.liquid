@@ -33,8 +33,27 @@
       assign has_products = false
       assign total_products = 0
     else
-      assign has_products = true
-      assign total_products = collection.products.size
+      comment
+        Count unique products by tracking seen product handles
+      endcomment
+      assign seen_handles_count = ''
+      assign unique_count = 0
+      
+      for product in collection.products
+        assign product_handle_check = product.handle | append: '|'
+        unless seen_handles_count contains product_handle_check
+          assign seen_handles_count = seen_handles_count | append: product_handle_check
+          assign unique_count = unique_count | plus: 1
+        endunless
+      endfor
+      
+      if unique_count > 0
+        assign has_products = true
+        assign total_products = unique_count
+      else
+        assign has_products = false
+        assign total_products = 0
+      endif
     endif
   endif
   
@@ -70,6 +89,8 @@
             xo-per-view='1'
             xo-gap='10'
             xo-speed='400'
+            xo-autoplay='5000'
+            xo-hover-pause
             xo-render-bullet='<span></span>'
             class='vastu-grid-carousel__carousel'
           >
@@ -112,25 +133,18 @@
                     {%- endif -%}
                   {%- endfor -%}
                 {%- else -%}
+                  {%- assign seen_handles = '' -%}
+                  {%- assign rendered_count = 0 -%}
                   {%- for product in collection.products -%}
-                    {%- if forloop.index <= products_limit -%}
-                    <xo-carousel-slide 
-                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                      aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
-                      data-product-index='{{ forloop.index }}'
-                    >
-                      {% render 'vastu-grid-card',
-                        product: product,
-                        section: section,
-                        settings: section.settings
-                      %}
-                    </xo-carousel-slide>
-                    {%- else -%}
+                    {%- assign product_handle_check = product.handle | append: '|' -%}
+                    {%- unless seen_handles contains product_handle_check -%}
+                      {%- assign seen_handles = seen_handles | append: product_handle_check -%}
+                      {%- assign rendered_count = rendered_count | plus: 1 -%}
+                      {%- if rendered_count <= products_limit -%}
                       <xo-carousel-slide 
                         aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                        aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
-                        data-product-index='{{ forloop.index }}'
-                        class='vastu-grid-carousel__slide--hidden'
+                        aria-label='{{ rendered_count }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                        data-product-index='{{ rendered_count }}'
                       >
                         {% render 'vastu-grid-card',
                           product: product,
@@ -138,7 +152,21 @@
                           settings: section.settings
                         %}
                       </xo-carousel-slide>
-                    {%- endif -%}
+                      {%- else -%}
+                        <xo-carousel-slide 
+                          aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                          aria-label='{{ rendered_count }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                          data-product-index='{{ rendered_count }}'
+                          class='vastu-grid-carousel__slide--hidden'
+                        >
+                          {% render 'vastu-grid-card',
+                            product: product,
+                            section: section,
+                            settings: section.settings
+                          %}
+                        </xo-carousel-slide>
+                      {%- endif -%}
+                    {%- endunless -%}
                   {%- endfor -%}
                 {%- endif -%}
               </xo-carousel-list>
@@ -190,6 +218,8 @@
           xo-per-view='{{ columns_desktop }}'
           xo-gap='20'
           xo-speed='400'
+          xo-autoplay='5000'
+          xo-hover-pause
           xo-breakpoints='{"768": {"perView": 2}, "992": {"perView": {{ columns_desktop }}}}'
           xo-render-bullet='<span></span>'
           class='vastu-grid-carousel__carousel'
@@ -217,18 +247,25 @@
                   {%- endif -%}
                 {%- endfor -%}
               {%- else -%}
+                {%- assign seen_handles_desktop = '' -%}
+                {%- assign rendered_count_desktop = 0 -%}
                 {%- for product in collection.products -%}
-                  <xo-carousel-slide 
-                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
-                    data-product-index='{{ forloop.index }}'
-                  >
-                    {% render 'vastu-grid-card',
-                      product: product,
-                      section: section,
-                      settings: section.settings
-                    %}
-                  </xo-carousel-slide>
+                  {%- assign product_handle_check = product.handle | append: '|' -%}
+                  {%- unless seen_handles_desktop contains product_handle_check -%}
+                    {%- assign seen_handles_desktop = seen_handles_desktop | append: product_handle_check -%}
+                    {%- assign rendered_count_desktop = rendered_count_desktop | plus: 1 -%}
+                    <xo-carousel-slide 
+                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                      aria-label='{{ rendered_count_desktop }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                      data-product-index='{{ rendered_count_desktop }}'
+                    >
+                      {% render 'vastu-grid-card',
+                        product: product,
+                        section: section,
+                        settings: section.settings
+                      %}
+                    </xo-carousel-slide>
+                  {%- endunless -%}
                 {%- endfor -%}
               {%- endif -%}
             </xo-carousel-list>
@@ -273,6 +310,8 @@
           xo-per-view='1'
           xo-gap='10'
           xo-speed='400'
+          xo-autoplay='5000'
+          xo-hover-pause
           xo-render-bullet='<span></span>'
           class='vastu-grid-carousel__carousel'
         >
@@ -315,25 +354,18 @@
                   {%- endif -%}
                 {%- endfor -%}
               {%- else -%}
+                {%- assign seen_handles_mobile2 = '' -%}
+                {%- assign rendered_count_mobile2 = 0 -%}
                 {%- for product in collection.products -%}
-                  {%- if forloop.index <= products_limit -%}
-                  <xo-carousel-slide 
-                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
-                    data-product-index='{{ forloop.index }}'
-                  >
-                    {% render 'vastu-grid-card',
-                      product: product,
-                      section: section,
-                      settings: section.settings
-                    %}
-                  </xo-carousel-slide>
-                  {%- else -%}
+                  {%- assign product_handle_check = product.handle | append: '|' -%}
+                  {%- unless seen_handles_mobile2 contains product_handle_check -%}
+                    {%- assign seen_handles_mobile2 = seen_handles_mobile2 | append: product_handle_check -%}
+                    {%- assign rendered_count_mobile2 = rendered_count_mobile2 | plus: 1 -%}
+                    {%- if rendered_count_mobile2 <= products_limit -%}
                     <xo-carousel-slide 
                       aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                      aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
-                      data-product-index='{{ forloop.index }}'
-                      class='vastu-grid-carousel__slide--hidden'
+                      aria-label='{{ rendered_count_mobile2 }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                      data-product-index='{{ rendered_count_mobile2 }}'
                     >
                       {% render 'vastu-grid-card',
                         product: product,
@@ -341,7 +373,21 @@
                         settings: section.settings
                       %}
                     </xo-carousel-slide>
-                  {%- endif -%}
+                    {%- else -%}
+                      <xo-carousel-slide 
+                        aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                        aria-label='{{ rendered_count_mobile2 }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                        data-product-index='{{ rendered_count_mobile2 }}'
+                        class='vastu-grid-carousel__slide--hidden'
+                      >
+                        {% render 'vastu-grid-card',
+                          product: product,
+                          section: section,
+                          settings: section.settings
+                        %}
+                      </xo-carousel-slide>
+                    {%- endif -%}
+                  {%- endunless -%}
                 {%- endfor -%}
               {%- endif -%}
             </xo-carousel-list>
@@ -380,6 +426,8 @@
           xo-per-view='{{ columns_desktop }}'
           xo-gap='20'
           xo-speed='400'
+          xo-autoplay='5000'
+          xo-hover-pause
           xo-breakpoints='{"768": {"perView": 2}, "992": {"perView": {{ columns_desktop }}}}'
           xo-render-bullet='<span></span>'
           class='vastu-grid-carousel__carousel'
@@ -407,18 +455,25 @@
                   {%- endif -%}
                 {%- endfor -%}
               {%- else -%}
+                {%- assign seen_handles_desktop = '' -%}
+                {%- assign rendered_count_desktop = 0 -%}
                 {%- for product in collection.products -%}
-                  <xo-carousel-slide 
-                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
-                    data-product-index='{{ forloop.index }}'
-                  >
-                    {% render 'vastu-grid-card',
-                      product: product,
-                      section: section,
-                      settings: section.settings
-                    %}
-                  </xo-carousel-slide>
+                  {%- assign product_handle_check = product.handle | append: '|' -%}
+                  {%- unless seen_handles_desktop contains product_handle_check -%}
+                    {%- assign seen_handles_desktop = seen_handles_desktop | append: product_handle_check -%}
+                    {%- assign rendered_count_desktop = rendered_count_desktop | plus: 1 -%}
+                    <xo-carousel-slide 
+                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                      aria-label='{{ rendered_count_desktop }} {{ 'general.slider.of' | t }} {{ total_products }}'
+                      data-product-index='{{ rendered_count_desktop }}'
+                    >
+                      {% render 'vastu-grid-card',
+                        product: product,
+                        section: section,
+                        settings: section.settings
+                      %}
+                    </xo-carousel-slide>
+                  {%- endunless -%}
                 {%- endfor -%}
               {%- endif -%}
             </xo-carousel-list>

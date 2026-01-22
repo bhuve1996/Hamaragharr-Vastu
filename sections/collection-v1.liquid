@@ -63,9 +63,8 @@
       xo-per-view='{{ section.settings.columns_limit }}'
       xo-gap='{{ section.settings.gap }}'
       xo-speed='400'
-      {% if section.settings.auto_play %}
-        xo-autoplay='5000'
-      {% endif %}
+      xo-autoplay='5000'
+      xo-hover-pause
       {{ breakpoints }}
       xo-render-bullet='<span></span>'
     >

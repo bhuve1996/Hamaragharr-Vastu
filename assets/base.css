@@ -471,6 +471,17 @@ input[type="checkbox"] {
   margin-right: 0.5rem;
 }
 
+/* Hide native checkbox input for custom xo-field-checkbox component */
+.xo-field-checkbox .xo-field-checkbox__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
 .form__label {
   display: block;
   margin-bottom: 0.6rem;

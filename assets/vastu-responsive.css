@@ -240,12 +240,7 @@
     opacity: 1;
   }
 
-  /* Blog carousel mobile fix - ensure carousel works properly on mobile */
-  section[class*="blog-v1"] xo-carousel,
-  section[class*="blog-v2"] xo-carousel {
-    overflow: hidden;
-  }
-
+  /* Blog carousel mobile fix - allow partial visibility like other carousels */
   section[class*="blog-v1"] xo-carousel-slide,
   section[class*="blog-v2"] xo-carousel-slide {
     flex-shrink: 0;

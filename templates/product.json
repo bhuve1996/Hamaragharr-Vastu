@@ -122,7 +122,7 @@
           "settings": {
             "sizeguide": false,
             "compare": false,
-            "ask": true,
+            "ask": false,
             "share": true,
             "sizeguide_type": "page",
             "sizeguide_page": "size-guide",
@@ -153,6 +153,7 @@
         },
         "941018d2-7613-4b60-aa2c-94962df06c94": {
           "type": "trustbadge",
+          "disabled": true,
           "settings": {
             "trustbadge_heading": "<p>Guarantee Safe Checkout</p>",
             "trustbadge_position": "above",

@@ -118,7 +118,7 @@
           "settings": {
             "sizeguide": true,
             "compare": true,
-            "ask": true,
+            "ask": false,
             "share": true,
             "sizeguide_type": "page",
             "sizeguide_page": "size-guide",

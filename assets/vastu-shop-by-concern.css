@@ -10,9 +10,12 @@
   background: transparent;
   border: 1px solid #473855;
   border-radius: 0.75rem;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.3s ease;
   box-shadow: 0 2px 12px rgb(71 56 85 / 20%);
+  min-height: auto;
+  height: auto;
+  max-height: none;
 }
 
 .vastu-shop-by-concern__item:hover {
@@ -116,9 +119,26 @@
   visibility: hidden;
 }
 
+/* Collapse element - hidden by default, visible when active */
 .vastu-shop-by-concern__collapse {
+  display: block;
   overflow: hidden;
   background: transparent;
+  max-height: 0;
+  padding: 0;
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
+}
+
+/* Ensure collapse content is fully visible when expanded */
+.vastu-shop-by-concern__item[aria-expanded="true"] .vastu-shop-by-concern__collapse,
+.vastu-shop-by-concern__trigger[aria-expanded="true"] + .vastu-shop-by-concern__collapse,
+.vastu-shop-by-concern__collapse[xo-active] {
+  max-height: 5000px !important; /* Large enough for all content */
+  height: auto !important;
+  overflow: visible !important;
+  padding: 0;
 }
 
 .vastu-shop-by-concern__content {
@@ -126,6 +146,10 @@
   text-align: left;
   background: transparent;
   color: #473855;
+  min-height: auto;
+  height: auto;
+  max-height: none;
+  overflow: visible;
 }
 
 .vastu-shop-by-concern__card-description {
@@ -357,6 +381,50 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
   overflow: visible;
 }
 
+/* Grid carousel pattern for shop by concern products - Mobile */
+@media (width <= 767px) {
+  .vastu-shop-by-concern__products-carousel xo-carousel {
+    overflow: visible;
+  }
+
+  .vastu-shop-by-concern__products-carousel xo-carousel-inner {
+    overflow: visible;
+    padding-right: 1rem; /* Add padding to show partial next item */
+  }
+
+  .vastu-shop-by-concern__products-carousel xo-carousel-list {
+    overflow: visible;
+  }
+
+  /* Show partial next item - make items slightly smaller than container */
+  .vastu-shop-by-concern__products-carousel xo-carousel-slide {
+    padding-right: 1rem; /* Gap between items */
+    flex: 0 0 calc(75% - 1rem); /* Show 75% of current item, more of next visible */
+    max-width: calc(75% - 1rem);
+  }
+
+  /* Ensure product cards fit within slides */
+  .vastu-shop-by-concern__products-carousel .vastu-product-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* Desktop: Reset mobile partial view styles */
+@media (width >= 992px) {
+  .vastu-shop-by-concern__products-carousel xo-carousel-inner {
+    padding-right: 0;
+  }
+
+  .vastu-shop-by-concern__products-carousel xo-carousel-slide {
+    flex: 0 0 auto !important;
+    max-width: none !important;
+    padding-right: 0 !important;
+  }
+}
+
 /* Hide price overlay on image for shop by concern - price should only show in content area */
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price,
@@ -498,8 +566,36 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   }
 
   .vastu-shop-by-concern__content {
-    padding: 1.5rem 1.5rem 2rem;
+    padding: 1.5rem 1.5rem 3rem;
     text-align: left;
+  }
+
+  /* Collapse element - hidden by default on mobile */
+  .vastu-shop-by-concern__collapse {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  /* Ensure collapse content is fully visible when expanded on mobile */
+  .vastu-shop-by-concern__item[aria-expanded="true"] .vastu-shop-by-concern__collapse,
+  .vastu-shop-by-concern__trigger[aria-expanded="true"] + .vastu-shop-by-concern__collapse,
+  .vastu-shop-by-concern__collapse[xo-active] {
+    max-height: 5000px !important; /* Large enough for all content */
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0;
+  }
+
+  /* Ensure content is not cut off at bottom - add padding to item */
+  /* .vastu-shop-by-concern__item {
+    padding-bottom: 0.5rem;
+  } */
+
+  /* Ensure collapse content has enough space */
+  .vastu-shop-by-concern__item .vastu-shop-by-concern__collapse {
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .vastu-shop-by-concern__trigger-icon {

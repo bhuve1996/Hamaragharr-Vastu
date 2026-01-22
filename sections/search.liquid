@@ -26,7 +26,7 @@
   {% capture content %}
     <div {% render 'section-attr' %}>
       {% render 'section-bg-image' %}
-      <xo-container {% render 'section-layout' %}>
+      <xo-container>
         <form action='{{ routes.search_url }}' method='get' role='search'>
           {% liquid
             assign value = search.terms | escape
