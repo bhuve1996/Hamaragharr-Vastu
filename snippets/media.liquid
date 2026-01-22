@@ -10,6 +10,8 @@
   - muted: {Boolean} Set muted for video. Default: false (optional)
   - autoplay: {Boolean} Set autoplay for video. Default: false (optional)
   - media_aspect_ratio: {Number} Aspect ratio of the media (optional)
+  - lazyload: {Boolean} Lazyload image. Default: true (optional)
+  - eager: {Boolean} Force eager loading. Default: false (optional)
 
   Usage:
 
@@ -67,7 +69,7 @@
       </xo-intersection-video>
 
     {% when 'image' %}
-      {% render 'image', image: media, media_aspect_ratio: media_aspect_ratio %}
+      {% render 'image', image: media, media_aspect_ratio: media_aspect_ratio, lazyload: lazyload, eager: eager %}
 
     {% when 'model' %}
       {{ media | media_tag: image_size: '2048x', toggleable: true }}

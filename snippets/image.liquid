@@ -4,6 +4,7 @@
   Accepts:
   - image: {Image} Image source (required)
   - lazyload: {Boolean} Lazyload image. Default: true (optional)
+  - eager: {Boolean} Force eager loading (overrides lazyload). Default: false (optional)
   - container_class: {String} Class of the image (required)
   - class: {String} Class of the image (required)
   - placeholder: {String} Placeholder SVG. Default: "detailed-apparel-1" (optional)
@@ -21,7 +22,9 @@
 
 {% liquid
   assign global_lazyload = settings.image_lazyload
-  if lazyload == null
+  if eager == true
+    assign lazyload = false
+  elsif lazyload == null
     assign lazyload = global_lazyload
   endif
   assign image_svg_class = ''
@@ -40,7 +43,7 @@
     assign media_aspect_ratio = image.aspect_ratio
   endif
   assign fetch_priority = 'auto'
-  if section.index == 1
+  if section.index == 1 or eager == true
     assign fetch_priority = 'high'
   endif
   assign sizes = '100vw'

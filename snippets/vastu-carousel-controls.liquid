@@ -1,0 +1,78 @@
+{% comment %}
+  Reusable carousel controls snippet with configurable positioning and visibility.
+  
+  Accepts:
+   - show_navigation: {Boolean} Show navigation arrows (default: true)
+   - show_pagination: {Boolean} Show pagination dots (default: true)
+   - navigation_desktop: {String} Navigation display on desktop: 'flex', 'none' (default: 'flex')
+   - navigation_mobile: {String} Navigation display on mobile: 'flex', 'none' (default: 'flex')
+   - pagination_desktop: {String} Pagination display on desktop: 'block', 'none' (default: 'block')
+   - pagination_mobile: {String} Pagination display on mobile: 'block', 'none' (default: 'block')
+   - pagination_position: {String} Pagination position: 'bottom', 'top', 'left', 'right', 'center' (default: 'bottom')
+   - pagination_offset: {String} Pagination offset from position (default: '-2.5rem')
+   - wrapper_class: {String} Additional class for wrapper (optional)
+   - pagination_class: {String} Additional class for pagination (optional)
+   - navigation_class: {String} Additional class for navigation (optional)
+  
+  Usage:
+  {% render 'vastu-carousel-controls',
+    show_navigation: true,
+    show_pagination: true,
+    navigation_desktop: 'flex',
+    navigation_mobile: 'none',
+    pagination_desktop: 'block',
+    pagination_mobile: 'block',
+    pagination_position: 'bottom',
+    pagination_offset: '-2.5rem'
+  %}
+{% endcomment %}
+
+{%- liquid
+  if show_navigation == blank
+    assign show_navigation = true
+  endif
+  if show_pagination == blank
+    assign show_pagination = true
+  endif
+  if navigation_desktop == blank
+    assign navigation_desktop = 'flex'
+  endif
+  if navigation_mobile == blank
+    assign navigation_mobile = 'flex'
+  endif
+  if pagination_desktop == blank
+    assign pagination_desktop = 'block'
+  endif
+  if pagination_mobile == blank
+    assign pagination_mobile = 'block'
+  endif
+  if pagination_position == blank
+    assign pagination_position = 'bottom'
+  endif
+  if pagination_offset == blank
+    assign pagination_offset = '-2.5rem'
+  endif
+-%}
+
+{% if show_navigation %}
+  {% render 'carousel-navigation-style1',
+    display_navigation_desktop: navigation_desktop,
+    display_navigation_mobile: navigation_mobile,
+    class: navigation_class
+  %}
+{% endif %}
+
+{% if show_pagination %}
+  <div 
+    class='vastu-carousel-controls__pagination {% if pagination_class %}{{ pagination_class }}{% endif %}'
+    data-position='{{ pagination_position }}'
+    style='
+      --display-desktop: {{ pagination_desktop }};
+      --display-mobile: {{ pagination_mobile }};
+      --pagination-position: {{ pagination_position }};
+      --pagination-offset: {{ pagination_offset }};
+    '
+  >
+    {% render 'carousel-pagination-style3' %}
+  </div>
+{% endif %}

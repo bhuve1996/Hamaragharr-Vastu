@@ -105,7 +105,7 @@ xo-modal[xo-placement="center"]::before {
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   color: rgb(71 56 85);
   margin: 0 0 0.5rem;
-  line-height: 1.4;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .product-variant-modal__product-price {
@@ -385,11 +385,6 @@ xo-modal xo-cart-add .xo-btn--primary .xo-btn__content * {
   margin-bottom: var(--homepage-section-spacing, 4rem);
 }
 
-.vastu-product-showcase .xo-product-info-content {
-  position: relative;
-  top: 0;
-}
-
 .vastu-product-showcase .xo-product-info-media-style1,
 section.vastu-product-showcase .xo-product-info-media-style1,
 .vastu-product-showcase section .xo-product-info-media-style1 {
@@ -425,26 +420,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .vastu-product-showcase .xo-product-info-media-style1 {
     align-self: flex-start;
   }
-
-  .vastu-product-showcase__right {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: flex-start;
-  }
-
-  .vastu-product-showcase__content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: flex-start;
-  }
-}
-
-.vastu-product-showcase__content {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
 }
 
 .vastu-product-showcase__price {
@@ -456,7 +431,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 
 .vastu-product-showcase__description {
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-foreground));
   margin-bottom: 1rem;
 }
@@ -482,10 +457,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   transform: translateX(4px);
 }
 
-.vastu-product-showcase__read-more:active {
-  transform: translateX(2px);
-}
-
 .vastu-product-showcase__variants {
   margin: 1rem 0;
 }
@@ -501,11 +472,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   margin-top: 2rem;
 }
 
-.vastu-product-showcase__add-to-cart,
-.vastu-product-showcase__buy-now {
-  width: 100%;
-}
-
 .vastu-product-showcase__custom-text {
   margin: 1.5rem 0;
   padding: 1.5rem;
@@ -518,21 +484,17 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   font-weight: var(--font-weight-bold, 700);
   color: rgb(var(--color-foreground));
   margin: 0 0 1rem;
-  line-height: 1.2;
+  line-height: var(--global-heading-line-height-desktop);
 }
 
 .vastu-product-showcase__custom-content {
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-foreground));
 }
 
 .vastu-product-showcase__custom-content p {
   margin: 0 0 1rem;
-}
-
-.vastu-product-showcase__custom-content p:last-child {
-  margin-bottom: 0;
 }
 
 @media (width <= 767px) {
@@ -560,10 +522,24 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
   }
 
-  .footer-v18__heading,
+  /* Footer H2 - Separate from H3 */
   footer h2,
+  .footer-v18__heading {
+    font-size: var(
+      --footer-h2-font-size-desktop,
+      var(
+        --h2-font-size-desktop,
+        var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop))
+      )
+    );
+  }
+
+  /* Footer H3 - Separate from H2 */
   footer h3 {
-    font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
+    font-size: var(
+      --footer-h3-font-size-desktop,
+      var(--h3-font-size-desktop, calc(var(--h2-font-size-desktop, var(--global-card-title-font-size-desktop)) * 0.75))
+    );
   }
 }
 
@@ -582,18 +558,12 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   flex-direction: column;
 }
 
-.footer-modern__column--newsletter {
-  max-width: 100%;
-}
-
 .footer-modern__heading {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
   font-weight: var(--font-weight-bold, 700);
-
-  /* Removed text-transform: uppercase - use natural case */
   margin-bottom: 1.5rem;
   color: rgb(var(--color-text));
-  line-height: 1.3;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .footer-modern__list {
@@ -605,15 +575,11 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   gap: 0.75rem;
 }
 
-.footer-modern__list-item {
-  margin: 0;
-}
-
 .footer-modern__link {
   color: rgb(var(--color-text));
   text-decoration: none;
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
   transition:
     opacity 0.3s ease,
     color 0.3s ease;
@@ -629,7 +595,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 
 .footer-modern__newsletter-description {
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-text));
   opacity: 0.8;
   margin-bottom: 1.25rem;
@@ -682,8 +648,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     transform 0.2s ease;
   text-align: center;
   white-space: nowrap;
-
-  /* Removed text-transform: uppercase - use natural case */
 }
 
 .footer-modern__newsletter-button:hover {
@@ -775,10 +739,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   transition: opacity 0.3s ease;
 }
 
-.footer-modern__payment-image:hover {
-  opacity: 1;
-}
-
 .footer-modern__copyright {
   font-size: var(--global-description-font-size-desktop, 1.6rem);
   line-height: var(--global-description-line-height-desktop, 1.5);
@@ -796,10 +756,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   text-decoration: underline;
   opacity: 0.9;
   transition: opacity 0.3s ease;
-}
-
-.footer-modern__copyright a:hover {
-  opacity: 1;
 }
 
 .footer-modern .newsletter-form-message {
@@ -833,8 +789,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .footer-modern__heading {
     font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
     font-weight: var(--font-weight-bold, 700);
-
-    /* Removed text-transform: uppercase - use natural case */
     margin-bottom: 1.25rem;
   }
 
@@ -856,8 +810,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     font-size: var(--button-font-size-mobile, var(--global-body-font-size-mobile));
     padding: var(--button-padding-v-mobile, 0.75rem) var(--button-padding-h-mobile, 1rem);
     line-height: var(--global-body-line-height-mobile, 1.5);
-
-    /* Removed text-transform: uppercase - use natural case */
   }
 
   .footer-modern__bottom {
@@ -915,8 +867,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .footer-modern__heading {
     font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
     font-weight: var(--font-weight-bold, 700);
-
-    /* Removed text-transform: uppercase - use natural case */
   }
 
   .footer-modern__newsletter-input {
@@ -991,8 +941,6 @@ xo-cart-add.loading .xo-btn__loading {
   display: block;
 }
 
-/* Underline removed - no underline for shop by concern heading */
-
 .vastu-shop-by-concern__accordion {
   margin-top: 3rem;
   max-width: 900px;
@@ -1014,7 +962,7 @@ section[class*="main-product"] .shipping-accordion,
 .main-product .shipping-content,
 .xo-product-info-content .shipping-content,
 section[class*="main-product"] .shipping-content {
-  display: none !important;
+  display: none;
 }
 
 /* Product description read more button */
@@ -1023,7 +971,7 @@ section[class*="main-product"] .shipping-content {
 }
 
 .xo-product-info-content__description {
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-foreground));
 }
 
@@ -1043,8 +991,8 @@ section[class*="main-product"] .shipping-content {
 .xo-product-info-content__description h5,
 .xo-product-info-content__description h6 {
   margin: 1.5rem 0 1rem;
-  font-weight: 600;
-  line-height: 1.3;
+  font-weight: var(--global-body-font-weight-desktop);
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-foreground));
 }
 
@@ -1089,7 +1037,7 @@ section[class*="main-product"] .shipping-content {
 
 .xo-product-info-content__description li {
   margin: 0.5rem 0;
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .xo-product-info-content__description ul {
@@ -1112,7 +1060,7 @@ section[class*="main-product"] .shipping-content {
 
 .xo-product-info-content__description strong,
 .xo-product-info-content__description b {
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
 }
 
 .xo-product-info-content__description em,
@@ -1150,7 +1098,7 @@ section[class*="main-product"] .shipping-content {
 
 .xo-product-info-content__description table th {
   background-color: rgba(71 56 85 / 10%);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
 }
 
 .xo-product-info-content__description hr {
@@ -1164,7 +1112,7 @@ section[class*="main-product"] .shipping-content {
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
   font-family: monospace;
-  font-size: 0.9em;
+  font-size: var(--global-body-font-size-desktop);
 }
 
 .xo-product-info-content__description pre {
@@ -1195,7 +1143,7 @@ section[class*="main-product"] .shipping-content {
   margin-top: 0.5rem;
   color: rgb(71 56 85);
   font-size: inherit;
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   cursor: pointer;
   text-decoration: underline;
   transition: color 0.3s ease;
@@ -1212,8 +1160,8 @@ section[class*="main-product"] .shipping-content {
 
 /* Mini Description Styles */
 .xo-product-info-content__description--mini {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: var(--global-body-font-size-desktop);
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-foreground));
   opacity: 0.9;
 }

@@ -349,12 +349,12 @@ section[class*="product-recommendations"] .xo-product-card__wishlist-container .
 .product-recommendations .xo-product-card__wishlist-container .xo-product-card__icon,
 .section-collection-products .xo-product-card__wishlist-container .xo-product-card__icon,
 .filters-content .xo-product-card__wishlist-container .xo-product-card__icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  min-height: 2.5rem;
-  max-width: 2.5rem;
-  max-height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  max-width: 2rem;
+  max-height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -369,12 +369,12 @@ section[id*="section-"] .xo-product-card__wishlist-container button,
 xo-product-recommendations .xo-product-card__wishlist-container button,
 .section-collection-products .xo-product-card__wishlist-container button,
 .filters-content .xo-product-card__wishlist-container button {
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   padding: 0;
   margin: 0;
   border-radius: 50%;
@@ -410,8 +410,8 @@ section[id*="section-"] .xo-product-card__wishlist-container .xo-btn__icon svg,
 xo-product-recommendations .xo-product-card__wishlist-container .xo-btn__icon svg,
 .section-collection-products .xo-product-card__wishlist-container .xo-btn__icon svg,
 .filters-content .xo-product-card__wishlist-container .xo-btn__icon svg {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   color: #fff;
   fill: #fff;
   stroke: #fff;
@@ -540,9 +540,9 @@ xo-product-recommendations .xo-product-card__add-to-cart,
   width: 100%;
   min-width: 100%;
   max-width: 100%;
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  display: flex;
+  visibility: visible;
+  opacity: 1;
   height: auto;
   min-height: auto;
   max-height: none;
@@ -589,9 +589,9 @@ xo-product-recommendations .xo-product-card__add-to-cart button,
 .filters-content__item-wrapper .vastu-product-card__add-to-cart button,
 .filters-content__item-wrapper .vastu-product-card__add-to-cart xo-cart-add,
 .filters-content__item-wrapper .vastu-product-card__add-to-cart xo-modal-trigger {
-  width: 100% !important;
-  min-width: 100% !important;
-  max-width: 100% !important;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   background-color: rgb(var(--color-secondary-button, 71, 56, 85));
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
   border: none;
@@ -603,9 +603,9 @@ xo-product-recommendations .xo-product-card__add-to-cart button,
     background-color 0.3s ease,
     transform 0.2s ease,
     box-shadow 0.3s ease;
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  display: flex;
+  visibility: visible;
+  opacity: 1;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -642,14 +642,14 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn_
 .vastu-product-card__add-to-cart .xo-btn__text,
 .vastu-product-card__add-to-cart .xo-btn__content {
   position: relative;
-  transform: none !important;
-  translate: 0 0 !important;
-  transition: none !important;
+  transform: none;
+  translate: 0 0;
+  transition: none;
   display: inline-block;
   width: auto;
   max-width: 100%;
   height: auto;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -664,8 +664,8 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn_
 .vastu-product-card__add-to-cart .xo-btn__text:focus,
 .vastu-product-card__add-to-cart .xo-btn__content:active,
 .vastu-product-card__add-to-cart .xo-btn__content:focus {
-  transform: none !important;
-  translate: 0 0 !important;
+  transform: none;
+  translate: 0 0;
 }
 
 .section-collection-products .xo-product-card__add-to-cart .xo-btn:active .xo-btn__text,
@@ -676,8 +676,8 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn_
 .vastu-product-card__add-to-cart .xo-btn:active .xo-btn__content,
 .vastu-product-card__add-to-cart button:active .xo-btn__text,
 .vastu-product-card__add-to-cart button:active .xo-btn__content {
-  transform: none !important;
-  translate: 0 0 !important;
+  transform: none;
+  translate: 0 0;
 }
 
 .product-recommendations-section .xo-product-card__add-to-cart .xo-btn__text[data-text]::before,
@@ -763,7 +763,7 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
 .section-collection-products .xo-product-card__title a,
 .filters-content .xo-product-card__title,
 .filters-content .xo-product-card__title a {
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   display: -webkit-box;
@@ -922,7 +922,7 @@ section[id*="section-"] .xo-product-card__title a,
 .xo-section--product-recommendations .xo-product-card__title a,
 xo-product-recommendations .xo-product-card__title,
 xo-product-recommendations .xo-product-card__title a {
-  line-height: 1.1;
+  line-height: var(--global-body-line-height-desktop);
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   display: -webkit-box;
@@ -1087,11 +1087,11 @@ section[class*="product-recommendations"]
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 999;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   height: auto;
   width: auto;
   min-width: auto;
@@ -1112,11 +1112,11 @@ section[class*="product-recommendations"] .xo-product-card__price-overlay,
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 2;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .product-recommendations-section .xo-product-card__price-overlay .xo-price__item,
@@ -1207,14 +1207,14 @@ xo-product-recommendations .xo-product-card__information .xo-product-card__price
   section[class*="product-recommendations"] .xo-product-card__title a,
   .product-recommendations .xo-product-card__title,
   .product-recommendations .xo-product-card__title a {
-    font-size: 2rem;
-    line-height: 1.4;
+    font-size: var(--global-heading-font-size-desktop);
+    line-height: var(--global-heading-line-height-desktop);
   }
 
   .product-recommendations-section .xo-product-card__price-overlay,
   section[class*="product-recommendations"] .xo-product-card__price-overlay,
   .product-recommendations .xo-product-card__price-overlay {
-    font-size: 2rem;
+    font-size: var(--global-heading-font-size-desktop);
     padding: 0.6rem 0.9rem;
   }
 
@@ -1383,8 +1383,8 @@ xo-collapse-trigger.shipping-accordion__trigger,
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-size: var(--global-body-font-size-desktop);
+  font-weight: var(--global-body-font-weight-desktop);
   color: rgba(var(--color-foreground));
 }
 
@@ -1426,11 +1426,11 @@ section[class*="product-recommendations"] .xo-product-card__header .xo-product-c
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 5;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   height: auto;
   width: auto;
   min-width: auto;

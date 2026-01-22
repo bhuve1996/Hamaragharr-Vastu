@@ -50,7 +50,7 @@
       </div>
       <div class='vastu-product-card__content'>
         {% assign display_title = current_product.title | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7" %}
-        <h4 class='vastu-product-card__title' style='--card-title-size: {{ card_title_size }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h4>
+        <h3 class='vastu-product-card__title' style='--card-title-size: {{ card_title_size }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h3>
         {% comment %} Price displayed below image and name {% endcomment %}
         {% if current_product.price != blank %}
           {%- assign price_formatted = current_product.price | money -%}

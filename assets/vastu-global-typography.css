@@ -1,14 +1,11 @@
 /* ========================================
-   CLEAN TYPOGRAPHY SYSTEM
-   Uses ONLY config variables - NO hardcoded values
+   GLOBAL TYPOGRAPHY SYSTEM
+   Only 3 types: Heading, Subheading, Body Text
+   All controlled via Shopify theme settings
    ======================================== */
 
-/* CSS Variables from Settings - Set via settings-adapter.liquid */
-
-/* All font sizes come from Global Typography Settings in theme customizer */
-
 /* ========================================
-   BASE TYPOGRAPHY - BODY TEXT
+   BODY TEXT - Base for all text elements
    ======================================== */
 
 /* Desktop - Body Text */
@@ -23,10 +20,59 @@ label,
 input,
 textarea,
 select,
-button {
-  font-size: var(--global-body-font-size-desktop);
-  line-height: var(--global-body-line-height-desktop, 1.5);
-  font-weight: var(--global-body-font-weight-desktop, 400);
+button,
+small,
+a,
+.description,
+.vastu-description,
+.product-card__description,
+.vastu-product-showcase__description,
+.vastu-product-showcase__description p,
+.vastu-shop-by-concern__trigger-question,
+.vastu-shop-by-concern__card-description,
+.vastu-shop-by-concern__benefits-list li,
+.vastu-shop-by-concern__recommended-list li,
+.vastu-shop-by-concern__cta-link,
+.vastu-help-address-v1__description,
+.faq-v3__answer,
+[class*="__trigger-question"],
+[class*="__card-description"],
+[class*="__description"],
+[class*="__question"],
+[class*="__answer"],
+[class*="__cta-link"],
+.vastu-badge,
+.badge,
+.tag,
+.price-tag,
+.vastu-product-card__price,
+.vastu-best-seller-card__price,
+.vastu-featured-products__price,
+.xo-price--larger .xo-price__item,
+/* Header elements */
+header,
+.header-v14__navigation-desktop a,
+.header-v14__navigation-desktop .menu-horizontal__item,
+.menu-horizontal__item a,
+nav a,
+.header-v6__promotion-name,
+.header-v6__contact-icon,
+/* Footer elements */
+footer,
+.footer-v18__description,
+.footer-v18__subtext,
+.footer-v18__list-item,
+.footer-v18__list-item a,
+.footer-v18__copyright,
+.footer-v18__copyright-content,
+.footer-modern__link,
+.footer-modern__newsletter-description,
+  .footer-modern__copyright,
+  .footer-modern__payment-icon {
+  font-size: var(--section-body-font-size-desktop, var(--global-body-font-size-desktop));
+  line-height: var(--section-body-line-height-desktop, var(--global-body-line-height-desktop));
+  font-weight: var(--section-body-font-weight-desktop, var(--global-body-font-weight-desktop, 300));
+  font-family: var(--font-body-family, inherit);
 }
 
 /* Mobile - Body Text */
@@ -42,309 +88,15 @@ button {
   input,
   textarea,
   select,
-  button {
-    font-size: var(--global-body-font-size-mobile);
-    line-height: var(--global-body-line-height-mobile, 1.5);
-    font-weight: var(--global-body-font-weight-mobile, 400);
-  }
-}
-
-/* ========================================
-   HEADING HIERARCHY
-   ======================================== */
-
-/* Desktop - H1 (Largest Heading) */
-h1,
-.h1,
-.vastu-heading--h1 {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Desktop - H2 (Section Headings) */
-h2,
-.h2,
-.vastu-heading,
-.homepage-section-heading,
-.vastu-section-title,
-.vastu-section-heading,
-.xo-section-heading__title,
-.vastu-why-kit__title,
-.vastu-trust-bar__title,
-.vastu-help-address-v1__section-title,
-.vastu-shop-by-concern__section-title,
-.vastu-best-seller__section-title,
-.vastu-featured-products__section-title,
-.vastu-product-showcase__title,
-.blog-v2__title,
-.faq-v3__title,
-.banner-v155__title,
-.slideshow-v28__title {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700));
-  text-transform: uppercase;
-  font-family: var(--font-custom-family, inherit);
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Desktop - H3 (Subsection Headings) */
-h3,
-.h3 {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Desktop - H4 (Smaller Headings) */
-h4,
-.h4 {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Desktop - H5 */
-h5,
-.h5 {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Desktop - H6 */
-h6,
-.h6 {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Mobile - All Headings */
-@media (width <= 48rem) {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5,
-  .h6,
-  .vastu-heading,
-  .homepage-section-heading,
-  .vastu-section-title,
-  .vastu-section-heading,
-  .xo-section-heading__title,
-  .vastu-why-kit__title,
-  .vastu-trust-bar__title,
-  .vastu-help-address-v1__section-title,
-  .vastu-shop-by-concern__section-title,
-  .vastu-best-seller__section-title,
-  .vastu-featured-products__section-title,
-  .vastu-product-showcase__title,
-  .blog-v2__title,
-  .faq-v3__title,
-  .banner-v155__title,
-  .slideshow-v28__title,
-  footer h2,
-  footer h3 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile));
-    line-height: var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2));
-    font-weight: var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700));
-
-    /* Margin handled by vastu-global-spacing.css */
-  }
-
-  h3,
-  .h3 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile));
-  }
-
-  h4,
-  .h4 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile));
-  }
-
-  h5,
-  .h5 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile));
-  }
-
-  h6,
-  .h6 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile));
-  }
-}
-
-/* ========================================
-   SUBTITLES
-   ======================================== */
-
-/* Desktop - Subtitles */
-.subtitle,
-.vastu-subtitle,
-.banner-v155__subtitle,
-.slideshow-v28__subtitle {
-  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop));
-  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop, 1.4));
-  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 400));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Mobile - Subtitles */
-@media (width <= 48rem) {
-  .subtitle,
-  .vastu-subtitle,
-  .banner-v155__subtitle,
-  .slideshow-v28__subtitle {
-    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile));
-    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile, 1.4));
-    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 400));
-
-    /* Margin handled by vastu-global-spacing.css */
-  }
-}
-
-/* ========================================
-   CARD TITLES (Product Cards, Collection Cards, etc.)
-   ======================================== */
-
-/* Desktop - Card Titles */
-
-/* More specific selectors to avoid conflicts with body text (16px) and descriptions (14px) */
-.vastu-card-title,
-.product-card__title,
-.collection-card__title,
-.article-card__title,
-.card-title,
-.vastu-product-card__title,
-.vastu-best-seller-card__title,
-.vastu-featured-products__title,
-.vastu-shop-by-concern__trigger-title,
-.vastu-shop-by-concern__product-title,
-.vastu-shop-by-concern__benefits-title,
-.vastu-shop-by-concern__recommended-title,
-.vastu-help-address-v1__text,
-.faq-v3__question,
-.blog-v2__item-title,
-[class*="__trigger-title"]:not([class*="__question"], [class*="__description"]),
-[class*="__product-title"]:not([class*="__description"]),
-[class*="__benefits-title"]:not([class*="__description"]),
-[class*="__recommended-title"]:not([class*="__description"]) {
-  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop)); /* 2rem = 20px */
-  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
-  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
-  margin-bottom: var(--section-card-title-margin-bottom-desktop, var(--global-card-title-margin-bottom-desktop));
-}
-
-/* Grid Card Titles - Use smaller subtitle size */
-.vastu-grid-card__title {
-  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop)); /* 1.8rem = 18px */
-  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop, 1.4));
-  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 500));
-  margin-bottom: var(--section-subtitle-margin-bottom-desktop, var(--global-subtitle-margin-bottom-desktop));
-}
-
-/* Mobile - Card Titles */
-@media (width <= 48rem) {
-  .vastu-card-title,
-  .product-card__title,
-  .collection-card__title,
-  .article-card__title,
-  .card-title,
-  .vastu-product-card__title,
-  .vastu-best-seller-card__title,
-  .vastu-featured-products__title,
-  .vastu-shop-by-concern__trigger-title,
-  .vastu-shop-by-concern__product-title,
-  .vastu-shop-by-concern__benefits-title,
-  .vastu-shop-by-concern__recommended-title,
-  .vastu-help-address-v1__text,
-  .faq-v3__question,
-  .blog-v2__item-title,
-  [class*="__trigger-title"]:not([class*="__question"], [class*="__description"]),
-  [class*="__product-title"]:not([class*="__description"]),
-  [class*="__benefits-title"]:not([class*="__description"]),
-  [class*="__recommended-title"]:not([class*="__description"]) {
-    font-size: var(
-      --section-card-title-font-size-mobile,
-      var(--global-card-title-font-size-mobile)
-    ); /* 1.8rem = 18px */
-
-    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
-    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 700));
-
-    /* Margin handled by vastu-global-spacing.css */
-  }
-
-  /* Grid Card Titles - Use smaller subtitle size on mobile */
-
-  .vastu-grid-card__title {
-    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile)); /* 1.6rem = 16px */
-    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile, 1.4));
-    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 500));
-
-    /* Margin handled by vastu-global-spacing.css */
-  }
-}
-
-/* ========================================
-   DESCRIPTIONS
-   ======================================== */
-
-/* Desktop - Descriptions */
-.description,
-.vastu-description,
-.product-card__description,
-.vastu-product-showcase__description,
-.vastu-product-showcase__description p,
-.footer-v18__description,
-.vastu-shop-by-concern__trigger-question,
-.vastu-shop-by-concern__card-description,
-.vastu-shop-by-concern__benefits-list li,
-.vastu-shop-by-concern__recommended-list li,
-.vastu-shop-by-concern__cta-link,
-.vastu-help-address-v1__description,
-.faq-v3__answer,
-[class*="__trigger-question"],
-[class*="__card-description"],
-[class*="__description"],
-[class*="__question"],
-[class*="__answer"],
-[class*="__cta-link"] {
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop));
-  font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Mobile - Descriptions */
-@media (width <= 48rem) {
+  button,
+  small,
+  a,
   .description,
   .vastu-description,
   .product-card__description,
   .vastu-product-showcase__description,
   .vastu-product-showcase__description p,
   .vastu-product-showcase__price,
-  .footer-v18__description,
   .vastu-shop-by-concern__trigger-question,
   .vastu-shop-by-concern__card-description,
   .vastu-shop-by-concern__benefits-list li,
@@ -357,76 +109,824 @@ h6,
   [class*="__description"],
   [class*="__question"],
   [class*="__answer"],
-  [class*="__cta-link"] {
-    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile));
-    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile));
-    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile));
-
-    /* Margin handled by vastu-global-spacing.css */
-  }
-}
-
-/* ========================================
-   TAGS, BADGES, PRICES
-   ======================================== */
-
-/* Desktop - Tags/Badges */
-.vastu-badge,
-.badge,
-.tag,
-.price-tag {
-  font-size: var(--section-tag-font-size-desktop, var(--global-tag-font-size-desktop));
-  line-height: var(--section-tag-line-height-desktop, var(--global-tag-line-height-desktop, 1.2));
-  font-weight: var(--section-tag-font-weight-desktop, var(--global-tag-font-weight-desktop, 600));
-}
-
-/* Desktop - Product Prices */
-.vastu-product-card__price,
-.vastu-best-seller-card__price,
-.vastu-featured-products__price {
-  font-size: var(--card-price-size, var(--global-card-price-font-size-desktop));
-  font-weight: var(--global-card-price-font-weight-desktop, var(--font-weight-bold, 700));
-}
-
-/* Override hardcoded larger price font size - use config variable */
-.xo-price--larger .xo-price__item {
-  font-size: var(--global-card-price-font-size-desktop) !important; /* 1.6rem = 16px */
-}
-
-/* Mobile - Tags/Badges */
-@media (width <= 48rem) {
+  [class*="__cta-link"],
   .vastu-badge,
   .badge,
   .tag,
-  .price-tag {
-    font-size: var(--section-tag-font-size-mobile, var(--global-tag-font-size-mobile));
-    line-height: var(--section-tag-line-height-mobile, var(--global-tag-line-height-mobile, 1.2));
-    font-weight: var(--section-tag-font-weight-mobile, var(--global-tag-font-weight-mobile, 600));
-  }
-
+  .price-tag,
   .vastu-product-card__price,
   .vastu-best-seller-card__price,
-  .vastu-featured-products__price {
-    font-size: var(--card-price-size, var(--global-card-price-font-size-mobile));
-    font-weight: var(--global-card-price-font-weight-mobile, var(--font-weight-bold, 700));
-  }
-
-  /* Override hardcoded larger price font size on mobile - use config variable */
-  .xo-price--larger .xo-price__item {
-    font-size: var(--global-card-price-font-size-mobile) !important; /* 1.6rem = 16px */
+  .vastu-featured-products__price,
+  .xo-price--larger .xo-price__item,
+  /* Header elements */
+  header,
+  .header-v14__navigation-mobile a,
+  .menu-hamburger-drawer-mobile__link,
+  .header-v6__promotion-name,
+  .header-v6__contact-icon,
+  /* Footer elements */
+  footer,
+  .footer-v18__description,
+  .footer-v18__subtext,
+  .footer-v18__list-item,
+  .footer-v18__list-item a,
+  .footer-v18__copyright,
+  .footer-v18__copyright-content,
+  .footer-modern__link,
+  .footer-modern__newsletter-description,
+  .footer-modern__copyright,
+  .footer-modern__payment-icon {
+    font-size: var(--section-body-font-size-mobile, var(--global-body-font-size-mobile));
+    line-height: var(--section-body-line-height-mobile, var(--global-body-line-height-mobile));
+    font-weight: var(--section-body-font-weight-mobile, var(--global-body-font-weight-mobile, 300));
+    font-family: var(--font-body-family, inherit);
   }
 }
 
 /* ========================================
-   BUTTONS
+   HEADINGS - Semantic Hierarchy
    ======================================== */
 
-/* Buttons use body text size by default, can be overridden via button settings */
+/* ========================================
+   H1 - Page Titles (Largest)
+   ======================================== */
+
+/* Desktop - H1 */
+h1,
+.h1 {
+  font-size: var(--h1-font-size-desktop, var(--global-heading-font-size-desktop, 4rem));
+  line-height: var(--h1-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
+  font-weight: var(--h1-font-weight-desktop, var(--global-heading-font-weight-desktop, 700));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H1 */
+@media (width <= 48rem) {
+  h1,
+  .h1 {
+    font-size: var(--h1-font-size-mobile, var(--global-heading-font-size-mobile, 2.5rem));
+    line-height: var(--h1-line-height-mobile, var(--global-heading-line-height-mobile, 1.2));
+    font-weight: var(--h1-font-weight-mobile, var(--global-heading-font-weight-mobile, 700));
+  }
+}
+
+/* ========================================
+   H2 - Section Headings (Main Sections)
+   ======================================== */
+
+/* Desktop - H2 Base */
+h2,
+.h2 {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Generic Section Headings */
+.vastu-heading,
+.homepage-section-heading,
+.vastu-section-title,
+.vastu-section-heading,
+.xo-section-heading__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Specific Section Titles */
+.vastu-why-kit__title,
+.vastu-trust-bar__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Help Address Section Title */
+.vastu-help-address-v1__section-title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Shop By Concern Section Title */
+.vastu-shop-by-concern__section-title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Best Seller Section Title */
+.vastu-best-seller__section-title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Featured Products Section Title */
+.vastu-featured-products__section-title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Product Showcase Title */
+.vastu-product-showcase__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Blog Section Title */
+.blog-v2__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - FAQ Section Title */
+.faq-v3__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Banner Title */
+.banner-v155__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Slideshow Title */
+.slideshow-v28__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Footer H2 - Separate from main H2 */
+footer h2,
+.footer-v18__heading {
+  font-size: var(
+    --footer-h2-font-size-desktop,
+    var(
+      --h2-font-size-desktop,
+      var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+    )
+  );
+  line-height: var(
+    --footer-h2-line-height-desktop,
+    var(
+      --h2-line-height-desktop,
+      var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+    )
+  );
+  font-weight: var(
+    --footer-h2-font-weight-desktop,
+    var(
+      --h2-font-weight-desktop,
+      var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+    )
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H2 Base */
+@media (width <= 48rem) {
+  h2,
+  .h2 {
+    font-size: var(
+      --h2-font-size-mobile,
+      var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2rem))
+    );
+    line-height: var(
+      --h2-line-height-mobile,
+      var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2))
+    );
+    font-weight: var(
+      --h2-font-weight-mobile,
+      var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700))
+    );
+  }
+
+  /* Mobile - Generic Section Headings */
+  .vastu-heading,
+  .homepage-section-heading,
+  .vastu-section-title,
+  .vastu-section-heading,
+  .xo-section-heading__title {
+    font-size: var(
+      --h2-font-size-mobile,
+      var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2rem))
+    );
+    line-height: var(
+      --h2-line-height-mobile,
+      var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2))
+    );
+    font-weight: var(
+      --h2-font-weight-mobile,
+      var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700))
+    );
+  }
+
+  /* Mobile - Specific Section Titles */
+  .vastu-why-kit__title,
+  .vastu-trust-bar__title,
+  .vastu-help-address-v1__section-title,
+  .vastu-shop-by-concern__section-title,
+  .vastu-best-seller__section-title,
+  .vastu-featured-products__section-title,
+  .vastu-product-showcase__title,
+  .blog-v2__title,
+  .faq-v3__title,
+  .banner-v155__title,
+  .slideshow-v28__title {
+    font-size: var(
+      --h2-font-size-mobile,
+      var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2rem))
+    );
+    line-height: var(
+      --h2-line-height-mobile,
+      var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2))
+    );
+    font-weight: var(
+      --h2-font-weight-mobile,
+      var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700))
+    );
+  }
+
+  /* Footer H2 - Separate from main H2 */
+  footer h2,
+  .footer-v18__heading {
+    font-size: var(
+      --footer-h2-font-size-mobile,
+      var(--h2-font-size-mobile, var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)))
+    );
+    line-height: var(
+      --footer-h2-line-height-mobile,
+      var(
+        --h2-line-height-mobile,
+        var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2))
+      )
+    );
+    font-weight: var(
+      --footer-h2-font-weight-mobile,
+      var(
+        --h2-font-weight-mobile,
+        var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700))
+      )
+    );
+  }
+}
+
+/* ========================================
+   H3 - Subsection Headings (Card Titles, Product Titles)
+   ======================================== */
+
+/* Desktop - H3 Base */
+h3,
+.h3 {
+  font-size: var(
+    --h3-font-size-desktop,
+    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Help Address Text */
+.vastu-help-address-v1__text {
+  font-size: var(
+    --h3-font-size-desktop,
+    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - FAQ Question */
+.faq-v3__question {
+  font-size: var(
+    --h3-font-size-desktop,
+    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Blog Item Title */
+.blog-v2__item-title {
+  font-size: var(
+    --h3-font-size-desktop,
+    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Generic Card Titles */
+.vastu-card-title,
+.product-card__title,
+.collection-card__title,
+.article-card__title,
+.card-title {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Product Card Titles */
+.vastu-product-card__title,
+.vastu-grid-card__title {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Best Seller Card Title */
+.vastu-best-seller-card__title {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Featured Products Title */
+.vastu-featured-products__title {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Shop By Concern Titles */
+.vastu-shop-by-concern__trigger-title,
+.vastu-shop-by-concern__product-title,
+.vastu-shop-by-concern__benefits-title,
+.vastu-shop-by-concern__recommended-title {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Dynamic Title Classes */
+[class*="__trigger-title"]:not([class*="__question"], [class*="__description"]),
+[class*="__product-title"]:not([class*="__description"]),
+[class*="__benefits-title"]:not([class*="__description"]),
+[class*="__recommended-title"]:not([class*="__description"]) {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Footer H4 - Properly sized for footer */
+footer h4,
+.footer-modern__heading {
+  font-size: var(--footer-h4-font-size-desktop, 2rem);
+  line-height: var(
+    --footer-h4-line-height-desktop,
+    var(--h4-line-height-desktop, var(--global-heading-line-height-desktop, 1.4))
+  );
+  font-weight: var(
+    --footer-h4-font-weight-desktop,
+    var(--h4-font-weight-desktop, var(--global-heading-font-weight-desktop, 600))
+  );
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H3 Base */
+@media (width <= 48rem) {
+  h3,
+  .h3 {
+    font-size: var(
+      --h3-font-size-mobile,
+      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Help Address Text */
+  .vastu-help-address-v1__text {
+    font-size: var(
+      --h3-font-size-mobile,
+      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - FAQ Question */
+  .faq-v3__question {
+    font-size: var(
+      --h3-font-size-mobile,
+      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Blog Item Title */
+  .blog-v2__item-title {
+    font-size: var(
+      --h3-font-size-mobile,
+      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Generic Card Titles */
+  .vastu-card-title,
+  .product-card__title,
+  .collection-card__title,
+  .article-card__title,
+  .card-title {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Product Card Titles */
+  .vastu-product-card__title,
+  .vastu-grid-card__title {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Best Seller Card Title */
+  .vastu-best-seller-card__title {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Featured Products Title */
+  .vastu-featured-products__title {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Shop By Concern Titles */
+  .vastu-shop-by-concern__trigger-title,
+  .vastu-shop-by-concern__product-title,
+  .vastu-shop-by-concern__benefits-title,
+  .vastu-shop-by-concern__recommended-title {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Dynamic Title Classes */
+  [class*="__trigger-title"]:not([class*="__question"], [class*="__description"]),
+  [class*="__product-title"]:not([class*="__description"]),
+  [class*="__benefits-title"]:not([class*="__description"]),
+  [class*="__recommended-title"]:not([class*="__description"]) {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Footer H4 - Properly sized for footer */
+  footer h4,
+  .footer-modern__heading {
+    font-size: var(--footer-h4-font-size-mobile, 1.5rem);
+    line-height: var(
+      --footer-h4-line-height-mobile,
+      var(--h4-line-height-mobile, var(--global-heading-line-height-mobile, 1.4))
+    );
+    font-weight: var(
+      --footer-h4-font-weight-mobile,
+      var(--h4-font-weight-mobile, var(--global-heading-font-weight-mobile, 600))
+    );
+  }
+}
+
+/* ========================================
+   H4 - Smaller Headings
+   ======================================== */
+
+/* Desktop - H4 */
+h4,
+.h4 {
+  font-size: var(--h4-font-size-desktop, calc(var(--h3-font-size-desktop, 2.625rem) * 0.85));
+  line-height: var(--h4-line-height-desktop, var(--global-heading-line-height-desktop, 1.4));
+  font-weight: var(--h4-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H4 */
+@media (width <= 48rem) {
+  h4,
+  .h4 {
+    font-size: var(--h4-font-size-mobile, calc(var(--h3-font-size-mobile, 1.6rem) * 0.9));
+    line-height: var(--h4-line-height-mobile, var(--global-heading-line-height-mobile, 1.4));
+    font-weight: var(--h4-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+}
+
+/* ========================================
+   H5 - Even Smaller Headings
+   ======================================== */
+
+/* Desktop - H5 */
+h5,
+.h5 {
+  font-size: var(--h5-font-size-desktop, calc(var(--h4-font-size-desktop, 2.23rem) * 0.9));
+  line-height: var(--h5-line-height-desktop, var(--global-heading-line-height-desktop, 1.4));
+  font-weight: var(--h5-font-weight-desktop, var(--global-heading-font-weight-desktop, 500));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H5 */
+@media (width <= 48rem) {
+  h5,
+  .h5 {
+    font-size: var(--h5-font-size-mobile, calc(var(--h4-font-size-mobile, 1.44rem) * 0.95));
+    line-height: var(--h5-line-height-mobile, var(--global-heading-line-height-mobile, 1.4));
+    font-weight: var(--h5-font-weight-mobile, var(--global-heading-font-weight-mobile, 500));
+  }
+}
+
+/* ========================================
+   H6 - Smallest Headings
+   ======================================== */
+
+/* Desktop - H6 */
+h6,
+.h6 {
+  font-size: var(--h6-font-size-desktop, calc(var(--h5-font-size-desktop, 2rem) * 0.9));
+  line-height: var(--h6-line-height-desktop, var(--global-heading-line-height-desktop, 1.4));
+  font-weight: var(--h6-font-weight-desktop, var(--global-heading-font-weight-desktop, 500));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H6 */
+@media (width <= 48rem) {
+  h6,
+  .h6 {
+    font-size: var(--h6-font-size-mobile, calc(var(--h5-font-size-mobile, 1.37rem) * 0.95));
+    line-height: var(--h6-line-height-mobile, var(--global-heading-line-height-mobile, 1.4));
+    font-weight: var(--h6-font-weight-mobile, var(--global-heading-font-weight-mobile, 500));
+  }
+}
+
+/* ========================================
+   SUBHEADINGS - Subtitles and secondary headings
+   ======================================== */
+
+/* Desktop - Generic Subtitle */
+.subtitle,
+.vastu-subtitle {
+  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop));
+  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop));
+  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 300));
+}
+
+/* Desktop - Banner Subtitle */
+.banner-v155__subtitle {
+  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop));
+  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop));
+  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 300));
+}
+
+/* Desktop - Slideshow Subtitle */
+.slideshow-v28__subtitle {
+  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop));
+  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop));
+  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 300));
+}
+
+/* Mobile - Generic Subtitle */
+@media (width <= 48rem) {
+  .subtitle,
+  .vastu-subtitle {
+    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile));
+    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile));
+    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 300));
+  }
+
+  /* Mobile - Banner Subtitle */
+  .banner-v155__subtitle {
+    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile));
+    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile));
+    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 300));
+  }
+
+  /* Mobile - Slideshow Subtitle */
+  .slideshow-v28__subtitle {
+    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile));
+    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile));
+    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 300));
+  }
+}
+
+/* ========================================
+   BUTTONS - Use body text by default
+   ======================================== */
+
 button,
 .btn,
 .xo-btn {
   font-size: var(--button-font-size, var(--global-body-font-size-desktop));
-  font-weight: var(--button-font-weight, var(--global-body-font-weight-desktop, 400));
+  font-weight: var(--button-font-weight, var(--global-body-font-weight-desktop, 300));
 }
 
 @media (width <= 48rem) {
@@ -434,37 +934,7 @@ button,
   .btn,
   .xo-btn {
     font-size: var(--button-font-size-mobile, var(--global-body-font-size-mobile));
-    font-weight: var(--button-font-weight-mobile, var(--global-body-font-weight-mobile, 400));
-  }
-}
-
-/* ========================================
-   FOOTER TEXT
-   ======================================== */
-
-footer,
-.footer-v18__description,
-.footer-v18__subtext,
-.footer-v18__list-item,
-.footer-v18__list-item a,
-.footer-v18__copyright,
-.footer-v18__copyright-content {
-  font-size: var(--global-body-font-size-desktop);
-  line-height: var(--global-body-line-height-desktop, 1.5);
-  font-weight: var(--global-body-font-weight-desktop, 400);
-}
-
-@media (width <= 48rem) {
-  footer,
-  .footer-v18__description,
-  .footer-v18__subtext,
-  .footer-v18__list-item,
-  .footer-v18__list-item a,
-  .footer-v18__copyright,
-  .footer-v18__copyright-content {
-    font-size: var(--global-body-font-size-mobile);
-    line-height: var(--global-body-line-height-mobile, 1.5);
-    font-weight: var(--global-body-font-weight-mobile, 400);
+    font-weight: var(--button-font-weight-mobile, var(--global-body-font-weight-mobile, 300));
   }
 }
 

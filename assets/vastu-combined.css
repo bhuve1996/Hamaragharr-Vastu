@@ -604,8 +604,23 @@ input[type="checkbox"] {
 }
 
 /* ========================================
-   vastu-base.css (36.4 KB)
+   vastu-base.css (37.0 KB)
    ======================================== */
+
+/* Card Container Border Utility - Add class "has-container-border" to any card grid/carousel */
+.vastu-grid-carousel__grid.has-container-border,
+.vastu-grid-carousel__mobile-grid.has-container-border,
+.vastu-featured-products__grid.has-container-border,
+.vastu-help-address-v1__grid.has-container-border,
+xo-grid.has-container-border,
+xo-carousel.has-container-border,
+[class*="grid"].has-container-border,
+[class*="carousel"].has-container-border {
+  border: 1px solid rgba(71 56 85 / 12%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: rgba(255 255 255 / 50%);
+}
 
 /* Mobile hamburger menu - fix links displaying inline */
 .menu-hamburger-drawer-mobile__content > div:first-child {
@@ -642,7 +657,7 @@ input[type="checkbox"] {
 /* Hamburger overlay - make it start from top and take full height */
 xo-modal.menu-hamburger-drawer-desktop,
 xo-modal.menu-hamburger-drawer-mobile {
-  --top: 0 !important;
+  --top: 0;
 }
 
 /* Target the modal inner wrapper and content to take full height */
@@ -651,9 +666,9 @@ xo-modal.menu-hamburger-drawer-desktop[xo-active] > *,
 xo-modal.menu-hamburger-drawer-mobile[xo-active] > *,
 xo-modal.menu-hamburger-drawer-desktop[xo-active] [part="inner"],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="inner"] {
-  top: 0 !important;
-  height: 100vh !important;
-  max-height: 100vh !important;
+  top: 0;
+  height: 100vh;
+  max-height: 100vh;
 }
 
 /* Target the modal content wrapper */
@@ -661,16 +676,16 @@ xo-modal.menu-hamburger-drawer-desktop[xo-active] [part="content"],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="content"],
 xo-modal.menu-hamburger-drawer-desktop[xo-active] .xo-modal-content,
 xo-modal.menu-hamburger-drawer-mobile[xo-active] .xo-modal-content {
-  height: 100vh !important;
-  max-height: 100vh !important;
-  top: 0 !important;
+  height: 100vh;
+  max-height: 100vh;
+  top: 0;
 }
 
 /* Make the drawer content take full height */
 .menu-hamburger-drawer-desktop__content,
 .menu-hamburger-drawer-mobile__content {
-  height: 100vh !important;
-  min-height: 100vh !important;
+  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -678,12 +693,12 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] .xo-modal-content {
 /* Additional targeting for xo-modal structure - ensure full height from top */
 xo-modal.menu-hamburger-drawer-desktop[xo-active],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] {
-  --top: 0 !important;
+  --top: 0;
 
-  position: fixed !important;
-  inset: 0 !important;
-  height: 100vh !important;
-  width: 100vw !important;
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 /* Ensure the modal backdrop also covers full height */
@@ -691,8 +706,8 @@ xo-modal.menu-hamburger-drawer-desktop[xo-active]::before,
 xo-modal.menu-hamburger-drawer-mobile[xo-active]::before,
 xo-modal.menu-hamburger-drawer-desktop[xo-active] [part="backdrop"],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
-  top: 0 !important;
-  height: 100vh !important;
+  top: 0;
+  height: 100vh;
 }
 
 :root {
@@ -759,19 +774,22 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
      ======================================== */
 
   /* Font Family & Scale Variables */
+
+  /* These are set in settings-adapter.liquid from Shopify theme settings */
+
+  /* Do NOT hardcode font families here - use global settings */
   --font-body-desktop-size: var(--global-body-font-size-desktop);
   --font-body-mobile-size: var(--global-body-font-size-mobile);
-  --font-body-family: Poppins, sans-serif;
+
+  /* Font families come from settings-adapter.liquid */
   --font-body-style: normal;
   --font-body-weight: var(--global-body-font-weight-desktop);
   --font-body-weight-bold: 700;
-  --font-heading-family: Poppins, sans-serif;
   --font-heading-style: normal;
   --font-heading-weight: var(--global-heading-font-weight-desktop);
   --font-body-scale: min(max(var(--font-body-scale, 1), 0.5), 1.5);
   --font-heading-scale: 1;
   --font-body-line-height: calc(1 + 0.8 / var(--font-body-scale));
-  --font-custom-family: Poppins, sans-serif;
   --font-custom-weight: 400;
 
   /* Media Variables */
@@ -981,8 +999,6 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
 .vastu-heading {
   font-size: var(--title-font-size, var(--global-heading-font-size-desktop, 3.5rem));
   font-weight: var(--title-font-weight, var(--font-weight-bold, var(--global-heading-font-weight-desktop, 700)));
-
-  /* Removed text-transform: uppercase - use natural case */
   margin-bottom: var(--global-heading-margin-bottom-desktop, 48px);
   padding: 0;
   position: relative;
@@ -1059,7 +1075,7 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   z-index: 2;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .vastu-price-overlay {
@@ -1120,7 +1136,7 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   max-height: 2.5rem;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
   flex-shrink: 0;
   flex-grow: 0;
   box-sizing: border-box;
@@ -1148,7 +1164,7 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   color: rgb(var(--color-secondary-button));
   border-radius: var(--radius-full);
   cursor: pointer;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
   flex-shrink: 0;
   flex-grow: 0;
   box-sizing: border-box;
@@ -1394,7 +1410,7 @@ xo-modal.search .xo-predictive-search__center .xo-field-input__input::placeholde
 
 /* Disable animated placeholder label - use normal placeholder instead */
 xo-modal.search .xo-predictive-search__center .xo-field-input__placeholder {
-  display: none !important;
+  display: none;
 }
 
 xo-modal.search .xo-predictive-search__center .xo-field-input__input:not(:placeholder-shown) {
@@ -1478,9 +1494,9 @@ xo-modal.search .xo-predictive-search__cart-count {
   border-radius: 50%;
   background-color: rgb(var(--color-secondary-button, 71, 56, 85));
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1;
+  font-size: var(--global-body-font-size-desktop);
+  font-weight: var(--global-body-font-weight-desktop);
+  line-height: var(--global-body-line-height-desktop);
   box-sizing: border-box;
   margin: 0;
 }
@@ -1494,7 +1510,7 @@ xo-modal.search .xo-predictive-search__cart-count xo-cart-size {
   height: 100%;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 /* Wishlist count badge - direct element */
@@ -1512,9 +1528,9 @@ xo-modal.search .xo-predictive-search__wishlist-count {
   border-radius: 50%;
   background-color: rgb(var(--color-secondary-button, 71, 56, 85));
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1;
+  font-size: var(--global-body-font-size-desktop);
+  font-weight: var(--global-body-font-weight-desktop);
+  line-height: var(--global-body-line-height-desktop);
   box-sizing: border-box;
   margin: 0;
 }
@@ -1528,7 +1544,7 @@ xo-modal.search .xo-predictive-search__wishlist-count > * {
   height: 100%;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 xo-modal.search .xo-predictive-search__result {
@@ -1548,14 +1564,14 @@ xo-modal.search .xo-predictive-search__result [data-predictive-search-type="arti
 xo-modal.search .xo-predictive-search__result .predictive-search__item[data-type="article"],
 xo-modal.search .xo-predictive-search__result a[href*="/blogs/"],
 xo-modal.search .xo-predictive-search__result a[href*="/articles/"] {
-  display: none !important;
+  display: none;
 }
 
 /* Hide article sections in predictive search */
 xo-modal.search .xo-predictive-search__result .predictive-search__section[data-section="articles"],
 xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/blogs/"]),
 xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/articles/"]) {
-  display: none !important;
+  display: none;
 }
 
 /* Mobile Responsive */
@@ -1780,10 +1796,8 @@ xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/articles/"]) {
 .main-search__title {
   font-size: var(--global-heading-font-size-desktop, 3.5rem);
   font-weight: var(--font-weight-bold, 700);
-
-  /* Removed text-transform: uppercase - use natural case */
   margin-bottom: 1.5rem;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .main-search__status {
@@ -1929,65 +1943,39 @@ xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/articles/"]) {
 .wishlist-table__stock xo-product-data *,
 .wishlist-table td[data-th="Stock"] xo-product-data,
 .wishlist-table td[data-th="Stock"] script[type="application/json"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  height: 0 !important;
-  width: 0 !important;
-  overflow: hidden !important;
-  position: absolute !important;
-  left: -9999px !important;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  position: absolute;
+  left: -9999px;
 }
 
 /* Ensure stock status text is visible */
 .wishlist-table__stock-text,
 .wishlist-table__stock [data-stock-status] {
-  display: inline-block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
   text-align: right;
 }
 
 /* Remove max-width constraint from main-wishlist__inner to allow wide layout */
 .main-wishlist__inner {
-  max-width: none !important;
-  margin: 0 !important;
+  max-width: none;
+  margin: 0;
   width: 100%;
 }
 
 /* ========================================
-   vastu-headings.css (5.6 KB)
+   vastu-headings.css (3.4 KB)
    ======================================== */
-
-/* Removed text-transform: uppercase - headings should use natural case */
-
-/* section h1:not(.vastu-hindi-statement__text),
-section h2:not(.banner-v155__title, .vastu-hindi-statement__text),
-section h3:not(.vastu-hindi-statement__text),
-section h4:not(.vastu-hindi-statement__text),
-section h5:not(.vastu-hindi-statement__text),
-section h6:not(.vastu-hindi-statement__text),
-main#xo-main-content section h1:not(.vastu-hindi-statement__text),
-main#xo-main-content section h2:not(.banner-v155__title, .vastu-hindi-statement__text),
-main#xo-main-content section h3:not(.vastu-hindi-statement__text),
-main#xo-main-content section h4:not(.vastu-hindi-statement__text),
-main#xo-main-content section h5:not(.vastu-hindi-statement__text),
-main#xo-main-content section h6:not(.vastu-hindi-statement__text) {
-  text-transform: uppercase;
-}
-
-section [class*="__section-title"],
-section [class*="__title"]:not(.banner-v155__title, .vastu-hindi-statement__text),
-section [class*="__heading"]:not(.vastu-hindi-statement__text),
-.xo-section-heading__title:not(.vastu-hindi-statement__text) {
-  text-transform: uppercase;
-} */
 
 .vastu-heading {
   font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
   font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop));
-
-  /* Removed text-transform: uppercase - use natural case */
   margin-bottom: var(--global-heading-margin-bottom-desktop, 48px);
   padding: 0;
   position: relative;
@@ -1998,42 +1986,30 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 
 .vastu-section-heading {
   text-align: center;
-
-  /* Margin and padding handled by vastu-global-spacing.css */
 }
 
 .vastu-best-seller .vastu-heading,
 .vastu-best-seller .vastu-section-heading,
 .vastu-best-seller__section-title {
   text-align: center;
-
-  /* Margin and padding handled by vastu-global-spacing.css */
 }
 
 .vastu-featured-products .vastu-heading,
 .vastu-featured-products .vastu-section-heading,
 .vastu-featured-products__section-title {
   text-align: center;
-
-  /* Margin and padding handled by vastu-global-spacing.css */
 }
 
 .vastu-help-address-v2 .vastu-heading,
 .vastu-help-address-v2 .vastu-section-heading,
 .vastu-help-address-v2__section-title {
   text-align: center;
-
-  /* Margin and padding handled by vastu-global-spacing.css */
 }
 
 .banner-v3 .vastu-heading,
 .banner-v3 .banner-v155__title {
   font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem));
   text-align: left;
-
-  /* Removed text-transform: uppercase - use natural case */
-
-  /* Margin handled by vastu-global-spacing.css */
 }
 
 .vastu-product-showcase .vastu-heading,
@@ -2042,10 +2018,6 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
-
-  /* margin-bottom handled by vastu-global-spacing.css - allow it to be set */
-
-  /* Removed text-transform: uppercase - use natural case */
 }
 
 .vastu-product-showcase__description .vastu-heading,
@@ -2072,8 +2044,6 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
 .blog-v2 .vastu-heading,
 .blog-v2__section-title {
   text-align: center;
-
-  /* Margin and padding handled by vastu-global-spacing.css */
 }
 
 .product-recommendations-section .vastu-heading,
@@ -2095,24 +2065,6 @@ section [class*="__heading"]:not(.vastu-hindi-statement__text),
   white-space: normal;
   word-wrap: break-word;
   font-style: italic;
-}
-
-.vastu-hindi-statement__text--quoted::before {
-  content: '"';
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: 0;
-  vertical-align: -0.4em;
-  margin-right: 0.2em;
-  opacity: 0.8;
-}
-
-.vastu-hindi-statement__text--quoted::after {
-  content: '"';
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: 0;
-  vertical-align: -0.4em;
-  margin-left: 0.2em;
-  opacity: 0.8;
 }
 
 .product-information-tabs .xo-tabs-pane .vastu-heading {
@@ -2138,20 +2090,17 @@ section[class*="main-product"] .xo-product-info-content__description .vastu-head
 }
 
 /* ========================================
-   vastu-global-typography.css (15.6 KB)
+   vastu-global-typography.css (31.1 KB)
    ======================================== */
 
 /* ========================================
-   CLEAN TYPOGRAPHY SYSTEM
-   Uses ONLY config variables - NO hardcoded values
+   GLOBAL TYPOGRAPHY SYSTEM
+   Only 3 types: Heading, Subheading, Body Text
+   All controlled via Shopify theme settings
    ======================================== */
 
-/* CSS Variables from Settings - Set via settings-adapter.liquid */
-
-/* All font sizes come from Global Typography Settings in theme customizer */
-
 /* ========================================
-   BASE TYPOGRAPHY - BODY TEXT
+   BODY TEXT - Base for all text elements
    ======================================== */
 
 /* Desktop - Body Text */
@@ -2166,10 +2115,59 @@ label,
 input,
 textarea,
 select,
-button {
-  font-size: var(--global-body-font-size-desktop);
-  line-height: var(--global-body-line-height-desktop, 1.5);
-  font-weight: var(--global-body-font-weight-desktop, 400);
+button,
+small,
+a,
+.description,
+.vastu-description,
+.product-card__description,
+.vastu-product-showcase__description,
+.vastu-product-showcase__description p,
+.vastu-shop-by-concern__trigger-question,
+.vastu-shop-by-concern__card-description,
+.vastu-shop-by-concern__benefits-list li,
+.vastu-shop-by-concern__recommended-list li,
+.vastu-shop-by-concern__cta-link,
+.vastu-help-address-v1__description,
+.faq-v3__answer,
+[class*="__trigger-question"],
+[class*="__card-description"],
+[class*="__description"],
+[class*="__question"],
+[class*="__answer"],
+[class*="__cta-link"],
+.vastu-badge,
+.badge,
+.tag,
+.price-tag,
+.vastu-product-card__price,
+.vastu-best-seller-card__price,
+.vastu-featured-products__price,
+.xo-price--larger .xo-price__item,
+/* Header elements */
+header,
+.header-v14__navigation-desktop a,
+.header-v14__navigation-desktop .menu-horizontal__item,
+.menu-horizontal__item a,
+nav a,
+.header-v6__promotion-name,
+.header-v6__contact-icon,
+/* Footer elements */
+footer,
+.footer-v18__description,
+.footer-v18__subtext,
+.footer-v18__list-item,
+.footer-v18__list-item a,
+.footer-v18__copyright,
+.footer-v18__copyright-content,
+.footer-modern__link,
+.footer-modern__newsletter-description,
+  .footer-modern__copyright,
+  .footer-modern__payment-icon {
+  font-size: var(--section-body-font-size-desktop, var(--global-body-font-size-desktop));
+  line-height: var(--section-body-line-height-desktop, var(--global-body-line-height-desktop));
+  font-weight: var(--section-body-font-weight-desktop, var(--global-body-font-weight-desktop, 300));
+  font-family: var(--font-body-family, inherit);
 }
 
 /* Mobile - Body Text */
@@ -2185,309 +2183,15 @@ button {
   input,
   textarea,
   select,
-  button {
-    font-size: var(--global-body-font-size-mobile);
-    line-height: var(--global-body-line-height-mobile, 1.5);
-    font-weight: var(--global-body-font-weight-mobile, 400);
-  }
-}
-
-/* ========================================
-   HEADING HIERARCHY
-   ======================================== */
-
-/* Desktop - H1 (Largest Heading) */
-h1,
-.h1,
-.vastu-heading--h1 {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Desktop - H2 (Section Headings) */
-h2,
-.h2,
-.vastu-heading,
-.homepage-section-heading,
-.vastu-section-title,
-.vastu-section-heading,
-.xo-section-heading__title,
-.vastu-why-kit__title,
-.vastu-trust-bar__title,
-.vastu-help-address-v1__section-title,
-.vastu-shop-by-concern__section-title,
-.vastu-best-seller__section-title,
-.vastu-featured-products__section-title,
-.vastu-product-showcase__title,
-.blog-v2__title,
-.faq-v3__title,
-.banner-v155__title,
-.slideshow-v28__title {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700));
-  text-transform: uppercase;
-  font-family: var(--font-custom-family, inherit);
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Desktop - H3 (Subsection Headings) */
-h3,
-.h3 {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Desktop - H4 (Smaller Headings) */
-h4,
-.h4 {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Desktop - H5 */
-h5,
-.h5 {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Desktop - H6 */
-h6,
-.h6 {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop));
-  font-weight: var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Mobile - All Headings */
-@media (width <= 48rem) {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5,
-  .h6,
-  .vastu-heading,
-  .homepage-section-heading,
-  .vastu-section-title,
-  .vastu-section-heading,
-  .xo-section-heading__title,
-  .vastu-why-kit__title,
-  .vastu-trust-bar__title,
-  .vastu-help-address-v1__section-title,
-  .vastu-shop-by-concern__section-title,
-  .vastu-best-seller__section-title,
-  .vastu-featured-products__section-title,
-  .vastu-product-showcase__title,
-  .blog-v2__title,
-  .faq-v3__title,
-  .banner-v155__title,
-  .slideshow-v28__title,
-  footer h2,
-  footer h3 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile));
-    line-height: var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2));
-    font-weight: var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700));
-
-    /* Margin handled by vastu-global-spacing.css */
-  }
-
-  h3,
-  .h3 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile));
-  }
-
-  h4,
-  .h4 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile));
-  }
-
-  h5,
-  .h5 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile));
-  }
-
-  h6,
-  .h6 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile));
-  }
-}
-
-/* ========================================
-   SUBTITLES
-   ======================================== */
-
-/* Desktop - Subtitles */
-.subtitle,
-.vastu-subtitle,
-.banner-v155__subtitle,
-.slideshow-v28__subtitle {
-  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop));
-  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop, 1.4));
-  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 400));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Mobile - Subtitles */
-@media (width <= 48rem) {
-  .subtitle,
-  .vastu-subtitle,
-  .banner-v155__subtitle,
-  .slideshow-v28__subtitle {
-    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile));
-    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile, 1.4));
-    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 400));
-
-    /* Margin handled by vastu-global-spacing.css */
-  }
-}
-
-/* ========================================
-   CARD TITLES (Product Cards, Collection Cards, etc.)
-   ======================================== */
-
-/* Desktop - Card Titles */
-
-/* More specific selectors to avoid conflicts with body text (16px) and descriptions (14px) */
-.vastu-card-title,
-.product-card__title,
-.collection-card__title,
-.article-card__title,
-.card-title,
-.vastu-product-card__title,
-.vastu-best-seller-card__title,
-.vastu-featured-products__title,
-.vastu-shop-by-concern__trigger-title,
-.vastu-shop-by-concern__product-title,
-.vastu-shop-by-concern__benefits-title,
-.vastu-shop-by-concern__recommended-title,
-.vastu-help-address-v1__text,
-.faq-v3__question,
-.blog-v2__item-title,
-[class*="__trigger-title"]:not([class*="__question"], [class*="__description"]),
-[class*="__product-title"]:not([class*="__description"]),
-[class*="__benefits-title"]:not([class*="__description"]),
-[class*="__recommended-title"]:not([class*="__description"]) {
-  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop)); /* 2rem = 20px */
-  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
-  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
-  margin-bottom: var(--section-card-title-margin-bottom-desktop, var(--global-card-title-margin-bottom-desktop));
-}
-
-/* Grid Card Titles - Use smaller subtitle size */
-.vastu-grid-card__title {
-  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop)); /* 1.8rem = 18px */
-  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop, 1.4));
-  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 500));
-  margin-bottom: var(--section-subtitle-margin-bottom-desktop, var(--global-subtitle-margin-bottom-desktop));
-}
-
-/* Mobile - Card Titles */
-@media (width <= 48rem) {
-  .vastu-card-title,
-  .product-card__title,
-  .collection-card__title,
-  .article-card__title,
-  .card-title,
-  .vastu-product-card__title,
-  .vastu-best-seller-card__title,
-  .vastu-featured-products__title,
-  .vastu-shop-by-concern__trigger-title,
-  .vastu-shop-by-concern__product-title,
-  .vastu-shop-by-concern__benefits-title,
-  .vastu-shop-by-concern__recommended-title,
-  .vastu-help-address-v1__text,
-  .faq-v3__question,
-  .blog-v2__item-title,
-  [class*="__trigger-title"]:not([class*="__question"], [class*="__description"]),
-  [class*="__product-title"]:not([class*="__description"]),
-  [class*="__benefits-title"]:not([class*="__description"]),
-  [class*="__recommended-title"]:not([class*="__description"]) {
-    font-size: var(
-      --section-card-title-font-size-mobile,
-      var(--global-card-title-font-size-mobile)
-    ); /* 1.8rem = 18px */
-
-    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
-    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 700));
-
-    /* Margin handled by vastu-global-spacing.css */
-  }
-
-  /* Grid Card Titles - Use smaller subtitle size on mobile */
-
-  .vastu-grid-card__title {
-    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile)); /* 1.6rem = 16px */
-    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile, 1.4));
-    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 500));
-
-    /* Margin handled by vastu-global-spacing.css */
-  }
-}
-
-/* ========================================
-   DESCRIPTIONS
-   ======================================== */
-
-/* Desktop - Descriptions */
-.description,
-.vastu-description,
-.product-card__description,
-.vastu-product-showcase__description,
-.vastu-product-showcase__description p,
-.footer-v18__description,
-.vastu-shop-by-concern__trigger-question,
-.vastu-shop-by-concern__card-description,
-.vastu-shop-by-concern__benefits-list li,
-.vastu-shop-by-concern__recommended-list li,
-.vastu-shop-by-concern__cta-link,
-.vastu-help-address-v1__description,
-.faq-v3__answer,
-[class*="__trigger-question"],
-[class*="__card-description"],
-[class*="__description"],
-[class*="__question"],
-[class*="__answer"],
-[class*="__cta-link"] {
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop));
-  font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop));
-
-  /* Margin handled by vastu-global-spacing.css */
-}
-
-/* Mobile - Descriptions */
-@media (width <= 48rem) {
+  button,
+  small,
+  a,
   .description,
   .vastu-description,
   .product-card__description,
   .vastu-product-showcase__description,
   .vastu-product-showcase__description p,
   .vastu-product-showcase__price,
-  .footer-v18__description,
   .vastu-shop-by-concern__trigger-question,
   .vastu-shop-by-concern__card-description,
   .vastu-shop-by-concern__benefits-list li,
@@ -2500,76 +2204,824 @@ h6,
   [class*="__description"],
   [class*="__question"],
   [class*="__answer"],
-  [class*="__cta-link"] {
-    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile));
-    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile));
-    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile));
-
-    /* Margin handled by vastu-global-spacing.css */
-  }
-}
-
-/* ========================================
-   TAGS, BADGES, PRICES
-   ======================================== */
-
-/* Desktop - Tags/Badges */
-.vastu-badge,
-.badge,
-.tag,
-.price-tag {
-  font-size: var(--section-tag-font-size-desktop, var(--global-tag-font-size-desktop));
-  line-height: var(--section-tag-line-height-desktop, var(--global-tag-line-height-desktop, 1.2));
-  font-weight: var(--section-tag-font-weight-desktop, var(--global-tag-font-weight-desktop, 600));
-}
-
-/* Desktop - Product Prices */
-.vastu-product-card__price,
-.vastu-best-seller-card__price,
-.vastu-featured-products__price {
-  font-size: var(--card-price-size, var(--global-card-price-font-size-desktop));
-  font-weight: var(--global-card-price-font-weight-desktop, var(--font-weight-bold, 700));
-}
-
-/* Override hardcoded larger price font size - use config variable */
-.xo-price--larger .xo-price__item {
-  font-size: var(--global-card-price-font-size-desktop) !important; /* 1.6rem = 16px */
-}
-
-/* Mobile - Tags/Badges */
-@media (width <= 48rem) {
+  [class*="__cta-link"],
   .vastu-badge,
   .badge,
   .tag,
-  .price-tag {
-    font-size: var(--section-tag-font-size-mobile, var(--global-tag-font-size-mobile));
-    line-height: var(--section-tag-line-height-mobile, var(--global-tag-line-height-mobile, 1.2));
-    font-weight: var(--section-tag-font-weight-mobile, var(--global-tag-font-weight-mobile, 600));
-  }
-
+  .price-tag,
   .vastu-product-card__price,
   .vastu-best-seller-card__price,
-  .vastu-featured-products__price {
-    font-size: var(--card-price-size, var(--global-card-price-font-size-mobile));
-    font-weight: var(--global-card-price-font-weight-mobile, var(--font-weight-bold, 700));
-  }
-
-  /* Override hardcoded larger price font size on mobile - use config variable */
-  .xo-price--larger .xo-price__item {
-    font-size: var(--global-card-price-font-size-mobile) !important; /* 1.6rem = 16px */
+  .vastu-featured-products__price,
+  .xo-price--larger .xo-price__item,
+  /* Header elements */
+  header,
+  .header-v14__navigation-mobile a,
+  .menu-hamburger-drawer-mobile__link,
+  .header-v6__promotion-name,
+  .header-v6__contact-icon,
+  /* Footer elements */
+  footer,
+  .footer-v18__description,
+  .footer-v18__subtext,
+  .footer-v18__list-item,
+  .footer-v18__list-item a,
+  .footer-v18__copyright,
+  .footer-v18__copyright-content,
+  .footer-modern__link,
+  .footer-modern__newsletter-description,
+  .footer-modern__copyright,
+  .footer-modern__payment-icon {
+    font-size: var(--section-body-font-size-mobile, var(--global-body-font-size-mobile));
+    line-height: var(--section-body-line-height-mobile, var(--global-body-line-height-mobile));
+    font-weight: var(--section-body-font-weight-mobile, var(--global-body-font-weight-mobile, 300));
+    font-family: var(--font-body-family, inherit);
   }
 }
 
 /* ========================================
-   BUTTONS
+   HEADINGS - Semantic Hierarchy
    ======================================== */
 
-/* Buttons use body text size by default, can be overridden via button settings */
+/* ========================================
+   H1 - Page Titles (Largest)
+   ======================================== */
+
+/* Desktop - H1 */
+h1,
+.h1 {
+  font-size: var(--h1-font-size-desktop, var(--global-heading-font-size-desktop, 4rem));
+  line-height: var(--h1-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
+  font-weight: var(--h1-font-weight-desktop, var(--global-heading-font-weight-desktop, 700));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H1 */
+@media (width <= 48rem) {
+  h1,
+  .h1 {
+    font-size: var(--h1-font-size-mobile, var(--global-heading-font-size-mobile, 2.5rem));
+    line-height: var(--h1-line-height-mobile, var(--global-heading-line-height-mobile, 1.2));
+    font-weight: var(--h1-font-weight-mobile, var(--global-heading-font-weight-mobile, 700));
+  }
+}
+
+/* ========================================
+   H2 - Section Headings (Main Sections)
+   ======================================== */
+
+/* Desktop - H2 Base */
+h2,
+.h2 {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Generic Section Headings */
+.vastu-heading,
+.homepage-section-heading,
+.vastu-section-title,
+.vastu-section-heading,
+.xo-section-heading__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Specific Section Titles */
+.vastu-why-kit__title,
+.vastu-trust-bar__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Help Address Section Title */
+.vastu-help-address-v1__section-title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Shop By Concern Section Title */
+.vastu-shop-by-concern__section-title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Best Seller Section Title */
+.vastu-best-seller__section-title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Featured Products Section Title */
+.vastu-featured-products__section-title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Product Showcase Title */
+.vastu-product-showcase__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Blog Section Title */
+.blog-v2__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - FAQ Section Title */
+.faq-v3__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Banner Title */
+.banner-v155__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Slideshow Title */
+.slideshow-v28__title {
+  font-size: var(
+    --h2-font-size-desktop,
+    var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+  );
+  line-height: var(
+    --h2-line-height-desktop,
+    var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+  );
+  font-weight: var(
+    --h2-font-weight-desktop,
+    var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Footer H2 - Separate from main H2 */
+footer h2,
+.footer-v18__heading {
+  font-size: var(
+    --footer-h2-font-size-desktop,
+    var(
+      --h2-font-size-desktop,
+      var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
+    )
+  );
+  line-height: var(
+    --footer-h2-line-height-desktop,
+    var(
+      --h2-line-height-desktop,
+      var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2))
+    )
+  );
+  font-weight: var(
+    --footer-h2-font-weight-desktop,
+    var(
+      --h2-font-weight-desktop,
+      var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop, 700))
+    )
+  );
+  text-transform: uppercase;
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H2 Base */
+@media (width <= 48rem) {
+  h2,
+  .h2 {
+    font-size: var(
+      --h2-font-size-mobile,
+      var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2rem))
+    );
+    line-height: var(
+      --h2-line-height-mobile,
+      var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2))
+    );
+    font-weight: var(
+      --h2-font-weight-mobile,
+      var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700))
+    );
+  }
+
+  /* Mobile - Generic Section Headings */
+  .vastu-heading,
+  .homepage-section-heading,
+  .vastu-section-title,
+  .vastu-section-heading,
+  .xo-section-heading__title {
+    font-size: var(
+      --h2-font-size-mobile,
+      var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2rem))
+    );
+    line-height: var(
+      --h2-line-height-mobile,
+      var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2))
+    );
+    font-weight: var(
+      --h2-font-weight-mobile,
+      var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700))
+    );
+  }
+
+  /* Mobile - Specific Section Titles */
+  .vastu-why-kit__title,
+  .vastu-trust-bar__title,
+  .vastu-help-address-v1__section-title,
+  .vastu-shop-by-concern__section-title,
+  .vastu-best-seller__section-title,
+  .vastu-featured-products__section-title,
+  .vastu-product-showcase__title,
+  .blog-v2__title,
+  .faq-v3__title,
+  .banner-v155__title,
+  .slideshow-v28__title {
+    font-size: var(
+      --h2-font-size-mobile,
+      var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2rem))
+    );
+    line-height: var(
+      --h2-line-height-mobile,
+      var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2))
+    );
+    font-weight: var(
+      --h2-font-weight-mobile,
+      var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700))
+    );
+  }
+
+  /* Footer H2 - Separate from main H2 */
+  footer h2,
+  .footer-v18__heading {
+    font-size: var(
+      --footer-h2-font-size-mobile,
+      var(--h2-font-size-mobile, var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)))
+    );
+    line-height: var(
+      --footer-h2-line-height-mobile,
+      var(
+        --h2-line-height-mobile,
+        var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile, 1.2))
+      )
+    );
+    font-weight: var(
+      --footer-h2-font-weight-mobile,
+      var(
+        --h2-font-weight-mobile,
+        var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile, 700))
+      )
+    );
+  }
+}
+
+/* ========================================
+   H3 - Subsection Headings (Card Titles, Product Titles)
+   ======================================== */
+
+/* Desktop - H3 Base */
+h3,
+.h3 {
+  font-size: var(
+    --h3-font-size-desktop,
+    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Help Address Text */
+.vastu-help-address-v1__text {
+  font-size: var(
+    --h3-font-size-desktop,
+    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - FAQ Question */
+.faq-v3__question {
+  font-size: var(
+    --h3-font-size-desktop,
+    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Blog Item Title */
+.blog-v2__item-title {
+  font-size: var(
+    --h3-font-size-desktop,
+    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Generic Card Titles */
+.vastu-card-title,
+.product-card__title,
+.collection-card__title,
+.article-card__title,
+.card-title {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Product Card Titles */
+.vastu-product-card__title,
+.vastu-grid-card__title {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Best Seller Card Title */
+.vastu-best-seller-card__title {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Featured Products Title */
+.vastu-featured-products__title {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Shop By Concern Titles */
+.vastu-shop-by-concern__trigger-title,
+.vastu-shop-by-concern__product-title,
+.vastu-shop-by-concern__benefits-title,
+.vastu-shop-by-concern__recommended-title {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Desktop - Dynamic Title Classes */
+[class*="__trigger-title"]:not([class*="__question"], [class*="__description"]),
+[class*="__product-title"]:not([class*="__description"]),
+[class*="__benefits-title"]:not([class*="__description"]),
+[class*="__recommended-title"]:not([class*="__description"]) {
+  font-size: var(
+    --card-title-size,
+    var(
+      --h3-font-size-desktop,
+      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
+    )
+  );
+  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
+  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Footer H4 - Properly sized for footer */
+footer h4,
+.footer-modern__heading {
+  font-size: var(--footer-h4-font-size-desktop, 2rem);
+  line-height: var(
+    --footer-h4-line-height-desktop,
+    var(--h4-line-height-desktop, var(--global-heading-line-height-desktop, 1.4))
+  );
+  font-weight: var(
+    --footer-h4-font-weight-desktop,
+    var(--h4-font-weight-desktop, var(--global-heading-font-weight-desktop, 600))
+  );
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H3 Base */
+@media (width <= 48rem) {
+  h3,
+  .h3 {
+    font-size: var(
+      --h3-font-size-mobile,
+      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Help Address Text */
+  .vastu-help-address-v1__text {
+    font-size: var(
+      --h3-font-size-mobile,
+      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - FAQ Question */
+  .faq-v3__question {
+    font-size: var(
+      --h3-font-size-mobile,
+      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Blog Item Title */
+  .blog-v2__item-title {
+    font-size: var(
+      --h3-font-size-mobile,
+      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Generic Card Titles */
+  .vastu-card-title,
+  .product-card__title,
+  .collection-card__title,
+  .article-card__title,
+  .card-title {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Product Card Titles */
+  .vastu-product-card__title,
+  .vastu-grid-card__title {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Best Seller Card Title */
+  .vastu-best-seller-card__title {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Featured Products Title */
+  .vastu-featured-products__title {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Shop By Concern Titles */
+  .vastu-shop-by-concern__trigger-title,
+  .vastu-shop-by-concern__product-title,
+  .vastu-shop-by-concern__benefits-title,
+  .vastu-shop-by-concern__recommended-title {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Mobile - Dynamic Title Classes */
+  [class*="__trigger-title"]:not([class*="__question"], [class*="__description"]),
+  [class*="__product-title"]:not([class*="__description"]),
+  [class*="__benefits-title"]:not([class*="__description"]),
+  [class*="__recommended-title"]:not([class*="__description"]) {
+    font-size: var(
+      --card-title-size,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
+    );
+    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
+    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+
+  /* Footer H4 - Properly sized for footer */
+  footer h4,
+  .footer-modern__heading {
+    font-size: var(--footer-h4-font-size-mobile, 1.5rem);
+    line-height: var(
+      --footer-h4-line-height-mobile,
+      var(--h4-line-height-mobile, var(--global-heading-line-height-mobile, 1.4))
+    );
+    font-weight: var(
+      --footer-h4-font-weight-mobile,
+      var(--h4-font-weight-mobile, var(--global-heading-font-weight-mobile, 600))
+    );
+  }
+}
+
+/* ========================================
+   H4 - Smaller Headings
+   ======================================== */
+
+/* Desktop - H4 */
+h4,
+.h4 {
+  font-size: var(--h4-font-size-desktop, calc(var(--h3-font-size-desktop, 2.625rem) * 0.85));
+  line-height: var(--h4-line-height-desktop, var(--global-heading-line-height-desktop, 1.4));
+  font-weight: var(--h4-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H4 */
+@media (width <= 48rem) {
+  h4,
+  .h4 {
+    font-size: var(--h4-font-size-mobile, calc(var(--h3-font-size-mobile, 1.6rem) * 0.9));
+    line-height: var(--h4-line-height-mobile, var(--global-heading-line-height-mobile, 1.4));
+    font-weight: var(--h4-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+  }
+}
+
+/* ========================================
+   H5 - Even Smaller Headings
+   ======================================== */
+
+/* Desktop - H5 */
+h5,
+.h5 {
+  font-size: var(--h5-font-size-desktop, calc(var(--h4-font-size-desktop, 2.23rem) * 0.9));
+  line-height: var(--h5-line-height-desktop, var(--global-heading-line-height-desktop, 1.4));
+  font-weight: var(--h5-font-weight-desktop, var(--global-heading-font-weight-desktop, 500));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H5 */
+@media (width <= 48rem) {
+  h5,
+  .h5 {
+    font-size: var(--h5-font-size-mobile, calc(var(--h4-font-size-mobile, 1.44rem) * 0.95));
+    line-height: var(--h5-line-height-mobile, var(--global-heading-line-height-mobile, 1.4));
+    font-weight: var(--h5-font-weight-mobile, var(--global-heading-font-weight-mobile, 500));
+  }
+}
+
+/* ========================================
+   H6 - Smallest Headings
+   ======================================== */
+
+/* Desktop - H6 */
+h6,
+.h6 {
+  font-size: var(--h6-font-size-desktop, calc(var(--h5-font-size-desktop, 2rem) * 0.9));
+  line-height: var(--h6-line-height-desktop, var(--global-heading-line-height-desktop, 1.4));
+  font-weight: var(--h6-font-weight-desktop, var(--global-heading-font-weight-desktop, 500));
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+/* Mobile - H6 */
+@media (width <= 48rem) {
+  h6,
+  .h6 {
+    font-size: var(--h6-font-size-mobile, calc(var(--h5-font-size-mobile, 1.37rem) * 0.95));
+    line-height: var(--h6-line-height-mobile, var(--global-heading-line-height-mobile, 1.4));
+    font-weight: var(--h6-font-weight-mobile, var(--global-heading-font-weight-mobile, 500));
+  }
+}
+
+/* ========================================
+   SUBHEADINGS - Subtitles and secondary headings
+   ======================================== */
+
+/* Desktop - Generic Subtitle */
+.subtitle,
+.vastu-subtitle {
+  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop));
+  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop));
+  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 300));
+}
+
+/* Desktop - Banner Subtitle */
+.banner-v155__subtitle {
+  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop));
+  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop));
+  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 300));
+}
+
+/* Desktop - Slideshow Subtitle */
+.slideshow-v28__subtitle {
+  font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop));
+  line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop));
+  font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 300));
+}
+
+/* Mobile - Generic Subtitle */
+@media (width <= 48rem) {
+  .subtitle,
+  .vastu-subtitle {
+    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile));
+    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile));
+    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 300));
+  }
+
+  /* Mobile - Banner Subtitle */
+  .banner-v155__subtitle {
+    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile));
+    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile));
+    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 300));
+  }
+
+  /* Mobile - Slideshow Subtitle */
+  .slideshow-v28__subtitle {
+    font-size: var(--section-subtitle-font-size-mobile, var(--global-subtitle-font-size-mobile));
+    line-height: var(--section-subtitle-line-height-mobile, var(--global-subtitle-line-height-mobile));
+    font-weight: var(--section-subtitle-font-weight-mobile, var(--global-subtitle-font-weight-mobile, 300));
+  }
+}
+
+/* ========================================
+   BUTTONS - Use body text by default
+   ======================================== */
+
 button,
 .btn,
 .xo-btn {
   font-size: var(--button-font-size, var(--global-body-font-size-desktop));
-  font-weight: var(--button-font-weight, var(--global-body-font-weight-desktop, 400));
+  font-weight: var(--button-font-weight, var(--global-body-font-weight-desktop, 300));
 }
 
 @media (width <= 48rem) {
@@ -2577,37 +3029,7 @@ button,
   .btn,
   .xo-btn {
     font-size: var(--button-font-size-mobile, var(--global-body-font-size-mobile));
-    font-weight: var(--button-font-weight-mobile, var(--global-body-font-weight-mobile, 400));
-  }
-}
-
-/* ========================================
-   FOOTER TEXT
-   ======================================== */
-
-footer,
-.footer-v18__description,
-.footer-v18__subtext,
-.footer-v18__list-item,
-.footer-v18__list-item a,
-.footer-v18__copyright,
-.footer-v18__copyright-content {
-  font-size: var(--global-body-font-size-desktop);
-  line-height: var(--global-body-line-height-desktop, 1.5);
-  font-weight: var(--global-body-font-weight-desktop, 400);
-}
-
-@media (width <= 48rem) {
-  footer,
-  .footer-v18__description,
-  .footer-v18__subtext,
-  .footer-v18__list-item,
-  .footer-v18__list-item a,
-  .footer-v18__copyright,
-  .footer-v18__copyright-content {
-    font-size: var(--global-body-font-size-mobile);
-    line-height: var(--global-body-line-height-mobile, 1.5);
-    font-weight: var(--global-body-font-weight-mobile, 400);
+    font-weight: var(--button-font-weight-mobile, var(--global-body-font-weight-mobile, 300));
   }
 }
 
@@ -2785,11 +3207,11 @@ h2.homepage-section-heading[data-enable-underline="false"]::after {
 
 /* Special case: Hindi statement should never have underline */
 h2.vastu-hindi-statement__text.homepage-section-heading::after {
-  display: none !important;
+  display: none;
 }
 
 /* ========================================
-   vastu-cards.css (24.0 KB)
+   vastu-cards.css (24.6 KB)
    ======================================== */
 
 section[class*="vastu-best-seller"] xo-container.xo-container--wide,
@@ -2811,7 +3233,22 @@ section[class*="vastu-best-seller"] xo-container.xo-container--box {
   align-items: stretch;
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
+  border: 1px solid rgba(71 56 85 / 8%);
+  box-shadow: 0 2px 8px rgba(0 0 0 / 6%);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   overflow: hidden;
+}
+
+@media (width > 48rem) {
+  .vastu-best-seller-card:hover,
+  .vastu-featured-products__card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(71 56 85 / 15%);
+    box-shadow: 0 4px 16px rgba(0 0 0 / 12%);
+  }
 }
 
 .vastu-featured-products__grid > *,
@@ -2981,9 +3418,9 @@ h3.vastu-featured-products__title,
 .vastu-best-seller-card__content .vastu-best-seller-card__title,
 .vastu-featured-products__content .vastu-featured-products__title {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
-  font-weight: 450;
+  font-weight: var(--global-heading-font-weight-desktop);
   margin: 0 0 var(--global-body-margin-bottom-desktop, 0.75rem) 0;
-  line-height: 1.4;
+  line-height: var(--global-heading-line-height-desktop);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -3046,7 +3483,7 @@ h3.vastu-featured-products__title,
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   z-index: 2;
-  line-height: 1.2;
+  line-height: var(--global-heading-line-height-desktop);
 }
 
 .vastu-best-seller-card__actions-overlay,
@@ -3091,7 +3528,7 @@ h3.vastu-featured-products__title,
   max-height: 2.5rem;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
   flex-shrink: 0;
   flex-grow: 0;
   box-sizing: border-box;
@@ -3128,7 +3565,7 @@ h3.vastu-featured-products__title,
   color: rgb(var(--color-secondary-button));
   border-radius: var(--radius-full);
   cursor: pointer;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
   flex-shrink: 0;
   flex-grow: 0;
   box-sizing: border-box;
@@ -3441,7 +3878,7 @@ section[class*="vastu-featured-products"]
   white-space: nowrap;
   text-overflow: ellipsis;
   transform: none;
-  line-height: 1.2;
+  line-height: var(--global-heading-line-height-desktop);
   padding: 0 var(--global-body-margin-bottom-mobile, 0.5rem);
   box-sizing: border-box;
 }
@@ -3503,7 +3940,7 @@ section[class*="vastu-featured-products"]
   border: none;
   border-radius: var(--radius-md);
   white-space: nowrap;
-  line-height: 1.3;
+  line-height: var(--global-body-line-height-desktop);
   box-shadow: 0 2px 6px rgba(var(--color-purple), 0.3);
   transition:
     transform var(--transition-fast),
@@ -3780,7 +4217,7 @@ xo-carousel-slide [class*="product-card"] {
 }
 
 /* ========================================
-   vastu-product-card.css (24.7 KB)
+   vastu-product-card.css (29.0 KB)
    ======================================== */
 
 .vastu-product-card {
@@ -3792,11 +4229,14 @@ xo-carousel-slide [class*="product-card"] {
   border-radius: 0;
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
+  border: 1px solid rgba(71 56 85 / 8%);
   overflow: visible;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  box-shadow: var(--product-card-shadow-horizontal-offset, 0rem) var(--product-card-shadow-vertical-offset, 0.4rem)
+    var(--product-card-shadow-blur-radius, 1.2rem) rgba(0, 0, 0, var(--product-card-shadow-opacity, 0.08));
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   position: relative;
 }
 
@@ -3806,12 +4246,12 @@ xo-carousel-slide [class*="product-card"] {
   top: 0.75rem;
   left: 0.75rem;
   z-index: 30;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   pointer-events: auto;
   margin: 0;
   padding: 0;
@@ -3821,12 +4261,12 @@ xo-carousel-slide [class*="product-card"] {
   position: absolute;
   top: 0;
   left: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   pointer-events: auto;
   cursor: pointer;
   margin: 0;
@@ -3843,12 +4283,12 @@ xo-carousel-slide [class*="product-card"] {
   position: absolute;
   top: 0;
   left: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
@@ -3885,8 +4325,8 @@ xo-carousel-slide [class*="product-card"] {
 .vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg path,
 .vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg g path,
 .vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg * {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: #000;
   stroke: none;
   color: #000;
@@ -3896,7 +4336,6 @@ xo-carousel-slide [class*="product-card"] {
   pointer-events: auto;
 }
 
-/* When wishlisted (parent has xo-added attribute) - show xo-removed tooltip with black background and white heart */
 .vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] {
   display: flex;
   visibility: visible;
@@ -3917,8 +4356,8 @@ xo-carousel-slide [class*="product-card"] {
 .vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg path,
 .vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg g path,
 .vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg * {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: #fff;
   stroke: none;
   color: #fff;
@@ -3930,7 +4369,11 @@ xo-carousel-slide [class*="product-card"] {
 
 .vastu-product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+  border-color: rgba(71 56 85 / 15%);
+  box-shadow: var(--product-card-shadow-horizontal-offset, 0rem)
+    calc(var(--product-card-shadow-vertical-offset, 0.4rem) + 0.2rem)
+    calc(var(--product-card-shadow-blur-radius, 1.2rem) + 0.4rem)
+    rgba(0, 0, 0, calc(var(--product-card-shadow-opacity, 0.08) * 1.5));
 }
 
 .vastu-product-card__link {
@@ -3996,11 +4439,11 @@ main section .vastu-product-card .vastu-product-card__image .vastu-product-card_
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 2;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   white-space: nowrap;
   margin: 0;
   display: inline-block;
@@ -4047,7 +4490,7 @@ main section .vastu-product-card .xo-product-card__price {
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 2;
   display: inline-block;
 }
@@ -4061,10 +4504,10 @@ main section .vastu-product-card .xo-product-card__price {
   padding: 0.375rem 0.75rem;
   border-radius: 0.25rem;
   font-size: var(--badge-font-size, 0.9rem);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   text-transform: uppercase;
   z-index: 2;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .vastu-product-card__actions-overlay {
@@ -4147,7 +4590,7 @@ main section .vastu-product-card .xo-product-card__price {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   margin: 0 0 0.75rem;
-  line-height: 1.4;
+  line-height: var(--global-body-line-height-desktop);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -4275,19 +4718,19 @@ main section .vastu-product-card .xo-product-card__price {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   padding: 0 0.5rem;
-  transform: none !important;
-  translate: 0 0 !important;
-  transition: none !important;
+  transform: none;
+  translate: 0 0;
+  transition: none;
 }
 
 .vastu-product-card__add-to-cart .xo-btn__text:active,
 .vastu-product-card__add-to-cart .xo-btn__text:focus,
 .vastu-product-card__add-to-cart .xo-btn__content:active,
 .vastu-product-card__add-to-cart .xo-btn__content:focus {
-  transform: none !important;
-  translate: 0 0 !important;
+  transform: none;
+  translate: 0 0;
 }
 
 .vastu-product-card__add-to-cart .xo-btn:active .xo-btn__text,
@@ -4298,8 +4741,8 @@ main section .vastu-product-card .xo-product-card__price {
 .vastu-product-card__add-to-cart button:active .xo-btn__content,
 .vastu-product-card__add-to-cart button:focus .xo-btn__text,
 .vastu-product-card__add-to-cart button:focus .xo-btn__content {
-  transform: none !important;
-  translate: 0 0 !important;
+  transform: none;
+  translate: 0 0;
 }
 
 .vastu-product-card__add-to-cart .xo-btn__text[data-text]::before,
@@ -4466,32 +4909,32 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card,
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price,
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price-overlay {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  position: static !important;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  position: static;
 }
 
 /* Ensure price in content area is visible and properly styled for shop by concern */
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__content .vastu-product-card__price {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  position: static !important;
-  background: transparent !important;
-  color: rgb(71 56 85) !important;
-  padding: 0 !important;
-  margin: 0.5rem 0 0 !important;
-  font-size: var(--global-card-price-font-size-desktop) !important;
-  font-weight: 600 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  white-space: normal !important;
-  width: auto !important;
-  max-width: 100% !important;
-  z-index: auto !important;
-  inset: auto !important;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  position: static;
+  background: transparent;
+  color: rgb(71 56 85);
+  padding: 0;
+  margin: 0.5rem 0 0;
+  font-size: var(--global-card-price-font-size-desktop);
+  font-weight: var(--global-body-font-weight-desktop);
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  white-space: normal;
+  width: auto;
+  max-width: 100%;
+  z-index: auto;
+  inset: auto;
 }
 
 section[class*="vastu-featured-products"] .vastu-product-card,
@@ -4533,7 +4976,7 @@ section[class*="featured-collection"] .vastu-product-card .vastu-product-card__p
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 2;
   display: inline-block;
   white-space: nowrap;
@@ -4597,7 +5040,93 @@ section[class*="featured-collection"] xo-carousel,
 }
 
 /* ========================================
-   vastu-product-card-fixes.css (64.6 KB)
+   Card Image Border Radius
+   ======================================== */
+
+/* All product/collection/article/blog cards - top corners only */
+.xo-product-card,
+[class*="product-card"]:not([class*="icon"]),
+[class*="collection-card"]:not([class*="icon"]),
+[class*="article-card"]:not([class*="icon"]),
+[class*="blog"] [class*="card"]:not([class*="icon"]),
+[class*="blog"] [class*="item"]:not([class*="icon"]) {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* All card images - top corners only (exclude icons) */
+[class*="product-card"] [class*="image"]:not([class*="icon"]),
+[class*="collection-card"] [class*="image"]:not([class*="icon"]),
+[class*="article-card"] [class*="image"]:not([class*="icon"]),
+[class*="blog"] [class*="image"]:not([class*="icon"]),
+[class*="card"] [class*="image"]:not([class*="icon"]),
+[class*="card"] img:not([class*="icon"]),
+[class*="item"] [class*="image"]:not([class*="icon"]),
+[class*="item"] img:not([class*="icon"]) {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* Images inside cards - top corners only */
+[class*="card"] img:not([class*="icon"], [class*="svg"]),
+[class*="item"] img:not([class*="icon"], [class*="svg"]),
+.xo-image:not([class*="icon"]) img {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* Ensure images in card containers get border-radius */
+[class*="card"] [class*="image"] img,
+[class*="card"] [class*="media"] img,
+[class*="item"] [class*="image"] img,
+[class*="item"] [class*="media"] img {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* ========================================
+   Price Tag Styles
+   ======================================== */
+
+.vastu-product-card__price,
+.vastu-product-card__image .vastu-product-card__price,
+section .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+section[class*="vastu"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+main section .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+.xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card__price-overlay,
+section[class*="vastu-best-seller"] .xo-product-card__price-overlay,
+section[class*="vastu-featured-products"] .xo-product-card__price-overlay,
+section[class*="vastu-shop-by-concern"] .xo-product-card__price-overlay {
+  background: rgba(var(--price-tag-background-color-rgb, 71, 56, 85), var(--price-tag-background-opacity, 0.9));
+  color: var(--price-tag-text-color, #fff);
+  padding: var(--price-tag-padding-top, 8px) var(--price-tag-padding-right, 12px) var(--price-tag-padding-bottom, 8px)
+    var(--price-tag-padding-left, 12px);
+  border-radius: var(--price-tag-border-radius, 8px);
+  font-size: var(--price-tag-font-size, 1.2rem);
+  font-weight: var(--price-tag-font-weight, 600);
+  box-shadow: 0 2px var(--price-tag-box-shadow-blur, 8px) rgb(0 0 0 / 15%);
+  backdrop-filter: var(--price-tag-backdrop-filter, blur(4px));
+}
+
+.vastu-product-card__image .vastu-product-card__price *,
+.vastu-product-card__image .vastu-product-card__price span,
+.vastu-product-card__image .vastu-product-card__price .xo-price__item,
+.vastu-product-card__image .vastu-product-card__price .xo-price__container,
+.vastu-product-card__image .vastu-product-card__price .xo-price,
+section .vastu-product-card .vastu-product-card__image .vastu-product-card__price *,
+section[class*="vastu"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price *,
+main section .vastu-product-card .vastu-product-card__image .vastu-product-card__price *,
+.xo-product-card__price-overlay *,
+.xo-product-card__price-overlay span,
+.xo-product-card__price-overlay .xo-price__item {
+  color: var(--price-tag-text-color, #fff);
+}
+
+/* ========================================
+   vastu-product-card-fixes.css (64.9 KB)
    ======================================== */
 
 .vastu-product-showcase .xo-product-info-media-style1,
@@ -4951,12 +5480,12 @@ section[class*="product-recommendations"] .xo-product-card__wishlist-container .
 .product-recommendations .xo-product-card__wishlist-container .xo-product-card__icon,
 .section-collection-products .xo-product-card__wishlist-container .xo-product-card__icon,
 .filters-content .xo-product-card__wishlist-container .xo-product-card__icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  min-height: 2.5rem;
-  max-width: 2.5rem;
-  max-height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  max-width: 2rem;
+  max-height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4971,12 +5500,12 @@ section[id*="section-"] .xo-product-card__wishlist-container button,
 xo-product-recommendations .xo-product-card__wishlist-container button,
 .section-collection-products .xo-product-card__wishlist-container button,
 .filters-content .xo-product-card__wishlist-container button {
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   padding: 0;
   margin: 0;
   border-radius: 50%;
@@ -5012,8 +5541,8 @@ section[id*="section-"] .xo-product-card__wishlist-container .xo-btn__icon svg,
 xo-product-recommendations .xo-product-card__wishlist-container .xo-btn__icon svg,
 .section-collection-products .xo-product-card__wishlist-container .xo-btn__icon svg,
 .filters-content .xo-product-card__wishlist-container .xo-btn__icon svg {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   color: #fff;
   fill: #fff;
   stroke: #fff;
@@ -5142,9 +5671,9 @@ xo-product-recommendations .xo-product-card__add-to-cart,
   width: 100%;
   min-width: 100%;
   max-width: 100%;
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  display: flex;
+  visibility: visible;
+  opacity: 1;
   height: auto;
   min-height: auto;
   max-height: none;
@@ -5191,9 +5720,9 @@ xo-product-recommendations .xo-product-card__add-to-cart button,
 .filters-content__item-wrapper .vastu-product-card__add-to-cart button,
 .filters-content__item-wrapper .vastu-product-card__add-to-cart xo-cart-add,
 .filters-content__item-wrapper .vastu-product-card__add-to-cart xo-modal-trigger {
-  width: 100% !important;
-  min-width: 100% !important;
-  max-width: 100% !important;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   background-color: rgb(var(--color-secondary-button, 71, 56, 85));
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
   border: none;
@@ -5205,9 +5734,9 @@ xo-product-recommendations .xo-product-card__add-to-cart button,
     background-color 0.3s ease,
     transform 0.2s ease,
     box-shadow 0.3s ease;
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  display: flex;
+  visibility: visible;
+  opacity: 1;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -5244,14 +5773,14 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn_
 .vastu-product-card__add-to-cart .xo-btn__text,
 .vastu-product-card__add-to-cart .xo-btn__content {
   position: relative;
-  transform: none !important;
-  translate: 0 0 !important;
-  transition: none !important;
+  transform: none;
+  translate: 0 0;
+  transition: none;
   display: inline-block;
   width: auto;
   max-width: 100%;
   height: auto;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -5266,8 +5795,8 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn_
 .vastu-product-card__add-to-cart .xo-btn__text:focus,
 .vastu-product-card__add-to-cart .xo-btn__content:active,
 .vastu-product-card__add-to-cart .xo-btn__content:focus {
-  transform: none !important;
-  translate: 0 0 !important;
+  transform: none;
+  translate: 0 0;
 }
 
 .section-collection-products .xo-product-card__add-to-cart .xo-btn:active .xo-btn__text,
@@ -5278,8 +5807,8 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart .xo-btn_
 .vastu-product-card__add-to-cart .xo-btn:active .xo-btn__content,
 .vastu-product-card__add-to-cart button:active .xo-btn__text,
 .vastu-product-card__add-to-cart button:active .xo-btn__content {
-  transform: none !important;
-  translate: 0 0 !important;
+  transform: none;
+  translate: 0 0;
 }
 
 .product-recommendations-section .xo-product-card__add-to-cart .xo-btn__text[data-text]::before,
@@ -5365,7 +5894,7 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
 .section-collection-products .xo-product-card__title a,
 .filters-content .xo-product-card__title,
 .filters-content .xo-product-card__title a {
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   display: -webkit-box;
@@ -5524,7 +6053,7 @@ section[id*="section-"] .xo-product-card__title a,
 .xo-section--product-recommendations .xo-product-card__title a,
 xo-product-recommendations .xo-product-card__title,
 xo-product-recommendations .xo-product-card__title a {
-  line-height: 1.1;
+  line-height: var(--global-body-line-height-desktop);
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   display: -webkit-box;
@@ -5689,11 +6218,11 @@ section[class*="product-recommendations"]
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 999;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   height: auto;
   width: auto;
   min-width: auto;
@@ -5714,11 +6243,11 @@ section[class*="product-recommendations"] .xo-product-card__price-overlay,
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 2;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .product-recommendations-section .xo-product-card__price-overlay .xo-price__item,
@@ -5809,14 +6338,14 @@ xo-product-recommendations .xo-product-card__information .xo-product-card__price
   section[class*="product-recommendations"] .xo-product-card__title a,
   .product-recommendations .xo-product-card__title,
   .product-recommendations .xo-product-card__title a {
-    font-size: 2rem;
-    line-height: 1.4;
+    font-size: var(--global-heading-font-size-desktop);
+    line-height: var(--global-heading-line-height-desktop);
   }
 
   .product-recommendations-section .xo-product-card__price-overlay,
   section[class*="product-recommendations"] .xo-product-card__price-overlay,
   .product-recommendations .xo-product-card__price-overlay {
-    font-size: 2rem;
+    font-size: var(--global-heading-font-size-desktop);
     padding: 0.6rem 0.9rem;
   }
 
@@ -5985,8 +6514,8 @@ xo-collapse-trigger.shipping-accordion__trigger,
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-size: var(--global-body-font-size-desktop);
+  font-weight: var(--global-body-font-weight-desktop);
   color: rgba(var(--color-foreground));
 }
 
@@ -6028,11 +6557,11 @@ section[class*="product-recommendations"] .xo-product-card__header .xo-product-c
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 5;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   height: auto;
   width: auto;
   min-width: auto;
@@ -6101,67 +6630,6 @@ section[class*="product-recommendations"]
 }
 
 /* ========================================
-   vastu-card-image-radius.css (1.7 KB)
-   ======================================== */
-
-/* ========================================
-   CARD AND IMAGE BORDER RADIUS
-   Add rounded top corners to all cards and images (not icons)
-   ======================================== */
-
-/* All product/collection/article/blog cards - top corners only */
-.xo-product-card,
-[class*="product-card"]:not([class*="icon"]),
-[class*="collection-card"]:not([class*="icon"]),
-[class*="article-card"]:not([class*="icon"]),
-[class*="blog"] [class*="card"]:not([class*="icon"]),
-[class*="blog"] [class*="item"]:not([class*="icon"]) {
-  border-top-left-radius: 0.75rem;
-  border-top-right-radius: 0.75rem;
-  overflow: hidden;
-}
-
-/* All card images - top corners only (exclude icons) */
-[class*="product-card"] [class*="image"]:not([class*="icon"]),
-[class*="collection-card"] [class*="image"]:not([class*="icon"]),
-[class*="article-card"] [class*="image"]:not([class*="icon"]),
-[class*="blog"] [class*="image"]:not([class*="icon"]),
-[class*="card"] [class*="image"]:not([class*="icon"]),
-[class*="card"] img:not([class*="icon"]),
-[class*="item"] [class*="image"]:not([class*="icon"]),
-[class*="item"] img:not([class*="icon"]) {
-  border-top-left-radius: 0.75rem;
-  border-top-right-radius: 0.75rem;
-}
-
-/* Images inside cards - top corners only */
-[class*="card"] img:not([class*="icon"], [class*="svg"]),
-[class*="item"] img:not([class*="icon"], [class*="svg"]),
-.xo-image:not([class*="icon"]) img {
-  border-top-left-radius: 0.75rem;
-  border-top-right-radius: 0.75rem;
-}
-
-/* Ensure images in card containers get border-radius */
-[class*="card"] [class*="image"] img,
-[class*="card"] [class*="media"] img,
-[class*="item"] [class*="image"] img,
-[class*="item"] [class*="media"] img {
-  border-top-left-radius: 0.75rem;
-  border-top-right-radius: 0.75rem;
-}
-
-/* ========================================
-   vastu-sections.css (0.2 KB)
-   ======================================== */
-
-/* ============================================
-   VASTU SECTIONS - REFERENCE FILE
-   This file is kept for reference only.
-   See CSS_CLEANUP_SUMMARY.md for file organization.
-   ============================================ */
-
-/* ========================================
    vastu-sections-spacing.css (1.3 KB)
    ======================================== */
 
@@ -6198,7 +6666,7 @@ main#xo-main-content section .section-separator__line {
 }
 
 /* ========================================
-   section-spacing.css (2.8 KB)
+   section-spacing.css (1.3 KB)
    ======================================== */
 
 /* ========================================
@@ -6208,61 +6676,19 @@ main#xo-main-content section .section-separator__line {
 
 /* This file is now integrated into vastu-global-spacing.css */
 
-/* Keeping this file for backward compatibility and section-level overrides */
-
-/* Global Section Spacing - Desktop */
-
-/* Dedicated class for section spacing - only sections with this class get spacing */
-.vastu-section-spacing {
-  padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 0));
-  padding-bottom: var(--section-padding-bottom-desktop, var(--global-section-padding-bottom-desktop, 0));
-  margin-top: var(--section-margin-top-desktop, var(--global-section-margin-top-desktop, 0));
-  margin-bottom: var(--section-margin-bottom-desktop, var(--global-section-margin-bottom-desktop, 0));
-}
-
-/* Section-level overrides (desktop) - sections can set CSS variables */
-.vastu-section-spacing[style*="--section-padding-top-desktop"] {
-  padding-top: var(--section-padding-top-desktop);
-}
-
-.vastu-section-spacing[style*="--section-padding-bottom-desktop"] {
-  padding-bottom: var(--section-padding-bottom-desktop);
-}
-
-.vastu-section-spacing[style*="--section-margin-top-desktop"] {
-  margin-top: var(--section-margin-top-desktop);
-}
-
-.vastu-section-spacing[style*="--section-margin-bottom-desktop"] {
-  margin-bottom: var(--section-margin-bottom-desktop);
-}
-
-/* Global Section Spacing - Mobile */
-@media (width <= 48rem) {
-  .vastu-section-spacing {
-    padding-top: var(--section-padding-top-mobile, var(--global-section-padding-top-mobile, 0));
-    padding-bottom: var(--section-padding-bottom-mobile, var(--global-section-padding-bottom-mobile, 0));
-    margin-top: var(--section-margin-top-mobile, var(--global-section-margin-top-mobile, 0));
-    margin-bottom: var(--section-margin-bottom-mobile, var(--global-section-margin-bottom-mobile, 0));
-  }
-
-  /* Section-level overrides (mobile) */
-  .vastu-section-spacing[style*="--section-padding-top-mobile"] {
-    padding-top: var(--section-padding-top-mobile);
-  }
-
-  .vastu-section-spacing[style*="--section-padding-bottom-mobile"] {
-    padding-bottom: var(--section-padding-bottom-mobile);
-  }
-
-  .vastu-section-spacing[style*="--section-margin-top-mobile"] {
-    margin-top: var(--section-margin-top-mobile);
-  }
-
-  .vastu-section-spacing[style*="--section-margin-bottom-mobile"] {
-    margin-bottom: var(--section-margin-bottom-mobile);
-  }
-}
+/* REMOVED: Redundant attribute selector rules that were causing conflicts
+   The base rule in vastu-global-spacing.css already handles section-level overrides
+   with proper fallbacks. When sections set CSS variables in inline styles,
+   the base rule automatically uses them via CSS variable fallback chain.
+   
+   The previous attribute selector rules were:
+   - Overriding the base rule unnecessarily
+   - Missing fallbacks
+   - Causing issues when values were set to 0
+   
+   Now: Sections can set CSS variables in inline styles (e.g., --section-margin-bottom-desktop: 0px)
+   and the base rule in vastu-global-spacing.css will use them with proper fallbacks.
+*/
 
 /* Section-to-section spacing (for .section+.section selector) */
 
@@ -6281,7 +6707,7 @@ main#xo-main-content section .section-separator__line {
 */
 
 /* ========================================
-   vastu-global-spacing.css (12.3 KB)
+   vastu-global-spacing.css (13.2 KB)
    ======================================== */
 
 /* ========================================
@@ -6321,7 +6747,17 @@ main .xo-section {
 }
 
 /* Dedicated class for section spacing - only sections with this class get spacing */
+/* Uses section-specific variables with fallback to global variables */
 .vastu-section-spacing {
+  padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 0));
+  padding-bottom: var(--section-padding-bottom-desktop, var(--global-section-padding-bottom-desktop, 0));
+  margin-top: var(--section-margin-top-desktop, var(--global-section-margin-top-desktop, 0));
+  margin-bottom: var(--section-margin-bottom-desktop, var(--global-section-margin-bottom-desktop, 0));
+}
+
+/* Section-specific spacing overrides using parent class */
+/* Each section can have individual spacing via CSS variables scoped to its parent class */
+[class*="vastu-section--"] {
   padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 0));
   padding-bottom: var(--section-padding-bottom-desktop, var(--global-section-padding-bottom-desktop, 0));
   margin-top: var(--section-margin-top-desktop, var(--global-section-margin-top-desktop, 0));
@@ -6384,20 +6820,13 @@ div[style*="background-color: rgb(71, 56, 85)"] {
     margin-top: var(--section-margin-top-mobile, var(--global-section-margin-top-mobile, 0));
     margin-bottom: var(--section-margin-bottom-mobile, var(--global-section-margin-bottom-mobile, 0));
   }
-}
 
-/* Remove top spacing for homepage carousel section */
-.xo-section--template--26072419696953__homepage-carousel.vastu-section-spacing,
-section.xo-section--template--26072419696953__homepage-carousel.vastu-section-spacing {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-@media (width <= 48rem) {
-  .xo-section--template--26072419696953__homepage-carousel.vastu-section-spacing,
-  section.xo-section--template--26072419696953__homepage-carousel.vastu-section-spacing {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+  /* Section-specific spacing overrides for mobile using parent class */
+  [class*="vastu-section--"] {
+    padding-top: var(--section-padding-top-mobile, var(--global-section-padding-top-mobile, 0));
+    padding-bottom: var(--section-padding-bottom-mobile, var(--global-section-padding-bottom-mobile, 0));
+    margin-top: var(--section-margin-top-mobile, var(--global-section-margin-top-mobile, 0));
+    margin-bottom: var(--section-margin-bottom-mobile, var(--global-section-margin-bottom-mobile, 0));
   }
 }
 
@@ -6484,10 +6913,18 @@ h6,
   .blog-v2__title,
   .faq-v3__title,
   .banner-v155__title,
-  .slideshow-v28__title,
-  footer h2,
-  footer h3 {
+  .slideshow-v28__title {
     margin-bottom: var(--section-heading-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px));
+  }
+
+  /* Footer H2 - Separate spacing */
+  footer h2 {
+    margin-bottom: var(--footer-h2-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px));
+  }
+
+  /* Footer H3 - Separate spacing */
+  footer h3 {
+    margin-bottom: var(--footer-h3-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 24px));
   }
 }
 
@@ -6709,7 +7146,7 @@ p {
    ======================================== */
 
 /* ========================================
-   vastu-product-page.css (29.7 KB)
+   vastu-product-page.css (29.3 KB)
    ======================================== */
 
 .product-variant-modal__modal-content {
@@ -6819,7 +7256,7 @@ xo-modal[xo-placement="center"]::before {
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   color: rgb(71 56 85);
   margin: 0 0 0.5rem;
-  line-height: 1.4;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .product-variant-modal__product-price {
@@ -7099,11 +7536,6 @@ xo-modal xo-cart-add .xo-btn--primary .xo-btn__content * {
   margin-bottom: var(--homepage-section-spacing, 4rem);
 }
 
-.vastu-product-showcase .xo-product-info-content {
-  position: relative;
-  top: 0;
-}
-
 .vastu-product-showcase .xo-product-info-media-style1,
 section.vastu-product-showcase .xo-product-info-media-style1,
 .vastu-product-showcase section .xo-product-info-media-style1 {
@@ -7139,26 +7571,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .vastu-product-showcase .xo-product-info-media-style1 {
     align-self: flex-start;
   }
-
-  .vastu-product-showcase__right {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: flex-start;
-  }
-
-  .vastu-product-showcase__content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: flex-start;
-  }
-}
-
-.vastu-product-showcase__content {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
 }
 
 .vastu-product-showcase__price {
@@ -7170,7 +7582,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 
 .vastu-product-showcase__description {
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-foreground));
   margin-bottom: 1rem;
 }
@@ -7196,10 +7608,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   transform: translateX(4px);
 }
 
-.vastu-product-showcase__read-more:active {
-  transform: translateX(2px);
-}
-
 .vastu-product-showcase__variants {
   margin: 1rem 0;
 }
@@ -7215,11 +7623,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   margin-top: 2rem;
 }
 
-.vastu-product-showcase__add-to-cart,
-.vastu-product-showcase__buy-now {
-  width: 100%;
-}
-
 .vastu-product-showcase__custom-text {
   margin: 1.5rem 0;
   padding: 1.5rem;
@@ -7232,21 +7635,17 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   font-weight: var(--font-weight-bold, 700);
   color: rgb(var(--color-foreground));
   margin: 0 0 1rem;
-  line-height: 1.2;
+  line-height: var(--global-heading-line-height-desktop);
 }
 
 .vastu-product-showcase__custom-content {
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-foreground));
 }
 
 .vastu-product-showcase__custom-content p {
   margin: 0 0 1rem;
-}
-
-.vastu-product-showcase__custom-content p:last-child {
-  margin-bottom: 0;
 }
 
 @media (width <= 767px) {
@@ -7274,10 +7673,24 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
   }
 
-  .footer-v18__heading,
+  /* Footer H2 - Separate from H3 */
   footer h2,
+  .footer-v18__heading {
+    font-size: var(
+      --footer-h2-font-size-desktop,
+      var(
+        --h2-font-size-desktop,
+        var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop))
+      )
+    );
+  }
+
+  /* Footer H3 - Separate from H2 */
   footer h3 {
-    font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
+    font-size: var(
+      --footer-h3-font-size-desktop,
+      var(--h3-font-size-desktop, calc(var(--h2-font-size-desktop, var(--global-card-title-font-size-desktop)) * 0.75))
+    );
   }
 }
 
@@ -7296,18 +7709,12 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   flex-direction: column;
 }
 
-.footer-modern__column--newsletter {
-  max-width: 100%;
-}
-
 .footer-modern__heading {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
   font-weight: var(--font-weight-bold, 700);
-
-  /* Removed text-transform: uppercase - use natural case */
   margin-bottom: 1.5rem;
   color: rgb(var(--color-text));
-  line-height: 1.3;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .footer-modern__list {
@@ -7319,15 +7726,11 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   gap: 0.75rem;
 }
 
-.footer-modern__list-item {
-  margin: 0;
-}
-
 .footer-modern__link {
   color: rgb(var(--color-text));
   text-decoration: none;
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
   transition:
     opacity 0.3s ease,
     color 0.3s ease;
@@ -7343,7 +7746,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 
 .footer-modern__newsletter-description {
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-text));
   opacity: 0.8;
   margin-bottom: 1.25rem;
@@ -7396,8 +7799,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     transform 0.2s ease;
   text-align: center;
   white-space: nowrap;
-
-  /* Removed text-transform: uppercase - use natural case */
 }
 
 .footer-modern__newsletter-button:hover {
@@ -7489,10 +7890,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   transition: opacity 0.3s ease;
 }
 
-.footer-modern__payment-image:hover {
-  opacity: 1;
-}
-
 .footer-modern__copyright {
   font-size: var(--global-description-font-size-desktop, 1.6rem);
   line-height: var(--global-description-line-height-desktop, 1.5);
@@ -7510,10 +7907,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   text-decoration: underline;
   opacity: 0.9;
   transition: opacity 0.3s ease;
-}
-
-.footer-modern__copyright a:hover {
-  opacity: 1;
 }
 
 .footer-modern .newsletter-form-message {
@@ -7547,8 +7940,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .footer-modern__heading {
     font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
     font-weight: var(--font-weight-bold, 700);
-
-    /* Removed text-transform: uppercase - use natural case */
     margin-bottom: 1.25rem;
   }
 
@@ -7570,8 +7961,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
     font-size: var(--button-font-size-mobile, var(--global-body-font-size-mobile));
     padding: var(--button-padding-v-mobile, 0.75rem) var(--button-padding-h-mobile, 1rem);
     line-height: var(--global-body-line-height-mobile, 1.5);
-
-    /* Removed text-transform: uppercase - use natural case */
   }
 
   .footer-modern__bottom {
@@ -7629,8 +8018,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   .footer-modern__heading {
     font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
     font-weight: var(--font-weight-bold, 700);
-
-    /* Removed text-transform: uppercase - use natural case */
   }
 
   .footer-modern__newsletter-input {
@@ -7705,8 +8092,6 @@ xo-cart-add.loading .xo-btn__loading {
   display: block;
 }
 
-/* Underline removed - no underline for shop by concern heading */
-
 .vastu-shop-by-concern__accordion {
   margin-top: 3rem;
   max-width: 900px;
@@ -7728,7 +8113,7 @@ section[class*="main-product"] .shipping-accordion,
 .main-product .shipping-content,
 .xo-product-info-content .shipping-content,
 section[class*="main-product"] .shipping-content {
-  display: none !important;
+  display: none;
 }
 
 /* Product description read more button */
@@ -7737,7 +8122,7 @@ section[class*="main-product"] .shipping-content {
 }
 
 .xo-product-info-content__description {
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-foreground));
 }
 
@@ -7757,8 +8142,8 @@ section[class*="main-product"] .shipping-content {
 .xo-product-info-content__description h5,
 .xo-product-info-content__description h6 {
   margin: 1.5rem 0 1rem;
-  font-weight: 600;
-  line-height: 1.3;
+  font-weight: var(--global-body-font-weight-desktop);
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-foreground));
 }
 
@@ -7803,7 +8188,7 @@ section[class*="main-product"] .shipping-content {
 
 .xo-product-info-content__description li {
   margin: 0.5rem 0;
-  line-height: 1.6;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .xo-product-info-content__description ul {
@@ -7826,7 +8211,7 @@ section[class*="main-product"] .shipping-content {
 
 .xo-product-info-content__description strong,
 .xo-product-info-content__description b {
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
 }
 
 .xo-product-info-content__description em,
@@ -7864,7 +8249,7 @@ section[class*="main-product"] .shipping-content {
 
 .xo-product-info-content__description table th {
   background-color: rgba(71 56 85 / 10%);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
 }
 
 .xo-product-info-content__description hr {
@@ -7878,7 +8263,7 @@ section[class*="main-product"] .shipping-content {
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
   font-family: monospace;
-  font-size: 0.9em;
+  font-size: var(--global-body-font-size-desktop);
 }
 
 .xo-product-info-content__description pre {
@@ -7909,7 +8294,7 @@ section[class*="main-product"] .shipping-content {
   margin-top: 0.5rem;
   color: rgb(71 56 85);
   font-size: inherit;
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   cursor: pointer;
   text-decoration: underline;
   transition: color 0.3s ease;
@@ -7926,8 +8311,8 @@ section[class*="main-product"] .shipping-content {
 
 /* Mini Description Styles */
 .xo-product-info-content__description--mini {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: var(--global-body-font-size-desktop);
+  line-height: var(--global-body-line-height-desktop);
   color: rgb(var(--color-foreground));
   opacity: 0.9;
 }
@@ -8381,47 +8766,6 @@ section[class*="main-product"] .shipping-accordion__view-full {
 }
 
 /* ========================================
-   price-tag-styles.css (2.1 KB)
-   ======================================== */
-
-/* Global Price Tag Styles - Configurable */
-.vastu-product-card__price,
-.vastu-product-card__image .vastu-product-card__price,
-section .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
-section[class*="vastu"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
-main section .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
-.xo-product-card__price-overlay,
-section[class*="product-recommendations"] .xo-product-card__price-overlay,
-.product-recommendations-section .xo-product-card__price-overlay,
-section[class*="vastu-best-seller"] .xo-product-card__price-overlay,
-section[class*="vastu-featured-products"] .xo-product-card__price-overlay,
-section[class*="vastu-shop-by-concern"] .xo-product-card__price-overlay {
-  background: rgba(var(--price-tag-background-color-rgb, 71, 56, 85), var(--price-tag-background-opacity, 0.9));
-  color: var(--price-tag-text-color, #fff);
-  padding: var(--price-tag-padding-top, 8px) var(--price-tag-padding-right, 12px) var(--price-tag-padding-bottom, 8px)
-    var(--price-tag-padding-left, 12px);
-  border-radius: var(--price-tag-border-radius, 8px);
-  font-size: var(--price-tag-font-size, 1.2rem);
-  font-weight: var(--price-tag-font-weight, 600);
-  box-shadow: 0 2px var(--price-tag-box-shadow-blur, 8px) rgb(0 0 0 / 15%);
-  backdrop-filter: var(--price-tag-backdrop-filter, blur(4px));
-}
-
-.vastu-product-card__image .vastu-product-card__price *,
-.vastu-product-card__image .vastu-product-card__price span,
-.vastu-product-card__image .vastu-product-card__price .xo-price__item,
-.vastu-product-card__image .vastu-product-card__price .xo-price__container,
-.vastu-product-card__image .vastu-product-card__price .xo-price,
-section .vastu-product-card .vastu-product-card__image .vastu-product-card__price *,
-section[class*="vastu"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price *,
-main section .vastu-product-card .vastu-product-card__image .vastu-product-card__price *,
-.xo-product-card__price-overlay *,
-.xo-product-card__price-overlay span,
-.xo-product-card__price-overlay .xo-price__item {
-  color: var(--price-tag-text-color, #fff);
-}
-
-/* ========================================
    vastu-buttons-hover.css (4.4 KB)
    ======================================== */
 
@@ -8733,7 +9077,7 @@ a.xo-btn--slide-up.xo-btn--light.xo-btn--secondary:hover {
 }
 
 /* ========================================
-   button-fixes.css (20.9 KB)
+   button-fixes.css (20.8 KB)
    ======================================== */
 
 /* General button margin fixes */
@@ -8755,7 +9099,7 @@ button.xo-btn[style*="border-radius: 0rem"],
 button.xo-btn[style*="border-radius:0rem"],
 button.xo-btn[style*="border-radius: 0"],
 button.xo-btn[style*="border-radius:0"] {
-  border-radius: 0.375rem !important;
+  border-radius: 0.375rem;
 }
 
 /* Banner Carousel Button Fixes - Configurable */
@@ -9598,7 +9942,7 @@ button.xo-btn--text-white.xo-btn:hover .xo-btn__text *,
 }
 
 /* ========================================
-   vastu-banner-hero.css (5.4 KB)
+   vastu-banner-hero.css (13.1 KB)
    ======================================== */
 
 .banner-v155 {
@@ -9621,20 +9965,20 @@ button.xo-btn--text-white.xo-btn:hover .xo-btn__text *,
 .banner-v155__item--left {
   --pr: 0.8rem;
   --prrps: 2rem;
+
+  display: flex;
+  align-items: center;
+  padding-right: 0;
 }
 
 .banner-v155__subtitle {
   font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop, 1.6rem));
   font-weight: 600;
-
-  /* Removed text-transform: uppercase - use natural case */
   letter-spacing: 0.125rem;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin-top: 0;
   opacity: 0.8;
   text-align: left;
-
-  /* Margin handled by vastu-global-spacing.css */
 }
 
 h2.banner-v155__title,
@@ -9647,14 +9991,9 @@ section[class*="banner-v3"] h2.banner-v155__title {
   position: relative;
   text-align: left;
   white-space: pre-line;
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop)); /* 3.5rem = 35px */
-
-  /* Removed text-transform: uppercase - use natural case */
-
-  /* Margin handled by vastu-global-spacing.css */
+  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop));
 }
 
-/* Buy Now button margin fix */
 .banner-v155__buy-now,
 .banner-v155 .xo-btn,
 .banner-v155 button {
@@ -9680,8 +10019,6 @@ section[class*="banner-v3"] h2.banner-v155__title {
   max-width: 90%;
   text-align: left;
   word-spacing: 0.05em;
-
-  /* Margin handled by vastu-global-spacing.css */
 }
 
 .banner-v155__description-intro {
@@ -9695,18 +10032,12 @@ section[class*="banner-v3"] h2.banner-v155__title {
   font-weight: 700;
   color: rgb(var(--color-foreground, 0, 0, 0));
   line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
-
-  /* Removed text-transform: uppercase - use natural case */
-
-  /* Margins handled by vastu-global-spacing.css */
 }
 
 .banner-v155__description-list {
   list-style: none;
   padding: 0;
   margin: 0;
-
-  /* Margin-top handled by vastu-global-spacing.css */
 }
 
 .banner-v155__description-list li {
@@ -9717,8 +10048,6 @@ section[class*="banner-v3"] h2.banner-v155__title {
   position: relative;
   display: flex;
   align-items: flex-start;
-
-  /* Margin-bottom handled by vastu-global-spacing.css */
 }
 
 .banner-v155__description-list li::before {
@@ -9743,18 +10072,15 @@ section[class*="banner-v3"] h2.banner-v155__title {
 }
 
 .vastu-hero__subtitle {
-  /* Margin-bottom handled by vastu-global-spacing.css */
   margin-top: 0;
 }
 
 .vastu-hero__title {
-  /* Margin-bottom handled by vastu-global-spacing.css */
   margin-top: 0;
   text-transform: uppercase;
 }
 
 .vastu-hero__description {
-  /* Margin-bottom handled by vastu-global-spacing.css */
   margin-top: 0;
 }
 
@@ -9816,138 +10142,11 @@ section[class*="banner-v3"] h2.banner-v155__title {
 }
 
 /* ========================================
-   vastu-banner-hero-extended.css (11.4 KB)
+   Extended Banner Styles
    ======================================== */
 
 .banner-v155__description p {
   margin-bottom: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
-}
-
-.banner-v155__description-heading {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem));
-  font-weight: 700;
-  color: rgb(var(--color-foreground, 0, 0, 0));
-
-  /* Margins handled by vastu-global-spacing.css */
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
-}
-
-.banner-v155__description-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  /* Margin-top handled by vastu-global-spacing.css */
-}
-
-.banner-v155__description-list li {
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
-  color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
-  padding-left: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
-  position: relative;
-
-  /* Margin-bottom handled by vastu-global-spacing.css */
-  display: flex;
-  align-items: flex-start;
-}
-
-.banner-v155__description-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
-  color: rgb(var(--color-secondary-button, 71, 56, 85));
-  font-weight: 700;
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
-  top: 0;
-}
-
-.banner-v155__content .button,
-.banner-v155__content .xo-btn,
-.banner-v155__content button {
-  margin-top: 0;
-}
-
-.vastu-hero__content {
-  padding-top: 0;
-}
-
-.vastu-hero__subtitle {
-  /* Margin-bottom handled by vastu-global-spacing.css */
-  margin-top: 0;
-}
-
-.vastu-hero__title {
-  /* Margin-bottom handled by vastu-global-spacing.css */
-  margin-top: 0;
-}
-
-.vastu-hero__description {
-  /* Margin-bottom handled by vastu-global-spacing.css */
-  margin-top: 0;
-}
-
-.vastu-hero__content .button,
-.vastu-hero__content .xo-btn,
-.vastu-hero__content button {
-  margin-top: 0;
-}
-
-.vastu-hindi-statement__subtext {
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
-.banner-v155__img {
-  position: relative;
-  display: block;
-  border-radius: 1.25rem;
-  overflow: hidden;
-  box-shadow: 0 0.625rem 2.5rem rgb(71 56 85 / 15%);
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
-  background: transparent;
-  padding: 0;
-  width: 100%;
-  border: none;
-  outline: none;
-}
-
-.banner-v155__img:hover {
-  transform: translateY(-0.5rem);
-  box-shadow: 0 1.25rem 3.75rem rgb(71 56 85 / 25%);
-}
-
-.banner-v155__img img,
-.banner-v155__img picture,
-.banner-v155__img picture img {
-  border-radius: 1.25rem;
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.4s ease;
-  object-fit: contain;
-  max-width: 100%;
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.banner-v155__img:hover img,
-.banner-v155__img:hover picture img {
-  transform: scale(1.05);
-}
-
-.banner-v155__item--left {
-  display: flex;
-  align-items: center;
-  padding-right: 0;
-
-  --pr: 0;
-  --prrps: 0;
 }
 
 .banner-v155__item--right {
@@ -10056,137 +10255,6 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   opacity: 1;
 }
 
-@media (width <= 48rem) {
-  .banner-v155__carousel-pagination,
-  section[class*="banner-v3"] .banner-v155__carousel-pagination,
-  section[class*="banner-v155"] .banner-v155__carousel-pagination {
-    bottom: -1.5rem;
-    margin-top: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
-  }
-}
-
-@media (width <= 48rem) {
-  .blog-v2__title,
-  section h2,
-  section h3,
-  .xo-section-heading__title {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
-  }
-
-  .banner-v155__description {
-    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
-    max-width: 100%;
-  }
-
-  .banner-v155__img {
-    padding: 0;
-    border-radius: 1rem;
-  }
-
-  .banner-v155__content {
-    padding: 0 0 var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
-    text-align: left;
-  }
-
-  .banner-v155__item--left {
-    padding-left: 0;
-    padding-right: 0;
-
-    --pl: 0;
-    --pr: 0;
-    --plrps: 0;
-    --prrps: 0;
-
-    order: 2;
-  }
-
-  .banner-v155__item--right {
-    order: 1;
-  }
-
-  .banner-v155__title::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.xo-product-info-variant .xo-field-radio__label,
-.xo-product-variant .xo-field-radio__label {
-  min-width: auto;
-  width: auto;
-  max-width: 100%;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px))
-    var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
-  display: inline-block;
-}
-
-.xo-product-info-variant .xo-field-radio,
-.xo-product-variant .xo-field-radio {
-  min-width: auto;
-  width: auto;
-  max-width: 100%;
-}
-
-.xo-product-info-variant__inner .xo-field-radio__label,
-.xo-product-variant__inner .xo-field-radio__label {
-  flex: 1 1 auto;
-  min-width: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.xo-product-info-variant__inner,
-.xo-product-variant__inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  align-items: flex-start;
-}
-
-.xo-product-info-variant__inner .xo-field-radio,
-.xo-product-variant__inner .xo-field-radio {
-  margin: 0;
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-}
-
-.xo-product-info-content__variants
-  xo-product-variant.xo-product-info-variant__inner
-  label.xo-field-radio--boxed
-  .xo-field-radio__label,
-.xo-product-info-content__variants
-  xo-product-variant.xo-product-info-variant__inner
-  label.xo-field-radio--boxed2
-  .xo-field-radio__label,
-.xo-product-info-content__variants
-  xo-product-variant.xo-product-info-variant__inner
-  label.xo-field-radio--boxed3
-  .xo-field-radio__label,
-.xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed .xo-field-radio__label,
-.xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed2 .xo-field-radio__label,
-.xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed3 .xo-field-radio__label {
-  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px))
-    var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
-  min-height: auto;
-  width: auto;
-  min-width: fit-content;
-}
-
-xo-collapse-trigger,
-xo-collapse-trigger.shipping-accordion__trigger,
-.shipping-accordion__trigger {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
 .shipping-accordion__question {
   display: flex;
   align-items: center;
@@ -10269,7 +10337,126 @@ xo-collapse-trigger.shipping-accordion__trigger,
   object-fit: contain;
 }
 
+.xo-product-info-variant .xo-field-radio__label,
+.xo-product-variant .xo-field-radio__label {
+  min-width: auto;
+  width: auto;
+  max-width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px))
+    var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+  display: inline-block;
+}
+
+.xo-product-info-variant .xo-field-radio,
+.xo-product-variant .xo-field-radio {
+  min-width: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.xo-product-info-variant__inner .xo-field-radio__label,
+.xo-product-variant__inner .xo-field-radio__label {
+  flex: 1 1 auto;
+  min-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.xo-product-info-variant__inner,
+.xo-product-variant__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.xo-product-info-variant__inner .xo-field-radio,
+.xo-product-variant__inner .xo-field-radio {
+  margin: 0;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.xo-product-info-content__variants
+  xo-product-variant.xo-product-info-variant__inner
+  label.xo-field-radio--boxed
+  .xo-field-radio__label,
+.xo-product-info-content__variants
+  xo-product-variant.xo-product-info-variant__inner
+  label.xo-field-radio--boxed2
+  .xo-field-radio__label,
+.xo-product-info-content__variants
+  xo-product-variant.xo-product-info-variant__inner
+  label.xo-field-radio--boxed3
+  .xo-field-radio__label,
+.xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed .xo-field-radio__label,
+.xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed2 .xo-field-radio__label,
+.xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed3 .xo-field-radio__label {
+  padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px))
+    var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+  min-height: auto;
+  width: auto;
+  min-width: fit-content;
+}
+
 @media (width <= 48rem) {
+  .banner-v155__carousel-pagination,
+  section[class*="banner-v3"] .banner-v155__carousel-pagination,
+  section[class*="banner-v155"] .banner-v155__carousel-pagination {
+    bottom: -1.5rem;
+    margin-top: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+  }
+
+  .blog-v2__title,
+  section h2,
+  section h3,
+  .xo-section-heading__title {
+    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
+  }
+
+  .banner-v155__description {
+    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
+    max-width: 100%;
+  }
+
+  .banner-v155__img {
+    padding: 0;
+    border-radius: 1rem;
+  }
+
+  .banner-v155__content {
+    padding: 0 0 var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
+    text-align: left;
+  }
+
+  .banner-v155__item--left {
+    padding-left: 0;
+    padding-right: 0;
+
+    --pl: 0;
+    --pr: 0;
+    --plrps: 0;
+    --prrps: 0;
+
+    order: 2;
+  }
+
+  .banner-v155__item--right {
+    order: 1;
+  }
+
+  .banner-v155__title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .trustbadge {
     padding: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
   }
@@ -10446,9 +10633,9 @@ xo-collapse-trigger.shipping-accordion__trigger,
 
   /* Mobile-specific smaller text - extra small size for mobile */
   .vastu-why-kit__text {
-    font-size: 0.9rem; /* 9px - very small for mobile */
-    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
-    line-height: 1.4;
+    font-size: var(--global-body-font-size-mobile);
+    font-weight: var(--global-body-font-weight-mobile);
+    line-height: var(--global-body-line-height-mobile);
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -10480,7 +10667,7 @@ xo-collapse-trigger.shipping-accordion__trigger,
 }
 
 /* ========================================
-   vastu-hindi-statement.css (1.2 KB)
+   vastu-hindi-statement.css (1.1 KB)
    ======================================== */
 
 .vastu-hindi-statement {
@@ -10493,14 +10680,6 @@ xo-collapse-trigger.shipping-accordion__trigger,
   padding-bottom: 0;
   margin: 0;
   min-height: auto;
-}
-
-.vastu-hindi-statement__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
 }
 
 .vastu-hindi-statement__text {
@@ -10537,45 +10716,45 @@ xo-collapse-trigger.shipping-accordion__trigger,
 }
 
 /* ========================================
-   vastu-topbar-promotion.css (8.1 KB)
+   vastu-topbar-promotion.css (8.2 KB)
    ======================================== */
 
-/* Menu Items - 13px */
+/* Menu Items */
 .header-v14__navigation-desktop a,
 .header-v14__navigation-desktop .menu-horizontal__item,
 .menu-horizontal__item a,
 nav a {
-  font-size: 1.3rem; /* 13px */
+  font-size: var(--global-body-font-size-desktop);
 }
 
 @media (width <= 48rem) {
   .header-v14__navigation-mobile a,
   .menu-hamburger-drawer-mobile__link {
-    font-size: 1.3rem; /* 13px */
+    font-size: var(--global-body-font-size-mobile);
   }
 }
 
 /* Topbar Close Button */
 .header-v6__topbar {
   position: relative;
-  background: #000 !important;
-  color: #fff !important;
-  display: block !important;
-  visibility: visible !important;
+  background: #000;
+  color: #fff;
+  display: block;
+  visibility: visible;
 }
 
 /* Override any media queries that hide the topbar */
 @media (width <= 1199px) {
   .header-v6__topbar {
-    display: block !important;
-    visibility: visible !important;
+    display: block;
+    visibility: visible;
   }
 }
 
 @media (width <= 48rem) {
   .header-v6__topbar {
-    display: block !important;
-    visibility: visible !important;
+    display: block;
+    visibility: visible;
   }
 }
 
@@ -10620,7 +10799,7 @@ nav a {
 
 /* Hide topbar when closed */
 .header-v6__topbar.topbar-closed {
-  display: none !important;
+  display: none;
 }
 
 /* Responsive: adjust close button position on mobile */
@@ -10689,12 +10868,12 @@ nav a {
 }
 
 .header-v6__promotion-name {
-  font-size: 1.35rem;
-  line-height: 1.5;
+  font-size: var(--global-body-font-size-desktop);
+  line-height: var(--global-body-line-height-desktop);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: 500;
+  font-weight: var(--global-body-font-weight-desktop);
   letter-spacing: 0.015em;
   position: relative;
   display: inline-block;
@@ -10709,7 +10888,7 @@ nav a {
 /* Active state - subtle emphasis */
 .header-v6__promotion-item.active .header-v6__promotion-name {
   color: #fff;
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
 }
 
 /* Hover effect */
@@ -10729,7 +10908,7 @@ nav a {
   }
 
   .header-v6__promotion-name {
-    font-size: 1.15rem;
+    font-size: var(--global-body-font-size-mobile);
     padding: calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 1.2)
       calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 2);
   }
@@ -10846,11 +11025,11 @@ nav a {
 .header-v6__contact-icon:hover svg {
   transform: scale(1.1);
   filter: drop-shadow(0 4px 8px rgb(255 255 255 / 50%));
-  color: #fff !important;
+  color: #fff;
 }
 
 .header-v6__contact-icon:hover svg path {
-  fill: #fff !important;
+  fill: #fff;
 }
 
 .header-v6__contact-icon--email:hover {
@@ -11087,9 +11266,9 @@ nav a {
 
   /* Mobile-specific text styling */
   .vastu-trust-bar__text {
-    font-size: 1rem;
-    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 600));
-    line-height: 1.4;
+    font-size: var(--global-body-font-size-mobile);
+    font-weight: var(--global-body-font-weight-mobile);
+    line-height: var(--global-body-line-height-mobile);
     margin-top: 0;
     text-align: left;
     overflow: hidden;
@@ -11104,9 +11283,9 @@ nav a {
   }
 
   .vastu-trust-bar__item-subtitle {
-    font-size: 0.875rem;
-    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
-    line-height: 1.5;
+    font-size: var(--global-body-font-size-mobile);
+    font-weight: var(--global-body-font-weight-mobile);
+    line-height: var(--global-body-line-height-mobile);
     margin-top: 0.25rem;
     text-align: left;
     overflow: hidden;
@@ -11121,7 +11300,7 @@ nav a {
 }
 
 /* ========================================
-   vastu-testimonials.css (13.1 KB)
+   vastu-testimonials.css (12.7 KB)
    ======================================== */
 
 section[class*="testimonial-v2"] .xo-section-bg,
@@ -11144,8 +11323,8 @@ section[class*="testimonial-v13"] > div,
 section[class*="testimonial-v13"] xo-container > div,
 section[class*="testimonial-v13"] xo-carousel-inner,
 section[class*="testimonial-v13"] xo-carousel-list {
-  background: #473855;
-  background-color: #473855;
+  background: transparent;
+  background-color: transparent;
   background-image: none;
 }
 
@@ -11153,14 +11332,12 @@ section[class*="testimonial-v2"],
 section[class*="testimonial-v13"] {
   background: #473855;
   background-color: #473855;
-  padding-top: 0;
-  padding-bottom: 0;
   margin: 0;
 }
 
 section[class*="testimonial-v2"] xo-container,
 section[class*="testimonial-v13"] xo-container {
-  padding: 2rem;
+  padding: 0.5rem;
   box-sizing: border-box;
 }
 
@@ -11253,14 +11430,14 @@ section[class*="testimonial-v13"] xo-container {
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   position: relative;
   z-index: 2;
 }
 
 .testimonial-v13__star {
-  font-size: 1.6rem;
-  line-height: 1;
+  font-size: var(--global-body-font-size-desktop);
+  line-height: var(--global-body-line-height-desktop);
   color: #ffd700;
   text-shadow: 0 1px 2px rgb(0 0 0 / 10%);
   transition: transform 0.2s ease;
@@ -11314,7 +11491,7 @@ section[class*="testimonial-v13"] xo-container {
   color: rgb(0 0 0 / 80%);
   font-style: italic;
   padding: 0 0.5rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.5rem;
   position: relative;
   flex-grow: 1;
   display: flex;
@@ -11366,12 +11543,6 @@ section[class*="testimonial-v13"] xo-container {
 }
 
 @media (width >= 75rem) {
-  section[class*="testimonial-v2"],
-  section[class*="testimonial-v13"] {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
-
   section[class*="testimonial-v2"] xo-container,
   section[class*="testimonial-v13"] xo-container {
     padding: 0;
@@ -11428,24 +11599,18 @@ section[class*="testimonial-v13"] xo-container {
   }
 
   .testimonial-v13__star {
-    font-size: 1.8rem;
+    font-size: var(--global-body-font-size-mobile);
   }
 
   .testimonial-v13__rating {
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.375rem;
   }
 }
 
 @media (width >= 62rem) and (width <= 74.9375rem) {
-  section[class*="testimonial-v2"],
-  section[class*="testimonial-v13"] {
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-
   section[class*="testimonial-v2"] xo-container,
   section[class*="testimonial-v13"] xo-container {
-    padding: 2.5rem 3rem;
+    padding: 0.75rem 1rem;
   }
 
   section[class*="testimonial-v2"] xo-carousel-list,
@@ -11473,20 +11638,14 @@ section[class*="testimonial-v13"] xo-container {
   }
 
   .testimonial-v13__star {
-    font-size: 1.7rem;
+    font-size: var(--global-body-font-size-desktop);
   }
 }
 
 @media (width <= 61.9375rem) and (width >= 48.0625rem) {
-  section[class*="testimonial-v2"],
-  section[class*="testimonial-v13"] {
-    padding-top: 56px;
-    padding-bottom: 56px;
-  }
-
   section[class*="testimonial-v2"] xo-container,
   section[class*="testimonial-v13"] xo-container {
-    padding: 2rem 2.5rem;
+    padding: 0.5rem 0.75rem;
   }
 
   section[class*="testimonial-v2"] xo-carousel-slide,
@@ -11496,16 +11655,10 @@ section[class*="testimonial-v13"] xo-container {
 }
 
 @media (width <= 48rem) {
-  section[class*="testimonial-v2"],
-  section[class*="testimonial-v13"] {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-
   section[class*="testimonial-v2"] xo-container,
   section[class*="testimonial-v13"] xo-container {
-    padding: 2rem 1.5rem;
-    border-radius: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0;
   }
 
   section[class*="testimonial-v2"] xo-carousel,
@@ -11548,11 +11701,11 @@ section[class*="testimonial-v13"] xo-container {
   }
 
   .testimonial-v13__star {
-    font-size: 1.4rem;
+    font-size: var(--global-body-font-size-mobile);
   }
 
   .testimonial-v13__rating {
-    margin-bottom: 0.875rem;
+    margin-bottom: 0.25rem;
   }
 
   .testimonial-v13__icon {
@@ -11578,7 +11731,7 @@ section[class*="testimonial-v13"] xo-container {
     font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.4rem));
     line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.6));
     font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
-    margin-bottom: 1rem;
+    margin-bottom: 0.375rem;
     padding: 0 0.25rem;
   }
 
@@ -11599,10 +11752,6 @@ section[class*="testimonial-v13"] xo-container {
   position: relative;
 }
 
-.banner-v155 > div {
-  position: relative;
-}
-
 .banner-v155__content {
   padding: 0 0 1.25rem;
   align-self: stretch;
@@ -11616,8 +11765,6 @@ section[class*="testimonial-v13"] xo-container {
   font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop, 1.6rem));
   font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 400));
   line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop, 1.4));
-
-  /* Removed text-transform: uppercase - use natural case */
   letter-spacing: 0.125rem;
   color: rgb(var(--color-secondary-button, 71, 56, 85));
   margin-bottom: 4.5rem;
@@ -11654,10 +11801,8 @@ section[class*="testimonial-v13"] xo-container {
 }
 
 /* ========================================
-   vastu-shop-by-concern.css (16.4 KB)
+   vastu-shop-by-concern.css (15.6 KB)
    ======================================== */
-
-/* Underline removed - no underline for shop by concern heading */
 
 .vastu-shop-by-concern__accordion {
   margin-top: 0;
@@ -11772,8 +11917,8 @@ section[class*="testimonial-v13"] xo-container {
 .vastu-shop-by-concern__trigger[aria-expanded="true"] .vastu-shop-by-concern__trigger-icon svg #path-2,
 .vastu-shop-by-concern__trigger[xo-active] .vastu-shop-by-concern__trigger-icon svg path:nth-of-type(2),
 .vastu-shop-by-concern__trigger[xo-active] .vastu-shop-by-concern__trigger-icon svg #path-2 {
-  opacity: 0 !important;
-  transform: scale(1, 0) !important;
+  opacity: 0;
+  transform: scale(1, 0);
   visibility: hidden;
 }
 
@@ -11790,7 +11935,6 @@ section[class*="testimonial-v13"] xo-container {
 }
 
 .vastu-shop-by-concern__card-description {
-  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   margin: 0 0 1.5rem;
   text-align: left;
@@ -11807,7 +11951,6 @@ section[class*="testimonial-v13"] xo-container {
 
 .vastu-shop-by-concern__benefits-title,
 .vastu-shop-by-concern__recommended-title {
-  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   margin: 0 0 1rem;
   padding-top: 1.5rem;
@@ -11844,7 +11987,6 @@ section[class*="testimonial-v13"] xo-container {
 
 .vastu-shop-by-concern__benefits-list li,
 .vastu-shop-by-concern__recommended-list li {
-  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   margin-bottom: 0.75rem;
   padding-left: 2rem;
@@ -11860,7 +12002,7 @@ section[class*="testimonial-v13"] xo-container {
   left: 0;
   color: #473855;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: var(--global-body-font-size-desktop);
 }
 
 .vastu-shop-by-concern__benefits-list li:last-child,
@@ -11877,8 +12019,6 @@ section[class*="testimonial-v13"] xo-container {
 
 .vastu-shop-by-concern__cta-link {
   display: inline-block;
-
-  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -11985,7 +12125,7 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1.2;
+  line-height: var(--global-heading-line-height-desktop);
   padding: 0 0.5rem;
 }
 
@@ -12027,9 +12167,9 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price,
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price-overlay {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
 /* Ensure price in content area is visible and properly styled */
@@ -12043,7 +12183,7 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   padding: 0;
   margin: 0.5rem 0 0;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   border-radius: 0;
   box-shadow: none;
   backdrop-filter: none;
@@ -12174,27 +12314,12 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   }
 
   .vastu-shop-by-concern__card-description {
-    /* Typography handled by vastu-global-typography.css */
     text-align: left;
-  }
-
-  .vastu-shop-by-concern__card-description p {
-    /* Typography handled by vastu-global-typography.css */
   }
 
   .vastu-shop-by-concern__benefits-title,
   .vastu-shop-by-concern__recommended-title {
-    /* Typography handled by vastu-global-typography.css */
     text-align: left;
-  }
-
-  .vastu-shop-by-concern__benefits-list li,
-  .vastu-shop-by-concern__recommended-list li {
-    /* Typography handled by vastu-global-typography.css */
-  }
-
-  .vastu-shop-by-concern__cta-link {
-    /* Typography handled by vastu-global-typography.css */
   }
 
   .vastu-shop-by-concern__benefits-list,
@@ -12204,7 +12329,6 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   }
 
   .vastu-shop-by-concern__product-title {
-    /* Typography handled by vastu-global-typography.css */
     min-height: auto;
     height: auto;
   }
@@ -12441,15 +12565,15 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
 /* Force zero margins for marquee section - override global spacing on both desktop and mobile */
 section.vastu-section-spacing:has(.marquee-v1__wrapper),
 section.xo-section:has(.marquee-v1__wrapper) {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media (width <= 48rem) {
   section.vastu-section-spacing:has(.marquee-v1__wrapper),
   section.xo-section:has(.marquee-v1__wrapper) {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -12579,7 +12703,7 @@ section.xo-section:has(.marquee-v1__wrapper) {
 }
 
 /* ========================================
-   vastu-carousel.css (9.3 KB)
+   vastu-carousel.css (13.0 KB)
    ======================================== */
 
 section[class*="vastu-best-seller"] xo-carousel,
@@ -12597,6 +12721,94 @@ section[class*="product-recommendations"] xo-carousel,
 section xo-carousel {
   position: relative;
   padding-bottom: 0;
+}
+
+/* Mobile: Show partial next item for product/collection carousels */
+@media (width <= 767px) {
+  /* Apply to product and collection carousels */
+  section[class*="vastu-grid-carousel"] xo-carousel,
+  section[class*="vastu-best-seller"] xo-carousel,
+  section[class*="vastu-featured-products"] xo-carousel,
+  section[class*="collection"] xo-carousel,
+  section[class*="product-recommendations"] xo-carousel {
+    overflow: visible;
+  }
+
+  section[class*="vastu-grid-carousel"] xo-carousel-inner,
+  section[class*="vastu-best-seller"] xo-carousel-inner,
+  section[class*="vastu-featured-products"] xo-carousel-inner,
+  section[class*="collection"] xo-carousel-inner,
+  section[class*="product-recommendations"] xo-carousel-inner {
+    overflow: visible;
+    padding-right: 1rem; /* Add padding to show partial next item */
+  }
+
+  section[class*="vastu-grid-carousel"] xo-carousel-list,
+  section[class*="vastu-best-seller"] xo-carousel-list,
+  section[class*="vastu-featured-products"] xo-carousel-list,
+  section[class*="collection"] xo-carousel-list,
+  section[class*="product-recommendations"] xo-carousel-list {
+    overflow: visible;
+  }
+
+  /* Show partial next item - make items slightly smaller than container */
+  section[class*="vastu-grid-carousel"] xo-carousel-slide,
+  section[class*="vastu-best-seller"] xo-carousel-slide,
+  section[class*="vastu-featured-products"] xo-carousel-slide,
+  section[class*="collection"] xo-carousel-slide,
+  section[class*="product-recommendations"] xo-carousel-slide {
+    flex: 0 0 calc(85% - 1rem) !important; /* Show 85% of current item, hint at next - increased gap */
+    max-width: calc(85% - 1rem) !important;
+    padding-right: 1rem; /* Gap between items - increased from 0.5rem */
+  }
+
+  /* Exception: Don't apply to single-item carousels */
+  section[class*="vastu-grid-carousel"] xo-carousel[xo-per-view="1"] xo-carousel-slide,
+  section[class*="vastu-best-seller"] xo-carousel[xo-per-view="1"] xo-carousel-slide,
+  section[class*="vastu-featured-products"] xo-carousel[xo-per-view="1"] xo-carousel-slide,
+  section[class*="collection"] xo-carousel[xo-per-view="1"] xo-carousel-slide,
+  section[class*="product-recommendations"] xo-carousel[xo-per-view="1"] xo-carousel-slide {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding-right: 0;
+  }
+}
+
+/* Desktop: Reset mobile partial view styles - ensure full width for desktop grids/carousels */
+@media (width >= 768px) {
+  /* Reset carousel slide flex and max-width for desktop */
+  section[class*="vastu-grid-carousel"] xo-carousel-slide,
+  section[class*="vastu-best-seller"] xo-carousel-slide,
+  section[class*="vastu-featured-products"] xo-carousel-slide,
+  section[class*="collection"] xo-carousel-slide,
+  section[class*="product-recommendations"] xo-carousel-slide {
+    flex: 0 0 auto !important;
+    max-width: none !important;
+    padding-left: 1rem !important; /* Increased gap between cards on desktop */
+    padding-right: 1rem !important; /* Increased gap between cards on desktop */
+  }
+
+  /* Reset carousel inner padding for desktop */
+  section[class*="vastu-grid-carousel"] xo-carousel-inner,
+  section[class*="vastu-best-seller"] xo-carousel-inner,
+  section[class*="vastu-featured-products"] xo-carousel-inner,
+  section[class*="collection"] xo-carousel-inner,
+  section[class*="product-recommendations"] xo-carousel-inner {
+    padding-right: 0 !important;
+  }
+
+  /* Ensure desktop grids use proper grid layout, not carousel partial view */
+  section[class*="vastu-grid-carousel"] xo-grid,
+  section[class*="vastu-grid-carousel"] .vastu-grid-carousel__grid {
+    display: grid !important;
+  }
+
+  section[class*="vastu-grid-carousel"] xo-grid > *,
+  section[class*="vastu-grid-carousel"] .vastu-grid-carousel__grid > * {
+    flex: none !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
 }
 
 .slideshow-v28__pagination,
@@ -12862,10 +13074,21 @@ section[class*="slideshow"] .xo-background-lazyload {
 }
 
 /* ========================================
-   vastu-grid-carousel.css (24.4 KB)
+   vastu-grid-carousel.css (29.4 KB)
    ======================================== */
 
 /* Vastu Grid Carousel Section Styles */
+
+/* Container Border Option - Add class "has-container-border" to grid/carousel containers */
+.vastu-grid-carousel__grid.has-container-border,
+.vastu-grid-carousel__mobile-grid.has-container-border,
+xo-grid.has-container-border,
+xo-carousel.has-container-border {
+  border: 1px solid rgba(71 56 85 / 12%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: rgba(255 255 255 / 50%);
+}
 
 /* Section Wrapper */
 .vastu-grid-carousel__wrapper {
@@ -12911,7 +13134,46 @@ section[class*="vastu-grid-carousel"] {
   overflow-x: hidden;
 }
 
+/* Mobile Carousel - Show partial next item */
 @media (width <= 767px) {
+  /* Mobile carousel container */
+  .vastu-grid-carousel__mobile-carousel {
+    overflow: visible;
+    width: 100%;
+    max-width: 100vw;
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .vastu-grid-carousel__mobile-carousel xo-carousel {
+    overflow: visible;
+  }
+
+  .vastu-grid-carousel__mobile-carousel xo-carousel-inner {
+    overflow: visible;
+    padding-right: 1rem; /* Add padding to show partial next item */
+  }
+
+  .vastu-grid-carousel__mobile-carousel xo-carousel-list {
+    overflow: visible;
+  }
+
+  /* Show partial next item - make items slightly smaller than container */
+  .vastu-grid-carousel__mobile-carousel xo-carousel-slide {
+    padding-right: 1rem; /* Gap between items - increased from 0.5rem */
+    flex: 0 0 calc(85% - 1rem); /* Show 85% of current item, hint at next */
+    max-width: calc(85% - 1rem);
+  }
+
+  /* Ensure cards fit within slides */
+  .vastu-grid-carousel__mobile-carousel .vastu-grid-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* Mobile Grid (fallback when carousel is disabled) */
   .vastu-grid-carousel__mobile-grid {
     overflow-x: hidden;
     width: 100%;
@@ -12925,7 +13187,7 @@ section[class*="vastu-grid-carousel"] {
   }
 
   .vastu-grid-carousel__mobile-grid .vastu-grid-carousel__grid {
-    --xo-grid-col-gap: 10px;
+    --xo-grid-col-gap: 20px; /* Increased from 10px */
 
     width: 100%;
     max-width: 100%;
@@ -12962,6 +13224,22 @@ section[class*="vastu-grid-carousel"] {
 @media (width >= 992px) {
   .vastu-grid-carousel__mobile-grid {
     display: none;
+  }
+
+  /* Ensure desktop grid items don't use mobile partial view styles */
+  .vastu-grid-carousel__grid .vastu-grid-carousel__grid-item,
+  xo-grid .vastu-grid-carousel__grid-item {
+    flex: none !important;
+    max-width: none !important;
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+
+  /* Reset any mobile carousel styles that might affect desktop grid */
+  .vastu-grid-carousel__grid xo-carousel-slide,
+  .vastu-grid-carousel__grid .vastu-grid-carousel__grid-item {
+    flex: none !important;
+    max-width: none !important;
   }
 }
 
@@ -13058,6 +13336,8 @@ section[class*="vastu-grid-carousel"] {
     padding-left: 2rem;
     padding-right: 2rem;
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     overflow: visible;
     height: auto;
     min-height: 0;
@@ -13065,12 +13345,15 @@ section[class*="vastu-grid-carousel"] {
   }
 
   .vastu-grid-carousel__desktop-carousel--fullwidth xo-carousel-slide {
-    padding-left: 0.625rem;
-    padding-right: 0.625rem;
+    padding-left: 1.25rem; /* Increased from 0.625rem */
+    padding-right: 1.25rem; /* Increased from 0.625rem */
     display: flex;
     height: auto;
     min-height: 0;
     align-items: stretch;
+    flex-shrink: 0;
+    flex-grow: 0;
+    min-width: 0;
   }
 }
 
@@ -13197,6 +13480,81 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   }
 }
 
+/* Reusable Carousel Controls - Pagination Positioning */
+
+/* Position: bottom (default) */
+.vastu-carousel-controls__pagination {
+  position: absolute;
+  z-index: 10;
+  display: var(--display-desktop, block);
+  width: auto;
+  pointer-events: auto;
+  bottom: var(--pagination-offset);
+  left: 50%;
+  transform: translateX(-50%);
+
+  --pagination-position: var(--pagination-position, bottom);
+  --pagination-offset: var(--pagination-offset, -2.5rem);
+}
+
+/* Position: top */
+.vastu-carousel-controls__pagination[data-position="top"] {
+  top: var(--pagination-offset);
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Position: left */
+.vastu-carousel-controls__pagination[data-position="left"] {
+  inset: 50% auto auto var(--pagination-offset);
+  transform: translateY(-50%);
+}
+
+/* Position: right */
+.vastu-carousel-controls__pagination[data-position="right"] {
+  inset: 50% var(--pagination-offset) auto auto;
+  transform: translateY(-50%);
+}
+
+/* Position: center */
+.vastu-carousel-controls__pagination[data-position="center"] {
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (width <= 991px) {
+  .vastu-carousel-controls__pagination {
+    display: var(--display-mobile, block);
+  }
+}
+
+/* Ensure pagination dots are always visible */
+.vastu-carousel-controls__pagination xo-carousel-pagination span,
+.vastu-carousel-controls__pagination .carousel-pagination-style3__pagination span {
+  display: inline-block !important;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: rgb(71 56 85 / 30%);
+  margin: 0 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.vastu-carousel-controls__pagination xo-carousel-pagination-bullet-active span,
+.vastu-carousel-controls__pagination xo-carousel-pagination span[aria-current="true"],
+.vastu-carousel-controls__pagination xo-carousel-pagination span.is-active,
+.vastu-carousel-controls__pagination xo-carousel-pagination span[class*="active"],
+.vastu-carousel-controls__pagination .carousel-pagination-style3__pagination span[aria-current="true"] {
+  background-color: rgb(71 56 85);
+  width: 0.75rem;
+  height: 0.75rem;
+  opacity: 1 !important;
+}
+
 /* Grid Card Styles (similar to vastu-product-card but with different class names) */
 .vastu-grid-card {
   display: flex;
@@ -13208,11 +13566,14 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   border-radius: 0;
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
+  border: 1px solid rgba(71 56 85 / 8%);
   overflow: hidden;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  box-shadow: var(--product-card-shadow-horizontal-offset, 0rem) var(--product-card-shadow-vertical-offset, 0.4rem)
+    var(--product-card-shadow-blur-radius, 1.2rem) rgba(0, 0, 0, var(--product-card-shadow-opacity, 0.08));
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   position: relative;
   box-sizing: border-box;
   min-width: 0;
@@ -13224,12 +13585,12 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   top: 0.75rem;
   left: 0.75rem;
   z-index: 30;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   pointer-events: auto;
   margin: 0;
   padding: 0;
@@ -13239,12 +13600,12 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   position: absolute;
   top: 0;
   left: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   pointer-events: auto;
   cursor: pointer;
   margin: 0;
@@ -13261,12 +13622,12 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   position: absolute;
   top: 0;
   left: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
@@ -13301,8 +13662,8 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 .vastu-grid-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg path,
 .vastu-grid-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg g path,
 .vastu-grid-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg * {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: #000;
   stroke: none;
   color: #000;
@@ -13333,8 +13694,8 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 .vastu-grid-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg path,
 .vastu-grid-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg g path,
 .vastu-grid-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg * {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: #fff;
   stroke: none;
   color: #fff;
@@ -13346,7 +13707,11 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 
 .vastu-grid-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+  border-color: rgba(71 56 85 / 15%);
+  box-shadow: var(--product-card-shadow-horizontal-offset, 0rem)
+    calc(var(--product-card-shadow-vertical-offset, 0.4rem) + 0.2rem)
+    calc(var(--product-card-shadow-blur-radius, 1.2rem) + 0.4rem)
+    rgba(0, 0, 0, calc(var(--product-card-shadow-opacity, 0.08) * 1.5));
 }
 
 .vastu-grid-card__link {
@@ -13397,11 +13762,11 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 2;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   white-space: nowrap;
   margin: 0;
   display: inline-block;
@@ -13416,27 +13781,27 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
 .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
 section .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
 section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price {
-  position: static !important;
-  inset: auto !important;
-  width: auto !important;
-  max-width: 100% !important;
-  min-width: auto !important;
-  background: transparent !important;
-  backdrop-filter: none !important;
-  box-shadow: none !important;
-  color: rgb(71 56 85) !important;
-  padding: 0 !important;
-  margin: 0.75rem 0 0 !important;
-  display: block !important;
-  flex: none !important;
-  border-radius: 0 !important;
-  z-index: auto !important;
-  white-space: normal !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-  font-size: var(--card-price-size, var(--global-card-price-font-size-desktop)) !important;
-  font-weight: var(--global-card-price-font-weight-desktop, 600) !important;
-  line-height: 1.4 !important;
+  position: static;
+  inset: auto;
+  width: auto;
+  max-width: 100%;
+  min-width: auto;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  color: rgb(71 56 85);
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: block;
+  flex: none;
+  border-radius: 0;
+  z-index: auto;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  font-size: var(--card-price-size, var(--global-card-price-font-size-desktop));
+  font-weight: var(--global-card-price-font-weight-desktop, 600);
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .vastu-grid-card__image .vastu-grid-card__price,
@@ -13604,7 +13969,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   padding: 0 0.5rem;
 }
 
@@ -13708,6 +14073,7 @@ xo-carousel:has(.vastu-grid-card) xo-carousel-list {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
+  flex-wrap: nowrap;
 }
 
 section:has(.vastu-grid-card) xo-carousel-slide,
@@ -13715,17 +14081,26 @@ section:has(.vastu-grid-card) xo-carousel-inner {
   overflow: visible;
 }
 
-/* Desktop: Ensure carousel list fits content height */
+/* Desktop: Ensure carousel list fits content height and displays in row */
 @media (width >= 992px) {
   section[class*="vastu-grid-carousel"]:has(.vastu-grid-card) .vastu-grid-carousel__desktop-carousel xo-carousel-list {
     height: auto;
     min-height: 0;
     align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
   }
 
   section[class*="vastu-grid-carousel"]:has(.vastu-grid-card) .vastu-grid-carousel__desktop-carousel xo-carousel-inner {
     height: auto;
     min-height: 0;
+  }
+
+  section[class*="vastu-grid-carousel"]:has(.vastu-grid-card) .vastu-grid-carousel__desktop-carousel xo-carousel-slide {
+    flex-shrink: 0;
+    flex-grow: 0;
+    min-width: 0;
   }
 }
 
@@ -13755,21 +14130,21 @@ section:has(.vastu-grid-card) xo-carousel-inner {
   .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
   section .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
   section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price {
-    position: static !important;
-    inset: auto !important;
-    width: auto !important;
-    max-width: 100% !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    box-shadow: none !important;
-    color: rgb(71 56 85) !important;
-    padding: 0 !important;
-    margin: 0.75rem 0 0 !important;
-    display: block !important;
-    border-radius: 0 !important;
-    z-index: auto !important;
-    white-space: normal !important;
-    overflow: visible !important;
+    position: static;
+    inset: auto;
+    width: auto;
+    max-width: 100%;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    color: rgb(71 56 85);
+    padding: 0;
+    margin: 0.75rem 0 0;
+    display: block;
+    border-radius: 0;
+    z-index: auto;
+    white-space: normal;
+    overflow: visible;
   }
 
   .vastu-grid-card__add-to-cart {
@@ -13818,7 +14193,7 @@ section:has(.vastu-grid-card) xo-carousel-inner {
 }
 
 /* ========================================
-   vastu-slideshow.css (7.2 KB)
+   vastu-slideshow.css (6.6 KB)
    ======================================== */
 
 .slideshow-v28__text--overlay .slideshow-v28__subtitle,
@@ -13879,17 +14254,6 @@ section:has(.vastu-grid-card) xo-carousel-inner {
     padding: 1.5rem;
   }
 
-  .vastu-featured-products__icon-svg svg {
-    max-width: 6.25rem;
-    max-height: 6.25rem;
-  }
-
-  .vastu-trust-bar__icon,
-  .vastu-trust-bar__icon-svg {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-
   .vastu-features-bar__icon,
   .vastu-features-bar__icon-svg {
     width: 18rem;
@@ -13921,14 +14285,6 @@ section:has(.vastu-grid-card) xo-carousel-inner {
   .product-recommendations-section xo-carousel,
   .product-recommendations xo-carousel {
     padding-bottom: 0;
-  }
-
-  .slideshow-v28__pagination,
-  .vastu-best-seller__pagination,
-  .vastu-featured-products__pagination,
-  .vastu-trust-bar__pagination {
-    bottom: -48px;
-    margin-top: 32px;
   }
 
   .vastu-features-bar__pagination,
@@ -13996,21 +14352,17 @@ section:has(.vastu-grid-card) xo-carousel-inner {
 
 section[class*="testimonial-v2"],
 section[class*="testimonial-v13"] {
-  padding-top: 80px;
-  padding-bottom: 80px;
   background: #473855;
   position: relative;
 }
 
 section[class*="testimonial-v2"] xo-container,
 section[class*="testimonial-v13"] xo-container {
-  background: #473855;
-  border-radius: 1rem;
-  border-top: 4px solid rgb(255 255 255 / 20%);
-  padding: 2.5rem 2rem;
-  box-shadow:
-    0 2px 12px rgb(0 0 0 / 20%),
-    0 1px 4px rgb(0 0 0 / 15%);
+  background: transparent;
+  border-radius: 0;
+  border-top: none;
+  padding: 0.5rem;
+  box-shadow: none;
   margin: 0 auto;
   position: relative;
 }
@@ -14043,17 +14395,16 @@ section[class*="testimonial-v13"] xo-carousel-slide {
   aspect-ratio: auto;
 }
 
-/* Testimonial item styles are handled by testimonial component */
-
 /* ========================================
-   vastu-footer.css (15.1 KB)
+   vastu-footer.css (14.1 KB)
    ======================================== */
 
 /* ========================================
-   FOOTER - Config-Driven Typography & Spacing
-   Uses ONLY config variables - NO hardcoded values
+   FOOTER - Global Typography Only
+   Uses ONLY global typography variables - NO hardcoded values
    ======================================== */
 
+/* Footer text - uses body text */
 footer,
 .footer-v18__description,
 .footer-v18__subtext,
@@ -14062,9 +14413,13 @@ footer,
 .footer-v18__copyright,
 .footer-v18__copyright-content,
 .footer-v18__copyright a,
-.footer-v18__copyright-content a {
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
+.footer-v18__copyright-content a,
+.footer-modern__link,
+.footer-modern__newsletter-description,
+.footer-modern__copyright {
+  font-size: var(--section-body-font-size-desktop, var(--global-body-font-size-desktop));
+  line-height: var(--section-body-line-height-desktop, var(--global-body-line-height-desktop));
+  font-weight: var(--section-body-font-weight-desktop, var(--global-body-font-weight-desktop));
 }
 
 @media (width <= 48rem) {
@@ -14076,32 +14431,86 @@ footer,
   .footer-v18__copyright,
   .footer-v18__copyright-content,
   .footer-v18__copyright a,
-  .footer-v18__copyright-content a {
-    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
-    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
+  .footer-v18__copyright-content a,
+  .footer-modern__link,
+  .footer-modern__newsletter-description,
+  .footer-modern__copyright {
+    font-size: var(--section-body-font-size-mobile, var(--global-body-font-size-mobile));
+    line-height: var(--section-body-line-height-mobile, var(--global-body-line-height-mobile));
+    font-weight: var(--section-body-font-weight-mobile, var(--global-body-font-weight-mobile));
   }
 }
 
-.footer-v18__heading,
+/* Footer H2 headings - separate from H3 */
 footer h2,
-footer h3 {
-  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop, 1.5rem));
-  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 600));
-  margin-bottom: var(--section-card-title-margin-bottom-desktop, var(--global-card-title-margin-bottom-desktop, 12px));
-  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
+.footer-v18__heading {
+  font-size: var(
+    --footer-h2-font-size-desktop,
+    var(--h2-font-size-desktop, var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop)))
+  );
+  font-weight: var(
+    --footer-h2-font-weight-desktop,
+    var(--h2-font-weight-desktop, var(--section-heading-font-weight-desktop, var(--global-heading-font-weight-desktop)))
+  );
+  line-height: var(
+    --footer-h2-line-height-desktop,
+    var(--h2-line-height-desktop, var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop)))
+  );
+  margin-bottom: var(--footer-h2-margin-bottom-desktop, var(--global-heading-margin-bottom-desktop, 48px));
 }
 
 @media (width <= 48rem) {
-  .footer-v18__heading,
   footer h2,
-  footer h3 {
-    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile, 1.3rem));
-    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 600));
-    margin-bottom: var(--section-card-title-margin-bottom-mobile, var(--global-card-title-margin-bottom-mobile, 12px));
-    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile, 1.3));
+  .footer-v18__heading {
+    font-size: var(
+      --footer-h2-font-size-mobile,
+      var(--h2-font-size-mobile, var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile)))
+    );
+    font-weight: var(
+      --footer-h2-font-weight-mobile,
+      var(--h2-font-weight-mobile, var(--section-heading-font-weight-mobile, var(--global-heading-font-weight-mobile)))
+    );
+    line-height: var(
+      --footer-h2-line-height-mobile,
+      var(--h2-line-height-mobile, var(--section-heading-line-height-mobile, var(--global-heading-line-height-mobile)))
+    );
+    margin-bottom: var(--footer-h2-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px));
   }
 }
 
+/* Footer H4 headings - properly sized for footer */
+footer h4,
+.footer-modern__heading {
+  font-size: var(--footer-h4-font-size-desktop, 2rem);
+  font-weight: var(
+    --footer-h4-font-weight-desktop,
+    var(--h4-font-weight-desktop, var(--global-heading-font-weight-desktop, 600))
+  );
+  line-height: var(
+    --footer-h4-line-height-desktop,
+    var(--h4-line-height-desktop, var(--global-heading-line-height-desktop, 1.4))
+  );
+  margin-bottom: var(--footer-h4-margin-bottom-desktop, 1.5rem);
+  font-family: var(--font-heading-family, var(--font-custom-family, inherit));
+}
+
+@media (width <= 48rem) {
+  footer h4,
+  .footer-modern__heading {
+    font-size: var(--footer-h4-font-size-mobile, 1.5rem);
+    font-weight: var(
+      --footer-h4-font-weight-mobile,
+      var(--h4-font-weight-mobile, var(--global-heading-font-weight-mobile, 600))
+    );
+    line-height: var(
+      --footer-h4-line-height-mobile,
+      var(--h4-line-height-mobile, var(--global-heading-line-height-mobile, 1.4))
+    );
+    margin-bottom: var(--footer-h4-margin-bottom-mobile, 1rem);
+  }
+}
+
+/* Footer links */
 .footer-v18__copyright a,
 .footer-v18__copyright-content a {
   color: rgb(var(--color-text, 255, 255, 255));
@@ -14126,14 +14535,15 @@ footer h3 {
   opacity: 1;
 }
 
+/* Footer spacing */
 .footer-modern {
-  padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 20px));
+  padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 60px));
   padding-bottom: var(--section-padding-bottom-desktop, var(--global-section-padding-bottom-desktop, 20px));
 }
 
 @media (width <= 48rem) {
   .footer-modern {
-    padding-top: var(--section-padding-top-mobile, var(--global-section-padding-top-mobile, 14px));
+    padding-top: var(--section-padding-top-mobile, var(--global-section-padding-top-mobile, 40px));
     padding-bottom: var(--section-padding-bottom-mobile, var(--global-section-padding-bottom-mobile, 14px));
   }
 }
@@ -14159,25 +14569,6 @@ footer h3 {
   max-width: 100%;
 }
 
-.footer-modern__heading {
-  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop, 1.5rem));
-  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 600));
-
-  /* Removed text-transform: uppercase - use natural case */
-  margin-bottom: var(--section-card-title-margin-bottom-desktop, var(--global-card-title-margin-bottom-desktop, 12px));
-  color: rgb(var(--color-text));
-  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
-}
-
-@media (width <= 48rem) {
-  .footer-modern__heading {
-    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile, 1.3rem));
-    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 600));
-    margin-bottom: var(--section-card-title-margin-bottom-mobile, var(--global-card-title-margin-bottom-mobile, 12px));
-    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile, 1.3));
-  }
-}
-
 .footer-modern__list {
   list-style: none;
   padding: 0;
@@ -14194,20 +14585,11 @@ footer h3 {
 .footer-modern__link {
   color: rgb(var(--color-text));
   text-decoration: none;
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   transition:
     opacity var(--transition-base),
     color var(--transition-base);
   display: inline-block;
   opacity: 0.85;
-}
-
-@media (width <= 48rem) {
-  .footer-modern__link {
-    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
-    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
-  }
 }
 
 .footer-modern__link:hover {
@@ -14217,8 +14599,6 @@ footer h3 {
 }
 
 .footer-modern__newsletter-description {
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   color: rgb(var(--color-text));
   opacity: 0.8;
   margin-bottom: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
@@ -14226,8 +14606,6 @@ footer h3 {
 
 @media (width <= 48rem) {
   .footer-modern__newsletter-description {
-    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
-    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
     margin-bottom: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
   }
 }
@@ -14243,8 +14621,8 @@ footer h3 {
   width: 100%;
   padding: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px))
     var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
-  font-size: var(--global-body-font-size-desktop, 1.6rem);
-  line-height: var(--global-body-line-height-desktop, 1.5);
+  font-size: var(--global-body-font-size-desktop);
+  line-height: var(--global-body-line-height-desktop);
   min-height: 5rem;
   border: 1px solid rgba(var(--color-border), 0.3);
   border-radius: 0.375rem;
@@ -14259,8 +14637,8 @@ footer h3 {
   .footer-modern__newsletter-input {
     padding: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px))
       var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
-    font-size: var(--global-body-font-size-mobile, 1.5rem);
-    line-height: var(--global-body-line-height-mobile, 1.5);
+    font-size: var(--global-body-font-size-mobile);
+    line-height: var(--global-body-line-height-mobile);
   }
 }
 
@@ -14406,8 +14784,8 @@ footer h3 {
   justify-content: center;
   padding: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px))
     var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
-  font-size: var(--section-tag-font-size-desktop, var(--global-tag-font-size-desktop, 1.25rem));
-  font-weight: var(--section-tag-font-weight-desktop, var(--global-tag-font-weight-desktop, 600));
+  font-size: var(--global-body-font-size-desktop);
+  font-weight: var(--global-body-font-weight-desktop);
   color: rgb(var(--color-text, 255, 255, 255));
   background-color: rgba(var(--color-text, 255, 255, 255), 0.1);
   border-radius: 0.375rem;
@@ -14422,8 +14800,8 @@ footer h3 {
 
 @media (width <= 48rem) {
   .footer-modern__payment-icon {
-    font-size: var(--section-tag-font-size-mobile, var(--global-tag-font-size-mobile, 1.1rem));
-    font-weight: var(--section-tag-font-weight-mobile, var(--global-tag-font-weight-mobile, 600));
+    font-size: var(--global-body-font-size-mobile);
+    font-weight: var(--global-body-font-weight-mobile);
   }
 }
 
@@ -14457,8 +14835,6 @@ footer h3 {
 }
 
 .footer-modern__copyright {
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   color: rgb(var(--color-text, 255, 255, 255));
   opacity: 0.8;
   display: flex;
@@ -14468,13 +14844,6 @@ footer h3 {
   justify-content: center;
   text-align: center;
   width: 100%;
-}
-
-@media (width <= 48rem) {
-  .footer-modern__copyright {
-    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
-    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
-  }
 }
 
 .footer-modern__copyright small {
@@ -14505,7 +14874,7 @@ footer h3 {
 }
 
 /* ========================================
-   vastu-help-address.css (4.3 KB)
+   vastu-help-address.css (4.1 KB)
    ======================================== */
 
 .vastu-help-address-v1__item {
@@ -14515,14 +14884,16 @@ footer h3 {
   justify-content: flex-start;
   text-align: center;
   padding: 2rem 1.5rem;
-  background: rgb(255 255 255 / 95%);
+  background: rgb(255 255 255);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  border: 1px solid rgba(71 56 85 / 10%);
+  box-shadow: 0 2px 8px rgba(0 0 0 / 6%);
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease,
     background-color 0.3s ease,
-    color 0.3s ease;
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -14531,9 +14902,10 @@ footer h3 {
 @media (width > 48rem) {
   .vastu-help-address-v1__item:hover {
     transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
     background: rgb(71 56 85);
     color: rgb(255 255 255);
+    border-color: rgba(71 56 85 / 20%);
+    box-shadow: 0 4px 16px rgba(0 0 0 / 12%);
   }
 
   .vastu-help-address-v1__item:hover .vastu-help-address-v1__text {
@@ -14581,7 +14953,6 @@ footer h3 {
 }
 
 .vastu-help-address-v1__text {
-  /* Typography handled by vastu-global-typography.css */
   color: rgb(71 56 85);
   margin: 0 0 1rem;
   text-align: center;
@@ -14589,7 +14960,6 @@ footer h3 {
 }
 
 .vastu-help-address-v1__description {
-  /* Typography handled by vastu-global-typography.css */
   color: rgb(71 56 85 / 80%);
   margin: 0;
   text-align: center;
@@ -14629,12 +14999,7 @@ footer h3 {
   }
 
   .vastu-help-address-v1__text {
-    /* Typography handled by vastu-global-typography.css */
     margin-bottom: 1rem;
-  }
-
-  .vastu-help-address-v1__description {
-    /* Typography handled by vastu-global-typography.css */
   }
 }
 
@@ -14703,7 +15068,6 @@ footer h3 {
 }
 
 .vastu-help-address-v2__section-title {
-  /* Typography handled by vastu-global-typography.css */
   text-align: center;
   margin: 0 0 3rem;
   position: relative;
@@ -14717,7 +15081,7 @@ footer h3 {
 }
 
 /* ========================================
-   vastu-blog.css (3.2 KB)
+   vastu-blog.css (3.1 KB)
    ======================================== */
 
 .xo-btn__text[data-text]::before,
@@ -14806,11 +15170,7 @@ button.xo-btn,
 
 /* Blog item title - 20px */
 .blog-v2__item-title {
-  font-size: var(
-    --section-card-title-font-size-desktop,
-    var(--global-card-title-font-size-desktop)
-  ) !important; /* 2rem = 20px */
-
+  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop)); /* 2rem = 20px */
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
   line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
   margin-top: var(
@@ -14823,8 +15183,8 @@ button.xo-btn,
   /* Allow 2 lines instead of 1 */
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2 !important;
-  line-clamp: 2 !important;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
   transition: color var(--transition-base, 0.3s ease);
@@ -14837,7 +15197,7 @@ button.xo-btn,
 
 /* Hide read more button */
 .blog-v2__button {
-  display: none !important;
+  display: none;
 }
 
 @media (width <= 48rem) {
@@ -14845,16 +15205,16 @@ button.xo-btn,
     font-size: var(
       --section-card-title-font-size-mobile,
       var(--global-card-title-font-size-mobile)
-    ) !important; /* 1.8rem = 18px */
+    ); /* 1.8rem = 18px */
 
     /* Allow 2 lines on mobile as well */
-    -webkit-line-clamp: 2 !important;
-    line-clamp: 2 !important;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }
 
 /* ========================================
-   vastu-faq.css (4.1 KB)
+   vastu-faq.css (3.6 KB)
    ======================================== */
 
 /* Remove margin from FAQ heading wrapper - ensure it overrides all other rules */
@@ -14862,14 +15222,8 @@ button.xo-btn,
 .faq-content-wrapper .faq-v3__heading,
 section .faq-v3__heading,
 .faq-section-wrapper .faq-v3__heading {
-  margin-bottom: 0 !important;
-  margin-top: 0 !important;
-}
-
-/* Remove margin-bottom from FAQ title heading */
-.homepage-section-heading.faq-v3__title,
-.faq-v3__title.homepage-section-heading {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .vastu-faq__item {
@@ -14881,14 +15235,13 @@ section .faq-v3__heading,
   margin-bottom: 1rem;
 }
 
-/* FAQ Accordion Question (Heading) - Typography handled by vastu-global-typography.css */
 .faq-v3__question {
   color: rgb(var(--color-foreground, 0, 0, 0));
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop)); /* 2rem = 20px */
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
   line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
   margin: 0;
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   padding: 1rem 1.5rem;
 }
 
@@ -14917,7 +15270,6 @@ xo-collapse[xo-active] {
   padding: 0 1.5rem 1.5rem;
 }
 
-/* FAQ Accordion Answer (Content) - Typography handled by vastu-global-typography.css */
 .faq-v3__answer {
   color: rgb(var(--color-foreground, 0, 0, 0));
   font-size: var(
@@ -14998,16 +15350,6 @@ xo-collapse[xo-active] {
 .vastu-shop-by-concern__trigger:hover {
   background: rgb(186 170 200 / 90%);
 }
-
-.vastu-shop-by-concern__trigger-content {
-  flex: 1;
-  padding-right: 1.5rem;
-  text-align: left;
-  position: relative;
-  z-index: 1;
-}
-
-/* Typography handled by vastu-global-typography.css - removed duplicate rule */
 
 /* ========================================
    section-password.css (5.8 KB)
@@ -15921,7 +16263,7 @@ body {
   }
 
   .slideshow-v28__overlay-content {
-    align-items: flex-end !important;
+    align-items: flex-end;
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
@@ -15929,10 +16271,10 @@ body {
   /* Fix homepage carousel aspect ratio on mobile - make it flexible to show full image */
   section[class*="homepage-carousel"] xo-carousel-slide,
   section[class*="slideshow"] xo-carousel-slide {
-    aspect-ratio: auto !important;
-    min-height: 250px !important;
-    max-height: 350px !important;
-    height: auto !important;
+    aspect-ratio: auto;
+    min-height: 250px;
+    max-height: 350px;
+    height: auto;
   }
 
   /* Stretch image to fill space while keeping content visible */
@@ -15944,29 +16286,29 @@ body {
   section[class*="slideshow"] .slideshow-bg-image__item,
   section[class*="slideshow"] .slideshow-bg-image__url,
   section[class*="slideshow"] .xo-background-lazyload {
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
 
   /* Ensure the container can expand to show full image */
   section[class*="homepage-carousel"] xo-carousel-slide > div,
   section[class*="slideshow"] xo-carousel-slide > div {
-    min-height: 250px !important;
-    max-height: 350px !important;
-    height: 100% !important;
+    min-height: 250px;
+    max-height: 350px;
+    height: 100%;
   }
 
   /* Ensure overlay content is properly visible and positioned */
   section[class*="homepage-carousel"] .slideshow-v28__overlay-content,
   section[class*="slideshow"] .slideshow-v28__overlay-content {
-    min-height: 250px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    padding: 1.5rem !important;
-    position: relative !important;
-    z-index: 2 !important;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 2;
   }
 
   .slideshow-v28__text--overlay {
@@ -16045,10 +16387,24 @@ body {
     font-size: var(--section-body-font-size-mobile, var(--global-body-font-size-mobile, 1.5rem));
   }
 
-  .footer-v18__heading,
+  /* Footer H2 - Separate from H3 */
   footer h2,
+  .footer-v18__heading {
+    font-size: var(
+      --footer-h2-font-size-mobile,
+      var(
+        --h2-font-size-mobile,
+        var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem))
+      )
+    );
+  }
+
+  /* Footer H3 - Separate from H2 */
   footer h3 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
+    font-size: var(
+      --footer-h3-font-size-mobile,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem)) * 0.8))
+    );
   }
 
   xo-carousel:has(.vastu-best-seller__pagination),
@@ -16090,14 +16446,14 @@ body {
   .testimonial-v13__pagination {
     bottom: -2.5rem;
     margin-top: 1.5rem;
-    display: var(--display-mobile, flex) !important;
+    display: var(--display-mobile, flex);
     visibility: visible;
     opacity: 1;
   }
 
   .vastu-best-seller__pagination,
   .vastu-featured-products__pagination {
-    display: var(--display-mobile, flex) !important;
+    display: var(--display-mobile, flex);
     visibility: visible;
     opacity: 1;
   }
@@ -16109,11 +16465,11 @@ body {
   .vastu-best-seller__pagination .carousel-pagination-style3__pagination span,
   .vastu-featured-products__pagination .carousel-pagination-style3__pagination span,
   .testimonial-v13__pagination .carousel-pagination-style3__pagination span {
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 0.5rem !important;
-    height: 0.5rem !important;
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    width: 0.5rem;
+    height: 0.5rem;
   }
 
   .vastu-best-seller__pagination xo-carousel-pagination-bullet-active span,
@@ -16122,9 +16478,9 @@ body {
   .vastu-best-seller__pagination xo-carousel-pagination span[aria-current="true"],
   .vastu-featured-products__pagination xo-carousel-pagination span[aria-current="true"],
   .testimonial-v13__pagination xo-carousel-pagination span[aria-current="true"] {
-    width: 0.75rem !important;
-    height: 0.75rem !important;
-    opacity: 1 !important;
+    width: 0.75rem;
+    height: 0.75rem;
+    opacity: 1;
   }
 
   /* Blog carousel mobile fix - ensure carousel works properly on mobile */

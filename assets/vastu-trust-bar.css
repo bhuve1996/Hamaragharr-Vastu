@@ -181,9 +181,9 @@
 
   /* Mobile-specific text styling */
   .vastu-trust-bar__text {
-    font-size: 1rem;
-    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 600));
-    line-height: 1.4;
+    font-size: var(--global-body-font-size-mobile);
+    font-weight: var(--global-body-font-weight-mobile);
+    line-height: var(--global-body-line-height-mobile);
     margin-top: 0;
     text-align: left;
     overflow: hidden;
@@ -198,9 +198,9 @@
   }
 
   .vastu-trust-bar__item-subtitle {
-    font-size: 0.875rem;
-    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
-    line-height: 1.5;
+    font-size: var(--global-body-font-size-mobile);
+    font-weight: var(--global-body-font-weight-mobile);
+    line-height: var(--global-body-line-height-mobile);
     margin-top: 0.25rem;
     text-align: left;
     overflow: hidden;

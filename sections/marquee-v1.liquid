@@ -1,13 +1,4 @@
-{% liquid
-  assign margin_style = ''
-  if section.settings.section_margin_top_desktop == 0 and section.settings.section_margin_top_mobile == 0
-    assign margin_style = margin_style | append: 'margin-top: 0 !important; '
-  endif
-  if section.settings.section_margin_bottom_desktop == 0 and section.settings.section_margin_bottom_mobile == 0
-    assign margin_style = margin_style | append: 'margin-bottom: 0 !important; '
-  endif
-%}
-<div {% render 'section-attr' %}{% if margin_style != blank %} style="{{ margin_style }}"{% endif %}>
+<div {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   {% if section.settings.width == 'fullwidth' %}
     <div class="marquee-v1__wrapper" style="--marquee-bg-color: {{ section.settings.background_color }}; --marquee-text-color: {{ section.settings.text_color }}; --marquee-gap: {{ section.settings.gap }}px; --marquee-font-size: {{ section.settings.font_size }}rem; --marquee-font-weight: {{ section.settings.font_weight }}; background-color: {{ section.settings.background_color }} !important; padding-left: {{ section.settings.fullwidth_margin }}px; padding-right: {{ section.settings.fullwidth_margin }}px;">
@@ -197,11 +188,25 @@
     },
     {
       "type": "header",
-      "content": "Section Spacing"
+      "content": "Animation"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause Animation on Hover",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing (Overrides Global Settings)"
     },
     {
       "type": "paragraph",
-      "content": "Leave at 0 to use global settings. Set a value to override global spacing."
+      "content": "Set to 0 to use global settings. Leave at 0 to inherit from theme settings."
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
     },
     {
       "type": "range",
@@ -248,6 +253,10 @@
       "info": "Set to 0 to use global setting"
     },
     {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
       "type": "range",
       "id": "section_padding_top_mobile",
       "min": 0,
@@ -290,16 +299,6 @@
       "label": "Margin Bottom (Mobile)",
       "default": 0,
       "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "header",
-      "content": "Animation"
-    },
-    {
-      "type": "checkbox",
-      "id": "pause_on_hover",
-      "label": "Pause Animation on Hover",
-      "default": true
     }
   ],
   "blocks": [

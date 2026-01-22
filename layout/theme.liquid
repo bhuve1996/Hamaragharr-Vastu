@@ -112,9 +112,111 @@
     {{ content_for_header }}
     {% render 'settings-adapter' %}
 
-    {{ 'xo-webcomponents.min.css' | asset_url | stylesheet_tag }}
-    {{ 'main.min.css' | asset_url | stylesheet_tag }}
-    {{ 'vastu-combined.min.css' | asset_url | stylesheet_tag }}
+    {%- comment -%} Detect local development environment {%- endcomment -%}
+    {%- liquid
+      assign is_local = false
+      # Check for localhost/127.0.0.1 (direct local server)
+      if request.host contains 'localhost' or request.host contains '127.0.0.1' or request.host contains '0.0.0.0'
+        assign is_local = true
+      # Check if on development store (shopify theme dev uses preview URLs)
+      elsif shop.permanent_domain contains 'aa4383-53.myshopify.com' or request.host contains 'aa4383-53'
+        assign is_local = true
+      # Check for preview parameter (shopify theme dev indicator)
+      elsif request.path contains '?preview_theme_id' or request.path contains '&preview_theme_id'
+        assign is_local = true
+      endif
+    -%}
+
+    {%- if is_local -%}
+      {%- comment -%} Local development: Load individual, non-minified files {%- endcomment -%}
+      {{ 'xo-webcomponents.min.css' | asset_url | stylesheet_tag }}
+      {{ 'main.min.css' | asset_url | stylesheet_tag }}
+      
+      {%- comment -%} Load individual Vastu CSS files instead of combined {%- endcomment -%}
+      {{ 'base.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-base.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-headings.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-global-typography.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-typography.css' | asset_url | stylesheet_tag }}
+      {{ 'homepage-headings.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-cards.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-collection-cards.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-product-card.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-product-card-fixes.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-sections-spacing.css' | asset_url | stylesheet_tag }}
+      {{ 'section-spacing.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-global-spacing.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-product-page.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-product-showcase.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-shipping-link.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-buttons-hover.css' | asset_url | stylesheet_tag }}
+      {{ 'button-hover-effects.css' | asset_url | stylesheet_tag }}
+      {{ 'button-fixes.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-popup-newsletter.css' | asset_url | stylesheet_tag }}
+      {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+      {{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
+      {{ 'newsletter-button-mobile.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-banner-hero.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-why-kit.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-hindi-statement.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-topbar-promotion.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-trust-bar.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-testimonials.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-shop-by-concern.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-features-bar.css' | asset_url | stylesheet_tag }}
+      {{ 'marquee-v1.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-carousel.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-grid-carousel.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-slideshow.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-footer.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-help-address.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-blog.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-faq.css' | asset_url | stylesheet_tag }}
+      {{ 'section-password.css' | asset_url | stylesheet_tag }}
+      {{ 'section-password-image-banner.css' | asset_url | stylesheet_tag }}
+      {{ 'template-giftcard.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-responsive.css' | asset_url | stylesheet_tag }}
+    {%- else -%}
+      {%- comment -%} Production: Load minified files {%- endcomment -%}
+      {{ 'xo-webcomponents.min.css' | asset_url | stylesheet_tag }}
+      {{ 'main.min.css' | asset_url | stylesheet_tag }}
+      {%- comment -%} Combined CSS removed - using individual files {%- endcomment -%}
+      {{ 'vastu-base.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-global-typography.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-global-spacing.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-headings.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-typography.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-buttons-hover.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-cards.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-product-card.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-product-page.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-product-showcase.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-collection-cards.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-popup-newsletter.css' | asset_url | stylesheet_tag }}
+      {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+      {{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
+      {{ 'newsletter-button-mobile.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-banner-hero.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-why-kit.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-hindi-statement.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-topbar-promotion.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-trust-bar.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-testimonials.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-shop-by-concern.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-features-bar.css' | asset_url | stylesheet_tag }}
+      {{ 'marquee-v1.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-carousel.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-grid-carousel.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-slideshow.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-footer.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-help-address.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-blog.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-faq.css' | asset_url | stylesheet_tag }}
+      {{ 'section-password.css' | asset_url | stylesheet_tag }}
+      {{ 'section-password-image-banner.css' | asset_url | stylesheet_tag }}
+      {{ 'template-giftcard.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-responsive.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
 
     {% render 'google-fonts-link' %}
 
@@ -141,9 +243,17 @@
       }
     </script>
 
-    <script src='{{ 'xo-webcomponents.min.js' | asset_url }}' defer></script>
-    <script src='{{ 'vendors.js' | asset_url }}' defer></script>
-    <script src='{{ 'main.js' | asset_url }}' defer></script>
+    {%- if is_local -%}
+      {%- comment -%} Local development: Load non-minified JS files {%- endcomment -%}
+      <script src='{{ 'xo-webcomponents.min.js' | asset_url }}' defer></script>
+      <script src='{{ 'vendors.js' | asset_url }}' defer></script>
+      <script src='{{ 'main.js' | asset_url }}' defer></script>
+    {%- else -%}
+      {%- comment -%} Production: Load minified JS files {%- endcomment -%}
+      <script src='{{ 'xo-webcomponents.min.js' | asset_url }}' defer></script>
+      <script src='{{ 'vendors.js' | asset_url }}' defer></script>
+      <script src='{{ 'main.js' | asset_url }}' defer></script>
+    {%- endif -%}
   </head>
 
   <body class='gradient'>

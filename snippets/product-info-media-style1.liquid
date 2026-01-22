@@ -120,25 +120,25 @@
                     {% if hover_zoom_enabled and click_zoom_enabled == false %}
                       <xo-image-zoom xo-zoom='3' xo-use-wheel='false' xo-zoom-src='{{ featured_media.src | image_url: width: 1200 }}'>
                         <div class='xo-product-info-media-style1__image'>
-                          {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_media %}
+                          {% render 'image', image: featured_media, media_aspect_ratio: media_aspect_ratio, eager: true %}
                         </div>
                       </xo-image-zoom>
                     {% elsif hover_zoom_enabled == false and click_zoom_enabled %}
                       <xo-gallery-item xo-src='{{ featured_media.src | image_url: width: 1200 }}'>
                         <div class='xo-product-info-media-style1__image'>
-                          {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_media %}
+                          {% render 'image', image: featured_media, media_aspect_ratio: media_aspect_ratio, eager: true %}
                         </div>
                       </xo-gallery-item>
                     {% elsif hover_zoom_enabled and click_zoom_enabled %}
                       <xo-image-zoom xo-zoom='3' xo-use-wheel='false' xo-zoom-src='{{ featured_media.src | image_url: width: 1200 }}'>
                         <xo-gallery-item xo-src='{{ featured_media.src | image_url: width: 1200 }}'>
                           <div class='xo-product-info-media-style1__image'>
-                            {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_media %}
+                            {% render 'image', image: featured_media, media_aspect_ratio: media_aspect_ratio, eager: true %}
                           </div>
                         </xo-gallery-item>
                       </xo-image-zoom>
                     {% elsif hover_zoom_enabled == false and click_zoom_enabled == false %}
-                      {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_media %}
+                      {% render 'image', image: featured_media, media_aspect_ratio: media_aspect_ratio, eager: true %}
                     {% endif %}
                   </xo-carousel-slide>
                 {% when 'model' %}
@@ -155,14 +155,13 @@
                         </span>
                         <div class='xb-product-model__poster-image' style='--media-aspect-ratio: {{ media_aspect_ratio }}'>
                           <img
-                            is='xo-lazyload'
-                            loading='lazy'
+                            loading='eager'
+                            fetchpriority='high'
                             width='{{ featured_media.preview_image.width }}'
                             height='{{ featured_media.preview_image.height }}'
                             src='{{ featured_media | image_url: width: featured_media.preview_image.width, height: featured_media.preview_image.height }}'
                             alt='{{ featured_media.preview_image.alt | escape | default: '3d-model' }}'
                           >
-                          <div class='xo-lazyload-overlay'></div>
                         </div>
                       </button>
                       <template>{% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'model', media: featured_media %}</template>

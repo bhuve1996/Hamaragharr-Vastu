@@ -5,61 +5,19 @@
 
 /* This file is now integrated into vastu-global-spacing.css */
 
-/* Keeping this file for backward compatibility and section-level overrides */
-
-/* Global Section Spacing - Desktop */
-
-/* Dedicated class for section spacing - only sections with this class get spacing */
-.vastu-section-spacing {
-  padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 0));
-  padding-bottom: var(--section-padding-bottom-desktop, var(--global-section-padding-bottom-desktop, 0));
-  margin-top: var(--section-margin-top-desktop, var(--global-section-margin-top-desktop, 0));
-  margin-bottom: var(--section-margin-bottom-desktop, var(--global-section-margin-bottom-desktop, 0));
-}
-
-/* Section-level overrides (desktop) - sections can set CSS variables */
-.vastu-section-spacing[style*="--section-padding-top-desktop"] {
-  padding-top: var(--section-padding-top-desktop);
-}
-
-.vastu-section-spacing[style*="--section-padding-bottom-desktop"] {
-  padding-bottom: var(--section-padding-bottom-desktop);
-}
-
-.vastu-section-spacing[style*="--section-margin-top-desktop"] {
-  margin-top: var(--section-margin-top-desktop);
-}
-
-.vastu-section-spacing[style*="--section-margin-bottom-desktop"] {
-  margin-bottom: var(--section-margin-bottom-desktop);
-}
-
-/* Global Section Spacing - Mobile */
-@media (width <= 48rem) {
-  .vastu-section-spacing {
-    padding-top: var(--section-padding-top-mobile, var(--global-section-padding-top-mobile, 0));
-    padding-bottom: var(--section-padding-bottom-mobile, var(--global-section-padding-bottom-mobile, 0));
-    margin-top: var(--section-margin-top-mobile, var(--global-section-margin-top-mobile, 0));
-    margin-bottom: var(--section-margin-bottom-mobile, var(--global-section-margin-bottom-mobile, 0));
-  }
-
-  /* Section-level overrides (mobile) */
-  .vastu-section-spacing[style*="--section-padding-top-mobile"] {
-    padding-top: var(--section-padding-top-mobile);
-  }
-
-  .vastu-section-spacing[style*="--section-padding-bottom-mobile"] {
-    padding-bottom: var(--section-padding-bottom-mobile);
-  }
-
-  .vastu-section-spacing[style*="--section-margin-top-mobile"] {
-    margin-top: var(--section-margin-top-mobile);
-  }
-
-  .vastu-section-spacing[style*="--section-margin-bottom-mobile"] {
-    margin-bottom: var(--section-margin-bottom-mobile);
-  }
-}
+/* REMOVED: Redundant attribute selector rules that were causing conflicts
+   The base rule in vastu-global-spacing.css already handles section-level overrides
+   with proper fallbacks. When sections set CSS variables in inline styles,
+   the base rule automatically uses them via CSS variable fallback chain.
+   
+   The previous attribute selector rules were:
+   - Overriding the base rule unnecessarily
+   - Missing fallbacks
+   - Causing issues when values were set to 0
+   
+   Now: Sections can set CSS variables in inline styles (e.g., --section-margin-bottom-desktop: 0px)
+   and the base rule in vastu-global-spacing.css will use them with proper fallbacks.
+*/
 
 /* Section-to-section spacing (for .section+.section selector) */
 

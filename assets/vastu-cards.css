@@ -17,7 +17,22 @@ section[class*="vastu-best-seller"] xo-container.xo-container--box {
   align-items: stretch;
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
+  border: 1px solid rgba(71 56 85 / 8%);
+  box-shadow: 0 2px 8px rgba(0 0 0 / 6%);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   overflow: hidden;
+}
+
+@media (width > 48rem) {
+  .vastu-best-seller-card:hover,
+  .vastu-featured-products__card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(71 56 85 / 15%);
+    box-shadow: 0 4px 16px rgba(0 0 0 / 12%);
+  }
 }
 
 .vastu-featured-products__grid > *,
@@ -187,9 +202,9 @@ h3.vastu-featured-products__title,
 .vastu-best-seller-card__content .vastu-best-seller-card__title,
 .vastu-featured-products__content .vastu-featured-products__title {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
-  font-weight: 450;
+  font-weight: var(--global-heading-font-weight-desktop);
   margin: 0 0 var(--global-body-margin-bottom-desktop, 0.75rem) 0;
-  line-height: 1.4;
+  line-height: var(--global-heading-line-height-desktop);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -252,7 +267,7 @@ h3.vastu-featured-products__title,
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   z-index: 2;
-  line-height: 1.2;
+  line-height: var(--global-heading-line-height-desktop);
 }
 
 .vastu-best-seller-card__actions-overlay,
@@ -297,7 +312,7 @@ h3.vastu-featured-products__title,
   max-height: 2.5rem;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
   flex-shrink: 0;
   flex-grow: 0;
   box-sizing: border-box;
@@ -334,7 +349,7 @@ h3.vastu-featured-products__title,
   color: rgb(var(--color-secondary-button));
   border-radius: var(--radius-full);
   cursor: pointer;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
   flex-shrink: 0;
   flex-grow: 0;
   box-sizing: border-box;
@@ -647,7 +662,7 @@ section[class*="vastu-featured-products"]
   white-space: nowrap;
   text-overflow: ellipsis;
   transform: none;
-  line-height: 1.2;
+  line-height: var(--global-heading-line-height-desktop);
   padding: 0 var(--global-body-margin-bottom-mobile, 0.5rem);
   box-sizing: border-box;
 }
@@ -709,7 +724,7 @@ section[class*="vastu-featured-products"]
   border: none;
   border-radius: var(--radius-md);
   white-space: nowrap;
-  line-height: 1.3;
+  line-height: var(--global-body-line-height-desktop);
   box-shadow: 0 2px 6px rgba(var(--color-purple), 0.3);
   transition:
     transform var(--transition-fast),

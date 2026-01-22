@@ -57,9 +57,9 @@
         {% assign description_text = product.description | strip_html %}
         {% assign truncate_words = section.settings.description_truncate_words | default: 50 %}
         {% assign truncated_description = description_text | truncatewords: truncate_words %}
-        <div class='vastu-product-showcase__description-text'>
+        <p class='vastu-product-showcase__description-text'>
           {{ truncated_description }}
-        </div>
+        </p>
         {% if description_text.size > truncated_description.size %}
           <a href='{{ product.url }}' class='vastu-product-showcase__read-more'>
             {{ section.settings.read_more_text | default: 'View in Detail →' }}

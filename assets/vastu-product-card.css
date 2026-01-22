@@ -7,11 +7,14 @@
   border-radius: 0;
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
+  border: 1px solid rgba(71 56 85 / 8%);
   overflow: visible;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  box-shadow: var(--product-card-shadow-horizontal-offset, 0) var(--product-card-shadow-vertical-offset, 0.4rem)
+    var(--product-card-shadow-blur-radius, 1.2rem) rgb(0 0 0 / var(--product-card-shadow-opacity, 0.08));
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   position: relative;
 }
 
@@ -21,12 +24,12 @@
   top: 0.75rem;
   left: 0.75rem;
   z-index: 30;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   pointer-events: auto;
   margin: 0;
   padding: 0;
@@ -36,12 +39,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   pointer-events: auto;
   cursor: pointer;
   margin: 0;
@@ -58,12 +61,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
@@ -100,8 +103,8 @@
 .vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg path,
 .vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg g path,
 .vastu-product-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg * {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: #000;
   stroke: none;
   color: #000;
@@ -111,7 +114,6 @@
   pointer-events: auto;
 }
 
-/* When wishlisted (parent has xo-added attribute) - show xo-removed tooltip with black background and white heart */
 .vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] {
   display: flex;
   visibility: visible;
@@ -132,8 +134,8 @@
 .vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg path,
 .vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg g path,
 .vastu-product-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg * {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: #fff;
   stroke: none;
   color: #fff;
@@ -145,7 +147,11 @@
 
 .vastu-product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+  border-color: rgba(71 56 85 / 15%);
+  box-shadow: var(--product-card-shadow-horizontal-offset, 0)
+    calc(var(--product-card-shadow-vertical-offset, 0.4rem) + 0.2rem)
+    calc(var(--product-card-shadow-blur-radius, 1.2rem) + 0.4rem)
+    rgb(0 0 0 / calc(var(--product-card-shadow-opacity, 0.08) * 1.5));
 }
 
 .vastu-product-card__link {
@@ -211,11 +217,11 @@ main section .vastu-product-card .vastu-product-card__image .vastu-product-card_
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 2;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   white-space: nowrap;
   margin: 0;
   display: inline-block;
@@ -262,7 +268,7 @@ main section .vastu-product-card .xo-product-card__price {
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 2;
   display: inline-block;
 }
@@ -276,10 +282,10 @@ main section .vastu-product-card .xo-product-card__price {
   padding: 0.375rem 0.75rem;
   border-radius: 0.25rem;
   font-size: var(--badge-font-size, 0.9rem);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   text-transform: uppercase;
   z-index: 2;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .vastu-product-card__actions-overlay {
@@ -362,7 +368,7 @@ main section .vastu-product-card .xo-product-card__price {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   margin: 0 0 0.75rem;
-  line-height: 1.4;
+  line-height: var(--global-body-line-height-desktop);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -490,19 +496,19 @@ main section .vastu-product-card .xo-product-card__price {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   padding: 0 0.5rem;
-  transform: none !important;
-  translate: 0 0 !important;
-  transition: none !important;
+  transform: none;
+  translate: 0 0;
+  transition: none;
 }
 
 .vastu-product-card__add-to-cart .xo-btn__text:active,
 .vastu-product-card__add-to-cart .xo-btn__text:focus,
 .vastu-product-card__add-to-cart .xo-btn__content:active,
 .vastu-product-card__add-to-cart .xo-btn__content:focus {
-  transform: none !important;
-  translate: 0 0 !important;
+  transform: none;
+  translate: 0 0;
 }
 
 .vastu-product-card__add-to-cart .xo-btn:active .xo-btn__text,
@@ -513,8 +519,8 @@ main section .vastu-product-card .xo-product-card__price {
 .vastu-product-card__add-to-cart button:active .xo-btn__content,
 .vastu-product-card__add-to-cart button:focus .xo-btn__text,
 .vastu-product-card__add-to-cart button:focus .xo-btn__content {
-  transform: none !important;
-  translate: 0 0 !important;
+  transform: none;
+  translate: 0 0;
 }
 
 .vastu-product-card__add-to-cart .xo-btn__text[data-text]::before,
@@ -681,32 +687,32 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card,
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price,
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price-overlay {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  position: static !important;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  position: static;
 }
 
 /* Ensure price in content area is visible and properly styled for shop by concern */
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__content .vastu-product-card__price {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  position: static !important;
-  background: transparent !important;
-  color: rgb(71 56 85) !important;
-  padding: 0 !important;
-  margin: 0.5rem 0 0 !important;
-  font-size: var(--global-card-price-font-size-desktop) !important;
-  font-weight: 600 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  white-space: normal !important;
-  width: auto !important;
-  max-width: 100% !important;
-  z-index: auto !important;
-  inset: auto !important;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  position: static;
+  background: transparent;
+  color: rgb(71 56 85);
+  padding: 0;
+  margin: 0.5rem 0 0;
+  font-size: var(--global-card-price-font-size-desktop);
+  font-weight: var(--global-body-font-weight-desktop);
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  white-space: normal;
+  width: auto;
+  max-width: 100%;
+  z-index: auto;
+  inset: auto;
 }
 
 section[class*="vastu-featured-products"] .vastu-product-card,
@@ -748,7 +754,7 @@ section[class*="featured-collection"] .vastu-product-card .vastu-product-card__p
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 2;
   display: inline-block;
   white-space: nowrap;
@@ -809,4 +815,90 @@ section[class*="featured-collection"] xo-carousel-list,
 section[class*="featured-collection"] xo-carousel,
 .featured-collection xo-carousel {
   padding-bottom: 0;
+}
+
+/* ========================================
+   Card Image Border Radius
+   ======================================== */
+
+/* All product/collection/article/blog cards - top corners only */
+.xo-product-card,
+[class*="product-card"]:not([class*="icon"]),
+[class*="collection-card"]:not([class*="icon"]),
+[class*="article-card"]:not([class*="icon"]),
+[class*="blog"] [class*="card"]:not([class*="icon"]),
+[class*="blog"] [class*="item"]:not([class*="icon"]) {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* All card images - top corners only (exclude icons) */
+[class*="product-card"] [class*="image"]:not([class*="icon"]),
+[class*="collection-card"] [class*="image"]:not([class*="icon"]),
+[class*="article-card"] [class*="image"]:not([class*="icon"]),
+[class*="blog"] [class*="image"]:not([class*="icon"]),
+[class*="card"] [class*="image"]:not([class*="icon"]),
+[class*="card"] img:not([class*="icon"]),
+[class*="item"] [class*="image"]:not([class*="icon"]),
+[class*="item"] img:not([class*="icon"]) {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* Images inside cards - top corners only */
+[class*="card"] img:not([class*="icon"], [class*="svg"]),
+[class*="item"] img:not([class*="icon"], [class*="svg"]),
+.xo-image:not([class*="icon"]) img {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* Ensure images in card containers get border-radius */
+[class*="card"] [class*="image"] img,
+[class*="card"] [class*="media"] img,
+[class*="item"] [class*="image"] img,
+[class*="item"] [class*="media"] img {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+/* ========================================
+   Price Tag Styles
+   ======================================== */
+
+.vastu-product-card__price,
+.vastu-product-card__image .vastu-product-card__price,
+section .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+section[class*="vastu"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+main section .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
+.xo-product-card__price-overlay,
+section[class*="product-recommendations"] .xo-product-card__price-overlay,
+.product-recommendations-section .xo-product-card__price-overlay,
+section[class*="vastu-best-seller"] .xo-product-card__price-overlay,
+section[class*="vastu-featured-products"] .xo-product-card__price-overlay,
+section[class*="vastu-shop-by-concern"] .xo-product-card__price-overlay {
+  background: rgba(var(--price-tag-background-color-rgb, 71, 56, 85), var(--price-tag-background-opacity, 0.9));
+  color: var(--price-tag-text-color, #fff);
+  padding: var(--price-tag-padding-top, 8px) var(--price-tag-padding-right, 12px) var(--price-tag-padding-bottom, 8px)
+    var(--price-tag-padding-left, 12px);
+  border-radius: var(--price-tag-border-radius, 8px);
+  font-size: var(--price-tag-font-size, 1.2rem);
+  font-weight: var(--price-tag-font-weight, 600);
+  box-shadow: 0 2px var(--price-tag-box-shadow-blur, 8px) rgb(0 0 0 / 15%);
+  backdrop-filter: var(--price-tag-backdrop-filter, blur(4px));
+}
+
+.vastu-product-card__image .vastu-product-card__price *,
+.vastu-product-card__image .vastu-product-card__price span,
+.vastu-product-card__image .vastu-product-card__price .xo-price__item,
+.vastu-product-card__image .vastu-product-card__price .xo-price__container,
+.vastu-product-card__image .vastu-product-card__price .xo-price,
+section .vastu-product-card .vastu-product-card__image .vastu-product-card__price *,
+section[class*="vastu"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price *,
+main section .vastu-product-card .vastu-product-card__image .vastu-product-card__price *,
+.xo-product-card__price-overlay *,
+.xo-product-card__price-overlay span,
+.xo-product-card__price-overlay .xo-price__item {
+  color: var(--price-tag-text-color, #fff);
 }

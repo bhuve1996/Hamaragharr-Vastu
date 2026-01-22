@@ -20,7 +20,7 @@
   }
 
   .slideshow-v28__overlay-content {
-    align-items: flex-end !important;
+    align-items: flex-end;
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
@@ -28,10 +28,10 @@
   /* Fix homepage carousel aspect ratio on mobile - make it flexible to show full image */
   section[class*="homepage-carousel"] xo-carousel-slide,
   section[class*="slideshow"] xo-carousel-slide {
-    aspect-ratio: auto !important;
-    min-height: 250px !important;
-    max-height: 350px !important;
-    height: auto !important;
+    aspect-ratio: auto;
+    min-height: 250px;
+    max-height: 350px;
+    height: auto;
   }
 
   /* Stretch image to fill space while keeping content visible */
@@ -43,29 +43,29 @@
   section[class*="slideshow"] .slideshow-bg-image__item,
   section[class*="slideshow"] .slideshow-bg-image__url,
   section[class*="slideshow"] .xo-background-lazyload {
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
 
   /* Ensure the container can expand to show full image */
   section[class*="homepage-carousel"] xo-carousel-slide > div,
   section[class*="slideshow"] xo-carousel-slide > div {
-    min-height: 250px !important;
-    max-height: 350px !important;
-    height: 100% !important;
+    min-height: 250px;
+    max-height: 350px;
+    height: 100%;
   }
 
   /* Ensure overlay content is properly visible and positioned */
   section[class*="homepage-carousel"] .slideshow-v28__overlay-content,
   section[class*="slideshow"] .slideshow-v28__overlay-content {
-    min-height: 250px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    padding: 1.5rem !important;
-    position: relative !important;
-    z-index: 2 !important;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 2;
   }
 
   .slideshow-v28__text--overlay {
@@ -144,10 +144,24 @@
     font-size: var(--section-body-font-size-mobile, var(--global-body-font-size-mobile, 1.5rem));
   }
 
-  .footer-v18__heading,
+  /* Footer H2 - Separate from H3 */
   footer h2,
+  .footer-v18__heading {
+    font-size: var(
+      --footer-h2-font-size-mobile,
+      var(
+        --h2-font-size-mobile,
+        var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem))
+      )
+    );
+  }
+
+  /* Footer H3 - Separate from H2 */
   footer h3 {
-    font-size: var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem));
+    font-size: var(
+      --footer-h3-font-size-mobile,
+      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem)) * 0.8))
+    );
   }
 
   xo-carousel:has(.vastu-best-seller__pagination),
@@ -189,14 +203,14 @@
   .testimonial-v13__pagination {
     bottom: -2.5rem;
     margin-top: 1.5rem;
-    display: var(--display-mobile, flex) !important;
+    display: var(--display-mobile, flex);
     visibility: visible;
     opacity: 1;
   }
 
   .vastu-best-seller__pagination,
   .vastu-featured-products__pagination {
-    display: var(--display-mobile, flex) !important;
+    display: var(--display-mobile, flex);
     visibility: visible;
     opacity: 1;
   }
@@ -208,11 +222,11 @@
   .vastu-best-seller__pagination .carousel-pagination-style3__pagination span,
   .vastu-featured-products__pagination .carousel-pagination-style3__pagination span,
   .testimonial-v13__pagination .carousel-pagination-style3__pagination span {
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 0.5rem !important;
-    height: 0.5rem !important;
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    width: 0.5rem;
+    height: 0.5rem;
   }
 
   .vastu-best-seller__pagination xo-carousel-pagination-bullet-active span,
@@ -221,9 +235,9 @@
   .vastu-best-seller__pagination xo-carousel-pagination span[aria-current="true"],
   .vastu-featured-products__pagination xo-carousel-pagination span[aria-current="true"],
   .testimonial-v13__pagination xo-carousel-pagination span[aria-current="true"] {
-    width: 0.75rem !important;
-    height: 0.75rem !important;
-    opacity: 1 !important;
+    width: 0.75rem;
+    height: 0.75rem;
+    opacity: 1;
   }
 
   /* Blog carousel mobile fix - ensure carousel works properly on mobile */

@@ -6,7 +6,8 @@
 {% endcomment %}
 
 {% liquid
-  assign class_name = 'xo-section xo-section--' | append: section.id | append: ' vastu-section-spacing'
+  assign section_id_class = 'vastu-section--' | append: section.id
+  assign class_name = 'xo-section xo-section--' | append: section.id | append: ' vastu-section-spacing ' | append: section_id_class
 
   if section.settings.background_color != blank
     assign background_color = '--bg-color: ' | append: section.settings.background_color | append: ';'
@@ -25,37 +26,92 @@
   endif
   
   comment
-    Section-level spacing overrides (desktop)
-    Only output if value is > 0 (0 means use global setting)
+    Section-level spacing overrides
+    Only output CSS variables when value is > 0 (non-zero values override global)
+    For 0 values: Only output if explicitly set in template JSON (we check template JSON presence)
+    This prevents schema defaults (0) from overriding global settings
+  endcomment
+  assign section_spacing_vars = ''
+  
+  comment
+    Output variables only when value > 0
+    For 0 values, they must be explicitly in template JSON to override global
+    Since schema defaults are 0, sections without explicit JSON settings won't output variables
   endcomment
   if section.settings.section_padding_top_desktop != null and section.settings.section_padding_top_desktop > 0
-    assign section_padding_top_desktop = '--section-padding-top-desktop: ' | append: section.settings.section_padding_top_desktop | append: 'px;'
+    assign section_spacing_vars = section_spacing_vars | append: ' --section-padding-top-desktop: ' | append: section.settings.section_padding_top_desktop | append: 'px;'
   endif
+  
   if section.settings.section_padding_bottom_desktop != null and section.settings.section_padding_bottom_desktop > 0
-    assign section_padding_bottom_desktop = '--section-padding-bottom-desktop: ' | append: section.settings.section_padding_bottom_desktop | append: 'px;'
+    assign section_spacing_vars = section_spacing_vars | append: ' --section-padding-bottom-desktop: ' | append: section.settings.section_padding_bottom_desktop | append: 'px;'
   endif
+  
   if section.settings.section_margin_top_desktop != null and section.settings.section_margin_top_desktop > 0
-    assign section_margin_top_desktop = '--section-margin-top-desktop: ' | append: section.settings.section_margin_top_desktop | append: 'px;'
+    assign section_spacing_vars = section_spacing_vars | append: ' --section-margin-top-desktop: ' | append: section.settings.section_margin_top_desktop | append: 'px;'
   endif
+  
   if section.settings.section_margin_bottom_desktop != null and section.settings.section_margin_bottom_desktop > 0
-    assign section_margin_bottom_desktop = '--section-margin-bottom-desktop: ' | append: section.settings.section_margin_bottom_desktop | append: 'px;'
+    assign section_spacing_vars = section_spacing_vars | append: ' --section-margin-bottom-desktop: ' | append: section.settings.section_margin_bottom_desktop | append: 'px;'
   endif
   
   comment
-    Section-level spacing overrides (mobile)
-    Only output if value is > 0 (0 means use global setting)
+    Mobile spacing overrides - same logic
   endcomment
   if section.settings.section_padding_top_mobile != null and section.settings.section_padding_top_mobile > 0
-    assign section_padding_top_mobile = '--section-padding-top-mobile: ' | append: section.settings.section_padding_top_mobile | append: 'px;'
+    assign section_spacing_vars = section_spacing_vars | append: ' --section-padding-top-mobile: ' | append: section.settings.section_padding_top_mobile | append: 'px;'
   endif
+  
   if section.settings.section_padding_bottom_mobile != null and section.settings.section_padding_bottom_mobile > 0
-    assign section_padding_bottom_mobile = '--section-padding-bottom-mobile: ' | append: section.settings.section_padding_bottom_mobile | append: 'px;'
+    assign section_spacing_vars = section_spacing_vars | append: ' --section-padding-bottom-mobile: ' | append: section.settings.section_padding_bottom_mobile | append: 'px;'
   endif
+  
   if section.settings.section_margin_top_mobile != null and section.settings.section_margin_top_mobile > 0
-    assign section_margin_top_mobile = '--section-margin-top-mobile: ' | append: section.settings.section_margin_top_mobile | append: 'px;'
+    assign section_spacing_vars = section_spacing_vars | append: ' --section-margin-top-mobile: ' | append: section.settings.section_margin_top_mobile | append: 'px;'
   endif
+  
   if section.settings.section_margin_bottom_mobile != null and section.settings.section_margin_bottom_mobile > 0
-    assign section_margin_bottom_mobile = '--section-margin-bottom-mobile: ' | append: section.settings.section_margin_bottom_mobile | append: 'px;'
+    assign section_spacing_vars = section_spacing_vars | append: ' --section-margin-bottom-mobile: ' | append: section.settings.section_margin_bottom_mobile | append: 'px;'
+  endif
+  
+  comment
+    Handle explicit 0 values for sections that need to override global with 0
+    Check if section has spacing settings explicitly set in template JSON
+    We detect this by checking if section.id matches known sections with explicit 0 values
+    OR we can use a different approach: check if a special flag exists
+    For now, only output 0 for sections explicitly configured in template JSON
+  endcomment
+  comment
+    For sections that need 0 spacing (homepage-carousel, homepage-marquee),
+    we'll handle them via a different mechanism or ensure they're in template JSON
+    Since they're already in template JSON with 0 values, we need to detect that
+    But Liquid can't directly check template JSON, so we use section ID matching
+  endcomment
+  assign sections_with_zero_spacing = 'homepage-carousel,homepage-marquee'
+  if sections_with_zero_spacing contains section.id or section.id contains 'homepage-carousel' or section.id contains 'homepage-marquee'
+    if section.settings.section_padding_top_desktop == 0
+      assign section_spacing_vars = section_spacing_vars | append: ' --section-padding-top-desktop: 0px;'
+    endif
+    if section.settings.section_padding_bottom_desktop == 0
+      assign section_spacing_vars = section_spacing_vars | append: ' --section-padding-bottom-desktop: 0px;'
+    endif
+    if section.settings.section_margin_top_desktop == 0
+      assign section_spacing_vars = section_spacing_vars | append: ' --section-margin-top-desktop: 0px;'
+    endif
+    if section.settings.section_margin_bottom_desktop == 0
+      assign section_spacing_vars = section_spacing_vars | append: ' --section-margin-bottom-desktop: 0px;'
+    endif
+    if section.settings.section_padding_top_mobile == 0
+      assign section_spacing_vars = section_spacing_vars | append: ' --section-padding-top-mobile: 0px;'
+    endif
+    if section.settings.section_padding_bottom_mobile == 0
+      assign section_spacing_vars = section_spacing_vars | append: ' --section-padding-bottom-mobile: 0px;'
+    endif
+    if section.settings.section_margin_top_mobile == 0
+      assign section_spacing_vars = section_spacing_vars | append: ' --section-margin-top-mobile: 0px;'
+    endif
+    if section.settings.section_margin_bottom_mobile == 0
+      assign section_spacing_vars = section_spacing_vars | append: ' --section-margin-bottom-mobile: 0px;'
+    endif
   endif
   
   unless style
@@ -69,12 +125,5 @@ class="{{ class_name -}}
 {{- background_margin -}}
 {{- padding_top -}}
 {{- padding_bottom -}}
-{{- section_padding_top_desktop -}}
-{{- section_padding_bottom_desktop -}}
-{{- section_margin_top_desktop -}}
-{{- section_margin_bottom_desktop -}}
-{{- section_padding_top_mobile -}}
-{{- section_padding_bottom_mobile -}}
-{{- section_margin_top_mobile -}}
-{{- section_margin_bottom_mobile }}
+{{- section_spacing_vars -}}
 {{- style }}"

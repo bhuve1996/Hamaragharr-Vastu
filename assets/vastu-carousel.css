@@ -15,6 +15,94 @@ section xo-carousel {
   padding-bottom: 0;
 }
 
+/* Mobile: Show partial next item for product/collection carousels */
+@media (width <= 767px) {
+  /* Apply to product and collection carousels */
+  section[class*="vastu-grid-carousel"] xo-carousel,
+  section[class*="vastu-best-seller"] xo-carousel,
+  section[class*="vastu-featured-products"] xo-carousel,
+  section[class*="collection"] xo-carousel,
+  section[class*="product-recommendations"] xo-carousel {
+    overflow: visible;
+  }
+
+  section[class*="vastu-grid-carousel"] xo-carousel-inner,
+  section[class*="vastu-best-seller"] xo-carousel-inner,
+  section[class*="vastu-featured-products"] xo-carousel-inner,
+  section[class*="collection"] xo-carousel-inner,
+  section[class*="product-recommendations"] xo-carousel-inner {
+    overflow: visible;
+    padding-right: 1rem; /* Add padding to show partial next item */
+  }
+
+  section[class*="vastu-grid-carousel"] xo-carousel-list,
+  section[class*="vastu-best-seller"] xo-carousel-list,
+  section[class*="vastu-featured-products"] xo-carousel-list,
+  section[class*="collection"] xo-carousel-list,
+  section[class*="product-recommendations"] xo-carousel-list {
+    overflow: visible;
+  }
+
+  /* Show partial next item - make items slightly smaller than container */
+  section[class*="vastu-grid-carousel"] xo-carousel-slide,
+  section[class*="vastu-best-seller"] xo-carousel-slide,
+  section[class*="vastu-featured-products"] xo-carousel-slide,
+  section[class*="collection"] xo-carousel-slide,
+  section[class*="product-recommendations"] xo-carousel-slide {
+    flex: 0 0 calc(85% - 1rem) !important; /* Show 85% of current item, hint at next - increased gap */
+    max-width: calc(85% - 1rem) !important;
+    padding-right: 1rem; /* Gap between items - increased from 0.5rem */
+  }
+
+  /* Exception: Don't apply to single-item carousels */
+  section[class*="vastu-grid-carousel"] xo-carousel[xo-per-view="1"] xo-carousel-slide,
+  section[class*="vastu-best-seller"] xo-carousel[xo-per-view="1"] xo-carousel-slide,
+  section[class*="vastu-featured-products"] xo-carousel[xo-per-view="1"] xo-carousel-slide,
+  section[class*="collection"] xo-carousel[xo-per-view="1"] xo-carousel-slide,
+  section[class*="product-recommendations"] xo-carousel[xo-per-view="1"] xo-carousel-slide {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding-right: 0;
+  }
+}
+
+/* Desktop: Reset mobile partial view styles - ensure full width for desktop grids/carousels */
+@media (width >= 768px) {
+  /* Reset carousel slide flex and max-width for desktop */
+  section[class*="vastu-grid-carousel"] xo-carousel-slide,
+  section[class*="vastu-best-seller"] xo-carousel-slide,
+  section[class*="vastu-featured-products"] xo-carousel-slide,
+  section[class*="collection"] xo-carousel-slide,
+  section[class*="product-recommendations"] xo-carousel-slide {
+    flex: 0 0 auto !important;
+    max-width: none !important;
+    padding-left: 1rem !important; /* Increased gap between cards on desktop */
+    padding-right: 1rem !important; /* Increased gap between cards on desktop */
+  }
+
+  /* Reset carousel inner padding for desktop */
+  section[class*="vastu-grid-carousel"] xo-carousel-inner,
+  section[class*="vastu-best-seller"] xo-carousel-inner,
+  section[class*="vastu-featured-products"] xo-carousel-inner,
+  section[class*="collection"] xo-carousel-inner,
+  section[class*="product-recommendations"] xo-carousel-inner {
+    padding-right: 0 !important;
+  }
+
+  /* Ensure desktop grids use proper grid layout, not carousel partial view */
+  section[class*="vastu-grid-carousel"] xo-grid,
+  section[class*="vastu-grid-carousel"] .vastu-grid-carousel__grid {
+    display: grid !important;
+  }
+
+  section[class*="vastu-grid-carousel"] xo-grid > *,
+  section[class*="vastu-grid-carousel"] .vastu-grid-carousel__grid > * {
+    flex: none !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+}
+
 .slideshow-v28__pagination,
 .vastu-trust-bar__pagination,
 .vastu-features-bar__pagination,

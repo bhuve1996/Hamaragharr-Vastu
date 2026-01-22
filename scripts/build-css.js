@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 /**
  * Build script to combine and minify CSS files
- * Combines all custom Vastu CSS files into vastu-combined.css and minifies it
+ * 
+ * NOTE: This script is deprecated. The theme now uses individual CSS files
+ * instead of a combined file. This script is kept for reference only.
+ * 
+ * To use individual files, no build step is required - all CSS files in assets/
+ * are loaded directly by theme.liquid.
  */
 
 const fs = require('fs');
@@ -23,10 +28,8 @@ const cssFiles = [
   'vastu-collection-cards.css',
   'vastu-product-card.css',
   'vastu-product-card-fixes.css',
-  'vastu-card-image-radius.css',
   
   // Sections and spacing
-  'vastu-sections.css',
   'vastu-sections-spacing.css',
   'section-spacing.css',
   'vastu-global-spacing.css',
@@ -35,7 +38,6 @@ const cssFiles = [
   'vastu-product-page.css',
   'vastu-product-showcase.css',
   'vastu-shipping-link.css',
-  'price-tag-styles.css',
   
   // Buttons
   'vastu-buttons-hover.css',
@@ -50,7 +52,6 @@ const cssFiles = [
   
   // Homepage sections
   'vastu-banner-hero.css',
-  'vastu-banner-hero-extended.css',
   'vastu-why-kit.css',
   'vastu-hindi-statement.css',
   'vastu-topbar-promotion.css',
@@ -94,6 +95,13 @@ let totalSize = 0;
 
 cssFiles.forEach((file, index) => {
   const filePath = path.join(assetsDir, file);
+  
+  // Skip temporary files with illegal characters (editor swap/backup files)
+  // Pattern: .!XXXX!filename.css (where XXXX is a number)
+  if (file.match(/^\.!\d+!/) || (file.includes('!') && file.startsWith('.'))) {
+    console.warn(`⚠️  Warning: ${file} appears to be a temporary file, skipping...`);
+    return;
+  }
   
   if (!fs.existsSync(filePath)) {
     console.warn(`⚠️  Warning: ${file} not found, skipping...`);

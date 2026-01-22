@@ -1,5 +1,16 @@
 /* Vastu Grid Carousel Section Styles */
 
+/* Container Border Option - Add class "has-container-border" to grid/carousel containers */
+.vastu-grid-carousel__grid.has-container-border,
+.vastu-grid-carousel__mobile-grid.has-container-border,
+xo-grid.has-container-border,
+xo-carousel.has-container-border {
+  border: 1px solid rgba(71 56 85 / 12%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: rgba(255 255 255 / 50%);
+}
+
 /* Section Wrapper */
 .vastu-grid-carousel__wrapper {
   width: 100%;
@@ -44,7 +55,46 @@ section[class*="vastu-grid-carousel"] {
   overflow-x: hidden;
 }
 
+/* Mobile Carousel - Show partial next item */
 @media (width <= 767px) {
+  /* Mobile carousel container */
+  .vastu-grid-carousel__mobile-carousel {
+    overflow: visible;
+    width: 100%;
+    max-width: 100vw;
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .vastu-grid-carousel__mobile-carousel xo-carousel {
+    overflow: visible;
+  }
+
+  .vastu-grid-carousel__mobile-carousel xo-carousel-inner {
+    overflow: visible;
+    padding-right: 1rem; /* Add padding to show partial next item */
+  }
+
+  .vastu-grid-carousel__mobile-carousel xo-carousel-list {
+    overflow: visible;
+  }
+
+  /* Show partial next item - make items slightly smaller than container */
+  .vastu-grid-carousel__mobile-carousel xo-carousel-slide {
+    padding-right: 1rem; /* Gap between items - increased from 0.5rem */
+    flex: 0 0 calc(85% - 1rem); /* Show 85% of current item, hint at next */
+    max-width: calc(85% - 1rem);
+  }
+
+  /* Ensure cards fit within slides */
+  .vastu-grid-carousel__mobile-carousel .vastu-grid-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* Mobile Grid (fallback when carousel is disabled) */
   .vastu-grid-carousel__mobile-grid {
     overflow-x: hidden;
     width: 100%;
@@ -58,7 +108,7 @@ section[class*="vastu-grid-carousel"] {
   }
 
   .vastu-grid-carousel__mobile-grid .vastu-grid-carousel__grid {
-    --xo-grid-col-gap: 10px;
+    --xo-grid-col-gap: 20px; /* Increased from 10px */
 
     width: 100%;
     max-width: 100%;
@@ -95,6 +145,22 @@ section[class*="vastu-grid-carousel"] {
 @media (width >= 992px) {
   .vastu-grid-carousel__mobile-grid {
     display: none;
+  }
+
+  /* Ensure desktop grid items don't use mobile partial view styles */
+  .vastu-grid-carousel__grid .vastu-grid-carousel__grid-item,
+  xo-grid .vastu-grid-carousel__grid-item {
+    flex: none !important;
+    max-width: none !important;
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+
+  /* Reset any mobile carousel styles that might affect desktop grid */
+  .vastu-grid-carousel__grid xo-carousel-slide,
+  .vastu-grid-carousel__grid .vastu-grid-carousel__grid-item {
+    flex: none !important;
+    max-width: none !important;
   }
 }
 
@@ -191,6 +257,7 @@ section[class*="vastu-grid-carousel"] {
     padding-left: 2rem;
     padding-right: 2rem;
     display: flex;
+    flex-flow: row nowrap;
     overflow: visible;
     height: auto;
     min-height: 0;
@@ -198,12 +265,15 @@ section[class*="vastu-grid-carousel"] {
   }
 
   .vastu-grid-carousel__desktop-carousel--fullwidth xo-carousel-slide {
-    padding-left: 0.625rem;
-    padding-right: 0.625rem;
+    padding-left: 1.25rem; /* Increased from 0.625rem */
+    padding-right: 1.25rem; /* Increased from 0.625rem */
     display: flex;
     height: auto;
     min-height: 0;
     align-items: stretch;
+    flex-shrink: 0;
+    flex-grow: 0;
+    min-width: 0;
   }
 }
 
@@ -330,6 +400,81 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   }
 }
 
+/* Reusable Carousel Controls - Pagination Positioning */
+
+/* Position: bottom (default) */
+.vastu-carousel-controls__pagination {
+  position: absolute;
+  z-index: 10;
+  display: var(--display-desktop, block);
+  width: auto;
+  pointer-events: auto;
+  bottom: var(--pagination-offset);
+  left: 50%;
+  transform: translateX(-50%);
+
+  --pagination-position: var(--pagination-position, bottom);
+  --pagination-offset: var(--pagination-offset, -2.5rem);
+}
+
+/* Position: top */
+.vastu-carousel-controls__pagination[data-position="top"] {
+  top: var(--pagination-offset);
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Position: left */
+.vastu-carousel-controls__pagination[data-position="left"] {
+  inset: 50% auto auto var(--pagination-offset);
+  transform: translateY(-50%);
+}
+
+/* Position: right */
+.vastu-carousel-controls__pagination[data-position="right"] {
+  inset: 50% var(--pagination-offset) auto auto;
+  transform: translateY(-50%);
+}
+
+/* Position: center */
+.vastu-carousel-controls__pagination[data-position="center"] {
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (width <= 991px) {
+  .vastu-carousel-controls__pagination {
+    display: var(--display-mobile, block);
+  }
+}
+
+/* Ensure pagination dots are always visible */
+.vastu-carousel-controls__pagination xo-carousel-pagination span,
+.vastu-carousel-controls__pagination .carousel-pagination-style3__pagination span {
+  display: inline-block !important;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: rgb(71 56 85 / 30%);
+  margin: 0 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.vastu-carousel-controls__pagination xo-carousel-pagination-bullet-active span,
+.vastu-carousel-controls__pagination xo-carousel-pagination span[aria-current="true"],
+.vastu-carousel-controls__pagination xo-carousel-pagination span.is-active,
+.vastu-carousel-controls__pagination xo-carousel-pagination span[class*="active"],
+.vastu-carousel-controls__pagination .carousel-pagination-style3__pagination span[aria-current="true"] {
+  background-color: rgb(71 56 85);
+  width: 0.75rem;
+  height: 0.75rem;
+  opacity: 1 !important;
+}
+
 /* Grid Card Styles (similar to vastu-product-card but with different class names) */
 .vastu-grid-card {
   display: flex;
@@ -341,11 +486,14 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   border-radius: 0;
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
+  border: 1px solid rgba(71 56 85 / 8%);
   overflow: hidden;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  box-shadow: var(--product-card-shadow-horizontal-offset, 0) var(--product-card-shadow-vertical-offset, 0.4rem)
+    var(--product-card-shadow-blur-radius, 1.2rem) rgb(0 0 0 / var(--product-card-shadow-opacity, 0.08));
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   position: relative;
   box-sizing: border-box;
   min-width: 0;
@@ -357,12 +505,12 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   top: 0.75rem;
   left: 0.75rem;
   z-index: 30;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   pointer-events: auto;
   margin: 0;
   padding: 0;
@@ -372,12 +520,12 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   position: absolute;
   top: 0;
   left: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   pointer-events: auto;
   cursor: pointer;
   margin: 0;
@@ -394,12 +542,12 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   position: absolute;
   top: 0;
   left: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  max-width: 3.5rem;
-  max-height: 3.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  max-width: 2.75rem;
+  max-height: 2.75rem;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
@@ -434,8 +582,8 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 .vastu-grid-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg path,
 .vastu-grid-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg g path,
 .vastu-grid-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg * {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: #000;
   stroke: none;
   color: #000;
@@ -466,8 +614,8 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 .vastu-grid-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg path,
 .vastu-grid-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg g path,
 .vastu-grid-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg * {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: #fff;
   stroke: none;
   color: #fff;
@@ -479,7 +627,11 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 
 .vastu-grid-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+  border-color: rgba(71 56 85 / 15%);
+  box-shadow: var(--product-card-shadow-horizontal-offset, 0)
+    calc(var(--product-card-shadow-vertical-offset, 0.4rem) + 0.2rem)
+    calc(var(--product-card-shadow-blur-radius, 1.2rem) + 0.4rem)
+    rgb(0 0 0 / calc(var(--product-card-shadow-opacity, 0.08) * 1.5));
 }
 
 .vastu-grid-card__link {
@@ -530,11 +682,11 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   z-index: 2;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   white-space: nowrap;
   margin: 0;
   display: inline-block;
@@ -549,27 +701,27 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
 .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
 section .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
 section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price {
-  position: static !important;
-  inset: auto !important;
-  width: auto !important;
-  max-width: 100% !important;
-  min-width: auto !important;
-  background: transparent !important;
-  backdrop-filter: none !important;
-  box-shadow: none !important;
-  color: rgb(71 56 85) !important;
-  padding: 0 !important;
-  margin: 0.75rem 0 0 !important;
-  display: block !important;
-  flex: none !important;
-  border-radius: 0 !important;
-  z-index: auto !important;
-  white-space: normal !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-  font-size: var(--card-price-size, var(--global-card-price-font-size-desktop)) !important;
-  font-weight: var(--global-card-price-font-weight-desktop, 600) !important;
-  line-height: 1.4 !important;
+  position: static;
+  inset: auto;
+  width: auto;
+  max-width: 100%;
+  min-width: auto;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  color: rgb(71 56 85);
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: block;
+  flex: none;
+  border-radius: 0;
+  z-index: auto;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  font-size: var(--card-price-size, var(--global-card-price-font-size-desktop));
+  font-weight: var(--global-card-price-font-weight-desktop, 600);
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .vastu-grid-card__image .vastu-grid-card__price,
@@ -737,7 +889,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
   padding: 0 0.5rem;
 }
 
@@ -841,6 +993,7 @@ xo-carousel:has(.vastu-grid-card) xo-carousel-list {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
+  flex-wrap: nowrap;
 }
 
 section:has(.vastu-grid-card) xo-carousel-slide,
@@ -848,17 +1001,25 @@ section:has(.vastu-grid-card) xo-carousel-inner {
   overflow: visible;
 }
 
-/* Desktop: Ensure carousel list fits content height */
+/* Desktop: Ensure carousel list fits content height and displays in row */
 @media (width >= 992px) {
   section[class*="vastu-grid-carousel"]:has(.vastu-grid-card) .vastu-grid-carousel__desktop-carousel xo-carousel-list {
     height: auto;
     min-height: 0;
     align-items: stretch;
+    display: flex;
+    flex-flow: row nowrap;
   }
 
   section[class*="vastu-grid-carousel"]:has(.vastu-grid-card) .vastu-grid-carousel__desktop-carousel xo-carousel-inner {
     height: auto;
     min-height: 0;
+  }
+
+  section[class*="vastu-grid-carousel"]:has(.vastu-grid-card) .vastu-grid-carousel__desktop-carousel xo-carousel-slide {
+    flex-shrink: 0;
+    flex-grow: 0;
+    min-width: 0;
   }
 }
 
@@ -888,21 +1049,21 @@ section:has(.vastu-grid-card) xo-carousel-inner {
   .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
   section .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
   section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price {
-    position: static !important;
-    inset: auto !important;
-    width: auto !important;
-    max-width: 100% !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    box-shadow: none !important;
-    color: rgb(71 56 85) !important;
-    padding: 0 !important;
-    margin: 0.75rem 0 0 !important;
-    display: block !important;
-    border-radius: 0 !important;
-    z-index: auto !important;
-    white-space: normal !important;
-    overflow: visible !important;
+    position: static;
+    inset: auto;
+    width: auto;
+    max-width: 100%;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    color: rgb(71 56 85);
+    padding: 0;
+    margin: 0.75rem 0 0;
+    display: block;
+    border-radius: 0;
+    z-index: auto;
+    white-space: normal;
+    overflow: visible;
   }
 
   .vastu-grid-card__add-to-cart {

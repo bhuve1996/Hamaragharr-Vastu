@@ -1,6 +1,45 @@
+{% liquid
+  comment
+    Section-level spacing overrides (desktop)
+    Output if value is set (including 0 to explicitly override global settings)
+  endcomment
+  assign section_spacing_style = ''
+  
+  if section.settings.section_padding_top_desktop != null
+    assign section_spacing_style = section_spacing_style | append: '--section-padding-top-desktop: ' | append: section.settings.section_padding_top_desktop | append: 'px; '
+  endif
+  if section.settings.section_padding_bottom_desktop != null
+    assign section_spacing_style = section_spacing_style | append: '--section-padding-bottom-desktop: ' | append: section.settings.section_padding_bottom_desktop | append: 'px; '
+  endif
+  if section.settings.section_margin_top_desktop != null
+    assign section_spacing_style = section_spacing_style | append: '--section-margin-top-desktop: ' | append: section.settings.section_margin_top_desktop | append: 'px; '
+  endif
+  if section.settings.section_margin_bottom_desktop != null
+    assign section_spacing_style = section_spacing_style | append: '--section-margin-bottom-desktop: ' | append: section.settings.section_margin_bottom_desktop | append: 'px; '
+  endif
+  
+  comment
+    Section-level spacing overrides (mobile)
+    Output if value is set (including 0 to explicitly override global settings)
+  endcomment
+  if section.settings.section_padding_top_mobile != null
+    assign section_spacing_style = section_spacing_style | append: '--section-padding-top-mobile: ' | append: section.settings.section_padding_top_mobile | append: 'px; '
+  endif
+  if section.settings.section_padding_bottom_mobile != null
+    assign section_spacing_style = section_spacing_style | append: '--section-padding-bottom-mobile: ' | append: section.settings.section_padding_bottom_mobile | append: 'px; '
+  endif
+  if section.settings.section_margin_top_mobile != null
+    assign section_spacing_style = section_spacing_style | append: '--section-margin-top-mobile: ' | append: section.settings.section_margin_top_mobile | append: 'px; '
+  endif
+  if section.settings.section_margin_bottom_mobile != null
+    assign section_spacing_style = section_spacing_style | append: '--section-margin-bottom-mobile: ' | append: section.settings.section_margin_bottom_mobile | append: 'px; '
+  endif
+%}
 
-
-<section class='{{ 'xo-section--' | append: section.id }} vastu-section-spacing'>
+{% liquid
+  assign section_id_class = 'vastu-section--' | append: section.id
+%}
+<section class='{{ 'xo-section--' | append: section.id }} vastu-section-spacing {{ section_id_class }}'{% if section_spacing_style != blank %} style="{{ section_spacing_style }}"{% endif %}>
   <xo-carousel
     xo-render-bullet='<span></span>'
     xo-type='{{ section.settings.carousel_type }}'
@@ -36,9 +75,9 @@
                     <div class='slideshow-v28__text slideshow-v28__text--overlay' style='text-align: left; --content-max-width: {{ content_max_width }}px; margin: 0; --content-cols: {{ content_cols }};'>
                       {%- capture subtitle -%}
                         {%- if block.settings.subtitle != blank -%}
-                          <div class='slideshow-v28__subtitle' style='{% if block.settings.subtitle_font_size != blank and block.settings.subtitle_font_size > 0 %}--section-subtitle-font-size-desktop: {{ block.settings.subtitle_font_size }}rem;{% endif %}{% if block.settings.subtitle_font_weight != blank and block.settings.subtitle_font_weight > 0 %}--section-subtitle-font-weight-desktop: {{ block.settings.subtitle_font_weight }};{% endif %}'>
+                          <span class='slideshow-v28__subtitle' style='{% if block.settings.subtitle_font_size != blank and block.settings.subtitle_font_size > 0 %}--section-subtitle-font-size-desktop: {{ block.settings.subtitle_font_size }}rem;{% endif %}{% if block.settings.subtitle_font_weight != blank and block.settings.subtitle_font_weight > 0 %}--section-subtitle-font-weight-desktop: {{ block.settings.subtitle_font_weight }};{% endif %}'>
                             {{ block.settings.subtitle }}
-                          </div>
+                          </span>
                         {%- endif -%}
                       {%- endcapture -%}
                       {%- capture title -%}
@@ -127,9 +166,9 @@
                     <div style='--xs: 12;--md: 5; --start-md:{{start_column}}' class='slideshow-v28__text'>
                       {%- capture subtitle -%}
                         {%- if block.settings.subtitle != blank -%}
-                          <div class='slideshow-v28__subtitle' style='{% if block.settings.subtitle_font_size != blank and block.settings.subtitle_font_size > 0 %}--section-subtitle-font-size-desktop: {{ block.settings.subtitle_font_size }}rem;{% endif %}{% if block.settings.subtitle_font_weight != blank and block.settings.subtitle_font_weight > 0 %}--section-subtitle-font-weight-desktop: {{ block.settings.subtitle_font_weight }};{% endif %}'>
+                          <span class='slideshow-v28__subtitle' style='{% if block.settings.subtitle_font_size != blank and block.settings.subtitle_font_size > 0 %}--section-subtitle-font-size-desktop: {{ block.settings.subtitle_font_size }}rem;{% endif %}{% if block.settings.subtitle_font_weight != blank and block.settings.subtitle_font_weight > 0 %}--section-subtitle-font-weight-desktop: {{ block.settings.subtitle_font_weight }};{% endif %}'>
                             {{ block.settings.subtitle }}
-                          </div>
+                          </span>
                         {%- endif -%}
                       {%- endcapture -%}
                       {%- capture title -%}
@@ -327,6 +366,110 @@
       "id": "padding_bottom",
       "label": "t:sections.slideshow_v1.settings.padding_bottom.label",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing (Overrides Global Settings)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Set to 0 to use global settings. Leave at 0 to inherit from theme settings."
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "range",
+      "id": "section_margin_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0,
+      "info": "Set to 0 to use global setting"
     }
   ],
   "blocks": [

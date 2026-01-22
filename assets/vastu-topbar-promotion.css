@@ -1,39 +1,39 @@
-/* Menu Items - 13px */
+/* Menu Items */
 .header-v14__navigation-desktop a,
 .header-v14__navigation-desktop .menu-horizontal__item,
 .menu-horizontal__item a,
 nav a {
-  font-size: 1.3rem; /* 13px */
+  font-size: var(--global-body-font-size-desktop);
 }
 
 @media (width <= 48rem) {
   .header-v14__navigation-mobile a,
   .menu-hamburger-drawer-mobile__link {
-    font-size: 1.3rem; /* 13px */
+    font-size: var(--global-body-font-size-mobile);
   }
 }
 
 /* Topbar Close Button */
 .header-v6__topbar {
   position: relative;
-  background: #000 !important;
-  color: #fff !important;
-  display: block !important;
-  visibility: visible !important;
+  background: #000;
+  color: #fff;
+  display: block;
+  visibility: visible;
 }
 
 /* Override any media queries that hide the topbar */
 @media (width <= 1199px) {
   .header-v6__topbar {
-    display: block !important;
-    visibility: visible !important;
+    display: block;
+    visibility: visible;
   }
 }
 
 @media (width <= 48rem) {
   .header-v6__topbar {
-    display: block !important;
-    visibility: visible !important;
+    display: block;
+    visibility: visible;
   }
 }
 
@@ -78,7 +78,7 @@ nav a {
 
 /* Hide topbar when closed */
 .header-v6__topbar.topbar-closed {
-  display: none !important;
+  display: none;
 }
 
 /* Responsive: adjust close button position on mobile */
@@ -147,12 +147,12 @@ nav a {
 }
 
 .header-v6__promotion-name {
-  font-size: 1.35rem;
-  line-height: 1.5;
+  font-size: var(--global-body-font-size-desktop);
+  line-height: var(--global-body-line-height-desktop);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: 500;
+  font-weight: var(--global-body-font-weight-desktop);
   letter-spacing: 0.015em;
   position: relative;
   display: inline-block;
@@ -167,7 +167,7 @@ nav a {
 /* Active state - subtle emphasis */
 .header-v6__promotion-item.active .header-v6__promotion-name {
   color: #fff;
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
 }
 
 /* Hover effect */
@@ -187,7 +187,7 @@ nav a {
   }
 
   .header-v6__promotion-name {
-    font-size: 1.15rem;
+    font-size: var(--global-body-font-size-mobile);
     padding: calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 1.2)
       calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 2);
   }
@@ -304,11 +304,11 @@ nav a {
 .header-v6__contact-icon:hover svg {
   transform: scale(1.1);
   filter: drop-shadow(0 4px 8px rgb(255 255 255 / 50%));
-  color: #fff !important;
+  color: #fff;
 }
 
 .header-v6__contact-icon:hover svg path {
-  fill: #fff !important;
+  fill: #fff;
 }
 
 .header-v6__contact-icon--email:hover {

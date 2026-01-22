@@ -44,7 +44,7 @@
       {% endif %}
     >
       {%- if show_author -%}
-        <div class='xo-article-card__author'>{{ article.author }}</div>
+        <span class='xo-article-card__author'>{{ article.author }}</span>
       {%- endif -%}
       <h3 class='xo-article-card__title'>
         <a href='{{ article.url }}'>
@@ -53,13 +53,13 @@
       </h3>
       {%- if show_excerpt -%}
         {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
-          <div class='xo-article-card__description'>
+          <p class='xo-article-card__description'>
             {%- if article.excerpt.size > 0 -%}
               {{ article.excerpt | strip_html | truncatewords: 30 }}
             {%- else -%}
               {{ article.content | strip_html | truncatewords: 30 }}
             {%- endif -%}
-          </div>
+          </p>
         {%- endif -%}
       {%- endif -%}
       {%- if show_date -%}

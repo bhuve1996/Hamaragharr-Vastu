@@ -23,7 +23,7 @@
             <h3 class='vastu-help-address-v1__text'>{{ block.settings.text }}</h3>
           {% endif %}
           {% if block.settings.description != blank %}
-            <div class='vastu-help-address-v1__description'>{{ block.settings.description }}</div>
+            <p class='vastu-help-address-v1__description'>{{ block.settings.description }}</p>
           {% endif %}
         </xo-animate>
       {% endfor %}
@@ -65,7 +65,7 @@
                   <h3 class='vastu-help-address-v1__text'>{{ block.settings.text }}</h3>
                 {% endif %}
                 {% if block.settings.description != blank %}
-                  <div class='vastu-help-address-v1__description'>{{ block.settings.description }}</div>
+                  <p class='vastu-help-address-v1__description'>{{ block.settings.description }}</p>
                 {% endif %}
               </div>
             </xo-carousel-slide>
@@ -345,7 +345,11 @@
     },
     {
       "type": "paragraph",
-      "content": "Leave empty to use global settings. Desktop: 8px default, Mobile: 4px default"
+      "content": "Set to 0 to use global settings. Leave at 0 to inherit from theme settings."
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
     },
     {
       "type": "range",
@@ -390,6 +394,10 @@
       "label": "Margin Bottom (Desktop)",
       "default": 0,
       "info": "Set to 0 to use global setting"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
     },
     {
       "type": "range",

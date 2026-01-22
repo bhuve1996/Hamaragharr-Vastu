@@ -3,14 +3,8 @@
 .faq-content-wrapper .faq-v3__heading,
 section .faq-v3__heading,
 .faq-section-wrapper .faq-v3__heading {
-  margin-bottom: 0 !important;
-  margin-top: 0 !important;
-}
-
-/* Remove margin-bottom from FAQ title heading */
-.homepage-section-heading.faq-v3__title,
-.faq-v3__title.homepage-section-heading {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .vastu-faq__item {
@@ -22,14 +16,13 @@ section .faq-v3__heading,
   margin-bottom: 1rem;
 }
 
-/* FAQ Accordion Question (Heading) - Typography handled by vastu-global-typography.css */
 .faq-v3__question {
   color: rgb(var(--color-foreground, 0, 0, 0));
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop)); /* 2rem = 20px */
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
   line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
   margin: 0;
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   padding: 1rem 1.5rem;
 }
 
@@ -58,7 +51,6 @@ xo-collapse[xo-active] {
   padding: 0 1.5rem 1.5rem;
 }
 
-/* FAQ Accordion Answer (Content) - Typography handled by vastu-global-typography.css */
 .faq-v3__answer {
   color: rgb(var(--color-foreground, 0, 0, 0));
   font-size: var(
@@ -139,13 +131,3 @@ xo-collapse[xo-active] {
 .vastu-shop-by-concern__trigger:hover {
   background: rgb(186 170 200 / 90%);
 }
-
-.vastu-shop-by-concern__trigger-content {
-  flex: 1;
-  padding-right: 1.5rem;
-  text-align: left;
-  position: relative;
-  z-index: 1;
-}
-
-/* Typography handled by vastu-global-typography.css - removed duplicate rule */

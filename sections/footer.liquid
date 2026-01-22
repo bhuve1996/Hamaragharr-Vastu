@@ -22,7 +22,7 @@
       {% comment %} Column 1 - Information {% endcomment %}
       <div class='footer-modern__column'>
         <xo-animate xo-cascade>
-          <h3 class='footer-modern__heading'>{{ section.settings.info_heading | default: 'Information' }}</h3>
+          <h4 class='footer-modern__heading'>{{ section.settings.info_heading | default: 'Information' }}</h4>
           {%- if section.settings.info_menu != blank -%}
             <ul role='list' class='footer-modern__list list-unstyled'>
               {%- for link in section.settings.info_menu.links -%}
@@ -68,7 +68,7 @@
       {% comment %} Column 2 - Customer Support {% endcomment %}
       <div class='footer-modern__column'>
         <xo-animate xo-cascade>
-          <h3 class='footer-modern__heading'>{{ section.settings.support_heading | default: 'Customer Support' }}</h3>
+          <h4 class='footer-modern__heading'>{{ section.settings.support_heading | default: 'Customer Support' }}</h4>
           {%- if section.settings.support_menu != blank -%}
             <ul role='list' class='footer-modern__list list-unstyled'>
               {%- for link in section.settings.support_menu.links -%}
@@ -105,7 +105,7 @@
       <div class='footer-modern__column footer-modern__column--newsletter'>
         <xo-animate xo-cascade>
         {%- if section.settings.newsletter_enable -%}
-            <h3 class='footer-modern__heading'>{{ section.settings.newsletter_heading | default: 'Subscribe to our emails' }}</h3>
+            <h4 class='footer-modern__heading'>{{ section.settings.newsletter_heading | default: 'Subscribe to our emails' }}</h4>
             {%- if section.settings.newsletter_description != blank -%}
               <p class='footer-modern__newsletter-description'>{{ section.settings.newsletter_description }}</p>
             {%- endif -%}
@@ -163,7 +163,7 @@
         {%- liquid
           assign has_social_links = false
           if section.settings.show_social
-            if section.settings.social_facebook_link != blank or section.settings.social_instagram_link != blank or section.settings.social_youtube_link != blank or section.settings.social_twitter_link != blank or section.settings.social_pinterest_link != blank
+            if section.settings.social_facebook_link != blank or section.settings.social_instagram_link != blank or section.settings.social_youtube_link != blank
               assign has_social_links = true
             endif
           endif
@@ -183,16 +183,6 @@
             {%- if section.settings.social_youtube_link != blank -%}
               <a href='{{ section.settings.social_youtube_link }}' target='_blank' class='footer-modern__social-link' aria-label='YouTube'>
                 {% render 'icon', name: 'youtube', icon_size: '20' %}
-              </a>
-            {%- endif -%}
-            {%- if section.settings.social_twitter_link != blank -%}
-              <a href='{{ section.settings.social_twitter_link }}' target='_blank' class='footer-modern__social-link' aria-label='Twitter'>
-                {% render 'icon', name: 'twitter2', icon_size: '20' %}
-              </a>
-            {%- endif -%}
-            {%- if section.settings.social_pinterest_link != blank -%}
-              <a href='{{ section.settings.social_pinterest_link }}' target='_blank' class='footer-modern__social-link' aria-label='Pinterest'>
-                {% render 'icon', name: 'pinterest2', icon_size: '20' %}
               </a>
             {%- endif -%}
           </div>
@@ -215,9 +205,6 @@
             {%- endif -%}
             {%- if section.settings.payment_upi -%}
               <span class='footer-modern__payment-icon' aria-label='UPI'>UPI</span>
-            {%- endif -%}
-            {%- if section.settings.payment_amazon_pay -%}
-              <span class='footer-modern__payment-icon' aria-label='Amazon Pay'>Amazon Pay</span>
             {%- endif -%}
             {%- if section.settings.payment_image != blank -%}
               <img
@@ -244,8 +231,7 @@
       {%- else -%}
         <div class='footer-modern__copyright-wrapper'>
           <div class='footer-modern__copyright'>
-            <small>&copy; Copyright {{ 'now' | date: '%Y' }} | {{ shop.name | escape | link_to: routes.root_url }}</small>
-            <small>{{ powered_by_link }}</small>
+            <small>Copyright 2026 HamaraGharr Vastu All right reserved</small>
           </div>
         </div>
       {%- endif -%}
@@ -583,7 +569,7 @@
       "type": "liquid",
       "id": "copyright",
       "label": "t:sections.footer.settings.copyright.label",
-      "default": "© Copyright {{ 'now' | date: '%Y' }} | <a href='/' style='color: inherit; text-decoration: underline;'>{{ shop.name }}</a> | Powered by Shopify."
+      "default": "Copyright 2026 HamaraGharr Vastu All right reserved"
     },
     {
       "type": "header",

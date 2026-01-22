@@ -1,3 +1,18 @@
+/* Card Container Border Utility - Add class "has-container-border" to any card grid/carousel */
+.vastu-grid-carousel__grid.has-container-border,
+.vastu-grid-carousel__mobile-grid.has-container-border,
+.vastu-featured-products__grid.has-container-border,
+.vastu-help-address-v1__grid.has-container-border,
+xo-grid.has-container-border,
+xo-carousel.has-container-border,
+[class*="grid"].has-container-border,
+[class*="carousel"].has-container-border {
+  border: 1px solid rgba(71 56 85 / 12%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: rgba(255 255 255 / 50%);
+}
+
 /* Mobile hamburger menu - fix links displaying inline */
 .menu-hamburger-drawer-mobile__content > div:first-child {
   display: flex;
@@ -33,7 +48,7 @@
 /* Hamburger overlay - make it start from top and take full height */
 xo-modal.menu-hamburger-drawer-desktop,
 xo-modal.menu-hamburger-drawer-mobile {
-  --top: 0 !important;
+  --top: 0;
 }
 
 /* Target the modal inner wrapper and content to take full height */
@@ -42,9 +57,9 @@ xo-modal.menu-hamburger-drawer-desktop[xo-active] > *,
 xo-modal.menu-hamburger-drawer-mobile[xo-active] > *,
 xo-modal.menu-hamburger-drawer-desktop[xo-active] [part="inner"],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="inner"] {
-  top: 0 !important;
-  height: 100vh !important;
-  max-height: 100vh !important;
+  top: 0;
+  height: 100vh;
+  max-height: 100vh;
 }
 
 /* Target the modal content wrapper */
@@ -52,16 +67,16 @@ xo-modal.menu-hamburger-drawer-desktop[xo-active] [part="content"],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="content"],
 xo-modal.menu-hamburger-drawer-desktop[xo-active] .xo-modal-content,
 xo-modal.menu-hamburger-drawer-mobile[xo-active] .xo-modal-content {
-  height: 100vh !important;
-  max-height: 100vh !important;
-  top: 0 !important;
+  height: 100vh;
+  max-height: 100vh;
+  top: 0;
 }
 
 /* Make the drawer content take full height */
 .menu-hamburger-drawer-desktop__content,
 .menu-hamburger-drawer-mobile__content {
-  height: 100vh !important;
-  min-height: 100vh !important;
+  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -69,12 +84,12 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] .xo-modal-content {
 /* Additional targeting for xo-modal structure - ensure full height from top */
 xo-modal.menu-hamburger-drawer-desktop[xo-active],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] {
-  --top: 0 !important;
+  --top: 0;
 
-  position: fixed !important;
-  inset: 0 !important;
-  height: 100vh !important;
-  width: 100vw !important;
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 /* Ensure the modal backdrop also covers full height */
@@ -82,8 +97,8 @@ xo-modal.menu-hamburger-drawer-desktop[xo-active]::before,
 xo-modal.menu-hamburger-drawer-mobile[xo-active]::before,
 xo-modal.menu-hamburger-drawer-desktop[xo-active] [part="backdrop"],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
-  top: 0 !important;
-  height: 100vh !important;
+  top: 0;
+  height: 100vh;
 }
 
 :root {
@@ -150,19 +165,22 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
      ======================================== */
 
   /* Font Family & Scale Variables */
+
+  /* These are set in settings-adapter.liquid from Shopify theme settings */
+
+  /* Do NOT hardcode font families here - use global settings */
   --font-body-desktop-size: var(--global-body-font-size-desktop);
   --font-body-mobile-size: var(--global-body-font-size-mobile);
-  --font-body-family: Poppins, sans-serif;
+
+  /* Font families come from settings-adapter.liquid */
   --font-body-style: normal;
   --font-body-weight: var(--global-body-font-weight-desktop);
   --font-body-weight-bold: 700;
-  --font-heading-family: Poppins, sans-serif;
   --font-heading-style: normal;
   --font-heading-weight: var(--global-heading-font-weight-desktop);
   --font-body-scale: min(max(var(--font-body-scale, 1), 0.5), 1.5);
   --font-heading-scale: 1;
   --font-body-line-height: calc(1 + 0.8 / var(--font-body-scale));
-  --font-custom-family: Poppins, sans-serif;
   --font-custom-weight: 400;
 
   /* Media Variables */
@@ -372,8 +390,6 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
 .vastu-heading {
   font-size: var(--title-font-size, var(--global-heading-font-size-desktop, 3.5rem));
   font-weight: var(--title-font-weight, var(--font-weight-bold, var(--global-heading-font-weight-desktop, 700)));
-
-  /* Removed text-transform: uppercase - use natural case */
   margin-bottom: var(--global-heading-margin-bottom-desktop, 48px);
   padding: 0;
   position: relative;
@@ -450,7 +466,7 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   z-index: 2;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .vastu-price-overlay {
@@ -511,7 +527,7 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   max-height: 2.5rem;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
   flex-shrink: 0;
   flex-grow: 0;
   box-sizing: border-box;
@@ -539,7 +555,7 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   color: rgb(var(--color-secondary-button));
   border-radius: var(--radius-full);
   cursor: pointer;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
   flex-shrink: 0;
   flex-grow: 0;
   box-sizing: border-box;
@@ -785,7 +801,7 @@ xo-modal.search .xo-predictive-search__center .xo-field-input__input::placeholde
 
 /* Disable animated placeholder label - use normal placeholder instead */
 xo-modal.search .xo-predictive-search__center .xo-field-input__placeholder {
-  display: none !important;
+  display: none;
 }
 
 xo-modal.search .xo-predictive-search__center .xo-field-input__input:not(:placeholder-shown) {
@@ -869,9 +885,9 @@ xo-modal.search .xo-predictive-search__cart-count {
   border-radius: 50%;
   background-color: rgb(var(--color-secondary-button, 71, 56, 85));
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1;
+  font-size: var(--global-body-font-size-desktop);
+  font-weight: var(--global-body-font-weight-desktop);
+  line-height: var(--global-body-line-height-desktop);
   box-sizing: border-box;
   margin: 0;
 }
@@ -885,7 +901,7 @@ xo-modal.search .xo-predictive-search__cart-count xo-cart-size {
   height: 100%;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 /* Wishlist count badge - direct element */
@@ -903,9 +919,9 @@ xo-modal.search .xo-predictive-search__wishlist-count {
   border-radius: 50%;
   background-color: rgb(var(--color-secondary-button, 71, 56, 85));
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1;
+  font-size: var(--global-body-font-size-desktop);
+  font-weight: var(--global-body-font-weight-desktop);
+  line-height: var(--global-body-line-height-desktop);
   box-sizing: border-box;
   margin: 0;
 }
@@ -919,7 +935,7 @@ xo-modal.search .xo-predictive-search__wishlist-count > * {
   height: 100%;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 xo-modal.search .xo-predictive-search__result {
@@ -939,14 +955,14 @@ xo-modal.search .xo-predictive-search__result [data-predictive-search-type="arti
 xo-modal.search .xo-predictive-search__result .predictive-search__item[data-type="article"],
 xo-modal.search .xo-predictive-search__result a[href*="/blogs/"],
 xo-modal.search .xo-predictive-search__result a[href*="/articles/"] {
-  display: none !important;
+  display: none;
 }
 
 /* Hide article sections in predictive search */
 xo-modal.search .xo-predictive-search__result .predictive-search__section[data-section="articles"],
 xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/blogs/"]),
 xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/articles/"]) {
-  display: none !important;
+  display: none;
 }
 
 /* Mobile Responsive */
@@ -1171,10 +1187,8 @@ xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/articles/"]) {
 .main-search__title {
   font-size: var(--global-heading-font-size-desktop, 3.5rem);
   font-weight: var(--font-weight-bold, 700);
-
-  /* Removed text-transform: uppercase - use natural case */
   margin-bottom: 1.5rem;
-  line-height: 1.2;
+  line-height: var(--global-body-line-height-desktop);
 }
 
 .main-search__status {
@@ -1320,28 +1334,28 @@ xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/articles/"]) {
 .wishlist-table__stock xo-product-data *,
 .wishlist-table td[data-th="Stock"] xo-product-data,
 .wishlist-table td[data-th="Stock"] script[type="application/json"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  height: 0 !important;
-  width: 0 !important;
-  overflow: hidden !important;
-  position: absolute !important;
-  left: -9999px !important;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  position: absolute;
+  left: -9999px;
 }
 
 /* Ensure stock status text is visible */
 .wishlist-table__stock-text,
 .wishlist-table__stock [data-stock-status] {
-  display: inline-block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
   text-align: right;
 }
 
 /* Remove max-width constraint from main-wishlist__inner to allow wide layout */
 .main-wishlist__inner {
-  max-width: none !important;
-  margin: 0 !important;
+  max-width: none;
+  margin: 0;
   width: 100%;
 }

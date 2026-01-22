@@ -17,7 +17,7 @@ button.xo-btn[style*="border-radius: 0rem"],
 button.xo-btn[style*="border-radius:0rem"],
 button.xo-btn[style*="border-radius: 0"],
 button.xo-btn[style*="border-radius:0"] {
-  border-radius: 0.375rem !important;
+  border-radius: 0.375rem;
 }
 
 /* Banner Carousel Button Fixes - Configurable */

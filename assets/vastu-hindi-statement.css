@@ -10,14 +10,6 @@
   min-height: auto;
 }
 
-.vastu-hindi-statement__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
 .vastu-hindi-statement__text {
   font-size: var(--global-body-font-size-desktop); /* 1.6rem = 16px */
   text-align: center;

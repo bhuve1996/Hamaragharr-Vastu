@@ -1,8 +1,9 @@
 {% comment %}
   Grid/Carousel Section
-  - Mobile: 2 cards per row (grid, no carousel)
+  - Mobile: Carousel with partial next item visible (shows 85% of current item)
   - Desktop: Full bleed carousel
-  - View More button (loads 4 products max by default)
+  - Configurable carousel controls (navigation arrows and pagination dots)
+  - Configurable positioning for pagination dots
 {% endcomment %}
 
 {{ 'vastu-grid-carousel.css' | asset_url | stylesheet_tag }}
@@ -15,8 +16,15 @@
   
   if collection == blank or collection.products.size == 0
     assign has_products = false
+    assign total_products = 0
   else
     assign has_products = true
+    assign total_products = collection.products.size
+  endif
+  
+  assign has_more_products = false
+  if total_products > products_limit
+    assign has_more_products = true
   endif
 -%}
 
@@ -39,38 +47,87 @@
         {% render 'space', value: '2rem' %}
       </xo-container>
       
-      {% comment %} Mobile Grid (hidden on desktop) {% endcomment %}
-      <div class='vastu-grid-carousel__mobile-grid'>
+      {% comment %} Mobile Carousel (hidden on desktop) - Shows partial next item {% endcomment %}
+      <div class='vastu-grid-carousel__mobile-carousel'>
         <xo-container>
-          <xo-grid style='--xs: 2; --sm: 2; --md: 2; --lg: 2; --xl: 2; --xo-grid-col-gap: 10px; --xo-grid-row-gap: 20px;' class='vastu-grid-carousel__grid'>
-            {%- for product in collection.products -%}
-              <div class='vastu-grid-carousel__grid-item{% if forloop.index > products_limit %} vastu-grid-carousel__grid-item--hidden{% endif %}'>
-                {% render 'vastu-grid-card',
-                  product: product,
-                  section: section,
-                  settings: section.settings
-                %}
-              </div>
-            {%- endfor -%}
-          </xo-grid>
-          
-          {% comment %} View More Button for Mobile {% endcomment %}
-          {% if collection.products.size > products_limit %}
-            <div class='vastu-grid-carousel__view-more-wrapper'>
-              <button 
-                type='button' 
-                class='vastu-grid-carousel__view-more-btn'
-                data-section-id='{{ section.id }}'
-                data-current-limit='{{ products_limit }}'
-                data-increment='{{ view_more_limit }}'
-                data-total-products='{{ collection.products.size }}'
-                data-layout='mobile'
-              >
-                {{ section.settings.view_more_text | default: 'View More' }}
-              </button>
-            </div>
-          {% endif %}
+          <xo-carousel
+            xo-per-view='1'
+            xo-gap='10'
+            xo-speed='400'
+            xo-render-bullet='<span></span>'
+            class='vastu-grid-carousel__carousel'
+          >
+            <xo-carousel-inner>
+              <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
+                {%- for product in collection.products -%}
+                  {%- if forloop.index <= products_limit -%}
+                  <xo-carousel-slide 
+                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
+                    data-product-index='{{ forloop.index }}'
+                  >
+                    {% render 'vastu-grid-card',
+                      product: product,
+                      section: section,
+                      settings: section.settings
+                    %}
+                  </xo-carousel-slide>
+                  {%- else -%}
+                    <xo-carousel-slide 
+                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                      aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
+                      data-product-index='{{ forloop.index }}'
+                      class='vastu-grid-carousel__slide--hidden'
+                    >
+                      {% render 'vastu-grid-card',
+                        product: product,
+                        section: section,
+                        settings: section.settings
+                      %}
+                    </xo-carousel-slide>
+                  {%- endif -%}
+                {%- endfor -%}
+              </xo-carousel-list>
+            </xo-carousel-inner>
+            {%- liquid
+              if section.settings.show_navigation_mobile
+                assign nav_mobile = 'flex'
+              else
+                assign nav_mobile = 'none'
+              endif
+              if section.settings.show_pagination_mobile
+                assign pag_mobile = 'block'
+              else
+                assign pag_mobile = 'none'
+              endif
+            -%}
+            {% render 'vastu-carousel-controls',
+              show_navigation: section.settings.show_navigation_mobile,
+              show_pagination: section.settings.show_pagination_mobile,
+              navigation_desktop: 'none',
+              navigation_mobile: nav_mobile,
+              pagination_desktop: 'none',
+              pagination_mobile: pag_mobile,
+              pagination_position: section.settings.pagination_position_mobile,
+              pagination_offset: section.settings.pagination_offset_mobile
+            %}
+          </xo-carousel>
         </xo-container>
+        {%- if has_more_products -%}
+          <div class='vastu-grid-carousel__view-more-wrapper'>
+            <button 
+              type='button'
+              class='vastu-grid-carousel__view-more-btn'
+              data-section-id='{{ section.id }}'
+              data-current-limit='{{ products_limit }}'
+              data-increment='{{ view_more_limit }}'
+              data-total-products='{{ total_products }}'
+              data-layout='mobile'
+            >
+              {{ section.settings.view_more_text | default: 'View More' }}
+            </button>
+          </div>
+        {%- endif -%}
       </div>
       
       {% comment %} Desktop Carousel (hidden on mobile) - Full Bleed {% endcomment %}
@@ -100,14 +157,29 @@
               {%- endfor -%}
             </xo-carousel-list>
           </xo-carousel-inner>
-          {% if section.settings.show_navigation %}
-            {% render 'carousel-navigation-style1', display_navigation_desktop: 'flex', display_navigation_mobile: 'none' %}
-          {% endif %}
-          {% if section.settings.show_pagination %}
-            <div class='vastu-grid-carousel__pagination' style='--display-desktop: block; --display-mobile: none;'>
-              {% render 'carousel-pagination-style3' %}
-            </div>
-          {% endif %}
+          {%- liquid
+            if section.settings.show_navigation
+              assign nav_desktop = 'flex'
+            else
+              assign nav_desktop = 'none'
+            endif
+            if section.settings.show_pagination
+              assign pag_desktop = 'block'
+            else
+              assign pag_desktop = 'none'
+            endif
+          -%}
+          {% render 'vastu-carousel-controls',
+            show_navigation: section.settings.show_navigation,
+            show_pagination: section.settings.show_pagination,
+            navigation_desktop: nav_desktop,
+            navigation_mobile: 'none',
+            pagination_desktop: pag_desktop,
+            pagination_mobile: 'none',
+            pagination_position: section.settings.pagination_position_desktop,
+            pagination_offset: section.settings.pagination_offset_desktop,
+            pagination_class: 'vastu-grid-carousel__pagination'
+          %}
         </xo-carousel>
       </div>
     </div>
@@ -119,35 +191,73 @@
       </xo-animate>
       {% render 'space', value: '2rem' %}
       
-      {% comment %} Mobile Grid {% endcomment %}
-      <div class='vastu-grid-carousel__mobile-grid'>
-        <xo-grid style='--xs: 2; --sm: 2; --md: 2; --lg: 2; --xl: 2; --xo-grid-col-gap: 10px; --xo-grid-row-gap: 20px;' class='vastu-grid-carousel__grid'>
-          {%- for product in collection.products -%}
-            <div class='vastu-grid-carousel__grid-item{% if forloop.index > products_limit %} vastu-grid-carousel__grid-item--hidden{% endif %}'>
-              {% render 'vastu-grid-card',
-                product: product,
-                section: section,
-                settings: section.settings
-              %}
-            </div>
-          {%- endfor -%}
-        </xo-grid>
-        
-        {% if collection.products.size > products_limit %}
+      {% comment %} Mobile Carousel - Shows partial next item {% endcomment %}
+      <div class='vastu-grid-carousel__mobile-carousel'>
+        <xo-carousel
+          xo-per-view='1'
+          xo-gap='10'
+          xo-speed='400'
+          xo-render-bullet='<span></span>'
+          class='vastu-grid-carousel__carousel'
+        >
+          <xo-carousel-inner>
+            <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
+              {%- for product in collection.products -%}
+                {%- if forloop.index <= products_limit -%}
+                <xo-carousel-slide 
+                  aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                  aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
+                  data-product-index='{{ forloop.index }}'
+                >
+                  {% render 'vastu-grid-card',
+                    product: product,
+                    section: section,
+                    settings: section.settings
+                  %}
+                </xo-carousel-slide>
+                {%- else -%}
+                  <xo-carousel-slide 
+                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
+                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ collection.products.size }}'
+                    data-product-index='{{ forloop.index }}'
+                    class='vastu-grid-carousel__slide--hidden'
+                  >
+                    {% render 'vastu-grid-card',
+                      product: product,
+                      section: section,
+                      settings: section.settings
+                    %}
+                  </xo-carousel-slide>
+                {%- endif -%}
+              {%- endfor -%}
+            </xo-carousel-list>
+          </xo-carousel-inner>
+          {% render 'vastu-carousel-controls',
+            show_navigation: section.settings.show_navigation_mobile,
+            show_pagination: section.settings.show_pagination_mobile,
+            navigation_desktop: 'none',
+            navigation_mobile: section.settings.show_navigation_mobile | default: true | ternary: 'flex', 'none',
+            pagination_desktop: 'none',
+            pagination_mobile: section.settings.show_pagination_mobile | default: true | ternary: 'block', 'none',
+            pagination_position: section.settings.pagination_position_mobile | default: 'bottom',
+            pagination_offset: section.settings.pagination_offset_mobile | default: '-2.5rem'
+          %}
+        </xo-carousel>
+        {%- if has_more_products -%}
           <div class='vastu-grid-carousel__view-more-wrapper'>
             <button 
-              type='button' 
+              type='button'
               class='vastu-grid-carousel__view-more-btn'
               data-section-id='{{ section.id }}'
               data-current-limit='{{ products_limit }}'
               data-increment='{{ view_more_limit }}'
-              data-total-products='{{ collection.products.size }}'
+              data-total-products='{{ total_products }}'
               data-layout='mobile'
             >
               {{ section.settings.view_more_text | default: 'View More' }}
             </button>
           </div>
-        {% endif %}
+        {%- endif -%}
       </div>
       
       {% comment %} Desktop Carousel {% endcomment %}
@@ -177,14 +287,29 @@
               {%- endfor -%}
             </xo-carousel-list>
           </xo-carousel-inner>
-          {% if section.settings.show_navigation %}
-            {% render 'carousel-navigation-style1', display_navigation_desktop: 'flex', display_navigation_mobile: 'none' %}
-          {% endif %}
-          {% if section.settings.show_pagination %}
-            <div class='vastu-grid-carousel__pagination' style='--display-desktop: block; --display-mobile: none;'>
-              {% render 'carousel-pagination-style3' %}
-            </div>
-          {% endif %}
+          {%- liquid
+            if section.settings.show_navigation
+              assign nav_desktop = 'flex'
+            else
+              assign nav_desktop = 'none'
+            endif
+            if section.settings.show_pagination
+              assign pag_desktop = 'block'
+            else
+              assign pag_desktop = 'none'
+            endif
+          -%}
+          {% render 'vastu-carousel-controls',
+            show_navigation: section.settings.show_navigation,
+            show_pagination: section.settings.show_pagination,
+            navigation_desktop: nav_desktop,
+            navigation_mobile: 'none',
+            pagination_desktop: pag_desktop,
+            pagination_mobile: 'none',
+            pagination_position: section.settings.pagination_position_desktop,
+            pagination_offset: section.settings.pagination_offset_desktop,
+            pagination_class: 'vastu-grid-carousel__pagination'
+          %}
         </xo-carousel>
       </div>
     </xo-container>
@@ -205,51 +330,89 @@
           const currentLimit = parseInt(this.dataset.currentLimit) || 4;
           const increment = parseInt(this.dataset.increment) || 4;
           const totalProducts = parseInt(this.dataset.totalProducts) || 0;
-          const layout = this.dataset.layout || 'mobile';
           const newLimit = Math.min(currentLimit + increment, totalProducts);
           
-          if (layout === 'mobile') {
-            // Show hidden grid items
-            // Find the button's parent section
-            const buttonParent = this.closest('.vastu-grid-carousel__mobile-grid');
-            if (buttonParent) {
-              const hiddenItems = buttonParent.querySelectorAll('.vastu-grid-carousel__grid-item--hidden');
-              const itemsToShow = Math.min(hiddenItems.length, increment);
-              
-              for (let i = 0; i < itemsToShow; i++) {
-                hiddenItems[i]?.classList.remove('vastu-grid-carousel__grid-item--hidden');
+          // Find the mobile carousel container
+          const section = document.querySelector(`[data-section-id="${sectionId}"]`);
+          if (!section) return;
+          
+          const carouselContainer = section.querySelector('.vastu-grid-carousel__mobile-carousel');
+          if (!carouselContainer) return;
+          
+          // Find all hidden slides
+          const hiddenSlides = carouselContainer.querySelectorAll('.vastu-grid-carousel__slide--hidden');
+          const itemsToShow = Math.min(hiddenSlides.length, increment);
+          
+          // Show the hidden slides
+          for (let i = 0; i < itemsToShow; i++) {
+            hiddenSlides[i]?.classList.remove('vastu-grid-carousel__slide--hidden');
+          }
+          
+          // Update button state
+          this.dataset.currentLimit = newLimit.toString();
+          
+          // Check if there are more products to show
+          const remainingHidden = carouselContainer.querySelectorAll('.vastu-grid-carousel__slide--hidden').length;
+          const hasMoreProducts = remainingHidden > 0 && newLimit < totalProducts;
+          
+          if (!hasMoreProducts) {
+            // Hide the button and wrapper when no more products
+            this.style.display = 'none';
+            const wrapper = this.closest('.vastu-grid-carousel__view-more-wrapper');
+            if (wrapper) {
+              wrapper.style.display = 'none';
+              wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
+            }
+          }
+          
+          // Update carousel if it exists
+          const carousel = carouselContainer.querySelector('.vastu-grid-carousel__carousel');
+          if (carousel) {
+            setTimeout(function() {
+              if (carousel.xoCarousel && typeof carousel.xoCarousel.update === 'function') {
+                carousel.xoCarousel.update();
+              } else if (typeof carousel.update === 'function') {
+                carousel.update();
               }
-              
-              // Update button state
-              this.dataset.currentLimit = newLimit.toString();
-              if (newLimit >= totalProducts || hiddenItems.length <= itemsToShow) {
-                this.style.display = 'none';
-                // Hide the wrapper when button is hidden
-                const wrapper = this.closest('.vastu-grid-carousel__view-more-wrapper');
+            }, 100);
+          }
+        });
+      });
+    }
+    
+    // Check if button should be hidden on page load (if all products are already shown)
+    function checkInitialButtonState() {
+      document.querySelectorAll('.vastu-grid-carousel__view-more-btn').forEach(function(btn) {
+        const sectionId = btn.dataset.sectionId;
+        const currentLimit = parseInt(btn.dataset.currentLimit) || 4;
+        const totalProducts = parseInt(btn.dataset.totalProducts) || 0;
+        
+        if (currentLimit >= totalProducts) {
+          btn.style.display = 'none';
+          const wrapper = btn.closest('.vastu-grid-carousel__view-more-wrapper');
+          if (wrapper) {
+            wrapper.style.display = 'none';
+            wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
+          }
+        } else {
+          // Check if there are actually hidden slides in mobile carousel
+          const section = document.querySelector(`[data-section-id="${sectionId}"]`);
+          if (section) {
+            const carouselContainer = section.querySelector('.vastu-grid-carousel__mobile-carousel');
+            
+            if (carouselContainer) {
+              const hiddenSlides = carouselContainer.querySelectorAll('.vastu-grid-carousel__slide--hidden');
+              if (hiddenSlides.length === 0) {
+                btn.style.display = 'none';
+                const wrapper = btn.closest('.vastu-grid-carousel__view-more-wrapper');
                 if (wrapper) {
                   wrapper.style.display = 'none';
                   wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
                 }
               }
             }
-          } else {
-            // For desktop carousel, we need to reload the section or fetch more products
-            // For now, just hide the button if we've reached the limit
-            // In a production environment, you'd fetch more products via AJAX
-            const carousel = document.querySelector(`[data-section-id="${sectionId}"]`)?.closest('.vastu-grid-carousel__desktop-carousel')?.querySelector('.vastu-grid-carousel__carousel');
-            
-            // Update carousel if it exists
-            if (carousel && typeof carousel.update === 'function') {
-              setTimeout(function() {
-                if (carousel.xoCarousel && typeof carousel.xoCarousel.update === 'function') {
-                  carousel.xoCarousel.update();
-                } else if (typeof carousel.update === 'function') {
-                  carousel.update();
-                }
-              }, 100);
-            }
           }
-        });
+        }
       });
     }
     
@@ -257,6 +420,7 @@
     function waitForCarousel() {
       if (typeof customElements !== 'undefined' && customElements.get('xo-carousel')) {
         initViewMore();
+        checkInitialButtonState();
       } else {
         setTimeout(waitForCarousel, 100);
       }
@@ -264,12 +428,18 @@
     
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(initViewMore, 500);
+        setTimeout(function() {
+          initViewMore();
+          checkInitialButtonState();
         waitForCarousel();
+        }, 500);
       });
     } else {
-      setTimeout(initViewMore, 500);
+      setTimeout(function() {
+        initViewMore();
+        checkInitialButtonState();
       waitForCarousel();
+      }, 500);
     }
   })();
 </script>
@@ -350,16 +520,106 @@
       "default": "View More"
     },
     {
+      "type": "header",
+      "content": "Carousel Controls - Desktop"
+    },
+    {
       "type": "checkbox",
       "id": "show_navigation",
-      "label": "Show Carousel Navigation",
+      "label": "Show Navigation Arrows (Desktop)",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "show_pagination",
-      "label": "Show Carousel Pagination",
+      "label": "Show Pagination Dots (Desktop)",
       "default": true
+    },
+    {
+      "type": "select",
+      "id": "pagination_position_desktop",
+      "label": "Pagination Position (Desktop)",
+      "default": "bottom",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "pagination_offset_desktop",
+      "label": "Pagination Offset (Desktop)",
+      "default": "-2.5rem",
+      "info": "Distance from position (e.g., '-2.5rem', '20px')"
+    },
+    {
+      "type": "header",
+      "content": "Carousel Controls - Mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation_mobile",
+      "label": "Show Navigation Arrows (Mobile)",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination_mobile",
+      "label": "Show Pagination Dots (Mobile)",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "pagination_position_mobile",
+      "label": "Pagination Position (Mobile)",
+      "default": "bottom",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "pagination_offset_mobile",
+      "label": "Pagination Offset (Mobile)",
+      "default": "-2.5rem",
+      "info": "Distance from position (e.g., '-2.5rem', '20px')"
     },
     {
       "type": "select",
@@ -490,102 +750,6 @@
       "label": "Padding Bottom",
       "default": 50
     },
-    {
-      "type": "header",
-      "content": "Section Spacing (Overrides Global Settings)"
-    },
-    {
-      "type": "paragraph",
-      "content": "Leave empty to use global settings. Desktop: 8px default, Mobile: 4px default"
-    },
-    {
-      "type": "range",
-      "id": "section_padding_top_desktop",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding Top (Desktop)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_padding_bottom_desktop",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding Bottom (Desktop)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_margin_top_desktop",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Margin Top (Desktop)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_margin_bottom_desktop",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Margin Bottom (Desktop)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_padding_top_mobile",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding Top (Mobile)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_padding_bottom_mobile",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding Bottom (Mobile)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_margin_top_mobile",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Margin Top (Mobile)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_margin_bottom_mobile",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Margin Bottom (Mobile)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    }
   ],
   "presets": [
     {

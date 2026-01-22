@@ -3,15 +3,15 @@
 /* Force zero margins for marquee section - override global spacing on both desktop and mobile */
 section.vastu-section-spacing:has(.marquee-v1__wrapper),
 section.xo-section:has(.marquee-v1__wrapper) {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media (width <= 48rem) {
   section.vastu-section-spacing:has(.marquee-v1__wrapper),
   section.xo-section:has(.marquee-v1__wrapper) {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 

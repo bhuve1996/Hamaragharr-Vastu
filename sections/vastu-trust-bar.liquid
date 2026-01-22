@@ -25,7 +25,7 @@
             <p class='vastu-trust-bar__text'>{{ block.settings.text }}</p>
           {% endif %}
           {% if block.settings.subtitle != blank %}
-            <p class='vastu-trust-bar__item-subtitle'>{{ block.settings.subtitle }}</p>
+            <span class='vastu-trust-bar__item-subtitle'>{{ block.settings.subtitle }}</span>
           {% endif %}
         </div>
       {% endfor %}
@@ -286,102 +286,6 @@
       "id": "padding_bottom",
       "label": "t:sections.all.padding_bottom.label",
       "default": 50
-    },
-    {
-      "type": "header",
-      "content": "Section Spacing (Overrides Global Settings)"
-    },
-    {
-      "type": "paragraph",
-      "content": "Leave empty to use global settings. Desktop: 8px default, Mobile: 4px default"
-    },
-    {
-      "type": "range",
-      "id": "section_padding_top_desktop",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding Top (Desktop)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_padding_bottom_desktop",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding Bottom (Desktop)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_margin_top_desktop",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Margin Top (Desktop)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_margin_bottom_desktop",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Margin Bottom (Desktop)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_padding_top_mobile",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding Top (Mobile)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_padding_bottom_mobile",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding Bottom (Mobile)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_margin_top_mobile",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Margin Top (Mobile)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
-    },
-    {
-      "type": "range",
-      "id": "section_margin_bottom_mobile",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Margin Bottom (Mobile)",
-      "default": 0,
-      "info": "Set to 0 to use global setting"
     },
     {
       "type": "header",

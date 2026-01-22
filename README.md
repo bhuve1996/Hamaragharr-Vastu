@@ -9,7 +9,9 @@ VastuKit theme based on Florasy Multipurpose Plant Store Theme.
 - **Theme ID**: 183707402553 (Florasy theme)
 - **Theme Base**: Florasy Multipurpose Plant Store Theme by ShopiLaunch
 
-## Pulling Theme from Shopify
+## Development
+
+### Pulling Theme from Shopify
 
 To pull the latest theme files from Shopify (development store):
 
@@ -19,7 +21,17 @@ shopify theme pull --theme=183707402553
 
 The `shopify.theme.toml` is configured to use the development store (`aa4383-53.myshopify.com`), so you can pull directly without specifying the store.
 
-## Development
+### CSS Files
+
+The theme uses individual CSS files for all environments. All CSS files are located in the `assets/` directory and are loaded directly without any build step.
+
+### Environment-Based Asset Loading
+
+The theme automatically detects the environment:
+- **Local Development** (localhost/127.0.0.1): Loads individual CSS files for easier debugging
+- **Production**: Also loads individual CSS files (no combined/minified version)
+
+## Custom Sections
 
 This theme includes custom Vastu-specific sections:
 - Vastu Hero
@@ -27,11 +39,12 @@ This theme includes custom Vastu-specific sections:
 - Vastu Best Seller Cards
 - Vastu Hot Deals
 
-## Image Requirements
+## Scripts
 
-See [IMAGE-SIZES-GUIDE.md](./IMAGE-SIZES-GUIDE.md) for complete image size specifications.
+- `npm run format` - Format CSS and JSON files
+- `npm run lint:css` - Lint CSS files
+- `npm run lint:css:fix` - Fix CSS linting issues
 
 ## Documentation
 
 - Theme Documentation: https://docs.shopilaunch.com/florasy
-

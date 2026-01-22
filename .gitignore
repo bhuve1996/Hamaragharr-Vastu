@@ -20,6 +20,9 @@ Desktop.ini
 .settings/
 *.sublime-project
 *.sublime-workspace
+# Temporary files with illegal characters (editor swap/backup files)
+.*!*
+*!*
 
 # Logs
 *.log

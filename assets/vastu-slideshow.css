@@ -56,17 +56,6 @@
     padding: 1.5rem;
   }
 
-  .vastu-featured-products__icon-svg svg {
-    max-width: 6.25rem;
-    max-height: 6.25rem;
-  }
-
-  .vastu-trust-bar__icon,
-  .vastu-trust-bar__icon-svg {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-
   .vastu-features-bar__icon,
   .vastu-features-bar__icon-svg {
     width: 18rem;
@@ -98,14 +87,6 @@
   .product-recommendations-section xo-carousel,
   .product-recommendations xo-carousel {
     padding-bottom: 0;
-  }
-
-  .slideshow-v28__pagination,
-  .vastu-best-seller__pagination,
-  .vastu-featured-products__pagination,
-  .vastu-trust-bar__pagination {
-    bottom: -48px;
-    margin-top: 32px;
   }
 
   .vastu-features-bar__pagination,
@@ -173,21 +154,17 @@
 
 section[class*="testimonial-v2"],
 section[class*="testimonial-v13"] {
-  padding-top: 80px;
-  padding-bottom: 80px;
   background: #473855;
   position: relative;
 }
 
 section[class*="testimonial-v2"] xo-container,
 section[class*="testimonial-v13"] xo-container {
-  background: #473855;
-  border-radius: 1rem;
-  border-top: 4px solid rgb(255 255 255 / 20%);
-  padding: 2.5rem 2rem;
-  box-shadow:
-    0 2px 12px rgb(0 0 0 / 20%),
-    0 1px 4px rgb(0 0 0 / 15%);
+  background: transparent;
+  border-radius: 0;
+  border-top: none;
+  padding: 0.5rem;
+  box-shadow: none;
   margin: 0 auto;
   position: relative;
 }
@@ -219,5 +196,3 @@ section[class*="testimonial-v13"] xo-carousel-slide {
   width: 100%;
   aspect-ratio: auto;
 }
-
-/* Testimonial item styles are handled by testimonial component */

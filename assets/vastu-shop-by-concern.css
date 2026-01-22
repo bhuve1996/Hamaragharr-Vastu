@@ -1,5 +1,3 @@
-/* Underline removed - no underline for shop by concern heading */
-
 .vastu-shop-by-concern__accordion {
   margin-top: 0;
   max-width: 900px;
@@ -113,8 +111,8 @@
 .vastu-shop-by-concern__trigger[aria-expanded="true"] .vastu-shop-by-concern__trigger-icon svg #path-2,
 .vastu-shop-by-concern__trigger[xo-active] .vastu-shop-by-concern__trigger-icon svg path:nth-of-type(2),
 .vastu-shop-by-concern__trigger[xo-active] .vastu-shop-by-concern__trigger-icon svg #path-2 {
-  opacity: 0 !important;
-  transform: scale(1, 0) !important;
+  opacity: 0;
+  transform: scale(1, 0);
   visibility: hidden;
 }
 
@@ -131,7 +129,6 @@
 }
 
 .vastu-shop-by-concern__card-description {
-  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   margin: 0 0 1.5rem;
   text-align: left;
@@ -148,7 +145,6 @@
 
 .vastu-shop-by-concern__benefits-title,
 .vastu-shop-by-concern__recommended-title {
-  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   margin: 0 0 1rem;
   padding-top: 1.5rem;
@@ -185,7 +181,6 @@
 
 .vastu-shop-by-concern__benefits-list li,
 .vastu-shop-by-concern__recommended-list li {
-  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   margin-bottom: 0.75rem;
   padding-left: 2rem;
@@ -201,7 +196,7 @@
   left: 0;
   color: #473855;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: var(--global-body-font-size-desktop);
 }
 
 .vastu-shop-by-concern__benefits-list li:last-child,
@@ -218,8 +213,6 @@
 
 .vastu-shop-by-concern__cta-link {
   display: inline-block;
-
-  /* Typography handled by vastu-global-typography.css */
   color: #473855;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -326,7 +319,7 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1.2;
+  line-height: var(--global-heading-line-height-desktop);
   padding: 0 0.5rem;
 }
 
@@ -368,9 +361,9 @@ section[class*="vastu-shop-by-concern"] xo-carousel-inner {
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price,
 section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card__image .xo-product-card__price-overlay {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
 /* Ensure price in content area is visible and properly styled */
@@ -384,7 +377,7 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   padding: 0;
   margin: 0.5rem 0 0;
   font-size: var(--global-card-price-font-size-desktop);
-  font-weight: 600;
+  font-weight: var(--global-body-font-weight-desktop);
   border-radius: 0;
   box-shadow: none;
   backdrop-filter: none;
@@ -515,27 +508,12 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   }
 
   .vastu-shop-by-concern__card-description {
-    /* Typography handled by vastu-global-typography.css */
     text-align: left;
-  }
-
-  .vastu-shop-by-concern__card-description p {
-    /* Typography handled by vastu-global-typography.css */
   }
 
   .vastu-shop-by-concern__benefits-title,
   .vastu-shop-by-concern__recommended-title {
-    /* Typography handled by vastu-global-typography.css */
     text-align: left;
-  }
-
-  .vastu-shop-by-concern__benefits-list li,
-  .vastu-shop-by-concern__recommended-list li {
-    /* Typography handled by vastu-global-typography.css */
-  }
-
-  .vastu-shop-by-concern__cta-link {
-    /* Typography handled by vastu-global-typography.css */
   }
 
   .vastu-shop-by-concern__benefits-list,
@@ -545,7 +523,6 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   }
 
   .vastu-shop-by-concern__product-title {
-    /* Typography handled by vastu-global-typography.css */
     min-height: auto;
     height: auto;
   }

@@ -155,9 +155,9 @@
 
   /* Mobile-specific smaller text - extra small size for mobile */
   .vastu-why-kit__text {
-    font-size: 0.9rem; /* 9px - very small for mobile */
-    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 400));
-    line-height: 1.4;
+    font-size: var(--global-body-font-size-mobile);
+    font-weight: var(--global-body-font-weight-mobile);
+    line-height: var(--global-body-line-height-mobile);
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

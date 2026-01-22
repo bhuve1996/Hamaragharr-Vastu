@@ -2,123 +2,23 @@
   margin-bottom: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
 }
 
-.banner-v155__description-heading {
-  font-size: var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem));
-  font-weight: 700;
-  color: rgb(var(--color-foreground, 0, 0, 0));
-
-  /* Margins handled by vastu-global-spacing.css */
-  line-height: var(--section-heading-line-height-desktop, var(--global-heading-line-height-desktop, 1.2));
-}
-
-.banner-v155__description-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  /* Margin-top handled by vastu-global-spacing.css */
-}
-
-.banner-v155__description-list li {
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
-  color: rgba(var(--color-foreground, 0, 0, 0), 0.75);
-  padding-left: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
-  position: relative;
-
-  /* Margin-bottom handled by vastu-global-spacing.css */
-  display: flex;
-  align-items: flex-start;
-}
-
-.banner-v155__description-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
-  color: rgb(var(--color-secondary-button, 71, 56, 85));
-  font-weight: 700;
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
-  top: 0;
-}
-
-.banner-v155__content .button,
-.banner-v155__content .xo-btn,
-.banner-v155__content button {
-  margin-top: 0;
-}
-
-.vastu-hero__content {
-  padding-top: 0;
-}
-
-.vastu-hero__subtitle {
-  /* Margin-bottom handled by vastu-global-spacing.css */
-  margin-top: 0;
-}
-
-.vastu-hero__title {
-  /* Margin-bottom handled by vastu-global-spacing.css */
-  margin-top: 0;
-}
-
-.vastu-hero__description {
-  /* Margin-bottom handled by vastu-global-spacing.css */
-  margin-top: 0;
-}
-
-.vastu-hero__content .button,
-.vastu-hero__content .xo-btn,
-.vastu-hero__content button {
-  margin-top: 0;
-}
-
-.vastu-hindi-statement__subtext {
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
-.banner-v155__img {
-  position: relative;
-  display: block;
-  border-radius: 1.25rem;
-  overflow: hidden;
-  box-shadow: 0 0.625rem 2.5rem rgb(71 56 85 / 15%);
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
-  background: transparent;
-  padding: 0;
-  width: 100%;
-  border: none;
-  outline: none;
-}
-
-.banner-v155__img:hover {
-  transform: translateY(-0.5rem);
-  box-shadow: 0 1.25rem 3.75rem rgb(71 56 85 / 25%);
-}
-
-.banner-v155__img img,
-.banner-v155__img picture,
-.banner-v155__img picture img {
-  border-radius: 1.25rem;
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.4s ease;
-  object-fit: contain;
-  max-width: 100%;
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.banner-v155__img:hover img,
-.banner-v155__img:hover picture img {
-  transform: scale(1.05);
-}
+/* Duplicate rules removed - see vastu-banner-hero.css for:
+   - .banner-v155__description-heading
+   - .banner-v155__description-list
+   - .banner-v155__description-list li
+   - .banner-v155__description-list li::before
+   - .banner-v155__content .button, .banner-v155__content .xo-btn, .banner-v155__content button
+   - .vastu-hero__content
+   - .vastu-hero__subtitle
+   - .vastu-hero__title
+   - .vastu-hero__description
+   - .vastu-hero__content .button, .vastu-hero__content .xo-btn, .vastu-hero__content button
+   - .vastu-hindi-statement__subtext
+   - .banner-v155__img
+   - .banner-v155__img:hover
+   - .banner-v155__img img, .banner-v155__img picture, .banner-v155__img picture img
+   - .banner-v155__img:hover img, .banner-v155__img:hover picture img
+*/
 
 .banner-v155__item--left {
   display: flex;
@@ -358,13 +258,7 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   min-width: fit-content;
 }
 
-xo-collapse-trigger,
-xo-collapse-trigger.shipping-accordion__trigger,
-.shipping-accordion__trigger {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
+/* Removed duplicate xo-collapse-trigger.shipping-accordion__trigger - already in vastu-product-card-fixes.css */
 
 .shipping-accordion__question {
   display: flex;

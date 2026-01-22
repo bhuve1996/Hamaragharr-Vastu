@@ -126,43 +126,13 @@
       --global-body-font-weight-desktop: {{ settings.global_body_font_weight_desktop | default: 400 }};
       --global-body-font-weight-mobile: {{ settings.global_body_font_weight_mobile | default: 400 }};
       
-      /* Subtitles */
-      --global-subtitle-font-size-desktop: {{ settings.global_subtitle_font_size_desktop | default: 1.8 }}rem; /* 18px - increased from 16px, 2px smaller than titles */
-      --global-subtitle-font-size-mobile: {{ settings.global_subtitle_font_size_mobile | default: 1.6 }}rem; /* 16px - increased from 15px, 2px smaller than titles */
+      /* Subtitles (Subheadings) */
+      --global-subtitle-font-size-desktop: {{ settings.global_subtitle_font_size_desktop | default: 1.8 }}rem;
+      --global-subtitle-font-size-mobile: {{ settings.global_subtitle_font_size_mobile | default: 1.6 }}rem;
       --global-subtitle-line-height-desktop: {{ settings.global_subtitle_line_height_desktop | default: 1.4 }};
       --global-subtitle-line-height-mobile: {{ settings.global_subtitle_line_height_mobile | default: 1.4 }};
-      --global-subtitle-font-weight-desktop: {{ settings.global_subtitle_font_weight_desktop | default: 500 }}; /* Medium - between titles and descriptions */
-      --global-subtitle-font-weight-mobile: {{ settings.global_subtitle_font_weight_mobile | default: 500 }}; /* Medium - between titles and descriptions */
-      
-      /* Card Titles */
-      --global-card-title-font-size-desktop: {{ settings.global_card_title_font_size_desktop | default: 2 }}rem; /* 20px - increased from 15px, 2px larger than subtitles */
-      --global-card-title-font-size-mobile: {{ settings.global_card_title_font_size_mobile | default: 1.8 }}rem; /* 18px - increased from 13px, 2px larger than subtitles */
-      --global-card-title-line-height-desktop: {{ settings.global_card_title_line_height_desktop | default: 1.3 }};
-      --global-card-title-line-height-mobile: {{ settings.global_card_title_line_height_mobile | default: 1.3 }};
-      --global-card-title-font-weight-desktop: {{ settings.global_card_title_font_weight_desktop | default: 700 }}; /* Bold - increased from 600 for more visibility */
-      --global-card-title-font-weight-mobile: {{ settings.global_card_title_font_weight_mobile | default: 700 }}; /* Bold - increased from 600 for more visibility */
-      
-      /* Descriptions */
-      --global-description-font-size-desktop: {{ settings.global_description_font_size_desktop | default: 1.4 }}rem; /* 14px - reduced from 15px to avoid 15px/16px conflict */
-      --global-description-font-size-mobile: {{ settings.global_description_font_size_mobile | default: 1.3 }}rem; /* 13px - reduced from 14px for better hierarchy */
-      --global-description-line-height-desktop: {{ settings.global_description_line_height_desktop | default: 1.5 }};
-      --global-description-line-height-mobile: {{ settings.global_description_line_height_mobile | default: 1.5 }};
-      --global-description-font-weight-desktop: {{ settings.global_description_font_weight_desktop | default: 400 }}; /* Normal - lightest weight */
-      --global-description-font-weight-mobile: {{ settings.global_description_font_weight_mobile | default: 400 }}; /* Normal - lightest weight */
-      
-      /* Tags/Badges */
-      --global-tag-font-size-desktop: {{ settings.global_tag_font_size_desktop | default: 1.25 }}rem;
-      --global-tag-font-size-mobile: {{ settings.global_tag_font_size_mobile | default: 1.1 }}rem;
-      --global-tag-line-height-desktop: {{ settings.global_tag_line_height_desktop | default: 1.2 }};
-      --global-tag-line-height-mobile: {{ settings.global_tag_line_height_mobile | default: 1.2 }};
-      --global-tag-font-weight-desktop: {{ settings.global_tag_font_weight_desktop | default: 600 }};
-      --global-tag-font-weight-mobile: {{ settings.global_tag_font_weight_mobile | default: 600 }};
-      
-      /* Product Prices */
-      --global-card-price-font-size-desktop: {{ settings.global_card_price_font_size_desktop | default: 1.6 }}rem; /* 16px */
-      --global-card-price-font-size-mobile: {{ settings.global_card_price_font_size_mobile | default: 1.6 }}rem; /* 16px */
-      --global-card-price-font-weight-desktop: {{ settings.global_card_price_font_weight_desktop | default: 700 }};
-      --global-card-price-font-weight-mobile: {{ settings.global_card_price_font_weight_mobile | default: 700 }};
+      --global-subtitle-font-weight-desktop: {{ settings.global_subtitle_font_weight_desktop | default: 400 }};
+      --global-subtitle-font-weight-mobile: {{ settings.global_subtitle_font_weight_mobile | default: 400 }};
       
       /* Text Spacing & Margins */
       /* Headings */
@@ -176,14 +146,6 @@
       /* Subtitles */
       --global-subtitle-margin-bottom-desktop: {{ settings.global_subtitle_margin_bottom_desktop | default: 24 }}px;
       --global-subtitle-margin-bottom-mobile: {{ settings.global_subtitle_margin_bottom_mobile | default: 20 }}px;
-      
-      /* Card Titles */
-      --global-card-title-margin-bottom-desktop: {{ settings.global_card_title_margin_bottom_desktop | default: 12 }}px;
-      --global-card-title-margin-bottom-mobile: {{ settings.global_card_title_margin_bottom_mobile | default: 12 }}px;
-      
-      /* Descriptions */
-      --global-description-margin-bottom-desktop: {{ settings.global_description_margin_bottom_desktop | default: 24 }}px;
-      --global-description-margin-bottom-mobile: {{ settings.global_description_margin_bottom_mobile | default: 20 }}px;
       
       /* Homepage heading settings - global defaults */
       --homepage-heading-font-size: {{ settings.homepage_heading_font_size | default: 3.5 }}rem;
@@ -209,6 +171,16 @@
       --section-padding-bottom-mobile: {{ settings.section_padding_bottom_mobile | default: 0 }}px;
       --section-margin-top-mobile: {{ settings.section_margin_top_mobile | default: 0 }}px;
       --section-margin-bottom-mobile: {{ settings.section_margin_bottom_mobile | default: 0 }}px;
+      
+      /* Global section spacing fallbacks (for CSS var fallback chain) */
+      --global-section-padding-top-desktop: {{ settings.section_padding_top_desktop | default: 0 }}px;
+      --global-section-padding-bottom-desktop: {{ settings.section_padding_bottom_desktop | default: 0 }}px;
+      --global-section-margin-top-desktop: {{ settings.section_margin_top_desktop | default: 0 }}px;
+      --global-section-margin-bottom-desktop: {{ settings.section_margin_bottom_desktop | default: 0 }}px;
+      --global-section-padding-top-mobile: {{ settings.section_padding_top_mobile | default: 0 }}px;
+      --global-section-padding-bottom-mobile: {{ settings.section_padding_bottom_mobile | default: 0 }}px;
+      --global-section-margin-top-mobile: {{ settings.section_margin_top_mobile | default: 0 }}px;
+      --global-section-margin-bottom-mobile: {{ settings.section_margin_bottom_mobile | default: 0 }}px;
       
       /* Section-to-section spacing (for .section+.section selector) */
       --section-to-section-spacing-desktop: {{ settings.section_to_section_spacing_desktop | default: 0 }}px;

@@ -92,5 +92,5 @@ h2.homepage-section-heading[data-enable-underline="false"]::after {
 
 /* Special case: Hindi statement should never have underline */
 h2.vastu-hindi-statement__text.homepage-section-heading::after {
-  display: none !important;
+  display: none;
 }
