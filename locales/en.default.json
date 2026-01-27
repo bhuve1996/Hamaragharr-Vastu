@@ -494,6 +494,9 @@
     "home": "Home",
     "back": "Back",
     "shop": "Shop",
+    "loading": {
+      "loading": "Loading..."
+    },
     "password_page": {
       "login_form_heading": "Enter store using password:",
       "login_password_button": "Enter using password",

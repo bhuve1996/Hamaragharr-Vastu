@@ -1,6 +1,10 @@
 .vastu-product-showcase {
   padding: 0;
   margin: 0;
+
+  /* Defer product showcase loading to prioritize banner */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
 
 .vastu-product-showcase .xo-product-info-content {

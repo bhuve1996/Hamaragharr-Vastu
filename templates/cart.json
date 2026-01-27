@@ -43,18 +43,34 @@
         "padding_top": 20
       }
     },
-    "featured-collection": {
-      "type": "featured-collection",
+    "you-may-also-like": {
+      "type": "vastu-grid-carousel",
       "settings": {
         "heading_title": "You May Also Like",
-        "collection": "best-seller",
+        "heading_description": "",
+        "heading_align": "center",
+        "product_source": "collection",
+        "collection": "all",
+        "products_limit": 8,
+        "view_more_limit": 4,
         "columns_desktop": 4,
-        "columns_mobile": "2",
+        "view_more_text": "View More",
+        "show_navigation": true,
+        "show_pagination": true,
+        "pagination_position_desktop": "bottom",
+        "pagination_offset_desktop": "-2.5rem",
+        "width": "box",
+        "card_title_font_size": 1.5,
+        "card_price_font_size": 1.2,
+        "button_text_add_to_cart": "Add to Cart",
+        "show_wishlist": true,
         "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "#ffffff",
         "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
-  "order": ["main-page-heading", "cart-items", "featured-collection"]
+  "order": ["main-page-heading", "cart-items", "you-may-also-like"]
 }
