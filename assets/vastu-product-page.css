@@ -400,15 +400,27 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   margin-top: 0;
 }
 
+/* Mobile grid styles */
+.vastu-product-showcase xo-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0;
+}
+
+.vastu-product-showcase xo-animate {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 @media (width >= 768px) {
   .vastu-product-showcase xo-grid {
-    display: flex;
+    flex-direction: row;
     align-items: stretch;
   }
 
   .vastu-product-showcase xo-animate {
-    display: flex;
-    flex-direction: column;
     height: 100%;
     align-items: stretch;
   }

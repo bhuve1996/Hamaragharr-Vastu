@@ -57,12 +57,27 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   width: 100%;
 }
 
+/* Mobile grid styles */
+.vastu-product-showcase xo-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  gap: 0;
+}
+
+.vastu-product-showcase xo-animate {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
 @media (width >= 768px) {
   .vastu-product-showcase xo-grid {
-    display: flex;
+    flex-direction: row;
     align-items: stretch;
-    width: 100%;
-    max-width: 100%;
   }
 
   .vastu-product-showcase xo-animate:has(.xo-product-info-media-style1) {
@@ -258,7 +273,6 @@ xo-cart-quantity-plus {
   font-weight: var(--global-body-font-weight-desktop, 400);
   padding: 0;
   margin: 0;
-  appearance: textfield;
   appearance: textfield;
 }
 

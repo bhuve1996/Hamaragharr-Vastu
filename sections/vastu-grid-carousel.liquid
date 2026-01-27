@@ -1,8 +1,8 @@
 {% comment %}
   Grid/Carousel Section
-  - Mobile: Carousel with partial next item visible (shows 85% of current item)
+  - Mobile: Grid layout (2 columns)
   - Desktop: Full bleed carousel
-  - Configurable carousel controls (navigation arrows and pagination dots)
+  - Configurable carousel controls (navigation arrows and pagination dots) for desktop
   - Configurable positioning for pagination dots
 {% endcomment %}
 
@@ -82,118 +82,64 @@
         {% render 'space', value: '2rem' %}
       </xo-container>
       
-      {% comment %} Mobile Carousel (hidden on desktop) - Shows partial next item {% endcomment %}
-      <div class='vastu-grid-carousel__mobile-carousel'>
+      {% comment %} Mobile Grid (hidden on desktop) {% endcomment %}
+      <div class='vastu-grid-carousel__mobile-grid'>
         <xo-container>
-          <xo-carousel
-            xo-per-view='1'
-            xo-gap='10'
-            xo-speed='400'
-            xo-autoplay='5000'
-            xo-hover-pause
-            xo-render-bullet='<span></span>'
-            class='vastu-grid-carousel__carousel'
-          >
-            <xo-carousel-inner>
-              <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
-                {%- if product_source == 'blocks' -%}
-                  {%- for block in section.blocks -%}
-                    {%- if block.type == 'product' and block.settings.product != blank -%}
-                      {%- assign current_product = all_products[block.settings.product] -%}
-                      {%- if current_product != blank -%}
-                        {%- if forloop.index <= products_limit -%}
-                        <xo-carousel-slide 
-                          aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                          aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ total_products }}'
-                          data-product-index='{{ forloop.index }}'
-                          {{ block.shopify_attributes }}
-                        >
-                          {% render 'vastu-grid-card',
-                            product: current_product,
-                            section: section,
-                            settings: section.settings
-                          %}
-                        </xo-carousel-slide>
-                        {%- else -%}
-                          <xo-carousel-slide 
-                            aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                            aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ total_products }}'
-                            data-product-index='{{ forloop.index }}'
-                            class='vastu-grid-carousel__slide--hidden'
-                            {{ block.shopify_attributes }}
-                          >
-                            {% render 'vastu-grid-card',
-                              product: current_product,
-                              section: section,
-                              settings: section.settings
-                            %}
-                          </xo-carousel-slide>
-                        {%- endif -%}
-                      {%- endif -%}
-                    {%- endif -%}
-                  {%- endfor -%}
-                {%- else -%}
-                  {%- assign seen_handles = '' -%}
-                  {%- assign rendered_count = 0 -%}
-                  {%- for product in collection.products -%}
-                    {%- assign product_handle_check = product.handle | append: '|' -%}
-                    {%- unless seen_handles contains product_handle_check -%}
-                      {%- assign seen_handles = seen_handles | append: product_handle_check -%}
-                      {%- assign rendered_count = rendered_count | plus: 1 -%}
-                      {%- if rendered_count <= products_limit -%}
-                      <xo-carousel-slide 
-                        aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                        aria-label='{{ rendered_count }} {{ 'general.slider.of' | t }} {{ total_products }}'
-                        data-product-index='{{ rendered_count }}'
-                      >
+          <xo-grid class='vastu-grid-carousel__grid' style='--xs: 2; --sm: 2; --md: 2; --lg: 2; --xl: 2; --xxl: 2; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'>
+            {%- if product_source == 'blocks' -%}
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'product' and block.settings.product != blank -%}
+                  {%- assign current_product = all_products[block.settings.product] -%}
+                  {%- if current_product != blank -%}
+                    {%- if forloop.index <= products_limit -%}
+                    <div class='vastu-grid-carousel__grid-item' {{ block.shopify_attributes }}>
+                      {% render 'vastu-grid-card',
+                        product: current_product,
+                        section: section,
+                        settings: section.settings
+                      %}
+                    </div>
+                    {%- else -%}
+                      <div class='vastu-grid-carousel__grid-item vastu-grid-carousel__grid-item--hidden' {{ block.shopify_attributes }}>
                         {% render 'vastu-grid-card',
-                          product: product,
+                          product: current_product,
                           section: section,
                           settings: section.settings
                         %}
-                      </xo-carousel-slide>
-                      {%- else -%}
-                        <xo-carousel-slide 
-                          aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                          aria-label='{{ rendered_count }} {{ 'general.slider.of' | t }} {{ total_products }}'
-                          data-product-index='{{ rendered_count }}'
-                          class='vastu-grid-carousel__slide--hidden'
-                        >
-                          {% render 'vastu-grid-card',
-                            product: product,
-                            section: section,
-                            settings: section.settings
-                          %}
-                        </xo-carousel-slide>
-                      {%- endif -%}
-                    {%- endunless -%}
-                  {%- endfor -%}
+                      </div>
+                    {%- endif -%}
+                  {%- endif -%}
                 {%- endif -%}
-              </xo-carousel-list>
-            </xo-carousel-inner>
-            {%- liquid
-              if section.settings.show_navigation_mobile
-                assign nav_mobile = 'flex'
-              else
-                assign nav_mobile = 'none'
-              endif
-              if section.settings.show_pagination_mobile
-                assign pag_mobile = 'block'
-              else
-                assign pag_mobile = 'none'
-              endif
-            -%}
-            {% render 'vastu-carousel-controls',
-              show_navigation: section.settings.show_navigation_mobile,
-              show_pagination: section.settings.show_pagination_mobile,
-              navigation_desktop: 'none',
-              navigation_mobile: nav_mobile,
-              pagination_desktop: 'none',
-              pagination_mobile: pag_mobile,
-              pagination_position: section.settings.pagination_position_mobile,
-              pagination_offset: section.settings.pagination_offset_mobile
-            %}
-          </xo-carousel>
+              {%- endfor -%}
+            {%- else -%}
+              {%- assign seen_handles = '' -%}
+              {%- assign rendered_count = 0 -%}
+              {%- for product in collection.products -%}
+                {%- assign product_handle_check = product.handle | append: '|' -%}
+                {%- unless seen_handles contains product_handle_check -%}
+                  {%- assign seen_handles = seen_handles | append: product_handle_check -%}
+                  {%- assign rendered_count = rendered_count | plus: 1 -%}
+                  {%- if rendered_count <= products_limit -%}
+                  <div class='vastu-grid-carousel__grid-item'>
+                    {% render 'vastu-grid-card',
+                      product: product,
+                      section: section,
+                      settings: section.settings
+                    %}
+                  </div>
+                  {%- else -%}
+                    <div class='vastu-grid-carousel__grid-item vastu-grid-carousel__grid-item--hidden'>
+                      {% render 'vastu-grid-card',
+                        product: product,
+                        section: section,
+                        settings: section.settings
+                      %}
+                    </div>
+                  {%- endif -%}
+                {%- endunless -%}
+              {%- endfor -%}
+            {%- endif -%}
+          </xo-grid>
         </xo-container>
         {%- if has_more_products -%}
           <div class='vastu-grid-carousel__view-more-wrapper'>
@@ -304,105 +250,63 @@
       </xo-animate>
       {% render 'space', value: '2rem' %}
       
-      {% comment %} Mobile Carousel - Shows partial next item {% endcomment %}
-      <div class='vastu-grid-carousel__mobile-carousel'>
-        <xo-carousel
-          xo-per-view='1'
-          xo-gap='10'
-          xo-speed='400'
-          xo-autoplay='5000'
-          xo-hover-pause
-          xo-render-bullet='<span></span>'
-          class='vastu-grid-carousel__carousel'
-        >
-          <xo-carousel-inner>
-            <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
-              {%- if product_source == 'blocks' -%}
-                {%- for block in section.blocks -%}
-                  {%- if block.type == 'product' and block.settings.product != blank -%}
-                    {%- assign current_product = all_products[block.settings.product] -%}
-                    {%- if current_product != blank -%}
-                      {%- if forloop.index <= products_limit -%}
-                      <xo-carousel-slide 
-                        aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                        aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ total_products }}'
-                        data-product-index='{{ forloop.index }}'
-                        {{ block.shopify_attributes }}
-                      >
-                        {% render 'vastu-grid-card',
-                          product: current_product,
-                          section: section,
-                          settings: section.settings
-                        %}
-                      </xo-carousel-slide>
-                      {%- else -%}
-                        <xo-carousel-slide 
-                          aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                          aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ total_products }}'
-                          data-product-index='{{ forloop.index }}'
-                          class='vastu-grid-carousel__slide--hidden'
-                          {{ block.shopify_attributes }}
-                        >
-                          {% render 'vastu-grid-card',
-                            product: current_product,
-                            section: section,
-                            settings: section.settings
-                          %}
-                        </xo-carousel-slide>
-                      {%- endif -%}
-                    {%- endif -%}
-                  {%- endif -%}
-                {%- endfor -%}
-              {%- else -%}
-                {%- assign seen_handles_mobile2 = '' -%}
-                {%- assign rendered_count_mobile2 = 0 -%}
-                {%- for product in collection.products -%}
-                  {%- assign product_handle_check = product.handle | append: '|' -%}
-                  {%- unless seen_handles_mobile2 contains product_handle_check -%}
-                    {%- assign seen_handles_mobile2 = seen_handles_mobile2 | append: product_handle_check -%}
-                    {%- assign rendered_count_mobile2 = rendered_count_mobile2 | plus: 1 -%}
-                    {%- if rendered_count_mobile2 <= products_limit -%}
-                    <xo-carousel-slide 
-                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                      aria-label='{{ rendered_count_mobile2 }} {{ 'general.slider.of' | t }} {{ total_products }}'
-                      data-product-index='{{ rendered_count_mobile2 }}'
-                    >
+      {% comment %} Mobile Grid {% endcomment %}
+      <div class='vastu-grid-carousel__mobile-grid'>
+        <xo-grid class='vastu-grid-carousel__grid' style='--xs: 2; --sm: 2; --md: 2; --lg: 2; --xl: 2; --xxl: 2; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'>
+          {%- if product_source == 'blocks' -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'product' and block.settings.product != blank -%}
+                {%- assign current_product = all_products[block.settings.product] -%}
+                {%- if current_product != blank -%}
+                  {%- if forloop.index <= products_limit -%}
+                  <div class='vastu-grid-carousel__grid-item' {{ block.shopify_attributes }}>
+                    {% render 'vastu-grid-card',
+                      product: current_product,
+                      section: section,
+                      settings: section.settings
+                    %}
+                  </div>
+                  {%- else -%}
+                    <div class='vastu-grid-carousel__grid-item vastu-grid-carousel__grid-item--hidden' {{ block.shopify_attributes }}>
                       {% render 'vastu-grid-card',
-                        product: product,
+                        product: current_product,
                         section: section,
                         settings: section.settings
                       %}
-                    </xo-carousel-slide>
-                    {%- else -%}
-                      <xo-carousel-slide 
-                        aria-roledescription='{{ 'sections.slideshow.slide' | t }}' 
-                        aria-label='{{ rendered_count_mobile2 }} {{ 'general.slider.of' | t }} {{ total_products }}'
-                        data-product-index='{{ rendered_count_mobile2 }}'
-                        class='vastu-grid-carousel__slide--hidden'
-                      >
-                        {% render 'vastu-grid-card',
-                          product: product,
-                          section: section,
-                          settings: section.settings
-                        %}
-                      </xo-carousel-slide>
-                    {%- endif -%}
-                  {%- endunless -%}
-                {%- endfor -%}
+                    </div>
+                  {%- endif -%}
+                {%- endif -%}
               {%- endif -%}
-            </xo-carousel-list>
-          </xo-carousel-inner>
-          {% render 'vastu-carousel-controls',
-            show_navigation: section.settings.show_navigation_mobile,
-            show_pagination: section.settings.show_pagination_mobile,
-            navigation_desktop: 'none',
-            navigation_mobile: section.settings.show_navigation_mobile | default: true | ternary: 'flex', 'none',
-            pagination_desktop: 'none',
-            pagination_mobile: section.settings.show_pagination_mobile | default: true | ternary: 'block', 'none',
-            pagination_position: section.settings.pagination_position_mobile | default: 'bottom',
-            pagination_offset: section.settings.pagination_offset_mobile | default: '-2.5rem'
-          %}
-        </xo-carousel>
+            {%- endfor -%}
+          {%- else -%}
+            {%- assign seen_handles_mobile2 = '' -%}
+            {%- assign rendered_count_mobile2 = 0 -%}
+            {%- for product in collection.products -%}
+              {%- assign product_handle_check = product.handle | append: '|' -%}
+              {%- unless seen_handles_mobile2 contains product_handle_check -%}
+                {%- assign seen_handles_mobile2 = seen_handles_mobile2 | append: product_handle_check -%}
+                {%- assign rendered_count_mobile2 = rendered_count_mobile2 | plus: 1 -%}
+                {%- if rendered_count_mobile2 <= products_limit -%}
+                <div class='vastu-grid-carousel__grid-item'>
+                  {% render 'vastu-grid-card',
+                    product: product,
+                    section: section,
+                    settings: section.settings
+                  %}
+                </div>
+                {%- else -%}
+                  <div class='vastu-grid-carousel__grid-item vastu-grid-carousel__grid-item--hidden'>
+                    {% render 'vastu-grid-card',
+                      product: product,
+                      section: section,
+                      settings: section.settings
+                    %}
+                  </div>
+                {%- endif -%}
+              {%- endunless -%}
+            {%- endfor -%}
+          {%- endif -%}
+        </xo-grid>
         {%- if has_more_products -%}
           <div class='vastu-grid-carousel__view-more-wrapper'>
             <button 
@@ -523,27 +427,27 @@
           const totalProducts = parseInt(this.dataset.totalProducts) || 0;
           const newLimit = Math.min(currentLimit + increment, totalProducts);
           
-          // Find the mobile carousel container
+          // Find the mobile grid container
           const section = document.querySelector(`[data-section-id="${sectionId}"]`);
           if (!section) return;
           
-          const carouselContainer = section.querySelector('.vastu-grid-carousel__mobile-carousel');
-          if (!carouselContainer) return;
+          const gridContainer = section.querySelector('.vastu-grid-carousel__mobile-grid');
+          if (!gridContainer) return;
           
-          // Find all hidden slides
-          const hiddenSlides = carouselContainer.querySelectorAll('.vastu-grid-carousel__slide--hidden');
-          const itemsToShow = Math.min(hiddenSlides.length, increment);
+          // Find all hidden grid items
+          const hiddenItems = gridContainer.querySelectorAll('.vastu-grid-carousel__grid-item--hidden');
+          const itemsToShow = Math.min(hiddenItems.length, increment);
           
-          // Show the hidden slides
+          // Show the hidden grid items
           for (let i = 0; i < itemsToShow; i++) {
-            hiddenSlides[i]?.classList.remove('vastu-grid-carousel__slide--hidden');
+            hiddenItems[i]?.classList.remove('vastu-grid-carousel__grid-item--hidden');
           }
           
           // Update button state
           this.dataset.currentLimit = newLimit.toString();
           
           // Check if there are more products to show
-          const remainingHidden = carouselContainer.querySelectorAll('.vastu-grid-carousel__slide--hidden').length;
+          const remainingHidden = gridContainer.querySelectorAll('.vastu-grid-carousel__grid-item--hidden').length;
           const hasMoreProducts = remainingHidden > 0 && newLimit < totalProducts;
           
           if (!hasMoreProducts) {
@@ -554,18 +458,6 @@
               wrapper.style.display = 'none';
               wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
             }
-          }
-          
-          // Update carousel if it exists
-          const carousel = carouselContainer.querySelector('.vastu-grid-carousel__carousel');
-          if (carousel) {
-            setTimeout(function() {
-              if (carousel.xoCarousel && typeof carousel.xoCarousel.update === 'function') {
-                carousel.xoCarousel.update();
-              } else if (typeof carousel.update === 'function') {
-                carousel.update();
-              }
-            }, 100);
           }
         });
       });
@@ -586,14 +478,14 @@
             wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
           }
         } else {
-          // Check if there are actually hidden slides in mobile carousel
+          // Check if there are actually hidden grid items in mobile grid
           const section = document.querySelector(`[data-section-id="${sectionId}"]`);
           if (section) {
-            const carouselContainer = section.querySelector('.vastu-grid-carousel__mobile-carousel');
+            const gridContainer = section.querySelector('.vastu-grid-carousel__mobile-grid');
             
-            if (carouselContainer) {
-              const hiddenSlides = carouselContainer.querySelectorAll('.vastu-grid-carousel__slide--hidden');
-              if (hiddenSlides.length === 0) {
+            if (gridContainer) {
+              const hiddenItems = gridContainer.querySelectorAll('.vastu-grid-carousel__grid-item--hidden');
+              if (hiddenItems.length === 0) {
                 btn.style.display = 'none';
                 const wrapper = btn.closest('.vastu-grid-carousel__view-more-wrapper');
                 if (wrapper) {
@@ -607,29 +499,18 @@
       });
     }
     
-    // Wait for carousel to be initialized
-    function waitForCarousel() {
-      if (typeof customElements !== 'undefined' && customElements.get('xo-carousel')) {
-        initViewMore();
-        checkInitialButtonState();
-      } else {
-        setTimeout(waitForCarousel, 100);
-      }
-    }
-    
+    // Initialize on page load
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
           initViewMore();
           checkInitialButtonState();
-        waitForCarousel();
         }, 500);
       });
     } else {
       setTimeout(function() {
         initViewMore();
         checkInitialButtonState();
-      waitForCarousel();
       }, 500);
     }
   })();
