@@ -230,6 +230,83 @@ xo-cart-quantity-plus {
   margin: var(--global-body-margin-bottom-desktop, 1rem) 0;
 }
 
+/* Quantity selector redesign */
+.xo-quantity-style2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(var(--color-border, 0, 0, 0), 0.2);
+  border-radius: var(--inputs-radius, 0.4rem);
+  background-color: rgb(var(--color-background));
+  overflow: hidden;
+  width: var(--width, 10rem);
+  height: var(--height, 4rem);
+}
+
+.xo-quantity-style2__number {
+  width: 70%;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  border: none;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  font-size: var(--global-body-font-size-desktop, 1.6rem);
+  font-weight: var(--global-body-font-weight-desktop, 400);
+  padding: 0;
+  margin: 0;
+  appearance: textfield;
+  appearance: textfield;
+}
+
+.xo-quantity-style2__number::-webkit-outer-spin-button,
+.xo-quantity-style2__number::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.xo-quantity-style2__number:focus {
+  outline: none;
+  background-color: rgba(var(--color-foreground, 0, 0, 0), 0.02);
+}
+
+.xo-quantity-style2__button {
+  flex: 1 1 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgb(var(--color-foreground));
+  transition:
+    background-color var(--transition-base, 0.2s ease),
+    color var(--transition-base, 0.2s ease);
+  padding: 0;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.xo-quantity-style2__button:hover {
+  background-color: rgba(var(--color-foreground, 0, 0, 0), 0.05);
+  color: rgb(var(--color-secondary-button, 71, 56, 85));
+}
+
+.xo-quantity-style2__button:active {
+  background-color: rgba(var(--color-foreground, 0, 0, 0), 0.1);
+}
+
+.xo-quantity-style2__button svg {
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+}
+
 .vastu-product-showcase__buttons {
   display: flex;
   flex-direction: column;
@@ -240,6 +317,73 @@ xo-cart-quantity-plus {
 .vastu-product-showcase__add-to-cart,
 .vastu-product-showcase__buy-now {
   width: 100%;
+}
+
+/* Disable animated placeholder/label transition for vastu-product-showcase */
+.vastu-product-showcase .xo-field-input,
+.vastu-product-showcase .xo-field-input__input,
+.vastu-product-showcase .xo-field-input__placeholder,
+.vastu-product-showcase input,
+.vastu-product-showcase .field,
+.vastu-product-showcase .field__input,
+.vastu-product-showcase .field__label,
+section[class*="vastu-product-showcase"] .xo-field-input,
+section[class*="vastu-product-showcase"] .xo-field-input__input,
+section[class*="vastu-product-showcase"] .xo-field-input__placeholder,
+section[class*="vastu-product-showcase"] input,
+section[class*="vastu-product-showcase"] .field,
+section[class*="vastu-product-showcase"] .field__input,
+section[class*="vastu-product-showcase"] .field__label,
+.vastu-product-showcase__quantity .xo-field-input,
+.vastu-product-showcase__quantity .xo-field-input__input,
+.vastu-product-showcase__quantity .xo-field-input__placeholder,
+.vastu-product-showcase__quantity input,
+.vastu-product-showcase__quantity .field,
+.vastu-product-showcase__quantity .field__input,
+.vastu-product-showcase__quantity .field__label,
+.vastu-product-showcase__buttons .xo-field-input,
+.vastu-product-showcase__buttons .xo-field-input__input,
+.vastu-product-showcase__buttons .xo-field-input__placeholder,
+.vastu-product-showcase__buttons input,
+.vastu-product-showcase__buttons .field,
+.vastu-product-showcase__buttons .field__input,
+.vastu-product-showcase__buttons .field__label {
+  transition: none;
+}
+
+/* Disable label animation that moves text above */
+.vastu-product-showcase .field__label,
+.vastu-product-showcase .field input ~ .field__label,
+.vastu-product-showcase .field__input:focus ~ .field__label,
+.vastu-product-showcase .field__input:not(:placeholder-shown) ~ .field__label,
+section[class*="vastu-product-showcase"] .field__label,
+section[class*="vastu-product-showcase"] .field input ~ .field__label,
+section[class*="vastu-product-showcase"] .field__input:focus ~ .field__label,
+section[class*="vastu-product-showcase"] .field__input:not(:placeholder-shown) ~ .field__label {
+  transition: none;
+  top: calc(1rem + var(--inputs-border-width, 0));
+  font-size: var(--global-body-font-size-desktop, 1.6rem);
+}
+
+.vastu-product-showcase .xo-field-input__placeholder,
+section[class*="vastu-product-showcase"] .xo-field-input__placeholder,
+.vastu-product-showcase__quantity .xo-field-input__placeholder,
+.vastu-product-showcase__buttons .xo-field-input__placeholder,
+.vastu-product-showcase .xo-field-input .xo-field-input__placeholder,
+section[class*="vastu-product-showcase"] .xo-field-input .xo-field-input__placeholder {
+  display: none;
+}
+
+.vastu-product-showcase .xo-field-input__input::placeholder,
+.vastu-product-showcase input::placeholder,
+section[class*="vastu-product-showcase"] .xo-field-input__input::placeholder,
+section[class*="vastu-product-showcase"] input::placeholder,
+.vastu-product-showcase__quantity .xo-field-input__input::placeholder,
+.vastu-product-showcase__quantity input::placeholder,
+.vastu-product-showcase__buttons .xo-field-input__input::placeholder,
+.vastu-product-showcase__buttons input::placeholder {
+  opacity: 1;
+  transition: none;
 }
 
 section[class*="vastu-product-showcase"] .vastu-product-showcase__add-to-cart .xo-btn--secondary,

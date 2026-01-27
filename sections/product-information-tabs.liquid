@@ -48,20 +48,30 @@
             {% when 'description' %}
               <xo-tabs-pane xo-name='tab-{{ block.id }}'>
                 <xo-animate xo-type='fade-up'>
-                  {% render 'product-description-accordion', description: product.description %}
+                  <div class='product-description-content'>
+                    {{ product.description }}
+                  </div>
                 </xo-animate>
               </xo-tabs-pane>
             {% when 'shipping' %}
               <xo-tabs-pane xo-name='tab-{{ block.id }}'>
                 <xo-animate xo-type='fade-up'>
-                  {% assign policy_content = shop.policies | where: 'title', 'Shipping policy' | first %}
-                  {% assign refund_policy = shop.policies | where: 'title', 'Refund policy' | first %}
-                  {% render 'shipping-accordion', 
-                    delivery_content: policy_content.body, 
-                    return_content: refund_policy.body,
-                    show_delivery: true,
-                    show_return: true
-                  %}
+                  <div class='shipping-content'>
+                    {% assign policy_content = shop.policies | where: 'title', 'Shipping policy' | first %}
+                    {% assign refund_policy = shop.policies | where: 'title', 'Refund policy' | first %}
+                    {% if policy_content and policy_content.body != blank %}
+                      <div class='shipping-content__delivery'>
+                        <h3>Shipping & Delivery</h3>
+                        <div>{{ policy_content.body }}</div>
+                      </div>
+                    {% endif %}
+                    {% if refund_policy and refund_policy.body != blank %}
+                      <div class='shipping-content__return'>
+                        <h3>Returns & Exchanges</h3>
+                        <div>{{ refund_policy.body }}</div>
+                      </div>
+                    {% endif %}
+                  </div>
                 </xo-animate>
               </xo-tabs-pane>
             {% when 'content' %}

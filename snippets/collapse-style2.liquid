@@ -38,70 +38,19 @@
   {% assign full_content = '' %}
 {% endif %}
 
-{% comment %} Check if we should show modal {% endcomment %}
-{% assign show_modal_btn = false %}
-{% if use_modal and full_content != blank %}
-  {% assign content_text_only = full_content | strip_html %}
-  {% assign content_word_count = content_text_only | split: ' ' | size %}
-  {% if content_word_count > truncate_length %}
-    {% assign show_modal_btn = true %}
-    {% assign preview_content = full_content | truncatewords: truncate_length, '...' %}
-  {% endif %}
+{% comment %} Display content directly without accordion {% endcomment %}
+{% if title != blank %}
+  <h3 class='xo-collapse-style2__title'>{{ title }}</h3>
 {% endif %}
 
-<xo-collapse-trigger
-  class='xo-collapse-style2__trigger'
-  {% if name %}
-    xo-name='{{ name }}'
-  {% endif %}
->
-  <div class='xo-collapse-style2__trigger-option'>
-    {{ title }}
+{% if content != blank %}
+  <div class='xo-collapse-style2__content xo-content'>
+    {{ content }}
   </div>
-  <div class='xo-collapse-style2__trigger-icon'>
-    {% render 'icon', name: icon %}
+{% endif %}
+
+{% if content_liquid != blank %}
+  <div class='xo-collapse-style2__content xo-content'>
+    {{ content_liquid }}
   </div>
-</xo-collapse-trigger>
-<xo-collapse
-  class='xo-collapse-style2__body'
-  {% if name %}
-    xo-name='{{ name }}'
-  {% endif %}
->
-  {% if show_modal_btn %}
-    <div class='xo-collapse-style2__content xo-content'>
-      <div class='xo-collapse-style2__preview'>
-        {{ preview_content }}
-      </div>
-      <xo-modal-trigger xo-name='{{ modal_name }}' class='xo-collapse-style2__view-full'>
-        <a href='javascript:void(0)' class='xo-collapse-style2__read-more' onclick='return false;'>Read more</a>
-      </xo-modal-trigger>
-    </div>
-  {% else %}
-    {% if content != blank %}
-      <div class='xo-collapse-style2__content xo-content'>
-        {{ content }}
-      </div>
-    {% endif %}
-
-    {% if content_liquid != blank %}
-      <div class='xo-collapse-style2__content xo-content'>
-        {{ content_liquid }}
-      </div>
-    {% endif %}
-  {% endif %}
-</xo-collapse>
-
-{% comment %} Modal for full content {% endcomment %}
-{% if show_modal_btn %}
-  <xo-modal xo-name='{{ modal_name }}' xo-animate='fade-up' xo-portal='true' style='z-index: 9999;'>
-    {% render 'modal-content',
-      title: title,
-      content: full_content,
-      width: modal_width,
-      full_height: false,
-      animate: true,
-      header_separator: true
-    %}
-  </xo-modal>
 {% endif %}

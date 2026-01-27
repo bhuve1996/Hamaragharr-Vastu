@@ -965,6 +965,16 @@ section[class*="main-product"] .shipping-content {
   display: none;
 }
 
+/* Hide parent containers when shipping-content is hidden to remove unwanted padding */
+.main-product xo-animate:has(.shipping-content),
+.xo-product-info-content xo-animate:has(.shipping-content),
+section[class*="main-product"] xo-animate:has(.shipping-content),
+.main-product xo-tabs-pane:has(.shipping-content),
+.xo-product-info-content xo-tabs-pane:has(.shipping-content),
+section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
+  display: none !important;
+}
+
 /* Product description read more button */
 .xo-product-info-content__description-wrapper {
   position: relative;
@@ -1172,4 +1182,197 @@ section[class*="main-product"] .shipping-content {
 
 .xo-product-info-content__description--mini p:last-child {
   margin-bottom: 0;
+}
+
+/* Accordion Section - Product Description Accordions */
+.xo-product-info-content .accordion-section__item {
+  margin-bottom: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+/* Accordion Trigger */
+.xo-product-info-content .accordion-section__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.3s ease;
+  border: none;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.15);
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+.xo-product-info-content .accordion-section__trigger:hover {
+  background: rgba(var(--color-foreground), 0.03);
+  border-bottom-color: rgba(var(--color-foreground), 0.25);
+}
+
+.xo-product-info-content .accordion-section__trigger[aria-expanded="true"] {
+  background: transparent;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.15);
+  padding-bottom: 1.5rem;
+}
+
+/* Accordion Trigger Content */
+.xo-product-info-content .accordion-section__trigger-content {
+  flex: 1;
+  padding-right: 0;
+  text-align: left;
+}
+
+/* Accordion Section Heading - Smaller font size for product description accordions */
+.xo-product-info-content .accordion-section__heading {
+  font-size: 1.8rem; /* 18px (1rem = 10px) - smaller than default h3 */
+  line-height: 1.4;
+  font-weight: var(--global-body-font-weight-desktop, 400);
+  color: rgb(var(--color-foreground));
+  margin: 0;
+  margin-bottom: 0;
+}
+
+/* Accordion Trigger Icon */
+.xo-product-info-content .accordion-section__trigger-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--color-foreground));
+}
+
+.xo-product-info-content .accordion-section__trigger-icon svg path {
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+/* Hide vertical line (path-2) when accordion is expanded to show minus */
+.xo-product-info-content .accordion-section__trigger[aria-expanded="true"] .accordion-section__trigger-icon svg #path-2,
+.xo-product-info-content .accordion-section__trigger[xo-active] .accordion-section__trigger-icon svg #path-2 {
+  transform: scale(1, 0);
+  opacity: 0;
+}
+
+/* Accordion Content */
+.xo-product-info-content .accordion-section__content {
+  padding: 1.5rem 0 2rem;
+  color: rgb(var(--color-foreground));
+  line-height: var(--global-body-line-height-desktop, 1.6);
+  font-size: var(--global-body-font-size-desktop);
+  font-family: var(--font-body-family, inherit);
+}
+
+/* Override FAQ styles for product page accordion - higher specificity */
+.xo-product-info-content .accordion-section__item[aria-expanded="true"] xo-collapse,
+.xo-product-info-content .accordion-section__trigger[aria-expanded="true"] + xo-collapse,
+.xo-product-info-content .accordion-section__item xo-collapse[xo-active] {
+  padding: 0;
+  max-height: none;
+}
+
+.xo-product-info-content .accordion-section__item[aria-expanded="true"] .accordion-section__content,
+.xo-product-info-content .accordion-section__trigger[aria-expanded="true"] + xo-collapse .accordion-section__content,
+.xo-product-info-content .accordion-section__item xo-collapse[xo-active] .accordion-section__content {
+  padding: 1.5rem 0 2rem;
+}
+
+/* Override any font-family declarations in accordion content to use website font */
+.xo-product-info-content .accordion-section__content *,
+.xo-product-info-content .accordion-section__content p,
+.xo-product-info-content .accordion-section__content span,
+.xo-product-info-content .accordion-section__content div,
+.xo-product-info-content .accordion-section__content li,
+.xo-product-info-content .accordion-section__content td,
+.xo-product-info-content .accordion-section__content th,
+.xo-product-info-content .accordion-section__content strong,
+.xo-product-info-content .accordion-section__content b,
+.xo-product-info-content .accordion-section__content em,
+.xo-product-info-content .accordion-section__content i,
+.xo-product-info-content .accordion-section__content h1,
+.xo-product-info-content .accordion-section__content h2,
+.xo-product-info-content .accordion-section__content h3,
+.xo-product-info-content .accordion-section__content h4,
+.xo-product-info-content .accordion-section__content h5,
+.xo-product-info-content .accordion-section__content h6 {
+  font-family: var(--font-body-family, inherit);
+}
+
+.xo-product-info-content .accordion-section__content p {
+  margin: 0 0 1rem;
+}
+
+.xo-product-info-content .accordion-section__content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile Styles */
+@media (width <= 48rem) {
+  .xo-product-info-content .accordion-section__item {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .xo-product-info-content .accordion-section__trigger {
+    padding: 1.25rem 0;
+  }
+
+  .xo-product-info-content .accordion-section__trigger[aria-expanded="true"] {
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.15);
+    padding-bottom: 1.25rem;
+  }
+
+  .xo-product-info-content .accordion-section__trigger-content {
+    padding-right: 0;
+  }
+
+  .xo-product-info-content .accordion-section__heading {
+    font-size: 1.6rem; /* 16px (1rem = 10px) on mobile */
+    line-height: 1.4;
+  }
+
+  .xo-product-info-content .accordion-section__content {
+    padding: 1.25rem 0 1.75rem;
+  }
+
+  /* Override FAQ styles for product page accordion on mobile - higher specificity */
+  .xo-product-info-content .accordion-section__item[aria-expanded="true"] xo-collapse,
+  .xo-product-info-content .accordion-section__trigger[aria-expanded="true"] + xo-collapse,
+  .xo-product-info-content .accordion-section__item xo-collapse[xo-active] {
+    padding: 0;
+  }
+
+  .xo-product-info-content .accordion-section__item[aria-expanded="true"] .accordion-section__content,
+  .xo-product-info-content .accordion-section__trigger[aria-expanded="true"] + xo-collapse .accordion-section__content,
+  .xo-product-info-content .accordion-section__item xo-collapse[xo-active] .accordion-section__content {
+    padding: 1.25rem 0 1.75rem;
+  }
+}
+
+/* Hide description that appears after share button (addon-buttons) */
+.xo-product-info-content xo-animate:has(.addon-buttons) ~ xo-animate:has(.xo-product-info-content__description-wrapper),
+.xo-product-info-content xo-animate:has(.addon-buttons) ~ xo-animate:has(.xo-product-info-content__description),
+.xo-product-info-content .addon-buttons ~ .xo-product-info-content__description-wrapper,
+.xo-product-info-content .addon-buttons ~ .xo-product-info-content__description {
+  display: none;
+}
+
+/* Hide collapse-style2 description block - target the wrapper and content */
+.xo-product-info-content xo-animate:has(.product-description-style3),
+.xo-product-info-content xo-animate:has(h3.xo-collapse-style2__title):has(.product-description-style3),
+.xo-product-info-content .xo-collapse-style2__content:has(.product-description-style3),
+.xo-product-info-content .product-description-style3 {
+  display: none;
+}
+
+/* Hide collapse-style2 with Description title that comes after addon-buttons */
+.xo-product-info-content xo-animate:has(.addon-buttons) ~ xo-animate:has(.xo-collapse-style2__title),
+.xo-product-info-content xo-animate:has(.addon-buttons) ~ xo-animate:has(.product-description-style3) {
+  display: none;
 }

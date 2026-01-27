@@ -1377,3 +1377,8 @@ xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/articles/"]) {
   margin: 0;
   width: 100%;
 }
+
+/* Hide "We accept" badge on cart page */
+.xo-cart__badge {
+  display: none !important;
+}

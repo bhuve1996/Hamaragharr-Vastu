@@ -117,7 +117,12 @@
             {% endfor %}
           {% else %}
             {% comment %} Fallback to original behavior: show articles from selected blog {% endcomment %}
-            {% for article in section.settings.blog.articles limit: section.settings.articles_limit %}
+            {%- assign selected_blog = section.settings.blog -%}
+            {%- if selected_blog == blank and section.settings.blog_handle != blank -%}
+              {%- assign selected_blog = blogs[section.settings.blog_handle] -%}
+            {%- endif -%}
+            {%- if selected_blog != blank -%}
+              {% for article in selected_blog.articles limit: section.settings.articles_limit %}
               {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
               {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
               <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
@@ -143,7 +148,8 @@
                   </xo-animate>
                 {%- endif -%}
               </xo-carousel-slide>
-            {% endfor %}
+              {% endfor %}
+            {%- endif -%}
           {% endif %}
         </xo-carousel-list>
       </xo-carousel-inner>
@@ -378,6 +384,12 @@
       "id": "blog",
       "label": "t:sections.blog_v1.settings.blog.label",
       "info": "Select a blog to display articles from. If you add article blocks below, they will override this setting."
+    },
+    {
+      "type": "text",
+      "id": "blog_handle",
+      "label": "Blog Handle (Alternative)",
+      "info": "If blog selector doesn't work on page templates, enter the blog handle here (e.g., 'left-sidebar'). This will be used as a fallback."
     },
     {
       "type": "range",

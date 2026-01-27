@@ -1,16 +1,20 @@
-<div {% render 'section-attr' %}>
-  <xo-container>
-    {%- comment -%} Hide page title on wishlist page since main-page-heading section handles it {%- endcomment -%}
-    {% unless template.suffix == 'wishlist' %}
+{%- comment -%} Hide entire section on blogs page if no content {%- endcomment -%}
+{% unless page.handle == 'blogs' and page.content == blank %}
+  <div {% render 'section-attr' %}>
+    <xo-container>
+      {%- comment -%} Hide page title on wishlist page since main-page-heading section handles it {%- endcomment -%}
+      {%- comment -%} Hide page title on blogs page {%- endcomment -%}
+      {% unless template.suffix == 'wishlist' or page.handle == 'blogs' %}
+        <xo-animate xo-cascade>
+          <h1>{{ page.title | escape }}</h1>
+        </xo-animate>
+      {% endunless %}
       <xo-animate xo-cascade>
-        <h1>{{ page.title | escape }}</h1>
+        <div>{{ page.content }}</div>
       </xo-animate>
-    {% endunless %}
-    <xo-animate xo-cascade>
-      <div>{{ page.content }}</div>
-    </xo-animate>
-  </xo-container>
-</div>
+    </xo-container>
+  </div>
+{% endunless %}
 
 {% schema %}
 {

@@ -199,3 +199,35 @@
   border-bottom-right-radius: 0;
   height: unset;
 }
+
+/* Popup Promotion - Disable placeholder transition that moves to top */
+.popup-promotion__container .xo-share-style2 .xo-share-style2__input,
+.popup-promotion__container .xo-field-input__input {
+  transition: none !important;
+}
+
+.popup-promotion__container .xo-field-input__placeholder {
+  display: none !important;
+}
+
+.popup-promotion__container .xo-share-style2 .xo-share-style2__input::placeholder {
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+/* Popup Promotion - Increase gap between items on mobile */
+@media (width <= 48rem) {
+  .popup-promotion-v1__item {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .popup-promotion-v1__item:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .popup-promotion-v1__left .xo-scrollbar {
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+}

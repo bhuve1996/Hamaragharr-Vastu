@@ -158,104 +158,200 @@
               {{ block.shopify_attributes }}
               style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
             >
-              {% comment %} Mini Description Logic - Priority: Custom > Metafield > Auto-generated {% endcomment %}
-              {% assign mini_description = blank %}
-              {% assign use_mini_description = block.settings.use_mini_description %}
-              
-              {% if use_mini_description %}
-                {% comment %} Priority 1: Custom mini description (manually entered) {% endcomment %}
-                {% if block.settings.custom_mini_description != blank %}
-                  {% assign mini_description = block.settings.custom_mini_description %}
-                {% comment %} Priority 2: Metafield mini description {% endcomment %}
-                {% elsif product.metafields.custom.mini_description != blank %}
-                  {% assign mini_description = product.metafields.custom.mini_description %}
-                {% comment %} Priority 3: Auto-generate from full description (smart truncation) {% endcomment %}
-                {% elsif product.description != blank %}
-                  {% assign description_text_plain = product.description | strip_html %}
-                  {% assign truncation_method = block.settings.truncation_method | default: 'words' %}
-                  {% assign truncation_length = block.settings.truncation_length | default: 50 %}
+              {% comment %} Parse product description into accordion items based on headings {% endcomment %}
+              {% if product.description != blank %}
+                {% assign description_html = product.description %}
+                {% assign description_text_plain = product.description | strip_html %}
+                
+                {% comment %} Check if description has headings (h2, h3, h4) {% endcomment %}
+                {% assign has_headings = false %}
+                {% if description_html contains '<h2' or description_html contains '<h3' or description_html contains '<h4' %}
+                  {% assign has_headings = true %}
+                {% endif %}
+                
+                {% if has_headings %}
+                  {% comment %} Normalize all heading levels into a single marker {% endcomment %}
+                  {% assign normalized = description_html %}
+                  {% assign normalized = normalized | replace: '<h2', '[[HEADING]]<h2' %}
+                  {% assign normalized = normalized | replace: '<h3', '[[HEADING]]<h3' %}
+                  {% assign normalized = normalized | replace: '<h4', '[[HEADING]]<h4' %}
                   
-                  {% if truncation_method == 'sentence' %}
-                    {% comment %} Get first sentence {% endcomment %}
-                    {% assign first_period = description_text_plain | split: '.' | first %}
-                    {% assign first_exclamation = description_text_plain | split: '!' | first %}
-                    {% assign first_question = description_text_plain | split: '?' | first %}
-                    {% assign first_sentence = first_period %}
-                    {% if first_exclamation.size < first_sentence.size %}
-                      {% assign first_sentence = first_exclamation %}
-                    {% endif %}
-                    {% if first_question.size < first_sentence.size %}
-                      {% assign first_sentence = first_question %}
-                    {% endif %}
-                    {% if first_sentence.size > 0 %}
-                      {% assign mini_description = first_sentence | append: '.' %}
-                    {% else %}
-                      {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
-                    {% endif %}
-                  {% elsif truncation_method == 'paragraph' %}
-                    {% comment %} Get first paragraph from HTML or plain text {% endcomment %}
-                    {% assign description_html = product.description %}
-                    {% if description_html contains '<p>' %}
-                      {% assign p_parts = description_html | split: '<p>' %}
-                      {% if p_parts.size > 1 %}
-                        {% assign first_p = p_parts[1] | split: '</p>' | first %}
-                        {% if first_p != blank %}
-                          {% assign mini_description = first_p | strip_html | strip %}
-                        {% else %}
-                          {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
+                  {% comment %} Split by the virtual heading marker {% endcomment %}
+                  {% assign sections = normalized | split: '[[HEADING]]' %}
+                  
+                  {% comment %} Process each section {% endcomment %}
+                  {% for section in sections %}
+                    {% if section != blank %}
+                      {% assign section_stripped = section | strip %}
+                      
+                      {% comment %} Check if this section contains a heading {% endcomment %}
+                      {% if section_stripped contains '<h2' or section_stripped contains '<h3' or section_stripped contains '<h4' %}
+                        {% comment %} Find the closing heading tag (</h2>, </h3>, or </h4>) {% endcomment %}
+                        {% assign heading_closed = false %}
+                        {% assign section_content = '' %}
+                        {% assign heading_html = '' %}
+                        {% assign heading_text = '' %}
+                        
+                        {% comment %} Try to find which heading type this section has and extract accordingly {% endcomment %}
+                        {% if section_stripped contains '<h2' and section_stripped contains '</h2>' %}
+                          {% assign heading_parts = section_stripped | split: '</h2>' %}
+                          {% if heading_parts.size > 1 %}
+                            {% assign heading_html = heading_parts[0] | append: '</h2>' %}
+                            {% comment %} Get content after closing tag, but stop at next heading marker if present {% endcomment %}
+                            {% assign raw_content = heading_parts[1] %}
+                            {% if raw_content contains '[[HEADING]]' %}
+                              {% assign content_parts = raw_content | split: '[[HEADING]]' %}
+                              {% assign section_content = content_parts[0] %}
+                            {% else %}
+                              {% assign section_content = raw_content %}
+                            {% endif %}
+                            {% assign heading_closed = true %}
+                          {% endif %}
+                        {% elsif section_stripped contains '<h3' and section_stripped contains '</h3>' %}
+                          {% assign heading_parts = section_stripped | split: '</h3>' %}
+                          {% if heading_parts.size > 1 %}
+                            {% assign heading_html = heading_parts[0] | append: '</h3>' %}
+                            {% comment %} Get content after closing tag, but stop at next heading marker if present {% endcomment %}
+                            {% assign raw_content = heading_parts[1] %}
+                            {% if raw_content contains '[[HEADING]]' %}
+                              {% assign content_parts = raw_content | split: '[[HEADING]]' %}
+                              {% assign section_content = content_parts[0] %}
+                            {% else %}
+                              {% assign section_content = raw_content %}
+                            {% endif %}
+                            {% assign heading_closed = true %}
+                          {% endif %}
+                        {% elsif section_stripped contains '<h4' and section_stripped contains '</h4>' %}
+                          {% assign heading_parts = section_stripped | split: '</h4>' %}
+                          {% if heading_parts.size > 1 %}
+                            {% assign heading_html = heading_parts[0] | append: '</h4>' %}
+                            {% comment %} Get content after closing tag, but stop at next heading marker if present {% endcomment %}
+                            {% assign raw_content = heading_parts[1] %}
+                            {% if raw_content contains '[[HEADING]]' %}
+                              {% assign content_parts = raw_content | split: '[[HEADING]]' %}
+                              {% assign section_content = content_parts[0] %}
+                            {% else %}
+                              {% assign section_content = raw_content %}
+                            {% endif %}
+                            {% assign heading_closed = true %}
+                          {% endif %}
+                        {% endif %}
+                        
+                        {% if heading_closed %}
+                          {% comment %} Extract heading text by stripping all HTML {% endcomment %}
+                          {% assign heading_text = heading_html | strip_html | strip %}
+                          {% comment %} Remove emoji/symbols from heading text - remove common emoji patterns and symbols {% endcomment %}
+                          {% assign heading_text = heading_text | replace: '❓', '' | replace: '❔', '' | replace: '?', '' | replace: '🔍', '' | replace: '💡', '' | replace: '📋', '' | replace: 'ℹ️', '' | replace: 'ℹ', '' | replace: '➤', '' | replace: '→', '' | replace: '•', '' | replace: '▪', '' | replace: '▫', '' | strip %}
+                          {% comment %} Remove any leading/trailing spaces and clean up {% endcomment %}
+                          {% assign heading_text = heading_text | strip %}
+                          {% comment %} If heading starts with a space or symbol after emoji removal, trim it {% endcomment %}
+                          {% if heading_text != blank %}
+                            {% assign first_char = heading_text | slice: 0, 1 %}
+                            {% if first_char == ' ' or first_char == '?' or first_char == '!' or first_char == ':' or first_char == '-' %}
+                              {% assign heading_text = heading_text | remove_first: first_char | strip %}
+                            {% endif %}
+                          {% endif %}
+                          
+                          {% comment %} Clean up section content - remove any leading/trailing whitespace and stray tag fragments {% endcomment %}
+                          {% assign section_content = section_content | strip %}
+                          {% comment %} Remove any stray HTML-encoded fragments that might appear at the start {% endcomment %}
+                          {% if section_content contains '2&gt;' %}
+                            {% assign section_content = section_content | remove_first: '2&gt;' | strip %}
+                          {% endif %}
+                          {% if section_content contains '3&gt;' %}
+                            {% assign section_content = section_content | remove_first: '3&gt;' | strip %}
+                          {% endif %}
+                          {% if section_content contains '4&gt;' %}
+                            {% assign section_content = section_content | remove_first: '4&gt;' | strip %}
+                          {% endif %}
+                          
+                          {% if heading_text != blank %}
+                            {% assign accordion_id = 'desc-' | append: forloop.index | append: '-' | append: block.id %}
+                            <xo-animate xo-cascade class='accordion-section__item'>
+                              <xo-collapse-trigger class='accordion-section__trigger' xo-name='{{ accordion_id }}'>
+                                <div class='accordion-section__trigger-content'>
+                                  <h3 class='accordion-section__heading'>{{ heading_text }}</h3>
+                                </div>
+                                <div class='accordion-section__trigger-icon'>
+                                  {%- render 'icon', name: 'plus2', icon_size: '20', color: 'rgba(var(--color-foreground))' -%}
+                                </div>
+                              </xo-collapse-trigger>
+                              {% if section_content != blank %}
+                                <xo-collapse xo-name='{{ accordion_id }}'>
+                                  <div class='accordion-section__content xo-collapse-style2__content xo-content'>
+                                    {{ section_content }}
+                                  </div>
+                                </xo-collapse>
+                              {% endif %}
+                            </xo-animate>
+                          {% endif %}
                         {% endif %}
                       {% else %}
-                        {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
-                      {% endif %}
-                    {% else %}
-                      {% assign first_newline = description_text_plain | split: '\n\n' | first %}
-                      {% if first_newline != blank and first_newline != description_text_plain %}
-                        {% assign mini_description = first_newline | strip %}
-                      {% else %}
-                        {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
+                        {% comment %} This is content before the first heading {% endcomment %}
+                        {% if section_stripped != blank %}
+                          <xo-animate xo-cascade class='accordion-section__item'>
+                            <xo-collapse-trigger class='accordion-section__trigger' xo-name='desc-intro-{{ block.id }}'>
+                              <div class='accordion-section__trigger-content'>
+                                <h3 class='accordion-section__heading'>Description</h3>
+                              </div>
+                              <div class='accordion-section__trigger-icon'>
+                                {%- render 'icon', name: 'plus2', icon_size: '20', color: 'rgba(var(--color-foreground))' -%}
+                              </div>
+                            </xo-collapse-trigger>
+                            <xo-collapse xo-name='desc-intro-{{ block.id }}'>
+                              <div class='accordion-section__content xo-collapse-style2__content xo-content'>
+                                {{ section_stripped }}
+                              </div>
+                            </xo-collapse>
+                          </xo-animate>
+                        {% endif %}
                       {% endif %}
                     {% endif %}
-                  {% else %}
-                    {% comment %} Default: Truncate by words {% endcomment %}
-                    {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
+                  {% endfor %}
+                {% else %}
+                  {% comment %} No headings found - show as single accordion item or regular display {% endcomment %}
+                  {% assign use_mini_description = block.settings.use_mini_description %}
+                  
+                  {% if use_mini_description %}
+                    {% comment %} Mini Description Logic {% endcomment %}
+                    {% assign mini_description = blank %}
+                    {% if block.settings.custom_mini_description != blank %}
+                      {% assign mini_description = block.settings.custom_mini_description %}
+                    {% elsif product.metafields.custom.mini_description != blank %}
+                      {% assign mini_description = product.metafields.custom.mini_description %}
+                    {% else %}
+                      {% assign truncation_method = block.settings.truncation_method | default: 'words' %}
+                      {% assign truncation_length = block.settings.truncation_length | default: 50 %}
+                      {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
+                    {% endif %}
+                    
+                    {% if mini_description != blank %}
+                      <div class='xo-product-info-content__description-wrapper'>
+                        <div class='xo-product-info-content__description xo-product-info-content__description--mini'>
+                          {{ mini_description }}
+                        </div>
+                      </div>
+                    {% endif %}
                   {% endif %}
+                  
+                  {% comment %} Show full description as accordion item {% endcomment %}
+                  <xo-animate xo-cascade class='accordion-section__item'>
+                    <xo-collapse-trigger class='accordion-section__trigger' xo-name='desc-full-{{ block.id }}'>
+                      <div class='accordion-section__trigger-content'>
+                        <h3 class='accordion-section__heading'>Product Description</h3>
+                      </div>
+                      <div class='accordion-section__trigger-icon'>
+                        {%- render 'icon', name: 'plus2', icon_size: '20', color: 'rgba(var(--color-foreground))' -%}
+                      </div>
+                    </xo-collapse-trigger>
+                    <xo-collapse xo-name='desc-full-{{ block.id }}'>
+                      <div class='accordion-section__content xo-collapse-style2__content xo-content'>
+                        {{ description_html }}
+                      </div>
+                    </xo-collapse>
+                  </xo-animate>
                 {% endif %}
               {% endif %}
-              
-              {% comment %} Display mini description if configured, otherwise show full description with truncation {% endcomment %}
-              <div class='xo-product-info-content__description-wrapper'>
-                {% if use_mini_description and mini_description != blank %}
-                  <div class='xo-product-info-content__description xo-product-info-content__description--mini'>
-                    {{ mini_description }}
-                  </div>
-                {% else %}
-                  {% comment %} Fallback to original behavior {% endcomment %}
-                  {% assign description_html = product.description %}
-                  {% assign description_text_plain = product.description | strip_html %}
-                  {% assign truncated_text_plain = description_text_plain | truncate: 230 %}
-                  {% assign is_truncated = false %}
-                  {% if description_text_plain.size > 230 %}
-                    {% assign is_truncated = true %}
-                  {% endif %}
-                  <div class='xo-product-info-content__description' data-full-text='{{ description_html | escape }}' data-truncated='{{ is_truncated }}'>
-                    {% if is_truncated %}
-                      <div class='xo-product-info-content__description-truncated'>{{ truncated_text_plain }}</div>
-                      <div class='xo-product-info-content__description-full' style='display: none;'>{{ description_html }}</div>
-                    {% else %}
-                      {{ description_html }}
-                    {% endif %}
-                  </div>
-                  {% if is_truncated %}
-                    {% assign read_more_text = 'products.product.read_more' | t %}
-                    {% if read_more_text == blank %}
-                      {% assign read_more_text = 'Read more' %}
-                    {% endif %}
-                    <button type='button' class='xo-product-info-content__description-read-more' onclick='this.previousElementSibling.querySelector(".xo-product-info-content__description-truncated").style.display="none"; this.previousElementSibling.querySelector(".xo-product-info-content__description-full").style.display="block"; this.style.display="none";'>
-                      {{ read_more_text }}
-                    </button>
-                  {% endif %}
-                {% endif %}
-              </div>
             </xo-animate>
           {% endunless %}
 
