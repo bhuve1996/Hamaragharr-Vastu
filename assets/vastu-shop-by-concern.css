@@ -228,6 +228,19 @@
   margin-bottom: 0;
 }
 
+.vastu-shop-by-concern__recommended-link {
+  color: #473855;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    text-decoration 0.2s ease;
+}
+
+.vastu-shop-by-concern__recommended-link:hover {
+  color: rgb(71 56 85 / 80%);
+  text-decoration: underline;
+}
+
 .vastu-shop-by-concern__cta {
   margin-top: 1.5rem;
   padding-top: 1.5rem;

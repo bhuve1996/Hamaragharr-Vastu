@@ -4,6 +4,28 @@
 {{ 'vastu-grid-carousel.css' | asset_url | stylesheet_tag }}
 
 {% liquid
+  assign product_source = section.settings.product_source | default: 'collection'
+  if product_source == 'blocks'
+    assign has_products = false
+    assign products_from_blocks_count = 0
+    for block in section.blocks
+      if block.type == 'product' and block.settings.product != blank
+        assign has_products = true
+        assign products_from_blocks_count = products_from_blocks_count | plus: 1
+      endif
+    endfor
+    if products_from_blocks_count > section.settings.limit
+      assign total_products_shown = section.settings.limit
+    else
+      assign total_products_shown = products_from_blocks_count
+    endif
+  else
+    if section.settings.collection != blank and section.settings.collection.products.size > 0
+      assign has_products = true
+    else
+      assign has_products = false
+    endif
+  endif
   if section.settings.show_navigation
     assign display_navigation_desktop = 'flex'
   else
@@ -42,22 +64,38 @@
     <xo-animate xo-cascade>
       {% render 'section-heading', title: section.settings.heading_title, description: section.settings.heading_description, align: section.settings.heading_align %}
     </xo-animate>
-    {%- if section.settings.collection != blank and section.settings.collection.products.size > 0 -%}
-      {% comment %} Same pattern as vastu-grid-carousel: mobile grid (vastu-grid-carousel__mobile-grid) + desktop carousel (vastu-grid-carousel__desktop-carousel). CSS in vastu-grid-carousel.css handles show/hide. {% endcomment %}
+    {%- if has_products -%}
+      {% comment %} Same pattern as vastu-grid-carousel: mobile grid + desktop carousel. Supports collection or hand-picked product blocks. {% endcomment %}
       <div class='vastu-grid-carousel__mobile-grid'>
         <xo-grid
           class='vastu-grid-carousel__grid'
           style='--xs: {{ section.settings.columns_mobile }}; --sm: {{ section.settings.columns_mobile }}; --md: {{ section.settings.columns_desktop | minus: 1 }}; --lg: {{ section.settings.columns_desktop }}; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'
         >
-          {%- for product in section.settings.collection.products limit: section.settings.limit -%}
-            <div class='vastu-grid-carousel__grid-item'>
-              {% render 'vastu-product-card',
-                product: product,
-                section: section,
-                settings: section.settings
-              %}
-            </div>
-          {%- endfor -%}
+          {%- if product_source == 'blocks' -%}
+            {%- assign rendered_count = 0 -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'product' and block.settings.product != blank and rendered_count < section.settings.limit -%}
+                {%- assign rendered_count = rendered_count | plus: 1 -%}
+                <div class='vastu-grid-carousel__grid-item' {{ block.shopify_attributes }}>
+                  {% render 'vastu-product-card',
+                    product: block.settings.product,
+                    section: section,
+                    settings: section.settings
+                  %}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            {%- for product in section.settings.collection.products limit: section.settings.limit -%}
+              <div class='vastu-grid-carousel__grid-item'>
+                {% render 'vastu-product-card',
+                  product: product,
+                  section: section,
+                  settings: section.settings
+                %}
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
         </xo-grid>
       </div>
 
@@ -73,15 +111,31 @@
         >
           <xo-carousel-inner>
             <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
-              {%- for product in section.settings.collection.products limit: section.settings.limit -%}
-                <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ section.settings.collection.products.size }}'>
-                  {% render 'vastu-product-card',
-                    product: product,
-                    section: section,
-                    settings: section.settings
-                  %}
-                </xo-carousel-slide>
-              {%- endfor -%}
+              {%- if product_source == 'blocks' -%}
+                {%- assign slide_count = 0 -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'product' and block.settings.product != blank and slide_count < section.settings.limit -%}
+                    {%- assign slide_count = slide_count | plus: 1 -%}
+                    <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ slide_count }} {{ 'general.slider.of' | t }} {{ total_products_shown }}' {{ block.shopify_attributes }}>
+                      {% render 'vastu-product-card',
+                        product: block.settings.product,
+                        section: section,
+                        settings: section.settings
+                      %}
+                    </xo-carousel-slide>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- else -%}
+                {%- for product in section.settings.collection.products limit: section.settings.limit -%}
+                  <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ section.settings.collection.products.size }}'>
+                    {% render 'vastu-product-card',
+                      product: product,
+                      section: section,
+                      settings: section.settings
+                    %}
+                  </xo-carousel-slide>
+                {%- endfor -%}
+              {%- endif -%}
             </xo-carousel-list>
           </xo-carousel-inner>
           {% render 'carousel-navigation-style1', display_navigation_desktop: display_navigation_desktop, display_navigation_mobile: display_navigation_mobile %}
@@ -127,9 +181,27 @@
       ]
     },
     {
+      "type": "select",
+      "id": "product_source",
+      "label": "Product source",
+      "default": "collection",
+      "options": [
+        {
+          "value": "collection",
+          "label": "From collection"
+        },
+        {
+          "value": "blocks",
+          "label": "Hand-picked products"
+        }
+      ],
+      "info": "Show products from a collection, or add individual products using the blocks below"
+    },
+    {
       "type": "collection",
       "id": "collection",
-      "label": "t:sections.featured_collection.settings.collection.label"
+      "label": "t:sections.featured_collection.settings.collection.label",
+      "info": "Only used when Product source is \"From collection\""
     },
     {
       "type": "range",
@@ -446,6 +518,21 @@
       "id": "padding_bottom",
       "label": "t:sections.all.padding_bottom.label",
       "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "limit": 20,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "Select a product to show in the carousel (only used when Product source is \"Hand-picked products\")"
+        }
+      ]
     }
   ]
 }

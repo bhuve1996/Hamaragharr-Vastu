@@ -12,6 +12,7 @@
     
     <xo-collapse-provider xo-duration='300' class='vastu-shop-by-concern__accordion' xo-default-open='0'>
       {% for block in section.blocks %}
+        {% if block.type == 'concern' %}
         <xo-animate xo-cascade class='vastu-shop-by-concern__item' {{ block.shopify_attributes }}>
           {% if block.settings.concern_title != blank or block.settings.concern_question != blank %}
             <xo-collapse-trigger class='vastu-shop-by-concern__trigger'>
@@ -48,32 +49,13 @@
                 </ul>
               {% endif %}
               
-              {% if block.settings.recommended_title != blank %}
-                <h4 class='vastu-shop-by-concern__recommended-title'>{{ block.settings.recommended_title }}</h4>
-              {% endif %}
-              
-              {% if block.settings.recommended_products != blank %}
-                <ul class='vastu-shop-by-concern__recommended-list'>
-                  {% assign products = block.settings.recommended_products | split: '|' %}
-                  {% for product_name in products %}
-                    <li>{{ product_name | strip }}</li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-              
-              {% comment %} Product Carousel {% endcomment %}
-              {% assign product_list = block.settings.product_list | split: ',' %}
+              {% comment %} Products: from selected collection {% endcomment %}
               {% assign has_products = false %}
-              {% for product_handle in product_list %}
-                {% assign product_handle_stripped = product_handle | strip %}
-                {% if product_handle_stripped != blank and all_products[product_handle_stripped] != blank %}
-                  {% assign has_products = true %}
-                  {% break %}
-                {% endif %}
-              {% endfor %}
+              {% if block.settings.carousel_collection != blank and block.settings.carousel_collection.products.size > 0 %}
+                {% assign has_products = true %}
+              {% endif %}
               
               {% if has_products %}
-                {% comment %} Grid on mobile, carousel on desktop (vastu-grid-carousel pattern) with vastu-grid-card {% endcomment %}
                 {% liquid
                   if section.settings.show_pagination_desktop != blank
                     assign show_pagination_desktop = section.settings.show_pagination_desktop
@@ -104,16 +86,11 @@
                   {% comment %} Mobile: grid (2 columns) {% endcomment %}
                   <div class='vastu-grid-carousel__mobile-grid'>
                     <xo-grid class='vastu-grid-carousel__grid' style='--xs: 2; --sm: 2; --md: 2; --lg: 2; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'>
-                      {% for product_handle in product_list %}
-                        {% assign product_handle_stripped = product_handle | strip %}
-                        {% if product_handle_stripped != blank %}
-                          {% assign current_product = all_products[product_handle_stripped] %}
-                          {% if current_product != blank %}
-                            <div class='vastu-grid-carousel__grid-item'>
-                              {% render 'vastu-grid-card', product: current_product, section: section, settings: section.settings %}
-                            </div>
-                          {% endif %}
-                        {% endif %}
+                      {% assign carousel_limit = block.settings.carousel_collection_limit | default: 12 %}
+                      {% for current_product in block.settings.carousel_collection.products limit: carousel_limit %}
+                        <div class='vastu-grid-carousel__grid-item'>
+                          {% render 'vastu-grid-card', product: current_product, section: section, settings: section.settings %}
+                        </div>
                       {% endfor %}
                     </xo-grid>
                   </div>
@@ -131,16 +108,10 @@
                     >
                       <xo-carousel-inner>
                         <xo-carousel-list role='list' aria-label='Products for {{ block.settings.concern_title }}'>
-                          {% for product_handle in product_list %}
-                            {% assign product_handle_stripped = product_handle | strip %}
-                            {% if product_handle_stripped != blank %}
-                              {% assign current_product = all_products[product_handle_stripped] %}
-                              {% if current_product != blank %}
-                                <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
-                                  {% render 'vastu-grid-card', product: current_product, section: section, settings: section.settings %}
-                                </xo-carousel-slide>
-                              {% endif %}
-                            {% endif %}
+                          {% for current_product in block.settings.carousel_collection.products limit: carousel_limit %}
+                            <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ block.settings.carousel_collection.products.size }}'>
+                              {% render 'vastu-grid-card', product: current_product, section: section, settings: section.settings %}
+                            </xo-carousel-slide>
                           {% endfor %}
                         </xo-carousel-list>
                       </xo-carousel-inner>
@@ -171,6 +142,7 @@
             </div>
           </xo-collapse>
         </xo-animate>
+        {% endif %}
       {% endfor %}
     </xo-collapse-provider>
   </xo-container>
@@ -567,27 +539,23 @@
           "info": "Separate each benefit with a pipe character (|)"
         },
         {
-          "type": "text",
-          "id": "recommended_title",
-          "label": "Recommended Products Title",
-          "default": "🌿 Recommended Vastu Solutions"
-        },
-        {
-          "type": "textarea",
-          "id": "recommended_products",
-          "label": "Recommended Products (separate with |)",
-          "default": "* 7 Horses Vastu Painting|* Golden Tree of Life Painting|* White Owl Painting|* Complete Vastu Correction Kit",
-          "info": "Separate each product with a pipe character (|)"
-        },
-        {
           "type": "header",
-          "content": "Product Carousel"
+          "content": "Products"
         },
         {
-          "type": "textarea",
-          "id": "product_list",
-          "label": "Products (comma-separated handles)",
-          "info": "Enter product handles separated by commas (e.g., product-handle-1, product-handle-2). These products will be displayed in a carousel."
+          "type": "collection",
+          "id": "carousel_collection",
+          "label": "Collection",
+          "info": "Products from this collection appear in the carousel."
+        },
+        {
+          "type": "range",
+          "id": "carousel_collection_limit",
+          "min": 2,
+          "max": 24,
+          "step": 1,
+          "default": 12,
+          "label": "Max products from collection"
         },
         {
           "type": "text",
