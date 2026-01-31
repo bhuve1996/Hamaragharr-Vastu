@@ -1,9 +1,20 @@
-
+{% liquid
+  assign has_map_content = false
+  if section.settings.map_style == 'map' and section.settings.map_iframe != blank
+    assign has_map_content = true
+  elsif section.settings.map_style == 'image' and section.settings.map_image != blank
+    assign has_map_content = true
+  endif
+  assign content_full_width = false
+  if has_map_content == false
+    assign content_full_width = true
+  endif
+%}
 
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
-    <xo-grid class='contact-v1__grid' style='--xs: 1; --md: 2'>
+    <xo-grid class='contact-v1__grid' style='--xs: 1; --md: {% if content_full_width %}1{% else %}2{% endif %}'>
       <div class='contact-v1__wrap'>
         <xo-animate xo-cascade>
           <h3 class='contact-v1__title'>
@@ -31,21 +42,23 @@
           </xo-animate>
         </div>
       </div>
-      <xo-animate
-        xo-cascade
-        class='contact-v1__map'
-        {% if section.settings.reverse_layout %}
-          style='--order-md: -1'
-        {% endif %}
-      >
-        {%- if section.settings.map_style == 'map' -%}
-          {{ section.settings.map_iframe }}
-        {%- else -%}
-          <a href='{{ section.settings.map_link }}'>
-            {% render 'image', image: section.settings.map_image %}
-          </a>
-        {%- endif -%}
-      </xo-animate>
+      {%- if has_map_content -%}
+        <xo-animate
+          xo-cascade
+          class='contact-v1__map'
+          {% if section.settings.reverse_layout %}
+            style='--order-md: -1'
+          {% endif %}
+        >
+          {%- if section.settings.map_style == 'map' -%}
+            {{ section.settings.map_iframe }}
+          {%- else -%}
+            <a href='{{ section.settings.map_link }}'>
+              {% render 'image', image: section.settings.map_image, show_placeholder: false %}
+            </a>
+          {%- endif -%}
+        </xo-animate>
+      {%- endif -%}
     </xo-grid>
   </xo-container>
     {% render 'section-separator',
