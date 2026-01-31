@@ -443,6 +443,12 @@ section[class*="testimonial-v13"] xo-container {
   }
 }
 
+/* Testimonial: hide pagination dots for this section only */
+.testimonial-v13__pagination .carousel-pagination-style3__pagination-wrap,
+.testimonial-v13__pagination xo-carousel-pagination {
+  display: none !important;
+}
+
 .banner-v155 {
   position: relative;
 }
