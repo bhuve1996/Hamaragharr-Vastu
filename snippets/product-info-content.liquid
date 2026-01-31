@@ -170,6 +170,9 @@
                 {% endif %}
                 
                 {% if has_headings %}
+                  {% comment %} First two items always open (no collapse); rest use accordion (one open at a time) {% endcomment %}
+                  {% assign desc_item_index = 0 %}
+                  <xo-collapse-provider xo-duration='300' class='xo-product-info-content__description-accordions'>
                   {% comment %} Normalize all heading levels into a single marker {% endcomment %}
                   {% assign normalized = description_html %}
                   {% assign normalized = normalized | replace: '<h2', '[[HEADING]]<h2' %}
@@ -266,48 +269,80 @@
                           {% endif %}
                           
                           {% if heading_text != blank %}
-                            {% assign accordion_id = 'desc-' | append: forloop.index | append: '-' | append: block.id %}
-                            <xo-animate xo-cascade class='accordion-section__item'>
-                              <xo-collapse-trigger class='accordion-section__trigger' xo-name='{{ accordion_id }}'>
-                                <div class='accordion-section__trigger-content'>
-                                  <h3 class='accordion-section__heading'>{{ heading_text }}</h3>
+                            {% if desc_item_index < 2 %}
+                              {% comment %} First two items: always open (no collapse) {% endcomment %}
+                              <xo-animate xo-cascade class='accordion-section__item accordion-section__item--always-open'>
+                                <div class='accordion-section__trigger accordion-section__trigger--static'>
+                                  <div class='accordion-section__trigger-content'>
+                                    <h3 class='accordion-section__heading'>{{ heading_text }}</h3>
+                                  </div>
                                 </div>
-                                <div class='accordion-section__trigger-icon'>
-                                  {%- render 'icon', name: 'plus2', icon_size: '20', color: 'rgba(var(--color-foreground))' -%}
-                                </div>
-                              </xo-collapse-trigger>
-                              {% if section_content != blank %}
-                                <xo-collapse xo-name='{{ accordion_id }}'>
+                                {% if section_content != blank %}
                                   <div class='accordion-section__content xo-collapse-style2__content xo-content'>
                                     {{ section_content }}
                                   </div>
-                                </xo-collapse>
-                              {% endif %}
-                            </xo-animate>
+                                {% endif %}
+                              </xo-animate>
+                            {% else %}
+                              {% assign accordion_id = 'desc-' | append: forloop.index | append: '-' | append: block.id %}
+                              <xo-animate xo-cascade class='accordion-section__item'>
+                                <xo-collapse-trigger class='accordion-section__trigger' xo-name='{{ accordion_id }}'>
+                                  <div class='accordion-section__trigger-content'>
+                                    <h3 class='accordion-section__heading'>{{ heading_text }}</h3>
+                                  </div>
+                                  <div class='accordion-section__trigger-icon'>
+                                    {%- render 'icon', name: 'plus2', icon_size: '20', color: 'rgba(var(--color-foreground))' -%}
+                                  </div>
+                                </xo-collapse-trigger>
+                                {% if section_content != blank %}
+                                  <xo-collapse xo-name='{{ accordion_id }}'>
+                                    <div class='accordion-section__content xo-collapse-style2__content xo-content'>
+                                      {{ section_content }}
+                                    </div>
+                                  </xo-collapse>
+                                {% endif %}
+                              </xo-animate>
+                            {% endif %}
+                            {% assign desc_item_index = desc_item_index | plus: 1 %}
                           {% endif %}
                         {% endif %}
                       {% else %}
                         {% comment %} This is content before the first heading {% endcomment %}
                         {% if section_stripped != blank %}
-                          <xo-animate xo-cascade class='accordion-section__item'>
-                            <xo-collapse-trigger class='accordion-section__trigger' xo-name='desc-intro-{{ block.id }}'>
-                              <div class='accordion-section__trigger-content'>
-                                <h3 class='accordion-section__heading'>Description</h3>
+                          {% if desc_item_index < 2 %}
+                            <xo-animate xo-cascade class='accordion-section__item accordion-section__item--always-open'>
+                              <div class='accordion-section__trigger accordion-section__trigger--static'>
+                                <div class='accordion-section__trigger-content'>
+                                  <h3 class='accordion-section__heading'>Description</h3>
+                                </div>
                               </div>
-                              <div class='accordion-section__trigger-icon'>
-                                {%- render 'icon', name: 'plus2', icon_size: '20', color: 'rgba(var(--color-foreground))' -%}
-                              </div>
-                            </xo-collapse-trigger>
-                            <xo-collapse xo-name='desc-intro-{{ block.id }}'>
                               <div class='accordion-section__content xo-collapse-style2__content xo-content'>
                                 {{ section_stripped }}
                               </div>
-                            </xo-collapse>
-                          </xo-animate>
+                            </xo-animate>
+                          {% else %}
+                            <xo-animate xo-cascade class='accordion-section__item'>
+                              <xo-collapse-trigger class='accordion-section__trigger' xo-name='desc-intro-{{ block.id }}'>
+                                <div class='accordion-section__trigger-content'>
+                                  <h3 class='accordion-section__heading'>Description</h3>
+                                </div>
+                                <div class='accordion-section__trigger-icon'>
+                                  {%- render 'icon', name: 'plus2', icon_size: '20', color: 'rgba(var(--color-foreground))' -%}
+                                </div>
+                              </xo-collapse-trigger>
+                              <xo-collapse xo-name='desc-intro-{{ block.id }}'>
+                                <div class='accordion-section__content xo-collapse-style2__content xo-content'>
+                                  {{ section_stripped }}
+                                </div>
+                              </xo-collapse>
+                            </xo-animate>
+                          {% endif %}
+                          {% assign desc_item_index = desc_item_index | plus: 1 %}
                         {% endif %}
                       {% endif %}
                     {% endif %}
                   {% endfor %}
+                  </xo-collapse-provider>
                 {% else %}
                   {% comment %} No headings found - show as single accordion item or regular display {% endcomment %}
                   {% assign use_mini_description = block.settings.use_mini_description %}

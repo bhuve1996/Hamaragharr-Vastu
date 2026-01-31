@@ -1296,6 +1296,24 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   box-shadow: none;
 }
 
+/* First two description items: always open (no collapse) - same look as expanded accordion */
+.xo-product-info-content .accordion-section__item--always-open .accordion-section__trigger--static {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  cursor: default;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.15);
+  width: 100%;
+  text-align: left;
+}
+
+.xo-product-info-content .accordion-section__item--always-open .accordion-section__content {
+  padding: 1.5rem 0 2rem;
+}
+
 /* Accordion Trigger */
 .xo-product-info-content .accordion-section__trigger {
   display: flex;
@@ -1452,6 +1470,14 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   .xo-product-info-content .accordion-section__item[aria-expanded="true"] .accordion-section__content,
   .xo-product-info-content .accordion-section__trigger[aria-expanded="true"] + xo-collapse .accordion-section__content,
   .xo-product-info-content .accordion-section__item xo-collapse[xo-active] .accordion-section__content {
+    padding: 1.25rem 0 1.75rem;
+  }
+
+  .xo-product-info-content .accordion-section__item--always-open .accordion-section__trigger--static {
+    padding: 1.25rem 0;
+  }
+
+  .xo-product-info-content .accordion-section__item--always-open .accordion-section__content {
     padding: 1.25rem 0 1.75rem;
   }
 }
