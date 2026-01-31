@@ -440,6 +440,7 @@
 
       --page-width: {{ settings.page_width | divided_by: 10 }}rem;
       --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
+      --xo-container-width: var(--page-width);
 
       --product-card-image-padding: {{ settings.product_card_image_padding | divided_by: 10.0 }}rem;
       --product-card-content-padding: {{ settings.product_card_content_padding | divided_by: 10.0 }}rem;

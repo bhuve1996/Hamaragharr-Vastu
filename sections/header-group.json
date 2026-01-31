@@ -65,6 +65,18 @@
       "type": "search",
       "disabled": true,
       "settings": {
+        "modal_width": "100%",
+        "modal_max_width": "100%",
+        "modal_height": "80vh",
+        "modal_padding": "2rem",
+        "backdrop_color": "#000000",
+        "backdrop_opacity": 50,
+        "modal_bg_color": "#ffffff",
+        "text_color": "#000000",
+        "button_bg_color": "#473855",
+        "button_text_color": "#ffffff",
+        "border_color": "#473855",
+        "border_opacity": 10,
         "width": "box",
         "fullwidth_margin": 0,
         "logo_img": "shopify://shop_images/Logo.png",
@@ -205,11 +217,30 @@
         "padding_top": 50,
         "padding_bottom": 50
       }
+    },
+    "breadcrumb_v2_LChREg": {
+      "type": "breadcrumb-v2",
+      "name": "t:sections.breadcrumb_v2.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
     }
   },
   "order": [
     "header-v2",
     "search",
+    "breadcrumb_v2_LChREg",
     "mega-menu-v1",
     "mega-menu-v2",
     "mega-menu-v3",

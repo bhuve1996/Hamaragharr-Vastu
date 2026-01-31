@@ -1,0 +1,18 @@
+/* ========================================
+   GLOBAL CONTENT BOX ALIGNMENT
+   Keeps header, footer, and all section content
+   inside the same max-width on desktop for consistent alignment.
+   Uses --xo-container-width (set from theme page_width in settings-adapter).
+   ======================================== */
+
+/* Desktop: enforce same content width for header, footer, main, and all sections */
+@media (width >= 992px) {
+  header xo-container,
+  footer xo-container,
+  main xo-container,
+  main section xo-container {
+    max-width: var(--xo-container-width, var(--page-width, 140rem));
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
