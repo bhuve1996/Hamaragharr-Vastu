@@ -414,9 +414,7 @@
             "benefits_title": "✨ How This Solution Helps",
             "benefits_list": "✔ Address multiple Vastu concerns|✔ Complete self-use solution|✔ No prior Vastu knowledge needed|✔ Comprehensive energy correction",
             "carousel_collection": "",
-            "carousel_collection_limit": 12,
-            "cta_text": "👉 Get your complete Vastu solution",
-            "cta_link": "shopify://products/vastu-kit-home-office"
+            "carousel_collection_limit": 12
           }
         },
         "concern_1": {
@@ -428,9 +426,7 @@
             "benefits_title": "How These Remedies Help",
             "benefits_list": "✔ Improve cash flow & savings|✔ Reduce financial stress|✔ Activate wealth-attracting energy|✔ Support business & career growth",
             "carousel_collection": "money-and-financial",
-            "carousel_collection_limit": 12,
-            "cta_text": "👉 Choose a remedy that supports abundance",
-            "cta_link": "shopify://collections/all"
+            "carousel_collection_limit": 12
           }
         },
         "concern_2": {
@@ -442,9 +438,7 @@
             "benefits_title": "✨ How These Remedies Help",
             "benefits_list": "✔ Reduce stress & anxiety|✔ Improve emotional well-being|✔ Create calm & positivity|✔ Support better sleep",
             "carousel_collection": "lack-of-peace-stress-nega-vity",
-            "carousel_collection_limit": 12,
-            "cta_text": "👉 Invite calm energy into your home",
-            "cta_link": "shopify://collections/all"
+            "carousel_collection_limit": 12
           }
         },
         "concern_3": {
@@ -456,9 +450,7 @@
             "benefits_title": "✨ How These Remedies Help",
             "benefits_list": "✔ Reduce conflicts|✔ Improve communication|✔ Restore emotional balance|✔ Strengthen family bonds",
             "carousel_collection": "family-conflicts-rela-onship-issues",
-            "carousel_collection_limit": 12,
-            "cta_text": "👉 Create a harmonious living space",
-            "cta_link": "shopify://collections/all"
+            "carousel_collection_limit": 12
           }
         },
         "concern_4": {
@@ -470,9 +462,7 @@
             "benefits_title": "✨ How These Remedies Help",
             "benefits_list": "✔ Improve focus & productivity|✔ Support career advancement|✔ Encourage business growth|✔ Reduce obstacles",
             "carousel_collection": "career-growth-business-stagna-on",
-            "carousel_collection_limit": 12,
-            "cta_text": "👉 Activate progress and success",
-            "cta_link": "shopify://collections/all"
+            "carousel_collection_limit": 12
           }
         }
       },
