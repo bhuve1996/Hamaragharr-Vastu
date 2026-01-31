@@ -69,7 +69,7 @@
                   {% endif %}
                   required
                 {% endcapture -%}
-              {% render 'field-input', type: 'email', name: 'contact[email]', value: value, label: placeholder, attr: attr %}
+              {% render 'field-input', type: 'email', name: 'contact[email]', value: value, label: placeholder, placeholder: placeholder, attr: attr %}
               {% render 'newsletter-form-message', form: form %}
               {% render 'button', type: 'submit', text: button_text, style: 'secondary', mode: settings.popup_newsletter_button_mode, size: 'md', padding: 3 %}
             </div>

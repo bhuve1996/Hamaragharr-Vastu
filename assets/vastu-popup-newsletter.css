@@ -200,6 +200,48 @@
   height: unset;
 }
 
+/* Popup Newsletter - Fix iOS/Apple: stop floating label/placeholder from moving to top */
+.popup-newsletter__container .popup-newsletter-v1__form .xo-field-input,
+.popup-newsletter__container .popup-newsletter-v2__form .xo-field-input,
+.popup-newsletter__container .popup-newsletter-v3__form .xo-field-input,
+.popup-newsletter__container .popup-newsletter-v4__form .xo-field-input,
+.popup-newsletter__container .popup-newsletter-v5__form .xo-field-input,
+.popup-newsletter__container .popup-newsletter-v6__form .xo-field-input,
+.popup-newsletter__container .popup-newsletter-v1__form .xo-field-input__input,
+.popup-newsletter__container .popup-newsletter-v2__form .xo-field-input__input,
+.popup-newsletter__container .popup-newsletter-v3__form .xo-field-input__input,
+.popup-newsletter__container .popup-newsletter-v4__form .xo-field-input__input,
+.popup-newsletter__container .popup-newsletter-v5__form .xo-field-input__input,
+.popup-newsletter__container .popup-newsletter-v6__form .xo-field-input__input,
+.popup-newsletter__container .popup-newsletter-v1__form .xo-field-input__placeholder,
+.popup-newsletter__container .popup-newsletter-v2__form .xo-field-input__placeholder,
+.popup-newsletter__container .popup-newsletter-v3__form .xo-field-input__placeholder,
+.popup-newsletter__container .popup-newsletter-v4__form .xo-field-input__placeholder,
+.popup-newsletter__container .popup-newsletter-v5__form .xo-field-input__placeholder,
+.popup-newsletter__container .popup-newsletter-v6__form .xo-field-input__placeholder {
+  transition: none !important;
+}
+
+/* Hide animated floating label so only native placeholder shows (fixes Apple/iOS) */
+.popup-newsletter__container .popup-newsletter-v1__form .xo-field-input__placeholder,
+.popup-newsletter__container .popup-newsletter-v2__form .xo-field-input__placeholder,
+.popup-newsletter__container .popup-newsletter-v3__form .xo-field-input__placeholder,
+.popup-newsletter__container .popup-newsletter-v4__form .xo-field-input__placeholder,
+.popup-newsletter__container .popup-newsletter-v5__form .xo-field-input__placeholder,
+.popup-newsletter__container .popup-newsletter-v6__form .xo-field-input__placeholder {
+  display: none !important;
+}
+
+.popup-newsletter__container .popup-newsletter-v1__form .xo-field-input__input::placeholder,
+.popup-newsletter__container .popup-newsletter-v2__form .xo-field-input__input::placeholder,
+.popup-newsletter__container .popup-newsletter-v3__form .xo-field-input__input::placeholder,
+.popup-newsletter__container .popup-newsletter-v4__form .xo-field-input__input::placeholder,
+.popup-newsletter__container .popup-newsletter-v5__form .xo-field-input__input::placeholder,
+.popup-newsletter__container .popup-newsletter-v6__form .xo-field-input__input::placeholder {
+  opacity: 1 !important;
+  transition: none !important;
+}
+
 /* Popup Promotion - Disable placeholder transition that moves to top */
 .popup-promotion__container .xo-share-style2 .xo-share-style2__input,
 .popup-promotion__container .xo-field-input__input {

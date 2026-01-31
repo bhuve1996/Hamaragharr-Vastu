@@ -2440,13 +2440,13 @@
         "type": "text",
         "id": "popup_newsletter_title",
         "label": "t:settings_schema.newsletter_popup.settings.popup_newsletter_title.label",
-        "default": "Get 20% discount shipped to your inbox"
+        "default": "Get casual coupons – Vastu 20 – to your inbox"
       },
       {
         "type": "richtext",
         "id": "popup_newsletter_description",
         "label": "t:settings_schema.newsletter_popup.settings.popup_newsletter_description.label",
-        "default": "<p>Let's Subscribe to our newsletter and we will ship 20% discount code today</p>"
+        "default": "<p>Subscribe to our newsletter and we'll send you our casual coupons, like Vastu 20, today.</p>"
       },
       {
         "type": "image_picker",
