@@ -343,6 +343,10 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
   text-overflow: ellipsis;
   line-height: var(--global-heading-line-height-desktop);
   padding: 0 0.5rem;
+  position: relative;
+  transform: none;
+  translate: 0 0;
+  transition: none;
 }
 
 .vastu-shop-by-concern__product-add-to-cart .xo-btn__text[data-text]::before,
@@ -354,6 +358,20 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
   width: 0;
   height: 0;
   overflow: hidden;
+}
+
+.vastu-shop-by-concern__product-add-to-cart .xo-btn__text:active,
+.vastu-shop-by-concern__product-add-to-cart .xo-btn__text:focus,
+.vastu-shop-by-concern__product-add-to-cart .xo-btn__content:active,
+.vastu-shop-by-concern__product-add-to-cart .xo-btn__content:focus,
+.vastu-shop-by-concern__product-add-to-cart .xo-btn:active .xo-btn__text,
+.vastu-shop-by-concern__product-add-to-cart .xo-btn:active .xo-btn__content,
+.vastu-shop-by-concern__product-add-to-cart .xo-btn:focus .xo-btn__text,
+.vastu-shop-by-concern__product-add-to-cart .xo-btn:focus .xo-btn__content,
+.vastu-shop-by-concern__product-add-to-cart button:active .xo-btn__text,
+.vastu-shop-by-concern__product-add-to-cart button:active .xo-btn__content {
+  transform: none;
+  translate: 0 0;
 }
 
 /* Carousel wrapper: use global section padding & margin (Shop by Concern only) */
