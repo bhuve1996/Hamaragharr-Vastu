@@ -5,32 +5,4 @@
 
 /* This file is now integrated into vastu-global-spacing.css */
 
-/* REMOVED: Redundant attribute selector rules that were causing conflicts
-   The base rule in vastu-global-spacing.css already handles section-level overrides
-   with proper fallbacks. When sections set CSS variables in inline styles,
-   the base rule automatically uses them via CSS variable fallback chain.
-   
-   The previous attribute selector rules were:
-   - Overriding the base rule unnecessarily
-   - Missing fallbacks
-   - Causing issues when values were set to 0
-   
-   Now: Sections can set CSS variables in inline styles (e.g., --section-margin-bottom-desktop: 0px)
-   and the base rule in vastu-global-spacing.css will use them with proper fallbacks.
-*/
-
-/* Section-to-section spacing (for .section+.section selector) */
-
-/* Commented out per request */
-
-/*
-.section + .section {
-  margin-top: var(--section-to-section-spacing-mobile, var(--global-section-to-section-spacing-mobile, 0));
-}
-
-@media (width >= 48rem) {
-  .section + .section {
-    margin-top: var(--section-to-section-spacing-desktop, var(--global-section-to-section-spacing-desktop, 0));
-  }
-}
-*/
+/* Section spacing logic lives in vastu-global-spacing.css */

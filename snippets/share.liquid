@@ -12,8 +12,8 @@
 {% endcomment %}
 
 {% liquid
-  if list == null
-    assign list = 'copy, facebook, twitter, pinterest'
+  if list == null or list == blank
+    assign list = 'copy, facebook, instagram'
   endif
   if tooltip_placement == null
     assign tooltip_placement = 'top-center'
@@ -70,6 +70,17 @@
             {% render 'icon', name: 'pinterest2', icon_size: '17' %}
           </a>
         </xo-tooltip>
+      {% when 'instagram' %}
+        <xo-tooltip xo-title='{{ 'general.social.links.instagram' | t }}' xo-placement='{{ tooltip_placement }}'>
+          <a
+            href='https://instagram.com/share?url={{ url }}'
+            target='_blank'
+            class='xo-share__link'
+            aria-label='{{ 'general.social.links.instagram' | t }}'
+          >
+            {% render 'icon', name: 'instagram2', icon_size: '17' %}
+          </a>
+        </xo-tooltip>
       {% when 'tumblr' %}
         <xo-tooltip xo-title='{{ 'general.social.links.tumblr' | t }}' xo-placement='{{ tooltip_placement }}'>
           <a
@@ -82,7 +93,7 @@
           </a>
         </xo-tooltip>
       {% else %}
-        <div class='xo-error'>List support: 'copy, facebook, twitter, pinterest, tumblr'</div>
+        <div class='xo-error'>List support: 'copy, facebook, twitter, pinterest, instagram, tumblr'</div>
     {% endcase %}
   {% endfor %}
 </div>

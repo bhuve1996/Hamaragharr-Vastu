@@ -24,17 +24,17 @@
   .vastu-help-address-v1__item:hover {
     transform: translateY(-4px);
     background: rgb(71 56 85);
-    color: rgb(255 255 255);
+    color: rgb(var(--color-secondary-button-text));
     border-color: rgba(71 56 85 / 20%);
     box-shadow: 0 4px 16px rgba(0 0 0 / 12%);
   }
 
   .vastu-help-address-v1__item:hover .vastu-help-address-v1__text {
-    color: rgb(255 255 255);
+    color: rgb(var(--color-secondary-button-text));
   }
 
   .vastu-help-address-v1__item:hover .vastu-help-address-v1__description {
-    color: rgb(255 255 255 / 90%);
+    color: rgb(var(--color-secondary-button-text) / 90%);
   }
 }
 
@@ -56,7 +56,7 @@
 @media (width > 48rem) {
   .vastu-help-address-v1__item:hover .vastu-help-address-v1__icon {
     transform: scale(1.1);
-    color: rgb(255 255 255);
+    color: rgb(var(--color-secondary-button-text));
   }
 }
 
@@ -74,14 +74,14 @@
 }
 
 .vastu-help-address-v1__text {
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   margin: 0 0 1rem;
   text-align: center;
   transition: color 0.3s ease;
 }
 
 .vastu-help-address-v1__description {
-  color: rgb(71 56 85 / 80%);
+  color: rgb(var(--color-secondary-button) / 80%);
   margin: 0;
   text-align: center;
   transition: color 0.3s ease;
@@ -176,7 +176,7 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: rgb(71 56 85 / 30%);
+  background-color: rgb(var(--color-secondary-button) / 30%);
   margin: 0 0.25rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -186,7 +186,7 @@
 .vastu-help-address-v1__pagination xo-carousel-pagination-bullet-active span,
 .vastu-help-address-v1__pagination xo-carousel-pagination span[aria-current="true"],
 .vastu-help-address-v1__pagination xo-carousel-pagination span.is-active {
-  background-color: rgb(71 56 85);
+  background-color: rgb(var(--color-secondary-button));
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;

@@ -77,9 +77,7 @@ section[style*="background-color: rgb(255, 255, 255)"],
 div[style*="background-color: #fff"],
 div[style*="background-color: #ffffff"],
 div[style*="background-color: rgb(255, 255, 255)"] {
-  /* box-shadow: 0 2px 10px rgb(0 0 0 / 8%); */
-
-  /* Commented out per request */
+  /* box-shadow: 0 2px 10px rgb(0 0 0 / 8%); - disabled per request */
 }
 
 /* Dark backgrounds - use stronger shadow */
@@ -95,9 +93,7 @@ section[style*="background-color: #473855"],
 section[style*="background-color: rgb(71, 56, 85)"],
 div[style*="background-color: #473855"],
 div[style*="background-color: rgb(71, 56, 85)"] {
-  /* box-shadow: 0 2px 10px rgb(0 0 0 / 25%); */
-
-  /* Commented out per request */
+  /* box-shadow: 0 2px 10px rgb(0 0 0 / 25%); - disabled per request */
 }
 
 /* Mobile - Section Padding & Margins */
@@ -136,90 +132,72 @@ div[style*="background-color: rgb(71, 56, 85)"] {
   }
 }
 
-/* Section-to-section spacing */
-
-/* Commented out per request */
-
-/*
-.section + .section {
-  margin-top: var(--section-to-section-spacing-mobile, var(--global-section-to-section-spacing-mobile, 0));
-}
-
-@media (width >= 48rem) {
-  .section + .section {
-    margin-top: var(--section-to-section-spacing-desktop, var(--global-section-to-section-spacing-desktop, 0));
-  
-  fsa 2`
-  
-}
-*/
-
 /* ========================================
    TEXT ELEMENT MARGINS (Typography Spacing)
    ======================================== */
 
-/* Desktop - Heading Margins */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
-.vastu-heading,
-.homepage-section-heading,
-.vastu-section-title,
-.vastu-section-heading,
-.xo-section-heading__title,
-.vastu-why-kit__title,
-.vastu-trust-bar__title,
-.vastu-help-address-v1__section-title,
-.vastu-shop-by-concern__section-title,
-.vastu-best-seller__section-title,
-.vastu-featured-products__section-title,
-.vastu-product-showcase__title,
-.blog-v2__title,
-.faq-v3__title,
-.banner-v155__title,
-.slideshow-v28__title {
+/* Desktop - Heading Margins (exclude article/blog; see vastu-blog.css for page-specific) */
+body:not(.template-article, .template-blog) h1,
+body:not(.template-article, .template-blog) h2,
+body:not(.template-article, .template-blog) h3,
+body:not(.template-article, .template-blog) h4,
+body:not(.template-article, .template-blog) h5,
+body:not(.template-article, .template-blog) h6,
+body:not(.template-article, .template-blog) .h1,
+body:not(.template-article, .template-blog) .h2,
+body:not(.template-article, .template-blog) .h3,
+body:not(.template-article, .template-blog) .h4,
+body:not(.template-article, .template-blog) .h5,
+body:not(.template-article, .template-blog) .h6,
+body:not(.template-article, .template-blog) .vastu-heading,
+body:not(.template-article, .template-blog) .homepage-section-heading,
+body:not(.template-article, .template-blog) .vastu-section-title,
+body:not(.template-article, .template-blog) .vastu-section-heading,
+body:not(.template-article, .template-blog) .xo-section-heading__title,
+body:not(.template-article, .template-blog) .vastu-why-kit__title,
+body:not(.template-article, .template-blog) .vastu-trust-bar__title,
+body:not(.template-article, .template-blog) .vastu-help-address-v1__section-title,
+body:not(.template-article, .template-blog) .vastu-shop-by-concern__section-title,
+body:not(.template-article, .template-blog) .vastu-best-seller__section-title,
+body:not(.template-article, .template-blog) .vastu-featured-products__section-title,
+body:not(.template-article, .template-blog) .vastu-product-showcase__title,
+body:not(.template-article, .template-blog) .blog-v2__title,
+body:not(.template-article, .template-blog) .faq-v3__title,
+body:not(.template-article, .template-blog) .banner-v155__title,
+body:not(.template-article, .template-blog) .slideshow-v28__title {
   margin-bottom: var(--section-heading-margin-bottom-desktop, var(--global-heading-margin-bottom-desktop, 48px));
 }
 
-/* Mobile - Heading Margins */
+/* Mobile - Heading Margins (exclude article/blog; see vastu-blog.css for page-specific) */
 @media (width <= 48rem) {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5,
-  .h6,
-  .vastu-heading,
-  .homepage-section-heading,
-  .vastu-section-title,
-  .vastu-section-heading,
-  .xo-section-heading__title,
-  .vastu-why-kit__title,
-  .vastu-trust-bar__title,
-  .vastu-help-address-v1__section-title,
-  .vastu-shop-by-concern__section-title,
-  .vastu-best-seller__section-title,
-  .vastu-featured-products__section-title,
-  .vastu-product-showcase__title,
-  .blog-v2__title,
-  .faq-v3__title,
-  .banner-v155__title,
-  .slideshow-v28__title {
+  body:not(.template-article, .template-blog) h1,
+  body:not(.template-article, .template-blog) h2,
+  body:not(.template-article, .template-blog) h3,
+  body:not(.template-article, .template-blog) h4,
+  body:not(.template-article, .template-blog) h5,
+  body:not(.template-article, .template-blog) h6,
+  body:not(.template-article, .template-blog) .h1,
+  body:not(.template-article, .template-blog) .h2,
+  body:not(.template-article, .template-blog) .h3,
+  body:not(.template-article, .template-blog) .h4,
+  body:not(.template-article, .template-blog) .h5,
+  body:not(.template-article, .template-blog) .h6,
+  body:not(.template-article, .template-blog) .vastu-heading,
+  body:not(.template-article, .template-blog) .homepage-section-heading,
+  body:not(.template-article, .template-blog) .vastu-section-title,
+  body:not(.template-article, .template-blog) .vastu-section-heading,
+  body:not(.template-article, .template-blog) .xo-section-heading__title,
+  body:not(.template-article, .template-blog) .vastu-why-kit__title,
+  body:not(.template-article, .template-blog) .vastu-trust-bar__title,
+  body:not(.template-article, .template-blog) .vastu-help-address-v1__section-title,
+  body:not(.template-article, .template-blog) .vastu-shop-by-concern__section-title,
+  body:not(.template-article, .template-blog) .vastu-best-seller__section-title,
+  body:not(.template-article, .template-blog) .vastu-featured-products__section-title,
+  body:not(.template-article, .template-blog) .vastu-product-showcase__title,
+  body:not(.template-article, .template-blog) .blog-v2__title,
+  body:not(.template-article, .template-blog) .faq-v3__title,
+  body:not(.template-article, .template-blog) .banner-v155__title,
+  body:not(.template-article, .template-blog) .slideshow-v28__title {
     margin-bottom: var(--section-heading-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px));
   }
 

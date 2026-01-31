@@ -16,7 +16,7 @@
   font-size: var(--section-subtitle-font-size-desktop, var(--global-subtitle-font-size-desktop)); /* 1.8rem = 18px */
   font-weight: var(--section-subtitle-font-weight-desktop, var(--global-subtitle-font-weight-desktop, 500));
   line-height: var(--section-subtitle-line-height-desktop, var(--global-subtitle-line-height-desktop, 1.4));
-  color: rgb(71 56 85 / 80%);
+  color: rgb(var(--color-secondary-button) / 80%);
   margin: 0;
   text-align: center;
   max-width: 800px;
@@ -48,7 +48,7 @@
   justify-content: center;
   flex: 1 1 0;
   min-width: 0;
-  background: #fff;
+  background: rgb(var(--color-primary-bg));
   border-radius: 12px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
   transition: box-shadow 0.3s ease;
@@ -137,7 +137,7 @@
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
   line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   margin: 0.5rem 0 0;
-  color: rgb(71 56 85 / 70%);
+  color: rgb(var(--color-secondary-button) / 70%);
   text-align: center;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -216,6 +216,6 @@
     line-clamp: 2;
     -webkit-box-orient: vertical;
     max-width: 100%;
-    color: rgb(71 56 85 / 70%);
+    color: rgb(var(--color-secondary-button) / 70%);
   }
 }

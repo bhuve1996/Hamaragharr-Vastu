@@ -25,8 +25,8 @@ section[class*="testimonial-v13"] xo-carousel-list {
 
 section[class*="testimonial-v2"],
 section[class*="testimonial-v13"] {
-  background: #473855;
-  background-color: #473855;
+  background: rgb(var(--color-secondary-button));
+  background-color: rgb(var(--color-secondary-button));
   margin: 0;
 }
 
@@ -37,15 +37,15 @@ section[class*="testimonial-v13"] xo-container {
 }
 
 .testimonial-v13__item {
-  background: #fff;
-  border: 2px solid rgb(71 56 85 / 15%);
+  background: rgb(var(--color-primary-bg));
+  border: 2px solid rgb(var(--color-secondary-button) / 15%);
   border-radius: 1rem;
   padding: 2rem 1.75rem;
   text-align: center;
   position: relative;
   box-shadow:
-    0 4px 20px rgb(71 56 85 / 12%),
-    0 2px 8px rgb(71 56 85 / 8%);
+    0 4px 20px rgb(var(--color-secondary-button) / 12%),
+    0 2px 8px rgb(var(--color-secondary-button) / 8%);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 0;
   min-height: 280px;
@@ -66,7 +66,7 @@ section[class*="testimonial-v13"] xo-container {
   right: 1rem;
   width: 3rem;
   height: 3rem;
-  color: rgb(71 56 85 / 15%);
+  color: rgb(var(--color-secondary-button) / 15%);
   opacity: 0.6;
   z-index: 1;
   display: flex;
@@ -82,9 +82,9 @@ section[class*="testimonial-v13"] xo-container {
 .testimonial-v13__item:hover {
   transform: translateY(-8px);
   box-shadow:
-    0 8px 30px rgb(71 56 85 / 20%),
-    0 4px 12px rgb(71 56 85 / 12%);
-  border-color: rgb(71 56 85 / 25%);
+    0 8px 30px rgb(var(--color-secondary-button) / 20%),
+    0 4px 12px rgb(var(--color-secondary-button) / 12%);
+  border-color: rgb(var(--color-secondary-button) / 25%);
 }
 
 .testimonial-v13__product-image {
@@ -101,7 +101,7 @@ section[class*="testimonial-v13"] xo-container {
   border-radius: 0.75rem;
   overflow: hidden;
   background: #f8f8f8;
-  box-shadow: 0 2px 8px rgb(71 56 85 / 10%);
+  box-shadow: 0 2px 8px rgb(var(--color-secondary-button) / 10%);
 }
 
 .testimonial-v13__product-image:empty {
@@ -133,17 +133,17 @@ section[class*="testimonial-v13"] xo-container {
 .testimonial-v13__star {
   font-size: var(--global-body-font-size-desktop);
   line-height: var(--global-body-line-height-desktop);
-  color: #ffd700;
-  text-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+  color: rgb(var(--color-rating-active));
+  text-shadow: 0 1px 2px rgb(var(--color-text-primary) / 10%);
   transition: transform 0.2s ease;
 }
 
 .testimonial-v13__star--filled {
-  color: #ffd700;
+  color: rgb(var(--color-rating-active));
 }
 
 .testimonial-v13__star--empty {
-  color: #e0e0e0;
+  color: rgb(var(--color-rating-inactive));
 }
 
 .testimonial-v13__item:hover .testimonial-v13__star--filled {
@@ -170,8 +170,8 @@ section[class*="testimonial-v13"] xo-container {
   object-fit: cover;
   border-radius: 50%;
   filter: none;
-  border: 2px solid rgb(71 56 85 / 15%);
-  box-shadow: 0 2px 8px rgb(71 56 85 / 15%);
+  border: 2px solid rgb(var(--color-secondary-button) / 15%);
+  box-shadow: 0 2px 8px rgb(var(--color-secondary-button) / 15%);
   transition: transform 0.3s ease;
 }
 
@@ -183,7 +183,7 @@ section[class*="testimonial-v13"] xo-container {
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.5rem));
   line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.6));
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
-  color: rgb(0 0 0 / 80%);
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.8);
   font-style: italic;
   padding: 0 0.5rem;
   margin-bottom: 0.5rem;
@@ -206,7 +206,7 @@ section[class*="testimonial-v13"] xo-container {
   position: relative;
   z-index: 2;
   padding-top: 1.25rem;
-  border-top: 1px solid rgb(71 56 85 / 15%);
+  border-top: 1px solid rgb(var(--color-secondary-button) / 15%);
   width: 100%;
 }
 
@@ -222,7 +222,7 @@ section[class*="testimonial-v13"] xo-container {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   margin: 0;
   letter-spacing: 0.3px;
   text-align: center;
@@ -232,7 +232,7 @@ section[class*="testimonial-v13"] xo-container {
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.3rem));
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
   line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.4));
-  color: rgb(0 0 0 / 65%);
+  color: rgba(var(--color-foreground, 0, 0, 0), 0.65);
   margin: 0;
   text-align: center;
 }

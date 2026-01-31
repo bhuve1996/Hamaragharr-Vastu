@@ -52,7 +52,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
 }
 
 .product-variant-modal__modal-content .product-variant-modal__close button svg {
@@ -103,7 +103,7 @@ xo-modal[xo-placement="center"]::before {
 .product-variant-modal__product-title {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   margin: 0 0 0.5rem;
   line-height: var(--global-body-line-height-desktop);
 }
@@ -111,7 +111,7 @@ xo-modal[xo-placement="center"]::before {
 .product-variant-modal__product-price {
   font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
   font-weight: var(--font-weight-semibold, 600);
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   margin: 0;
 }
 
@@ -148,8 +148,8 @@ xo-modal[xo-placement="center"]::before {
 
 .product-variant-modal__modal-content xo-cart-add .xo-btn,
 .product-variant-modal__modal-content xo-cart-add button {
-  background-color: #000;
-  color: #fff;
+  background-color: rgb(var(--color-text-primary));
+  color: rgb(var(--color-secondary-button-text));
 }
 
 .product-variant-modal__modal-content xo-cart-add .xo-btn__text,
@@ -162,12 +162,12 @@ xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__text,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__content,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__text *,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__content * {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn,
 xo-modal .product-variant-modal__modal-content xo-cart-add button {
-  background-color: #000;
+  background-color: rgb(var(--color-text-primary));
 }
 
 .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__text,
@@ -179,12 +179,12 @@ xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .x
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__content,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__text *,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary .xo-btn__content * {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary,
 .product-variant-modal__modal-content xo-cart-add .xo-btn--secondary {
-  background-color: #000;
+  background-color: rgb(var(--color-text-primary));
 }
 
 .product-variant-modal__modal-content xo-cart-add .xo-btn--primary,
@@ -197,21 +197,21 @@ xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__content,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__text *,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-btn__content * {
-  background-color: #000;
-  color: #fff;
+  background-color: rgb(var(--color-text-primary));
+  color: rgb(var(--color-secondary-button-text));
 }
 
 xo-modal xo-cart-add .xo-btn,
 xo-modal xo-cart-add button {
-  background-color: #000;
-  color: #fff;
+  background-color: rgb(var(--color-text-primary));
+  color: rgb(var(--color-secondary-button-text));
 }
 
 xo-modal xo-cart-add .xo-btn__text,
 xo-modal xo-cart-add .xo-btn__content,
 xo-modal xo-cart-add .xo-btn__text *,
 xo-modal xo-cart-add .xo-btn__content * {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 xo-modal xo-cart-add .xo-btn--secondary,
@@ -219,8 +219,8 @@ xo-modal xo-cart-add .xo-btn--secondary .xo-btn__text,
 xo-modal xo-cart-add .xo-btn--secondary .xo-btn__content,
 xo-modal xo-cart-add .xo-btn--secondary .xo-btn__text *,
 xo-modal xo-cart-add .xo-btn--secondary .xo-btn__content * {
-  background-color: #000;
-  color: #fff;
+  background-color: rgb(var(--color-text-primary));
+  color: rgb(var(--color-secondary-button-text));
 }
 
 xo-modal xo-cart-add .xo-btn--primary,
@@ -228,8 +228,8 @@ xo-modal xo-cart-add .xo-btn--primary .xo-btn__text,
 xo-modal xo-cart-add .xo-btn--primary .xo-btn__content,
 xo-modal xo-cart-add .xo-btn--primary .xo-btn__text *,
 xo-modal xo-cart-add .xo-btn--primary .xo-btn__content * {
-  background-color: #000;
-  color: #fff;
+  background-color: rgb(var(--color-text-primary));
+  color: rgb(var(--color-secondary-button-text));
 }
 
 .product-variant-modal .xo-field-radio__label,
@@ -1054,13 +1054,13 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
 }
 
 .xo-product-info-content__description a {
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 .xo-product-info-content__description a:hover {
-  color: rgb(186 170 200);
+  color: rgb(var(--color-purple-light));
 }
 
 .xo-product-info-content__description strong,
@@ -1146,7 +1146,7 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   border: none;
   padding: 0;
   margin-top: 0.5rem;
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   font-size: inherit;
   font-weight: var(--global-body-font-weight-desktop);
   cursor: pointer;
@@ -1155,7 +1155,7 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
 }
 
 .xo-product-info-content__description-read-more:hover {
-  color: rgb(186 170 200);
+  color: rgb(var(--color-purple-light));
 }
 
 .xo-product-info-content__description-read-more:focus {

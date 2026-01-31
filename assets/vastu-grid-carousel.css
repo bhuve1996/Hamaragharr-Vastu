@@ -437,7 +437,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: rgb(71 56 85 / 30%);
+  background-color: rgb(var(--color-secondary-button) / 30%);
   margin: 0 0.25rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -450,7 +450,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 .vastu-carousel-controls__pagination xo-carousel-pagination span.is-active,
 .vastu-carousel-controls__pagination xo-carousel-pagination span[class*="active"],
 .vastu-carousel-controls__pagination .carousel-pagination-style3__pagination span[aria-current="true"] {
-  background-color: rgb(71 56 85);
+  background-color: rgb(var(--color-secondary-button));
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
@@ -464,9 +464,9 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   height: 100%;
   width: 100%;
   max-width: 100%;
-  background: #fff;
+  background: rgb(var(--color-primary-bg));
   border-radius: 0.75rem;
-  border: 1px solid rgba(71 56 85 / 8%);
+  border: 1px solid rgb(var(--color-secondary-button) / 8%);
   overflow: hidden;
   box-shadow: var(--product-card-shadow-horizontal-offset, 0) var(--product-card-shadow-vertical-offset, 0.4rem)
     var(--product-card-shadow-blur-radius, 1.2rem) rgb(0 0 0 / var(--product-card-shadow-opacity, 0.08));
@@ -548,12 +548,12 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: rgb(var(--color-primary-bg));
+  border: 2px solid rgb(var(--color-text-primary));
 }
 
 .vastu-grid-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added]:hover {
-  background-color: #f5f5f5;
+  background-color: rgb(var(--color-primary-bg) / 96%);
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
 }
@@ -564,9 +564,9 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 .vastu-grid-card__wishlist xo-products-fetcher-add:not([xo-added]) xo-tooltip[xo-added] svg * {
   width: 1.5rem;
   height: 1.5rem;
-  fill: #000;
+  fill: rgb(var(--color-text-primary));
   stroke: none;
-  color: #000;
+  color: rgb(var(--color-text-primary));
   display: block;
   visibility: visible;
   opacity: 1;
@@ -579,13 +579,13 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
-  background-color: #000;
-  border: 2px solid #000;
+  background-color: rgb(var(--color-text-primary));
+  border: 2px solid rgb(var(--color-text-primary));
 }
 
 .vastu-grid-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed]:hover {
-  background-color: #000;
-  border-color: #000;
+  background-color: rgb(var(--color-text-primary));
+  border-color: rgb(var(--color-text-primary));
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
 }
@@ -596,9 +596,9 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 .vastu-grid-card__wishlist xo-products-fetcher-add[xo-added] xo-tooltip[xo-removed] svg * {
   width: 1.5rem;
   height: 1.5rem;
-  fill: #fff;
+  fill: rgb(var(--color-secondary-button-text));
   stroke: none;
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
   display: block;
   visibility: visible;
   opacity: 1;
@@ -607,7 +607,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 
 .vastu-grid-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(71 56 85 / 15%);
+  border-color: rgb(var(--color-secondary-button) / 15%);
   box-shadow: var(--product-card-shadow-horizontal-offset, 0)
     calc(var(--product-card-shadow-vertical-offset, 0.4rem) + 0.2rem)
     calc(var(--product-card-shadow-blur-radius, 1.2rem) + 0.4rem)
@@ -660,7 +660,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
   max-width: calc(100% - 2.25rem);
   min-width: auto;
   background: rgb(71 56 85 / 90%);
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: var(--global-card-price-font-size-desktop);
@@ -691,7 +691,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__content
   background: transparent;
   backdrop-filter: none;
   box-shadow: none;
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   padding: 0;
   margin: 0 0 0.75rem;
   display: block;
@@ -720,7 +720,7 @@ section .vastu-grid-card .vastu-grid-card__image .vastu-grid-card__price *,
 section .vastu-grid-card .vastu-grid-card__image .vastu-grid-card__price span,
 section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .vastu-grid-card__price,
 section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .vastu-grid-card__price * {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 .vastu-grid-card__content {
@@ -756,7 +756,7 @@ xo-product-recommendations .vastu-grid-card__content {
   min-height: auto;
   height: auto;
   flex-shrink: 0;
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   cursor: pointer;
   word-break: break-word;
   hyphens: auto;
@@ -1063,7 +1063,7 @@ section:has(.vastu-grid-card) xo-carousel-inner {
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
-    color: rgb(71 56 85);
+    color: rgb(var(--color-secondary-button));
     padding: 0;
     margin: 0 0 0.75rem;
     display: block;

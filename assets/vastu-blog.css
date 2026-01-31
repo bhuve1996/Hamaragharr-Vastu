@@ -82,6 +82,115 @@ button.xo-btn,
   }
 }
 
+/* ========================================
+   Article/Blog page-specific heading margins
+   (global 48px/32px is in vastu-global-spacing.css with :not(.template-article):not(.template-blog))
+   ======================================== */
+
+/* Article page – content-appropriate heading margins */
+body.template-article main h1,
+body.template-article main h2,
+body.template-article main h3,
+body.template-article main h4,
+body.template-article main h5,
+body.template-article main h6,
+body.template-article main .h1,
+body.template-article main .h2,
+body.template-article main .h3,
+body.template-article main .h4,
+body.template-article main .h5,
+body.template-article main .h6,
+body.template-article .main-article__title {
+  margin-bottom: var(--article-heading-margin-bottom-desktop, 1.5rem);
+}
+
+@media (width <= 48rem) {
+  body.template-article main h1,
+  body.template-article main h2,
+  body.template-article main h3,
+  body.template-article main h4,
+  body.template-article main h5,
+  body.template-article main h6,
+  body.template-article main .h1,
+  body.template-article main .h2,
+  body.template-article main .h3,
+  body.template-article main .h4,
+  body.template-article main .h5,
+  body.template-article main .h6,
+  body.template-article .main-article__title {
+    margin-bottom: var(--article-heading-margin-bottom-mobile, 1.25rem);
+  }
+}
+
+/* Blog index – section title keeps section-like margin; other main headings use content margin */
+body.template-blog main .blog-v2__title {
+  margin-bottom: var(--section-heading-margin-bottom-desktop, var(--global-heading-margin-bottom-desktop, 48px));
+}
+
+body.template-blog main h1,
+body.template-blog main h2,
+body.template-blog main h3,
+body.template-blog main h4,
+body.template-blog main h5,
+body.template-blog main h6,
+body.template-blog main .h1,
+body.template-blog main .h2,
+body.template-blog main .h3,
+body.template-blog main .h4,
+body.template-blog main .h5,
+body.template-blog main .h6 {
+  margin-bottom: var(--blog-heading-margin-bottom-desktop, 1.5rem);
+}
+
+@media (width <= 48rem) {
+  body.template-blog main .blog-v2__title {
+    margin-bottom: var(--section-heading-margin-bottom-mobile, var(--global-heading-margin-bottom-mobile, 32px));
+  }
+
+  body.template-blog main h1,
+  body.template-blog main h2,
+  body.template-blog main h3,
+  body.template-blog main h4,
+  body.template-blog main h5,
+  body.template-blog main h6,
+  body.template-blog main .h1,
+  body.template-blog main .h2,
+  body.template-blog main .h3,
+  body.template-blog main .h4,
+  body.template-blog main .h5,
+  body.template-blog main .h6 {
+    margin-bottom: var(--blog-heading-margin-bottom-mobile, 1.25rem);
+  }
+}
+
+/* Blog individual page: image wrap – no extra margin below image */
+.main-article__image-wrap {
+  margin-bottom: 0;
+}
+
+/* Blog individual page: hide author/date/comment meta for now */
+.main-article__information {
+  display: none;
+}
+
+/* Blog individual page: header in normal flow (override main.min.css absolute overlay) */
+.main-article__header {
+  position: static;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  width: 100%;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Blog individual page: article title – use website black so it’s visible (override main.min.css) */
+.main-article__title {
+  color: rgb(var(--color-foreground, 0, 0, 0));
+  text-align: center;
+  font-size: clamp(2rem, calc(2vw + 1.2rem), 3.6rem);
+}
+
 /* Blog item title - 20px */
 .blog-v2__item-title {
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
@@ -106,7 +215,7 @@ button.xo-btn,
 
 /* Blog item title hover - use brand purple color */
 .blog-v2__item-title:hover {
-  color: #473855;
+  color: rgb(var(--color-secondary-button));
 }
 
 /* Hide read more button */

@@ -138,9 +138,13 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   --color-purple-light: 186, 170, 200;
   --color-dark: 71, 56, 85;
   --color-hex-secondary: #473855;
+  --color-hex-secondary-muted: #6f5784;
   --color-hex-purple: #6b46c1;
   --color-hex-white: #fff;
   --color-hex-black: #000;
+  --color-secondary-muted: 111, 87, 132; /* #6f5784 - lighter purple for secondary text */
+  --color-rating-active: 255, 215, 0; /* #ffd700 - star rating filled */
+  --color-rating-inactive: 224, 224, 224; /* #e0e0e0 - star rating empty */
 
   /* Background Overlay - Default transparent */
   --bg-overlay: transparent;
@@ -693,7 +697,7 @@ xo-modal.search .xo-modal-content__close {
   background: linear-gradient(135deg, rgb(255 255 255) 0%, rgb(250 248 255) 100%);
   border: 2px solid rgb(71 56 85 / 15%);
   border-radius: 50%;
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   transition: all 0.3s ease;
   cursor: pointer;
   box-shadow:
@@ -702,11 +706,11 @@ xo-modal.search .xo-modal-content__close {
 }
 
 xo-modal.search .xo-modal-content__close:hover {
-  background: linear-gradient(135deg, rgb(71 56 85) 0%, rgb(71 56 85) 100%);
-  color: rgb(255 255 255);
+  background: linear-gradient(135deg, rgb(var(--color-secondary-button)) 0%, rgb(var(--color-secondary-button)) 100%);
+  color: rgb(var(--color-secondary-button-text));
   transform: scale(1.1) rotate(90deg);
-  box-shadow: 0 4px 16px rgb(71 56 85 / 30%);
-  border-color: rgb(71 56 85);
+  box-shadow: 0 4px 16px rgb(var(--color-secondary-button) / 30%);
+  border-color: rgb(var(--color-secondary-button));
 }
 
 xo-modal.search .xo-modal-content__body {
@@ -815,17 +819,17 @@ xo-modal.search .xo-predictive-search__center .xo-field-input__input {
 
 xo-modal.search .xo-predictive-search__center .xo-field-input__input:focus {
   outline: none;
-  border-color: rgb(71 56 85);
-  background: rgb(255 255 255);
+  border-color: rgb(var(--color-secondary-button));
+  background: rgb(var(--color-primary-bg));
   box-shadow:
-    0 4px 16px rgb(71 56 85 / 20%),
-    0 0 0 3px rgb(71 56 85 / 10%);
+    0 4px 16px rgb(var(--color-secondary-button) / 20%),
+    0 0 0 3px rgb(var(--color-secondary-button) / 10%);
   transform: translateY(-1px);
   padding: 1rem 1.5rem;
 }
 
 xo-modal.search .xo-predictive-search__center .xo-field-input__input::placeholder {
-  color: rgb(0 0 0 / 50%);
+  color: rgb(var(--color-text-primary) / 50%);
   opacity: 1;
 }
 
@@ -884,7 +888,7 @@ xo-modal.search .xo-predictive-search__search-icon {
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   transition: all 0.3s ease;
   text-decoration: none;
   background: linear-gradient(135deg, rgb(71 56 85 / 5%) 0%, rgb(71 56 85 / 5%) 100%);
@@ -893,7 +897,7 @@ xo-modal.search .xo-predictive-search__search-icon {
 }
 
 xo-modal.search .xo-predictive-search__search-icon:hover {
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   background: linear-gradient(135deg, rgb(71 56 85 / 15%) 0%, rgb(71 56 85 / 15%) 100%);
   transform: scale(1.1);
 }
@@ -1213,8 +1217,8 @@ xo-modal.search .xo-predictive-search__result h3:has(+ * [href*="/articles/"]) {
 }
 
 .filters-content__type-badge--page {
-  background: rgb(0 0 0 / 70%);
-  color: rgb(255 255 255);
+  background: rgb(var(--color-text-primary) / 70%);
+  color: rgb(var(--color-secondary-button-text));
 }
 
 /* Search page header styles */

@@ -27,8 +27,8 @@ button.xo-btn[style*="border-radius:0"] {
 .banner-v155__content .xo-btn,
 .banner-v155__content .button,
 .banner-v155__content button {
-  background-color: var(--button-primary-bg-color, #fff);
-  color: var(--button-primary-text-color, #000);
+  background-color: var(--button-primary-bg-color, var(--color-hex-white));
+  color: var(--button-primary-text-color, var(--color-hex-black));
   border-radius: var(--button-border-radius, 8px);
   border: 2px solid transparent;
   transition:
@@ -44,11 +44,11 @@ button.xo-btn[style*="border-radius:0"] {
 .banner-v155__content .xo-btn:hover,
 .banner-v155__content .button:hover,
 .banner-v155__content button:hover {
-  background-color: var(--button-secondary-bg-color, #473855);
-  color: var(--button-secondary-text-color, #fff);
-  border-color: var(--button-secondary-bg-color, #473855);
+  background-color: var(--button-secondary-bg-color, rgb(var(--color-secondary-button)));
+  color: var(--button-secondary-text-color, rgb(var(--color-secondary-button-text)));
+  border-color: var(--button-secondary-bg-color, rgb(var(--color-secondary-button)));
   transform: none;
-  box-shadow: 0 0 0 1px var(--button-secondary-bg-color, #473855);
+  box-shadow: 0 0 0 1px var(--button-secondary-bg-color, rgb(var(--color-secondary-button)));
 }
 
 .slideshow-v28__text--overlay .xo-btn__text,
@@ -57,7 +57,7 @@ button.xo-btn[style*="border-radius:0"] {
 .banner-v155__content .xo-btn__text,
 .banner-v155__content .xo-btn__content,
 .banner-v155__content .button-label {
-  color: var(--button-primary-text-color, #000);
+  color: var(--button-primary-text-color, var(--color-hex-black));
   opacity: 1;
   visibility: visible;
 }
@@ -72,7 +72,7 @@ button.xo-btn[style*="border-radius:0"] {
 .banner-v155__content .xo-btn:hover .xo-btn__content,
 .banner-v155__content .xo-btn:hover .xo-btn__content *,
 .banner-v155__content .button:hover .button-label {
-  color: var(--button-secondary-text-color, #fff);
+  color: var(--button-secondary-text-color, rgb(var(--color-secondary-button-text)));
   opacity: 1;
   visibility: visible;
 }
@@ -82,7 +82,7 @@ button.xo-btn[style*="border-radius:0"] {
 .slideshow-v28__text--overlay .xo-btn--text-black.xo-btn,
 .banner-v155__content .xo-btn--text-black,
 .banner-v155__content .xo-btn--text-black.xo-btn {
-  color: #000;
+  color: rgb(var(--color-text-primary));
 }
 
 .slideshow-v28__text--overlay .xo-btn--text-black .xo-btn__text,
@@ -93,16 +93,16 @@ button.xo-btn[style*="border-radius:0"] {
 .banner-v155__content .xo-btn--text-black .xo-btn__text[data-text],
 .banner-v155__content .xo-btn--text-black .xo-btn__content,
 .banner-v155__content .xo-btn--text-black .xo-btn__content * {
-  color: #000;
+  color: rgb(var(--color-text-primary));
 }
 
 .slideshow-v28__text--overlay .xo-btn--text-black:hover,
 .slideshow-v28__text--overlay .xo-btn--text-black.xo-btn:hover,
 .banner-v155__content .xo-btn--text-black:hover,
 .banner-v155__content .xo-btn--text-black.xo-btn:hover {
-  background-color: var(--button-secondary-bg-color, #473855);
-  color: var(--button-secondary-text-color, #fff);
-  border-color: var(--button-secondary-bg-color, #473855);
+  background-color: var(--button-secondary-bg-color, rgb(var(--color-secondary-button)));
+  color: var(--button-secondary-text-color, rgb(var(--color-secondary-button-text)));
+  border-color: var(--button-secondary-bg-color, rgb(var(--color-secondary-button)));
 }
 
 .slideshow-v28__text--overlay .xo-btn--text-black:hover .xo-btn__text,
@@ -113,14 +113,14 @@ button.xo-btn[style*="border-radius:0"] {
 .banner-v155__content .xo-btn--text-black:hover .xo-btn__text[data-text],
 .banner-v155__content .xo-btn--text-black:hover .xo-btn__content,
 .banner-v155__content .xo-btn--text-black:hover .xo-btn__content * {
-  color: var(--button-secondary-text-color, #fff);
+  color: var(--button-secondary-text-color, rgb(var(--color-secondary-button-text)));
 }
 
 .slideshow-v28__text--overlay .xo-btn--text-white,
 .slideshow-v28__text--overlay .xo-btn--text-white.xo-btn,
 .banner-v155__content .xo-btn--text-white,
 .banner-v155__content .xo-btn--text-white.xo-btn {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 .slideshow-v28__text--overlay .xo-btn--text-white .xo-btn__text,
@@ -131,14 +131,14 @@ button.xo-btn[style*="border-radius:0"] {
 .banner-v155__content .xo-btn--text-white .xo-btn__text[data-text],
 .banner-v155__content .xo-btn--text-white .xo-btn__content,
 .banner-v155__content .xo-btn--text-white .xo-btn__content * {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 .slideshow-v28__text--overlay .xo-btn--text-white:hover,
 .slideshow-v28__text--overlay .xo-btn--text-white.xo-btn:hover,
 .banner-v155__content .xo-btn--text-white:hover,
 .banner-v155__content .xo-btn--text-white.xo-btn:hover {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 .slideshow-v28__text--overlay .xo-btn--text-white:hover .xo-btn__text,
@@ -147,7 +147,7 @@ button.xo-btn[style*="border-radius:0"] {
 .banner-v155__content .xo-btn--text-white:hover .xo-btn__text,
 .banner-v155__content .xo-btn--text-white:hover .xo-btn__text[data-text],
 .banner-v155__content .xo-btn--text-white:hover .xo-btn__content {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 /* Vastu Product Showcase Add to Cart Button - Text Visibility Fix */
@@ -234,7 +234,7 @@ xo-modal xo-cart-add .xo-btn__text,
 xo-modal xo-cart-add .xo-btn__content,
 xo-modal xo-cart-add .xo-btn__text *,
 xo-modal xo-cart-add .xo-btn__content * {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
   opacity: 1;
   visibility: visible;
   line-height: 1.5;
@@ -281,7 +281,7 @@ section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn--md .xo-bt
 section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn__text[data-text],
 section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn .xo-btn__text[data-text],
 section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--md .xo-btn__text[data-text] {
-  color: var(--slideshow-button-text-data-text-color, #000);
+  color: var(--slideshow-button-text-data-text-color, rgb(var(--color-text-primary)));
   opacity: 1;
   visibility: visible;
 }
@@ -298,7 +298,10 @@ section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn--primary:h
 section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn:hover .xo-btn__text[data-text],
 section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--secondary:hover .xo-btn__text[data-text],
 section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--primary:hover .xo-btn__text[data-text] {
-  color: var(--slideshow-button-text-data-text-hover-color, var(--slideshow-button-text-data-text-color, #000));
+  color: var(
+    --slideshow-button-text-data-text-hover-color,
+    var(--slideshow-button-text-data-text-color, rgb(var(--color-text-primary)))
+  );
   opacity: 1;
   visibility: visible;
 }
@@ -308,14 +311,14 @@ section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--primary:ho
 .slideshow-v28__text--overlay .xo-btn--text-black.xo-btn .xo-btn__text[data-text],
 section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn--text-black .xo-btn__text[data-text],
 section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--text-black .xo-btn__text[data-text] {
-  color: #000;
+  color: rgb(var(--color-text-primary));
 }
 
 .slideshow-v28__text--overlay .xo-btn--text-white .xo-btn__text[data-text],
 .slideshow-v28__text--overlay .xo-btn--text-white.xo-btn .xo-btn__text[data-text],
 section[class*="slideshow-v28"] .slideshow-v28__text--overlay .xo-btn--text-white .xo-btn__text[data-text],
 section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--text-white .xo-btn__text[data-text] {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 .xo-btn__text[data-text]::before,
@@ -393,7 +396,7 @@ section[class*="slideshow-v1"] .slideshow-v28__text--overlay .xo-btn--text-white
 a.xo-btn--text-black.xo-btn,
 button.xo-btn--text-black.xo-btn,
 .xo-btn--text-black.xo-btn {
-  --text-color: #000;
+  --text-color: var(--color-hex-black);
 }
 
 a.xo-btn--text-black.xo-btn .xo-btn__text,
@@ -411,7 +414,7 @@ button.xo-btn--text-black.xo-btn .xo-btn__text *,
 .xo-btn--text-black.xo-btn .xo-btn__content,
 .xo-btn--text-black.xo-btn .xo-btn__content *,
 .xo-btn--text-black.xo-btn .xo-btn__text * {
-  color: #000;
+  color: rgb(var(--color-text-primary));
 }
 
 /* Override the [data-text] global rule specifically for text-black buttons */
@@ -421,13 +424,13 @@ button.xo-btn--text-black.xo-btn .xo-btn__text[data-text],
 a.xo-btn--text-black.xo-btn--slide-up .xo-btn__text[data-text],
 button.xo-btn--text-black.xo-btn--slide-up .xo-btn__text[data-text],
 .xo-btn--text-black.xo-btn--slide-up .xo-btn__text[data-text] {
-  color: #000;
+  color: rgb(var(--color-text-primary));
 }
 
 a.xo-btn--text-white.xo-btn,
 button.xo-btn--text-white.xo-btn,
 .xo-btn--text-white.xo-btn {
-  --text-color: #fff;
+  --text-color: var(--color-hex-white);
 }
 
 a.xo-btn--text-white.xo-btn .xo-btn__text,
@@ -445,7 +448,7 @@ button.xo-btn--text-white.xo-btn .xo-btn__text *,
 .xo-btn--text-white.xo-btn .xo-btn__content,
 .xo-btn--text-white.xo-btn .xo-btn__content *,
 .xo-btn--text-white.xo-btn .xo-btn__text * {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 a.xo-btn--text-black.xo-btn:hover .xo-btn__text,
@@ -463,7 +466,7 @@ button.xo-btn--text-black.xo-btn:hover .xo-btn__text *,
 a.xo-btn--text-black.xo-btn--slide-up:hover .xo-btn__text[data-text],
 button.xo-btn--text-black.xo-btn--slide-up:hover .xo-btn__text[data-text],
 .xo-btn--text-black.xo-btn--slide-up:hover .xo-btn__text[data-text] {
-  color: #000;
+  color: rgb(var(--color-text-primary));
 }
 
 a.xo-btn--text-white.xo-btn:hover .xo-btn__text,
@@ -478,5 +481,5 @@ button.xo-btn--text-white.xo-btn:hover .xo-btn__text *,
 .xo-btn--text-white.xo-btn:hover .xo-btn__text[data-text],
 .xo-btn--text-white.xo-btn:hover .xo-btn__content,
 .xo-btn--text-white.xo-btn:hover .xo-btn__text * {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }

@@ -8,19 +8,19 @@
 .vastu-shop-by-concern__item {
   margin-bottom: 1.5rem;
   background: transparent;
-  border: 1px solid #473855;
+  border: 1px solid rgb(var(--color-secondary-button));
   border-radius: 0.75rem;
   overflow: visible;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 12px rgb(71 56 85 / 20%);
+  box-shadow: 0 2px 12px rgb(var(--color-secondary-button) / 20%);
   min-height: auto;
   height: auto;
   max-height: none;
 }
 
 .vastu-shop-by-concern__item:hover {
-  border-color: #473855;
-  box-shadow: 0 4px 20px rgb(71 56 85 / 30%);
+  border-color: rgb(var(--color-secondary-button));
+  box-shadow: 0 4px 20px rgb(var(--color-secondary-button) / 30%);
   transform: translateY(-2px);
 }
 
@@ -44,7 +44,7 @@
 
 .vastu-shop-by-concern__trigger[aria-expanded="true"] {
   background: transparent;
-  border-bottom: 1px solid #473855;
+  border-bottom: 1px solid rgb(var(--color-secondary-button));
 }
 
 .vastu-shop-by-concern__trigger-content {
@@ -60,7 +60,7 @@
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
-  color: #473855;
+  color: rgb(var(--color-secondary-button));
   margin: 0 0 0.5rem;
   text-align: left;
 }
@@ -74,7 +74,7 @@
 
   font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
   line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
-  color: #6f5784;
+  color: rgb(var(--color-secondary-muted));
   margin: 0;
   text-align: left;
 }
@@ -87,16 +87,16 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  color: #473855;
+  color: rgb(var(--color-secondary-button));
   position: relative;
   z-index: 1;
   background: transparent;
   border-radius: 50%;
-  border: 2px solid #473855;
+  border: 2px solid rgb(var(--color-secondary-button));
 }
 
 .vastu-shop-by-concern__trigger:hover .vastu-shop-by-concern__trigger-icon {
-  color: #473855;
+  color: rgb(var(--color-secondary-button));
   background: transparent;
   transform: scale(1.1);
 }
@@ -145,7 +145,7 @@
   padding: 1.5rem 2rem 2rem;
   text-align: left;
   background: transparent;
-  color: #473855;
+  color: rgb(var(--color-secondary-button));
   min-height: auto;
   height: auto;
   max-height: none;
@@ -153,7 +153,7 @@
 }
 
 .vastu-shop-by-concern__card-description {
-  color: #473855;
+  color: rgb(var(--color-secondary-button));
   margin: 0 0 1.5rem;
   text-align: left;
 }
@@ -169,7 +169,7 @@
 
 .vastu-shop-by-concern__benefits-title,
 .vastu-shop-by-concern__recommended-title {
-  color: #473855;
+  color: rgb(var(--color-secondary-button));
   margin: 0 0 1rem;
   padding-top: 1.5rem;
   text-align: left;
@@ -186,7 +186,7 @@
   transform: translateY(-50%);
   width: 4px;
   height: 60%;
-  background-color: #473855;
+  background-color: rgb(var(--color-secondary-button));
   border-radius: 2px;
 }
 
@@ -205,7 +205,7 @@
 
 .vastu-shop-by-concern__benefits-list li,
 .vastu-shop-by-concern__recommended-list li {
-  color: #473855;
+  color: rgb(var(--color-secondary-button));
   margin-bottom: 0.75rem;
   padding-left: 2rem;
   text-align: left;
@@ -218,7 +218,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #473855;
+  color: rgb(var(--color-secondary-button));
   font-weight: bold;
   font-size: var(--global-body-font-size-desktop);
 }
@@ -241,7 +241,7 @@ section[data-show-list-checkmarks="false"] .vastu-shop-by-concern__recommended-l
 }
 
 .vastu-shop-by-concern__recommended-link {
-  color: #473855;
+  color: rgb(var(--color-secondary-button));
   text-decoration: none;
   transition:
     color 0.2s ease,
@@ -249,7 +249,7 @@ section[data-show-list-checkmarks="false"] .vastu-shop-by-concern__recommended-l
 }
 
 .vastu-shop-by-concern__recommended-link:hover {
-  color: rgb(71 56 85 / 80%);
+  color: rgb(var(--color-secondary-button) / 80%);
   text-decoration: underline;
 }
 
@@ -270,8 +270,8 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
   pointer-events: auto;
   border-radius: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background-color: #000;
-  color: rgb(255 255 255);
+  background-color: rgb(var(--color-text-primary));
+  color: rgb(var(--color-secondary-button-text));
   font-size: var(--button-font-size, var(--global-body-font-size-desktop));
   font-weight: var(--button-font-weight, var(--global-body-font-weight-desktop, 600));
   text-decoration: none;
@@ -280,24 +280,24 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
     transform 0.2s ease;
   position: relative;
   overflow: hidden;
-  border: 1px solid #fff;
+  border: 1px solid rgb(var(--color-primary-bg));
   box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
 }
 
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn--secondary,
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn.xo-btn--secondary,
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart button.xo-btn--secondary {
-  background-color: #000;
-  color: rgb(255 255 255);
-  border: 1px solid #fff;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+  background-color: rgb(var(--color-text-primary));
+  color: rgb(var(--color-secondary-button-text));
+  border: 1px solid rgb(var(--color-primary-bg));
+  box-shadow: 0 2px 8px rgb(var(--color-text-primary) / 30%);
 }
 
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn--secondary:hover,
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart button.xo-btn--secondary:hover {
-  background-color: #fff;
-  color: #000;
-  border-color: #fff;
+  background-color: rgb(var(--color-primary-bg));
+  color: rgb(var(--color-text-primary));
+  border-color: rgb(var(--color-primary-bg));
 }
 
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn--primary,
@@ -310,11 +310,11 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
 
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn:hover:not(.xo-btn--primary),
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart button:hover:not(.xo-btn--primary) {
-  background-color: #fff;
-  color: #000;
+  background-color: rgb(var(--color-primary-bg));
+  color: rgb(var(--color-text-primary));
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgb(255 255 255 / 30%);
-  border-color: #fff;
+  box-shadow: 0 4px 12px rgb(var(--color-primary-bg) / 30%);
+  border-color: rgb(var(--color-primary-bg));
 }
 
 section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-cart .xo-btn:active,
@@ -333,7 +333,7 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
 
 .vastu-shop-by-concern__product-add-to-cart .xo-btn__text,
 .vastu-shop-by-concern__product-add-to-cart .xo-btn__content {
-  color: rgb(255 255 255);
+  color: rgb(var(--color-secondary-button-text));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -423,7 +423,7 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   opacity: 1;
   position: static;
   background: transparent;
-  color: rgb(71 56 85);
+  color: rgb(var(--color-secondary-button));
   padding: 0;
   margin: 0.5rem 0 0;
   font-size: var(--global-card-price-font-size-desktop);
@@ -564,12 +564,6 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
     overflow: visible !important;
     padding: 0;
   }
-
-  /* Ensure content is not cut off at bottom - add padding to item */
-
-  /* .vastu-shop-by-concern__item {
-    padding-bottom: 0.5rem;
-  } */
 
   /* Ensure collapse content has enough space */
   .vastu-shop-by-concern__item .vastu-shop-by-concern__collapse {

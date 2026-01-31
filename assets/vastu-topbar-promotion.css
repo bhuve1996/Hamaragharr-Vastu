@@ -16,8 +16,8 @@ nav a {
 /* Topbar Close Button */
 .header-v6__topbar {
   position: relative;
-  background: #000;
-  color: #fff;
+  background: rgb(var(--color-text-primary));
+  color: rgb(var(--color-secondary-button-text));
   display: block;
   visibility: visible;
 }
@@ -55,12 +55,12 @@ nav a {
   transition: all 0.3s ease;
   z-index: 10;
   opacity: 0.6;
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 .header-v6__topbar-close:hover {
   opacity: 1;
-  background: rgb(255 255 255 / 10%);
+  background: rgb(var(--color-secondary-button-text) / 10%);
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -73,7 +73,7 @@ nav a {
 }
 
 .header-v6__topbar-close svg path {
-  fill: #fff;
+  fill: rgb(var(--color-secondary-button-text));
 }
 
 /* Hide topbar when closed */
@@ -156,7 +156,7 @@ nav a {
   letter-spacing: 0.015em;
   position: relative;
   display: inline-block;
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
   transition:
     color 0.3s ease,
     font-weight 0.3s ease;
@@ -166,13 +166,13 @@ nav a {
 
 /* Active state - subtle emphasis */
 .header-v6__promotion-item.active .header-v6__promotion-name {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
   font-weight: var(--global-body-font-weight-desktop);
 }
 
 /* Hover effect */
 .header-v6__promotion-item:hover .header-v6__promotion-name {
-  color: #fff;
+  color: rgb(var(--color-secondary-button-text));
 }
 
 /* Responsive adjustments */
@@ -303,12 +303,12 @@ nav a {
 
 .header-v6__contact-icon:hover svg {
   transform: scale(1.1);
-  filter: drop-shadow(0 4px 8px rgb(255 255 255 / 50%));
-  color: #fff;
+  filter: drop-shadow(0 4px 8px rgb(var(--color-secondary-button-text) / 50%));
+  color: rgb(var(--color-secondary-button-text));
 }
 
 .header-v6__contact-icon:hover svg path {
-  fill: #fff;
+  fill: rgb(var(--color-secondary-button-text));
 }
 
 .header-v6__contact-icon--email:hover {

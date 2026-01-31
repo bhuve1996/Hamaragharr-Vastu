@@ -86,7 +86,7 @@
                 {% assign url_full = request.origin | append: article.url %}
                 {% assign article_title = article.title | escape %}
                 <span>{{ 'blogs.article.share' | t }} : </span>
-                {% render 'share', copy_title: article_title, url: url_full, list: 'copy, facebook, twitter, pinterest' %}
+                {% render 'share', copy_title: article_title, url: url_full, list: 'copy, facebook, instagram' %}
               </div>
             {%- endif -%}
           </xo-animate>

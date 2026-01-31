@@ -454,7 +454,7 @@ button.shopify-payment-button__button--unbranded {
 .field__input:-webkit-autofill ~ .field__button,
 .field__input:-webkit-autofill ~ .field__label,
 .customer .field input:-webkit-autofill ~ label {
-  color: rgb(0 0 0);
+  color: rgb(var(--color-foreground));
 }
 
 .text-area {
