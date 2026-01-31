@@ -8,6 +8,39 @@
   endif
 %}
 
+{% style %}
+  .header-v14 xo-container {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .header-v14__inner {
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    gap: 12px;
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    overflow: visible;
+  }
+  .header-v14__inner > * {
+    min-width: 0;
+    overflow: visible;
+  }
+  .header-v14__inner > *:nth-child(1) { order: 2; }
+  .header-v14__inner > *:nth-child(2) { order: 1; }
+  .header-v14__inner > *:nth-child(3) { order: 3; }
+  @media (min-width: 992px) {
+    .header-v14__inner {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 8fr) minmax(0, 2fr);
+    }
+    .header-v14__inner > *:nth-child(1) { order: 2; }
+    .header-v14__inner > *:nth-child(2) { order: 1; }
+    .header-v14__inner > *:nth-child(3) { order: 3; }
+  }
+{% endstyle %}
+
 <header
   class='header-v14 {% if section.settings.transparent and template contains 'index' or template contains 'home' %} header-v14--transparent {% endif %}'
   {% if header_style != blank %}style='{{ header_style }}'{% endif %}
@@ -24,8 +57,8 @@
       {% render 'header-attr', class_name: 'header-v14__sticky' %}
     >
       {% render 'header-bg-image' %}
-      <xo-container {% render 'section-layout' %}>
-        <xo-grid style='--xs: 3'>
+      <xo-container {% render 'section-layout' %} style='--xo-container-gap: 12px'>
+        <div class='header-v14__inner'>
           <nav class='header-v14__navigation'>
             {% if section.settings.menu_type == 'hamburger' %}
               {% render 'menu-hamburger',
@@ -147,7 +180,7 @@
               </xo-tooltip>
             </div>
           </div>
-        </xo-grid>
+        </div>
       </xo-container>
     </xo-animate>
   </xo-sticky>

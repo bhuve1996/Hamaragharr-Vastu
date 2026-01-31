@@ -37,25 +37,9 @@ nav a {
   }
 }
 
+/* Topbar close button hidden - was taking unnecessary padding/space */
 .header-v6__topbar-close {
-  position: absolute;
-  top: 50%;
-  right: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  z-index: 10;
-  opacity: 0.6;
-  color: rgb(var(--color-secondary-button-text));
+  display: none !important;
 }
 
 .header-v6__topbar-close:hover {
@@ -198,6 +182,7 @@ nav a {
   display: grid;
   align-items: center;
   gap: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
+  grid-template-columns: 1fr;
 }
 
 /* When selector-wrap exists, use 2 columns */
@@ -328,17 +313,10 @@ nav a {
   }
 }
 
-.header-v6__selector-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px));
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
+/* Currency/language selector wrap hidden - not needed */
+.header-v6__selector-wrap,
 .header-v6__selector-wrap--right {
-  justify-content: flex-end;
+  display: none !important;
 }
 
 /* Responsive: on mobile, stack items */

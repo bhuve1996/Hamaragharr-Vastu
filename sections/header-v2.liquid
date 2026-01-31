@@ -8,6 +8,39 @@
   endif
 %}
 
+{% style %}
+  .header-v6 xo-container {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .header-v6__inner {
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    gap: 12px;
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    overflow: visible;
+  }
+  .header-v6__inner > * {
+    min-width: 0;
+    overflow: visible;
+  }
+  .header-v6__inner > *:nth-child(1) { order: 2; }
+  .header-v6__inner > *:nth-child(2) { order: 1; }
+  .header-v6__inner > *:nth-child(3) { order: 3; }
+  @media (min-width: 992px) {
+    .header-v6__inner {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 8fr) minmax(0, 2fr);
+    }
+    .header-v6__inner > *:nth-child(1) { order: 1; }
+    .header-v6__inner > *:nth-child(2) { order: 2; }
+    .header-v6__inner > *:nth-child(3) { order: 3; }
+  }
+{% endstyle %}
+
 <header
   class='header-v6 {% if section.settings.transparent and template contains 'index' or template contains 'home' %} header-v6--transparent {% endif %}'
   {% if header_style != blank %}style='{{ header_style }}'{% endif %}
@@ -130,17 +163,12 @@
       {% render 'header-attr', class_name: 'header-v6__sticky' %}
     >
       {% render 'header-bg-image' %}
-      <xo-container {% render 'section-layout' %}>
-        <xo-grid>
+      <xo-container {% render 'section-layout' %} style='--xo-container-gap: 12px'>
+        <div class='header-v6__inner'>
           <div
             class='
               header-v6__logo {% if section.settings.menu_type == 'hamburger' %}
                 header-v6__logo--center
-              {% endif %}
-            '
-            style='
-              --xs: 4; {% if section.settings.menu_type != 'hamburger' %}
-                --xl: 2
               {% endif %}
             '
           >
@@ -178,7 +206,7 @@
             </a>
           </div>
           {% if section.settings.menu_type == 'hamburger' %}
-            <div style='--xs: 4; --order-xs: -1'>
+            <div>
               {% render 'menu-hamburger',
                 menu: section.settings.menu,
                 event_type: section.settings.event_type,
@@ -189,7 +217,7 @@
               %}
             </div>
           {% else %}
-            <div style='--xs: 4; --order-xs: -1; --xl: 8; --order-xl: 0'>
+            <div>
               <nav class='header-v6__navigation'>
                 {% render 'menu-horizontal',
                   menu: section.settings.menu,
@@ -211,15 +239,8 @@
               </div>
             </div>
           {% endif %}
-          <div
-            class='header-v6__utilities'
-            style='
-              --xs: 4; {% if section.settings.menu_type != 'hamburger' %}
-                --xl: 2
-              {% endif %}
-            '
-          >
-            <xo-tooltip xo-title='{{ 'general.search.search' | t }}' xo-placement='bottom-center' class='header-v6__icon-wrap'>
+          <div class='header-v6__utilities'>
+            <xo-tooltip xo-title='{{ 'general.search.search' | t }}' xo-placement='bottom-center' class='header-v6__icon-wrap header-v6__icon-wrap--search'>
               <xo-modal-trigger xo-name='search' class='header-v6__icon header-v6__icon--search'>
                 {% render 'icon', name: 'search', icon_size: '24', color: 'rgba(var(--color-foreground))' %}
               </xo-modal-trigger>
@@ -242,7 +263,7 @@
                 <xo-products-fetcher-size xo-type='wishlist' class='header-v6__wishlist-count'></xo-products-fetcher-size>
               </a>
             </xo-tooltip>
-            <xo-tooltip xo-title='{{ 'general.cart.cart' | t }}' xo-placement='bottom-center' class='header-v6__icon-wrap'>
+            <xo-tooltip xo-title='{{ 'general.cart.cart' | t }}' xo-placement='bottom-center' class='header-v6__icon-wrap header-v6__icon-wrap--cart'>
               {% if settings.cart_type == 'page' %}
                 <a href='{{ routes.cart_url }}' class='header-v6__icon'>
                   {% render 'icon', name: 'cart', icon_size: '24', color: 'rgba(var(--color-foreground))' %}
@@ -260,7 +281,7 @@
               {% endif %}
             </xo-tooltip>
           </div>
-        </xo-grid>
+        </div>
       </xo-container>
     </xo-animate>
   </xo-sticky>
