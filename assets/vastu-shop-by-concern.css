@@ -241,33 +241,6 @@
   text-decoration: underline;
 }
 
-.vastu-shop-by-concern__cta {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #473855;
-  text-align: left;
-}
-
-.vastu-shop-by-concern__cta-link {
-  display: inline-block;
-  color: #473855;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  text-align: left;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  background: transparent;
-  border: 1px solid #473855;
-}
-
-.vastu-shop-by-concern__cta-link:hover {
-  color: #473855;
-  background: transparent;
-  border-color: #473855;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgb(71 56 85 / 20%);
-}
-
 .vastu-shop-by-concern__product-add-to-cart xo-cart-add,
 .vastu-shop-by-concern__product-add-to-cart xo-modal-trigger {
   display: block;
@@ -369,6 +342,23 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
   width: 0;
   height: 0;
   overflow: hidden;
+}
+
+/* Carousel wrapper: use global section padding & margin (Shop by Concern only) */
+.vastu-shop-by-concern__products-carousel {
+  padding-top: var(--section-padding-top-desktop, var(--global-section-padding-top-desktop, 0));
+  padding-bottom: var(--section-padding-bottom-desktop, var(--global-section-padding-bottom-desktop, 0));
+  margin-top: var(--section-margin-top-desktop, var(--global-section-margin-top-desktop, 0));
+  margin-bottom: var(--section-margin-bottom-desktop, var(--global-section-margin-bottom-desktop, 0));
+}
+
+@media (width <= 48rem) {
+  .vastu-shop-by-concern__products-carousel {
+    padding-top: var(--section-padding-top-mobile, var(--global-section-padding-top-mobile, 0));
+    padding-bottom: var(--section-padding-bottom-mobile, var(--global-section-padding-bottom-mobile, 0));
+    margin-top: var(--section-margin-top-mobile, var(--global-section-margin-top-mobile, 0));
+    margin-bottom: var(--section-margin-bottom-mobile, var(--global-section-margin-bottom-mobile, 0));
+  }
 }
 
 /* Pagination spacing (grid/carousel pattern: pagination only on desktop carousel) */
@@ -594,8 +584,7 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   }
 
   .vastu-shop-by-concern__benefits-list,
-  .vastu-shop-by-concern__recommended-list,
-  .vastu-shop-by-concern__cta {
+  .vastu-shop-by-concern__recommended-list {
     text-align: left;
   }
 

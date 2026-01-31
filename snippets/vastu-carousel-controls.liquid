@@ -9,7 +9,7 @@
    - pagination_desktop: {String} Pagination display on desktop: 'block', 'none' (default: 'block')
    - pagination_mobile: {String} Pagination display on mobile: 'block', 'none' (default: 'block')
    - pagination_position: {String} Pagination position: 'bottom', 'top', 'left', 'right', 'center' (default: 'bottom')
-   - pagination_offset: {String} Pagination offset from position (default: '-2.5rem')
+   - pagination_offset: {String} Pagination offset from position (default: '1rem' — inside content)
    - wrapper_class: {String} Additional class for wrapper (optional)
    - pagination_class: {String} Additional class for pagination (optional)
    - navigation_class: {String} Additional class for navigation (optional)
@@ -23,7 +23,7 @@
     pagination_desktop: 'block',
     pagination_mobile: 'block',
     pagination_position: 'bottom',
-    pagination_offset: '-2.5rem'
+    pagination_offset: '1rem'
   %}
 {% endcomment %}
 
@@ -50,7 +50,7 @@
     assign pagination_position = 'bottom'
   endif
   if pagination_offset == blank
-    assign pagination_offset = '-2.5rem'
+    assign pagination_offset = '1rem'
   endif
 -%}
 

@@ -124,19 +124,11 @@
                           pagination_desktop: pagination_desktop_display,
                           pagination_mobile: pagination_mobile_display,
                           pagination_position: 'bottom',
-                          pagination_offset: '-0.5rem'
+                          pagination_offset: '1rem'
                         %}
                       {% endif %}
                     </xo-carousel>
                   </div>
-                </div>
-              {% endif %}
-              
-              {% if block.settings.cta_text != blank and block.settings.cta_link != blank %}
-                <div class='vastu-shop-by-concern__cta'>
-                  <a href='{{ block.settings.cta_link }}' class='vastu-shop-by-concern__cta-link'>
-                    {{ block.settings.cta_text }}
-                  </a>
                 </div>
               {% endif %}
             </div>
@@ -556,17 +548,6 @@
           "step": 1,
           "default": 12,
           "label": "Max products from collection"
-        },
-        {
-          "type": "text",
-          "id": "cta_text",
-          "label": "CTA Button Text",
-          "default": "👉 Choose a remedy that supports abundance"
-        },
-        {
-          "type": "url",
-          "id": "cta_link",
-          "label": "CTA Button Link"
         }
       ]
     }

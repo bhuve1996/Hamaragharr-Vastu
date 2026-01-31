@@ -58,7 +58,7 @@
         "show_navigation": true,
         "show_pagination": true,
         "pagination_position_desktop": "bottom",
-        "pagination_offset_desktop": "-2.5rem",
+        "pagination_offset_desktop": "1rem",
         "width": "box",
         "card_title_font_size": 1.5,
         "card_price_font_size": 1.2,

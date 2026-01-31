@@ -155,6 +155,14 @@ section[class*="vastu-grid-carousel"] {
     min-height: 0;
   }
 
+  /* Room for pagination dots (inside content) so they don't overlap slides */
+  .vastu-grid-carousel__desktop-carousel xo-carousel:has(.vastu-carousel-controls__pagination),
+  .vastu-shop-by-concern__products-carousel
+    .vastu-grid-carousel__desktop-carousel
+    xo-carousel:has(.vastu-carousel-controls__pagination) {
+    padding-bottom: 2.5rem;
+  }
+
   .vastu-grid-carousel__desktop-carousel xo-carousel {
     display: block;
     visibility: visible;
@@ -387,7 +395,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   transform: translateX(-50%);
 
   --pagination-position: var(--pagination-position, bottom);
-  --pagination-offset: var(--pagination-offset, -0.5rem);
+  --pagination-offset: var(--pagination-offset, 1rem);
 }
 
 /* Position: top */
