@@ -1,3 +1,5 @@
+{{ 'vastu-grid-carousel.css' | asset_url | stylesheet_tag }}
+
 
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
@@ -71,7 +73,7 @@
               {% endfor %}
               
               {% if has_products %}
-                {% comment %} Carousel pagination settings - section level overrides global {% endcomment %}
+                {% comment %} Grid on mobile, carousel on desktop (vastu-grid-carousel pattern) with vastu-grid-card {% endcomment %}
                 {% liquid
                   if section.settings.show_pagination_desktop != blank
                     assign show_pagination_desktop = section.settings.show_pagination_desktop
@@ -80,7 +82,6 @@
                   else
                     assign show_pagination_desktop = true
                   endif
-                  
                   if section.settings.show_pagination_mobile != blank
                     assign show_pagination_mobile = section.settings.show_pagination_mobile
                   elsif settings.carousel_show_pagination_mobile != blank
@@ -88,38 +89,75 @@
                   else
                     assign show_pagination_mobile = true
                   endif
+                  if show_pagination_desktop
+                    assign pagination_desktop_display = 'block'
+                  else
+                    assign pagination_desktop_display = 'none'
+                  endif
+                  if show_pagination_mobile
+                    assign pagination_mobile_display = 'block'
+                  else
+                    assign pagination_mobile_display = 'none'
+                  endif
                 %}
                 <div class='vastu-shop-by-concern__products-carousel'>
-                  <xo-carousel
-                    xo-per-view='3'
-                    xo-gap='20'
-                    xo-speed='400'
-                    xo-autoplay='5000'
-                    xo-hover-pause
-                    xo-breakpoints='{"768": {"perView": 1}, "992": {"perView": 3}}'
-                    xo-render-bullet='<span></span>'
-                  >
-                    <xo-carousel-inner>
-                      <xo-carousel-list role='list' aria-label='Products for {{ block.settings.concern_title }}'>
-                        {% for product_handle in product_list %}
-                          {% assign product_handle_stripped = product_handle | strip %}
-                          {% if product_handle_stripped != blank %}
-                            {% assign current_product = all_products[product_handle_stripped] %}
-                            {% if current_product != blank %}
-                              <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
-                                {% render 'vastu-product-card', product: current_product, section: section, settings: section.settings, block: block %}
-                              </xo-carousel-slide>
-                            {% endif %}
+                  {% comment %} Mobile: grid (2 columns) {% endcomment %}
+                  <div class='vastu-grid-carousel__mobile-grid'>
+                    <xo-grid class='vastu-grid-carousel__grid' style='--xs: 2; --sm: 2; --md: 2; --lg: 2; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'>
+                      {% for product_handle in product_list %}
+                        {% assign product_handle_stripped = product_handle | strip %}
+                        {% if product_handle_stripped != blank %}
+                          {% assign current_product = all_products[product_handle_stripped] %}
+                          {% if current_product != blank %}
+                            <div class='vastu-grid-carousel__grid-item'>
+                              {% render 'vastu-grid-card', product: current_product, section: section, settings: section.settings %}
+                            </div>
                           {% endif %}
-                        {% endfor %}
-                      </xo-carousel-list>
-                    </xo-carousel-inner>
-                    {% if show_pagination_desktop or show_pagination_mobile %}
-                      <div class='vastu-shop-by-concern__products-pagination' style='--display-desktop: {% if show_pagination_desktop %}block{% else %}none{% endif %}; --display-mobile: {% if show_pagination_mobile %}block{% else %}none{% endif %};'>
-                        {% render 'carousel-pagination-style3' %}
-                      </div>
-                    {% endif %}
-                  </xo-carousel>
+                        {% endif %}
+                      {% endfor %}
+                    </xo-grid>
+                  </div>
+                  {% comment %} Desktop: carousel (3 per view) {% endcomment %}
+                  <div class='vastu-grid-carousel__desktop-carousel'>
+                    <xo-carousel
+                      xo-per-view='3'
+                      xo-gap='20'
+                      xo-speed='400'
+                      xo-autoplay='5000'
+                      xo-hover-pause
+                      xo-breakpoints='{"768": {"perView": 2}, "992": {"perView": 3}}'
+                      xo-render-bullet='<span></span>'
+                      class='vastu-grid-carousel__carousel'
+                    >
+                      <xo-carousel-inner>
+                        <xo-carousel-list role='list' aria-label='Products for {{ block.settings.concern_title }}'>
+                          {% for product_handle in product_list %}
+                            {% assign product_handle_stripped = product_handle | strip %}
+                            {% if product_handle_stripped != blank %}
+                              {% assign current_product = all_products[product_handle_stripped] %}
+                              {% if current_product != blank %}
+                                <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
+                                  {% render 'vastu-grid-card', product: current_product, section: section, settings: section.settings %}
+                                </xo-carousel-slide>
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        </xo-carousel-list>
+                      </xo-carousel-inner>
+                      {% if show_pagination_desktop or show_pagination_mobile %}
+                        {% render 'vastu-carousel-controls',
+                          show_navigation: false,
+                          show_pagination: true,
+                          navigation_desktop: 'none',
+                          navigation_mobile: 'none',
+                          pagination_desktop: pagination_desktop_display,
+                          pagination_mobile: pagination_mobile_display,
+                          pagination_position: 'bottom',
+                          pagination_offset: '-0.5rem'
+                        %}
+                      {% endif %}
+                    </xo-carousel>
+                  </div>
                 </div>
               {% endif %}
               

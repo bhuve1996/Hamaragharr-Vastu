@@ -358,71 +358,38 @@ section[class*="vastu-shop-by-concern"] .vastu-shop-by-concern__product-add-to-c
   overflow: hidden;
 }
 
-.vastu-shop-by-concern__products-pagination {
+/* Pagination spacing (grid/carousel pattern: pagination only on desktop carousel) */
+.vastu-shop-by-concern__products-carousel .vastu-carousel-controls__pagination {
   margin-top: 1.5rem;
 }
 
-section[class*="vastu-shop-by-concern"] xo-carousel-slide {
+/* Desktop carousel slides: stretch grid cards */
+.vastu-shop-by-concern__products-carousel .vastu-grid-carousel__desktop-carousel xo-carousel-slide {
   display: flex;
   height: 100%;
   align-items: stretch;
   overflow: visible;
 }
 
-section[class*="vastu-shop-by-concern"] xo-carousel-slide .vastu-shop-by-concern__product-card {
+.vastu-shop-by-concern__products-carousel .vastu-grid-carousel__desktop-carousel xo-carousel-slide .vastu-grid-card {
   width: 100%;
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
+  min-height: 0;
+  box-sizing: border-box;
 }
 
-section[class*="vastu-shop-by-concern"] xo-carousel-inner {
+.vastu-shop-by-concern__products-carousel .vastu-grid-carousel__desktop-carousel xo-carousel-inner {
   overflow: visible;
 }
 
-/* Grid carousel pattern for shop by concern products - Mobile */
-@media (width <= 767px) {
-  .vastu-shop-by-concern__products-carousel xo-carousel {
-    overflow: visible;
-  }
-
-  .vastu-shop-by-concern__products-carousel xo-carousel-inner {
-    overflow: visible;
-    padding-right: 1rem; /* Add padding to show partial next item */
-  }
-
-  .vastu-shop-by-concern__products-carousel xo-carousel-list {
-    overflow: visible;
-  }
-
-  /* Show partial next item - make items slightly smaller than container */
-  .vastu-shop-by-concern__products-carousel xo-carousel-slide {
-    padding-right: 1rem; /* Gap between items */
-    flex: 0 0 calc(75% - 1rem); /* Show 75% of current item, more of next visible */
-    max-width: calc(75% - 1rem);
-  }
-
-  /* Ensure product cards fit within slides */
-  .vastu-shop-by-concern__products-carousel .vastu-product-card {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-  }
-}
-
-/* Desktop: Reset mobile partial view styles */
-@media (width >= 992px) {
-  .vastu-shop-by-concern__products-carousel xo-carousel-inner {
-    padding-right: 0;
-  }
-
-  .vastu-shop-by-concern__products-carousel xo-carousel-slide {
-    flex: 0 0 auto !important;
-    max-width: none !important;
-    padding-right: 0 !important;
-  }
+/* Mobile: grid layout (carousel hidden by vastu-grid-carousel.css) */
+.vastu-shop-by-concern__products-carousel .vastu-grid-carousel__mobile-grid .vastu-grid-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 /* Hide price overlay on image for shop by concern - price should only show in content area */
@@ -588,6 +555,7 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
   }
 
   /* Ensure content is not cut off at bottom - add padding to item */
+
   /* .vastu-shop-by-concern__item {
     padding-bottom: 0.5rem;
   } */
