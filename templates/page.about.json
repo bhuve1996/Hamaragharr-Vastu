@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "background_type": "color",
@@ -18,7 +19,15 @@
         "background_gradient": "",
         "background_margin": 0,
         "padding_top": 28,
-        "padding_bottom": 28
+        "padding_bottom": 28,
+        "section_padding_top_desktop": 0,
+        "section_padding_bottom_desktop": 0,
+        "section_margin_top_desktop": 0,
+        "section_margin_bottom_desktop": 0,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0,
+        "section_margin_top_mobile": 0,
+        "section_margin_bottom_mobile": 0
       }
     },
     "breadcrumb-v2": {
