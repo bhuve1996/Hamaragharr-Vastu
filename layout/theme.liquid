@@ -520,9 +520,9 @@
 
       // Update product price when variant selection changes
       (function() {
-        // Format money using Shopify's formatMoney if available
+        // Format money using Shopify's formatMoney if available (must be a function; avoid "INR is not a function" when formatMoney is set to a string)
         function formatMoney(cents, format) {
-          if (window.Shopify && window.Shopify.formatMoney) {
+          if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
             return window.Shopify.formatMoney(cents, format);
           }
           
@@ -550,9 +550,12 @@
           }
           
           const match = formatString.match(placeholderRegex);
-          if (!match) return formatString;
-          
-          const formatType = match[1];
+          // If format has no amount placeholder (e.g. "INR" only), use default so we still show a number
+          const effectiveFormat = match ? formatString : '{' + '{' + amountPlaceholder + '}' + '}';
+          const effectiveMatch = effectiveFormat.match(placeholderRegex);
+          if (!effectiveMatch) return formatString;
+
+          const formatType = effectiveMatch[1];
           let formattedValue;
           
           switch (formatType) {
@@ -569,10 +572,10 @@
               formattedValue = formatWithDelimiters(cents, 0, '.', ',');
               break;
             default:
-              formattedValue = formatString;
+              formattedValue = effectiveFormat;
           }
           
-          return formatString.replace(placeholderRegex, formattedValue);
+          return effectiveFormat.replace(placeholderRegex, formattedValue);
         }
 
         // Get product data from the DOM

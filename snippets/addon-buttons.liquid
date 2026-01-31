@@ -78,25 +78,25 @@
               '
             >
               <xo-animate xo-cascade style='--xs:12; --md:12; --lg:6' class='addon-buttons__inputs'>
-                {% assign nameLabel = 'templates.contact.form.name' | t %}
-                {% render 'field-input', type: 'text', name: 'contact[name]', value: form.name, label: nameLabel %}
+                {% assign name_label = 'templates.contact.form.name' | t %}
+                {% render 'field-input', type: 'text', name: 'contact[name]', value: form.name, label: name_label %}
               </xo-animate>
               <xo-animate xo-cascade style='--xs:12; --md:12; --lg:6' class='addon-buttons__inputs'>
-                {% assign emailLabel = 'templates.contact.form.email' | t %}
-                {% render 'field-input', type: 'email', name: 'contact[email]', value: form.email, label: emailLabel %}
+                {% assign email_label = 'templates.contact.form.email' | t %}
+                {% render 'field-input', type: 'email', name: 'contact[email]', value: form.email, label: email_label %}
               </xo-animate>
               <xo-animate xo-cascade style='--xs:12' class='addon-buttons__inputs'>
-                {% assign phoneLabel = 'templates.contact.form.phone' | t %}
-                {% render 'field-input', type: 'tel', name: 'contact[phone]', value: form.phone, label: phoneLabel %}
+                {% assign phone_label = 'templates.contact.form.phone' | t %}
+                {% render 'field-input', type: 'tel', name: 'contact[phone]', value: form.phone, label: phone_label %}
               </xo-animate>
               <xo-animate xo-cascade style='--xs:12' class='addon-buttons__inputs'>
-                {% assign commentLabel = 'templates.contact.form.question' | t %}
-                {% render 'field-textarea', name: 'contact[comment]', value: form.body, label: commentLabel %}
+                {% assign comment_label = 'templates.contact.form.question' | t %}
+                {% render 'field-textarea', name: 'contact[comment]', value: form.body, label: comment_label %}
               </xo-animate>
             </xo-grid>
             {% render 'space', value: '3rem' %}
-            {% assign btnLabel = 'templates.contact.form.submit' | t %}
-            {% render 'button', type: 'submit', text: btnLabel, size: 'md', block: true, effect: 'fade', mode: 'dark', style: 'secondary' %}
+            {% assign btn_label = 'templates.contact.form.submit' | t %}
+            {% render 'button', type: 'submit', text: btn_label, size: 'md', block: true, effect: 'fade', mode: 'dark', style: 'secondary' %}
           {%- endform -%}
         </div>
       </div>

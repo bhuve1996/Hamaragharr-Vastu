@@ -36,14 +36,9 @@
 >
   {% if recommendations.performed? and recommendations.products_count > 0 %}
     {% if layout == 'grid' %}
-      <xo-grid
-        style='
-          --xs:{{  columns_mobile }};--md:{{ columns_desktop | minus: 1 }}; --lg:{{ columns_desktop }}; --xo-grid-col-gap: 20px;
-          --xo-grid-row-gap: 20px;
-        '
-      >
+      <xo-grid class='vastu-grid-carousel__grid' style='--xs: {{ columns_mobile }}; --sm: {{ columns_mobile }}; --md: {{ columns_desktop | minus: 1 }}; --lg: {{ columns_desktop }}; --xl: {{ columns_desktop }}; --xxl: {{ columns_desktop }}; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'>
         {% for product in recommendations.products %}
-          <div>
+          <div class='vastu-grid-carousel__grid-item'>
             {% render 'vastu-grid-card',
               product: product,
               section: section,
@@ -53,59 +48,57 @@
         {% endfor %}
       </xo-grid>
     {% else %}
-      <xo-carousel
-        xo-per-view='{{ columns_desktop }}'
-        xo-overflow='{{ overflow }}'
-        xo-speed='400'
-        xo-autoplay='5000'
-        xo-hover-pause
-        xo-render-bullet='<span></span>'
-        xo-breakpoints='
-          {
-            768: {
-              perView: {{ columns_mobile }}
-            },
-            992: {
-              perView: {{ columns_desktop | minus: 1 }}
-            }
-          }
-        '
-      >
-        <xo-carousel-inner>
-          <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
-            {% for product in recommendations.products %}
-              <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
-                {% render 'vastu-grid-card',
-                  product: product,
-                  section: section,
-                  settings: section.settings
-                %}
-              </xo-carousel-slide>
-            {% endfor %}
-          </xo-carousel-list>
-        </xo-carousel-inner>
-        {% if intent == 'related' %}
-          {% render 'carousel-navigation-style1', display_navigation_desktop: display_navigation_desktop, display_navigation_mobile: display_navigation_mobile %}
-          <div
-            class='product-recommendations__pagination product-recommendations__pagination--related'
-            style='--display-desktop: {{ display_pagination_desktop }}; --display-mobile: {{ display_pagination_mobile }}'
-          >
-            {% render 'carousel-pagination-style3' %}
-          </div>
-        {% else %}
-          {% render 'carousel-navigation-style2',
-            display_navigation_desktop: display_navigation_desktop,
-            display_navigation_mobile: display_navigation_mobile,
-            collapse_style: collapse_style
+      {% comment %} Same structure as vastu-grid-carousel: mobile grid + desktop carousel {% endcomment %}
+      <div class='vastu-grid-carousel__mobile-grid'>
+        <xo-grid class='vastu-grid-carousel__grid' style='--xs: 2; --sm: 2; --md: 2; --lg: 2; --xl: 2; --xxl: 2; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'>
+          {% for product in recommendations.products %}
+            <div class='vastu-grid-carousel__grid-item'>
+              {% render 'vastu-grid-card',
+                product: product,
+                section: section,
+                settings: section.settings
+              %}
+            </div>
+          {% endfor %}
+        </xo-grid>
+      </div>
+      <div class='vastu-grid-carousel__desktop-carousel'>
+        <xo-carousel
+          xo-per-view='{{ columns_desktop }}'
+          xo-gap='20'
+          xo-speed='400'
+          xo-autoplay='5000'
+          xo-hover-pause
+          xo-render-bullet='<span></span>'
+          xo-breakpoints='{"768": {"perView": {{ columns_mobile }}}, "992": {"perView": {{ columns_desktop }}}}'
+          class='vastu-grid-carousel__carousel'
+        >
+          <xo-carousel-inner>
+            <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
+              {% for product in recommendations.products %}
+                <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
+                  {% render 'vastu-grid-card',
+                    product: product,
+                    section: section,
+                    settings: section.settings
+                  %}
+                </xo-carousel-slide>
+              {% endfor %}
+            </xo-carousel-list>
+          </xo-carousel-inner>
+          {% render 'vastu-carousel-controls',
+            show_navigation: show_navigation,
+            show_pagination: show_pagination,
+            navigation_desktop: display_navigation_desktop,
+            navigation_mobile: display_navigation_mobile,
+            pagination_desktop: display_pagination_desktop,
+            pagination_mobile: display_pagination_mobile,
+            pagination_position: 'bottom',
+            pagination_offset: '1rem',
+            pagination_class: 'vastu-grid-carousel__pagination'
           %}
-          <div
-            class='product-recommendations__pagination'
-            style='--display-desktop: {{ display_pagination_desktop }}; --display-mobile: {{ display_pagination_mobile }}'
-          >
-            {% render 'carousel-pagination-style3' %}
-          </div>
-        {% endif %}
-      </xo-carousel>
+        </xo-carousel>
+      </div>
     {% endif %}
   {% endif %}
 </xo-product-recommendations>

@@ -1332,8 +1332,12 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   opacity: 1;
 }
 
-/* When product in wishlist (second has [xo-added]), show only second and hide first */
+/* When product in wishlist: show second (remove) and hide first. Support [xo-added] on parent or inner tooltip */
 .xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:first-of-type,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:first-of-type,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
   .xo-product-info-content__wishlist:first-of-type {
   display: none;
   visibility: hidden;
@@ -1341,6 +1345,10 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
 }
 
 .xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
   .xo-product-info-content__wishlist:last-of-type {
   display: flex;
   visibility: visible;
@@ -1352,6 +1360,7 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   box-shadow: 0 4px 14px rgb(0 0 0 / 18%);
 }
 
+/* Add state (not in wishlist) – neutral outline look */
 .xo-product-info-media-style3__wishlist .xo-product-info-content__icon-wishlist {
   display: flex;
   align-items: center;
@@ -1361,6 +1370,62 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   background: none;
   cursor: pointer;
   color: rgb(71 56 85);
+}
+
+.xo-product-info-media-style3__wishlist
+  .xo-product-info-content__wishlist:first-of-type
+  .xo-product-info-content__icon-wishlist,
+.xo-product-info-media-style3__wishlist
+  .xo-product-info-content__wishlist:first-of-type
+  .xo-product-info-content__icon-wishlist
+  svg,
+.xo-product-info-media-style3__wishlist
+  .xo-product-info-content__wishlist:first-of-type
+  .xo-product-info-content__icon-wishlist
+  path {
+  color: rgb(71 56 85);
+  fill: rgb(71 56 85);
+}
+
+/* Added state (in wishlist) – filled accent color so click shows visual change */
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist {
+  color: rgb(var(--color-button, 200 60 60));
+}
+
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  svg,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  path,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  svg,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  path,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  svg,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  path {
+  fill: rgb(var(--color-button, 200 60 60)) !important;
+  color: rgb(var(--color-button, 200 60 60));
 }
 
 /* Product media – wishlist icon on mobile carousel, right side, single stacked icon */
@@ -1409,8 +1474,12 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   opacity: 1;
 }
 
-/* When product in wishlist (second has [xo-added]), show only second and hide first */
+/* When product in wishlist: show second and hide first. Support [xo-added] on parent or inner tooltip */
 .xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:first-of-type,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:first-of-type,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
   .xo-product-info-content__wishlist:first-of-type {
   display: none;
   visibility: hidden;
@@ -1418,6 +1487,10 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
 }
 
 .xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
   .xo-product-info-content__wishlist:last-of-type {
   display: flex;
   visibility: visible;
@@ -1441,6 +1514,60 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   color: rgb(71 56 85);
   min-width: 2.75rem;
   min-height: 2.75rem;
+}
+
+/* Add state (not in wishlist) – neutral */
+.xo-product-info-media-mobile__wishlist
+  .xo-product-info-content__wishlist:first-of-type
+  .xo-product-info-content__icon-wishlist
+  svg,
+.xo-product-info-media-mobile__wishlist
+  .xo-product-info-content__wishlist:first-of-type
+  .xo-product-info-content__icon-wishlist
+  path {
+  fill: rgb(71 56 85);
+  color: rgb(71 56 85);
+}
+
+/* Added state (in wishlist) – accent color so click shows visual change */
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist {
+  color: rgb(var(--color-button, 200 60 60));
+}
+
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  svg,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  path,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  svg,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  path,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  svg,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
+  .xo-product-info-content__wishlist:last-of-type
+  .xo-product-info-content__icon-wishlist
+  path {
+  fill: rgb(var(--color-button, 200 60 60)) !important;
+  color: rgb(var(--color-button, 200 60 60));
 }
 
 /* Price / Share row – price on left, share on right */

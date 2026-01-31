@@ -1,0 +1,3 @@
+OrphanedSnippet:
+  ignore:
+    - snippets/filters-search-content.liquid

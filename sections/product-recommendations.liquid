@@ -1,3 +1,5 @@
+{{ 'vastu-grid-carousel.css' | asset_url | stylesheet_tag }}
+
 <div {% render 'section-attr' %} class="product-recommendations-section" id="section-{{ section.id }}">
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
@@ -9,7 +11,6 @@
     <xo-animate xo-cascade>
       {% render 'section-heading', title: section.settings.heading_title, description: section.settings.heading_description, align: section.settings.heading_align %}
     </xo-animate>
-    {% render 'space', value: '3rem' %}
     {% render 'product-recommendations',
       intent: 'related',
       layout: section.settings.layout,

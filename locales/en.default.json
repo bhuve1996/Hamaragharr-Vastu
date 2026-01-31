@@ -381,6 +381,7 @@
       "sold_out": "Sold out",
       "countdown_stock": "HURRY UP! ONLY {{ quantity }} LEFT IN STOCK",
       "quantity_left": "Only {{ quantity }} left – hurry!",
+      "out_stock": "Out of stock",
       "unavailable": "Unavailable",
       "vendor": "Vendor",
       "video_exit_message": "{{ title }} opens full screen video in same window.",

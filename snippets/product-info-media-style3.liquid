@@ -11,8 +11,7 @@
   Usage:
   {% render 'product-info-media-style3' %}
 {% endcomment %}
-
-{{ 'product-info-media-style3.css' | asset_url | stylesheet_tag }}
+{% comment %} Styles for .xo-product-info-media-style3 are in vastu-product-page.css (loaded in theme.liquid). {% endcomment %}
 
 {% assign featured_media = product.selected_or_first_available_variant.featured_media %}
 {% assign media_aspect_ratio = settings.product_card_aspect_ratio %}

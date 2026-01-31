@@ -308,7 +308,6 @@
                     {% elsif product.metafields.custom.mini_description != blank %}
                       {% assign mini_description = product.metafields.custom.mini_description %}
                     {% else %}
-                      {% assign truncation_method = block.settings.truncation_method | default: 'words' %}
                       {% assign truncation_length = block.settings.truncation_length | default: 50 %}
                       {% assign mini_description = description_text_plain | truncatewords: truncation_length %}
                     {% endif %}

@@ -179,7 +179,7 @@
                 {%- if section.settings.banner_image != blank -%}
                   {% render 'image', image: section.settings.banner_image %}
                 {%- else -%}
-                  <img src='https://landing.shopilaunch.com/starter/sidebar_banner.jpg' width='1200' height='800' alt='affiliate' is='xo-lazyload' loading='lazy'>
+                  <img src='{{ "placeholder-sidebar-banner.svg" | asset_url }}' width='1200' height='800' alt='affiliate' is='xo-lazyload' loading='lazy'>
                 {%- endif -%}
               </a>
             </xo-animate>
