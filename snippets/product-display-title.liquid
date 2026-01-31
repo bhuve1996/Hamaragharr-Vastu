@@ -1,0 +1,23 @@
+{% comment %}
+  Renders the product title for display (e.g. cards, topbar, quick view).
+  Uses product metafield "Short name" when set, otherwise the full product title.
+
+  Usage:
+    {% render 'product-display-title', product: product %}
+  Or with optional text replacements (e.g. " and " → " & "):
+    {% render 'product-display-title', product: product, apply_replace: true %}
+
+  Metafield: Add in Shopify Admin → Settings → Custom data → Products → Add definition
+  Name: Short name | Namespace and key: custom.short_name | Type: Single line text
+{% endcomment %}
+{%- liquid
+  if product.metafields.custom.short_name != blank
+    assign display_title = product.metafields.custom.short_name.value
+  else
+    assign display_title = product.title
+  endif
+  if apply_replace
+    assign display_title = display_title | replace: ' and ', ' & ' | replace: 'seven', '7' | replace: 'Seven', '7'
+  endif
+-%}
+{{ display_title | escape }}

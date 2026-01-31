@@ -76,7 +76,7 @@
                 </div>
                 <div class='popup-promotion-v1__product-content'>
                   <a class='popup-promotion-v1__product-title' href='{{ product.url }}'>
-                    {{ product.title | escape }}
+                    {% render 'product-display-title', product: product %}
                   </a>
                   <div class='xo-product-card__price'>
                     <div class='xo-product-card__price-inner' xo-binding='price'>

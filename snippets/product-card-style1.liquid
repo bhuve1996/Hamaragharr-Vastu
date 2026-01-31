@@ -155,10 +155,7 @@
 
       <h2 class='xo-product-card__title' id="title-{{ section.id }}-{{ product.id }}">
         <a href='{{ product.url }}' id="CardLink-{{ section.id }}-{{ product.id }}" aria-labelledby="CardLink-{{ section.id }}-{{ product.id }} Badge-{{ section.id }}-{{ product.id }}">
-          {% liquid
-            assign display_title = product.title | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7"
-          %}
-          <span title='{{ product.title | escape }}'>{{ display_title | escape }}</span>
+          <span title='{{ product.title | escape }}'>{% render 'product-display-title', product: product, apply_replace: true %}</span>
         </a>
       </h2>
 

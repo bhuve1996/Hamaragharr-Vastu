@@ -49,8 +49,7 @@
         {% endif %}
       </div>
       <div class='vastu-grid-card__content'>
-        {% assign display_title = current_product.title | replace: " and ", " & " | replace: "seven", "7" | replace: "Seven", "7" %}
-        <h3 class='vastu-grid-card__title' style='--card-title-size: {{ card_title_size }}rem;' title='{{ display_title | escape }}'>{{ display_title }}</h3>
+        <h3 class='vastu-grid-card__title' style='--card-title-size: {{ card_title_size }}rem;' title='{{ current_product.title | escape }}'>{% render 'product-display-title', product: current_product, apply_replace: true %}</h3>
         {% comment %} Price displayed below image and name {% endcomment %}
         {% if current_product.price != blank %}
           {%- assign price_formatted = current_product.price | money -%}

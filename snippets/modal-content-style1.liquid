@@ -122,7 +122,7 @@
                       <div class='collection-product-footer__content'>
                         <h2 class='collection-product-footer__name-product'>
                           <a href='{{ product.url }}'>
-                            {{ product.title | escape }}
+                            {% render 'product-display-title', product: product %}
                           </a>
                         </h2>
                         <div class='collection-product-footer__price'>

@@ -34,7 +34,7 @@
               </xo-product-will-change>
 
               <div class='sticky-addcart__product'>
-                <h3>{{ product.title | escape }}</h3>
+                <h3>{% render 'product-display-title', product: product %}</h3>
               </div>
             </a>
             <div class='sticky-addcart__price'>

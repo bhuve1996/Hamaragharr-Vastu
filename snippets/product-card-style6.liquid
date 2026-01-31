@@ -140,7 +140,7 @@
 
       <h2 class='xo-product-card__title' id="title-{{ section.id }}-{{ product.id }}">
         <a href='{{ product.url }}' id="CardLink-{{ section.id }}-{{ product.id }}" aria-labelledby="CardLink-{{ section.id }}-{{ product.id }} Badge-{{ section.id }}-{{ product.id }}">
-          {{ product.title | escape }}
+          {% render 'product-display-title', product: product %}
         </a>
       </h2>
 

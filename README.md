@@ -45,6 +45,18 @@ This theme includes custom Vastu-specific sections:
 - `npm run lint:css` - Lint CSS files
 - `npm run lint:css:fix` - Fix CSS linting issues
 
+## Product short name (metafield)
+
+The theme supports a **Short name** for products so titles don’t get cut off on product cards, the header topbar marquee, quick view, wishlist, and similar places.
+
+1. In **Shopify Admin** go to **Settings → Custom data → Products**.
+2. Click **Add definition**.
+3. Set:
+   - **Name**: Short name
+   - **Namespace and key**: `custom.short_name`
+   - **Type**: Single line text
+4. Save. Then on each product you can set a short name; if left blank, the full product title is used.
+
 ## Documentation
 
 - Theme Documentation: https://docs.shopilaunch.com/florasy

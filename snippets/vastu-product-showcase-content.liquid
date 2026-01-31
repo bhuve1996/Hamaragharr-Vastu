@@ -23,7 +23,7 @@
     {% if section.settings.use_custom_title and section.settings.custom_title != blank %}
       <h2 class='vastu-product-showcase__title'>{{ section.settings.custom_title | escape }}</h2>
     {% else %}
-      <h2 class='vastu-product-showcase__title'>{{ product.title | escape }}</h2>
+      <h2 class='vastu-product-showcase__title'>{% render 'product-display-title', product: product %}</h2>
     {% endif %}
   {% endif %}
   

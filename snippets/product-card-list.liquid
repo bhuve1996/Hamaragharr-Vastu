@@ -111,7 +111,7 @@
   
           <h2 class='xo-product-card-list__title'>
             <a href='{{ product.url }}'>
-              {{ product.title | escape }}
+              {% render 'product-display-title', product: product %}
             </a>
           </h2>
 

@@ -6,7 +6,7 @@
   <xo-collapse-provider>
     <div class='product-info-content-quickview__header'>
       <h1 class='product-info-content-quickview__title' {{ block.shopify_attributes }}>
-        {{ product.title | escape }}
+        {% render 'product-display-title', product: product %}
       </h1>
     </div>
     {%- comment -%} check when install app judge.me {%- endcomment -%}

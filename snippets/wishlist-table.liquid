@@ -28,7 +28,7 @@
                   </a>
                   <h3 class='wishlist-table__item-title'>
                     <a href='{{ product.url }}'>
-                      {{ product.title | escape }}
+                      {% render 'product-display-title', product: product %}
                     </a>
                   </h3>
                 </div>
