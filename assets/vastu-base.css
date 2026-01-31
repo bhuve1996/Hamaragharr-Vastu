@@ -145,6 +145,8 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   --color-secondary-muted: 111, 87, 132; /* #6f5784 - lighter purple for secondary text */
   --color-rating-active: 255, 215, 0; /* #ffd700 - star rating filled */
   --color-rating-inactive: 224, 224, 224; /* #e0e0e0 - star rating empty */
+  --color-placeholder-bg: 245, 245, 245; /* light gray for card image placeholder / empty state */
+  --color-muted-bg: 248, 248, 248; /* #f8f8f8 - muted section background */
 
   /* Background Overlay - Default transparent */
   --bg-overlay: transparent;
@@ -246,44 +248,44 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   --button-hover-box-shadow-blur: 12px;
   --button-hover-box-shadow-spread: 0px;
   --button-hover-opacity: 0.9;
-  --button-hover-bg-color-primary: var(--button-primary-bg-color, #fff);
-  --button-hover-bg-color-secondary: var(--button-secondary-bg-color, #473855);
-  --button-hover-text-color-primary: var(--button-primary-text-color, #000);
-  --button-hover-text-color-secondary: var(--button-secondary-text-color, #fff);
+  --button-hover-bg-color-primary: var(--button-primary-bg-color, var(--color-hex-white));
+  --button-hover-bg-color-secondary: var(--button-secondary-bg-color, var(--color-hex-secondary));
+  --button-hover-text-color-primary: var(--button-primary-text-color, var(--color-hex-black));
+  --button-hover-text-color-secondary: var(--button-secondary-text-color, var(--color-hex-white));
   --button-light-primary-hover-bg-color-rgb: 255, 255, 255;
   --button-light-primary-hover-opacity: 0.9;
-  --button-light-primary-hover-text-color: #000;
+  --button-light-primary-hover-text-color: var(--color-hex-black);
   --button-light-primary-hover-transform-y: -1px;
   --button-light-primary-hover-box-shadow-blur: 12px;
   --button-light-primary-hover-box-shadow-color-rgb: 0, 0, 0;
   --button-light-primary-hover-box-shadow-opacity: 0.2;
   --button-primary-hover-bg-color-rgb: 255, 255, 255;
   --button-primary-hover-opacity: 0.9;
-  --button-primary-hover-text-color: #000;
+  --button-primary-hover-text-color: var(--color-hex-black);
   --button-primary-hover-transform-y: -1px;
   --button-primary-hover-box-shadow-blur: 12px;
   --button-primary-hover-box-shadow-color-rgb: 0, 0, 0;
   --button-primary-hover-box-shadow-opacity: 0.2;
   --button-best-seller-primary-hover-bg-color-rgb: 255, 255, 255;
   --button-best-seller-primary-hover-opacity: 0.9;
-  --button-best-seller-primary-hover-text-color: #000;
+  --button-best-seller-primary-hover-text-color: var(--color-hex-black);
   --button-best-seller-primary-hover-transform-y: -1px;
   --button-best-seller-primary-hover-box-shadow-blur: 12px;
   --button-best-seller-primary-hover-box-shadow-color-rgb: 0, 0, 0;
   --button-best-seller-primary-hover-box-shadow-opacity: 0.2;
   --button-featured-products-primary-hover-bg-color-rgb: 255, 255, 255;
   --button-featured-products-primary-hover-opacity: 0.9;
-  --button-featured-products-primary-hover-text-color: #000;
+  --button-featured-products-primary-hover-text-color: var(--color-hex-black);
   --button-featured-products-primary-hover-transform-y: -1px;
   --button-featured-products-primary-hover-box-shadow-blur: 12px;
   --button-featured-products-primary-hover-box-shadow-color-rgb: 0, 0, 0;
   --button-featured-products-primary-hover-box-shadow-opacity: 0.2;
-  --button-text-regular-color: #fff;
-  --button-text-regular-hover-color: #fff;
-  --button-text-data-text-color: #fff;
-  --button-text-data-text-hover-color: #fff;
-  --slideshow-button-text-data-text-color: #000;
-  --slideshow-button-text-data-text-hover-color: #000;
+  --button-text-regular-color: var(--color-hex-white);
+  --button-text-regular-hover-color: var(--color-hex-white);
+  --button-text-data-text-color: var(--color-hex-white);
+  --button-text-data-text-hover-color: var(--color-hex-white);
+  --slideshow-button-text-data-text-color: var(--color-hex-black);
+  --slideshow-button-text-data-text-hover-color: var(--color-hex-black);
   --button-primary-bg-color-rgb: 255, 255, 255;
   --button-secondary-bg-color-rgb: 71, 56, 85;
 
@@ -446,7 +448,7 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   transform: translateX(-50%);
   width: var(--title-underline-width, 80px);
   height: var(--title-underline-height, 4px);
-  background-color: var(--title-underline-color, #473855);
+  background-color: var(--title-underline-color, var(--color-hex-secondary));
   border-radius: 2px;
 }
 
@@ -621,11 +623,11 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
 
 /* Search Modal - Complete Redesign with Configurable Colors */
 xo-modal.search {
-  --search-modal-bg: var(--search-modal-bg, #fff);
-  --search-text-color: var(--search-text-color, #000);
-  --search-button-bg: var(--search-button-bg, #473855);
-  --search-button-text: var(--search-button-text, #fff);
-  --search-border-color: var(--search-border-color, #473855);
+  --search-modal-bg: var(--search-modal-bg, var(--color-hex-white));
+  --search-text-color: var(--search-text-color, var(--color-hex-black));
+  --search-button-bg: var(--search-button-bg, var(--color-hex-secondary));
+  --search-button-text: var(--search-button-text, var(--color-hex-white));
+  --search-border-color: var(--search-border-color, var(--color-hex-secondary));
   --search-border-opacity: var(--search-border-opacity, 10);
 }
 

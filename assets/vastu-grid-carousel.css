@@ -437,7 +437,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: rgb(var(--color-secondary-button) / 30%);
+  background-color: rgb(71 56 85 / 35%);
   margin: 0 0.25rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -450,7 +450,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 .vastu-carousel-controls__pagination xo-carousel-pagination span.is-active,
 .vastu-carousel-controls__pagination xo-carousel-pagination span[class*="active"],
 .vastu-carousel-controls__pagination .carousel-pagination-style3__pagination span[aria-current="true"] {
-  background-color: rgb(var(--color-secondary-button));
+  background-color: rgb(71 56 85);
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
@@ -466,10 +466,9 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   max-width: 100%;
   background: rgb(var(--color-primary-bg));
   border-radius: 0.75rem;
-  border: 1px solid rgb(var(--color-secondary-button) / 8%);
+  border: 0.5px solid rgb(0 0 0 / 18%);
   overflow: hidden;
-  box-shadow: var(--product-card-shadow-horizontal-offset, 0) var(--product-card-shadow-vertical-offset, 0.4rem)
-    var(--product-card-shadow-blur-radius, 1.2rem) rgb(0 0 0 / var(--product-card-shadow-opacity, 0.08));
+  box-shadow: 0 0.4rem 1.2rem rgb(0 0 0 / 14%);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
@@ -607,11 +606,8 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 
 .vastu-grid-card:hover {
   transform: translateY(-4px);
-  border-color: rgb(var(--color-secondary-button) / 15%);
-  box-shadow: var(--product-card-shadow-horizontal-offset, 0)
-    calc(var(--product-card-shadow-vertical-offset, 0.4rem) + 0.2rem)
-    calc(var(--product-card-shadow-blur-radius, 1.2rem) + 0.4rem)
-    rgb(0 0 0 / calc(var(--product-card-shadow-opacity, 0.08) * 1.5));
+  border-color: rgb(0 0 0 / 18%);
+  box-shadow: 0 0.6rem 1.6rem rgb(0 0 0 / 18%);
 }
 
 .vastu-grid-card__link {
@@ -632,7 +628,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   overflow: hidden;
   flex-shrink: 0;
   aspect-ratio: 1 / 1;
-  background: #f5f5f5;
+  background: rgb(var(--color-placeholder-bg, 245, 245, 245));
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
 }

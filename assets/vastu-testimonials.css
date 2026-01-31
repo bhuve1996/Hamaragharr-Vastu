@@ -100,7 +100,7 @@ section[class*="testimonial-v13"] xo-container {
   justify-content: center;
   border-radius: 0.75rem;
   overflow: hidden;
-  background: #f8f8f8;
+  background: rgb(var(--color-muted-bg, 248, 248, 248));
   box-shadow: 0 2px 8px rgb(var(--color-secondary-button) / 10%);
 }
 

@@ -17,7 +17,7 @@
   justify-content: flex-start;
   text-align: center;
   padding: 2.5rem 1.5rem;
-  background: rgb(var(--color-secondary-button));
+  background: rgb(71 56 85); /* website purple - fixed so it doesn't follow theme secondary (e.g. black) */
   border-radius: 12px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
   transition:
@@ -32,16 +32,16 @@
   .vastu-why-kit__item:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
-    background: rgb(var(--color-secondary-button));
+    background: rgb(71 56 85); /* website purple */
   }
 
   .vastu-why-kit__item:hover .vastu-why-kit__icon {
     transform: scale(1.1);
-    color: rgb(var(--color-secondary-button-text));
+    color: rgb(255 255 255); /* white on purple */
   }
 
   .vastu-why-kit__item:hover .vastu-why-kit__text {
-    color: rgb(var(--color-secondary-button-text));
+    color: rgb(255 255 255); /* white on purple */
   }
 }
 
@@ -54,7 +54,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  color: rgb(var(--color-secondary-button-text));
+  color: rgb(255 255 255); /* white on purple */
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
@@ -81,7 +81,7 @@
   font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
   margin: 0;
-  color: rgb(var(--color-secondary-button-text));
+  color: rgb(255 255 255); /* white on purple */
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

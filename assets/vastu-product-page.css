@@ -1,5 +1,5 @@
 .product-variant-modal__modal-content {
-  background: #fff;
+  background: var(--color-hex-white);
   border-radius: 1rem;
   padding: 2rem;
   max-width: 500px;
@@ -880,7 +880,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 }
 
 .faq-content-wrapper {
-  background: #fff;
+  background: var(--color-hex-white);
   border-radius: 1rem;
   border-top: 4px solid rgb(71 56 85 / 15%);
   padding: 3rem 2.5rem;
@@ -923,6 +923,70 @@ xo-product-info-content .xo-btn--secondary .xo-btn__content * {
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
 }
 
+/* Disable slide-up button effect on product Add to Cart (buy-button__add) */
+.buy-button__add .xo-btn__text[data-text]::before,
+.buy-button__add .xo-btn__text[data-text]::after,
+.buy-button xo-cart-add .xo-btn__text[data-text]::before,
+.buy-button xo-cart-add .xo-btn__text[data-text]::after,
+xo-product-info-content xo-cart-add .xo-btn__text[data-text]::before,
+xo-product-info-content xo-cart-add .xo-btn__text[data-text]::after {
+  display: none;
+  content: none;
+  visibility: hidden;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.buy-button__add .xo-btn__text,
+.buy-button__add .xo-btn__content,
+.buy-button xo-cart-add .xo-btn__text,
+.buy-button xo-cart-add .xo-btn__content,
+xo-product-info-content xo-cart-add .xo-btn__text,
+xo-product-info-content xo-cart-add .xo-btn__content {
+  position: relative;
+  transform: none;
+  translate: 0 0;
+  transition: none;
+}
+
+.buy-button__add .xo-btn__text:active,
+.buy-button__add .xo-btn__text:focus,
+.buy-button__add .xo-btn__content:active,
+.buy-button__add .xo-btn__content:focus,
+.buy-button xo-cart-add .xo-btn__text:active,
+.buy-button xo-cart-add .xo-btn__text:focus,
+.buy-button xo-cart-add .xo-btn__content:active,
+.buy-button xo-cart-add .xo-btn__content:focus,
+xo-product-info-content xo-cart-add .xo-btn__text:active,
+xo-product-info-content xo-cart-add .xo-btn__text:focus,
+xo-product-info-content xo-cart-add .xo-btn__content:active,
+xo-product-info-content xo-cart-add .xo-btn__content:focus {
+  transform: none;
+  translate: 0 0;
+}
+
+.buy-button__add .xo-btn:active .xo-btn__text,
+.buy-button__add .xo-btn:active .xo-btn__content,
+.buy-button__add .xo-btn:focus .xo-btn__text,
+.buy-button__add .xo-btn:focus .xo-btn__content,
+.buy-button xo-cart-add .xo-btn:active .xo-btn__text,
+.buy-button xo-cart-add .xo-btn:active .xo-btn__content,
+.buy-button xo-cart-add .xo-btn:focus .xo-btn__text,
+.buy-button xo-cart-add .xo-btn:focus .xo-btn__content,
+.buy-button xo-cart-add button:active .xo-btn__text,
+.buy-button xo-cart-add button:active .xo-btn__content,
+xo-product-info-content xo-cart-add .xo-btn:active .xo-btn__text,
+xo-product-info-content xo-cart-add .xo-btn:active .xo-btn__content,
+xo-product-info-content xo-cart-add .xo-btn:focus .xo-btn__text,
+xo-product-info-content xo-cart-add .xo-btn:focus .xo-btn__content,
+xo-product-info-content xo-cart-add button:active .xo-btn__text,
+xo-product-info-content xo-cart-add button:active .xo-btn__content {
+  transform: none;
+  translate: 0 0;
+}
+
 .xo-btn__loading {
   display: none;
 }
@@ -945,7 +1009,7 @@ xo-cart-add.loading .xo-btn__loading {
 
 .vastu-shop-by-concern__item {
   margin-bottom: 1rem;
-  background: #fff;
+  background: var(--color-hex-white);
   border: 2px solid rgb(136 112 142 / 25%);
   border-radius: 0.75rem;
 }

@@ -154,7 +154,7 @@
 
 section[class*="testimonial-v2"],
 section[class*="testimonial-v13"] {
-  background: #473855;
+  background: var(--color-hex-secondary);
   position: relative;
 }
 

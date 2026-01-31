@@ -50,6 +50,11 @@
                   <a href='{{ section.settings.info_return_link | default: "/pages/return-refund-policy" }}' class='footer-modern__link'>{{ section.settings.info_return_text | default: 'Return & Refund Policy' }}</a>
                 </li>
               {%- endif -%}
+              {%- if section.settings.info_shipping_enable != false -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ section.settings.info_shipping_link | default: "/pages/delivery-information" }}' class='footer-modern__link'>{{ section.settings.info_shipping_text | default: 'Shipping Policy' }}</a>
+                </li>
+              {%- endif -%}
               {%- if section.settings.info_blog_enable != false -%}
                 <li class='footer-modern__list-item'>
                   <a href='{{ section.settings.info_blog_link | default: "/pages/blogs" }}' class='footer-modern__link'>{{ section.settings.info_blog_text | default: 'Blog' }}</a>
@@ -344,6 +349,25 @@
       "id": "info_return_text",
       "label": "Return & Refund Policy Text",
       "default": "Return & Refund Policy"
+    },
+    {
+      "type": "checkbox",
+      "id": "info_shipping_enable",
+      "label": "Show Shipping Policy Link",
+      "default": true,
+      "info": "Used when Information Menu is not set. Links to Delivery Information page."
+    },
+    {
+      "type": "url",
+      "id": "info_shipping_link",
+      "label": "Shipping Policy Link",
+      "info": "Used when Information Menu is not set. Default: /pages/delivery-information"
+    },
+    {
+      "type": "text",
+      "id": "info_shipping_text",
+      "label": "Shipping Policy Text",
+      "default": "Shipping Policy"
     },
     {
       "type": "checkbox",

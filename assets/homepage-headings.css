@@ -24,7 +24,7 @@ h2.homepage-section-heading {
     --section-heading-line-height-desktop,
     var(--homepage-heading-line-height, var(--global-heading-line-height-desktop, 1.2))
   );
-  color: var(--homepage-heading-color, var(--global-heading-color, #000));
+  color: var(--homepage-heading-color, var(--global-heading-color, var(--color-hex-black)));
   text-transform: var(--homepage-heading-text-transform, none);
 
   /* Spacing - Desktop */
@@ -72,7 +72,10 @@ h2.homepage-section-heading[data-enable-underline="true"]::after {
   transform: translateX(-50%);
   width: var(--section-heading-underline-width, var(--homepage-heading-underline-width, 80px));
   height: var(--section-heading-underline-height, var(--homepage-heading-underline-height, 4px));
-  background-color: var(--section-heading-underline-color, var(--homepage-heading-underline-color, #473855));
+  background-color: var(
+    --section-heading-underline-color,
+    var(--homepage-heading-underline-color, var(--color-hex-secondary))
+  );
   border-radius: 2px;
 }
 

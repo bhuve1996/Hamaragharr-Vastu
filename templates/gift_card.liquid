@@ -37,7 +37,7 @@
       <link href='{{ settings.type_header_font | font_url | preload_tag: as: 'font' }}' type='font/woff2' crossorigin>
     {%- endunless -%}
 
-    {{ 'styles.css' | asset_url | stylesheet_tag }}
+    {{ 'main.min.css' | asset_url | stylesheet_tag }}
     {{ 'template-giftcard.css' | asset_url | stylesheet_tag }}
   </head>
 

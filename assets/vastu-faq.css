@@ -5,6 +5,7 @@ section .faq-v3__heading,
 .faq-section-wrapper .faq-v3__heading {
   margin-bottom: 0;
   margin-top: 0;
+  padding-bottom: 0;
 }
 
 .vastu-faq__item {
@@ -29,12 +30,13 @@ section .faq-v3__heading,
   text-align: left;
   cursor: pointer;
   color: inherit;
+  position: relative;
 }
 
 .faq-v3__question {
   color: rgb(var(--color-foreground, 0, 0, 0));
   font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
-  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
+  font-weight: 500; /* heading bolder than answer */
   line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
   margin: 0;
   margin-bottom: 0;
@@ -42,11 +44,22 @@ section .faq-v3__heading,
   flex: 1;
 }
 
-/* Line under heading when expanded - on trigger so it stays under heading, not at bottom */
+/* Line under heading when expanded - pseudo-element so line stays under trigger, not below content */
 .faq-v3__trigger[aria-expanded="true"],
 .faq-v3__row[aria-expanded="true"] .faq-v3__trigger {
-  border-bottom: 1px solid rgba(var(--color-border, 0, 0, 0), 0.1);
   padding-bottom: 1rem;
+}
+
+.faq-v3__trigger[aria-expanded="true"]::after,
+.faq-v3__row[aria-expanded="true"] .faq-v3__trigger::after {
+  content: "";
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1rem;
+  height: 1px;
+  background: rgba(var(--color-border, 0, 0, 0), 0.1);
+  pointer-events: none;
 }
 
 /* FAQ Accordion Row - provides padding for the entire accordion item */
@@ -81,7 +94,7 @@ xo-collapse[xo-active] {
     var(--global-description-font-size-desktop)
   ); /* 1.4rem = 14px */
 
-  font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 400));
+  font-weight: 400; /* description lighter than heading */
   line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
   margin: 0;
   padding: 0;
@@ -101,6 +114,13 @@ xo-collapse[xo-active] {
   .faq-v3__trigger[aria-expanded="true"],
   .faq-v3__row[aria-expanded="true"] .faq-v3__trigger {
     padding-bottom: 0.875rem;
+  }
+
+  .faq-v3__trigger[aria-expanded="true"]::after,
+  .faq-v3__row[aria-expanded="true"] .faq-v3__trigger::after {
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 0.875rem;
   }
 
   .faq-v3__question {

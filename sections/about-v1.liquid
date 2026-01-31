@@ -3,7 +3,7 @@
 {% liquid
   assign is_policy_page = false
   if template.name == 'page' and template.suffix != blank
-    if template.suffix == 'terms-conditions' or template.suffix == 'privacy-policy' or template.suffix == 'return-refund-policy'
+    if template.suffix == 'terms-conditions' or template.suffix == 'privacy-policy' or template.suffix == 'return-refund-policy' or template.suffix == 'delivery-information'
       assign is_policy_page = true
     endif
   endif
@@ -30,7 +30,7 @@
           {{ section.settings.subtitle }}
         </xo-animate>
         <xo-animate xo-cascade class='about-v1__description'>
-          {{ section.settings.description }}
+          {{ section.settings.description | raw }}
         </xo-animate>
       </div>
       {% unless hide_image_if_blank and section.settings.image == blank %}

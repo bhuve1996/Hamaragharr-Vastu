@@ -29,7 +29,7 @@ section[class*="product-recommendations"] .xo-btn--secondary:hover,
 xo-modal .xo-btn--secondary:hover,
 xo-modal button.xo-btn--secondary:hover {
   background-color: rgba(var(--button-secondary-bg-color-rgb, 71, 56, 85), var(--button-hover-opacity, 0.9));
-  color: var(--button-secondary-text-color, #fff);
+  color: var(--button-secondary-text-color, var(--color-hex-white));
   transform: none;
   box-shadow: 0 4px var(--button-hover-box-shadow-blur, 12px)
     rgba(var(--button-secondary-bg-color-rgb, 71, 56, 85), 0.3);
@@ -53,7 +53,7 @@ a.xo-btn--light.xo-btn--primary:hover {
     var(--button-light-primary-hover-bg-color-rgb, 255, 255, 255),
     var(--button-light-primary-hover-opacity, 0.9)
   );
-  color: var(--button-light-primary-hover-text-color, #000);
+  color: var(--button-light-primary-hover-text-color, var(--color-hex-black));
   transform: none;
   box-shadow: 0 4px var(--button-light-primary-hover-box-shadow-blur, 12px)
     rgba(
@@ -75,7 +75,7 @@ a.xo-btn--primary:hover {
     var(--button-primary-hover-bg-color-rgb, 255, 255, 255),
     var(--button-primary-hover-opacity, 0.9)
   );
-  color: var(--button-primary-hover-text-color, #000);
+  color: var(--button-primary-hover-text-color, var(--color-hex-black));
   transform: none;
   box-shadow: 0 4px var(--button-primary-hover-box-shadow-blur, 12px)
     rgba(var(--button-primary-hover-box-shadow-color-rgb, 0, 0, 0), var(--button-primary-hover-box-shadow-opacity, 0.2));
@@ -99,7 +99,7 @@ section[class*="vastu-best-seller"]
     var(--button-best-seller-primary-hover-bg-color-rgb, 255, 255, 255),
     var(--button-best-seller-primary-hover-opacity, 0.9)
   );
-  color: var(--button-best-seller-primary-hover-text-color, #000);
+  color: var(--button-best-seller-primary-hover-text-color, var(--color-hex-black));
   transform: none;
   box-shadow: 0 4px var(--button-best-seller-primary-hover-box-shadow-blur, 12px)
     rgba(
@@ -126,7 +126,7 @@ section[class*="vastu-featured-products"]
     var(--button-featured-products-primary-hover-bg-color-rgb, 255, 255, 255),
     var(--button-featured-products-primary-hover-opacity, 0.9)
   );
-  color: var(--button-featured-products-primary-hover-text-color, #000);
+  color: var(--button-featured-products-primary-hover-text-color, var(--color-hex-black));
   transform: none;
   box-shadow: 0 4px var(--button-featured-products-primary-hover-box-shadow-blur, 12px)
     rgba(
@@ -161,7 +161,7 @@ a.xo-btn--light.xo-btn--secondary:focus {
 button.xo-btn--light.xo-btn--secondary:disabled:hover,
 a.xo-btn--light.xo-btn--secondary:disabled:hover,
 .xo-btn--light.xo-btn--secondary[disabled]:hover {
-  background-color: var(--button-secondary-bg-color, #473855);
+  background-color: var(--button-secondary-bg-color, var(--color-hex-secondary));
   transform: none;
   box-shadow: none;
 }
@@ -169,7 +169,7 @@ a.xo-btn--light.xo-btn--secondary:disabled:hover,
 .xo-btn--light.xo-btn--secondary:hover .xo-btn__text,
 .xo-btn--light.xo-btn--secondary:hover .xo-btn__content,
 .xo-btn--light.xo-btn--secondary:hover .xo-btn__icon {
-  color: var(--button-secondary-text-color, #fff);
+  color: var(--button-secondary-text-color, var(--color-hex-white));
 }
 
 .xo-btn--light.xo-btn--secondary,
