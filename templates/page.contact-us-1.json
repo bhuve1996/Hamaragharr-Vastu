@@ -1,30 +1,43 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "background_margin": 0,
         "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
-    "breadcrumb-v2": {
-      "type": "breadcrumb-v2",
-      "settings": {
-        "color_scheme": "background-1",
-        "background_image_desktop": "shopify://shop_images/bg_page.jpg",
-        "background_image_mobile": "shopify://shop_images/bg_page.jpg",
-        "use_parallax": false,
-        "background_color": "#ffffff",
-        "padding_top": 110,
-        "padding_bottom": 110
+        "padding_bottom": 28,
+        "section_padding_top_desktop": 0,
+        "section_padding_bottom_desktop": 0,
+        "section_margin_top_desktop": 0,
+        "section_margin_bottom_desktop": 0,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0,
+        "section_margin_top_mobile": 0,
+        "section_margin_bottom_mobile": 0
       }
     },
     "contact_v1_PKH9fF": {
       "type": "contact-v1",
       "settings": {
         "width": "box",
+        "fullwidth_margin": 0,
+        "reverse_layout": false,
         "title": "CONTACT INFORMATION",
-        "content": "<p style='padding-bottom:16px'>For any inquiries, support, or assistance, please reach out to our customer service team. We're here to help you with all your Vastu needs.</p><p style='padding-bottom:16px'><strong>Hamaragharr Vastu Corporation</strong><br>Faridabad Sector 21C<br>Haryana, India</p><p style='padding-bottom:16px'><strong>Email:</strong> <a href='mailto:support@hamaragharr.in'>support@hamaragharr.in</a><br><strong>Phone:</strong> +91 8130340819<br><strong>Shopify Admin:</strong> <a href='https://admin.shopify.com' target='_blank'>admin.shopify.com</a></p>",
+        "content": "<p style=\"padding-bottom:16px\">For any inquiries, support, or assistance, please reach out to our customer service team. We're here to help you with all your Vastu needs.</p><p style=\"padding-bottom:16px\"><strong>Hamaragharr Vastu Corporation</strong><br>Faridabad Sector 21C<br>Haryana, India</p><p style=\"padding-bottom:16px\"><strong>Email:</strong> <a href=\"mailto:support@hamaragharr.in\">support@hamaragharr.in</a><br><strong>Phone:</strong> +91 8130340819<br><strong>Shopify Admin:</strong> <a href=\"https://admin.shopify.com\" target=\"_blank\">admin.shopify.com</a></p>",
         "mail": "support@hamaragharr.in",
         "social_title": "FOLLOW US",
         "social_icon1": "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 150 150\" style=\"enable-background:new 0 0 150 150;\" width=\"20\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\">\n  <g>\n   <path d=\"M131.95,12.84c-5.03,5.87-10.06,11.74-15.1,17.6c-9.93,11.54-19.88,23.07-29.81,34.6c-0.11,0.12-0.2,0.25-0.37,0.47\n     c16.38,23.8,32.77,47.61,49.27,71.57c-0.51,0.03-0.84,0.07-1.18,0.07c-11.35,0-22.7-0.01-34.06,0.02c-0.78,0-1.22-0.24-1.67-0.89\n     c-10.58-15.41-21.18-30.79-31.78-46.18c-0.25-0.36-0.51-0.71-0.82-1.14c-2.93,3.39-5.79,6.7-8.64,10.01\n     c-10.7,12.42-21.41,24.84-32.09,37.28c-0.59,0.68-1.18,0.94-2.07,0.92c-3.07-0.05-6.15-0.02-9.54-0.02\n     c15.95-18.51,31.74-36.82,47.57-55.19c-2.56-3.72-5.09-7.41-7.63-11.1C40.93,51.86,27.85,32.87,14.78,13.88\n     c-0.22-0.33-0.38-0.7-0.57-1.04c12.08,0,24.16,0,36.25,0c0.08,0.14,0.15,0.28,0.24,0.42c10.22,14.85,20.44,29.71,30.67,44.56\n     c0.13,0.19,0.29,0.36,0.5,0.6c0.35-0.38,0.66-0.68,0.94-1.01c11.76-13.64,23.51-27.27,35.26-40.92c1.02-1.18,1.96-2.43,2.94-3.64\n     C124.65,12.84,128.3,12.84,131.95,12.84z M121.13,129.4c-0.24-0.4-0.34-0.58-0.45-0.74C95.71,93.01,70.74,57.36,45.74,21.73\n     c-0.3-0.43-1.04-0.77-1.58-0.77c-4.78-0.06-9.57-0.04-14.35-0.03c-0.26,0-0.53,0.03-0.99,0.06c0.4,0.59,0.68,1.02,0.97,1.44\n     c8.98,12.82,17.97,25.65,26.95,38.47c15.78,22.53,31.57,45.06,47.33,67.61c0.48,0.68,0.97,0.93,1.78,0.92\n     c4.66-0.04,9.32-0.02,13.99-0.02C120.2,129.4,120.55,129.4,121.13,129.4z\"></path>\n  </g>\n</svg>",
@@ -35,11 +48,19 @@
         "social_link3": "",
         "social_icon4": "<svg aria-hidden=\"true\" focusable=\"false\" viewbox=\"0 0 100 70\" width=\"20\">\n  <path d=\"M98 11c2 7.7 2 24 2 24s0 16.3-2 24a12.5 12.5 0 01-9 9c-7.7 2-39 2-39 2s-31.3 0-39-2a12.5 12.5 0 01-9-9c-2-7.7-2-24-2-24s0-16.3 2-24c1.2-4.4 4.6-7.8 9-9 7.7-2 39-2 39-2s31.3 0 39 2c4.4 1.2 7.8 4.6 9 9zM40 50l26-15-26-15v30z\">\n</path></svg>",
         "social_link4": "",
+        "map_style": "image",
         "map_iframe": "",
-        "map_image": "",
+        "map_link": "",
         "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
         "background_gradient": "",
         "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
         "padding_top": 50,
         "padding_bottom": 50
       }
@@ -48,12 +69,19 @@
       "type": "contact-v2",
       "settings": {
         "width": "box",
+        "fullwidth_margin": 0,
         "title": "Contact Form",
         "button_text": "Submit",
         "color_scheme": "",
+        "background_type": "color",
         "background_color": "",
         "background_gradient": "",
         "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
         "padding_top": 50,
         "padding_bottom": 50
       }
@@ -66,12 +94,11 @@
         "title": "OUR<br>NEWSLETTER!",
         "subtitle": "It only takes a second to be the first to findout about our latest news",
         "button_mode": "dark",
+        "button_font_size_mobile": 0,
         "color_scheme": "inverse",
         "background_type": "image",
         "background_color": "",
         "background_gradient": "",
-        "background_image_desktop": "shopify://shop_images/8.jpg",
-        "background_image_mobile": "shopify://shop_images/8.jpg",
         "use_parallax": false,
         "background_image_animation": "none",
         "background_video_url": "",
@@ -86,13 +113,20 @@
       "type": "instagram-v1",
       "settings": {
         "enable_section": false,
+        "width": "fullwidth",
+        "fullwidth_margin": 0,
+        "icon_heading": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"70\" height=\"70\" viewbox=\"0 0 50 50\" fill=\"none\">\n  <g clip-path=\"url(#clip0_11_25)\">\n    <path d=\"M34.375 0H15.625C6.99687 0 0 6.99687 0 15.625V34.375C0 43.0031 6.99687 50 15.625 50H34.375C43.0031 50 50 43.0031 50 34.375V15.625C50 6.99687 43.0031 0 34.375 0ZM45.3125 34.375C45.3125 40.4062 40.4062 45.3125 34.375 45.3125H15.625C9.59375 45.3125 4.6875 40.4062 4.6875 34.375V15.625C4.6875 9.59375 9.59375 4.6875 15.625 4.6875H34.375C40.4062 4.6875 45.3125 9.59375 45.3125 15.625V34.375Z\" fill=\"url(#paint0_linear_11_25)\"></path>\n    <path d=\"M25 12.5C18.0969 12.5 12.5 18.0969 12.5 25C12.5 31.9031 18.0969 37.5 25 37.5C31.9031 37.5 37.5 31.9031 37.5 25C37.5 18.0969 31.9031 12.5 25 12.5ZM25 32.8125C20.6937 32.8125 17.1875 29.3063 17.1875 25C17.1875 20.6906 20.6937 17.1875 25 17.1875C29.3063 17.1875 32.8125 20.6906 32.8125 25C32.8125 29.3063 29.3063 32.8125 25 32.8125Z\" fill=\"url(#paint1_linear_11_25)\"></path>\n    <path d=\"M38.4375 13.2281C39.3574 13.2281 40.1031 12.4824 40.1031 11.5625C40.1031 10.6426 39.3574 9.89685 38.4375 9.89685C37.5176 9.89685 36.7719 10.6426 36.7719 11.5625C36.7719 12.4824 37.5176 13.2281 38.4375 13.2281Z\" fill=\"url(#paint2_linear_11_25)\"></path>\n  </g>\n  <defs>\n    <lineargradient id=\"paint0_linear_11_25\" x1=\"4.57703\" y1=\"45.4233\" x2=\"45.423\" y2=\"4.57672\" gradientunits=\"userSpaceOnUse\">\n      <stop stop-color=\"#FFC107\"></stop>\n      <stop offset=\"0.507\" stop-color=\"#F44336\"></stop>\n      <stop offset=\"0.99\" stop-color=\"#9C27B0\"></stop>\n    </lineargradient>\n    <lineargradient id=\"paint1_linear_11_25\" x1=\"16.1614\" y1=\"33.8386\" x2=\"33.8386\" y2=\"16.1614\" gradientunits=\"userSpaceOnUse\">\n      <stop stop-color=\"#FFC107\"></stop>\n      <stop offset=\"0.507\" stop-color=\"#F44336\"></stop>\n      <stop offset=\"0.99\" stop-color=\"#9C27B0\"></stop>\n    </lineargradient>\n    <lineargradient id=\"paint2_linear_11_25\" x1=\"37.2598\" y1=\"12.7404\" x2=\"39.6152\" y2=\"10.3848\" gradientunits=\"userSpaceOnUse\">\n      <stop stop-color=\"#FFC107\"></stop>\n      <stop offset=\"0.507\" stop-color=\"#F44336\"></stop>\n      <stop offset=\"0.99\" stop-color=\"#9C27B0\"></stop>\n    </lineargradient>\n    <clippath id=\"clip0_11_25\">\n      <rect width=\"50\" height=\"50\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+        "icon_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 448 512\"><path d=\"M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z\"></path></svg>",
         "title": "Follow us on instagram",
+        "access_token": "",
+        "open_mode": "newtab",
         "limit": 6,
         "auto_play": false,
-        "width": "fullwidth",
         "color_scheme": "",
+        "background_type": "color",
         "background_color": "",
         "background_gradient": "",
+        "background_margin": 0,
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -100,7 +134,6 @@
   },
   "order": [
     "main",
-    "breadcrumb-v2",
     "contact_v1_PKH9fF",
     "contact_v2_rbAA39",
     "newsletter_v1_x4pjNU",
