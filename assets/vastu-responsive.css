@@ -227,6 +227,7 @@
     opacity: 1;
     width: 0.5rem;
     height: 0.5rem;
+    border-radius: 50%;
   }
 
   .vastu-best-seller__pagination xo-carousel-pagination-bullet-active span,
@@ -237,6 +238,7 @@
   .testimonial-v13__pagination xo-carousel-pagination span[aria-current="true"] {
     width: 0.75rem;
     height: 0.75rem;
+    border-radius: 50%;
     opacity: 1;
   }
 

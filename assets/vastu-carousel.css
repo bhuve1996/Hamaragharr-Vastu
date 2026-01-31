@@ -154,7 +154,7 @@ section xo-carousel {
   pointer-events: auto;
 }
 
-.carousel-pagination-style3 {
+/* .carousel-pagination-style3 {
   position: absolute;
   bottom: -1.5rem;
   left: 50%;
@@ -165,7 +165,7 @@ section xo-carousel {
   align-items: center;
   width: auto;
   pointer-events: auto;
-}
+} */
 
 .testimonial-v13__pagination {
   position: absolute;
@@ -242,6 +242,17 @@ section xo-carousel {
   width: 100%;
 }
 
+/* Global: force all carousel pagination dots to be circular (overrides any pill/rect styles) */
+xo-carousel-pagination span,
+.carousel-pagination-style3__pagination span {
+  border-radius: 50% !important;
+}
+
+xo-carousel-pagination::part(bullet),
+xo-carousel-pagination::part(bullet-active) {
+  border-radius: 50% !important;
+}
+
 /* Ensure pagination dots are visible for best seller and testimonial carousels */
 .vastu-best-seller__pagination xo-carousel-pagination span,
 .vastu-featured-products__pagination xo-carousel-pagination span,
@@ -278,6 +289,7 @@ section xo-carousel {
   background-color: rgb(71 56 85);
   width: 0.75rem;
   height: 0.75rem;
+  border-radius: 50%;
   opacity: 1;
 }
 
@@ -307,6 +319,7 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagina
   background-color: rgb(71 56 85);
   width: 0.75rem;
   height: 0.75rem;
+  border-radius: 50%;
   opacity: 1;
 }
 
@@ -320,6 +333,7 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagina
   background-color: rgb(71 56 85);
   width: 0.75rem;
   height: 0.75rem;
+  border-radius: 50%;
   opacity: 1;
 }
 
@@ -333,6 +347,7 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination xo-carousel-pagina
   background-color: rgb(71 56 85);
   width: 0.75rem;
   height: 0.75rem;
+  border-radius: 50%;
 }
 
 xo-carousel:has(.vastu-best-seller__pagination) xo-carousel-inner,

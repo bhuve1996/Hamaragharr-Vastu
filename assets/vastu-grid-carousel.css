@@ -387,7 +387,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   transform: translateX(-50%);
 
   --pagination-position: var(--pagination-position, bottom);
-  --pagination-offset: var(--pagination-offset, -2.5rem);
+  --pagination-offset: var(--pagination-offset, -0.5rem);
 }
 
 /* Position: top */
@@ -445,6 +445,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   background-color: rgb(71 56 85);
   width: 0.75rem;
   height: 0.75rem;
+  border-radius: 50%;
   opacity: 1 !important;
 }
 

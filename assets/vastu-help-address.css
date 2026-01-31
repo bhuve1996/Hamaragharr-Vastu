@@ -189,6 +189,7 @@
   background-color: rgb(71 56 85);
   width: 0.75rem;
   height: 0.75rem;
+  border-radius: 50%;
   opacity: 1;
 }
 
