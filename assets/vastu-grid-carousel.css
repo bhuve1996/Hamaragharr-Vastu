@@ -718,7 +718,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1.25rem 1.75rem 1.5rem;
+  padding: 1.25rem 1.75rem 0;
   text-align: left;
   min-height: 0;
   overflow: visible;
@@ -731,7 +731,7 @@ section[class*="product-recommendations"] .vastu-grid-card__content,
 .product-recommendations-section .vastu-grid-card__content,
 .product-recommendations .vastu-grid-card__content,
 xo-product-recommendations .vastu-grid-card__content {
-  padding: 1.25rem 1.75rem 1.5rem;
+  padding: 1.25rem 1.75rem 0;
 }
 
 .vastu-grid-card__title {
