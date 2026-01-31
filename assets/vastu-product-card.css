@@ -254,7 +254,6 @@ main section .vastu-product-card .vastu-product-card__image .vastu-product-card_
   max-width: 100% !important;
   z-index: auto !important;
   inset: auto !important;
-  inset: auto !important;
 }
 
 .vastu-product-card__image .vastu-product-card__price,
@@ -639,9 +638,9 @@ xo-carousel:has(.vastu-product-card) xo-carousel-list {
   }
 
   .vastu-product-card__title {
-    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile, 1.3rem));
-    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 600));
-    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile, 1.3));
+    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
     min-height: auto;
     height: auto;
     max-height: none;
@@ -686,7 +685,6 @@ main xo-grid .vastu-product-card,
 .main-search .vastu-product-card__content .vastu-product-card__price,
 .filters-content__grid .vastu-product-card__content .vastu-product-card__price {
   position: static !important;
-  inset: auto !important;
   inset: auto !important;
   color: rgb(71 56 85) !important;
   background: transparent !important;

@@ -6,6 +6,7 @@ section[class*="slideshow-v28"] xo-carousel,
 section[class*="testimonial-v13"] xo-carousel,
 section[class*="blog-v2"] xo-carousel,
 section[class*="blog-v1"] xo-carousel,
+section[class*="blog_v1"] xo-carousel,
 section[class*="related-article"] xo-carousel,
 section[class*="product-recommendations"] xo-carousel,
 .product-recommendations-section xo-carousel,
@@ -27,6 +28,7 @@ section xo-carousel {
   .product-recommendations xo-carousel,
   xo-product-recommendations xo-carousel,
   section[class*="blog-v1"] xo-carousel,
+  section[class*="blog_v1"] xo-carousel,
   section[class*="blog-v2"] xo-carousel {
     overflow: visible;
   }
@@ -40,6 +42,7 @@ section xo-carousel {
   .product-recommendations xo-carousel-inner,
   xo-product-recommendations xo-carousel-inner,
   section[class*="blog-v1"] xo-carousel-inner,
+  section[class*="blog_v1"] xo-carousel-inner,
   section[class*="blog-v2"] xo-carousel-inner {
     overflow: visible;
     padding-right: 1rem; /* Add padding to show partial next item */
@@ -54,6 +57,7 @@ section xo-carousel {
   .product-recommendations xo-carousel-list,
   xo-product-recommendations xo-carousel-list,
   section[class*="blog-v1"] xo-carousel-list,
+  section[class*="blog_v1"] xo-carousel-list,
   section[class*="blog-v2"] xo-carousel-list {
     overflow: visible;
   }
@@ -68,6 +72,7 @@ section xo-carousel {
   .product-recommendations xo-carousel-slide,
   xo-product-recommendations xo-carousel-slide,
   section[class*="blog-v1"] xo-carousel-slide,
+  section[class*="blog_v1"] xo-carousel-slide,
   section[class*="blog-v2"] xo-carousel-slide {
     flex: 0 0 calc(85% - 1rem) !important; /* Show 85% of current item, hint at next - increased gap */
     max-width: calc(85% - 1rem) !important;
@@ -84,6 +89,7 @@ section xo-carousel {
   .product-recommendations xo-carousel[xo-per-view="1"] xo-carousel-slide,
   xo-product-recommendations xo-carousel[xo-per-view="1"] xo-carousel-slide,
   section[class*="blog-v1"] xo-carousel[xo-per-view="1"] xo-carousel-slide,
+  section[class*="blog_v1"] xo-carousel[xo-per-view="1"] xo-carousel-slide,
   section[class*="blog-v2"] xo-carousel[xo-per-view="1"] xo-carousel-slide {
     flex: 0 0 100% !important;
     max-width: 100% !important;
@@ -103,6 +109,7 @@ section xo-carousel {
   .product-recommendations xo-carousel-slide,
   xo-product-recommendations xo-carousel-slide,
   section[class*="blog-v1"] xo-carousel-slide,
+  section[class*="blog_v1"] xo-carousel-slide,
   section[class*="blog-v2"] xo-carousel-slide {
     flex: 0 0 auto !important;
     max-width: none !important;
@@ -120,6 +127,7 @@ section xo-carousel {
   .product-recommendations xo-carousel-inner,
   xo-product-recommendations xo-carousel-inner,
   section[class*="blog-v1"] xo-carousel-inner,
+  section[class*="blog_v1"] xo-carousel-inner,
   section[class*="blog-v2"] xo-carousel-inner {
     padding-right: 0 !important;
   }
@@ -357,7 +365,6 @@ xo-carousel:has(.vastu-features-bar__pagination) xo-carousel-inner,
 xo-carousel:has(.slideshow-v28__pagination) xo-carousel-inner,
 xo-carousel:has(.testimonial-v13__pagination) xo-carousel-inner,
 xo-carousel:has(.blog-v2__pagination) xo-carousel-inner,
-xo-carousel:has(.blog-v1__pagination) xo-carousel-inner,
 xo-carousel:has(.related-article__pagination) xo-carousel-inner,
 xo-carousel:has(.product-recommendations__pagination) xo-carousel-inner,
 section[class*="vastu-best-seller"] xo-carousel-inner,

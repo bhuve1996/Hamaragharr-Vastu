@@ -219,9 +219,9 @@ section[class*="testimonial-v13"] xo-container {
 }
 
 .testimonial-v13__name {
-  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop, 1.4rem));
-  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 600));
-  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
+  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
   color: rgb(71 56 85);
   margin: 0;
   letter-spacing: 0.3px;
@@ -431,9 +431,9 @@ section[class*="testimonial-v13"] xo-container {
   }
 
   .testimonial-v13__name {
-    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile, 1.3rem));
-    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 600));
-    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile, 1.3));
+    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
   }
 
   .testimonial-v13__position {

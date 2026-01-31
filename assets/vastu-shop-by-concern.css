@@ -57,9 +57,9 @@
 
 .vastu-shop-by-concern__trigger-title {
   /* Title should be larger - use card title size (20px) */
-  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop)); /* 2rem = 20px */
-  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop, 700));
-  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop, 1.3));
+  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
   color: #473855;
   margin: 0 0 0.5rem;
   text-align: left;
@@ -221,6 +221,18 @@
   color: #473855;
   font-weight: bold;
   font-size: var(--global-body-font-size-desktop);
+}
+
+/* Hide list checkmarks when section setting is off */
+section[data-show-list-checkmarks="false"] .vastu-shop-by-concern__benefits-list li::before,
+section[data-show-list-checkmarks="false"] .vastu-shop-by-concern__recommended-list li::before {
+  content: none;
+  display: none;
+}
+
+section[data-show-list-checkmarks="false"] .vastu-shop-by-concern__benefits-list li,
+section[data-show-list-checkmarks="false"] .vastu-shop-by-concern__recommended-list li {
+  padding-left: 0;
 }
 
 .vastu-shop-by-concern__benefits-list li:last-child,
@@ -513,13 +525,9 @@ section[class*="vastu-shop-by-concern"] .vastu-product-card .vastu-product-card_
 
   .vastu-shop-by-concern__trigger-title {
     /* Title should be larger - use card title size (18px mobile) */
-    font-size: var(
-      --section-card-title-font-size-mobile,
-      var(--global-card-title-font-size-mobile)
-    ); /* 1.8rem = 18px */
-
-    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 700));
-    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile, 1.3));
+    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
     text-align: left;
   }
 

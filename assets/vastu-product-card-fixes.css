@@ -908,9 +908,9 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
   .section-collection-products .xo-product-card__title a,
   .filters-content .xo-product-card__title,
   .filters-content .xo-product-card__title a {
-    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile, 1.3rem));
-    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile, 600));
-    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile, 1.3));
+    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
   }
 
   /* Ensure price in content area is visible on mobile for collection and search pages */
@@ -924,7 +924,7 @@ section[class*="product-recommendations"] .xo-product-card__add-to-cart button:a
     font-weight: var(--global-card-price-font-weight-mobile, var(--font-weight-bold, 700));
     margin: 0.5rem 0 0;
   }
-  
+
   /* Hide price overlay on mobile for collection and search pages */
   .section-collection-products .xo-product-card__price-overlay,
   .filters-content .xo-product-card__price-overlay,

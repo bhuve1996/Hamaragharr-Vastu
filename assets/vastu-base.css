@@ -146,18 +146,44 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   --bg-overlay: transparent;
 
   /* ========================================
+     GLOBAL CARD TITLE DEFAULTS (consistent 18px desktop / 16px mobile)
+     Used by product cards, blog cards, accordion titles, section cards, etc.
+     Can be overridden by theme settings (e.g. settings-adapter) or section-level vars
+     ======================================== */
+  --global-card-title-font-size-desktop: 1.8rem; /* 18px */
+  --global-card-title-font-size-mobile: 1.6rem; /* 16px */
+  --global-card-title-font-weight-desktop: 400;
+  --global-card-title-font-weight-mobile: 500;
+  --global-card-title-line-height-desktop: 1.3;
+  --global-card-title-line-height-mobile: 1.3;
+  --global-card-title-margin-bottom-desktop: 1rem;
+  --global-card-title-margin-bottom-mobile: 12px;
+
+  /* ========================================
      SECTION-LEVEL TYPOGRAPHY VARIABLES
      These allow sections to override global settings
      Fall back to global variables if not set
      ======================================== */
 
-  /* Card Title - Section Level Overrides */
+  /* Card Title - Section Level Overrides (same source as global, allows section override) */
   --section-card-title-font-size-desktop: var(--global-card-title-font-size-desktop);
   --section-card-title-font-size-mobile: var(--global-card-title-font-size-mobile);
   --section-card-title-font-weight-desktop: var(--global-card-title-font-weight-desktop);
   --section-card-title-font-weight-mobile: var(--global-card-title-font-weight-mobile);
   --section-card-title-line-height-desktop: var(--global-card-title-line-height-desktop);
   --section-card-title-line-height-mobile: var(--global-card-title-line-height-mobile);
+
+  /* Card title size alias - used by typography; same variable, responsive via desktop/mobile */
+  --card-title-size-desktop: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
+  --card-title-size-mobile: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile));
+
+  /* H2/H3 font sizes - defined so var(--h3-font-size-mobile, ...) etc. resolve; overridden by settings-adapter when present */
+  --h2-font-size-desktop: var(--global-heading-font-size-desktop, 3.5rem);
+  --h2-font-size-mobile: var(--global-heading-font-size-mobile, 2rem);
+  --h3-font-size-desktop: calc(var(--h2-font-size-desktop) * 0.75);
+
+  /* 1.6rem = 16px on mobile for consistency with card title scale (avoids 16.8px) */
+  --h3-font-size-mobile: 1.6rem;
 
   /* Body Margin - Section Level Overrides */
   --section-body-margin-bottom-desktop: var(--global-body-margin-bottom-desktop, 16px);

@@ -1,7 +1,7 @@
 {{ 'vastu-grid-carousel.css' | asset_url | stylesheet_tag }}
 
 
-<section {% render 'section-attr' %}>
+<section {% render 'section-attr' %} data-show-list-checkmarks="{% if section.settings.show_list_checkmarks %}true{% else %}false{% endif %}">
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
     {% if section.settings.title != blank %}
@@ -394,6 +394,16 @@
       "id": "padding_bottom",
       "label": "t:sections.all.padding_bottom.label",
       "default": 80
+    },
+    {
+      "type": "header",
+      "content": "List style"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_list_checkmarks",
+      "label": "Show checkmarks on benefits and recommended lists",
+      "default": false
     },
     {
       "type": "header",

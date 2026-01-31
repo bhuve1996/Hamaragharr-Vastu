@@ -517,45 +517,35 @@ footer h2,
 /* Desktop - H3 Base */
 h3,
 .h3 {
-  font-size: var(
-    --h3-font-size-desktop,
-    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
-  );
+  font-size: var(--h3-font-size-desktop);
   line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
   font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
   font-family: var(--font-heading-family, var(--font-custom-family, inherit));
 }
 
 /* Desktop - Help Address Text */
+
+/* Help address text - use card title size (18px/16px) for consistency with cards/accordions */
 .vastu-help-address-v1__text {
-  font-size: var(
-    --h3-font-size-desktop,
-    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
-  );
-  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
-  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-size: var(--card-title-size, var(--card-title-size-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   font-family: var(--font-heading-family, var(--font-custom-family, inherit));
 }
 
-/* Desktop - FAQ Question */
+/* Desktop - FAQ Question (accordion item title - use card title size for consistency) */
 .faq-v3__question {
-  font-size: var(
-    --h3-font-size-desktop,
-    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
-  );
-  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
-  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-size: var(--card-title-size, var(--card-title-size-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   font-family: var(--font-heading-family, var(--font-custom-family, inherit));
 }
 
-/* Desktop - Blog Item Title */
+/* Desktop - Blog Item Title (card title size) */
 .blog-v2__item-title {
-  font-size: var(
-    --h3-font-size-desktop,
-    calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
-  );
-  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
-  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-size: var(--card-title-size, var(--card-title-size-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   font-family: var(--font-heading-family, var(--font-custom-family, inherit));
 }
 
@@ -565,92 +555,56 @@ h3,
 .collection-card__title,
 .article-card__title,
 .card-title {
-  font-size: var(
-    --card-title-size,
-    var(
-      --h3-font-size-desktop,
-      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
-    )
-  );
-  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
-  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-size: var(--card-title-size, var(--card-title-size-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   font-family: var(--font-heading-family, var(--font-custom-family, inherit));
 }
 
 /* Desktop - Product Card Titles */
 .vastu-product-card__title,
 .vastu-grid-card__title {
-  font-size: var(
-    --card-title-size,
-    var(
-      --h3-font-size-desktop,
-      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
-    )
-  );
-  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
-  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-size: var(--card-title-size, var(--card-title-size-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   font-family: var(--font-heading-family, var(--font-custom-family, inherit));
 }
 
 /* Desktop - Best Seller Card Title */
 .vastu-best-seller-card__title {
-  font-size: var(
-    --card-title-size,
-    var(
-      --h3-font-size-desktop,
-      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
-    )
-  );
-  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
-  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-size: var(--card-title-size, var(--card-title-size-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   font-family: var(--font-heading-family, var(--font-custom-family, inherit));
 }
 
 /* Desktop - Featured Products Title */
 .vastu-featured-products__title {
-  font-size: var(
-    --card-title-size,
-    var(
-      --h3-font-size-desktop,
-      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
-    )
-  );
-  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
-  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-size: var(--card-title-size, var(--card-title-size-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   font-family: var(--font-heading-family, var(--font-custom-family, inherit));
 }
 
-/* Desktop - Shop By Concern Titles */
+/* Desktop - Shop By Concern / Accordion Item Titles */
 .vastu-shop-by-concern__trigger-title,
 .vastu-shop-by-concern__product-title,
 .vastu-shop-by-concern__benefits-title,
 .vastu-shop-by-concern__recommended-title {
-  font-size: var(
-    --card-title-size,
-    var(
-      --h3-font-size-desktop,
-      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
-    )
-  );
-  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
-  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-size: var(--card-title-size, var(--card-title-size-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   font-family: var(--font-heading-family, var(--font-custom-family, inherit));
 }
 
-/* Desktop - Dynamic Title Classes */
+/* Desktop - Dynamic Title Classes (accordion / card titles) */
 [class*="__trigger-title"]:not([class*="__question"], [class*="__description"]),
 [class*="__product-title"]:not([class*="__description"]),
 [class*="__benefits-title"]:not([class*="__description"]),
 [class*="__recommended-title"]:not([class*="__description"]) {
-  font-size: var(
-    --card-title-size,
-    var(
-      --h3-font-size-desktop,
-      calc(var(--h2-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem)) * 0.75)
-    )
-  );
-  line-height: var(--h3-line-height-desktop, var(--global-heading-line-height-desktop, 1.3));
-  font-weight: var(--h3-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
+  font-size: var(--card-title-size, var(--card-title-size-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   font-family: var(--font-heading-family, var(--font-custom-family, inherit));
 }
 
@@ -673,42 +627,30 @@ footer h4,
 @media (width <= 48rem) {
   h3,
   .h3 {
-    font-size: var(
-      --h3-font-size-mobile,
-      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
-    );
+    font-size: var(--h3-font-size-mobile);
     line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
     font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
   }
 
-  /* Mobile - Help Address Text */
+  /* Mobile - Help Address Text (card title size = 16px) */
   .vastu-help-address-v1__text {
-    font-size: var(
-      --h3-font-size-mobile,
-      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
-    );
-    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
-    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+    font-size: var(--card-title-size, var(--card-title-size-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
   }
 
-  /* Mobile - FAQ Question */
+  /* Mobile - FAQ Question (accordion item title - use card title size for consistency) */
   .faq-v3__question {
-    font-size: var(
-      --h3-font-size-mobile,
-      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
-    );
-    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
-    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+    font-size: var(--card-title-size, var(--card-title-size-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
   }
 
-  /* Mobile - Blog Item Title */
+  /* Mobile - Blog Item Title (card title size) */
   .blog-v2__item-title {
-    font-size: var(
-      --h3-font-size-mobile,
-      calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8)
-    );
-    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
-    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+    font-size: var(--card-title-size, var(--card-title-size-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
   }
 
   /* Mobile - Generic Card Titles */
@@ -717,69 +659,51 @@ footer h4,
   .collection-card__title,
   .article-card__title,
   .card-title {
-    font-size: var(
-      --card-title-size,
-      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
-    );
-    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
-    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+    font-size: var(--card-title-size, var(--card-title-size-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
   }
 
   /* Mobile - Product Card Titles */
   .vastu-product-card__title,
   .vastu-grid-card__title {
-    font-size: var(
-      --card-title-size,
-      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
-    );
-    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
-    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+    font-size: var(--card-title-size, var(--card-title-size-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
   }
 
   /* Mobile - Best Seller Card Title */
   .vastu-best-seller-card__title {
-    font-size: var(
-      --card-title-size,
-      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
-    );
-    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
-    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+    font-size: var(--card-title-size, var(--card-title-size-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
   }
 
   /* Mobile - Featured Products Title */
   .vastu-featured-products__title {
-    font-size: var(
-      --card-title-size,
-      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
-    );
-    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
-    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+    font-size: var(--card-title-size, var(--card-title-size-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
   }
 
-  /* Mobile - Shop By Concern Titles */
+  /* Mobile - Shop By Concern / Accordion Item Titles */
   .vastu-shop-by-concern__trigger-title,
   .vastu-shop-by-concern__product-title,
   .vastu-shop-by-concern__benefits-title,
   .vastu-shop-by-concern__recommended-title {
-    font-size: var(
-      --card-title-size,
-      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
-    );
-    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
-    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+    font-size: var(--card-title-size, var(--card-title-size-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
   }
 
-  /* Mobile - Dynamic Title Classes */
+  /* Mobile - Dynamic Title Classes (accordion / card titles) */
   [class*="__trigger-title"]:not([class*="__question"], [class*="__description"]),
   [class*="__product-title"]:not([class*="__description"]),
   [class*="__benefits-title"]:not([class*="__description"]),
   [class*="__recommended-title"]:not([class*="__description"]) {
-    font-size: var(
-      --card-title-size,
-      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2rem)) * 0.8))
-    );
-    line-height: var(--h3-line-height-mobile, var(--global-heading-line-height-mobile, 1.3));
-    font-weight: var(--h3-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
+    font-size: var(--card-title-size, var(--card-title-size-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
+    font-weight: var(--section-card-title-font-weight-mobile, var(--global-card-title-font-weight-mobile));
   }
 
   /* Footer H4 - Properly sized for footer */
@@ -805,7 +729,7 @@ footer h4,
 /* Desktop - H4 */
 h4,
 .h4 {
-  font-size: var(--h4-font-size-desktop, calc(var(--h3-font-size-desktop, 2.625rem) * 0.85));
+  font-size: var(--h4-font-size-desktop, calc(var(--h3-font-size-desktop) * 0.85));
   line-height: var(--h4-line-height-desktop, var(--global-heading-line-height-desktop, 1.4));
   font-weight: var(--h4-font-weight-desktop, var(--global-heading-font-weight-desktop, 600));
   font-family: var(--font-heading-family, var(--font-custom-family, inherit));
@@ -815,7 +739,7 @@ h4,
 @media (width <= 48rem) {
   h4,
   .h4 {
-    font-size: var(--h4-font-size-mobile, calc(var(--h3-font-size-mobile, 1.6rem) * 0.9));
+    font-size: var(--h4-font-size-mobile, calc(var(--h3-font-size-mobile) * 0.9));
     line-height: var(--h4-line-height-mobile, var(--global-heading-line-height-mobile, 1.4));
     font-weight: var(--h4-font-weight-mobile, var(--global-heading-font-weight-mobile, 600));
   }

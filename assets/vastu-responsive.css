@@ -158,10 +158,7 @@
 
   /* Footer H3 - Separate from H2 */
   footer h3 {
-    font-size: var(
-      --footer-h3-font-size-mobile,
-      var(--h3-font-size-mobile, calc(var(--h2-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem)) * 0.8))
-    );
+    font-size: var(--footer-h3-font-size-mobile, var(--h3-font-size-mobile));
   }
 
   xo-carousel:has(.vastu-best-seller__pagination),

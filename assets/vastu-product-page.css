@@ -1224,11 +1224,11 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   text-align: left;
 }
 
-/* Accordion Section Heading - Smaller font size for product description accordions */
+/* Accordion Section Heading - card title size (responsive) */
 .xo-product-info-content .accordion-section__heading {
-  font-size: 1.8rem; /* 18px (1rem = 10px) - smaller than default h3 */
-  line-height: 1.4;
-  font-weight: var(--global-body-font-weight-desktop, 400);
+  font-size: var(--section-card-title-font-size-desktop, var(--global-card-title-font-size-desktop));
+  line-height: var(--section-card-title-line-height-desktop, var(--global-card-title-line-height-desktop));
+  font-weight: var(--section-card-title-font-weight-desktop, var(--global-card-title-font-weight-desktop));
   color: rgb(var(--color-foreground));
   margin: 0;
   margin-bottom: 0;
@@ -1328,8 +1328,8 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   }
 
   .xo-product-info-content .accordion-section__heading {
-    font-size: 1.6rem; /* 16px (1rem = 10px) on mobile */
-    line-height: 1.4;
+    font-size: var(--section-card-title-font-size-mobile, var(--global-card-title-font-size-mobile));
+    line-height: var(--section-card-title-line-height-mobile, var(--global-card-title-line-height-mobile));
   }
 
   .xo-product-info-content .accordion-section__content {
