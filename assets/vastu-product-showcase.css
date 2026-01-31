@@ -209,38 +209,6 @@ xo-cart-quantity-plus {
   content: " ";
 }
 
-.vastu-product-showcase__read-more {
-  display: inline;
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop, 1.6rem));
-  font-weight: var(--section-description-font-weight-desktop, var(--global-description-font-weight-desktop, 600));
-  line-height: var(--section-description-line-height-desktop, var(--global-description-line-height-desktop, 1.5));
-  color: rgb(var(--color-secondary-button));
-  text-decoration: none;
-  margin-top: 0;
-  margin-left: 0.5rem;
-  white-space: nowrap;
-  transition:
-    color var(--transition-base),
-    transform var(--transition-fast);
-}
-
-@media (width <= 48rem) {
-  .vastu-product-showcase__read-more {
-    font-size: var(--section-description-font-size-mobile, var(--global-description-font-size-mobile, 1.5rem));
-    font-weight: var(--section-description-font-weight-mobile, var(--global-description-font-weight-mobile, 600));
-    line-height: var(--section-description-line-height-mobile, var(--global-description-line-height-mobile, 1.5));
-  }
-}
-
-.vastu-product-showcase__read-more:hover {
-  color: rgb(186 170 200);
-  transform: translateX(4px);
-}
-
-.vastu-product-showcase__read-more:active {
-  transform: translateX(2px);
-}
-
 .vastu-product-showcase__variants {
   margin: var(--global-body-margin-bottom-desktop, 1rem) 0;
 }

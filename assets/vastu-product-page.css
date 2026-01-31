@@ -452,23 +452,6 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   margin-bottom: 1rem;
 }
 
-.vastu-product-showcase__read-more {
-  display: inline-block;
-  font-size: var(--section-description-font-size-desktop, var(--global-description-font-size-desktop));
-  font-weight: var(--font-weight-semibold, 600);
-  color: rgb(71 56 85);
-  text-decoration: none;
-  margin-top: 0.5rem;
-  transition:
-    color 0.3s ease,
-    transform 0.2s ease;
-}
-
-.vastu-product-showcase__read-more:hover {
-  color: rgb(186 170 200);
-  transform: translateX(4px);
-}
-
 .vastu-product-showcase__variants {
   margin: 1rem 0;
 }
