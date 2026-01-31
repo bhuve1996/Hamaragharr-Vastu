@@ -3,7 +3,7 @@
 {% liquid
   assign is_policy_page = false
   if template.name == 'page' and template.suffix != blank
-    if template.suffix == 'terms-conditions' or template.suffix == 'privacy-policy' or template.suffix == 'return-refund-policy' or template.suffix == 'delivery-information'
+    if template.suffix == 'terms-conditions' or template.suffix == 'privacy-policy' or template.suffix == 'return-refund-policy' or template.suffix == 'delivery-information' or template.suffix == 'about' or template.suffix == 'about-us-1' or template.suffix == 'about-us-2' or template.suffix == 'about-us-3' or template.suffix == 'about-us-4'
       assign is_policy_page = true
     endif
   endif

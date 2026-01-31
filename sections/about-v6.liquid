@@ -1,4 +1,20 @@
-
+{% liquid
+  assign is_about_page = false
+  if template.name == 'page' and template.suffix != blank
+    if template.suffix == 'about' or template.suffix == 'about-us-1' or template.suffix == 'about-us-2' or template.suffix == 'about-us-3' or template.suffix == 'about-us-4'
+      assign is_about_page = true
+    endif
+  endif
+  assign hide_image_if_blank = is_about_page
+  assign content_full_width = false
+  if hide_image_if_blank and section.settings.image == blank
+    assign content_full_width = true
+  endif
+  assign content_lg_cols = 5
+  if content_full_width
+    assign content_lg_cols = 12
+  endif
+%}
 
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
@@ -6,7 +22,7 @@
     <xo-grid>
       <div
         style='
-          --xs: 12; --lg: 5; {%- if section.settings.reverse -%}
+          --xs: 12; --lg: {{ content_lg_cols }}; {%- if section.settings.reverse and content_full_width == false -%}
             --start-lg: 8
           {%- endif -%}
         '
@@ -19,17 +35,19 @@
           {{ section.settings.description }}
         </xo-animate>
       </div>
-      <xo-animate
-        xo-cascade
-        class='{% render 'hover-style' %}'
-        style='
-          --xs: 12; --lg: 6;
-          {%- if section.settings.reverse -%}--order-lg: -1;
-          {%- else -%}--start-lg: 7{%- endif %}
-        '
-      >
-        {% render 'image', image: section.settings.image, media_aspect_ratio: '615/600' %}
-      </xo-animate>
+      {% unless hide_image_if_blank and section.settings.image == blank %}
+        <xo-animate
+          xo-cascade
+          class='{% render 'hover-style' %}'
+          style='
+            --xs: 12; --lg: 6;
+            {%- if section.settings.reverse -%}--order-lg: -1;
+            {%- else -%}--start-lg: 7{%- endif %}
+          '
+        >
+          {% render 'image', image: section.settings.image, media_aspect_ratio: '615/600' %}
+        </xo-animate>
+      {% endunless %}
     </xo-grid>
   </xo-container>
     {% render 'section-separator',
