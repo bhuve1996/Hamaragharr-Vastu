@@ -143,6 +143,7 @@
       {{ 'vastu-sections-spacing.css' | asset_url | stylesheet_tag }}
       {{ 'section-spacing.css' | asset_url | stylesheet_tag }}
       {{ 'vastu-global-spacing.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-policy-pages.css' | asset_url | stylesheet_tag }}
       {{ 'vastu-product-page.css' | asset_url | stylesheet_tag }}
       {{ 'vastu-product-showcase.css' | asset_url | stylesheet_tag }}
       {{ 'vastu-shipping-link.css' | asset_url | stylesheet_tag }}
@@ -181,6 +182,7 @@
       {{ 'vastu-base.css' | asset_url | stylesheet_tag }}
       {{ 'vastu-global-typography.css' | asset_url | stylesheet_tag }}
       {{ 'vastu-global-spacing.css' | asset_url | stylesheet_tag }}
+      {{ 'vastu-policy-pages.css' | asset_url | stylesheet_tag }}
       {{ 'vastu-headings.css' | asset_url | stylesheet_tag }}
       {{ 'vastu-typography.css' | asset_url | stylesheet_tag }}
       {{ 'vastu-buttons-hover.css' | asset_url | stylesheet_tag }}
@@ -260,7 +262,7 @@
     {%- endif -%}
   </head>
 
-  <body class='gradient vastu-page-loading'>
+  <body class='gradient vastu-page-loading template-{{ template | replace: ".", "-" }}'>
     {%- comment -%} Page Loader {%- endcomment -%}
     <div 
       class='vastu-page-loader' 

@@ -8,6 +8,7 @@
   - container_class: {String} Class of the image (required)
   - class: {String} Class of the image (required)
   - placeholder: {String} Placeholder SVG. Default: "detailed-apparel-1" (optional)
+  - show_placeholder: {Boolean} When false and image is blank, show nothing. Default: true (optional)
   - media_aspect_ratio: {Number} Aspect ratio of the image (optional)
   - fallback_width: {Number} Fallback width of the image (optional)
   - widths: {String} srcset attribute
@@ -103,8 +104,10 @@
       </div>
     {%- endif -%}
   {%- else -%}
-    <div class='xo-image__placeholder' style='--xo-ratio-percent: {{ media_aspect_ratio }}'>
-      {{ placeholder | default: 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-    </div>
+    {%- if show_placeholder != false -%}
+      <div class='xo-image__placeholder' style='--xo-ratio-percent: {{ media_aspect_ratio }}'>
+        {{ placeholder | default: 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {%- endif -%}
   {%- endif -%}
 </div>

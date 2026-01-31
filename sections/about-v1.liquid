@@ -1,9 +1,27 @@
 
 
+{% liquid
+  assign is_policy_page = false
+  if template.name == 'page' and template.suffix != blank
+    if template.suffix == 'terms-conditions' or template.suffix == 'privacy-policy' or template.suffix == 'return-refund-policy'
+      assign is_policy_page = true
+    endif
+  endif
+  assign hide_image_if_blank = is_policy_page
+  if hide_image_if_blank
+    assign image_show_placeholder = false
+  else
+    assign image_show_placeholder = true
+  endif
+  assign content_full_width = false
+  if hide_image_if_blank and section.settings.image == blank
+    assign content_full_width = true
+  endif
+%}
 <section {% render 'section-attr' %}>
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
-    <xo-grid style='--xs: 1; --lg: 2; --xo-grid-col-gap: {{ section.settings.gap }}px;'>
+    <xo-grid style='--xs: 1; --lg: {% if content_full_width %}1{% else %}2{% endif %}; --xo-grid-col-gap: {{ section.settings.gap }}px;'>
       <div class='about-v1__content'>
         <xo-animate xo-cascade>
           <h2 class='about-v1__title'>{{ section.settings.title }}</h2>
@@ -15,15 +33,17 @@
           {{ section.settings.description }}
         </xo-animate>
       </div>
-      <xo-animate
-        xo-cascade
-        class='{% render 'hover-style' %}'
-        {% if section.settings.reverse %}
-          style='--order-lg: -1'
-        {% endif %}
-      >
-        {% render 'image', image: section.settings.image, media_aspect_ratio: '665/450' %}
-      </xo-animate>
+      {% unless hide_image_if_blank and section.settings.image == blank %}
+        <xo-animate
+          xo-cascade
+          class='{% render 'hover-style' %}'
+          {% if section.settings.reverse %}
+            style='--order-lg: -1'
+          {% endif %}
+        >
+          {% render 'image', image: section.settings.image, media_aspect_ratio: '665/450', show_placeholder: image_show_placeholder %}
+        </xo-animate>
+      {% endunless %}
     </xo-grid>
   </xo-container>
     {% render 'section-separator',

@@ -196,7 +196,8 @@ h2,
 .homepage-section-heading,
 .vastu-section-title,
 .vastu-section-heading,
-.xo-section-heading__title {
+.xo-section-heading__title,
+.about-v1__title {
   font-size: var(
     --h2-font-size-desktop,
     var(--section-heading-font-size-desktop, var(--global-heading-font-size-desktop, 3.5rem))
@@ -445,7 +446,8 @@ footer h2,
   .homepage-section-heading,
   .vastu-section-title,
   .vastu-section-heading,
-  .xo-section-heading__title {
+  .xo-section-heading__title,
+  .about-v1__title {
     font-size: var(
       --h2-font-size-mobile,
       var(--section-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2rem))
