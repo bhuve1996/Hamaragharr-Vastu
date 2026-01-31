@@ -82,71 +82,17 @@
       <div class='xo-modal-content-style1__footer{% if footer_class %} {{ footer_class }}{% endif %}'>
         {% if settings.cart_drawer_collection.products %}
           <h5 class='title-collection-cart'>You may also like</h5>
-          <xo-carousel
-            xo-per-view='1.53'
-            xo-breakpoints='
-              {
-                375: {
-                  perView: 1.2,
-                }
-              }
-            '
-          >
-            <div class='cart-carousel-btn__wrap'>
-              <xo-carousel-prev class='cart-carousel-btn'>
-                <button class='button-trans'>
-                  {% render 'icon', name: 'arrow-left', icon_size: '12' %}
-                </button>
-              </xo-carousel-prev>
-              <xo-carousel-next class='cart-carousel-btn'>
-                <button class='button-trans'>
-                  {% render 'icon', name: 'arrow-right', icon_size: '12' %}
-                </button>
-              </xo-carousel-next>
-            </div>
-            <xo-carousel-inner>
-              <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
-                {% for product in settings.cart_drawer_collection.products limit: 4 %}
-                  <xo-carousel-slide
-                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
-                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
-                  >
-                    <xo-product class='collection-product-footer' xo-product-id='{{ product.id }}' xo-section-id='{{section.id}}' xo-line='{{ forloop.index }}'>
-                      <div class='collection-product-footer__header'>
-                        <div style='overflow: hidden;' xo-binding='img'>
-                          <a href='{{ product.url }}' class='collection-product-footer__img'>
-                            {% render 'image', image: product.featured_image, media_aspect_ratio: media_aspect_ratio %}
-                          </a>
-                        </div>
-                      </div>
-                      <div class='collection-product-footer__content'>
-                        <h2 class='collection-product-footer__name-product'>
-                          <a href='{{ product.url }}'>
-                            {% render 'product-display-title', product: product %}
-                          </a>
-                        </h2>
-                        <div class='collection-product-footer__price'>
-                          <div class='collection-product-footer__price-inner' xo-binding='price'>
-                            {% render 'price', product: product, use_variant: true, reverse: false %}
-                          </div>
-                        </div>
-                        <xo-cart-add
-                          class='xo-product-card__add'
-                          {% if product.selected_or_first_available_variant.available == false %}
-                            xo-disabled
-                          {% endif %}
-                        >
-                          <span> + Add to Cart</span>
-                        </xo-cart-add>
-                      </div>
-                      {% render 'product-data', product: product %}
-                      {% render 'product-static-data', product: product, media_aspect_ratio: media_aspect_ratio %}
-                    </xo-product>
-                  </xo-carousel-slide>
-                {% endfor %}
-              </xo-carousel-list>
-            </xo-carousel-inner>
-          </xo-carousel>
+          <xo-grid class='vastu-grid-carousel__grid xo-modal-content-style1__you-may-also-like' style='--xs: 2; --sm: 2; --md: 2; --lg: 4; --xo-grid-col-gap: 16px; --xo-grid-row-gap: 16px;'>
+            {% for product in settings.cart_drawer_collection.products limit: 4 %}
+              <div class='vastu-grid-carousel__grid-item'>
+                {% render 'vastu-product-card',
+                  product: product,
+                  section: section,
+                  settings: settings
+                %}
+              </div>
+            {% endfor %}
+          </xo-grid>
         {% endif %}
         <div class='xo-modal-content-style__box-footer'>
           {{ footer }}

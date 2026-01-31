@@ -141,10 +141,22 @@ section xo-carousel {
 .slideshow-v28__pagination,
 .vastu-trust-bar__pagination,
 .vastu-features-bar__pagination,
-.blog-v2__pagination,
-.carousel-pagination-style3 {
+.blog-v2__pagination {
   position: absolute;
   bottom: 0.625rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  pointer-events: auto;
+}
+
+.carousel-pagination-style3 {
+  position: absolute;
+  bottom: -1.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;

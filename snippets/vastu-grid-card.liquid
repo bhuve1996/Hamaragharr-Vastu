@@ -62,15 +62,19 @@
     </a>
     {% if current_product.variants.size > 1 %}
       <div class='vastu-grid-card__add-to-cart'>
-        <xo-modal-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}'>
-          {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
-        </xo-modal-trigger>
+        <div class='vastu-grid-card__add-to-cart-inner'>
+          <xo-modal-trigger xo-name='product-variant-modal-{{ current_product.id }}-{{ section.id }}'>
+            {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+          </xo-modal-trigger>
+        </div>
       </div>
     {% else %}
       <div class='vastu-grid-card__add-to-cart'>
-        <xo-cart-add {% if current_product.selected_or_first_available_variant.available == false %}xo-disabled{% endif %}>
-          {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
-        </xo-cart-add>
+        <div class='vastu-grid-card__add-to-cart-inner'>
+          <xo-cart-add {% if current_product.selected_or_first_available_variant.available == false %}xo-disabled{% endif %}>
+            {% render 'button', text: button_text, style: 'secondary', mode: 'light', size: 'md', block: true %}
+          </xo-cart-add>
+        </div>
       </div>
     {% endif %}
     {% if current_product.variants.size > 1 %}

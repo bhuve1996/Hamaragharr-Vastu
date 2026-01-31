@@ -13,8 +13,8 @@
         {% render 'empty', title: empty_title, content: empty_content %}
       {% else %}
         <xo-grid
-          class='filters-content__grid'
-          style='--xs: {{ section.settings.columns_mobile }}; --sm: {{ section.settings.columns_mobile }}; --md: {{ section.settings.columns_desktop | minus: 1 }}; --lg: {{ section.settings.columns_desktop }}'
+          class='filters-content__grid vastu-grid-carousel__grid'
+          style='--xs: {{ section.settings.columns_mobile }}; --sm: {{ section.settings.columns_mobile }}; --md: {{ section.settings.columns_desktop | minus: 1 }}; --lg: {{ section.settings.columns_desktop }}; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'
         >
           {%- for item in search.results -%}
             {%- liquid
@@ -47,7 +47,7 @@
               {%- case item.object_type -%}
                 {%- when 'product' -%}
                   {%- if show_product -%}
-                    <div class='filters-content__item-wrapper' data-type='product'>
+                    <div class='filters-content__item-wrapper vastu-grid-carousel__grid-item' data-type='product'>
                       {% render 'vastu-product-card',
                         product: item,
                         section: section,

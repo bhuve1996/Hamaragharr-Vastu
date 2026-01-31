@@ -1,4 +1,6 @@
-/* Vastu Grid Carousel Section Styles */
+/* Vastu Grid Carousel + Single Product Card CSS
+   This file styles the grid carousel section AND all product cards site-wide.
+   One card snippet: vastu-grid-card. One CSS: this file. */
 
 /* Container Border Option - Add class "has-container-border" to grid/carousel containers */
 .vastu-grid-carousel__grid.has-container-border,
@@ -236,8 +238,8 @@ section[class*="vastu-grid-carousel"] {
   }
 
   .vastu-grid-carousel__desktop-carousel--fullwidth xo-carousel-slide {
-    padding-left: 1.25rem; /* Increased from 0.625rem */
-    padding-right: 1.25rem; /* Increased from 0.625rem */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     display: flex;
     height: auto;
     min-height: 0;
@@ -636,17 +638,19 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   border-top-right-radius: 0.75rem;
 }
 
-/* Price on image - absolute positioning at top (only if price is inside image) */
+/* Price on image - absolute positioning at top (only if price is inside image) - with left spacing */
 .vastu-grid-card__image .vastu-grid-card__price,
 .vastu-grid-card .vastu-grid-card__image .vastu-grid-card__price,
 .vastu-grid-card__link .vastu-grid-card__image .vastu-grid-card__price,
 section .vastu-grid-card .vastu-grid-card__image .vastu-grid-card__price,
 section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .vastu-grid-card__price {
   position: absolute;
-  inset: 0.75rem 0.75rem auto auto;
+  top: 0.75rem;
+  right: 0.75rem;
+  left: auto;
   width: auto;
   height: auto;
-  max-width: calc(100% - 1.5rem);
+  max-width: calc(100% - 2.25rem);
   min-width: auto;
   background: rgb(71 56 85 / 90%);
   color: #fff;
@@ -667,7 +671,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
   text-overflow: ellipsis;
 }
 
-/* Price in content area - normal flow at bottom (override absolute positioning) */
+/* Price in content area - normal flow at bottom (override absolute positioning) - breathing space */
 .vastu-grid-card__content .vastu-grid-card__price,
 .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
 section .vastu-grid-card .vastu-grid-card__content .vastu-grid-card__price,
@@ -682,7 +686,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__content
   box-shadow: none;
   color: rgb(71 56 85);
   padding: 0;
-  margin: 0.75rem 0 0;
+  margin: 0;
   display: block;
   flex: none;
   border-radius: 0;
@@ -716,7 +720,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__image .
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 1.25rem 1.75rem 1.5rem;
   text-align: left;
   min-height: 0;
   overflow: visible;
@@ -729,7 +733,7 @@ section[class*="product-recommendations"] .vastu-grid-card__content,
 .product-recommendations-section .vastu-grid-card__content,
 .product-recommendations .vastu-grid-card__content,
 xo-product-recommendations .vastu-grid-card__content {
-  padding: 1.5rem;
+  padding: 1.25rem 1.75rem 1.5rem;
 }
 
 .vastu-grid-card__title {
@@ -769,6 +773,15 @@ xo-product-recommendations .vastu-grid-card__content {
   opacity: 1;
 }
 
+/* Inner wrapper: margin matches product pricing alignment without disturbing content flow */
+.vastu-grid-card__add-to-cart-inner {
+  width: calc(100% - 2rem);
+  max-width: calc(100% - 2rem);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  box-sizing: border-box;
+}
+
 .vastu-grid-card__add-to-cart .xo-btn,
 .vastu-grid-card__add-to-cart button,
 .vastu-grid-card__add-to-cart xo-cart-add,
@@ -795,6 +808,13 @@ xo-product-recommendations .vastu-grid-card__content {
   border: none;
   box-sizing: border-box;
   white-space: nowrap;
+}
+
+/* Align button margin on sides like price (same horizontal spacing as content) */
+.vastu-grid-card__add-to-cart .xo-btn.xo-btn--light.xo-btn--secondary.xo-btn--md.xo-btn--slide-up.xo-btn--block,
+.vastu-grid-card__add-to-cart button.xo-btn--light.xo-btn--secondary.xo-btn--md.xo-btn--slide-up.xo-btn--block {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .vastu-grid-card__add-to-cart .xo-btn--secondary,
@@ -1005,7 +1025,7 @@ section:has(.vastu-grid-card) xo-carousel-inner {
 /* Mobile responsive */
 @media (width <= 767px) {
   .vastu-grid-card__content {
-    padding: 1.5rem 0 0;
+    padding: 1.25rem 1.25rem 0;
   }
 
   .vastu-grid-card__title {
@@ -1037,7 +1057,7 @@ section:has(.vastu-grid-card) xo-carousel-inner {
     box-shadow: none;
     color: rgb(71 56 85);
     padding: 0;
-    margin: 0.75rem 0;
+    margin: 0;
     display: block;
     border-radius: 0;
     z-index: auto;
@@ -1088,4 +1108,92 @@ section:has(.vastu-grid-card) xo-carousel-inner {
     margin-bottom: 0;
     padding-bottom: 0;
   }
+}
+
+/* Shop/Collection page: single card everywhere - filters-content and list layout */
+.filters-content__grid .vastu-grid-card,
+.section-collection-products .vastu-grid-card,
+.filters-content__grid > * .vastu-grid-card,
+.section-collection-products xo-grid .vastu-grid-card {
+  min-height: 100%;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.filters-content__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.filters-content__list .vastu-grid-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Wishlist page: same grid + card CSS as rest of site */
+.main-wishlist__grid-wrapper,
+.main-wishlist .main-wishlist__grid-wrapper {
+  width: 100%;
+  display: block;
+}
+
+.main-wishlist__grid,
+.main-wishlist .main-wishlist__grid {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.main-wishlist__grid-item,
+.main-wishlist .main-wishlist__grid-item {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.main-wishlist__grid .vastu-grid-card,
+.main-wishlist .main-wishlist__grid .vastu-grid-card {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+@media (width <= 767px) {
+  .main-wishlist__grid {
+    --xo-grid-col-gap: 16px;
+    --xo-grid-row-gap: 16px;
+  }
+
+  .main-wishlist__grid-item.vastu-grid-carousel__grid-item {
+    flex: 0 0 calc(50% - 8px);
+  }
+}
+
+/* Collection/Shop grid: same grid-item rules as carousel grid */
+.filters-content__grid.vastu-grid-carousel__grid .vastu-grid-carousel__grid-item,
+.section-collection-products .vastu-grid-carousel__grid .vastu-grid-carousel__grid-item {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Modal "You may also like": same grid + card, compact in drawer */
+.xo-modal-content-style1__you-may-also-like.vastu-grid-carousel__grid {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.xo-modal-content-style1__you-may-also-like .vastu-grid-carousel__grid-item .vastu-grid-card {
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
 }

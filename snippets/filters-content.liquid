@@ -25,38 +25,27 @@
         {%- else -%}
           {%- if product_layout == 'grid' -%}
             <xo-grid
-              class='filters-content__grid'
-              style='--xs: {{ columns_mobile }}; --sm: {{ columns_mobile }}; --md: {{ columns_desktop | minus: 1 }}; --lg: {{ columns_desktop }}'
+              class='filters-content__grid vastu-grid-carousel__grid'
+              style='--xs: {{ columns_mobile }}; --sm: {{ columns_mobile }}; --md: {{ columns_desktop | minus: 1 }}; --lg: {{ columns_desktop }}; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'
             >
+              {%- for product in collection.products -%}
+                <div class='vastu-grid-carousel__grid-item'>
+                  {% render 'vastu-product-card',
+                    product: product,
+                    section: section,
+                    settings: section.settings
+                  %}
+                </div>
+              {%- endfor -%}
+            </xo-grid>
+          {%- else -%}
+            <div class='filters-content__list'>
               {%- for product in collection.products -%}
                 {% render 'vastu-product-card',
                   product: product,
                   section: section,
                   settings: section.settings
                 %}
-              {%- endfor -%}
-            </xo-grid>
-          {%- else -%}
-            <div class='filters-content__list'>
-              {%- for product in collection.products -%}
-                {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
-                {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
-                {% render 'product-card-list',
-                  product: product,
-                  variant_modal_placement: settings.variant_modal_placement,
-                  product_card_media_type: settings.product_card_media_type,
-                  show_image: section.settings.product_card_show_image,
-                  show_vendor: section.settings.product_card_show_vendor,
-                  show_description: section.settings.product_card_show_description,
-                  show_quick_add: section.settings.product_card_show_quick_add,
-                  show_quick_view: section.settings.product_card_show_quick_view,
-                  show_wishlist: section.settings.product_card_show_wishlist,
-                  show_price: section.settings.product_card_show_price,
-                  show_badge: section.settings.product_card_show_badge,
-                  media_aspect_ratio: section.settings.product_card_aspect_ratio,
-                  color_scheme: section.settings.card_color_scheme,
-                  placeholder_image: placeholder_image
-                -%}
               {%- endfor -%}
             </div>
           {%- endif -%}
@@ -75,38 +64,27 @@
       {%- else -%}
         {%- if product_layout == 'grid' -%}
           <xo-grid
-            class='filters-content__grid'
-            style='--xs: {{ columns_mobile }}; --sm: {{ columns_mobile }}; --md: {{ columns_desktop | minus: 1 }}; --lg: {{ columns_desktop }}'
+            class='filters-content__grid vastu-grid-carousel__grid'
+            style='--xs: {{ columns_mobile }}; --sm: {{ columns_mobile }}; --md: {{ columns_desktop | minus: 1 }}; --lg: {{ columns_desktop }}; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'
           >
+            {%- for product in collection.products -%}
+              <div class='vastu-grid-carousel__grid-item'>
+                {% render 'vastu-product-card',
+                  product: product,
+                  section: section,
+                  settings: section.settings
+                %}
+              </div>
+            {%- endfor -%}
+          </xo-grid>
+        {%- else -%}
+          <div class='filters-content__list'>
             {%- for product in collection.products -%}
               {% render 'vastu-product-card',
                 product: product,
                 section: section,
                 settings: section.settings
               %}
-            {%- endfor -%}
-          </xo-grid>
-        {%- else -%}
-          <div class='filters-content__list'>
-            {%- for product in collection.products -%}
-              {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
-              {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
-              {% render 'product-card-list',
-                product: product,
-                variant_modal_placement: settings.variant_modal_placement,
-                product_card_media_type: settings.product_card_media_type,
-                show_image: section.settings.product_card_show_image,
-                show_vendor: section.settings.product_card_show_vendor,
-                show_description: section.settings.product_card_show_description,
-                show_quick_add: section.settings.product_card_show_quick_add,
-                show_quick_view: section.settings.product_card_show_quick_view,
-                show_wishlist: section.settings.product_card_show_wishlist,
-                show_price: section.settings.product_card_show_price,
-                show_badge: section.settings.product_card_show_badge,
-                media_aspect_ratio: section.settings.product_card_aspect_ratio,
-                color_scheme: section.settings.card_color_scheme,
-                placeholder_image: placeholder_image
-              -%}
             {%- endfor -%}
           </div>
         {%- endif -%}

@@ -1,3 +1,4 @@
+/* Superseded by vastu-grid-carousel.css (single card CSS). Kept for reference; not loaded in theme.liquid. */
 .vastu-product-card {
   display: flex;
   flex-direction: column;
@@ -184,19 +185,6 @@
   border-top-right-radius: 0.75rem;
 }
 
-/* .vastu-product-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.3s ease;
-} */
-
-/* .vastu-product-card:hover .vastu-product-card__image img {
-  transform: scale(1.05);
-} */
-
 .vastu-product-card__image .vastu-product-card__price,
 .vastu-product-card .vastu-product-card__image .vastu-product-card__price,
 .vastu-product-card__link .vastu-product-card__image .vastu-product-card__price,
@@ -266,10 +254,7 @@ main section .vastu-product-card .vastu-product-card__image .vastu-product-card_
   max-width: 100% !important;
   z-index: auto !important;
   inset: auto !important;
-  top: auto !important;
-  right: auto !important;
-  left: auto !important;
-  bottom: auto !important;
+  inset: auto !important;
 }
 
 .vastu-product-card__image .vastu-product-card__price,
@@ -701,10 +686,7 @@ main xo-grid .vastu-product-card,
 .main-search .vastu-product-card__content .vastu-product-card__price,
 .filters-content__grid .vastu-product-card__content .vastu-product-card__price {
   position: static !important;
-  top: auto !important;
-  right: auto !important;
-  left: auto !important;
-  bottom: auto !important;
+  inset: auto !important;
   inset: auto !important;
   color: rgb(71 56 85) !important;
   background: transparent !important;

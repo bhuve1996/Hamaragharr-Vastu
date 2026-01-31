@@ -9,7 +9,7 @@
     <xo-container {% render 'section-layout' %}>
       <div class='main-wishlist__inner'>
         <div class='main-wishlist__list'>
-          {% render 'wishlist-table' %}
+          {% render 'wishlist-table', section: section %}
         </div>
         <div class='main-wishlist__empty'>
           {%- assign title = 'sections.wishlist.empty' | t -%}

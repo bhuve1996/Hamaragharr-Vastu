@@ -226,7 +226,7 @@ xo-cart-quantity-plus {
   border-radius: var(--inputs-radius, 0.4rem);
   background-color: rgb(var(--color-background));
   overflow: hidden;
-  width: var(--width, 10rem);
+  width: unset;
   height: var(--height, 4rem);
 }
 

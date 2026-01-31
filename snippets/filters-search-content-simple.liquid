@@ -13,8 +13,8 @@
       {%- else -%}
         {%- if product_layout == 'grid' -%}
           <xo-grid
-            class='filters-content__grid'
-            style='--xs: {{ columns_mobile }}; --sm: {{ columns_mobile }}; --md: {{ columns_desktop | minus: 1 }}; --lg: {{ columns_desktop }}'
+            class='filters-content__grid vastu-grid-carousel__grid'
+            style='--xs: {{ columns_mobile }}; --sm: {{ columns_mobile }}; --md: {{ columns_desktop | minus: 1 }}; --lg: {{ columns_desktop }}; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'
           >
             {%- for item in search.results -%}
               {%- liquid
@@ -37,11 +37,13 @@
               -%}
               {%- unless should_exclude -%}
                 {%- if item.object_type == 'product' -%}
-                  {% render 'vastu-product-card',
-                    product: item,
-                    section: section,
-                    settings: section.settings
-                  %}
+                  <div class='vastu-grid-carousel__grid-item'>
+                    {% render 'vastu-product-card',
+                      product: item,
+                      section: section,
+                      settings: section.settings
+                    %}
+                  </div>
                 {%- endif -%}
               {%- endunless -%}
             {%- endfor -%}
