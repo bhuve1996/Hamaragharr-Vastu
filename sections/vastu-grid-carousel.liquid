@@ -85,6 +85,7 @@
       <div class='vastu-grid-carousel__mobile-grid'>
         <xo-container>
           <xo-grid class='vastu-grid-carousel__grid' style='--xs: 2; --sm: 2; --md: 2; --lg: 2; --xl: 2; --xxl: 2; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'>
+            {%- assign has_hidden_items_mobile1 = false -%}
             {%- if product_source == 'blocks' -%}
               {%- for block in section.blocks -%}
                 {%- if block.type == 'product' and block.settings.product != blank -%}
@@ -99,6 +100,7 @@
                       %}
                     </div>
                     {%- else -%}
+                      {%- assign has_hidden_items_mobile1 = true -%}
                       <div class='vastu-grid-carousel__grid-item vastu-grid-carousel__grid-item--hidden' {{ block.shopify_attributes }}>
                         {% render 'vastu-grid-card',
                           product: current_product,
@@ -127,6 +129,7 @@
                     %}
                   </div>
                   {%- else -%}
+                    {%- assign has_hidden_items_mobile1 = true -%}
                     <div class='vastu-grid-carousel__grid-item vastu-grid-carousel__grid-item--hidden'>
                       {% render 'vastu-grid-card',
                         product: product,
@@ -140,7 +143,7 @@
             {%- endif -%}
           </xo-grid>
         </xo-container>
-        {%- if has_more_products -%}
+        {%- if has_hidden_items_mobile1 -%}
           <div class='vastu-grid-carousel__view-more-wrapper'>
             <button 
               type='button'
@@ -252,6 +255,7 @@
       {% comment %} Mobile Grid {% endcomment %}
       <div class='vastu-grid-carousel__mobile-grid'>
         <xo-grid class='vastu-grid-carousel__grid' style='--xs: 2; --sm: 2; --md: 2; --lg: 2; --xl: 2; --xxl: 2; --xo-grid-col-gap: 20px; --xo-grid-row-gap: 20px;'>
+          {%- assign has_hidden_items_mobile2 = false -%}
           {%- if product_source == 'blocks' -%}
             {%- for block in section.blocks -%}
               {%- if block.type == 'product' and block.settings.product != blank -%}
@@ -266,6 +270,7 @@
                     %}
                   </div>
                   {%- else -%}
+                    {%- assign has_hidden_items_mobile2 = true -%}
                     <div class='vastu-grid-carousel__grid-item vastu-grid-carousel__grid-item--hidden' {{ block.shopify_attributes }}>
                       {% render 'vastu-grid-card',
                         product: current_product,
@@ -294,6 +299,7 @@
                   %}
                 </div>
                 {%- else -%}
+                  {%- assign has_hidden_items_mobile2 = true -%}
                   <div class='vastu-grid-carousel__grid-item vastu-grid-carousel__grid-item--hidden'>
                     {% render 'vastu-grid-card',
                       product: product,
@@ -306,7 +312,7 @@
             {%- endfor -%}
           {%- endif -%}
         </xo-grid>
-        {%- if has_more_products -%}
+        {%- if has_hidden_items_mobile2 -%}
           <div class='vastu-grid-carousel__view-more-wrapper'>
             <button 
               type='button'
@@ -415,98 +421,63 @@
 
 <script>
   (function() {
+    var VISIBLE_CLASS = 'vastu-grid-carousel__view-more-visible';
+    var HIDDEN_ITEM_CLASS = 'vastu-grid-carousel__grid-item--hidden';
+    var MOBILE_MAX = 991;
+
+    function isMobile() {
+      return window.innerWidth <= MOBILE_MAX;
+    }
+
+    function syncViewMore() {
+      document.querySelectorAll('.vastu-grid-carousel__view-more-wrapper').forEach(function(wrapper) {
+        var mobileGrid = wrapper.closest('.vastu-grid-carousel__mobile-grid');
+        if (!mobileGrid) return;
+        var hiddenCount = mobileGrid.querySelectorAll('.' + HIDDEN_ITEM_CLASS).length;
+        if (isMobile() && hiddenCount > 0) {
+          wrapper.classList.add(VISIBLE_CLASS);
+        } else {
+          wrapper.classList.remove(VISIBLE_CLASS);
+        }
+      });
+    }
+
     function initViewMore() {
       document.querySelectorAll('.vastu-grid-carousel__view-more-btn').forEach(function(btn) {
-        if (btn.dataset.initialized) return;
-        btn.dataset.initialized = 'true';
-        
+        if (btn.dataset.vastuViewMoreInit) return;
+        btn.dataset.vastuViewMoreInit = '1';
+
         btn.addEventListener('click', function() {
-          const sectionId = this.dataset.sectionId;
-          const currentLimit = parseInt(this.dataset.currentLimit, 10) || 6;
-          const increment = parseInt(this.dataset.increment, 10) || 6;
-          const totalProducts = parseInt(this.dataset.totalProducts, 10) || 0;
-          const newLimit = Math.min(currentLimit + increment, totalProducts);
+          var wrapper = this.closest('.vastu-grid-carousel__view-more-wrapper');
+          var mobileGrid = wrapper && wrapper.closest('.vastu-grid-carousel__mobile-grid');
+          if (!mobileGrid) return;
 
-          // Find section root (has data-section-id so JS can find mobile grid)
-          const section = document.querySelector(`[data-section-id="${sectionId}"]`);
-          if (!section) return;
+          var increment = parseInt(this.dataset.increment, 10) || 6;
+          var hidden = mobileGrid.querySelectorAll('.' + HIDDEN_ITEM_CLASS);
+          var toShow = Math.min(hidden.length, increment);
 
-          const gridContainer = section.querySelector('.vastu-grid-carousel__mobile-grid');
-          if (!gridContainer) return;
-
-          const hiddenItems = gridContainer.querySelectorAll('.vastu-grid-carousel__grid-item--hidden');
-          const itemsToShow = Math.min(hiddenItems.length, increment);
-
-          for (let i = 0; i < itemsToShow; i++) {
-            hiddenItems[i]?.classList.remove('vastu-grid-carousel__grid-item--hidden');
+          for (var i = 0; i < toShow; i++) {
+            if (hidden[i]) hidden[i].classList.remove(HIDDEN_ITEM_CLASS);
           }
 
-          this.dataset.currentLimit = String(newLimit);
-
-          const remainingHidden = gridContainer.querySelectorAll('.vastu-grid-carousel__grid-item--hidden').length;
-          const hasMoreProducts = remainingHidden > 0;
-
-          if (!hasMoreProducts) {
-            this.style.display = 'none';
-            const wrapper = this.closest('.vastu-grid-carousel__view-more-wrapper');
-            if (wrapper) {
-              wrapper.style.display = 'none';
-              wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
-            }
-          }
+          syncViewMore();
         });
       });
     }
-    
-    // On load: hide View More if all products are already visible or no hidden items
-    function checkInitialButtonState() {
-      document.querySelectorAll('.vastu-grid-carousel__view-more-btn').forEach(function(btn) {
-        const sectionId = btn.dataset.sectionId;
-        const currentLimit = parseInt(btn.dataset.currentLimit, 10) || 6;
-        const totalProducts = parseInt(btn.dataset.totalProducts, 10) || 0;
 
-        if (currentLimit >= totalProducts) {
-          btn.style.display = 'none';
-          const wrapper = btn.closest('.vastu-grid-carousel__view-more-wrapper');
-          if (wrapper) {
-            wrapper.style.display = 'none';
-            wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
-          }
-          return;
-        }
-
-        const section = document.querySelector(`[data-section-id="${sectionId}"]`);
-        if (!section) return;
-
-        const gridContainer = section.querySelector('.vastu-grid-carousel__mobile-grid');
-        if (!gridContainer) return;
-
-        const hiddenItems = gridContainer.querySelectorAll('.vastu-grid-carousel__grid-item--hidden');
-        if (hiddenItems.length === 0) {
-          btn.style.display = 'none';
-          const wrapper = btn.closest('.vastu-grid-carousel__view-more-wrapper');
-          if (wrapper) {
-            wrapper.style.display = 'none';
-            wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
-          }
-        }
-      });
+    function run() {
+      initViewMore();
+      syncViewMore();
     }
-    
-    // Initialize on page load
+
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-          initViewMore();
-          checkInitialButtonState();
-        }, 500);
-      });
+      document.addEventListener('DOMContentLoaded', run);
+      document.addEventListener('DOMContentLoaded', function() { setTimeout(run, 100); });
     } else {
-      setTimeout(function() {
-        initViewMore();
-        checkInitialButtonState();
-      }, 500);
+      run();
+      setTimeout(run, 100);
     }
+    window.addEventListener('resize', syncViewMore);
   })();
 </script>
 

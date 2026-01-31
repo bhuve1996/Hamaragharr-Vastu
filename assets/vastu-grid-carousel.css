@@ -115,9 +115,9 @@ section[class*="vastu-grid-carousel"] {
 }
 
 @media (width >= 992px) {
-  /* Hide mobile grid on desktop */
+  /* Desktop: hide entire mobile grid (and View More); carousel shows all products */
   .vastu-grid-carousel__mobile-grid {
-    display: none;
+    display: none !important;
   }
 
   /* Ensure desktop grid items don't use mobile partial view styles */
@@ -304,12 +304,13 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   display: none;
 }
 
-/* View More Button */
+/* View More – hidden unless JS adds .vastu-grid-carousel__view-more-visible (mobile + has hidden items) */
 .vastu-grid-carousel__view-more-wrapper {
-  display: flex;
+  display: none !important;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   padding: 0 1.5rem;
   position: relative;
   z-index: 1;
@@ -317,25 +318,13 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   width: 100%;
 }
 
-/* Hide wrapper when button is hidden */
-.vastu-grid-carousel__view-more-wrapper--hidden,
-.vastu-grid-carousel__view-more-wrapper:has(.vastu-grid-carousel__view-more-btn[style*="display: none"]) {
-  display: none;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0;
+.vastu-grid-carousel__view-more-wrapper.vastu-grid-carousel__view-more-visible {
+  display: flex !important;
 }
 
 .vastu-grid-carousel__view-more-wrapper--desktop {
   margin-top: 4rem;
   padding: 0;
-  position: relative;
-  z-index: 1;
-}
-
-.vastu-grid-carousel__mobile-grid .vastu-grid-carousel__view-more-wrapper {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
   position: relative;
   z-index: 1;
 }
