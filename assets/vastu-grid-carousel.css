@@ -1114,6 +1114,16 @@ section:has(.vastu-grid-card) xo-carousel-inner {
   }
 }
 
+/* Very small screens (≤360px): reduce add to cart button padding so text doesn't get cut */
+@media (width <= 360px) {
+  .vastu-grid-card__add-to-cart .xo-btn,
+  .vastu-grid-card__add-to-cart button,
+  .vastu-grid-card__add-to-cart xo-cart-add,
+  .vastu-grid-card__add-to-cart xo-modal-trigger {
+    padding: 0 0.5rem;
+  }
+}
+
 /* Shop/Collection page: single card everywhere - filters-content and list layout */
 .filters-content__grid .vastu-grid-card,
 .section-collection-products .vastu-grid-card,
