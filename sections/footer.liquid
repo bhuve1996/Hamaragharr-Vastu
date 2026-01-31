@@ -40,6 +40,11 @@
                   <a href='{{ section.settings.info_privacy_link | default: "/pages/privacy-policy" }}' class='footer-modern__link'>{{ section.settings.info_privacy_text | default: 'Privacy Policy' }}</a>
                 </li>
               {%- endif -%}
+              {%- if section.settings.info_about_enable != false -%}
+                <li class='footer-modern__list-item'>
+                  <a href='{{ section.settings.info_about_link | default: "/pages/about" }}' class='footer-modern__link'>{{ section.settings.info_about_text | default: 'About Us' }}</a>
+                </li>
+              {%- endif -%}
               {%- if section.settings.info_terms_enable != false -%}
                 <li class='footer-modern__list-item'>
                   <a href='{{ section.settings.info_terms_link | default: "/pages/terms-conditions" }}' class='footer-modern__link'>{{ section.settings.info_terms_text | default: 'Terms & Conditions' }}</a>
@@ -311,6 +316,25 @@
       "id": "info_privacy_text",
       "label": "Privacy Policy Text",
       "default": "Privacy Policy"
+    },
+    {
+      "type": "checkbox",
+      "id": "info_about_enable",
+      "label": "Show About Us Link",
+      "default": true,
+      "info": "Used when Information Menu is not set"
+    },
+    {
+      "type": "url",
+      "id": "info_about_link",
+      "label": "About Us Link",
+      "info": "Used when Information Menu is not set. Default: /pages/about"
+    },
+    {
+      "type": "text",
+      "id": "info_about_text",
+      "label": "About Us Text",
+      "default": "About Us"
     },
     {
       "type": "checkbox",
