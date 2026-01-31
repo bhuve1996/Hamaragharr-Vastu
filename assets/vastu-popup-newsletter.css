@@ -278,3 +278,25 @@
     flex-direction: column;
   }
 }
+
+.popup-newsletter-v3__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-newsletter__container .popup-newsletter-v3 .xo-btn,
+.popup-newsletter__container .popup-newsletter-v3 button {
+  margin-bottom: 1.5rem;
+}
+
+.popup-newsletter__container .popup-newsletter-v3 .xo-field-input__input {
+  padding: 1.17rem 0.5rem;
+}
+
+@media (width <= 767px) {
+  .popup-newsletter__container .popup-newsletter-v3 .xo-btn,
+  .popup-newsletter__container .popup-newsletter-v3 button {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+}
