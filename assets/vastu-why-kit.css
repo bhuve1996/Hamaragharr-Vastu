@@ -155,7 +155,7 @@
 
   /* Mobile-specific smaller text - extra small size for mobile */
   .vastu-why-kit__text {
-    font-size: calc(var(--global-body-font-size-mobile) * 0.5);
+    font-size: calc(var(--global-body-font-size-mobile) * 0.47);
     font-weight: var(--global-body-font-weight-mobile);
     line-height: var(--global-body-line-height-mobile);
     overflow: hidden;
