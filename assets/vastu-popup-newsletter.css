@@ -114,6 +114,11 @@
 }
 
 @media (width <= 767px) {
+  /* Popup v3 max-height on mobile only (desktop keeps theme default) */
+  .popup-newsletter__container .popup-newsletter-v3 {
+    max-height: 70rem;
+  }
+
   /* Add spacing below title on mobile */
   .popup-newsletter__container .popup-newsletter-v1__title,
   .popup-newsletter__container .popup-newsletter-v2__title,
