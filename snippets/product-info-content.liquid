@@ -1,6 +1,7 @@
 {% liquid
   assign media_aspect_ratio = settings.product_card_aspect_ratio
   assign gift_card_recipient_feature_active = false
+  assign addon_buttons_rendered_in_row = false
   if product.gift_card?
     assign gift_card_recipient_feature_active = true
   endif
@@ -37,55 +38,34 @@
               <h1 class='xo-product-info-content__title' style='--fz:{{ block.settings.font_size | append: 'rem'}}' {{ block.shopify_attributes }}>
                 {{ product.title | escape }}
               </h1>
-              {% if section.settings.wishlist %}
-                <div>
-                  {% comment %} add to wishlist {% endcomment %}
-                  <xo-products-fetcher-add xo-type='wishlist' class='xo-product-info-content__wishlist'>
-                    <xo-tooltip
-                      xo-title='{{ 'products.product.add_to_wishlist' | t }}'
-                      xo-placement='left-center'
-                      xo-animate='fade-right'
-                      xo-easing='spring'
-                      class='xo-product-info-content__icon-wishlist'
-                      xo-added
-                    >
-                      {% render 'icon', name: 'heart', icon_size: '20' %}
-                    </xo-tooltip>
-                  </xo-products-fetcher-add>
-                  {% comment %} remove wishlist {% endcomment %}
-                  <xo-products-fetcher-add xo-type='wishlist' class='xo-product-info-content__wishlist'>
-                    <xo-tooltip
-                      xo-title='{{ 'products.product.remove_from_wishlist' | t }}'
-                      xo-placement='left-center'
-                      xo-animate='fade-right'
-                      xo-easing='spring'
-                      class='xo-product-info-content__icon-wishlist'
-                      xo-removed
-                    >
-                      {% render 'icon', name: 'heart', icon_size: '20' %}
-                    </xo-tooltip>
-                  </xo-products-fetcher-add>
-                </div>
-              {% endif %}
             </div>
           </xo-animate>
 
         {% when 'price' %}
-          <xo-animate
-            xo-cascade
-            {{ block.shopify_attributes }}
-            style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
-          >
-            <xo-product-will-change xo-unique-id='product-price-{{ product.id }}' class='xo-product-info-content__price'>
-              {% render 'price', product: product, use_variant: true, style: 'larger' %}
-              {% if cart.taxes_included == true %}
-                <span>{{ 'products.product.price.include_tax' | t }}</span>
-              {% endif %}
-              {% if block.settings.saving %}
-                {% render 'badge', product: product, type: block.settings.type %}
-              {% endif %}
-            </xo-product-will-change>
-          </xo-animate>
+          {% assign addon_block = section.blocks | where: 'type', 'addon_buttons' | first %}
+          <div class='xo-product-info-content__price-share-row'>
+            <xo-animate
+              xo-cascade
+              {{ block.shopify_attributes }}
+              style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
+            >
+              <xo-product-will-change xo-unique-id='product-price-{{ product.id }}' class='xo-product-info-content__price'>
+                {% render 'price', product: product, use_variant: true, style: 'larger' %}
+                {% if cart.taxes_included == true %}
+                  <span>{{ 'products.product.price.include_tax' | t }}</span>
+                {% endif %}
+                {% if block.settings.saving %}
+                  {% render 'badge', product: product, type: block.settings.type %}
+                {% endif %}
+              </xo-product-will-change>
+            </xo-animate>
+            {% if addon_block != blank %}
+              {% assign addon_buttons_rendered_in_row = true %}
+              <xo-animate xo-cascade class='xo-product-info-content__share-wrap'>
+                {% render 'addon-buttons', block: addon_block %}
+              </xo-animate>
+            {% endif %}
+          </div>
         {% endcase %}
       {% endif %}
     {% endfor %}
@@ -170,9 +150,9 @@
                 {% endif %}
                 
                 {% if has_headings %}
-                  {% comment %} First two items always open (no collapse); rest use accordion (one open at a time) {% endcomment %}
                   {% assign desc_item_index = 0 %}
-                  <xo-collapse-provider xo-duration='300' class='xo-product-info-content__description-accordions'>
+                  {% assign description_first_open = true %}
+                  <xo-collapse-provider xo-duration='300' class='xo-product-info-content__description-accordions' xo-default-open='0'>
                   {% comment %} Normalize all heading levels into a single marker {% endcomment %}
                   {% assign normalized = description_html %}
                   {% assign normalized = normalized | replace: '<h2', '[[HEADING]]<h2' %}
@@ -269,75 +249,48 @@
                           {% endif %}
                           
                           {% if heading_text != blank %}
-                            {% if desc_item_index < 2 %}
-                              {% comment %} First two items: always open (no collapse) {% endcomment %}
-                              <xo-animate xo-cascade class='accordion-section__item accordion-section__item--always-open'>
-                                <div class='accordion-section__trigger accordion-section__trigger--static'>
-                                  <div class='accordion-section__trigger-content'>
-                                    <h3 class='accordion-section__heading'>{{ heading_text }}</h3>
-                                  </div>
-                                </div>
-                                {% if section_content != blank %}
-                                  <div class='accordion-section__content xo-collapse-style2__content xo-content'>
-                                    {{ section_content }}
-                                  </div>
-                                {% endif %}
-                              </xo-animate>
-                            {% else %}
-                              {% assign accordion_id = 'desc-' | append: forloop.index | append: '-' | append: block.id %}
-                              <xo-animate xo-cascade class='accordion-section__item'>
-                                <xo-collapse-trigger class='accordion-section__trigger' xo-name='{{ accordion_id }}'>
-                                  <div class='accordion-section__trigger-content'>
-                                    <h3 class='accordion-section__heading'>{{ heading_text }}</h3>
-                                  </div>
-                                  <div class='accordion-section__trigger-icon'>
-                                    {%- render 'icon', name: 'plus2', icon_size: '20', color: 'rgba(var(--color-foreground))' -%}
-                                  </div>
-                                </xo-collapse-trigger>
-                                {% if section_content != blank %}
-                                  <xo-collapse xo-name='{{ accordion_id }}'>
-                                    <div class='accordion-section__content xo-collapse-style2__content xo-content'>
-                                      {{ section_content }}
-                                    </div>
-                                  </xo-collapse>
-                                {% endif %}
-                              </xo-animate>
-                            {% endif %}
-                            {% assign desc_item_index = desc_item_index | plus: 1 %}
-                          {% endif %}
-                        {% endif %}
-                      {% else %}
-                        {% comment %} This is content before the first heading {% endcomment %}
-                        {% if section_stripped != blank %}
-                          {% if desc_item_index < 2 %}
-                            <xo-animate xo-cascade class='accordion-section__item accordion-section__item--always-open'>
-                              <div class='accordion-section__trigger accordion-section__trigger--static'>
-                                <div class='accordion-section__trigger-content'>
-                                  <h3 class='accordion-section__heading'>Description</h3>
-                                </div>
-                              </div>
-                              <div class='accordion-section__content xo-collapse-style2__content xo-content'>
-                                {{ section_stripped }}
-                              </div>
-                            </xo-animate>
-                          {% else %}
+                            {% assign accordion_id = 'desc-' | append: forloop.index | append: '-' | append: block.id %}
                             <xo-animate xo-cascade class='accordion-section__item'>
-                              <xo-collapse-trigger class='accordion-section__trigger' xo-name='desc-intro-{{ block.id }}'>
+                              <xo-collapse-trigger class='accordion-section__trigger' xo-name='{{ accordion_id }}' {% if description_first_open %}xo-active{% endif %}>
                                 <div class='accordion-section__trigger-content'>
-                                  <h3 class='accordion-section__heading'>Description</h3>
+                                  <h3 class='accordion-section__heading'>{{ heading_text }}</h3>
                                 </div>
                                 <div class='accordion-section__trigger-icon'>
                                   {%- render 'icon', name: 'plus2', icon_size: '20', color: 'rgba(var(--color-foreground))' -%}
                                 </div>
                               </xo-collapse-trigger>
-                              <xo-collapse xo-name='desc-intro-{{ block.id }}'>
-                                <div class='accordion-section__content xo-collapse-style2__content xo-content'>
-                                  {{ section_stripped }}
-                                </div>
-                              </xo-collapse>
+                              {% if section_content != blank %}
+                                <xo-collapse xo-name='{{ accordion_id }}' {% if description_first_open %}xo-active{% endif %}>
+                                  <div class='accordion-section__content xo-collapse-style2__content xo-content'>
+                                    {{ section_content }}
+                                  </div>
+                                </xo-collapse>
+                              {% endif %}
                             </xo-animate>
+                            {% assign desc_item_index = desc_item_index | plus: 1 %}
+                            {% assign description_first_open = false %}
                           {% endif %}
+                        {% endif %}
+                      {% else %}
+                        {% comment %} This is content before the first heading {% endcomment %}
+                        {% if section_stripped != blank %}
+                          <xo-animate xo-cascade class='accordion-section__item'>
+                            <xo-collapse-trigger class='accordion-section__trigger' xo-name='desc-intro-{{ block.id }}' {% if description_first_open %}xo-active{% endif %}>
+                              <div class='accordion-section__trigger-content'>
+                                <h3 class='accordion-section__heading'>Description</h3>
+                              </div>
+                              <div class='accordion-section__trigger-icon'>
+                                {%- render 'icon', name: 'plus2', icon_size: '20', color: 'rgba(var(--color-foreground))' -%}
+                              </div>
+                            </xo-collapse-trigger>
+                            <xo-collapse xo-name='desc-intro-{{ block.id }}' {% if description_first_open %}xo-active{% endif %}>
+                              <div class='accordion-section__content xo-collapse-style2__content xo-content'>
+                                {{ section_stripped }}
+                              </div>
+                            </xo-collapse>
+                          </xo-animate>
                           {% assign desc_item_index = desc_item_index | plus: 1 %}
+                          {% assign description_first_open = false %}
                         {% endif %}
                       {% endif %}
                     {% endif %}
@@ -410,7 +363,8 @@
               content1: block.settings.offer_content1,
               content2: block.settings.offer_content2,
               content3: block.settings.offer_content3,
-              color: block.settings.offer_color
+              color: block.settings.offer_color,
+              product: product
             %}
           </xo-animate>
 
@@ -618,13 +572,15 @@
           </xo-animate>
 
         {% when 'addon_buttons' %}
-          <xo-animate
-            xo-cascade
-            {{ block.shopify_attributes }}
-            style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
-          >
-            {% render 'addon-buttons', block: block %}
-          </xo-animate>
+          {% unless addon_buttons_rendered_in_row %}
+            <xo-animate
+              xo-cascade
+              {{ block.shopify_attributes }}
+              style='padding-top:{{ block.settings.padding_top | append: 'px' }}; padding-bottom:{{ block.settings.padding_bottom | append: 'px'}}'
+            >
+              {% render 'addon-buttons', block: block %}
+            </xo-animate>
+          {% endunless %}
 
         {% when 'product_meta_info' %}
           <xo-animate
@@ -683,4 +639,23 @@
       {% endunless %}
     {% endfor %}
   </xo-collapse-provider>
+  <script>
+    (function() {
+      function openFirstDescriptionAccordion() {
+        var provider = document.querySelector('.xo-product-info-content__description-accordions');
+        if (!provider) return;
+        var firstTrigger = provider.querySelector('xo-collapse-trigger');
+        var firstCollapse = provider.querySelector('xo-collapse');
+        if (firstTrigger && firstCollapse) {
+          firstTrigger.setAttribute('xo-active', '');
+          firstCollapse.setAttribute('xo-active', '');
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() { setTimeout(openFirstDescriptionAccordion, 50); });
+      } else {
+        setTimeout(openFirstDescriptionAccordion, 50);
+      }
+    })();
+  </script>
 </div>

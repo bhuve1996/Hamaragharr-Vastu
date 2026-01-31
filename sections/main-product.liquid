@@ -57,7 +57,8 @@
                   autoplay: section.settings.video_autoplay,
                   video_modal: section.settings.video_modal,
                   product_360: section.settings.product_360,
-                  media_sticky: section.settings.media_sticky
+                  media_sticky: section.settings.media_sticky,
+                  wishlist: section.settings.wishlist
                 %}
               {% when 'style4' %}
                 {% render 'product-info-media-style4',
@@ -158,7 +159,8 @@
           </div>
       {% endcase %}
     {% endif %}
-    {% if section.settings.sticky_desktop %}
+    {% comment %} Sticky add cart disabled for now – set sticky_desktop to true in theme editor to re-enable {% endcomment %}
+    {% if false and section.settings.sticky_desktop %}
       {% render 'sticky-addcart', product: product, form_id: product_form_id, direction: 'down', placement: 'down', show_checkbox: block_buy_button.settings.show_checkbox %}
     {% endif %}
     {% render 'product-data', product: product %}

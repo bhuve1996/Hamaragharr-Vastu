@@ -63,6 +63,7 @@
     "currency_code_enabled": false,
     "dark_mode_mapping": "Scheme 1: Scheme 5\nScheme 2: Scheme 4",
     "popup_newsletter_color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639",
+    "popup_promotion_gift_code": "VASTU10",
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,

@@ -1285,6 +1285,229 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   margin-bottom: 0;
 }
 
+/* Product media – wishlist icon overlay on top of carousel (desktop), right side, single stacked icon */
+.xo-product-info-media-style3__top {
+  position: relative;
+}
+
+.xo-product-info-media-style3__wishlist {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  left: auto;
+  z-index: 25;
+  width: 3.25rem;
+  height: 3.25rem;
+  pointer-events: none;
+}
+
+.xo-product-info-media-style3__wishlist .xo-product-info-content__wishlist {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  border: 2px solid rgb(0 0 0);
+  background: rgb(255 255 255 / 92%);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 14%);
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Only one state visible: hide second by default, show first (add) */
+.xo-product-info-media-style3__wishlist .xo-product-info-content__wishlist:last-of-type {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.xo-product-info-media-style3__wishlist .xo-product-info-content__wishlist:first-of-type {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* When product in wishlist (second has [xo-added]), show only second and hide first */
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:first-of-type {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+.xo-product-info-media-style3__wishlist .xo-product-info-content__wishlist:hover {
+  background: rgb(255 255 255);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 18%);
+}
+
+.xo-product-info-media-style3__wishlist .xo-product-info-content__icon-wishlist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: rgb(71 56 85);
+}
+
+/* Product media – wishlist icon on mobile carousel, right side, single stacked icon */
+.xo-product-info-media-mobile__top {
+  position: relative;
+}
+
+.xo-product-info-media-mobile__wishlist {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  left: auto;
+  z-index: 25;
+  width: 2.75rem;
+  height: 2.75rem;
+  pointer-events: none;
+}
+
+.xo-product-info-media-mobile__wishlist .xo-product-info-content__wishlist {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 92%);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 14%);
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Only one state visible: hide second by default, show first (add) */
+.xo-product-info-media-mobile__wishlist .xo-product-info-content__wishlist:last-of-type {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.xo-product-info-media-mobile__wishlist .xo-product-info-content__wishlist:first-of-type {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* When product in wishlist (second has [xo-added]), show only second and hide first */
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:first-of-type {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+.xo-product-info-media-mobile__wishlist .xo-product-info-content__wishlist:hover,
+.xo-product-info-media-mobile__wishlist .xo-product-info-content__wishlist:active {
+  background: rgb(255 255 255);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 18%);
+}
+
+.xo-product-info-media-mobile__wishlist .xo-product-info-content__icon-wishlist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: rgb(71 56 85);
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+/* Price / Share row – price on left, share on right */
+.xo-product-info-content__price-share-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.xo-product-info-content__price-share-row .xo-product-info-content__price {
+  flex: 1;
+  min-width: 0;
+}
+
+.xo-product-info-content__share-wrap {
+  flex-shrink: 0;
+}
+
+.xo-product-info-content__share-wrap .addon-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Price section – add padding-top in product info */
+.xo-product-info-content .xo-product-info-content__price {
+  padding-top: 1.5rem;
+}
+
+/* Offer section – margin-top using .offer.xo-product-info-content__offer */
+.xo-product-info-content .offer.xo-product-info-content__offer {
+  margin-top: 1.5rem;
+}
+
+/* Offer list – reset list style, consistent spacing */
+.offer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Offer list items – arrow and text centered and aligned */
+.offer__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 1.5rem;
+  line-height: 1.4;
+}
+
+.offer__item svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: block;
+  vertical-align: middle;
+}
+
+.offer__item .offer__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
 /* Accordion Section - Product Description Accordions */
 .xo-product-info-content .accordion-section__item {
   margin-bottom: 0;
@@ -1294,24 +1517,6 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   overflow: visible;
   transition: all 0.3s ease;
   box-shadow: none;
-}
-
-/* First two description items: always open (no collapse) - same look as expanded accordion */
-.xo-product-info-content .accordion-section__item--always-open .accordion-section__trigger--static {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 0;
-  cursor: default;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(var(--color-foreground), 0.15);
-  width: 100%;
-  text-align: left;
-}
-
-.xo-product-info-content .accordion-section__item--always-open .accordion-section__content {
-  padding: 1.5rem 0 2rem;
 }
 
 /* Accordion Trigger */
@@ -1472,14 +1677,6 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   .xo-product-info-content .accordion-section__item xo-collapse[xo-active] .accordion-section__content {
     padding: 1.25rem 0 1.75rem;
   }
-
-  .xo-product-info-content .accordion-section__item--always-open .accordion-section__trigger--static {
-    padding: 1.25rem 0;
-  }
-
-  .xo-product-info-content .accordion-section__item--always-open .accordion-section__content {
-    padding: 1.25rem 0 1.75rem;
-  }
 }
 
 /* Hide description that appears after share button (addon-buttons) */
@@ -1502,4 +1699,25 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
 .xo-product-info-content xo-animate:has(.addon-buttons) ~ xo-animate:has(.xo-collapse-style2__title),
 .xo-product-info-content xo-animate:has(.addon-buttons) ~ xo-animate:has(.product-description-style3) {
   display: none;
+}
+
+/* Share modal – input field: prevent overflow when URL is long */
+.xo-share-style2__copy {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.xo-share-style2__label {
+  flex: 1;
+  min-width: 0;
+}
+
+.xo-share-style2__input {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
 }

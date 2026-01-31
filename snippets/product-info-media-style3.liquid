@@ -25,7 +25,21 @@
 >
   <xo-gallery xo-sync='false' xo-portal-class='main-product__portal' aria-label='{{ 'products.product.media.gallery_viewer' | t }}'>
     <xo-carousel xo-name='product-information-desktop'>
-      <div class='xo-product-info-media-style3__top'>
+      <div class='xo-product-info-media-style3__top xo-product-info-media-style3__top--has-wishlist'>
+        {% if wishlist %}
+          <div class='xo-product-info-media-style3__wishlist'>
+            <xo-products-fetcher-add xo-type='wishlist' class='xo-product-info-content__wishlist'>
+              <xo-tooltip xo-title='{{ 'products.product.add_to_wishlist' | t }}' xo-placement='left-center' xo-animate='fade-right' xo-easing='spring' class='xo-product-info-content__icon-wishlist' xo-added>
+                {% render 'icon', name: 'heart', icon_size: '20' %}
+              </xo-tooltip>
+            </xo-products-fetcher-add>
+            <xo-products-fetcher-add xo-type='wishlist' class='xo-product-info-content__wishlist'>
+              <xo-tooltip xo-title='{{ 'products.product.remove_from_wishlist' | t }}' xo-placement='left-center' xo-animate='fade-right' xo-easing='spring' class='xo-product-info-content__icon-wishlist' xo-removed>
+                {% render 'icon', name: 'heart', icon_size: '20' %}
+              </xo-tooltip>
+            </xo-products-fetcher-add>
+          </div>
+        {% endif %}
         <xo-carousel-inner>
           <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
             {% if featured_media != null %}
@@ -283,5 +297,6 @@
   click_zoom_enabled: section.settings.image_zoom_click,
   autoplay: section.settings.video_autoplay,
   video_modal: section.settings.video_modal,
-  product_360: section.settings.product_360
+  product_360: section.settings.product_360,
+  wishlist: wishlist
 %}

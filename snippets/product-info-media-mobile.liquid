@@ -20,6 +20,20 @@
   <xo-gallery xo-sync='false' xo-portal-class='main-product__portal' aria-label='{{ 'products.product.media.gallery_viewer' | t }}'>
     <xo-carousel xo-name='product-information-mobile' xo-render-bullet='<span class="xo-product-info-media-mobile__bullet"></span>'>
       <div class='xo-product-info-media-mobile__top'>
+        {% if wishlist %}
+          <div class='xo-product-info-media-mobile__wishlist'>
+            <xo-products-fetcher-add xo-type='wishlist' class='xo-product-info-content__wishlist'>
+              <xo-tooltip xo-title='{{ 'products.product.add_to_wishlist' | t }}' xo-placement='left-center' xo-animate='fade-right' xo-easing='spring' class='xo-product-info-content__icon-wishlist' xo-added>
+                {% render 'icon', name: 'heart', icon_size: '20' %}
+              </xo-tooltip>
+            </xo-products-fetcher-add>
+            <xo-products-fetcher-add xo-type='wishlist' class='xo-product-info-content__wishlist'>
+              <xo-tooltip xo-title='{{ 'products.product.remove_from_wishlist' | t }}' xo-placement='left-center' xo-animate='fade-right' xo-easing='spring' class='xo-product-info-content__icon-wishlist' xo-removed>
+                {% render 'icon', name: 'heart', icon_size: '20' %}
+              </xo-tooltip>
+            </xo-products-fetcher-add>
+          </div>
+        {% endif %}
         <xo-carousel-inner>
           <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}' style='height: fit-content'>
             {% if featured_media != null %}
