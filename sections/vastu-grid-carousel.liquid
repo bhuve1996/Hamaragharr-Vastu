@@ -11,8 +11,8 @@
 {%- liquid
   assign product_source = section.settings.product_source | default: 'collection'
   assign collection = section.settings.collection
-  assign products_limit = section.settings.products_limit | default: 4
-  assign view_more_limit = section.settings.view_more_limit | default: 4
+  assign products_limit = section.settings.products_limit | default: 6
+  assign view_more_limit = section.settings.view_more_limit | default: 6
   assign columns_desktop = section.settings.columns_desktop | default: 4
   
   if product_source == 'blocks'
@@ -63,7 +63,7 @@
   endif
 -%}
 
-<div {% render 'section-attr' %}>
+<div {% render 'section-attr' %} data-section-id='{{ section.id }}'>
   {% render 'section-bg-image' %}
   
   {% unless has_products %}
@@ -420,36 +420,31 @@
         
         btn.addEventListener('click', function() {
           const sectionId = this.dataset.sectionId;
-          const currentLimit = parseInt(this.dataset.currentLimit) || 4;
-          const increment = parseInt(this.dataset.increment) || 4;
-          const totalProducts = parseInt(this.dataset.totalProducts) || 0;
+          const currentLimit = parseInt(this.dataset.currentLimit, 10) || 6;
+          const increment = parseInt(this.dataset.increment, 10) || 6;
+          const totalProducts = parseInt(this.dataset.totalProducts, 10) || 0;
           const newLimit = Math.min(currentLimit + increment, totalProducts);
-          
-          // Find the mobile grid container
+
+          // Find section root (has data-section-id so JS can find mobile grid)
           const section = document.querySelector(`[data-section-id="${sectionId}"]`);
           if (!section) return;
-          
+
           const gridContainer = section.querySelector('.vastu-grid-carousel__mobile-grid');
           if (!gridContainer) return;
-          
-          // Find all hidden grid items
+
           const hiddenItems = gridContainer.querySelectorAll('.vastu-grid-carousel__grid-item--hidden');
           const itemsToShow = Math.min(hiddenItems.length, increment);
-          
-          // Show the hidden grid items
+
           for (let i = 0; i < itemsToShow; i++) {
             hiddenItems[i]?.classList.remove('vastu-grid-carousel__grid-item--hidden');
           }
-          
-          // Update button state
-          this.dataset.currentLimit = newLimit.toString();
-          
-          // Check if there are more products to show
+
+          this.dataset.currentLimit = String(newLimit);
+
           const remainingHidden = gridContainer.querySelectorAll('.vastu-grid-carousel__grid-item--hidden').length;
-          const hasMoreProducts = remainingHidden > 0 && newLimit < totalProducts;
-          
+          const hasMoreProducts = remainingHidden > 0;
+
           if (!hasMoreProducts) {
-            // Hide the button and wrapper when no more products
             this.style.display = 'none';
             const wrapper = this.closest('.vastu-grid-carousel__view-more-wrapper');
             if (wrapper) {
@@ -461,13 +456,13 @@
       });
     }
     
-    // Check if button should be hidden on page load (if all products are already shown)
+    // On load: hide View More if all products are already visible or no hidden items
     function checkInitialButtonState() {
       document.querySelectorAll('.vastu-grid-carousel__view-more-btn').forEach(function(btn) {
         const sectionId = btn.dataset.sectionId;
-        const currentLimit = parseInt(btn.dataset.currentLimit) || 4;
-        const totalProducts = parseInt(btn.dataset.totalProducts) || 0;
-        
+        const currentLimit = parseInt(btn.dataset.currentLimit, 10) || 6;
+        const totalProducts = parseInt(btn.dataset.totalProducts, 10) || 0;
+
         if (currentLimit >= totalProducts) {
           btn.style.display = 'none';
           const wrapper = btn.closest('.vastu-grid-carousel__view-more-wrapper');
@@ -475,23 +470,22 @@
             wrapper.style.display = 'none';
             wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
           }
-        } else {
-          // Check if there are actually hidden grid items in mobile grid
-          const section = document.querySelector(`[data-section-id="${sectionId}"]`);
-          if (section) {
-            const gridContainer = section.querySelector('.vastu-grid-carousel__mobile-grid');
-            
-            if (gridContainer) {
-              const hiddenItems = gridContainer.querySelectorAll('.vastu-grid-carousel__grid-item--hidden');
-              if (hiddenItems.length === 0) {
-                btn.style.display = 'none';
-                const wrapper = btn.closest('.vastu-grid-carousel__view-more-wrapper');
-                if (wrapper) {
-                  wrapper.style.display = 'none';
-                  wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
-                }
-              }
-            }
+          return;
+        }
+
+        const section = document.querySelector(`[data-section-id="${sectionId}"]`);
+        if (!section) return;
+
+        const gridContainer = section.querySelector('.vastu-grid-carousel__mobile-grid');
+        if (!gridContainer) return;
+
+        const hiddenItems = gridContainer.querySelectorAll('.vastu-grid-carousel__grid-item--hidden');
+        if (hiddenItems.length === 0) {
+          btn.style.display = 'none';
+          const wrapper = btn.closest('.vastu-grid-carousel__view-more-wrapper');
+          if (wrapper) {
+            wrapper.style.display = 'none';
+            wrapper.classList.add('vastu-grid-carousel__view-more-wrapper--hidden');
           }
         }
       });
@@ -580,17 +574,17 @@
       "min": 2,
       "max": 20,
       "step": 1,
-      "default": 4,
-      "label": "Initial Products to Show"
+      "default": 6,
+      "label": "Initial Products to Show (Mobile Grid)"
     },
     {
       "type": "range",
       "id": "view_more_limit",
       "min": 2,
-      "max": 10,
+      "max": 12,
       "step": 1,
-      "default": 4,
-      "label": "Products to Load on View More"
+      "default": 6,
+      "label": "Products to Load on View More (Mobile Grid)"
     },
     {
       "type": "range",

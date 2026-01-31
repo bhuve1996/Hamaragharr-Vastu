@@ -456,9 +456,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   width: 100%;
   max-width: 100%;
   background: #fff;
-  border-radius: 0;
-  border-top-left-radius: 0.75rem;
-  border-top-right-radius: 0.75rem;
+  border-radius: 0.75rem;
   border: 1px solid rgba(71 56 85 / 8%);
   overflow: hidden;
   box-shadow: var(--product-card-shadow-horizontal-offset, 0) var(--product-card-shadow-vertical-offset, 0.4rem)
@@ -686,7 +684,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-card .vastu-grid-card__content
   box-shadow: none;
   color: rgb(71 56 85);
   padding: 0;
-  margin: 0;
+  margin: 0 0 0.75rem;
   display: block;
   flex: none;
   border-radius: 0;
@@ -773,12 +771,13 @@ xo-product-recommendations .vastu-grid-card__content {
   opacity: 1;
 }
 
-/* Inner wrapper: margin matches product pricing alignment without disturbing content flow */
+/* Inner wrapper: margin on sides and bottom matches product pricing alignment */
 .vastu-grid-card__add-to-cart-inner {
   width: calc(100% - 2rem);
   max-width: calc(100% - 2rem);
   margin-left: 1rem;
   margin-right: 1rem;
+  margin-bottom: 1rem;
   box-sizing: border-box;
 }
 
@@ -1057,7 +1056,7 @@ section:has(.vastu-grid-card) xo-carousel-inner {
     box-shadow: none;
     color: rgb(71 56 85);
     padding: 0;
-    margin: 0;
+    margin: 0 0 0.75rem;
     display: block;
     border-radius: 0;
     z-index: auto;
