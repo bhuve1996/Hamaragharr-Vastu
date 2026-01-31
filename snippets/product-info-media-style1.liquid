@@ -23,87 +23,6 @@
 >
   <xo-gallery xo-sync='false' xo-portal-class='main-product__portal' aria-label='{{ 'products.product.media.gallery_viewer' | t }}'>
     <xo-carousel xo-name='product-information-desktop'>
-      <xo-carousel-thumbnail xo-loop class='xo-product-info-media-style1__thumbnails' xo-per-view='5' xo-gap='10'>
-        <xo-carousel-inner style='padding-bottom: 0.1rem; margin-bottom: -0.1rem;'>
-          <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}' style='padding-right: 0.2rem; margin-right: -0.2rem;'>
-            {%- if featured_media != null -%}
-              {% case featured_media.media_type %}
-                {% when 'image' %}
-                  <xo-carousel-slide
-                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
-                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
-                    class='xo-product-info-media-style1__thumb-slide'
-                  >
-                    {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_media.preview_image %}
-                  </xo-carousel-slide>
-                {% when 'model' %}
-                  <xo-carousel-slide
-                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
-                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
-                    class='xo-product-info-media-style1__thumb-slide'
-                  >
-                    {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_media.preview_image %}
-                    <div class='xo-product-info-media-style1__media-icon'>
-                      {% render 'icon', name: '3d-model', icon_size: '13' %}
-                    </div>
-                  </xo-carousel-slide>
-                {% else %}
-                  {% if video_modal == false and product_360 == false %}
-                    <xo-carousel-slide
-                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
-                      aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
-                      class='xo-product-info-media-style1__thumb-slide'
-                    >
-                      {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_media.preview_image %}
-                      <div class='xo-product-info-media-style1__media-icon xo-product-info-media-style1__media-icon--play'>
-                        {% render 'icon', name: 'play', icon_size: '13' %}
-                      </div>
-                    </xo-carousel-slide>
-                  {% endif %}
-              {% endcase %}
-            {%- endif -%}
-            {% assign media_limit_thumb = 30 %}
-            {% for media in product.media limit: media_limit_thumb %}
-              {% unless media.id == featured_media.id %}
-                {% case media.media_type %}
-                  {% when 'image' %}
-                    <xo-carousel-slide
-                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
-                      aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
-                      class='xo-product-info-media-style1__thumb-slide'
-                    >
-                      {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: media.preview_image %}
-                    </xo-carousel-slide>
-                  {% when 'model' %}
-                    <xo-carousel-slide
-                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
-                      aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
-                      class='xo-product-info-media-style1__thumb-slide'
-                    >
-                      {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: media.preview_image %}
-                      <div class='xo-product-info-media-style1__media-icon'>
-                        {% render 'icon', name: '3d-model', icon_size: '13' %}
-                      </div>
-                    </xo-carousel-slide>
-                  {% else %}
-                    {% if video_modal == false and product_360 == false %}
-                      <xo-carousel-slide
-                        aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
-                        aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
-                        class='xo-product-info-media-style1__thumb-slide'
-                      >
-                        {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: media.preview_image %}
-                        <div class='xo-product-info-media-style1__media-icon xo-product-info-media-style1__media-icon--play'>
-                          {% render 'icon', name: 'play', icon_size: '15' %}
-                        </div>
-                      </xo-carousel-slide>
-                    {% endif %}
-                {% endcase %}
-              {% endunless %}
-            {% endfor %}
-          </xo-carousel-list>
-        </xo-carousel-inner>
-      </xo-carousel-thumbnail>
       <div class='xo-product-info-media-style1__bottom'>
         <xo-carousel-inner>
           <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
@@ -270,6 +189,93 @@
           ><button>{% render 'icon', name: 'arrow-right', icon_size: '12' %}</button></xo-carousel-next
         >
       </div>
+      <xo-carousel-thumbnail xo-loop class='xo-product-info-media-style1__thumbnails' xo-per-view='5' xo-gap='10'>
+        <xo-carousel-inner style='padding-bottom: 0.1rem; margin-bottom: -0.1rem;'>
+          <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}' style='padding-right: 0.2rem; margin-right: -0.2rem;'>
+            {%- if featured_media != null -%}
+              {% case featured_media.media_type %}
+                {% when 'image' %}
+                  <xo-carousel-slide
+                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
+                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
+                    class='xo-product-info-media-style1__thumb-slide'
+                    data-media-id='{{ featured_media.id }}'
+                  >
+                    {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_media.preview_image %}
+                  </xo-carousel-slide>
+                {% when 'model' %}
+                  <xo-carousel-slide
+                    aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
+                    aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
+                    class='xo-product-info-media-style1__thumb-slide'
+                    data-media-id='{{ featured_media.id }}'
+                  >
+                    {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_media.preview_image %}
+                    <div class='xo-product-info-media-style1__media-icon'>
+                      {% render 'icon', name: '3d-model', icon_size: '13' %}
+                    </div>
+                  </xo-carousel-slide>
+                {% else %}
+                  {% if video_modal == false and product_360 == false %}
+                    <xo-carousel-slide
+                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
+                      aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
+                      class='xo-product-info-media-style1__thumb-slide'
+                      data-media-id='{{ featured_media.id }}'
+                    >
+                      {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: featured_media.preview_image %}
+                      <div class='xo-product-info-media-style1__media-icon xo-product-info-media-style1__media-icon--play'>
+                        {% render 'icon', name: 'play', icon_size: '13' %}
+                      </div>
+                    </xo-carousel-slide>
+                  {% endif %}
+              {% endcase %}
+            {%- endif -%}
+            {% assign media_limit_thumb = 30 %}
+            {% for media in product.media limit: media_limit_thumb %}
+              {% unless media.id == featured_media.id %}
+                {% case media.media_type %}
+                  {% when 'image' %}
+                    <xo-carousel-slide
+                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
+                      aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
+                      class='xo-product-info-media-style1__thumb-slide'
+                      data-media-id='{{ media.id }}'
+                    >
+                      {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: media.preview_image %}
+                    </xo-carousel-slide>
+                  {% when 'model' %}
+                    <xo-carousel-slide
+                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
+                      aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
+                      class='xo-product-info-media-style1__thumb-slide'
+                      data-media-id='{{ media.id }}'
+                    >
+                      {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: media.preview_image %}
+                      <div class='xo-product-info-media-style1__media-icon'>
+                        {% render 'icon', name: '3d-model', icon_size: '13' %}
+                      </div>
+                    </xo-carousel-slide>
+                  {% else %}
+                    {% if video_modal == false and product_360 == false %}
+                      <xo-carousel-slide
+                        aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
+                        aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'
+                        class='xo-product-info-media-style1__thumb-slide'
+                        data-media-id='{{ media.id }}'
+                      >
+                        {% render 'media', media_aspect_ratio: media_aspect_ratio, type: 'image', media: media.preview_image %}
+                        <div class='xo-product-info-media-style1__media-icon xo-product-info-media-style1__media-icon--play'>
+                          {% render 'icon', name: 'play', icon_size: '15' %}
+                        </div>
+                      </xo-carousel-slide>
+                    {% endif %}
+                {% endcase %}
+              {% endunless %}
+            {% endfor %}
+          </xo-carousel-list>
+        </xo-carousel-inner>
+      </xo-carousel-thumbnail>
     </xo-carousel>
   </xo-gallery>
 </div>

@@ -400,6 +400,74 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   margin-top: 0;
 }
 
+/* style1: main image first in DOM for native carousel sync; show thumbnails on top visually */
+.xo-product-info-media-style1 xo-carousel {
+  display: flex;
+  flex-direction: column;
+}
+
+.xo-product-info-media-style1 .xo-product-info-media-style1__bottom {
+  order: 2;
+}
+
+.xo-product-info-media-style1 .xo-product-info-media-style1__thumbnails {
+  order: 1;
+}
+
+/* Product page: active thumbnail when mini image is selected */
+.xo-product-info-media-style1__thumbnails xo-carousel-slide.is-active,
+.xo-product-info-media-style1__thumb-slide.is-active,
+.xo-product-info-media-style3__thumb-slide.is-active,
+.xo-product-info-media-style4__thumb-slide.is-active,
+.xo-product-info-media-mobile__thumb-slide.is-active {
+  opacity: 1;
+  border-color: rgb(var(--color-foreground));
+  box-shadow: 0 0 0 2px rgb(var(--color-foreground));
+}
+
+.xo-product-info-media-style1__thumbnails xo-carousel-slide,
+.xo-product-info-media-style1__thumb-slide,
+.xo-product-info-media-style3__thumb-slide,
+.xo-product-info-media-style4__thumb-slide,
+.xo-product-info-media-mobile__thumb-slide {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  opacity: 0.7;
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.xo-product-info-media-style1__thumbnails xo-carousel-slide:hover,
+.xo-product-info-media-style1__thumb-slide:hover,
+.xo-product-info-media-style3__thumb-slide:hover,
+.xo-product-info-media-style4__thumb-slide:hover,
+.xo-product-info-media-mobile__thumb-slide:hover {
+  opacity: 1;
+}
+
+/* Product page only: scale-down so image fits in box (e.g. 800x600) – no crop, no upscale */
+.xo-product-info-media-style1 .xo-image:not(.xo-image--svg) img,
+.xo-product-info-media-style3 .xo-image:not(.xo-image--svg) img,
+.xo-product-info-media-style3__image img {
+  object-fit: scale-down;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.xo-product-info-media-style1__slide .xo-product-info-media-style1__image,
+.xo-product-info-media-style1__slide .xo-image,
+.xo-product-info-media-style3__slide .xo-product-info-media-style3__image,
+.xo-product-info-media-style3__slide .xo-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Mobile grid styles */
 .vastu-product-showcase xo-grid {
   display: flex;
