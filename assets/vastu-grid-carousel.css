@@ -1199,3 +1199,13 @@ section:has(.vastu-grid-card) xo-carousel-inner {
   max-width: 100%;
   min-height: 0;
 }
+
+/* Cart drawer: gap between remove btn and qty on mobile */
+@media screen and (width <= 749px) {
+  .xo-modal-content-style1__inner .xo-cart-mini-item__quatity-remove,
+  .xo-modal-content-style1__inner--full-height .xo-cart-mini-item__quatity-remove {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+}

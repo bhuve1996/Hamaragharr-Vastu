@@ -201,6 +201,19 @@ xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn--primary .xo-
   color: rgb(var(--color-secondary-button-text));
 }
 
+/* Override light primary hover (white bg) inside variant modal – keep primary color on hover */
+.product-variant-modal__modal-content .xo-btn--light.xo-btn--primary:hover,
+.product-variant-modal__modal-content .xo-btn.xo-btn--light.xo-btn--primary:hover,
+.product-variant-modal__modal-content button.xo-btn--light.xo-btn--primary:hover,
+.product-variant-modal__modal-content a.xo-btn--light.xo-btn--primary:hover,
+xo-modal .product-variant-modal__modal-content .xo-btn--light.xo-btn--primary:hover,
+xo-modal .product-variant-modal__modal-content .xo-btn.xo-btn--light.xo-btn--primary:hover,
+xo-modal .product-variant-modal__modal-content button.xo-btn--light.xo-btn--primary:hover,
+xo-modal .product-variant-modal__modal-content a.xo-btn--light.xo-btn--primary:hover {
+  background-color: rgb(var(--color-text-primary));
+  color: rgb(var(--color-secondary-button-text));
+}
+
 xo-modal xo-cart-add .xo-btn,
 xo-modal xo-cart-add button {
   background-color: rgb(var(--color-text-primary));
