@@ -15,7 +15,7 @@
         "width": "box",
         "breadcrumb_align": "flex-start",
         "breadcrumb_hide": false,
-        "breadcrumb_hide_mobile": true,
+        "breadcrumb_hide_mobile": false,
         "breadcrumb_animation": "fade-down",
         "color_scheme": "",
         "background_type": "color",
@@ -50,6 +50,10 @@
             "padding_bottom": 0
           }
         },
+        "areviews_reviews_importer_areviews_title_rating_0AE61F": {
+          "type": "shopify://apps/areviews-reviews-importer/blocks/AreviewsTitleRating/ab0ec5fe-c95b-4fd6-bfb8-db2a30d0756f",
+          "settings": {}
+        },
         "b1d95bc4-490b-4b8c-914a-89b1323d2a43": {
           "type": "price",
           "settings": {
@@ -78,9 +82,40 @@
             "padding_bottom": 30
           }
         },
+        "4dabf9d3-3372-4f5a-9edf-1e1f03527b1a": {
+          "type": "offer",
+          "settings": {
+            "offer_title": "Special Offer",
+            "offer_content1": "In Stock",
+            "offer_content2": "Free Delivery Available*",
+            "offer_content3": "10% Off on Website - Use Code: VASTU10",
+            "offer_color": "#28af5b",
+            "padding_top": 0,
+            "padding_bottom": 30
+          }
+        },
+        "addon_buttons_MGW7hE": {
+          "type": "addon_buttons",
+          "settings": {
+            "sizeguide": false,
+            "compare": false,
+            "ask": false,
+            "share": true,
+            "sizeguide_type": "page",
+            "sizeguide_page": "size-guide",
+            "sizeguide_content": "<h4>Sizes for this Product.</h4><p>This is an approximate conversion table to help you find your size. Measure around the fullest part, place the tape close under the arms and make sure the tape is flat across the back (Unit: centimeter).</p><p>SizeUSBustBody WaistFullest HipXS23224 - 2533 - 34S434 - 3526 - 2735 - 36M636 - 3728 - 2937 - 38L838 - 3930 - 3139 - 40XL1040 - 4232 - 3341 - 42XXL1240 - 4134 - 343 - 44</p><h4>How to Measure.</h4><h5>1. Bust</h5><p>Measure at the fullest part of your chest, keeping the tape parallel to the floor.</p><h5>2. Body Waist</h5><p>Measure at the smallest part of your waist. This is usually below the rib cage and above the hip bone.</p><h5>3. Fullest Hip</h5><p>Measure at the fullest part of your seat, keeping the tape parallel to the floor.</p>",
+            "padding_top": 15,
+            "padding_bottom": 30
+          }
+        },
         "4dabf9d3-3372-4f5a-9edf-1e1f03527b1b": {
           "type": "description",
           "settings": {
+            "hide_if_in_tabs": false,
+            "use_mini_description": true,
+            "custom_mini_description": "",
+            "truncation_method": "words",
+            "truncation_length": 50,
             "padding_top": 0,
             "padding_bottom": 30
           }
@@ -97,37 +132,11 @@
             "padding_bottom": 30
           }
         },
-        "4dabf9d3-3372-4f5a-9edf-1e1f03527b1a": {
-          "type": "offer",
-          "settings": {
-            "offer_title": "Special Offer",
-            "offer_content1": "In Stock",
-            "offer_content2": "Free Delivery Available*",
-            "offer_content3": "10% Off on Website - Use Code: VASTU10",
-            "offer_color": "#28af5b",
-            "padding_top": 0,
-            "padding_bottom": 30
-          }
-        },
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94h": {
           "type": "countdown_stock",
           "disabled": true,
           "settings": {
             "padding_top": 0,
-            "padding_bottom": 30
-          }
-        },
-        "addon_buttons_MGW7hE": {
-          "type": "addon_buttons",
-          "settings": {
-            "sizeguide": false,
-            "compare": false,
-            "ask": false,
-            "share": true,
-            "sizeguide_type": "page",
-            "sizeguide_page": "size-guide",
-            "sizeguide_content": "<h4>Sizes for this Product.</h4><p>This is an approximate conversion table to help you find your size. Measure around the fullest part, place the tape close under the arms and make sure the tape is flat across the back (Unit: centimeter).</p><p>SizeUSBustBody WaistFullest HipXS23224 - 2533 - 34S434 - 3526 - 2735 - 36M636 - 3728 - 2937 - 38L838 - 3930 - 3139 - 40XL1040 - 4232 - 3341 - 42XXL1240 - 4134 - 343 - 44</p><h4>How to Measure.</h4><h5>1. Bust</h5><p>Measure at the fullest part of your chest, keeping the tape parallel to the floor.</p><h5>2. Body Waist</h5><p>Measure at the smallest part of your waist. This is usually below the rib cage and above the hip bone.</p><h5>3. Fullest Hip</h5><p>Measure at the fullest part of your seat, keeping the tape parallel to the floor.</p>",
-            "padding_top": 15,
             "padding_bottom": 30
           }
         },
@@ -174,6 +183,10 @@
           "type": "shipping",
           "settings": {
             "use_accordion": false,
+            "use_modal": false,
+            "truncate_length": 50,
+            "modal_width": "90rem",
+            "use_policy_content": false,
             "show_delivery": true,
             "delivery": "<p>Estimate delivery times: <strong>12-26 days</strong> (International), <strong>3-6 days</strong> (United States).</p>",
             "show_return": true,
@@ -232,6 +245,9 @@
             "heading": "Description",
             "content": "",
             "content_liquid": "{% render 'product-description-style3' %}",
+            "use_modal": false,
+            "truncate_length": 50,
+            "modal_width": "90rem",
             "padding_top": 0,
             "padding_bottom": 30
           }
@@ -256,10 +272,6 @@
             "padding_top": 0,
             "padding_bottom": 0
           }
-        },
-        "areviews_reviews_importer_areviews_title_rating_0AE61F": {
-          "type": "shopify://apps/areviews-reviews-importer/blocks/AreviewsTitleRating/ab0ec5fe-c95b-4fd6-bfb8-db2a30d0756f",
-          "settings": {}
         }
       },
       "block_order": [
@@ -547,7 +559,16 @@
       "block_order": [
         "areviews_reviews_importer_areviews_display_reviews_14F54F"
       ],
-      "settings": {}
+      "settings": {
+        "include_margins": true,
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
     }
   },
   "order": [

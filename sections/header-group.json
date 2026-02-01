@@ -32,6 +32,7 @@
         "topbar_link_4": "shopify://collections/all",
         "currency_selector": true,
         "language_selector": true,
+        "show_search_icon_mobile": false,
         "topbar_color_scheme": "",
         "topbar_background_color": "#ffffff",
         "topbar_background_gradient": "",
@@ -93,6 +94,49 @@
         "background_margin": 0,
         "padding_top": 40,
         "padding_bottom": 40
+      }
+    },
+    "breadcrumb_v1_iDajVB": {
+      "type": "breadcrumb-v1",
+      "disabled": true,
+      "name": "t:sections.breadcrumb_v1.presets.name",
+      "settings": {
+        "width": "box",
+        "breadcrumb_align": "center",
+        "breadcrumb_hide": false,
+        "breadcrumb_hide_mobile": false,
+        "breadcrumb_animation": "fade-down",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "breadcrumb_v2_LChREg": {
+      "type": "breadcrumb-v2",
+      "disabled": true,
+      "name": "t:sections.breadcrumb_v2.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 50,
+        "padding_bottom": 50
       }
     },
     "mega-menu-v1": {
@@ -217,29 +261,12 @@
         "padding_top": 50,
         "padding_bottom": 50
       }
-    },
-    "breadcrumb_v2_LChREg": {
-      "type": "breadcrumb-v2",
-      "name": "t:sections.breadcrumb_v2.presets.name",
-      "settings": {
-        "color_scheme": "",
-        "background_type": "color",
-        "background_color": "",
-        "background_gradient": "",
-        "use_parallax": true,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 50,
-        "padding_bottom": 50
-      }
     }
   },
   "order": [
     "header-v2",
     "search",
+    "breadcrumb_v1_iDajVB",
     "breadcrumb_v2_LChREg",
     "mega-menu-v1",
     "mega-menu-v2",
