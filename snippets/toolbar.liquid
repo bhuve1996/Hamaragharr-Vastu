@@ -44,30 +44,11 @@
         <span class='toolbar__label'>Wishlist</span>
       </a>
     </div>
-    {% if settings.cart_type == 'page' %}
-      <a href='{{ routes.cart_url }}' class='toolbar__item'>
-        <span class='toolbar__item-content'>
-          <span class='toolbar__icon'>
-            {% render 'icon', name: 'cart', icon_size: '22', color: 'rgba(var(--color-foreground))' %}
-            <span class='toolbar__cart-count'>
-              <xo-cart-size>{{ cart.item_count }}</xo-cart-size>
-            </span>
-          </span>
-          <span class='toolbar__label'>Cart</span>
-        </span>
-      </a>
-    {% else %}
-      <xo-modal-trigger xo-name='cart' class='toolbar__item'>
-        <span class='toolbar__item-content'>
-          <span class='toolbar__icon'>
-            {% render 'icon', name: 'cart', icon_size: '22', color: 'rgba(var(--color-foreground))' %}
-            <span class='toolbar__cart-count'>
-              <xo-cart-size>{{ cart.item_count }}</xo-cart-size>
-            </span>
-          </span>
-          <span class='toolbar__label'>Cart</span>
-        </span>
-      </xo-modal-trigger>
-    {% endif %}
+    <a href='{{ routes.root_url }}' class='toolbar__item'>
+      <span class='toolbar__item-content'>
+        {% render 'icon', name: 'home', icon_size: '22', color: 'rgba(var(--color-foreground))' %}
+        <span class='toolbar__label'>Home</span>
+      </span>
+    </a>
   </div>
 {% endif %}

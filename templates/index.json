@@ -203,7 +203,7 @@
         "benefit_4": {
           "type": "why_kit_benefit",
           "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"64\" height=\"64\"><g transform=\"translate(12,12) scale(0.8) translate(-12,-12)\"><path d=\"M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"></path><line x1=\"8\" y1=\"12\" x2=\"16\" y2=\"12\"></line><path d=\"M10 8h4\"></path><path d=\"M10 16h4\"></path></g></svg>",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"64\" height=\"64\"><text x=\"12\" y=\"18\" text-anchor=\"middle\" font-size=\"22\" fill=\"currentColor\" font-weight=\"100\" font-family=\"system-ui, -apple-system, sans-serif\">&#8377;</text></svg>",
             "text": "Value For Money"
           }
         },

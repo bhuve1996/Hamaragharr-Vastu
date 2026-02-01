@@ -38,6 +38,11 @@
     .header-v6__inner > *:nth-child(2) { order: 2; }
     .header-v6__inner > *:nth-child(3) { order: 3; }
   }
+  @media (max-width: 991px) {
+    .header-v6__icon-wrap--hide-search-mobile {
+      display: none !important;
+    }
+  }
 {% endstyle %}
 
 <header
@@ -239,7 +244,7 @@
             </div>
           {% endif %}
           <div class='header-v6__utilities'>
-            <xo-tooltip xo-title='{{ 'general.search.search' | t }}' xo-placement='bottom-center' class='header-v6__icon-wrap header-v6__icon-wrap--search'>
+            <xo-tooltip xo-title='{{ 'general.search.search' | t }}' xo-placement='bottom-center' class='header-v6__icon-wrap header-v6__icon-wrap--search {% unless section.settings.show_search_icon_mobile %}header-v6__icon-wrap--hide-search-mobile{% endunless %}'>
               <xo-modal-trigger xo-name='search' class='header-v6__icon header-v6__icon--search'>
                 {% render 'icon', name: 'search', icon_size: '24', color: 'rgba(var(--color-foreground))' %}
               </xo-modal-trigger>
@@ -519,6 +524,13 @@
       "id": "language_selector",
       "default": true,
       "label": "t:sections.header_v2.settings.language_selector.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search_icon_mobile",
+      "default": false,
+      "label": "Show search icon on mobile",
+      "info": "When disabled, the search icon in the header is hidden on mobile screens."
     },
     {
       "type": "color_scheme",

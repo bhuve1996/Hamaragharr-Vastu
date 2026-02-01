@@ -304,9 +304,13 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   display: none;
 }
 
-/* View More – hidden unless JS adds .vastu-grid-carousel__view-more-visible (mobile + has hidden items) */
-.vastu-grid-carousel__view-more-wrapper {
+/* View More – always hidden (not shown in grid or carousel) */
+.vastu-grid-carousel__view-more-wrapper,
+.vastu-grid-carousel__view-more-wrapper.vastu-grid-carousel__view-more-visible {
   display: none !important;
+}
+
+.vastu-grid-carousel__view-more-wrapper {
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
@@ -316,10 +320,6 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   z-index: 1;
   clear: both;
   width: 100%;
-}
-
-.vastu-grid-carousel__view-more-wrapper.vastu-grid-carousel__view-more-visible {
-  display: flex !important;
 }
 
 .vastu-grid-carousel__view-more-wrapper--desktop {
@@ -426,7 +426,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: rgb(71 56 85 / 35%);
+  background-color: rgb(120 120 120 / 50%);
   margin: 0 0.25rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -439,7 +439,7 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 .vastu-carousel-controls__pagination xo-carousel-pagination span.is-active,
 .vastu-carousel-controls__pagination xo-carousel-pagination span[class*="active"],
 .vastu-carousel-controls__pagination .carousel-pagination-style3__pagination span[aria-current="true"] {
-  background-color: rgb(71 56 85);
+  background-color: rgb(80 80 80);
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
@@ -594,7 +594,6 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
 }
 
 .vastu-grid-card:hover {
-  transform: translateY(-4px);
   border-color: rgb(0 0 0 / 18%);
   box-shadow: 0 0.6rem 1.6rem rgb(0 0 0 / 18%);
 }
