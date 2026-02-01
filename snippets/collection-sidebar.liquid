@@ -12,7 +12,7 @@
   {% render 'collection-sidebar', menu_title: menu_title %}
 {% endcomment %}
 
-{{ 'collection-sidebar.css' | asset_url | stylesheet_tag }}
+{{ 'collection-sidebar.min.css' | asset_url | stylesheet_tag }}
 
 {% if link_list != blank %}
   <div class='collection-sidebar__header'>

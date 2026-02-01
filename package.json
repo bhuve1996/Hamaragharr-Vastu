@@ -8,14 +8,18 @@
     "format": "prettier --write \"**/*.{css,json}\"",
     "format:check": "prettier --check \"**/*.{css,json}\"",
     "lint:css": "stylelint \"assets/**/*.css\"",
-    "lint:css:fix": "stylelint \"assets/**/*.css\" --fix"
+    "lint:css:fix": "stylelint \"assets/**/*.css\" --fix",
+    "minify": "node scripts/minify-assets.js",
+    "build": "npm run minify"
   },
   "devDependencies": {
+    "clean-css": "^5.3.3",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.0",
     "prettier": "^3.2.5",
     "stylelint": "^16.2.1",
-    "stylelint-config-standard": "^36.0.0"
+    "stylelint-config-standard": "^36.0.0",
+    "terser": "^5.31.0"
   },
   "dependencies": {},
   "lint-staged": {

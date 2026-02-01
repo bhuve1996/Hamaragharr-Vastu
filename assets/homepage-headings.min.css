@@ -1,0 +1,13 @@
+h2.homepage-section-heading{position:relative;display:inline-block;width:100%;text-align:center;font-size:var(
+    --section-heading-font-size-desktop,
+    var(--homepage-heading-font-size, var(--global-heading-font-size-desktop, 3.5rem))
+  );font-weight:var(--section-heading-font-weight-desktop,var(--homepage-heading-font-weight,var(--global-heading-font-weight-desktop,700)));line-height:var(
+    --section-heading-line-height-desktop,
+    var(--homepage-heading-line-height, var(--global-heading-line-height-desktop, 1.2))
+  );color:var(--homepage-heading-color,var(--global-heading-color,var(--color-hex-black)));text-transform:var(--homepage-heading-text-transform,none);margin-bottom:var(--section-heading-margin-bottom-desktop,var(--homepage-heading-margin-bottom-desktop,var(--global-heading-margin-bottom-desktop,48px)))}h2.homepage-section-heading[data-enable-underline=true]::after{content:"";position:absolute;bottom:calc(var(--section-heading-underline-bottom-desktop,var(--homepage-heading-underline-bottom-desktop,24px)) * -1);left:50%;transform:translateX(-50%);width:var(--section-heading-underline-width,var(--homepage-heading-underline-width,80px));height:var(--section-heading-underline-height,var(--homepage-heading-underline-height,4px));background-color:var(--section-heading-underline-color,var(--homepage-heading-underline-color,var(--color-hex-secondary)));border-radius:2px}@media (width <= 48rem){h2.homepage-section-heading{font-size:var(
+      --section-heading-font-size-mobile,
+      var(--homepage-heading-font-size-mobile, var(--global-heading-font-size-mobile, 2.1rem))
+    );font-weight:var(--section-heading-font-weight-mobile,var(--homepage-heading-font-weight,var(--global-heading-font-weight-mobile,700)));line-height:var(
+      --section-heading-line-height-mobile,
+      var(--homepage-heading-line-height, var(--global-heading-line-height-mobile, 1.2))
+    );margin-bottom:var(--section-heading-margin-bottom-mobile,var(--homepage-heading-margin-bottom-mobile,var(--global-heading-margin-bottom-mobile,32px)))}h2.homepage-section-heading[data-enable-underline=true]::after{bottom:calc(var(--section-heading-underline-bottom-mobile,var(--homepage-heading-underline-bottom-mobile,16px)) * -1)}}h2.homepage-section-heading[data-enable-underline=false]::after,h2.vastu-hindi-statement__text.homepage-section-heading::after{display:none}

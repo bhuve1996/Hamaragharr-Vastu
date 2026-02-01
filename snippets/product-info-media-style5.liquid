@@ -12,7 +12,7 @@
   {% render 'product-info-media-style5' %}
 {% endcomment %}
 
-{{ 'product-info-media-style5.css' | asset_url | stylesheet_tag }}
+{{ 'product-info-media-style5.min.css' | asset_url | stylesheet_tag }}
 
 {% assign featured_media = product.selected_or_first_available_variant.featured_media %}
 {% assign media_aspect_ratio = settings.product_card_aspect_ratio %}

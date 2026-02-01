@@ -1,4 +1,4 @@
-{{ 'login-form.css' | asset_url | stylesheet_tag }}
+{{ 'login-form.min.css' | asset_url | stylesheet_tag }}
 
 {% form 'customer_login' %}
   {% render 'form-error', form: form %}

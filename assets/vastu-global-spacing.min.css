@@ -1,0 +1,65 @@
+.vastu-section-spacing,.xo-section,div.vastu-section-spacing,div.xo-section,main .xo-section,main div.xo-section,main section,section{position:relative}.vastu-section-spacing,[class*=vastu-section--]{padding-top:var(--section-padding-top-desktop,var(--global-section-padding-top-desktop,0));padding-bottom:var(--section-padding-bottom-desktop,var(--global-section-padding-bottom-desktop,0));margin-top:var(--section-margin-top-desktop,var(--global-section-margin-top-desktop,0));margin-bottom:var(--section-margin-bottom-desktop,var(--global-section-margin-bottom-desktop,0))}.footer-modern,.footer-modern[class*=vastu-section--],footer,footer[class*=vastu-section--]{padding-top:60px!important}body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .banner-v155__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .blog-v2__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .faq-v3__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .homepage-section-heading,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .slideshow-v28__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-best-seller__section-title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-featured-products__section-title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-heading,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-help-address-v1__section-title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-product-showcase__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-section-heading,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-section-title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-shop-by-concern__section-title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-trust-bar__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-why-kit__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .xo-section-heading__title{margin-bottom:var(--section-heading-margin-bottom-desktop,var(--global-heading-margin-bottom-desktop,48px))}@media (width <= 48rem){.vastu-section-spacing,[class*=vastu-section--]{padding-top:var(--section-padding-top-mobile,var(--global-section-padding-top-mobile,0));padding-bottom:var(--section-padding-bottom-mobile,var(--global-section-padding-bottom-mobile,0));margin-top:var(--section-margin-top-mobile,var(--global-section-margin-top-mobile,0));margin-bottom:var(--section-margin-bottom-mobile,var(--global-section-margin-bottom-mobile,0))}.footer-modern,.footer-modern[class*=vastu-section--],footer,footer[class*=vastu-section--]{padding-top:40px!important}body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .banner-v155__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .blog-v2__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .faq-v3__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .homepage-section-heading,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .slideshow-v28__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-best-seller__section-title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-featured-products__section-title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-heading,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-help-address-v1__section-title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-product-showcase__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-section-heading,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-section-title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-shop-by-concern__section-title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-trust-bar__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .vastu-why-kit__title,body:not(
+.template-article,.template-blog,.template-page-terms-conditions,.template-page-privacy-policy,.template-page-return-refund-policy
+) .xo-section-heading__title{margin-bottom:var(--section-heading-margin-bottom-mobile,var(--global-heading-margin-bottom-mobile,32px))}footer h2{margin-bottom:var(--footer-h2-margin-bottom-mobile,var(--global-heading-margin-bottom-mobile,32px))}footer h3{margin-bottom:var(--footer-h3-margin-bottom-mobile,var(--global-heading-margin-bottom-mobile,24px))}}.faq-content-wrapper .faq-v3__heading,.faq-section-wrapper .faq-v3__heading,.faq-v3__heading,section .faq-v3__heading{margin-bottom:0;margin-top:0;padding-bottom:0}.faq-v3__title.homepage-section-heading,.homepage-section-heading.faq-v3__title{margin-bottom:0}.banner-v155__subtitle,.slideshow-v28__subtitle,.subtitle,.vastu-subtitle{margin-bottom:var(--section-subtitle-margin-bottom-desktop,var(--global-subtitle-margin-bottom-desktop,24px))}p{margin-bottom:var(--section-body-margin-bottom-desktop,var(--global-body-margin-bottom-desktop,16px))}@media (width <= 48rem){.banner-v155__subtitle,.slideshow-v28__subtitle,.subtitle,.vastu-subtitle{margin-bottom:var(--section-subtitle-margin-bottom-mobile,var(--global-subtitle-margin-bottom-mobile,20px))}p{margin-bottom:var(--section-body-margin-bottom-mobile,var(--global-body-margin-bottom-mobile,16px))}}.article-card__title,.card-title,.collection-card__title,.product-card__title,.vastu-best-seller-card__title,.vastu-card-title,.vastu-featured-products__title,.vastu-product-card__title{margin-bottom:var(--section-card-title-margin-bottom-desktop,var(--global-card-title-margin-bottom-desktop,12px))}@media (width <= 48rem){.article-card__title,.card-title,.collection-card__title,.product-card__title,.vastu-best-seller-card__title,.vastu-card-title,.vastu-featured-products__title,.vastu-product-card__title{margin-bottom:var(--section-card-title-margin-bottom-mobile,var(--global-card-title-margin-bottom-mobile,12px))}}.description,.footer-v18__description,.product-card__description,.vastu-description,.vastu-product-showcase__description,.vastu-product-showcase__description p{margin-bottom:var(--section-description-margin-bottom-desktop,var(--global-description-margin-bottom-desktop,24px))}@media (width <= 48rem){.description,.footer-v18__description,.product-card__description,.vastu-description,.vastu-product-showcase__description,.vastu-product-showcase__description p,.vastu-product-showcase__price{margin-bottom:var(--section-description-margin-bottom-mobile,var(--global-description-margin-bottom-mobile,20px))}}.banner-v155__description,.banner-v155__description-heading,.banner-v155__description-list li,.banner-v155__subtitle,.banner-v155__title{margin-top:0}.banner-v155__subtitle{margin-bottom:var(--section-subtitle-margin-bottom-desktop,var(--global-subtitle-margin-bottom-desktop,24px))}.banner-v155__title{margin-bottom:var(--section-heading-margin-bottom-desktop,var(--global-heading-margin-bottom-desktop,48px))}.banner-v155__description{margin-bottom:var(--section-description-margin-bottom-desktop,var(--global-description-margin-bottom-desktop,24px))}.banner-v155__description-heading{margin-top:var(--section-description-margin-bottom-desktop,var(--global-description-margin-bottom-desktop,24px));margin-bottom:var(--section-heading-margin-bottom-desktop,var(--global-heading-margin-bottom-desktop,48px))}.banner-v155__description-list{margin-top:var(--section-body-margin-bottom-desktop,var(--global-body-margin-bottom-desktop,16px))}.banner-v155__description-list li{margin-bottom:var(--section-body-margin-bottom-desktop,var(--global-body-margin-bottom-desktop,16px))}@media (width <= 48rem){.banner-v155__subtitle{margin-bottom:var(--section-subtitle-margin-bottom-mobile,var(--global-subtitle-margin-bottom-mobile,20px))}.banner-v155__title{margin-bottom:var(--section-heading-margin-bottom-mobile,var(--global-heading-margin-bottom-mobile,32px))}.banner-v155__description{margin-bottom:var(--section-description-margin-bottom-mobile,var(--global-description-margin-bottom-mobile,20px))}.banner-v155__description-heading{margin-top:var(--section-description-margin-bottom-mobile,var(--global-description-margin-bottom-mobile,20px));margin-bottom:var(--section-heading-margin-bottom-mobile,var(--global-heading-margin-bottom-mobile,32px))}.banner-v155__description-list{margin-top:var(--section-body-margin-bottom-mobile,var(--global-body-margin-bottom-mobile,16px))}.banner-v155__description-list li{margin-bottom:var(--section-body-margin-bottom-mobile,var(--global-body-margin-bottom-mobile,16px))}}.vastu-hero__description,.vastu-hero__subtitle,.vastu-hero__title{margin-top:0}.vastu-hero__subtitle{margin-bottom:var(--section-subtitle-margin-bottom-desktop,var(--global-subtitle-margin-bottom-desktop,24px))}.vastu-hero__title{margin-bottom:var(--section-heading-margin-bottom-desktop,var(--global-heading-margin-bottom-desktop,48px))}.vastu-hero__description{margin-bottom:var(--section-description-margin-bottom-desktop,var(--global-description-margin-bottom-desktop,24px))}@media (width <= 48rem){.vastu-hero__subtitle{margin-bottom:var(--section-subtitle-margin-bottom-mobile,var(--global-subtitle-margin-bottom-mobile,20px))}.vastu-hero__title{margin-bottom:var(--section-heading-margin-bottom-mobile,var(--global-heading-margin-bottom-mobile,32px))}.vastu-hero__description{margin-bottom:var(--section-description-margin-bottom-mobile,var(--global-description-margin-bottom-mobile,20px))}}
