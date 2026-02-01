@@ -1695,7 +1695,7 @@
       })();
     </script>
 
-    {%- comment -%} Page Loader Script {%- endcomment -%}
+    {%- comment -%} Page Loader Script: hide on window load or after short timeout. Do not wait for every image (one slow/hanging image kept browser loading on mobile). {%- endcomment -%}
     <script>
       (function() {
         const loader = document.getElementById('vastu-page-loader');
@@ -1703,13 +1703,10 @@
         
         if (!loader) return;
         
-        // Function to hide loader
         function hideLoader() {
           if (loader && !loader.classList.contains('hidden')) {
             loader.classList.add('hidden');
             body.classList.remove('vastu-page-loading');
-            
-            // Remove loader from DOM after animation
             setTimeout(function() {
               if (loader && loader.parentNode) {
                 loader.parentNode.removeChild(loader);
@@ -1718,69 +1715,18 @@
           }
         }
         
-        // Hide loader when page is fully loaded
-        function checkPageLoaded() {
-          // Check if document is ready
-          if (document.readyState === 'complete') {
-            // Wait for images to load
-            const images = document.querySelectorAll('img');
-            let imagesLoaded = 0;
-            let imagesToLoad = images.length;
-            
-            if (imagesToLoad === 0) {
-              // No images, hide immediately
-              setTimeout(hideLoader, 300);
-              return;
-            }
-            
-            // Check each image
-            images.forEach(function(img) {
-              if (img.complete) {
-                imagesLoaded++;
-              } else {
-                img.addEventListener('load', function() {
-                  imagesLoaded++;
-                  if (imagesLoaded >= imagesToLoad) {
-                    setTimeout(hideLoader, 300);
-                  }
-                });
-                img.addEventListener('error', function() {
-                  imagesLoaded++;
-                  if (imagesLoaded >= imagesToLoad) {
-                    setTimeout(hideLoader, 300);
-                  }
-                });
-              }
-            });
-            
-            // If all images are already loaded
-            if (imagesLoaded >= imagesToLoad) {
-              setTimeout(hideLoader, 300);
-            }
-          } else {
-            // Wait for document to be ready
-            window.addEventListener('load', function() {
-              setTimeout(hideLoader, 300);
-            });
-          }
-        }
-        
-        // Start checking when DOM is ready
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', checkPageLoaded);
-        } else {
-          checkPageLoaded();
-        }
-        
-        // Fallback: Hide loader after maximum wait time (5 seconds)
-        setTimeout(function() {
-          hideLoader();
-        }, 5000);
-        
-        // Also hide on window load event
+        // Hide on window load (browser considers page loaded)
         window.addEventListener('load', function() {
-          setTimeout(hideLoader, 500);
+          setTimeout(hideLoader, 300);
         });
+        
+        // Hide when DOM is ready if load already fired (e.g. cached)
+        if (document.readyState === 'complete') {
+          setTimeout(hideLoader, 300);
+        }
+        
+        // Max wait: hide after 2s so one hanging resource never blocks (blue bar / overlay)
+        setTimeout(hideLoader, 2000);
       })();
     </script>
   </body>

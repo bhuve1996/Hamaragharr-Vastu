@@ -10,7 +10,7 @@
 {% capture notification_footer %}
   <div class=''>
     {% assign label = 'general.cart.view' | t: count: cart.item_count %}
-    {% render 'button', text: label, style: 'link', mode: 'dark', mode:'dark', link: routes.cart_url, block: true %}
+    {% render 'button', text: label, style: 'link', mode: 'dark', link: routes.cart_url, block: true %}
 
     <form style="--lg: 12" action='{{ routes.cart_url }}' method='post' id='xo-cart-popup-form'>
         {% capture checkout_label %}{{ 'sections.cart.checkout' | t }}{% endcapture %}
@@ -19,7 +19,7 @@
 
     <xo-modal-trigger style="--lg: 12">
       {% capture continue_label %}{{ 'general.continue_shopping' | t }}{% endcapture %}
-      {% render 'button', text: continue_label, style: 'link', mode: 'dark', mode:'dark', block: true %}
+      {% render 'button', text: continue_label, style: 'link', mode: 'dark', block: true %}
     </xo-modal-trigger>
   </div>
 {% endcapture %}

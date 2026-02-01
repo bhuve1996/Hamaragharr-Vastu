@@ -15,7 +15,7 @@
         <xo-animate xo-cascade class='vastu-why-kit__item' {{ block.shopify_attributes }}>
           <div class='vastu-why-kit__icon'>
             {% if block.settings.icon_svg != blank %}
-              {{ block.settings.icon_svg | raw }}
+              {{ block.settings.icon_svg }}
             {% elsif block.settings.icon_image != blank %}
               {% render 'image', image: block.settings.icon_image %}
             {% endif %}

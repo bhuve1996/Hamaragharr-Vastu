@@ -181,7 +181,8 @@
               {%- comment -%} Background Image or Video {%- endcomment -%}
               {%- assign is_first_slide = forloop.first -%}
               {% if block.settings.background_type == 'video' and block.settings.background_video_url != blank %}
-                <video class='vastu-banner-carousel__video' autoplay muted loop playsinline{% if is_first_slide %} preload='auto'{% endif %}>
+                {%- comment -%} preload='none' so browser does not request video until play; stops blue loading bar on mobile. Video still autoplays (browser loads on play). {%- endcomment -%}
+                <video class='vastu-banner-carousel__video' autoplay muted loop playsinline preload='none' poster='{{ block.settings.background_image_desktop | image_url: width: 1200 }}'>
                   <source src='{{ block.settings.background_video_url }}' type='video/mp4'>
                 </video>
                 {% if block.settings.background_image_desktop != blank %}
