@@ -112,6 +112,41 @@
     {{ content_for_header }}
     {% render 'settings-adapter' %}
 
+    {%- comment -%} Ensure Shopify.formatMoney is always a function (fix "INR is not a function" when money format is currency-only) {%- endcomment -%}
+    <script>
+      (function() {
+        if (typeof window.Shopify === 'undefined') return;
+        if (typeof window.Shopify.formatMoney === 'function') return;
+        var format = document.documentElement.getAttribute('xo-money-format') || document.documentElement.getAttribute('xo-money-with-currency-format') || '{' + '{' + ' amount ' + '}' + '}';
+        var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+        function formatWithDelimiters(number, precision, thousands, decimal) {
+          thousands = thousands || ',';
+          decimal = decimal || '.';
+          if (isNaN(number) || number === null) return '0';
+          number = (number / 100).toFixed(precision);
+          var parts = number.split('.');
+          var dollarsAmount = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
+          var centsAmount = parts[1] ? (decimal + parts[1]) : '';
+          return dollarsAmount + centsAmount;
+        }
+        window.Shopify.formatMoney = function(cents, formatString) {
+          formatString = formatString || format;
+          if (typeof cents === 'string') cents = cents.replace('.', '');
+          var match = formatString.match(placeholderRegex);
+          if (!match) return formatString;
+          var formattedValue;
+          switch (match[1]) {
+            case 'amount': formattedValue = formatWithDelimiters(cents, 2); break;
+            case 'amount_no_decimals': formattedValue = formatWithDelimiters(cents, 0); break;
+            case 'amount_with_comma_separator': formattedValue = formatWithDelimiters(cents, 2, '.', ','); break;
+            case 'amount_no_decimals_with_comma_separator': formattedValue = formatWithDelimiters(cents, 0, '.', ','); break;
+            default: formattedValue = formatString;
+          }
+          return formatString.replace(placeholderRegex, formattedValue);
+        };
+      })();
+    </script>
+
     {%- comment -%} Detect local development environment {%- endcomment -%}
     {%- liquid
       assign is_local = false
