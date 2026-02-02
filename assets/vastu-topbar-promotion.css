@@ -144,8 +144,6 @@ nav a {
   transition:
     color 0.3s ease,
     font-weight 0.3s ease;
-  padding: calc(var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) * 1.2)
-    calc(var(--section-body-margin-bottom-desktop, var(--global-body-margin-bottom-desktop, 16px)) * 2.5);
 }
 
 /* Active state - subtle emphasis */
@@ -172,8 +170,6 @@ nav a {
 
   .header-v6__promotion-name {
     font-size: var(--global-body-font-size-mobile);
-    padding: calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 1.2)
-      calc(var(--section-body-margin-bottom-mobile, var(--global-body-margin-bottom-mobile, 16px)) * 2);
   }
 }
 
