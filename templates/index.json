@@ -16,6 +16,8 @@
           "type": "slideshow",
           "settings": {
             "background_type": "image",
+            "background_image_desktop": "shopify://shop_images/Banner-Desktop-1.png",
+            "background_image_mobile": "shopify://shop_images/Banner-Mobile-1.png",
             "background_video_url": "",
             "background_overlay": "",
             "button_link": "shopify://products/vastu-kit-home-office",
@@ -26,6 +28,8 @@
           "type": "slideshow",
           "settings": {
             "background_type": "image",
+            "background_image_desktop": "shopify://shop_images/Banner-Desktop-2.png",
+            "background_image_mobile": "shopify://shop_images/Banner-Mobile-2.png",
             "background_video_url": "",
             "background_overlay": "",
             "button_link": "shopify://products/vastu-kit-home-office",
