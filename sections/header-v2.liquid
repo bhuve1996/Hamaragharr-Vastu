@@ -80,6 +80,17 @@
       display: none !important;
     }
   }
+  /* Cart quantity badge: position at top of icon instead of bottom */
+  .header-v6__icon-wrap--cart {
+    position: relative;
+  }
+  .header-v6__icon-wrap--cart .header-v6__cart-count {
+    position: absolute;
+    bottom: auto;
+    top: -0.85rem;
+    right: -0.35rem;
+    left: auto;
+  }
 {% endstyle %}
 
 <header
