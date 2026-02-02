@@ -130,6 +130,21 @@
     }
   }
   
+  /* Only the visible slide should show its video: clip carousel and isolate each slide */
+  section[class*="homepage-carousel"] xo-carousel,
+  section.vastu-banner-carousel xo-carousel {
+    overflow: hidden;
+  }
+  section[class*="homepage-carousel"] xo-carousel-inner,
+  section.vastu-banner-carousel xo-carousel-inner {
+    overflow: hidden;
+  }
+  section[class*="homepage-carousel"] xo-carousel-slide,
+  section.vastu-banner-carousel xo-carousel-slide {
+    overflow: hidden;
+    contain: layout style paint;
+  }
+
   .vastu-banner-carousel__video {
     width: 100%;
     height: 100%;
@@ -182,7 +197,7 @@
               {%- assign is_first_slide = forloop.first -%}
               {% if block.settings.background_type == 'video' and block.settings.background_video_url != blank %}
                 {%- comment -%} preload='none' so browser does not request video until play; stops blue loading bar on mobile. Video still autoplays (browser loads on play). {%- endcomment -%}
-                <video class='vastu-banner-carousel__video' autoplay muted loop playsinline preload='none' poster='{{ block.settings.background_image_desktop | image_url: width: 1200 }}'>
+                <video class='vastu-banner-carousel__video' muted loop playsinline preload='none' poster='{{ block.settings.background_image_desktop | image_url: width: 1200 }}' data-banner-video>
                   <source src='{{ block.settings.background_video_url }}' type='video/mp4'>
                 </video>
                 {% if block.settings.background_image_desktop != blank %}
@@ -253,6 +268,59 @@
       </xo-carousel-list>
     </xo-carousel-inner>
   </xo-carousel>
+
+  <script>
+    (function() {
+      var section = document.querySelector('.vastu-banner-carousel[data-section-type="homepage-banner"]');
+      if (!section) return;
+      var carousel = section.querySelector('xo-carousel');
+      var inner = section.querySelector('xo-carousel-inner');
+      var videos = section.querySelectorAll('.vastu-banner-carousel__video[data-banner-video]');
+      if (!inner || !videos.length) return;
+
+      function playVideoOnlyInVisibleSlide() {
+        var slides = section.querySelectorAll('xo-carousel-slide');
+        var innerRect = inner.getBoundingClientRect();
+        var viewWidth = innerRect.width;
+        var activeIndex = 0;
+        var bestRatio = 0;
+        slides.forEach(function(slide, i) {
+          var r = slide.getBoundingClientRect();
+          var overlap = Math.min(r.right, innerRect.right) - Math.max(r.left, innerRect.left);
+          var ratio = viewWidth > 0 ? overlap / viewWidth : 0;
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            activeIndex = i;
+          }
+        });
+        videos.forEach(function(video) {
+          var slide = video.closest('xo-carousel-slide');
+          var slideIndex = slide ? Array.prototype.indexOf.call(slides, slide) : -1;
+          if (slideIndex === activeIndex && bestRatio >= 0.5) {
+            video.play().catch(function() {});
+          } else {
+            video.pause();
+          }
+        });
+      }
+
+      var observer = new IntersectionObserver(
+        function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) playVideoOnlyInVisibleSlide();
+          });
+        },
+        { root: null, rootMargin: '0px', threshold: 0 }
+      );
+      observer.observe(inner);
+
+      playVideoOnlyInVisibleSlide();
+      requestAnimationFrame(function() { playVideoOnlyInVisibleSlide(); });
+      setTimeout(playVideoOnlyInVisibleSlide, 300);
+      window.addEventListener('resize', playVideoOnlyInVisibleSlide);
+      setInterval(playVideoOnlyInVisibleSlide, 400);
+    })();
+  </script>
 </section>
 
 {% schema %}
