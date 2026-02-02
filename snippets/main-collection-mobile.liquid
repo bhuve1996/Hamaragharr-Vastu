@@ -5,6 +5,22 @@
   {% render 'main-collection-mobile' %}
 {% endcomment %}
 
+<style>
+  .main-collection-mobile__modal-wrap {
+    max-height: 100vh;
+    max-height: 100dvh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+  }
+  @media (max-width: 48rem) {
+    .main-collection-mobile__modal-wrap {
+      max-width: 100vw;
+      width: 100vw;
+    }
+  }
+</style>
+
 <xo-modal-trigger xo-name='collection-modal-mobile' class='main-collection-mobile__trigger'>
   {% render 'icon', name: 'filter2', icon_size: '18' %}
   <div class='main-collection-mobile__trigger-text'>Filter</div>
