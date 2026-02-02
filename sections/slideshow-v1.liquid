@@ -155,6 +155,11 @@
     left: 0;
     z-index: 1;
   }
+
+  /* Video-only slides: ensure slide always renders */
+  .vastu-banner-carousel__slide--video {
+    min-height: inherit;
+  }
   
   .vastu-banner-carousel__overlay {
     position: absolute;
@@ -192,25 +197,20 @@
       <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
         {% for block in section.blocks %}
           <xo-carousel-slide aria-roledescription='{{ 'sections.slideshow.slide' | t }}' aria-label='{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}'>
-            <div class='vastu-banner-carousel__slide'>
+            {%- liquid
+              assign is_video_slide = false
+              if block.settings.background_type == 'video' and block.settings.background_video_url != blank
+                assign is_video_slide = true
+              endif
+            -%}
+            <div class='vastu-banner-carousel__slide{% if is_video_slide %} vastu-banner-carousel__slide--video{% endif %}'>
               {%- comment -%} Background Image or Video {%- endcomment -%}
               {%- assign is_first_slide = forloop.first -%}
               {% if block.settings.background_type == 'video' and block.settings.background_video_url != blank %}
-                {%- comment -%} preload='none' so browser does not request video until play; stops blue loading bar on mobile. Video still autoplays (browser loads on play). {%- endcomment -%}
-                <video class='vastu-banner-carousel__video' muted loop playsinline preload='none' poster='{{ block.settings.background_image_desktop | image_url: width: 1200 }}' data-banner-video>
+                {%- comment -%} Video slide: render even when no image. Poster only if image set; no img on top so video is visible. {%- endcomment -%}
+                <video class='vastu-banner-carousel__video' muted loop playsinline preload='none' {% if block.settings.background_image_desktop != blank %}poster='{{ block.settings.background_image_desktop | image_url: width: 1200 }}'{% endif %} data-banner-video>
                   <source src='{{ block.settings.background_video_url }}' type='video/mp4'>
                 </video>
-                {% if block.settings.background_image_desktop != blank %}
-                  <img 
-                    src='{{ block.settings.background_image_desktop | image_url: width: 1920 }}'
-                    alt='{{ block.settings.background_image_desktop.alt | escape }}'
-                    class='vastu-banner-carousel__image vastu-banner-carousel__image--desktop'
-                    loading='eager'
-                    {% if is_first_slide %}fetchpriority='high'{% endif %}
-                    width='{{ block.settings.background_image_desktop.width }}'
-                    height='{{ block.settings.background_image_desktop.height }}'
-                  >
-                    {% endif %}
               {% elsif block.settings.background_type == 'image' %}
                 {% if block.settings.background_image_desktop != blank %}
                   <img 
@@ -279,25 +279,33 @@
       if (!inner || !videos.length) return;
 
       function playVideoOnlyInVisibleSlide() {
-        var slides = section.querySelectorAll('xo-carousel-slide');
-        var innerRect = inner.getBoundingClientRect();
-        var viewWidth = innerRect.width;
-        var activeIndex = 0;
-        var bestRatio = 0;
-        slides.forEach(function(slide, i) {
-          var r = slide.getBoundingClientRect();
-          var overlap = Math.min(r.right, innerRect.right) - Math.max(r.left, innerRect.left);
-          var ratio = viewWidth > 0 ? overlap / viewWidth : 0;
-          if (ratio > bestRatio) {
-            bestRatio = ratio;
-            activeIndex = i;
-          }
-        });
+        /* Use carousel’s active slide (xo-active) instead of overlap calculation */
+        var activeSlide = section.querySelector('xo-carousel-slide[xo-active]');
         videos.forEach(function(video) {
           var slide = video.closest('xo-carousel-slide');
-          var slideIndex = slide ? Array.prototype.indexOf.call(slides, slide) : -1;
-          if (slideIndex === activeIndex && bestRatio >= 0.5) {
-            video.play().catch(function() {});
+          var isActive = activeSlide && slide === activeSlide;
+          if (isActive) {
+            /* Only load once (readyState 0 = HAVE_NOTHING); calling load() every time resets the video */
+            if (video.readyState === 0) {
+              video.load();
+            }
+            function tryPlay() {
+              video.play().catch(function() {});
+            }
+            if (video.readyState >= 2) {
+              tryPlay();
+            } else {
+              /* Add play-on-ready listeners only once so they are not re-added every 400ms */
+              if (!video.dataset.bannerVideoListeners) {
+                video.dataset.bannerVideoListeners = '1';
+                video.addEventListener('canplay', tryPlay, { once: true });
+                video.addEventListener('loadeddata', tryPlay, { once: true });
+                video.addEventListener('error', function() {
+                  video.removeEventListener('canplay', tryPlay);
+                  video.removeEventListener('loadeddata', tryPlay);
+                }, { once: true });
+              }
+            }
           } else {
             video.pause();
           }
