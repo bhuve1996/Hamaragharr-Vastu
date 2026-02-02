@@ -139,12 +139,12 @@ xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   --color-text-primary: 0, 0, 0;
   --color-text-white: 255, 255, 255;
   --color-text-black: 0, 0, 0;
-  --color-purple: 107, 70, 193;
-  --color-purple-light: 186, 170, 200;
+  --color-purple: 71, 56, 85; /* website purple #473855 */
+  --color-purple-light: 111, 87, 132; /* lighter website purple #6f5784 */
   --color-dark: 71, 56, 85;
   --color-hex-secondary: #473855;
   --color-hex-secondary-muted: #6f5784;
-  --color-hex-purple: #6b46c1;
+  --color-hex-purple: #473855; /* website purple - matches secondary */
   --color-hex-white: #fff;
   --color-hex-black: #000;
   --color-secondary-muted: 111, 87, 132; /* #6f5784 - lighter purple for secondary text */

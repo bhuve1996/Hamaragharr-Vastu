@@ -38,8 +38,8 @@
 .shipping-accordion__view-full:hover span,
 .shipping-accordion__view-full:hover button,
 .shipping-accordion__view-full-link:hover {
-  color: rgb(var(--color-purple, 107, 70, 193));
-  text-decoration-color: rgba(var(--color-purple, 107, 70, 193), 0.7);
+  color: rgb(var(--color-purple, 71, 56, 85));
+  text-decoration-color: rgba(var(--color-purple, 71, 56, 85), 0.7);
   transform: translateX(4px);
 }
 

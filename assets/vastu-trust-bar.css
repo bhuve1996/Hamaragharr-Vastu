@@ -84,7 +84,7 @@
 .vastu-trust-bar__item:hover .vastu-trust-bar__icon,
 .vastu-trust-bar__item:hover .vastu-trust-bar__icon-svg {
   transform: scale(1.1);
-  color: var(--color-hex-purple, rgb(var(--color-purple, 107, 70, 193)));
+  color: var(--color-hex-purple, rgb(var(--color-purple, 71, 56, 85)));
 }
 
 .vastu-trust-bar__icon-svg svg {
@@ -107,7 +107,7 @@
 .vastu-trust-bar__item:hover .vastu-trust-bar__icon .xo-image {
   /* filter: brightness(0) saturate(100%) invert(27%) sepia(89%) saturate(1352%) hue-rotate(243deg) brightness(95%)
     contrast(91%); */
-  color: var(--color-hex-purple, rgb(var(--color-purple, 107, 70, 193)));
+  color: var(--color-hex-purple, rgb(var(--color-purple, 71, 56, 85)));
 }
 
 .vastu-trust-bar__text {
