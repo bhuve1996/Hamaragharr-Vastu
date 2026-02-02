@@ -16,8 +16,6 @@
           "type": "slideshow",
           "settings": {
             "background_type": "image",
-            "background_image_desktop": "shopify://shop_images/hero_desktop_4.png",
-            "background_image_mobile": "shopify://shop_images/hero_mobile.png",
             "background_video_url": "",
             "background_overlay": "",
             "button_link": "shopify://products/vastu-kit-home-office",
@@ -28,8 +26,6 @@
           "type": "slideshow",
           "settings": {
             "background_type": "image",
-            "background_image_desktop": "shopify://shop_images/Untitled_1200_x_800_px.png",
-            "background_image_mobile": "shopify://shop_images/Untitled_430_x_285_px_2.png",
             "background_video_url": "",
             "background_overlay": "",
             "button_link": "shopify://products/vastu-kit-home-office",
@@ -533,7 +529,7 @@
         "trust_3": {
           "type": "trust_item",
           "settings": {
-            "icon": "shopify://shop_images/costumer.png",
+            "icon": "shopify://shop_images/customer.png",
             "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 576 512\" height=\"64\" width=\"64\" fill=\"currentColor\"><path d=\"M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm48 112a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm-64 48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm280 0c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H504c8.8 0 16 7.2 16 16s-7.2 16-16 16H408c-8.8 0-16-7.2-16-16zM176 384a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM48 224H192V384H48V224zM448 224H512V384H448V224z\"></path></svg>",
             "text": "Happy Customers",
             "subtitle": "Thousands of satisfied families"
