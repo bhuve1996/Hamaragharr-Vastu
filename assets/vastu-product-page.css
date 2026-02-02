@@ -1933,3 +1933,8 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   text-overflow: ellipsis;
   box-sizing: border-box;
 }
+
+/* Hide mobile product media pagination */
+.xo-product-info-media-mobile__pagination {
+  display: none !important;
+}
