@@ -112,12 +112,6 @@
           "disabled": true,
           "settings": {}
         },
-        "367088f1-d502-47f7-b8b1-1c3f0e2221ce": {
-          "type": "shipping",
-          "settings": {
-            "use_accordion": false
-          }
-        },
         "cac56f9f-8acd-4ad3-bdcc-54a1403984cf": {
           "type": "complementary",
           "disabled": true,
@@ -150,15 +144,6 @@
             "content_liquid": "{% render 'product-description-style3' %}"
           }
         },
-        "ae0ed4c8-948a-46c7-b292-5f2687b8c94l": {
-          "type": "collapse",
-          "disabled": true,
-          "settings": {
-            "heading": "Shipping & return",
-            "content": "",
-            "content_liquid": "{% assign policy_content = shop.policies | where: 'title', 'Shipping policy' | first %} {{ policy_content.body }}"
-          }
-        },
         "367088f1-d502-47f7-b8b1-1c3f0e2221ae": {
           "type": "image",
           "settings": {}
@@ -179,13 +164,11 @@
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94k",
         "941018d2-7613-4b60-aa2c-94962df06c94",
         "367088f1-d502-47f7-b8b1-1c3f0e2221be",
-        "367088f1-d502-47f7-b8b1-1c3f0e2221ce",
         "cac56f9f-8acd-4ad3-bdcc-54a1403984cf",
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94e",
         "367088f1-d502-47f7-b8b1-1c3f0e2221af",
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94f",
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94g",
-        "ae0ed4c8-948a-46c7-b292-5f2687b8c94l",
         "367088f1-d502-47f7-b8b1-1c3f0e2221ae"
       ],
       "settings": {
@@ -203,13 +186,9 @@
             "header": "Description",
             "custom_liquid": "{% render 'product-description-style4' %}"
           }
-        },
-        "tab2": {
-          "type": "shipping",
-          "settings": {}
         }
       },
-      "block_order": ["tab1", "tab2"],
+      "block_order": ["tab1"],
       "settings": {
         "padding_bottom": 0
       }
