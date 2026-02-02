@@ -16,8 +16,8 @@
           "type": "slideshow",
           "settings": {
             "background_type": "image",
-            "background_image_desktop": "shopify://shop_images/hero_desktop_1.png",
-            "background_image_mobile": "shopify://shop_images/hero_mobile_3.png",
+            "background_image_desktop": "shopify://shop_images/Untitled_1200_x_800_px.png",
+            "background_image_mobile": "shopify://shop_images/Untitled_430_x_285_px_2.png",
             "background_video_url": "",
             "background_overlay": "#0000004d",
             "button_link": "shopify://products/vastu-kit-home-office",
@@ -203,7 +203,7 @@
         "benefit_4": {
           "type": "why_kit_benefit",
           "settings": {
-            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"64\" height=\"64\"><text x=\"12\" y=\"18\" text-anchor=\"middle\" font-size=\"22\" fill=\"currentColor\" font-weight=\"100\" font-family=\"system-ui, -apple-system, sans-serif\">&#8377;</text></svg>",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" width=\"64\" height=\"64\"><text x=\"12\" y=\"18\" text-anchor=\"middle\" font-size=\"22\" fill=\"currentColor\" font-weight=\"100\" font-family=\"system-ui, -apple-system, sans-serif\">₹</text></svg>",
             "text": "Value For Money"
           }
         },
@@ -496,6 +496,7 @@
         "background_color": "#ffffff",
         "padding_top": 0,
         "padding_bottom": 0,
+        "show_list_checkmarks": false,
         "enable_separator": false,
         "separator_color": "#473855",
         "separator_height": 1,
