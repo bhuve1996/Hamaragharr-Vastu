@@ -38,6 +38,7 @@
         "topbar_background_gradient": "",
         "logo_desktop": "shopify://shop_images/Desktop-Logo.png",
         "logo_desktop_width": 130,
+        "logo_mobile": "shopify://shop_images/Desktop-Logo.png",
         "logo_mobile_width": 100,
         "menu": "main-menu-new",
         "menu_type": "default",
