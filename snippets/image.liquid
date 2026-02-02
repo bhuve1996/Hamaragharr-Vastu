@@ -43,6 +43,16 @@
   if media_aspect_ratio == blank or media_aspect_ratio == 'auto'
     assign media_aspect_ratio = image.aspect_ratio
   endif
+  assign x_pos = 50
+  assign y_pos = 50
+  if image != blank and image.presentation.focal_point
+    if image.presentation.focal_point.x != blank
+      assign x_pos = image.presentation.focal_point.x
+    endif
+    if image.presentation.focal_point.y != blank
+      assign y_pos = image.presentation.focal_point.y
+    endif
+  endif
   assign fetch_priority = 'auto'
   if section.index == 1 or eager == true
     assign fetch_priority = 'high'
@@ -66,7 +76,7 @@
 
 <div
   class='xo-image{{ image_svg_class }}{%- if container_class %} {{ container_class }}{% endif -%}'
-  style='--xo-ratio-percent: {{ media_aspect_ratio }}; --x-pos: {{ image.presentation.focal_point.x }}%; --y-pos: {{ image.presentation.focal_point.y }}%; {%- if full_height %} height: 100%; padding-top: unset; {%- endif -%} {%- if no_overflow %} overflow: unset; {%- endif -%}'
+  style='--xo-ratio-percent: {{ media_aspect_ratio }}; --x-pos: {{ x_pos }}%; --y-pos: {{ y_pos }}%; {%- if full_height %} height: 100%; padding-top: unset; {%- endif -%} {%- if no_overflow %} overflow: unset; {%- endif -%}'
 >
   {%- if image != blank -%}
     {{

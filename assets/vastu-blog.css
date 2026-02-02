@@ -168,6 +168,19 @@ body.template-blog main .h6 {
   margin-bottom: 0;
 }
 
+/* Blog individual page: show full featured image so text in image is not cut */
+.main-article__image-wrap .xo-image img {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Blog cards: show full image so text in image is not cut (3:2 ratio container) */
+.article-card-style1__image .xo-image img,
+.article-card-style4__image .xo-image img {
+  object-fit: contain;
+  object-position: center;
+}
+
 /* Blog individual page: hide author/date/comment meta for now */
 .main-article__information {
   display: none;

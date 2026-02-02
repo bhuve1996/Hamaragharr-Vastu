@@ -413,18 +413,18 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   margin-top: 0;
 }
 
-/* style1: main image first in DOM for native carousel sync; show thumbnails on top visually */
+/* style1: main image first in DOM for native carousel sync; show thumbnails at bottom visually */
 .xo-product-info-media-style1 xo-carousel {
   display: flex;
   flex-direction: column;
 }
 
 .xo-product-info-media-style1 .xo-product-info-media-style1__bottom {
-  order: 2;
+  order: 1;
 }
 
 .xo-product-info-media-style1 .xo-product-info-media-style1__thumbnails {
-  order: 1;
+  order: 2;
 }
 
 /* Product page: active thumbnail when mini image is selected */

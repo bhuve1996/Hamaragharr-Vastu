@@ -12,24 +12,24 @@
     "homepage-carousel": {
       "type": "slideshow-v1",
       "blocks": {
-        "slide_1": {
-          "type": "slideshow",
-          "settings": {
-            "background_type": "image",
-            "background_image_desktop": "shopify://shop_images/Untitled_1200_x_800_px.png",
-            "background_image_mobile": "shopify://shop_images/Untitled_430_x_285_px_2.png",
-            "background_video_url": "",
-            "background_overlay": "",
-            "button_link": "shopify://products/vastu-kit-home-office",
-            "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639"
-          }
-        },
         "slideshow_7KaQdB": {
           "type": "slideshow",
           "settings": {
             "background_type": "image",
             "background_image_desktop": "shopify://shop_images/hero_desktop_4.png",
             "background_image_mobile": "shopify://shop_images/hero_mobile.png",
+            "background_video_url": "",
+            "background_overlay": "",
+            "button_link": "shopify://products/vastu-kit-home-office",
+            "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639"
+          }
+        },
+        "slide_1": {
+          "type": "slideshow",
+          "settings": {
+            "background_type": "image",
+            "background_image_desktop": "shopify://shop_images/Untitled_1200_x_800_px.png",
+            "background_image_mobile": "shopify://shop_images/Untitled_430_x_285_px_2.png",
             "background_video_url": "",
             "background_overlay": "",
             "button_link": "shopify://products/vastu-kit-home-office",
@@ -47,7 +47,7 @@
           }
         }
       },
-      "block_order": ["slide_1", "slideshow_7KaQdB", "slideshow_RB3T9p"],
+      "block_order": ["slideshow_7KaQdB", "slide_1", "slideshow_RB3T9p"],
       "settings": {
         "width": "wide",
         "fullwidth_margin": 0,
@@ -800,7 +800,7 @@
         "gap": 30,
         "auto_play": false,
         "hover": "scale_up",
-        "aspect_ratio": "3/4",
+        "aspect_ratio": "3/2",
         "button_text": "Read more",
         "color_scheme": "",
         "background_type": "color",
