@@ -142,9 +142,9 @@
     "vastu-product-showcase": {
       "type": "vastu-product-showcase",
       "settings": {
-        "width": "wide",
+        "width": "box",
         "fullwidth_margin": 0,
-        "content_width": "wide",
+        "content_width": "box",
         "product": "vastu-kit-home-office",
         "fallback_product_handle": "vastu-kit-home-office",
         "show_title": true,
@@ -222,8 +222,8 @@
         "benefit_5"
       ],
       "settings": {
-        "width": "wide",
-        "content_width": "wide",
+        "width": "box",
+        "content_width": "box",
         "title": "Why Vastu Kit?",
         "title_font_size": 0,
         "title_font_weight": 0,
@@ -299,8 +299,8 @@
       },
       "block_order": ["item_1", "item_2", "item_3", "item_4"],
       "settings": {
-        "width": "wide",
-        "content_width": "wide",
+        "width": "box",
+        "content_width": "box",
         "title": "What Does It Help Address?",
         "title_font_size": 3.5,
         "title_font_weight": 700,
@@ -376,8 +376,8 @@
     "vastu-hindi-statement": {
       "type": "vastu-hindi-statement",
       "settings": {
-        "width": "wide",
-        "content_width": "wide",
+        "width": "box",
+        "content_width": "box",
         "hindi_text": "When your home is in balance, your life begins to breathe again.",
         "title_font_size": 2.8,
         "title_font_weight": 0,
@@ -473,8 +473,8 @@
         "concern_4"
       ],
       "settings": {
-        "width": "wide",
-        "content_width": "wide",
+        "width": "box",
+        "content_width": "box",
         "title": "Shop by Concern",
         "title_font_size": 3.5,
         "title_font_weight": 700,
@@ -551,8 +551,8 @@
       },
       "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"],
       "settings": {
-        "width": "wide",
-        "content_width": "wide",
+        "width": "box",
+        "content_width": "box",
         "title": "Why Choose Us",
         "title_font_size": 3.5,
         "title_font_weight": 700,
@@ -738,9 +738,9 @@
         "review_15"
       ],
       "settings": {
-        "width": "wide",
+        "width": "box",
         "fullwidth_margin": 0,
-        "content_width": "wide",
+        "content_width": "box",
         "reverse": false,
         "auto_play": true,
         "columns_limit": 5,
@@ -775,9 +775,9 @@
       "type": "blog-v1",
       "name": "t:sections.blog_v1.presets.name",
       "settings": {
-        "width": "wide",
+        "width": "box",
         "fullwidth_margin": 0,
-        "content_width": "wide",
+        "content_width": "box",
         "title": "Our Blog",
         "title_font_size": 0,
         "title_font_weight": 0,
@@ -871,9 +871,9 @@
         "question_4"
       ],
       "settings": {
-        "width": "wide",
+        "width": "box",
         "fullwidth_margin": 0,
-        "content_width": "wide",
+        "content_width": "box",
         "subtitle": "Have Questions?",
         "title": "Frequently Asked Questions",
         "title_font_size": 0,
