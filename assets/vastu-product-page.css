@@ -463,7 +463,9 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 /* Product page only: scale-down so image fits in box (e.g. 800x600) – no crop, no upscale */
 .xo-product-info-media-style1 .xo-image:not(.xo-image--svg) img,
 .xo-product-info-media-style3 .xo-image:not(.xo-image--svg) img,
-.xo-product-info-media-style3__image img {
+.xo-product-info-media-style3__image img,
+.xo-product-info-media-mobile__image .xo-image:not(.xo-image--svg) img,
+.xo-product-info-media-mobile__image img {
   object-fit: scale-down;
   object-position: center;
   width: 100%;
@@ -475,7 +477,9 @@ section.vastu-product-showcase .xo-product-info-media-style1,
 .xo-product-info-media-style1__slide .xo-product-info-media-style1__image,
 .xo-product-info-media-style1__slide .xo-image,
 .xo-product-info-media-style3__slide .xo-product-info-media-style3__image,
-.xo-product-info-media-style3__slide .xo-image {
+.xo-product-info-media-style3__slide .xo-image,
+.xo-product-info-media-mobile__slide .xo-product-info-media-mobile__image,
+.xo-product-info-media-mobile__slide .xo-image {
   display: flex;
   align-items: center;
   justify-content: center;
