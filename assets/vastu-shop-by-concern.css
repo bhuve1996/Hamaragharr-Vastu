@@ -33,6 +33,7 @@
   background: transparent;
   transition: all 0.3s ease;
   border: none;
+  border-radius: 0.75rem;
   width: 100%;
   text-align: left;
   position: relative;
