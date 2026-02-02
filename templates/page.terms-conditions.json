@@ -9,9 +9,26 @@
  */
 {
   "sections": {
+    "breadcrumb-v2": {
+      "type": "breadcrumb-v2",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "background-1",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": false,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
+        "padding_top": 110,
+        "padding_bottom": 110
+      }
+    },
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "color_scheme": "",
         "background_type": "color",
@@ -30,33 +47,17 @@
         "section_margin_bottom_mobile": 0
       }
     },
-    "breadcrumb-v2": {
-      "type": "breadcrumb-v2",
-      "settings": {
-        "color_scheme": "background-1",
-        "background_type": "color",
-        "background_color": "",
-        "background_gradient": "",
-        "use_parallax": false,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 110,
-        "padding_bottom": 110
-      }
-    },
     "terms_content_1": {
       "type": "about-v1",
+      "disabled": true,
       "settings": {
         "width": "box",
         "fullwidth_margin": 0,
         "reverse": false,
         "gap": 30,
         "title": "",
-        "subtitle": "Please Read Carefully",
-        "description": "<h2>TERMS & CONDITIONS</h2>\n<p><strong>Last Updated: [21 July 2025]</strong></p>\n<p>These Terms & Conditions (\"Terms\") govern your access to and use of the website, mobile applications, products, and services operated by Hamaragharr Vastu Corporation (\"Hamaragharr\", \"we\", \"us\", \"our\"). By accessing, browsing, or purchasing from our platform, you agree to be legally bound by these Terms. If you do not agree with any part of these Terms, please do not use our website or services.</p>\n\n<h3>1. ABOUT HAMARAGHARR</h3>\n<p>Hamaragharr is a Vastu-focused brand offering Vastu kits, paintings, physical products, guidance material, and advisory-based spiritual products inspired by traditional Vastu Shastra. Our offerings are intended to support energy balance, harmony, and well-being in living and working spaces. Hamaragharr does not provide medical, legal, financial, or clinical advice.</p>\n\n<h3>2. ACCEPTANCE OF TERMS</h3>\n<p>By using this website or purchasing any product or service, you:</p>\n<ul>\n<li>Confirm that you are at least 18 years of age</li>\n<li>Confirm that you are legally capable of entering into a binding contract under Indian law</li>\n<li>Agree to comply with these Terms, our Privacy Policy, Shipping Policy, and Return, Exchange & Refund Policy</li>\n</ul>\n<p>Continued use of the platform constitutes acceptance of any updates made to these Terms.</p>\n\n<h3>3. NATURE OF SERVICES & DISCLAIMER</h3>\n<ul>\n<li>All Vastu-related content, products, remedies, guidance books, kits, videos, or recommendations provided by Hamaragharr are spiritual, traditional, and informational in nature.</li>\n<li>Results may vary from person to person and from space to space.</li>\n<li>We do not guarantee specific outcomes, transformations, or results.</li>\n</ul>\n<p><strong>Important Disclaimer:</strong> Hamaragharr does not substitute professional medical, psychological, legal, or financial advice. You should consult qualified professionals for such matters.</p>\n\n<h3>4. EMERGENCY DISCLAIMER</h3>\n<p>Hamaragharr is not a crisis support platform. If you are experiencing:</p>\n<ul>\n<li>Severe emotional distress</li>\n<li>Thoughts of self-harm or harm to others</li>\n<li>A medical or psychological emergency</li>\n</ul>\n<p>Please immediately contact local emergency services or a suicide prevention helpline. Use of our platform in such situations is entirely at your own risk.</p>\n\n<h3>5. USER REGISTRATION & ACCOUNT RESPONSIBILITY</h3>\n<ul>\n<li>You may be required to provide accurate and complete information while placing an order or creating an account.</li>\n<li>You are solely responsible for maintaining the confidentiality of your login credentials.</li>\n<li>You are responsible for all activities conducted through your account.</li>\n</ul>\n<p>Hamaragharr reserves the right to suspend or terminate accounts that provide false, misleading, or incomplete information.</p>\n\n<h3>6. PRODUCTS, ORDERS & PAYMENTS</h3>\n<ul>\n<li>Prices, product descriptions, and availability are subject to change without notice.</li>\n<li>Product images are for illustrative purposes only. Minor variations may occur.</li>\n<li>By placing an order, you agree to pay the full amount including applicable taxes and shipping charges.</li>\n</ul>\n<p>Payment processing is handled through third-party payment gateways. Hamaragharr is not responsible for payment gateway failures or unauthorized access beyond its control.</p>\n\n<h3>7. SHIPPING, RETURNS & REFUNDS</h3>\n<p>All shipping, return, exchange, and refund matters are governed by our Shipping Policy and Return, Exchange & Refund Policy, which form an integral part of these Terms. Please review them carefully before making a purchase.</p>\n\n<h3>8. USER CONDUCT & PROHIBITED ACTIVITIES</h3>\n<p>You agree not to:</p>\n<ul>\n<li>Misuse the website or its content</li>\n<li>Post or transmit unlawful, abusive, defamatory, obscene, or harmful material</li>\n<li>Violate intellectual property rights</li>\n<li>Attempt unauthorized access, hacking, or data extraction</li>\n<li>Resell, copy, or commercially exploit our content or products without written consent</li>\n<li>Promote black magic, witchcraft, voodoo, fear-based practices, or illegal activities</li>\n</ul>\n<p>Violation may result in immediate suspension, termination, or legal action.</p>\n\n<h3>9. INTELLECTUAL PROPERTY</h3>\n<p>All content, materials, and brand assets associated with Hamaragharr Vastu Corporation, whether used online or offline, including but not limited to:</p>\n<ul>\n<li>The brand name Hamaragharr®.</li>\n<li>Logos, symbols, icons, trademarks, trade dress, and visual identity.</li>\n<li>Product names, product concepts, kits, packaging, labels, manuals, inserts, certificates, and designs.</li>\n<li>Website content, marketing creatives, catalogues, brochures, videos, guides, manuals, layouts, advertisements, social media content, and digital assets.</li>\n</ul>\n<p>Are the exclusive intellectual property and proprietary trademarks (registered or unregistered) of Hamaragharr Vastu Corporation, unless otherwise stated. These rights are protected under applicable Indian laws, including but not limited to:</p>\n<ul>\n<li>The Trade Marks Act, 1999</li>\n<li>The Copyright Act, 1957</li>\n<li>The Information Technology Act, 2000</li>\n<li>The Indian Penal Code, 1860 (IPC)</li>\n</ul>\n<p>This protection applies to all forms of use, including online platforms, physical marketplaces, exhibitions, retail stores, distributors, resellers, print media, packaging, events, and offline promotions.</p>\n\n<h4>9.1 Trademark Protection (Trade Marks Act, 1999)</h4>\n<ul>\n<li>The trademarks Hamaragharr®, its logo, product names, taglines, packaging style, trade dress, and associated branding elements are protected under Sections 28, 29, and 135 of the Trade Marks Act, 1999</li>\n<li>Any unauthorized online or offline use, imitation, reproduction, manufacture, sale, offering for sale, distribution, display, or misrepresentation of Hamaragharr's trademarks constitutes trademark infringement and passing off</li>\n<li>No license, assignment, dealership, distributorship, or resale right is granted unless expressly authorized in writing by Hamaragharr</li>\n</ul>\n\n<h4>9.2 Copyright Protection (Copyright Act, 1957)</h4>\n<ul>\n<li>All original literary, artistic, photographic, audio-visual, and digital works created by Hamaragharr are protected under Section 13 of the Copyright Act, 1957</li>\n<li>Unauthorized copying, printing, scanning, photographing, recording, storage, publication, circulation, or commercial exploitation—both online and offline—is prohibited under Sections 14, 51, and 63 of the Copyright Act, 1957</li>\n</ul>\n\n<h4>9.3 Criminal Liability & IPC Provisions (Offline + Online Offences)</h4>\n<p>Any unauthorized use, counterfeiting, duplication, resale, rebranding, fraudulent representation, or deceptive use of Hamaragharr's brand name, logo, product identity, packaging, or content—whether digitally or physically—may attract criminal liability, including but not limited to offenses under:</p>\n<ul>\n<li>Section 420 IPC – Cheating and dishonestly inducing delivery of property</li>\n<li>Section 403 IPC – Dishonest misappropriation of property</li>\n<li>Section 406 IPC – Criminal breach of trust</li>\n<li>Section 468 IPC – Forgery for the purpose of cheating</li>\n<li>Section 469 IPC – Forgery intended to harm reputation</li>\n<li>Section 482 IPC – Use of false property mark</li>\n<li>Section 486 IPC – Selling goods marked with a counterfeit trademark</li>\n</ul>\n\n<h4>9.4 Digital & Physical Misuse (IT Act, 2000 & Offline Acts)</h4>\n<ul>\n<li>Unauthorized access, scraping, duplication, or misuse of digital content or data is punishable under Sections 43 and 66 of the Information Technology Act, 2000</li>\n<li>Unauthorized printing, replication, packaging imitation, physical resale, or circulation of copyrighted or trademarked material in offline markets is punishable under applicable provisions of the Copyright Act, 1957 and IPC</li>\n</ul>\n\n<h4>9.5 Enforcement, Monitoring & Legal Remedies</h4>\n<p>Hamaragharr reserves the right to take strict civil and criminal action against any individual, reseller, distributor, organization, or entity involved in online or offline infringement, including:</p>\n<ul>\n<li>Immediate cease-and-desist notices.</li>\n<li>Injunctions and restraining orders.</li>\n<li>Monetary damages and account of profits.</li>\n<li>Seizure, recall, and destruction of counterfeit or infringing goods.</li>\n<li>Recovery of legal fees and enforcement costs.</li>\n</ul>\n\n<h3>10. LIMITATION OF LIABILITY</h3>\n<p>To the maximum extent permitted by law:</p>\n<ul>\n<li>Hamaragharr shall not be liable for indirect, incidental, consequential, or special damages</li>\n<li>Our total liability, if any, shall not exceed the amount paid by you for the specific product or service</li>\n</ul>\n<p>Use of our products and services is entirely at your own discretion and risk.</p>\n\n<h3>11. INDEMNIFICATION</h3>\n<p>You agree to indemnify and hold harmless Hamaragharr, its partners, directors, employees, and affiliates from any claims, damages, losses, or expenses arising from:</p>\n<ul>\n<li>Your misuse of the website or products.</li>\n<li>Your violation of these Terms.</li>\n<li>Your infringement of third-party rights.</li>\n</ul>\n\n<h3>12. THIRD-PARTY LINKS</h3>\n<p>Our website may contain links to third-party websites. Hamaragharr has no control over and assumes no responsibility for their content, policies, or practices.</p>\n\n<h3>13. MODIFICATION & TERMINATION</h3>\n<p>We reserve the right to:</p>\n<ul>\n<li>Modify or discontinue any part of the website or services</li>\n<li>Update these Terms at any time without prior notice</li>\n<li>Suspend or terminate user access for violations</li>\n</ul>\n\n<h3>15. GOVERNING LAW & JURISDICTION</h3>\n<p>These Terms shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to arbitration in New Delhi, India, under the Arbitration and Conciliation Act, 1996. Courts at New Delhi shall have exclusive jurisdiction for interim relief.</p>\n\n<h3>16. CONTACT INFORMATION</h3>\n<p><strong>Hamaragharr Vastu Corporation</strong><br>\nEmail: support@hamaragharr.in<br>\nPhone: +91 8130340819</p>\n\n<p>By using this website, you acknowledge that you have read, understood, and agreed to these Terms & Conditions.</p>",
+        "subtitle": "",
+        "description": "",
         "hover": "scale_down",
         "color_scheme": "background-1",
         "background_type": "color",
@@ -73,5 +74,5 @@
       }
     }
   },
-  "order": ["main", "breadcrumb-v2", "terms_content_1"]
+  "order": ["breadcrumb-v2", "main", "terms_content_1"]
 }
