@@ -455,7 +455,9 @@ section[class*="vastu-grid-carousel"] .vastu-grid-carousel__desktop-carousel xo-
   max-width: 100%;
   background: rgb(var(--color-primary-bg));
   border-radius: 0.75rem;
-  border: 0.5px solid rgb(0 0 0 / 18%);
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: rgb(0 0 0 / 18%);
   overflow: hidden;
   box-shadow: 0 0.4rem 1.2rem rgb(0 0 0 / 14%);
   transition:
