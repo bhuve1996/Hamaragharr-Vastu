@@ -95,6 +95,17 @@
               {% render 'icon', name: 'instagram2', icon_size: '20' %}
             </a>
           </xo-tooltip>
+        {% when 'whatsapp' %}
+          <xo-tooltip xo-title='{{ 'general.social.links.whatsapp' | t }}' xo-placement='{{ tooltip_placement }}'>
+            <a
+              href='https://wa.me/?text={{ url | url_encode }}'
+              target='_blank'
+              class='xo-share-style2__link'
+              aria-label='{{ 'general.social.links.whatsapp' | t }}'
+            >
+              {% render 'icon', name: 'whatsapp', icon_size: '20' %}
+            </a>
+          </xo-tooltip>
 
         {% when 'google' %}
           <xo-tooltip xo-title='{{ 'general.social.links.google' | t }}' xo-placement='{{ tooltip_placement }}'>
