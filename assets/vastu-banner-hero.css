@@ -177,7 +177,7 @@ section[class*="banner-v3"] h2.banner-v155__title {
   height: auto;
   display: block;
   transition: transform 0.4s ease;
-  object-fit: contain;
+  object-fit: cover;
   max-width: 100%;
   background: transparent;
   border: none;
@@ -378,7 +378,7 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   display: block;
   visibility: visible;
   opacity: 1;
-  object-fit: contain;
+  object-fit: cover;
   filter: invert(1) brightness(0.9);
 }
 
@@ -387,7 +387,7 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   height: auto;
   max-width: 100%;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .xo-product-info-variant .xo-field-radio__label,

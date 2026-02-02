@@ -53,7 +53,7 @@ section.vastu-product-showcase .xo-product-info-media-style1,
   max-width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 

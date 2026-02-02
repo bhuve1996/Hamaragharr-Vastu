@@ -100,7 +100,7 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
   max-height: 24rem;
   min-width: 24rem;
   min-height: 24rem;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   visibility: visible;
   opacity: 1;
@@ -114,7 +114,7 @@ div[class*="shopify-section-template"][class*="vastu-features"] {
   max-height: 24rem;
   min-width: 24rem;
   min-height: 24rem;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   visibility: visible;
   opacity: 1;

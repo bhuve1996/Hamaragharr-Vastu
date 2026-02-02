@@ -70,7 +70,7 @@
 .vastu-help-address-v1__icon .xo-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .vastu-help-address-v1__text {
