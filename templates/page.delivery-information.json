@@ -1,17 +1,21 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
     "breadcrumb-v2": {
       "type": "breadcrumb-v2",
+      "disabled": true,
       "settings": {
         "color_scheme": "background-1",
         "background_type": "color",
+        "background_color": "",
         "background_gradient": "",
         "use_parallax": false,
         "background_image_animation": "none",
@@ -23,20 +27,41 @@
         "padding_bottom": 110
       }
     },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "background_margin": 0,
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "section_padding_top_desktop": 0,
+        "section_padding_bottom_desktop": 0,
+        "section_margin_top_desktop": 0,
+        "section_margin_bottom_desktop": 0,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0,
+        "section_margin_top_mobile": 0,
+        "section_margin_bottom_mobile": 0
+      }
+    },
     "delivery_content_1": {
       "type": "about-v1",
+      "disabled": true,
       "settings": {
         "width": "box",
         "fullwidth_margin": 0,
         "reverse": false,
         "gap": 30,
         "title": "",
-        "subtitle": "Effective Date: 21 July 2025",
-        "description": "<p>At <strong>Hamaragharr Vastu Corporation LLP</strong>, we aim to provide a smooth and reliable shopping experience by ensuring timely processing and delivery of your orders. This Shipping Policy explains how orders placed on <strong>www.hamaragharr.in/</strong> are processed, shipped, and delivered.</p><h3>1. Shipping Coverage</h3><p>We ship domestically within India, subject to service availability and applicable regulations.</p><h3>2. Shipping Charges</h3><ul><li>We offer free shipping on select products and locations.</li><li>Paid shipping may apply to certain orders based on product type, delivery location, order value.</li><li>Applicable shipping charges (if any) will be clearly displayed at checkout before payment.</li></ul><h3>3. Shipping Partners</h3><p>To ensure reliable and timely delivery, we work with trusted logistics partners, including but not limited to:</p><ul><li>Shiprocket</li><li>Delhivery</li><li>DTDC</li><li>Other reputed courier partners as required</li></ul><h3>4. Order Processing Time</h3><ul><li>Orders are typically processed and dispatched within 1–2 business days after successful payment confirmation.</li><li>Orders placed on weekends or public holidays will be processed on the next working day.</li><li>If we experience a high volume of orders or any unexpected delays, processing may take slightly longer. In such cases, we will keep you informed via email or phone regarding the revised timeline.</li></ul><h3>5. Delivery Timelines</h3><h4>Domestic Orders (India)</h4><ul><li>Minimum delivery time: Same-day delivery (available in select locations only)</li><li>Maximum delivery time: Up to 15 business days, depending on location and courier operations</li></ul><p>Delivery timelines are estimates and may vary due to factors beyond our control, including weather conditions, customs clearance, courier delays, or regional restrictions.</p><h3>6. Order Tracking</h3><p>Once your order is shipped:</p><ul><li>A tracking number will be shared via email and WhatsApp</li><li>You can track your shipment directly on the courier partner's website using the provided tracking details</li></ul><h3>7. Order Updates &amp; Communication</h3><p>We keep you informed throughout the shipping process via:</p><ul><li>Email notifications</li><li>WhatsApp updates (where applicable)</li></ul><p>Please ensure that your contact details are accurate at the time of checkout to receive timely updates.</p><h3>8. Damaged, Incorrect, or Missing Orders</h3><p>If you receive:</p><ul><li>A damaged product</li><li>An incorrect item</li><li>A package with missing contents</li></ul><p>Please contact us immediately upon delivery at <a href=\"mailto:support@hamaragharr.in\">support@hamaragharr.in</a> with your order ID and supporting images/videos. We will review the issue and arrange a replacement or resolution as per our Return, Exchange &amp; Refund Policy.</p><h3>9. Returns &amp; Replacements</h3><ul><li>Returns and replacements are governed by our Return, Exchange &amp; Refund Policy.</li><li>Replacements may be offered in cases of damaged items or quality issues, subject to verification.</li></ul><h3>10. Delays &amp; Unforeseen Circumstances</h3><p>While we strive to meet delivery timelines, Hamaragharr Vastu Corporation is not responsible for delays caused by:</p><ul><li>Courier partner issues</li><li>Natural calamities or force majeure events</li><li>Incorrect or incomplete shipping address provided by the customer</li></ul><h3>11. Contact Information</h3><p>For questions related to returns, exchanges, or refunds, please contact us:</p><p>📧 <strong>Email:</strong> <a href=\"mailto:support@hamaragharr.in\">support@hamaragharr.in</a><br>📞 <strong>Phone:</strong> +91 8130340819</p>",
-        "image": "",
+        "subtitle": "",
+        "description": "",
         "hover": "scale_down",
         "color_scheme": "background-1",
         "background_type": "color",
+        "background_color": "",
         "background_gradient": "",
         "use_parallax": true,
         "background_image_animation": "none",
@@ -49,5 +74,5 @@
       }
     }
   },
-  "order": ["main", "breadcrumb-v2", "delivery_content_1"]
+  "order": ["breadcrumb-v2", "main", "delivery_content_1"]
 }
