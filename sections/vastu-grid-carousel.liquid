@@ -74,8 +74,8 @@
   
   {% if section.settings.width == 'fullwidth' %}
     {% comment %} Full bleed carousel on desktop {% endcomment %}
-    <div class='vastu-grid-carousel__wrapper'>
-      <xo-container class='vastu-grid-carousel__container'>
+    <div class='vastu-grid-carousel__wrapper' style='--padding: {{ section.settings.fullwidth_margin }}px'>
+      <xo-container class='vastu-grid-carousel__container xo-container--{{ section.settings.content_width | default: "wide" }}'>
         <xo-animate xo-cascade>
           {% render 'homepage-heading', title: section.settings.heading_title, section: section %}
         </xo-animate>
@@ -519,6 +519,55 @@
       ]
     },
     {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "fullwidth",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        },
+        {
+          "value": "fullwidth",
+          "label": "t:sections.all.width.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content Width (when section is fullwidth)",
+      "default": "wide",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        }
+      ],
+      "info": "Controls the width of inner content when section width is set to fullwidth",
+      "visible_if": "{{ section.settings.width == 'fullwidth' }}"
+    },
+    {
+      "type": "number",
+      "id": "fullwidth_margin",
+      "label": "t:sections.all.fullwidth_margin.label",
+      "default": 0,
+      "visible_if": "{{ section.settings.width == 'fullwidth' }}"
+    },
+    {
       "type": "select",
       "id": "product_source",
       "label": "Product Source",
@@ -676,33 +725,6 @@
       "label": "Pagination Offset (Mobile)",
       "default": "1rem",
       "info": "Distance from bottom (e.g. '1rem' = inside content; negative = into section padding)"
-    },
-    {
-      "type": "select",
-      "id": "width",
-      "label": "Container Width",
-      "default": "fullwidth",
-      "options": [
-        {
-          "value": "box",
-          "label": "Box"
-        },
-        {
-          "value": "wide",
-          "label": "Wide"
-        },
-        {
-          "value": "fullwidth",
-          "label": "Full Width"
-        }
-      ]
-    },
-    {
-      "type": "number",
-      "id": "fullwidth_margin",
-      "label": "Full Width Margin (Desktop)",
-      "default": 0,
-      "info": "Margin on left and right when width is fullwidth"
     },
     {
       "type": "header",
