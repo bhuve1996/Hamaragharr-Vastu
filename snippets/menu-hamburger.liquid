@@ -24,6 +24,7 @@
   assign event_type = event_type | default: 'hover'
   assign hamburger_type = hamburger_type | default: 'drawer'
   assign top = top | default: '0'
+  assign show_hamburger_drawer_locale_selects = show_hamburger_drawer_locale_selects | default: false
 %}
 
 {% if menu != blank %}
@@ -44,6 +45,6 @@
         hamburger_drawer_color_scheme: hamburger_drawer_color_scheme,
         submenu_color_scheme: submenu_color_scheme
       %}
-      {% render 'menu-hamburger-drawer-mobile', menu: menu, top: top, hamburger_drawer_color_scheme: hamburger_drawer_color_scheme, submenu_color_scheme: submenu_color_scheme %}
+      {% render 'menu-hamburger-drawer-mobile', menu: menu, top: top, hamburger_drawer_color_scheme: hamburger_drawer_color_scheme, submenu_color_scheme: submenu_color_scheme, show_hamburger_drawer_locale_selects: show_hamburger_drawer_locale_selects %}
   {% endcase %}
 {% endif %}

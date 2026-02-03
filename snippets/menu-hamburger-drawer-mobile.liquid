@@ -8,19 +8,22 @@
   - top: {String} Top position of navigation modal, equal height of header (optional)
   _ hamburger_drawer_color_scheme: {Object} color scheme for sub menu (required)
   _ submenu_color_scheme: {Object} color scheme for sub menu (required)
+  - show_hamburger_drawer_locale_selects: {Boolean} show language/currency in drawer (optional, default false)
 
   Usage:
   {% render 'menu-hamburger-drawer-mobile',
     menu: menu,
     top: top,
     hamburger_drawer_color_scheme: hamburger_drawer_color_scheme,
-    submenu_color_scheme: submenu_color_scheme
+    submenu_color_scheme: submenu_color_scheme,
+    show_hamburger_drawer_locale_selects: show_hamburger_drawer_locale_selects
   %}
 {% endcomment %}
 
 {% liquid
   assign background_color = '--drawer-bg-color: ' | append: section.settings.hamburger_drawer_background_color | append: ';'
   assign background_gradient = '--drawer-bg-gradient: ' | append: section.settings.hamburger_drawer_background_gradient | append: ';'
+  assign show_hamburger_drawer_locale_selects = show_hamburger_drawer_locale_selects | default: false
 %}
 
 <xo-modal
@@ -34,6 +37,9 @@
   xo-backdrop-color='rgba(0, 0, 0, 0.2)'
 >
   <div class='menu-hamburger-drawer-mobile__content color-{{ hamburger_drawer_color_scheme }}' style='{{ background_color }} {{ background_gradient }}'>
+    <xo-modal-trigger xo-name='xo-menu-hamburger' class='menu-hamburger-drawer-mobile__close' aria-label='{{ 'accessibility.close' | t }}'>
+      <button type='button' class='menu-hamburger-drawer-mobile__close-btn' aria-label='{{ 'accessibility.close' | t }}'>{% render 'icon', name: 'close2', icon_size: '20' %}</button>
+    </xo-modal-trigger>
     <div>
       {% for link in menu.links %}
         {% liquid
@@ -221,13 +227,15 @@
           </span>
         </a>
       </div>
-      <div class='menu-hamburger-drawer-mobile__selects'>
-        {% render 'language-select', placement: 'top-center' %}
-        <div class='menu-hamburger-drawer-mobile__select-item'>
-          <span class='menu-hamburger-drawer-mobile__flag'>{{ localization.country | image_url: width: 20 | image_tag }}</span>
-          {% render 'currency-select', placement: 'top-center' %}
+      {% if show_hamburger_drawer_locale_selects %}
+        <div class='menu-hamburger-drawer-mobile__selects'>
+          {% render 'language-select', placement: 'top-center' %}
+          <div class='menu-hamburger-drawer-mobile__select-item'>
+            <span class='menu-hamburger-drawer-mobile__flag'>{{ localization.country | image_url: width: 20 | image_tag }}</span>
+            {% render 'currency-select', placement: 'top-center' %}
+          </div>
         </div>
-      </div>
+      {% endif %}
     </div>
   </div>
 </xo-modal>

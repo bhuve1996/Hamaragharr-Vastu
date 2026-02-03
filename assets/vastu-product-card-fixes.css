@@ -360,6 +360,7 @@ section[class*="product-recommendations"] .xo-product-card__wishlist-container .
   justify-content: center;
 }
 
+/* Wishlist button: not added = white bg, black border; added = black bg, white border */
 .product-recommendations-section .xo-product-card__wishlist-container button,
 section[class*="product-recommendations"] .xo-product-card__wishlist-container button,
 section[id*="product-recommendations"] .xo-product-card__wishlist-container button,
@@ -378,11 +379,30 @@ xo-product-recommendations .xo-product-card__wishlist-container button,
   padding: 0;
   margin: 0;
   border-radius: 50%;
-  background-color: rgb(var(--color-secondary-button) / 90%);
-  color: rgb(var(--color-secondary-button-text));
-  border: none;
+  background-color: rgb(255 255 255);
+  color: rgb(0 0 0);
+  border: 2px solid rgb(0 0 0);
 }
 
+/* Added (in wishlist): black bg, white icon and border */
+.product-recommendations-section .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button,
+section[class*="product-recommendations"]
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  button,
+section[id*="product-recommendations"] .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button,
+section[id*="section-"] .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button,
+.product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button,
+.xo-section--product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button,
+xo-product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button,
+.section-collection-products .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button,
+.filters-content .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button {
+  background-color: rgb(0 0 0);
+  color: rgb(255 255 255);
+  border: 2px solid rgb(255 255 255);
+}
+
+/* Not added: black icon */
 .product-recommendations-section .xo-product-card__wishlist-container button svg,
 section[class*="product-recommendations"] .xo-product-card__wishlist-container button svg,
 section[id*="product-recommendations"] .xo-product-card__wishlist-container button svg,
@@ -412,9 +432,9 @@ xo-product-recommendations .xo-product-card__wishlist-container .xo-btn__icon sv
 .filters-content .xo-product-card__wishlist-container .xo-btn__icon svg {
   width: 1.5rem;
   height: 1.5rem;
-  color: rgb(var(--color-secondary-button-text));
-  fill: rgb(var(--color-secondary-button-text));
-  stroke: rgb(var(--color-secondary-button-text));
+  color: rgb(0 0 0);
+  fill: rgb(0 0 0);
+  stroke: rgb(0 0 0);
 }
 
 .product-recommendations-section .xo-product-card__wishlist-container button *,
@@ -426,9 +446,96 @@ section[id*="section-"] .xo-product-card__wishlist-container button *,
 xo-product-recommendations .xo-product-card__wishlist-container button *,
 .section-collection-products .xo-product-card__wishlist-container button *,
 .filters-content .xo-product-card__wishlist-container button * {
-  color: rgb(var(--color-secondary-button-text));
-  fill: rgb(var(--color-secondary-button-text));
-  stroke: rgb(var(--color-secondary-button-text));
+  color: rgb(0 0 0);
+  fill: rgb(0 0 0);
+  stroke: rgb(0 0 0);
+}
+
+/* Added (in wishlist): white icon */
+.product-recommendations-section .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button svg,
+section[class*="product-recommendations"]
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  button
+  svg,
+section[id*="product-recommendations"]
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  button
+  svg,
+section[id*="section-"] .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button svg,
+.product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button svg,
+.xo-section--product-recommendations
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  button
+  svg,
+xo-product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button svg,
+.section-collection-products .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button svg,
+.filters-content .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button svg,
+.product-recommendations-section .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-btn__icon,
+section[class*="product-recommendations"]
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-btn__icon,
+section[id*="product-recommendations"]
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-btn__icon,
+section[id*="section-"] .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-btn__icon,
+.product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-btn__icon,
+.xo-section--product-recommendations
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-btn__icon,
+xo-product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-btn__icon,
+.section-collection-products .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-btn__icon,
+.filters-content .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-btn__icon,
+.product-recommendations-section
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-btn__icon
+  svg,
+section[class*="product-recommendations"]
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-btn__icon
+  svg,
+section[id*="product-recommendations"]
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-btn__icon
+  svg,
+section[id*="section-"] .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-btn__icon svg,
+.product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-btn__icon svg,
+.xo-section--product-recommendations
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  .xo-btn__icon
+  svg,
+xo-product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-btn__icon svg,
+.section-collection-products .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-btn__icon svg,
+.filters-content .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] .xo-btn__icon svg,
+.product-recommendations-section .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button *,
+section[class*="product-recommendations"]
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  button
+  *,
+section[id*="product-recommendations"]
+  .xo-product-card__wishlist-container
+  xo-products-fetcher-add[xo-removed]
+  button
+  *,
+section[id*="section-"] .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button *,
+.product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button *,
+.xo-section--product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button *,
+xo-product-recommendations .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button *,
+.section-collection-products .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button *,
+.filters-content .xo-product-card__wishlist-container xo-products-fetcher-add[xo-removed] button * {
+  color: rgb(255 255 255);
+  fill: rgb(255 255 255);
+  stroke: rgb(255 255 255);
 }
 
 .product-recommendations-section

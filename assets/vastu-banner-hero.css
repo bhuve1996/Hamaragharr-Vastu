@@ -437,6 +437,43 @@ section[class*="banner-v3"] .banner-v155__carousel-pagination .carousel-paginati
   align-items: center;
 }
 
+/* Reduce padding, gap and font size on very small screens so variant options fit in one row */
+@media (width <= 23.75rem) {
+  .xo-product-info-variant__inner,
+  .xo-product-variant__inner {
+    gap: 0.375rem;
+  }
+
+  .xo-product-info-variant__inner .xo-field-radio__label,
+  .xo-product-variant__inner .xo-field-radio__label {
+    font-size: 1.4rem;
+  }
+
+  .xo-product-info-content__variants
+    xo-product-variant.xo-product-info-variant__inner
+    label.xo-field-radio--boxed
+    .xo-field-radio__label,
+  .xo-product-info-content__variants
+    xo-product-variant.xo-product-info-variant__inner
+    label.xo-field-radio--boxed2
+    .xo-field-radio__label,
+  .xo-product-info-content__variants
+    xo-product-variant.xo-product-info-variant__inner
+    label.xo-field-radio--boxed3
+    .xo-field-radio__label,
+  .xo-product-info-content__variants .xo-product-info-variant__inner label.xo-field-radio--boxed .xo-field-radio__label,
+  .xo-product-info-content__variants
+    .xo-product-info-variant__inner
+    label.xo-field-radio--boxed2
+    .xo-field-radio__label,
+  .xo-product-info-content__variants
+    .xo-product-info-variant__inner
+    label.xo-field-radio--boxed3
+    .xo-field-radio__label {
+    padding: 0.5rem;
+  }
+}
+
 .xo-product-info-content__variants
   xo-product-variant.xo-product-info-variant__inner
   label.xo-field-radio--boxed

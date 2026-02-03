@@ -1,1 +1,5 @@
 /* menu-hamburger-drawer-mobile – placeholder; add styles as needed */
+
+/* Optional: hide language/currency selects in drawer via CSS (if not using theme setting) */
+
+/* .menu-hamburger-drawer-mobile__selects { display: none !important; } */

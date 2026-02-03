@@ -13,21 +13,34 @@ xo-carousel.has-container-border,
   background: rgba(255 255 255 / 50%);
 }
 
-/* Mobile hamburger menu - fix links displaying inline */
+/* Mobile hamburger menu - fix links displaying inline; scrollable area so content fits in one drawer */
 .menu-hamburger-drawer-mobile__content > div:first-child {
   display: flex;
   flex-direction: column;
-  padding-top: 1.5rem;
+  padding-top: 4rem;
   gap: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Keep utilities (account, wishlist, locale) pinned to bottom of drawer */
+.menu-hamburger-drawer-mobile__content > div:last-child {
+  flex-shrink: 0;
 }
 
 .menu-hamburger-drawer-mobile__link {
   display: block;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid rgb(0 0 0 / 10%);
   text-decoration: none;
   transition: background-color 0.2s ease;
+  min-width: 0;
 }
 
 .menu-hamburger-drawer-mobile__link:hover {
@@ -45,21 +58,21 @@ xo-carousel.has-container-border,
   font-weight: var(--global-body-font-weight-mobile, 400);
 }
 
-/* Hamburger overlay - make it start from top and take full height */
+/* Hamburger overlay - make it start from top; height slightly less than full screen */
 xo-modal.menu-hamburger-drawer-desktop,
 xo-modal.menu-hamburger-drawer-mobile {
   --top: 0;
+  --drawer-height: 98vh;
 }
 
-/* Target the modal inner wrapper and content to take full height */
-
+/* Target the modal inner wrapper and content */
 xo-modal.menu-hamburger-drawer-desktop[xo-active] > *,
 xo-modal.menu-hamburger-drawer-mobile[xo-active] > *,
 xo-modal.menu-hamburger-drawer-desktop[xo-active] [part="inner"],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="inner"] {
   top: 0;
-  height: 100vh;
-  max-height: 100vh;
+  height: var(--drawer-height, 98vh);
+  max-height: var(--drawer-height, 98vh);
 }
 
 /* Target the modal content wrapper */
@@ -67,28 +80,70 @@ xo-modal.menu-hamburger-drawer-desktop[xo-active] [part="content"],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="content"],
 xo-modal.menu-hamburger-drawer-desktop[xo-active] .xo-modal-content,
 xo-modal.menu-hamburger-drawer-mobile[xo-active] .xo-modal-content {
-  height: 100vh;
-  max-height: 100vh;
+  height: var(--drawer-height, 98vh);
+  max-height: var(--drawer-height, 98vh);
   top: 0;
 }
 
-/* Make the drawer content take full height */
+/* Make the drawer content fill the reduced height and constrain to one screen */
 .menu-hamburger-drawer-desktop__content,
 .menu-hamburger-drawer-mobile__content {
-  height: 100vh;
-  min-height: 100vh;
+  position: relative;
+  height: var(--drawer-height, 98vh);
+  min-height: var(--drawer-height, 98vh);
+  max-height: var(--drawer-height, 98vh);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid rgb(0 0 0 / 10%);
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 6%),
+    4px 0 20px rgb(0 0 0 / 12%),
+    8px 0 32px rgb(0 0 0 / 8%);
 }
 
-/* Additional targeting for xo-modal structure - ensure full height from top */
+/* Close button on drawer */
+.menu-hamburger-drawer-mobile__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-hamburger-drawer-mobile__close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: rgb(var(--color-foreground));
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+  opacity: 0.85;
+}
+
+.menu-hamburger-drawer-mobile__close-btn:hover {
+  background: transparent;
+  opacity: 1;
+}
+
+/* Additional targeting for xo-modal structure */
 xo-modal.menu-hamburger-drawer-desktop[xo-active],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] {
   --top: 0;
 
   position: fixed;
   inset: 0;
-  height: 100vh;
+  height: var(--drawer-height, 98vh);
   width: 100vw;
 }
 
@@ -97,13 +152,13 @@ xo-modal[xo-placement*="-right"] .xo-modal-content__inner--full-width {
   width: calc(100vw - var(--drawer-margin) * 2);
 }
 
-/* Ensure the modal backdrop also covers full height */
+/* Ensure the modal backdrop matches drawer height */
 xo-modal.menu-hamburger-drawer-desktop[xo-active]::before,
 xo-modal.menu-hamburger-drawer-mobile[xo-active]::before,
 xo-modal.menu-hamburger-drawer-desktop[xo-active] [part="backdrop"],
 xo-modal.menu-hamburger-drawer-mobile[xo-active] [part="backdrop"] {
   top: 0;
-  height: 100vh;
+  height: var(--drawer-height, 98vh);
 }
 
 :root {

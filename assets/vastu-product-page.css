@@ -1386,6 +1386,7 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   pointer-events: none;
 }
 
+/* Wishlist: not added = white bg, black border; added = black bg, white border (match product cards) */
 .xo-product-info-media-style3__wishlist .xo-product-info-content__wishlist {
   position: absolute;
   inset: 0;
@@ -1397,10 +1398,13 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   height: 3.25rem;
   border-radius: 50%;
   border: 2px solid rgb(0 0 0);
-  background: rgb(255 255 255 / 92%);
+  background-color: rgb(255 255 255);
+  color: rgb(0 0 0);
   box-shadow: 0 2px 10px rgb(0 0 0 / 14%);
   transition:
-    background 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
@@ -1429,6 +1433,7 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   opacity: 0;
 }
 
+/* When added: show and black bg, white border – override circle */
 .xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
   .xo-product-info-content__wishlist:last-of-type,
 .xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
@@ -1438,14 +1443,29 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   display: flex;
   visibility: visible;
   opacity: 1;
+  background-color: rgb(0 0 0);
+  border: 2px solid rgb(255 255 255);
+  color: rgb(255 255 255);
 }
 
-.xo-product-info-media-style3__wishlist .xo-product-info-content__wishlist:hover {
-  background: rgb(255 255 255);
+.xo-product-info-media-style3__wishlist .xo-product-info-content__wishlist:first-of-type:hover {
+  background-color: rgb(255 255 255);
+  border-color: rgb(0 0 0);
   box-shadow: 0 4px 14px rgb(0 0 0 / 18%);
 }
 
-/* Add state (not in wishlist) – neutral outline look */
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type:hover,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type:hover,
+.xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
+  .xo-product-info-content__wishlist:last-of-type:hover {
+  background-color: rgb(0 0 0);
+  border-color: rgb(255 255 255);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 25%);
+}
+
+/* Not added: black icon */
 .xo-product-info-media-style3__wishlist .xo-product-info-content__icon-wishlist {
   display: flex;
   align-items: center;
@@ -1454,7 +1474,7 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   border: none;
   background: none;
   cursor: pointer;
-  color: rgb(71 56 85);
+  color: rgb(0 0 0);
 }
 
 .xo-product-info-media-style3__wishlist
@@ -1468,11 +1488,12 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   .xo-product-info-content__wishlist:first-of-type
   .xo-product-info-content__icon-wishlist
   path {
-  color: rgb(71 56 85);
-  fill: rgb(71 56 85);
+  color: rgb(0 0 0);
+  fill: rgb(0 0 0);
+  stroke: rgb(0 0 0);
 }
 
-/* Added state (in wishlist) – filled accent color so click shows visual change */
+/* Added: white icon */
 .xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
   .xo-product-info-content__wishlist:last-of-type
   .xo-product-info-content__icon-wishlist,
@@ -1481,10 +1502,7 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   .xo-product-info-content__icon-wishlist,
 .xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
   .xo-product-info-content__wishlist:last-of-type
-  .xo-product-info-content__icon-wishlist {
-  color: rgb(var(--color-button, 200 60 60));
-}
-
+  .xo-product-info-content__icon-wishlist,
 .xo-product-info-media-style3__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
   .xo-product-info-content__wishlist:last-of-type
   .xo-product-info-content__icon-wishlist
@@ -1509,8 +1527,9 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   .xo-product-info-content__wishlist:last-of-type
   .xo-product-info-content__icon-wishlist
   path {
-  fill: rgb(var(--color-button, 200 60 60)) !important;
-  color: rgb(var(--color-button, 200 60 60));
+  color: rgb(255 255 255);
+  fill: rgb(255 255 255);
+  stroke: rgb(255 255 255);
 }
 
 /* Product media – wishlist icon on mobile carousel, right side, single stacked icon */
@@ -1529,6 +1548,7 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   pointer-events: none;
 }
 
+/* Wishlist: not added = white bg, black border; added = black bg, white border (match product cards) */
 .xo-product-info-media-mobile__wishlist .xo-product-info-content__wishlist {
   position: absolute;
   inset: 0;
@@ -1539,10 +1559,14 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 50%;
-  background: rgb(255 255 255 / 92%);
+  border: 2px solid rgb(0 0 0);
+  background-color: rgb(255 255 255);
+  color: rgb(0 0 0);
   box-shadow: 0 2px 10px rgb(0 0 0 / 14%);
   transition:
-    background 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
@@ -1571,6 +1595,7 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   opacity: 0;
 }
 
+/* When added: show and black bg, white border */
 .xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
   .xo-product-info-content__wishlist:last-of-type,
 .xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
@@ -1580,14 +1605,36 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   display: flex;
   visibility: visible;
   opacity: 1;
+  background-color: rgb(0 0 0);
+  border: 2px solid rgb(255 255 255);
+  color: rgb(255 255 255);
 }
 
-.xo-product-info-media-mobile__wishlist .xo-product-info-content__wishlist:hover,
-.xo-product-info-media-mobile__wishlist .xo-product-info-content__wishlist:active {
-  background: rgb(255 255 255);
+.xo-product-info-media-mobile__wishlist .xo-product-info-content__wishlist:first-of-type:hover,
+.xo-product-info-media-mobile__wishlist .xo-product-info-content__wishlist:first-of-type:active {
+  background-color: rgb(255 255 255);
+  border-color: rgb(0 0 0);
   box-shadow: 0 4px 14px rgb(0 0 0 / 18%);
 }
 
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type:hover,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type:active,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type:hover,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
+  .xo-product-info-content__wishlist:last-of-type:active,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
+  .xo-product-info-content__wishlist:last-of-type:hover,
+.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
+  .xo-product-info-content__wishlist:last-of-type:active {
+  background-color: rgb(0 0 0);
+  border-color: rgb(255 255 255);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 25%);
+}
+
+/* Not added: black icon */
 .xo-product-info-media-mobile__wishlist .xo-product-info-content__icon-wishlist {
   display: flex;
   align-items: center;
@@ -1596,12 +1643,11 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   border: none;
   background: none;
   cursor: pointer;
-  color: rgb(71 56 85);
+  color: rgb(0 0 0);
   min-width: 2.75rem;
   min-height: 2.75rem;
 }
 
-/* Add state (not in wishlist) – neutral */
 .xo-product-info-media-mobile__wishlist
   .xo-product-info-content__wishlist:first-of-type
   .xo-product-info-content__icon-wishlist
@@ -1610,23 +1656,12 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   .xo-product-info-content__wishlist:first-of-type
   .xo-product-info-content__icon-wishlist
   path {
-  fill: rgb(71 56 85);
-  color: rgb(71 56 85);
+  color: rgb(0 0 0);
+  fill: rgb(0 0 0);
+  stroke: rgb(0 0 0);
 }
 
-/* Added state (in wishlist) – accent color so click shows visual change */
-.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
-  .xo-product-info-content__wishlist:last-of-type
-  .xo-product-info-content__icon-wishlist,
-.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:first-of-type[xo-added])
-  .xo-product-info-content__wishlist:last-of-type
-  .xo-product-info-content__icon-wishlist,
-.xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type xo-tooltip[xo-added])
-  .xo-product-info-content__wishlist:last-of-type
-  .xo-product-info-content__icon-wishlist {
-  color: rgb(var(--color-button, 200 60 60));
-}
-
+/* Added: white icon */
 .xo-product-info-media-mobile__wishlist:has(.xo-product-info-content__wishlist:last-of-type[xo-added])
   .xo-product-info-content__wishlist:last-of-type
   .xo-product-info-content__icon-wishlist
@@ -1651,8 +1686,9 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   .xo-product-info-content__wishlist:last-of-type
   .xo-product-info-content__icon-wishlist
   path {
-  fill: rgb(var(--color-button, 200 60 60)) !important;
-  color: rgb(var(--color-button, 200 60 60));
+  color: rgb(255 255 255);
+  fill: rgb(255 255 255);
+  stroke: rgb(255 255 255);
 }
 
 /* Price / Share row – price on left, share on right */
@@ -1684,7 +1720,11 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   padding-top: 1.5rem;
 }
 
-/* Offer section – margin-top using .offer.xo-product-info-content__offer */
+/* Offer section – padding and margin */
+.offer {
+  padding: 2rem 1.25rem 1.5rem;
+}
+
 .xo-product-info-content .offer.xo-product-info-content__offer {
   margin-top: 1.5rem;
 }
@@ -1696,10 +1736,10 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   padding: 0;
 }
 
-/* Offer list items – arrow and text centered and aligned */
+/* Offer list items – arrow aligned with top/first line of text (wraps on mobile) */
 .offer__item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5rem;
   min-height: 1.5rem;
   line-height: 1.4;
@@ -1710,14 +1750,12 @@ section[class*="main-product"] xo-tabs-pane:has(.shipping-content) {
   width: 18px;
   height: 18px;
   display: block;
-  vertical-align: middle;
+  margin-top: 0.15em; /* align arrow with first line cap height */
 }
 
 .offer__item .offer__content {
   flex: 1;
   min-width: 0;
-  display: flex;
-  align-items: center;
 }
 
 /* Accordion Section - Product Description Accordions */

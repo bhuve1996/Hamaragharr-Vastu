@@ -22,6 +22,7 @@
         "hamburger_drawer_color_scheme": "",
         "hamburger_drawer_background_color": "#ffffff",
         "hamburger_drawer_background_gradient": "",
+        "show_hamburger_drawer_locale_selects": false,
         "submenu_color_scheme": "",
         "submenu_background_color": "#ffffff",
         "submenu_background_gradient": "",

@@ -265,7 +265,8 @@
                 hamburger_type: section.settings.hamburger_type,
                 top: '0',
                 submenu_color_scheme: section.settings.submenu_color_scheme,
-                hamburger_drawer_color_scheme: section.settings.hamburger_drawer_color_scheme
+                hamburger_drawer_color_scheme: section.settings.hamburger_drawer_color_scheme,
+                show_hamburger_drawer_locale_selects: section.settings.show_hamburger_drawer_locale_selects
               %}
             </div>
           {% else %}
@@ -286,7 +287,8 @@
                   hamburger_type: section.settings.hamburger_type,
                   top: '0',
                   submenu_color_scheme: section.settings.submenu_color_scheme,
-                  hamburger_drawer_color_scheme: section.settings.hamburger_drawer_color_scheme
+                  hamburger_drawer_color_scheme: section.settings.hamburger_drawer_color_scheme,
+                  show_hamburger_drawer_locale_selects: section.settings.show_hamburger_drawer_locale_selects
                 %}
               </div>
             </div>
@@ -713,6 +715,12 @@
       "type": "color_background",
       "id": "hamburger_drawer_background_gradient",
       "label": "t:sections.header_v2.settings.hamburger_drawer_background_gradient.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hamburger_drawer_locale_selects",
+      "default": false,
+      "label": "t:sections.header_v2.settings.show_hamburger_drawer_locale_selects.label"
     },
     {
       "type": "header",
