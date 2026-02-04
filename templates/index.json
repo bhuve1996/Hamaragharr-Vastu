@@ -12,24 +12,24 @@
     "homepage-carousel": {
       "type": "slideshow-v1",
       "blocks": {
-        "slideshow_7KaQdB": {
+        "slide_1": {
           "type": "slideshow",
           "settings": {
             "background_type": "image",
-            "background_image_desktop": "shopify://shop_images/Banner-Desktop-1.png",
-            "background_image_mobile": "shopify://shop_images/Banner-1-HD.png",
+            "background_image_desktop": "shopify://shop_images/Banner-Desktop-2.png",
+            "background_image_mobile": "shopify://shop_images/Mobile-Hero-New-1.png",
             "background_video_url": "",
             "background_overlay": "",
             "button_link": "shopify://products/vastu-kit-home-office",
             "color_scheme": "scheme-ea5e771d-1a95-47fb-9dc8-24a41b2f8639"
           }
         },
-        "slide_1": {
+        "slideshow_7KaQdB": {
           "type": "slideshow",
           "settings": {
             "background_type": "image",
-            "background_image_desktop": "shopify://shop_images/Banner-Desktop-2.png",
-            "background_image_mobile": "shopify://shop_images/Mobile-Banner-2.png",
+            "background_image_desktop": "shopify://shop_images/Banner-Desktop-1.png",
+            "background_image_mobile": "shopify://shop_images/Mobile-Hero-New-2.png",
             "background_video_url": "",
             "background_overlay": "",
             "button_link": "shopify://products/vastu-kit-home-office",
@@ -47,7 +47,7 @@
           }
         }
       },
-      "block_order": ["slideshow_7KaQdB", "slide_1", "slideshow_RB3T9p"],
+      "block_order": ["slide_1", "slideshow_7KaQdB", "slideshow_RB3T9p"],
       "settings": {
         "width": "wide",
         "fullwidth_margin": 0,
