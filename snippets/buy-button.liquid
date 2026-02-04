@@ -1,16 +1,18 @@
 {% comment %}
-  Renders a buy button group include quantity, add to carrt, buy it now.
+  Renders a buy button group include quantity, add to cart, buy it now.
 
   Accepts:
   - show_gift_card_recipient: {Boolean} Show/hide gift card recipient (required)
-  - show_dynamic_checkout: {Boolean} Show/hide button buy it now (required)
-  - show_checkbox: {Boolean} Show/hide check box accpet term & conditions (optional)
+  - show_dynamic_checkout: {Boolean} Show/hide dynamic checkout button (required)
+  - show_buy_now: {Boolean} Show/hide Buy Now button (add to cart + checkout) (optional)
+  - show_checkbox: {Boolean} Show/hide check box accept term & conditions (optional)
 
   Usage:
-  {% render 'buy-button', show_dynamic_checkout: show_dynamic_checkout %}
+  {% render 'buy-button', show_dynamic_checkout: show_dynamic_checkout, show_buy_now: show_buy_now %}
 {% endcomment %}
 
 {% assign form_id = 'product_form_id-' | append: section.id %}
+{% assign show_buy_now = show_buy_now | default: true %}
 
 {%- form 'product', product, id: form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
   <input type='hidden' name='id' value='{{ product.selected_or_first_available_variant.id }}'>
@@ -29,7 +31,7 @@
     <div>
       {% render 'quantity-style2', form_id: form_id, width: '13.5rem', height: '5rem', modify: 'half' %}
     </div>
-    <div class='terms-binding'>
+    <div class='terms-binding buy-button__row'>
       <xo-product-will-change
         xo-unique-id='product-add-button-{{ product.id }}'
         class='buy-button__add'
@@ -50,10 +52,39 @@
           {% render 'button', type: 'submit', style: 'primary', text: button_text, block: true %}
         </xo-cart-add>
       </xo-product-will-change>
+      {% if show_buy_now and product.selling_plan_groups == empty and gift_card_recipient_feature_active == false %}
+        {% if product.selected_or_first_available_variant.available == false %}
+          {% assign buy_now_disabled = true %}
+        {% else %}
+          {% assign buy_now_disabled = false %}
+        {% endif %}
+        {% assign buy_now_text = 'products.product.buy_now' | t %}
+        {% if buy_now_text == blank or buy_now_text == 'products.product.buy_now' %}
+          {% assign buy_now_text = 'Buy Now' %}
+        {% endif %}
+        <xo-product-will-change
+          class='buy-button__now'
+          xo-unique-id='product-buy-now-button-{{ product.id }}'
+          {% if product.selected_or_first_available_variant.available == false %}
+            xo-disabled
+          {% endif %}
+        >
+          {% render 'button',
+            type: 'button',
+            style: 'secondary',
+            text: buy_now_text,
+            block: true,
+            size: 'md',
+            disabled: buy_now_disabled,
+            attrs: 'data-buy-now',
+            aria_label: buy_now_text
+          %}
+        </xo-product-will-change>
+      {% endif %}
     </div>
   </div>
 
-  {% comment %} Buy Now button disabled {% endcomment %}
+  {% comment %} Dynamic payment buttons (e.g. Apple Pay) - disabled by default {% endcomment %}
   {% if false and show_dynamic_checkout and product.selling_plan_groups == empty and gift_card_recipient_feature_active == false %}
     {% render 'space', value: '2.5rem' %}
     <div class='terms-binding'>
@@ -70,6 +101,39 @@
     </div>
   {% endif %}
 {%- endform -%}
+
+{% if show_buy_now and product.selling_plan_groups == empty %}
+  <script>
+    (function() {
+      var form = document.getElementById('{{ form_id }}');
+      if (!form) return;
+      var buyNowBtn = form.querySelector('[data-buy-now]');
+      if (!buyNowBtn) return;
+      buyNowBtn.addEventListener('click', function() {
+        if (buyNowBtn.disabled) return;
+        var formData = new FormData(form);
+        formData.set('return_to', '/checkout');
+        buyNowBtn.disabled = true;
+        buyNowBtn.classList.add('xo-btn--loading');
+        fetch('/cart/add.js', {
+          method: 'POST',
+          body: formData
+        }).then(function(r) { return r.json(); }).then(function(data) {
+          if (data.message && !data.id) {
+            alert(data.message);
+            buyNowBtn.disabled = false;
+            buyNowBtn.classList.remove('xo-btn--loading');
+            return;
+          }
+          window.location.href = '/checkout';
+        }).catch(function() {
+          buyNowBtn.disabled = false;
+          buyNowBtn.classList.remove('xo-btn--loading');
+        });
+      });
+    })();
+  </script>
+{% endif %}
 
 {% if show_checkbox %}
   {% liquid

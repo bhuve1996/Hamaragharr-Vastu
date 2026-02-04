@@ -255,7 +255,7 @@ xo-modal xo-cart-add .xo-btn--primary .xo-btn__content * {
   margin-bottom: 0.5rem;
 }
 
-.buy-button__now:not(.vastu-product-showcase .buy-button__now),
+/* Hide legacy dynamic checkout Buy Now in sticky bar only; show on product page and showcase */
 .sticky-addcart__buy-now {
   display: none;
   visibility: hidden;
@@ -265,11 +265,58 @@ xo-modal xo-cart-add .xo-btn--primary .xo-btn__content * {
   padding: 0;
 }
 
+/* Show Buy Now button on main product page (product-info-content) and on showcase */
+.xo-product-info-content .buy-button__now,
 .vastu-product-showcase .buy-button__now {
   display: block;
   visibility: visible;
   opacity: 1;
   height: auto;
+}
+
+/* Ensure Buy Now button text is visible (no clipping); use theme's secondary button color */
+.xo-product-info-content .buy-button__now .xo-btn__text,
+.xo-product-info-content .buy-button__now .xo-btn__content,
+.xo-product-info-content .buy-button__now .xo-btn--secondary .xo-btn__text,
+.xo-product-info-content .buy-button__now .xo-btn--secondary .xo-btn__content,
+.buy-button .buy-button__now .xo-btn__text,
+.buy-button .buy-button__now .xo-btn__content {
+  opacity: 1;
+  visibility: visible;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Parent-scoped: Buy Now text color so it’s not white on light background */
+.xo-product-info-content .buy-button .buy-button__now .xo-btn__text,
+.xo-product-info-content .buy-button .buy-button__now .xo-btn__content {
+  color: rgb(var(--color-foreground));
+}
+
+/* Product page: Add to cart + Buy Now in a row, same height as quantity */
+.buy-button__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.buy-button__row .buy-button__add,
+.buy-button__row .buy-button__now {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Match Add to cart: both buttons same height as quantity (5rem) and fill their half */
+.buy-button__row .buy-button__add .xo-btn,
+.buy-button__row .buy-button__now .xo-btn {
+  width: 100%;
+  height: 5rem;
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .sticky-addcart__wrap {
@@ -1008,13 +1055,17 @@ xo-product-info-content .xo-btn--secondary .xo-btn__content * {
   color: rgb(var(--color-secondary-button-text, 255, 255, 255));
 }
 
-/* Disable slide-up button effect on all Add to Cart (buy-button__add, modals, product info) */
+/* Disable slide-up button effect on all Add to Cart and Buy Now (buy-button__add, buy-button__now, modals, product info) */
 .buy-button__add .xo-btn__text[data-text]::before,
 .buy-button__add .xo-btn__text[data-text]::after,
+.buy-button__now .xo-btn__text[data-text]::before,
+.buy-button__now .xo-btn__text[data-text]::after,
 .buy-button xo-cart-add .xo-btn__text[data-text]::before,
 .buy-button xo-cart-add .xo-btn__text[data-text]::after,
 xo-product-info-content xo-cart-add .xo-btn__text[data-text]::before,
 xo-product-info-content xo-cart-add .xo-btn__text[data-text]::after,
+xo-product-info-content .buy-button__now .xo-btn__text[data-text]::before,
+xo-product-info-content .buy-button__now .xo-btn__text[data-text]::after,
 .product-variant-modal__modal-content xo-cart-add .xo-btn__text[data-text]::before,
 .product-variant-modal__modal-content xo-cart-add .xo-btn__text[data-text]::after,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__text[data-text]::before,
@@ -1030,12 +1081,17 @@ xo-modal xo-cart-add .xo-btn__text[data-text]::after {
   overflow: hidden;
 }
 
+/* Ensure button text is visible (not hidden by slide-up effect) */
 .buy-button__add .xo-btn__text,
 .buy-button__add .xo-btn__content,
+.buy-button__now .xo-btn__text,
+.buy-button__now .xo-btn__content,
 .buy-button xo-cart-add .xo-btn__text,
 .buy-button xo-cart-add .xo-btn__content,
 xo-product-info-content xo-cart-add .xo-btn__text,
 xo-product-info-content xo-cart-add .xo-btn__content,
+xo-product-info-content .buy-button__now .xo-btn__text,
+xo-product-info-content .buy-button__now .xo-btn__content,
 .product-variant-modal__modal-content xo-cart-add .xo-btn__text,
 .product-variant-modal__modal-content xo-cart-add .xo-btn__content,
 xo-modal .product-variant-modal__modal-content xo-cart-add .xo-btn__text,
@@ -1046,12 +1102,18 @@ xo-modal xo-cart-add .xo-btn__content {
   transform: none;
   translate: 0 0;
   transition: none;
+  opacity: 1;
+  visibility: visible;
 }
 
 .buy-button__add .xo-btn__text:active,
 .buy-button__add .xo-btn__text:focus,
 .buy-button__add .xo-btn__content:active,
 .buy-button__add .xo-btn__content:focus,
+.buy-button__now .xo-btn__text:active,
+.buy-button__now .xo-btn__text:focus,
+.buy-button__now .xo-btn__content:active,
+.buy-button__now .xo-btn__content:focus,
 .buy-button xo-cart-add .xo-btn__text:active,
 .buy-button xo-cart-add .xo-btn__text:focus,
 .buy-button xo-cart-add .xo-btn__content:active,
@@ -1060,6 +1122,10 @@ xo-product-info-content xo-cart-add .xo-btn__text:active,
 xo-product-info-content xo-cart-add .xo-btn__text:focus,
 xo-product-info-content xo-cart-add .xo-btn__content:active,
 xo-product-info-content xo-cart-add .xo-btn__content:focus,
+xo-product-info-content .buy-button__now .xo-btn__text:active,
+xo-product-info-content .buy-button__now .xo-btn__text:focus,
+xo-product-info-content .buy-button__now .xo-btn__content:active,
+xo-product-info-content .buy-button__now .xo-btn__content:focus,
 .product-variant-modal__modal-content xo-cart-add .xo-btn__text:active,
 .product-variant-modal__modal-content xo-cart-add .xo-btn__text:focus,
 .product-variant-modal__modal-content xo-cart-add .xo-btn__content:active,
@@ -1080,6 +1146,10 @@ xo-modal xo-cart-add .xo-btn__content:focus {
 .buy-button__add .xo-btn:active .xo-btn__content,
 .buy-button__add .xo-btn:focus .xo-btn__text,
 .buy-button__add .xo-btn:focus .xo-btn__content,
+.buy-button__now .xo-btn:active .xo-btn__text,
+.buy-button__now .xo-btn:active .xo-btn__content,
+.buy-button__now .xo-btn:focus .xo-btn__text,
+.buy-button__now .xo-btn:focus .xo-btn__content,
 .buy-button xo-cart-add .xo-btn:active .xo-btn__text,
 .buy-button xo-cart-add .xo-btn:active .xo-btn__content,
 .buy-button xo-cart-add .xo-btn:focus .xo-btn__text,
@@ -1092,6 +1162,10 @@ xo-product-info-content xo-cart-add .xo-btn:focus .xo-btn__text,
 xo-product-info-content xo-cart-add .xo-btn:focus .xo-btn__content,
 xo-product-info-content xo-cart-add button:active .xo-btn__text,
 xo-product-info-content xo-cart-add button:active .xo-btn__content,
+xo-product-info-content .buy-button__now .xo-btn:active .xo-btn__text,
+xo-product-info-content .buy-button__now .xo-btn:active .xo-btn__content,
+xo-product-info-content .buy-button__now .xo-btn:focus .xo-btn__text,
+xo-product-info-content .buy-button__now .xo-btn:focus .xo-btn__content,
 .product-variant-modal__modal-content xo-cart-add .xo-btn:active .xo-btn__text,
 .product-variant-modal__modal-content xo-cart-add .xo-btn:active .xo-btn__content,
 .product-variant-modal__modal-content xo-cart-add .xo-btn:focus .xo-btn__text,

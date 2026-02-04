@@ -379,6 +379,7 @@
       "share": "Share this product",
       "recommended": "Recommended Products",
       "sold_out": "Sold out",
+      "buy_now": "Buy Now",
       "countdown_stock": "HURRY UP! ONLY {{ quantity }} LEFT IN STOCK",
       "quantity_left": "Only {{ quantity }} left – hurry!",
       "out_stock": "Out of stock",
