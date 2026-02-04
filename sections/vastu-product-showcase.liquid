@@ -56,35 +56,32 @@
               {% render 'vastu-product-showcase-content', product: product, section: section, product_form_id: product_form_id %}
             </xo-animate>
             
-            {% comment %} Right Side: Product Images (clickable to product page) {% endcomment %}
+            {% comment %} Right Side: Product Images {% endcomment %}
             <xo-animate xo-cascade style='--xs: 12; --md: {{ image_col_size }}' class='vastu-product-showcase__media-col'>
-              <a href='{{ product.url }}' class='vastu-product-showcase__media-link' aria-label='{{ product.title | escape }} - View product'>
-                {% render 'product-info-media-showcase',
-                  product: product,
-                  section: section,
-                  hover_zoom_enabled: section.settings.image_zoom_hover,
-                  click_zoom_enabled: section.settings.image_zoom_click,
-                  autoplay: false,
-                  video_modal: false,
-                  product_360: false,
-                  media_sticky: false
-                %}
-              </a>
+              {% render 'product-info-media-showcase',
+                product: product,
+                section: section,
+                hover_zoom_enabled: section.settings.image_zoom_hover,
+                click_zoom_enabled: section.settings.image_zoom_click,
+                autoplay: false,
+                video_modal: false,
+                product_360: false,
+                media_sticky: false
+              %}
             </xo-animate>
           {% else %}
-            {% comment %} Left Side: Product Images (clickable to product page) {% endcomment %}
+            {% comment %} Left Side: Product Images {% endcomment %}
             <xo-animate xo-cascade style='--xs: 12; --md: {{ image_col_size }}' class='vastu-product-showcase__media-col'>
-              <a href='{{ product.url }}' class='vastu-product-showcase__media-link' aria-label='{{ product.title | escape }} - View product'>
-                {% render 'product-info-media-showcase',
-                  product: product,
-                  hover_zoom_enabled: section.settings.image_zoom_hover,
-                  click_zoom_enabled: section.settings.image_zoom_click,
-                  autoplay: false,
-                  video_modal: false,
-                  product_360: false,
-                  media_sticky: false
-                %}
-              </a>
+              {% render 'product-info-media-showcase',
+                product: product,
+                section: section,
+                hover_zoom_enabled: section.settings.image_zoom_hover,
+                click_zoom_enabled: section.settings.image_zoom_click,
+                autoplay: false,
+                video_modal: false,
+                product_360: false,
+                media_sticky: false
+              %}
             </xo-animate>
             
             {% comment %} Right Side: Product Info {% endcomment %}

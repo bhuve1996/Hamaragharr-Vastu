@@ -115,10 +115,33 @@
         formData.set('return_to', '/checkout');
         buyNowBtn.disabled = true;
         buyNowBtn.classList.add('xo-btn--loading');
+
+        function fallbackFormSubmit() {
+          var fallback = document.createElement('form');
+          fallback.method = 'POST';
+          fallback.action = (window.routes && window.routes.cart_add_url ? window.routes.cart_add_url.replace(/\.js$/, '') : '/cart/add');
+          formData.forEach(function(value, key) {
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = value;
+            fallback.appendChild(input);
+          });
+          document.body.appendChild(fallback);
+          fallback.submit();
+        }
+
         fetch('/cart/add.js', {
           method: 'POST',
-          body: formData
-        }).then(function(r) { return r.json(); }).then(function(data) {
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        }).then(function(r) {
+          var ct = r.headers.get('Content-Type') || '';
+          if (!ct.includes('application/json')) {
+            return r.text().then(function() { throw new Error('non-json'); });
+          }
+          return r.json();
+        }).then(function(data) {
           if (data.message && !data.id) {
             alert(data.message);
             buyNowBtn.disabled = false;
@@ -126,9 +149,10 @@
             return;
           }
           window.location.href = '/checkout';
-        }).catch(function() {
+        }).catch(function(err) {
           buyNowBtn.disabled = false;
           buyNowBtn.classList.remove('xo-btn--loading');
+          fallbackFormSubmit();
         });
       });
     })();

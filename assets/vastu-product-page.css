@@ -293,7 +293,23 @@ xo-modal xo-cart-add .xo-btn--primary .xo-btn__content * {
   color: rgb(var(--color-foreground));
 }
 
-/* Product page: Add to cart + Buy Now in a row, same height as quantity */
+/* Both buttons: larger font size; Buy Now matches Add to cart */
+.buy-button__row .buy-button__add .xo-btn,
+.buy-button__row .buy-button__add .xo-btn__text,
+.buy-button__row .buy-button__add .xo-btn__content,
+.buy-button__row .buy-button__now .xo-btn,
+.buy-button__row .buy-button__now .xo-btn__text,
+.buy-button__row .buy-button__now .xo-btn__content {
+  font-size: 1.125rem;
+}
+
+/* Quantity on first row; Add to cart + Buy Now on the next row */
+.buy-button {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .buy-button__row {
   display: flex;
   flex-wrap: wrap;
@@ -317,6 +333,33 @@ xo-modal xo-cart-add .xo-btn--primary .xo-btn__content * {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+}
+
+/* Mobile: keep Add to cart + Buy Now in one row; same larger font for both */
+@media (width <= 48rem) {
+  .buy-button__row .buy-button__add .xo-btn,
+  .buy-button__row .buy-button__now .xo-btn,
+  .buy-button__row .buy-button__add .xo-btn__text,
+  .buy-button__row .buy-button__add .xo-btn__content,
+  .buy-button__row .buy-button__now .xo-btn__text,
+  .buy-button__row .buy-button__now .xo-btn__content {
+    font-size: 1.125rem;
+  }
+
+  .buy-button__row .buy-button__add .xo-btn,
+  .buy-button__row .buy-button__now .xo-btn {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .buy-button__row .buy-button__add .xo-btn__text,
+  .buy-button__row .buy-button__add .xo-btn__content,
+  .buy-button__row .buy-button__now .xo-btn__text,
+  .buy-button__row .buy-button__now .xo-btn__content {
+    white-space: normal;
+    line-height: 1.2;
+    text-align: center;
+  }
 }
 
 .sticky-addcart__wrap {
