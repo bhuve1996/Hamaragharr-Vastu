@@ -169,6 +169,13 @@
   }
 }
 
+/* Below 400px: slightly smaller text for very small screens */
+@media (width <= 25rem) {
+  .vastu-why-kit__text {
+    font-size: calc(var(--global-body-font-size-mobile) * 0.4);
+  }
+}
+
 @media (width > 48rem) and (width <= 768px) {
   .vastu-why-kit__icon {
     width: 72px;
