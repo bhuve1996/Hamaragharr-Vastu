@@ -82,7 +82,7 @@
         {% if settings.cart_drawer_collection.products %}
           <h5 class='title-collection-cart'>You may also like</h5>
           <xo-grid class='vastu-grid-carousel__grid xo-modal-content-style1__you-may-also-like' style='--xs: 2; --sm: 2; --md: 2; --lg: 4; --xo-grid-col-gap: 16px; --xo-grid-row-gap: 16px;'>
-            {% for product in settings.cart_drawer_collection.products limit: 5 %}
+            {% for product in settings.cart_drawer_collection.products limit: 20 %}
               <div class='vastu-grid-carousel__grid-item'>
                 {% render 'vastu-product-card',
                   product: product,

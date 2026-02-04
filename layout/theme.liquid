@@ -298,6 +298,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         100% { transform: rotate(360deg); }
       }
     </style>
+    {%- comment -%} Homepage: show only the banner section until ready (hide all, then show the one containing .vastu-banner-carousel so order doesn't matter) {%- endcomment -%}
+    <style>
+      body.template-index #xo-main-content > * {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+      }
+      body.template-index #xo-main-content > *:has(.vastu-banner-carousel) {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+      body.template-index.vastu-homepage-banner-ready #xo-main-content > * {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+    </style>
 
     {%- if is_local -%}
       {%- comment -%} Local development: Load non-minified JS files {%- endcomment -%}
@@ -408,6 +427,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       >
         {{ content_for_layout }}
       </main>
+      {%- comment -%} Hide non-banner sections on homepage immediately (runs before paint) {%- endcomment -%}
+      {%- if template.name == 'index' -%}
+      <script>
+        (function(){
+          var m = document.getElementById('xo-main-content');
+          if (!m) return;
+          var c = m.children;
+          for (var i = 0; i < c.length; i++) {
+            if (!c[i].querySelector || !c[i].querySelector('.vastu-banner-carousel')) {
+              c[i].setAttribute('data-vastu-hide', '1');
+              c[i].style.cssText = 'opacity:0!important;visibility:hidden!important;pointer-events:none!important;';
+            }
+          }
+        })();
+      </script>
+      {%- endif -%}
 
       {%- if template contains 'index' or template contains 'home' -%}
         {%- if settings.footer_style == 'default' -%}
@@ -1741,7 +1776,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       })();
     </script>
 
-    {%- comment -%} Page Loader Script: hide on window load or after short timeout. Do not wait for every image (one slow/hanging image kept browser loading on mobile). {%- endcomment -%}
+    {%- comment -%} Page Loader Script: hide when banner is ready (homepage) or on window load. Max 2s so one hanging resource never blocks. {%- endcomment -%}
     <script>
       (function() {
         const loader = document.getElementById('vastu-page-loader');
@@ -1751,6 +1786,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         function hideLoader() {
           if (loader && !loader.classList.contains('hidden')) {
+            if (body.classList.contains('template-index')) {
+              body.classList.add('vastu-homepage-banner-ready');
+              var m = document.getElementById('xo-main-content');
+              if (m) {
+                for (var i = 0; i < m.children.length; i++) {
+                  var el = m.children[i];
+                  if (el.getAttribute('data-vastu-hide')) {
+                    el.style.cssText = '';
+                    el.removeAttribute('data-vastu-hide');
+                  }
+                }
+              }
+            }
             loader.classList.add('hidden');
             body.classList.remove('vastu-page-loading');
             setTimeout(function() {
@@ -1761,17 +1809,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           }
         }
         
-        // Hide on window load (browser considers page loaded)
+        function runWhenBannerReady(fn) {
+          var banner = document.querySelector('.vastu-banner-carousel[data-section-type="homepage-banner"]');
+          if (!banner) {
+            fn();
+            return;
+          }
+          var firstImg = banner.querySelector('.vastu-banner-carousel__image--desktop, .vastu-banner-carousel__image');
+          if (firstImg && firstImg.complete) {
+            fn();
+            return;
+          }
+          if (firstImg) {
+            firstImg.addEventListener('load', fn, { once: true });
+            firstImg.addEventListener('error', fn, { once: true });
+            return;
+          }
+          setTimeout(fn, 200);
+        }
+        
+        function onHomepageBannerReady() {
+          body.classList.add('vastu-homepage-banner-ready');
+          var m = document.getElementById('xo-main-content');
+          if (m) {
+            for (var i = 0; i < m.children.length; i++) {
+              var el = m.children[i];
+              if (el.getAttribute('data-vastu-hide')) {
+                el.style.cssText = '';
+                el.removeAttribute('data-vastu-hide');
+              }
+            }
+          }
+          setTimeout(hideLoader, 150);
+        }
+        
+        if (body.classList.contains('template-index')) {
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+              runWhenBannerReady(onHomepageBannerReady);
+            });
+          } else {
+            runWhenBannerReady(onHomepageBannerReady);
+          }
+        }
+        
         window.addEventListener('load', function() {
           setTimeout(hideLoader, 300);
         });
         
-        // Hide when DOM is ready if load already fired (e.g. cached)
         if (document.readyState === 'complete') {
           setTimeout(hideLoader, 300);
         }
         
-        // Max wait: hide after 2s so one hanging resource never blocks (blue bar / overlay)
         setTimeout(hideLoader, 2000);
       })();
     </script>

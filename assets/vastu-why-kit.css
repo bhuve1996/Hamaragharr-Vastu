@@ -5,6 +5,20 @@
   position: relative;
 }
 
+/* Section title link to Vastu Kit product page */
+.vastu-why-kit__title-wrap {
+  display: inline-block;
+}
+
+.vastu-why-kit__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.vastu-why-kit__title-link:hover {
+  text-decoration: underline;
+}
+
 .vastu-why-kit__grid {
   display: grid;
   width: 100%;

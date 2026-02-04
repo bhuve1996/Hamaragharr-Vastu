@@ -45,6 +45,8 @@
                       <xo-cart-will-change xo-unique-id='xo-space-2-{{ section.id }}'>
                         {% render 'space', value: '1rem' %}
                       </xo-cart-will-change>
+                      {% render 'cart-discount-form', uid: section.id %}
+                      {% render 'space', value: '1rem' %}
                       {% render 'cart-discount-list' %}
                       {% render 'cart-actions' %}
                       {% render 'space', value: '2rem' %}

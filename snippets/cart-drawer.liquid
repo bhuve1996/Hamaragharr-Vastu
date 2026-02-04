@@ -36,6 +36,9 @@
           {% render 'cart-note', uid: 'cart-drawer', type: type_note %}
         </xo-animate>
       {% endif %}
+      <xo-animate xo-cascade class='xo-cart-mini-drawer-footer__border'>
+        {% render 'cart-discount-form', uid: 'drawer' %}
+      </xo-animate>
       {% render 'cart-mini-footer' %}
     {% endif %}
   </xo-cart-will-change>

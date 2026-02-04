@@ -1,6 +1,7 @@
 {%- assign contact_type = contact_type | default: 'email' -%}
 <div class='xo-order-bill'>
   <div>
+    <xo-animate xo-cascade class='xo-order-bill__order-number'>{{ 'customer.orders.order_number' | t }}: <strong>{{ order.name }}</strong></xo-animate>
     <xo-animate xo-cascade class='xo-order-bill__nav-title'>{{ 'customer.order.billing_address' | t }} </xo-animate>
     <xo-animate
       xo-cascade

@@ -125,7 +125,8 @@
   {%- if current_page != 1 %}
     &ndash; Page {{ current_page }}
   {%- endif -%}
-  {%- unless final_title contains shop.name %}
+  {%- assign shop_name_first_word = shop.name | split: ' ' | first -%}
+  {%- unless final_title contains shop.name or final_title contains shop_name_first_word %}
     &ndash; {{ shop.name | escape }}
   {%- endunless -%}
 </title>

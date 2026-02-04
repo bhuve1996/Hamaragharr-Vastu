@@ -67,7 +67,7 @@
             "offer_title": "Special Offer",
             "offer_content1": "In Stock",
             "offer_content2": "Free Delivery Available*",
-            "offer_content3": "Sale 30% Off Use Code: Deal30"
+            "offer_content3": "10% Off on Website - Use Code: VASTU10"
           }
         },
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94h": {
@@ -198,6 +198,74 @@
         "padding_bottom": 0
       }
     },
+    "product-page-marquee": {
+      "type": "marquee-v1",
+      "blocks": {
+        "item_1": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Free Shipping on Orders Above ₹500",
+            "icon_svg": "",
+            "link": ""
+          }
+        },
+        "item_2": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "100% Satisfaction Guaranteed",
+            "icon_svg": "",
+            "link": ""
+          }
+        },
+        "item_3": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Transform Your Home with Vastu",
+            "icon_svg": "",
+            "link": ""
+          }
+        },
+        "item_4": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Easy Self-Installation",
+            "icon_svg": "",
+            "link": ""
+          }
+        },
+        "item_5": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "No Consultation Required",
+            "icon_svg": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "item_4", "item_5"],
+      "settings": {
+        "speed": 30,
+        "direction": "left",
+        "gap": 30,
+        "font_size": 1.2,
+        "text_color": "#ffffff",
+        "background_color": "#000000",
+        "font_weight": 500,
+        "width": "fullwidth",
+        "content_width": "wide",
+        "fullwidth_margin": 0,
+        "color_scheme": "",
+        "pause_on_hover": true,
+        "section_padding_top_desktop": 0,
+        "section_padding_bottom_desktop": 0,
+        "section_margin_top_desktop": 0,
+        "section_margin_bottom_desktop": 0,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0,
+        "section_margin_top_mobile": 0,
+        "section_margin_bottom_mobile": 0
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -227,6 +295,7 @@
     "breadcrumb-v1",
     "main-product",
     "product-information-tabs",
+    "product-page-marquee",
     "product-recommendations",
     "areviews_1768884073_4e918e"
   ]

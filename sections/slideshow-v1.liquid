@@ -46,14 +46,11 @@
   section[class*="homepage-carousel"] .vastu-banner-carousel {
     position: relative;
     width: 100%;
-    /* Ensure banner displays immediately */
+    /* Ensure banner displays immediately and paints first (no content-visibility so it’s not deferred) */
     min-height: {{ section.settings.section_height_desktop }}px;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    /* Ensure banner loads first */
-    content-visibility: auto;
-    contain-intrinsic-size: auto {{ section.settings.section_height_desktop }}px;
   }
   
   .vastu-banner-carousel {

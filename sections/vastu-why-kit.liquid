@@ -7,7 +7,16 @@
   {% render 'section-bg-image' %}
   <xo-container {% render 'section-layout' %}>
     {% if section.settings.title != blank %}
-      {% render 'homepage-heading', title: section.settings.title, section: section, class: 'vastu-why-kit__title' %}
+      {% assign vastu_kit_product = all_products['vastu-kit-home-office'] %}
+      {% if vastu_kit_product != blank %}
+        <div class='vastu-why-kit__title-wrap'>
+          <a href='{{ vastu_kit_product.url }}' class='vastu-why-kit__title-link'>
+            {% render 'homepage-heading', title: section.settings.title, section: section, class: 'vastu-why-kit__title' %}
+          </a>
+        </div>
+      {% else %}
+        {% render 'homepage-heading', title: section.settings.title, section: section, class: 'vastu-why-kit__title' %}
+      {% endif %}
     {% endif %}
     
     <xo-grid class='vastu-why-kit__grid' style='--xs: 5; --sm: 5; --md: 3; --lg: 5; --xl: 5; --xxl: 5; --xo-grid-col-gap: {{ section.settings.gap }}px; --xo-grid-row-gap: {{ section.settings.gap }}px;'>

@@ -48,7 +48,7 @@
         {%- endif -%}
 
         <div class='popup-newsletter-v1__signup'>
-          {%- form 'customer', id: 'ContactFooter' -%}
+          {%- form 'customer', id: 'contact-popup-newsletter' -%}
             <input type='hidden' name='contact[tags]' value='newsletter'>
             <div class='popup-newsletter-v1__form'>
               {% assign value = form.email %}
@@ -58,14 +58,14 @@
                   {% if form.errors %}
                   autofocus
                   aria-invalid='true'
-                  aria-describedby='ContactFooter-error'
+                  aria-describedby='contact-popup-newsletter-error'
                   {% elsif form.posted_successfully? %}
-                  aria-describedby='ContactFooter-success'
+                  aria-describedby='contact-popup-newsletter-success'
                   {% endif %}
                   required
                 {% endcapture -%}
               {% render 'field-input', type: 'email', name: 'contact[email]', value: value, label: placeholder, placeholder: placeholder, attr: attr %}
-              {% render 'newsletter-form-message', form: form %}
+              {% render 'newsletter-form-message', form: form, form_id: 'contact-popup-newsletter' %}
               {% render 'button', type: 'submit', text: button_text, style: 'secondary', mode: settings.popup_newsletter_button_mode, size: 'md', padding: 3 %}
             </div>
           {%- endform -%}

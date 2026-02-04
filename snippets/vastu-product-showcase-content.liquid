@@ -18,13 +18,17 @@
     {% endif %}
   {% endfor %}
   
-  {% comment %} Title - Use h2 (only one h1 per page) {% endcomment %}
+  {% comment %} Title - Use h2 (only one h1 per page), linked to product page {% endcomment %}
   {% if section.settings.show_title %}
-    {% if section.settings.use_custom_title and section.settings.custom_title != blank %}
-      <h2 class='vastu-product-showcase__title'>{{ section.settings.custom_title | escape }}</h2>
-    {% else %}
-      <h2 class='vastu-product-showcase__title'>{% render 'product-display-title', product: product %}</h2>
-    {% endif %}
+    <h2 class='vastu-product-showcase__title'>
+      <a href='{{ product.url }}' class='vastu-product-showcase__title-link'>
+        {% if section.settings.use_custom_title and section.settings.custom_title != blank %}
+          {{ section.settings.custom_title | escape }}
+        {% else %}
+          {% render 'product-display-title', product: product %}
+        {% endif %}
+      </a>
+    </h2>
   {% endif %}
   
   {% comment %} Custom Text Blocks - After Title {% endcomment %}
@@ -167,6 +171,11 @@
       {% endcomment %}
     </div>
   {%- endform -%}
+  
+  {% comment %} Link to full product page {% endcomment %}
+  <div class='vastu-product-showcase__view-product'>
+    <a href='{{ product.url }}' class='vastu-product-showcase__view-product-link'>View product page</a>
+  </div>
   
   {% comment %} Custom Text Blocks - After Buttons {% endcomment %}
   {% for block in section.blocks %}

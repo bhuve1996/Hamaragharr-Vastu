@@ -3,13 +3,17 @@
 
   Accepts:
   - form: {Object} Form object.
+  - form_id: {String} Optional. Unique form ID for error/success element IDs (e.g. 'contact-popup-newsletter'). Default: 'ContactFooter'.
 
   Usage:
   {% render 'newsletter-form-message', form: form %}
+  {% render 'newsletter-form-message', form: form, form_id: 'contact-popup-newsletter' %}
 {% endcomment %}
 
+{%- assign message_form_id = form_id | default: 'ContactFooter' -%}
+
 {%- if form.errors -%}
-  <small id='ContactFooter-error' class='newsletter-form-message newsletter-form-message--error' role='alert'>
+  <small id='{{ message_form_id }}-error' class='newsletter-form-message newsletter-form-message--error' role='alert'>
     {%- render 'icon', name: 'error' -%}
     {{- form.errors.translated_fields.email | capitalize }}
     {{ form.errors.messages.email -}}
@@ -18,7 +22,7 @@
 {%- if form.posted_successfully? -%}
   <div
     class='newsletter-form-message newsletter-form-message--success'
-    id='ContactFooter-success'
+    id='{{ message_form_id }}-success'
     tabindex='-1'
     autofocus
     role='status'

@@ -186,6 +186,8 @@
       "note_submit": "Add",
       "discount_title": "Coupon",
       "discount_label": "Discount code",
+      "discount_apply": "Apply",
+      "discount_apply_at_checkout": "Code will be applied at checkout.",
       "estimate_shipping_rates_title": "Shipping",
       "calculate_shipping": "Calculate shipping",
       "save": "Save",

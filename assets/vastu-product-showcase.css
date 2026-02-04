@@ -188,6 +188,48 @@ xo-cart-quantity-plus {
   margin-bottom: 0;
 }
 
+/* Main image area link to product page */
+.vastu-product-showcase__media-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.vastu-product-showcase__media-link:hover {
+  opacity: 0.98;
+}
+
+.vastu-product-showcase__media-col .vastu-product-showcase__media-link {
+  height: 100%;
+}
+
+/* Title link to product page */
+.vastu-product-showcase__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.vastu-product-showcase__title-link:hover {
+  text-decoration: underline;
+}
+
+/* View product page link */
+.vastu-product-showcase__view-product {
+  margin-top: 1rem;
+}
+
+.vastu-product-showcase__view-product-link {
+  font-size: var(--global-body-font-size-desktop, 1.6rem);
+  color: rgb(var(--color-link));
+  text-decoration: underline;
+}
+
+.vastu-product-showcase__view-product-link:hover {
+  text-decoration: none;
+}
+
 .vastu-product-showcase__description {
   font-size: var(--global-description-font-size-desktop, 1.6rem);
   line-height: 1.6;

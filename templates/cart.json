@@ -42,7 +42,7 @@
         "heading_align": "center",
         "product_source": "collection",
         "collection": "all",
-        "products_limit": 8,
+        "products_limit": 20,
         "view_more_limit": 4,
         "columns_desktop": 4,
         "view_more_text": "View More",

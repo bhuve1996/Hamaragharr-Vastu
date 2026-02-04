@@ -1,6 +1,7 @@
 <div class='xo-order-table'>
   <xo-animate xo-cascade>
     <div class='xo-order-table__title'>
+      <p class='xo-order-table__order-number'>{{ 'customer.orders.order_number' | t }}: <strong>{{ order.name }}</strong></p>
       <p class='xo-order-table__date'>{{ 'customer.order.date_html' | t: date: order_date }}</p>
       {% assign account_return = 'customer.account.return' | t %}
       {% render 'button', text: account_return, link: routes.account_url, style: 'link', mode: 'dark' %}
