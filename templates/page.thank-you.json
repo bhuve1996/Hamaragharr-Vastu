@@ -16,7 +16,7 @@
         "icon": "\u2713",
         "title": "Thank You for Your Purchase!",
         "message": "<p>Your order has been confirmed and will be processed shortly. We appreciate your business and look forward to serving you again!</p><p>You will receive an email confirmation with your order details shortly.</p>",
-        "show_order_info": false,
+        "show_order_info": true,
         "show_continue_shopping": true,
         "continue_shopping_text": "Continue Shopping",
         "show_track_order": true,
