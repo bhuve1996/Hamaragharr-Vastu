@@ -41,7 +41,7 @@
 {% endstyle %}
 
 <header
-  class='header-v14 {% if section.settings.transparent and template contains 'index' or template contains 'home' %} header-v14--transparent {% endif %}'
+  class='header-v14 {% if section.settings.transparent and template contains 'index' or section.settings.transparent and template contains 'home' or section.settings.transparent and template contains 'customers' %} header-v14--transparent {% endif %}'
   {% if header_style != blank %}style='{{ header_style }}'{% endif %}
 >
   <xo-sticky
