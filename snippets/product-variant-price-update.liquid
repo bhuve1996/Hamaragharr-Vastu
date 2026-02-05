@@ -5,27 +5,19 @@
 {% endcomment %}
 <script>
 (function() {
-  var LOG = function() { console.log.apply(console, ['[Vastu variant]'].concat(Array.prototype.slice.call(arguments))); };
   var productId = {{ product.id | json }};
   var productEl = document.currentScript && document.currentScript.closest('xo-product');
-  LOG('init: productId=', productId, 'productEl=', !!productEl);
-  if (!productEl || !productId) { LOG('bail: no productEl or productId'); return; }
+  if (!productEl || !productId) return;
 
   var dataEl = productEl.querySelector('xo-product-data script');
-  LOG('dataEl=', !!dataEl);
-  if (!dataEl) { LOG('bail: no xo-product-data script'); return; }
+  if (!dataEl) return;
   var productData;
   try {
     productData = JSON.parse(dataEl.textContent);
   } catch (e) {
-    LOG('bail: parse productData error', e);
     return;
   }
-  if (!productData.variants || !productData.options) {
-    LOG('bail: no productData.variants or options', { hasVariants: !!productData.variants, hasOptions: !!productData.options });
-    return;
-  }
-  LOG('productData ok: options=', productData.options, 'variants count=', productData.variants.length);
+  if (!productData.variants || !productData.options) return;
 
   /** Strip theme signal prefix so "[SIGNAL_xxx]Size" -> "Size" for matching productData.options */
   function normalizeOptionName(name) {
@@ -47,7 +39,6 @@
     productEl.querySelectorAll('input[type="radio"][name^="option"]:checked').forEach(function(input) {
       add(input.name, input.value);
     });
-    LOG('getSelectedOptions:', selected);
     return selected;
   }
 
@@ -67,12 +58,8 @@
           break;
         }
       }
-      if (match && Object.keys(selected).length > 0) {
-        LOG('findVariantId: found', v.id, 'price=', v.price);
-        return v.id;
-      }
+      if (match && Object.keys(selected).length > 0) return v.id;
     }
-    LOG('findVariantId: no match for selected=', selected, 'optionNames=', optionNames);
     return null;
   }
 
@@ -88,7 +75,7 @@
 
   function updatePrice(variantId) {
     var v = productData.variants.find(function(x) { return x.id === variantId; });
-    if (!v) { LOG('updatePrice: variant not found', variantId); return; }
+    if (!v) return;
     var price = v.price;
     var compareAt = v.compare_at_price || 0;
     var moneyFmt = document.documentElement.getAttribute('xo-money-format') || document.documentElement.getAttribute('xo-money-with-currency-format') || '{% raw %}{{ amount }}{% endraw %}';
@@ -101,8 +88,6 @@
 
     var selector = 'xo-product-will-change[xo-unique-id="product-price-' + productId + '"]';
     var priceWrappers = productEl.querySelectorAll(selector);
-    LOG('updatePrice: variantId=', variantId, 'moneyPrice=', moneyPrice, 'priceWrappers found=', priceWrappers.length, 'selector=', selector);
-    if (priceWrappers.length === 0) LOG('updatePrice: no price elements! Check selector and productId.');
     priceWrappers.forEach(function(wrap) {
       var container = wrap.querySelector('.xo-price');
       if (!container) {
@@ -123,10 +108,9 @@
   }
 
   function onVariantChange() {
-    LOG('onVariantChange called');
     setTimeout(function() {
       var variantId = findVariantId();
-      if (!variantId) { LOG('onVariantChange: no variantId, skipping update'); return; }
+      if (!variantId) return;
       var idInput = productEl.querySelector('input[name="id"]');
       if (idInput) idInput.value = variantId;
       updatePrice(variantId);
@@ -141,15 +125,10 @@
   }
 
   productEl.addEventListener('change', function(e) {
-    var ok = isVariantInput(e.target);
-    LOG('change event', 'target=', e.target, 'tagName=', e.target.tagName, 'name=', e.target.name, 'isVariantInput=', ok);
-    if (ok) onVariantChange();
+    if (isVariantInput(e.target)) onVariantChange();
   });
   productEl.addEventListener('click', function(e) {
-    var ok = isVariantInput(e.target) || (e.target.closest && e.target.closest('.xo-field-radio, xo-product-variant'));
-    LOG('click event', 'target=', e.target, 'tagName=', e.target.tagName, 'closest variant=', !!e.target.closest && e.target.closest('xo-product-variant'), 'ok=', !!ok);
-    if (ok) onVariantChange();
+    if (isVariantInput(e.target) || (e.target.closest && e.target.closest('.xo-field-radio, xo-product-variant'))) onVariantChange();
   });
-  LOG('listeners attached');
 })();
 </script>
