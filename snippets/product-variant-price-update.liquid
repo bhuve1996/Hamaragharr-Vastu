@@ -1,0 +1,155 @@
+{% comment %}
+  Self-contained script for main product: on variant option change/click, resolve variant from
+  selected options, update hidden input and all price elements. Renders after product-data.
+  Usage: {% render 'product-variant-price-update', product: product %}
+{% endcomment %}
+<script>
+(function() {
+  var LOG = function() { console.log.apply(console, ['[Vastu variant]'].concat(Array.prototype.slice.call(arguments))); };
+  var productId = {{ product.id | json }};
+  var productEl = document.currentScript && document.currentScript.closest('xo-product');
+  LOG('init: productId=', productId, 'productEl=', !!productEl);
+  if (!productEl || !productId) { LOG('bail: no productEl or productId'); return; }
+
+  var dataEl = productEl.querySelector('xo-product-data script');
+  LOG('dataEl=', !!dataEl);
+  if (!dataEl) { LOG('bail: no xo-product-data script'); return; }
+  var productData;
+  try {
+    productData = JSON.parse(dataEl.textContent);
+  } catch (e) {
+    LOG('bail: parse productData error', e);
+    return;
+  }
+  if (!productData.variants || !productData.options) {
+    LOG('bail: no productData.variants or options', { hasVariants: !!productData.variants, hasOptions: !!productData.options });
+    return;
+  }
+  LOG('productData ok: options=', productData.options, 'variants count=', productData.variants.length);
+
+  /** Strip theme signal prefix so "[SIGNAL_xxx]Size" -> "Size" for matching productData.options */
+  function normalizeOptionName(name) {
+    if (typeof name !== 'string') return name;
+    return name.replace(/^\[[^\]]+\]/, '').trim();
+  }
+
+  function getSelectedOptions() {
+    var selected = {};
+    function add(name, value) {
+      selected[name] = value;
+      var norm = normalizeOptionName(name);
+      if (norm !== name) selected[norm] = value;
+    }
+    productEl.querySelectorAll('xo-product-variant').forEach(function(comp) {
+      var radio = comp.querySelector('input[type="radio"]:checked');
+      if (radio) add(radio.name, radio.value);
+    });
+    productEl.querySelectorAll('input[type="radio"][name^="option"]:checked').forEach(function(input) {
+      add(input.name, input.value);
+    });
+    LOG('getSelectedOptions:', selected);
+    return selected;
+  }
+
+  function findVariantId() {
+    var selected = getSelectedOptions();
+    var optionNames = productData.options;
+    for (var i = 0; i < productData.variants.length; i++) {
+      var v = productData.variants[i];
+      var opts = v.options || [];
+      var match = true;
+      for (var j = 0; j < optionNames.length; j++) {
+        var name = optionNames[j];
+        var val = selected[name];
+        if (val == null) continue;
+        if (opts[j] !== val && v['option' + (j + 1)] !== val) {
+          match = false;
+          break;
+        }
+      }
+      if (match && Object.keys(selected).length > 0) {
+        LOG('findVariantId: found', v.id, 'price=', v.price);
+        return v.id;
+      }
+    }
+    LOG('findVariantId: no match for selected=', selected, 'optionNames=', optionNames);
+    return null;
+  }
+
+  function formatMoney(cents, formatStr) {
+    if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
+      return window.Shopify.formatMoney(cents, formatStr);
+    }
+    if (typeof cents === 'string') cents = cents.replace('.', '');
+    var format = formatStr || document.documentElement.getAttribute('xo-money-format') || '{% raw %}{{ amount }}{% endraw %}';
+    var num = (Number(cents) / 100).toFixed(2);
+    return format.replace(/\{\{\s*amount\s*\}\}/g, num).replace(/\{\{\s*amount_no_decimals\s*\}\}/g, Math.round(Number(cents) / 100));
+  }
+
+  function updatePrice(variantId) {
+    var v = productData.variants.find(function(x) { return x.id === variantId; });
+    if (!v) { LOG('updatePrice: variant not found', variantId); return; }
+    var price = v.price;
+    var compareAt = v.compare_at_price || 0;
+    var moneyFmt = document.documentElement.getAttribute('xo-money-format') || document.documentElement.getAttribute('xo-money-with-currency-format') || '{% raw %}{{ amount }}{% endraw %}';
+    var withCurrency = document.documentElement.hasAttribute('xo-currency-code-enabled');
+    if (withCurrency) moneyFmt = document.documentElement.getAttribute('xo-money-with-currency-format') || moneyFmt;
+    var moneyPrice = formatMoney(price, moneyFmt);
+    var moneyCompare = compareAt > 0 ? formatMoney(compareAt, moneyFmt) : '';
+    moneyPrice = moneyPrice.replace(/Rs\./g, '₹').replace(/Rs /g, '₹ ').replace(/INR/g, '₹').replace(/\$/g, '₹').replace(/USD/g, 'INR');
+    if (moneyCompare) moneyCompare = moneyCompare.replace(/Rs\./g, '₹').replace(/Rs /g, '₹ ').replace(/INR/g, '₹').replace(/\$/g, '₹').replace(/USD/g, 'INR');
+
+    var selector = 'xo-product-will-change[xo-unique-id="product-price-' + productId + '"]';
+    var priceWrappers = productEl.querySelectorAll(selector);
+    LOG('updatePrice: variantId=', variantId, 'moneyPrice=', moneyPrice, 'priceWrappers found=', priceWrappers.length, 'selector=', selector);
+    if (priceWrappers.length === 0) LOG('updatePrice: no price elements! Check selector and productId.');
+    priceWrappers.forEach(function(wrap) {
+      var container = wrap.querySelector('.xo-price');
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'xo-price';
+        container.setAttribute('role', 'status');
+        wrap.appendChild(container);
+      }
+      var styleClass = (container.className.match(/xo-price--(\w+)/) || [])[1] || '';
+      var html;
+      if (compareAt > 0 && compareAt > price) {
+        html = '<div class="xo-price__container"><div class="xo-price__sale' + (styleClass ? ' xo-price__sale--' + styleClass : '') + '"><div class="xo-visually-hidden xo-visually-hidden--inline">Sale price</div><span class="xo-price__item xo-price__item--accent">' + moneyPrice + '</span><div class="xo-visually-hidden xo-visually-hidden--inline">Regular price</div><span class="xo-price__item xo-price__item--del">' + moneyCompare + '</span></div></div>';
+      } else {
+        html = '<div class="xo-price__container"><div class="xo-price__regular' + (styleClass ? ' xo-price__regular--' + styleClass : '') + '"><div class="xo-visually-hidden xo-visually-hidden--inline">Regular price</div><span class="xo-price__item">' + moneyPrice + '</span></div></div>';
+      }
+      container.innerHTML = html;
+    });
+  }
+
+  function onVariantChange() {
+    LOG('onVariantChange called');
+    setTimeout(function() {
+      var variantId = findVariantId();
+      if (!variantId) { LOG('onVariantChange: no variantId, skipping update'); return; }
+      var idInput = productEl.querySelector('input[name="id"]');
+      if (idInput) idInput.value = variantId;
+      updatePrice(variantId);
+    }, 100);
+  }
+
+  function isVariantInput(el) {
+    if (!el || !el.closest) return false;
+    var inVariant = el.closest('xo-product-variant');
+    var isRadio = el.matches && (el.matches('.xo-field-radio input') || el.matches('input[type="radio"][name^="option"]'));
+    return !!inVariant || !!isRadio;
+  }
+
+  productEl.addEventListener('change', function(e) {
+    var ok = isVariantInput(e.target);
+    LOG('change event', 'target=', e.target, 'tagName=', e.target.tagName, 'name=', e.target.name, 'isVariantInput=', ok);
+    if (ok) onVariantChange();
+  });
+  productEl.addEventListener('click', function(e) {
+    var ok = isVariantInput(e.target) || (e.target.closest && e.target.closest('.xo-field-radio, xo-product-variant'));
+    LOG('click event', 'target=', e.target, 'tagName=', e.target.tagName, 'closest variant=', !!e.target.closest && e.target.closest('xo-product-variant'), 'ok=', !!ok);
+    if (ok) onVariantChange();
+  });
+  LOG('listeners attached');
+})();
+</script>

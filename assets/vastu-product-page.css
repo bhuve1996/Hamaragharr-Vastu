@@ -335,6 +335,17 @@ xo-modal xo-cart-add .xo-btn--primary .xo-btn__content * {
   box-sizing: border-box;
 }
 
+/* Same ring on Buy Now as Add to cart: 2px border and matching focus ring */
+.buy-button__row .buy-button__now .xo-btn {
+  border: 2px solid rgb(var(--color-secondary-button, 71, 56, 85));
+}
+
+.buy-button__row .buy-button__now .xo-btn:focus,
+.buy-button__row .buy-button__now .xo-btn:focus-visible {
+  outline: 2px solid rgba(var(--color-secondary-button, 71, 56, 85), 0.5);
+  outline-offset: 2px;
+}
+
 /* Mobile: keep Add to cart + Buy Now in one row; same larger font for both */
 @media (width <= 48rem) {
   .buy-button__row .buy-button__add .xo-btn,

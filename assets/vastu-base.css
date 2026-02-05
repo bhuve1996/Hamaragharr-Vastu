@@ -887,6 +887,12 @@ xo-modal.search .xo-predictive-search__center .xo-field-input__input:-webkit-aut
   padding: 1rem 0.1rem;
 }
 
+/* Disable floating placeholder transform – keep placeholder static (e.g. cart discount) */
+.xo-field-input__input:focus + .xo-field-input__placeholder,
+.xo-field-input__input:not(:placeholder-shown) + .xo-field-input__placeholder {
+  transform: none;
+}
+
 xo-modal.search .xo-predictive-search__clear {
   position: absolute;
   right: 1rem;

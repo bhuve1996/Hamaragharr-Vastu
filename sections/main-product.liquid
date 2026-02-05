@@ -164,6 +164,7 @@
       {% render 'sticky-addcart', product: product, form_id: product_form_id, direction: 'down', placement: 'down', show_checkbox: block_buy_button.settings.show_checkbox %}
     {% endif %}
     {% render 'product-data', product: product %}
+    {% render 'product-variant-price-update', product: product %}
     {% render 'main-product-ld-json', product: product %}
   </xo-product>
 </div>

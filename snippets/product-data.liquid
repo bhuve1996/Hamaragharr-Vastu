@@ -14,11 +14,11 @@
       "id": {{ product.id }},
       "handle": {{ product.handle | json }},
       "variants": [
-        {%- assign variant_limit = 20 -%}
-        {%- for variant in product.variants limit: variant_limit -%}
+        {%- for variant in product.variants -%}
           {
             "id": {{ variant.id }},
             "price": {{ variant.price }},
+            "compare_at_price": {{ variant.compare_at_price | default: 0 }},
             "available": {{ variant.available }},
             "options": {{ variant.options | json }}
           }{% unless forloop.last %},{% endunless %}
