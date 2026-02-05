@@ -26,10 +26,10 @@
               </div>
             {%- endif -%}
             
-            {%- if section.settings.show_order_info and checkout.order_id -%}
+            {%- if section.settings.show_order_info -%}
               <div class='thank-you-page__order-info' style='background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 40px;'>
                 <p>
-                  <strong>Order Number:</strong> {{ checkout.order_number }}
+                  <strong>Order Number:</strong> {{ checkout.order_number | default: '—' }}
                 </p>
               </div>
             {%- endif -%}

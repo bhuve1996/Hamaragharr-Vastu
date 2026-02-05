@@ -74,6 +74,7 @@
     "enable_toolbar": true,
     "toolbar_background_color": "#ffffff",
     "favicon": "shopify://shop_images/Favicon.png",
+    "seo_homepage_og_image": "shopify://shop_images/Vastu-Kit-0.png",
     "seo_homepage_title": "HamaraGharr",
     "seo_homepage_description": "Transform your home or office with practical Vastu solutions for balanced energy, harmony, peace, prosperity & success — no experts, no rituals, just easy self-use remedies.",
     "homepage_heading_enable_underline": false,
