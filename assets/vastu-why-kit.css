@@ -164,7 +164,7 @@
 
   /* Mobile-specific smaller text - extra small size for mobile */
   .vastu-why-kit__text {
-    font-size: calc(var(--global-body-font-size-mobile) * 0.47);
+    font-size: calc(var(--global-body-font-size-mobile) * 0.52);
     font-weight: var(--global-body-font-weight-mobile);
     line-height: var(--global-body-line-height-mobile);
     overflow: hidden;
@@ -181,7 +181,7 @@
 /* Below 400px: slightly smaller text for very small screens */
 @media (width <= 25rem) {
   .vastu-why-kit__text {
-    font-size: calc(var(--global-body-font-size-mobile) * 0.4);
+    font-size: calc(var(--global-body-font-size-mobile) * 0.52);
   }
 }
 
