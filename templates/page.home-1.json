@@ -213,7 +213,7 @@
         "title": "Our Blog",
         "blog": "left-sidebar",
         "articles_limit": 8,
-        "columns_limit": 3,
+        "columns_limit": 4,
         "gap": 30,
         "auto_play": false,
         "hover": "scale_up",
