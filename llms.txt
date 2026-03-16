@@ -1,0 +1,14 @@
+# Hamaraghar – Vastu Shastra Products
+
+> Hamaraghar (hamaraghar.in) offers authentic Vastu Shastra solutions for home and office: complete Vastu kits, remedies, wall paintings, and correction kits. Self-installation, no consultation needed.
+
+## Sitemap
+https://hamaraghar.in/sitemap.xml
+
+## Crawl permissions
+Crawl: allow
+Index: allow
+
+## Contact
+Website: https://hamaraghar.in
+

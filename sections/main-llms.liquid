@@ -1,0 +1,24 @@
+{% comment %}
+  LLMs.txt content section – for AI/LLM crawlability.
+  Assign this template to a page with handle "llms" so the content is available at /pages/llms.
+  For root URL /llms.txt: upload the repo file llms.txt in Shopify Admin > Content > Files and add a redirect if desired.
+{% endcomment %}
+<section class="page-width" style="padding: 2rem 0; font-family: system-ui, sans-serif; white-space: pre-wrap; max-width: 65ch;">
+  <h1 style="font-size: 1.25rem; margin-bottom: 1rem;">LLMs / AI crawl information</h1>
+  <p style="margin: 0.5rem 0;"># {{ shop.name }} – Vastu Shastra Products</p>
+  <p style="margin: 0.5rem 0;">&gt; {{ shop.name }} ({{ shop.domain }}) offers authentic Vastu Shastra solutions for home and office: complete Vastu kits, remedies, wall paintings, and correction kits. Self-installation, no consultation needed.</p>
+  <p style="margin: 0.5rem 0;">## Sitemap</p>
+  <p style="margin: 0.5rem 0;">https://{{ shop.domain }}/sitemap.xml</p>
+  <p style="margin: 0.5rem 0;">## Crawl permissions</p>
+  <p style="margin: 0.5rem 0;">Crawl: allow</p>
+  <p style="margin: 0.5rem 0;">Index: allow</p>
+  <p style="margin: 0.5rem 0;">## Contact</p>
+  <p style="margin: 0.5rem 0;">Website: https://{{ shop.domain }}</p>
+</section>
+
+{% schema %}
+{
+  "name": "LLMs info",
+  "settings": []
+}
+{% endschema %}

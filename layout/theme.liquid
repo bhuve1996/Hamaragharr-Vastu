@@ -76,24 +76,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       elsif template.name == 'collection' and collection
         if collection.description != blank
           assign meta_description = collection.description | strip_html | truncate: 160
+        else
+          assign meta_description = collection.title | append: ' – Vastu products at ' | append: shop.name | truncate: 160
         endif
       elsif template.name == 'product' and product
         if product.description != blank
           assign meta_description = product.description | strip_html | truncate: 160
+        else
+          assign meta_description = product.title | append: ' – Buy at ' | append: shop.name | truncate: 160
         endif
       elsif template.name == 'article' and article
         if article.excerpt != blank
           assign meta_description = article.excerpt | strip_html | truncate: 160
         elsif article.content != blank
           assign meta_description = article.content | strip_html | truncate: 160
+        else
+          assign meta_description = article.title | append: ' – ' | append: shop.name | truncate: 160
         endif
       elsif template.name == 'blog' and blog
         if blog.description != blank
           assign meta_description = blog.description | strip_html | truncate: 160
+        else
+          assign meta_description = blog.title | append: ' – ' | append: shop.name | truncate: 160
         endif
       elsif template.name == 'page' and page
         if page.content != blank
           assign meta_description = page.content | strip_html | truncate: 160
+        else
+          assign meta_description = page.title | append: ' – ' | append: shop.name | truncate: 160
         endif
       endif
       
@@ -353,8 +363,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           loading='eager'
           fetchpriority='high'
           width='200'
-          height='auto'
-          style='display: block !important; visibility: visible !important; margin-bottom: 30px !important; max-width: 150px !important; height: auto !important;'
+          height='60'
+          style='display: block !important; visibility: visible !important; margin-bottom: 30px !important; max-width: 150px !important; height: auto !important; object-fit: contain;'
         >
       {%- endif -%}
       <div 

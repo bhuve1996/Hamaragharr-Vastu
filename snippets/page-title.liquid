@@ -116,6 +116,12 @@
       assign final_title = shop.name
     endif
   endif
+  assign title_max = 60
+  assign suffix_reserved = 15
+  assign title_truncate = title_max | minus: suffix_reserved
+  if final_title.size > title_truncate
+    assign final_title = final_title | truncate: title_truncate
+  endif
 -%}
 <title>
   {{ final_title | escape }}
