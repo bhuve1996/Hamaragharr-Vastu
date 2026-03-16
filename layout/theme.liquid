@@ -535,34 +535,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       };
 
-      // Prevent "Unexpected token '<'" when cart/add.js returns HTML (e.g. error/redirect page)
+      // Prevent "Unexpected token '<'" when cart endpoints return HTML; throttle cart/change to avoid 429
       (function() {
         var nativeFetch = window.fetch;
         if (!nativeFetch) return;
-        window.fetch = function(url, opts) {
-          var isCartAdd = (typeof url === 'string' && url.indexOf('/cart/add') !== -1) ||
-            (url && url.url && url.url.indexOf && url.url.indexOf('/cart/add') !== -1);
-          var urlStr = typeof url === 'string' ? url : (url && url.url);
-          if (isCartAdd && (!opts || opts.method === 'GET' || opts.method === undefined)) {
-            return nativeFetch.apply(this, arguments);
-          }
-          if (!isCartAdd) return nativeFetch.apply(this, arguments);
-          return nativeFetch.apply(this, arguments).then(function(response) {
-            var ct = response.headers.get('Content-Type') || '';
-            if (ct.indexOf('application/json') !== -1) return response;
-            return response.text().then(function(text) {
-              var trimmed = text && text.trim();
-              if (trimmed.indexOf('{') === 0) {
-                try {
-                  JSON.parse(trimmed);
-                  return new Response(text, { status: response.status, statusText: response.statusText, headers: response.headers });
-                } catch (e) {}
-              }
-              return new Response(JSON.stringify({ message: 'Could not add to cart. Please try again.' }), {
-                status: 422,
-                headers: { 'Content-Type': 'application/json' }
-              });
+        var lastCartChangeAt = 0;
+        var cartChangeMinMs = 900;
+        function isCartJsonUrl(url) {
+          var s = typeof url === 'string' ? url : (url && url.url ? url.url : '');
+          return s.indexOf('/cart/add') !== -1 || s.indexOf('/cart/change') !== -1 ||
+            s.indexOf('/cart/update') !== -1 || s.indexOf('/cart.js') !== -1;
+        }
+        function isCartChangePost(url, opts) {
+          var s = typeof url === 'string' ? url : (url && url.url ? url.url : '');
+          return (s.indexOf('/cart/change') !== -1 || s.indexOf('/cart/update') !== -1) &&
+            opts && (opts.method === 'POST' || opts.method === 'post');
+        }
+        function wrapCartResponse(response, url) {
+          var ct = response.headers.get('Content-Type') || '';
+          if (ct.indexOf('application/json') !== -1) return response;
+          return response.text().then(function(text) {
+            var trimmed = text && text.trim();
+            if (trimmed.indexOf('{') === 0) {
+              try {
+                JSON.parse(trimmed);
+                return new Response(text, { status: response.status, statusText: response.statusText, headers: response.headers });
+              } catch (e) {}
+            }
+            var fallbackMsg = 'Could not update cart. Please try again.';
+            if (typeof url === 'string' && url.indexOf('/cart/add') !== -1) fallbackMsg = 'Could not add to cart. Please try again.';
+            return new Response(JSON.stringify({ message: fallbackMsg, description: 'Server returned non-JSON' }), {
+              status: 422,
+              headers: { 'Content-Type': 'application/json' }
             });
+          });
+        }
+        window.fetch = function(url, opts) {
+          if (!isCartJsonUrl(url)) return nativeFetch.apply(this, arguments);
+          if (isCartChangePost(url, opts)) {
+            var now = Date.now();
+            var wait = Math.max(0, cartChangeMinMs - (now - lastCartChangeAt));
+            if (wait > 0) {
+              var self = this, args = arguments;
+              return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                  lastCartChangeAt = Date.now();
+                  nativeFetch.apply(self, args).then(function(response) {
+                    resolve(wrapCartResponse(response, url));
+                  }, reject);
+                }, wait);
+              });
+            }
+            lastCartChangeAt = now;
+          }
+          return nativeFetch.apply(this, arguments).then(function(response) {
+            return wrapCartResponse(response, url);
           });
         };
       })();
@@ -1508,6 +1535,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   })
                     .then(response => {
                       if (!response.ok) throw new Error('Cart fetch failed');
+                      var ct = response.headers.get('Content-Type') || '';
+                      if (ct.indexOf('application/json') === -1) {
+                        return response.text().then(function(t) {
+                          try { return JSON.parse(t); } catch (e) { throw new Error('Cart response was not JSON'); }
+                        });
+                      }
                       return response.json();
                     })
                     .then(cart => {
