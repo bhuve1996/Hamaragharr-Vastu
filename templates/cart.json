@@ -1,8 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main-page-heading": {
       "type": "main-page-heading",
       "settings": {
+        "title_tag": "h1",
+        "title": "",
+        "description": "",
+        "align": "center",
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "use_parallax": true,
+        "background_image_animation": "none",
+        "background_video_url": "",
+        "background_video_animation": "none",
+        "background_overlay": "",
+        "background_margin": 0,
         "padding_top": 50,
         "padding_bottom": 0
       }
@@ -16,7 +39,10 @@
         },
         "note": {
           "type": "note",
-          "settings": {}
+          "disabled": true,
+          "settings": {
+            "type": "regular"
+          }
         },
         "subtotal": {
           "type": "subtotal",
@@ -24,14 +50,18 @@
         },
         "badge": {
           "type": "badge",
-          "settings": {
-            "badge_image": "shopify://shop_images/payment_methods_940a3571-dee7-40.png"
-          }
+          "settings": {}
         }
       },
       "block_order": ["free_shipping", "note", "subtotal", "badge"],
       "settings": {
-        "padding_top": 20
+        "color_scheme": "",
+        "background_type": "color",
+        "background_color": "",
+        "background_gradient": "",
+        "background_margin": 0,
+        "padding_top": 20,
+        "padding_bottom": 50
       }
     },
     "you-may-also-like": {
@@ -40,6 +70,9 @@
         "heading_title": "You May Also Like",
         "heading_description": "",
         "heading_align": "center",
+        "width": "box",
+        "content_width": "wide",
+        "fullwidth_margin": 0,
         "product_source": "collection",
         "collection": "all",
         "products_limit": 20,
@@ -50,7 +83,10 @@
         "show_pagination": true,
         "pagination_position_desktop": "bottom",
         "pagination_offset_desktop": "1rem",
-        "width": "box",
+        "show_navigation_mobile": false,
+        "show_pagination_mobile": true,
+        "pagination_position_mobile": "bottom",
+        "pagination_offset_mobile": "1rem",
         "card_title_font_size": 1.5,
         "card_price_font_size": 1.2,
         "button_text_add_to_cart": "Add to Cart",
@@ -58,6 +94,7 @@
         "color_scheme": "background-1",
         "background_type": "color",
         "background_color": "#ffffff",
+        "background_gradient": "",
         "padding_top": 36,
         "padding_bottom": 36
       }

@@ -26,6 +26,7 @@
         },
         "slideshow_7KaQdB": {
           "type": "slideshow",
+          "disabled": true,
           "settings": {
             "background_type": "image",
             "background_image_desktop": "shopify://shop_images/Banner-Desktop-1.png",
@@ -38,6 +39,7 @@
         },
         "slideshow_RB3T9p": {
           "type": "slideshow",
+          "disabled": true,
           "settings": {
             "background_type": "video",
             "background_video_url": "https://cdn.shopify.com/videos/c/o/v/deaf650d6d554706bf3892dfcef65159.mp4",

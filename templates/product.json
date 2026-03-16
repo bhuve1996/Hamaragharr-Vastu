@@ -9,28 +9,6 @@
  */
 {
   "sections": {
-    "breadcrumb-v1": {
-      "type": "breadcrumb-v1",
-      "settings": {
-        "width": "box",
-        "breadcrumb_align": "flex-start",
-        "breadcrumb_hide": false,
-        "breadcrumb_hide_mobile": false,
-        "breadcrumb_animation": "fade-down",
-        "color_scheme": "",
-        "background_type": "color",
-        "background_color": "",
-        "background_gradient": "",
-        "use_parallax": true,
-        "background_image_animation": "none",
-        "background_video_url": "",
-        "background_video_animation": "none",
-        "background_overlay": "",
-        "background_margin": 0,
-        "padding_top": 15,
-        "padding_bottom": 15
-      }
-    },
     "main-product": {
       "type": "main-product",
       "blocks": {
@@ -48,6 +26,27 @@
             "font_size": 2.4,
             "padding_top": 0,
             "padding_bottom": 0
+          }
+        },
+        "liquid_4EYGzY": {
+          "type": "liquid",
+          "name": "Custom liquid price deal",
+          "disabled": true,
+          "settings": {
+            "liquid": "<div class=\"offer-wrapper\">\n\n<div class=\"limited-deal\">\n🔥 Limited Time Offer\n</div>\n\n<div class=\"price-row\">\n\n<span class=\"sale-price\">₹1999</span>\n\n<span class=\"mrp\">\n<span class=\"strike\">₹4200</span> MRP\n</span>\n\n</div>\n\n<div class=\"saving\">\nYou Save ₹2201 (52%)\n</div>\n\n<div class=\"tax-note\">\nInclusive of all taxes\n</div>\n\n<div class=\"trust-row\">\n\n\n<span class=\"delivery\">\n🚚 Free Delivery Across India\n</span>\n\n</div>\n\n</div>\n\n\n<style>\n\n.offer-wrapper{\nmargin:15px 0;\npadding:16px;\nborder-radius:10px;\nbackground:#fff7f7;\nborder:1px solid #ffd6d6;\nfont-family:inherit;\nmax-width:420px;\n}\n\n.limited-deal{\nbackground:#ff3b3b;\ncolor:white;\nfont-size:14px;\nfont-weight:600;\ndisplay:inline-block;\npadding:4px 10px;\nborder-radius:6px;\nmargin-bottom:8px;\n}\n\n.price-row{\ndisplay:flex;\nalign-items:center;\ngap:10px;\n}\n\n.sale-price{\nfont-size:30px;\nfont-weight:600;\ncolor:#d40000;\n}\n\n.mrp{\nfont-size:16px;\ncolor:#666;\n}\n\n.strike{\ntext-decoration:line-through;\ncolor:#888;\n}\n\n.saving{\nfont-size:16px;\nfont-weight:600;\ncolor:#0a8f3c;\nmargin-top:4px;\n}\n\n.tax-note{\nfont-size:13px;\ncolor:#777;\nmargin-top:2px;\n}\n\n.trust-row{\nmargin-top:10px;\nfont-size:14px;\ndisplay:flex;\nflex-direction:column;\ngap:4px;\ncolor:#444;\n}\n\n</style>",
+            "padding_top": 20,
+            "padding_bottom": 20
+          }
+        },
+        "4dabf9d3-3372-4f5a-9edf-1e1f03527b1c": {
+          "type": "visitor",
+          "settings": {
+            "visitor_text": "People are viewing this right now",
+            "visitor_max": 500,
+            "visitor_min": 100,
+            "visitor_change": 10,
+            "padding_top": 0,
+            "padding_bottom": 23
           }
         },
         "areviews_reviews_importer_areviews_title_rating_0AE61F": {
@@ -120,18 +119,6 @@
             "padding_bottom": 30
           }
         },
-        "4dabf9d3-3372-4f5a-9edf-1e1f03527b1c": {
-          "type": "visitor",
-          "disabled": true,
-          "settings": {
-            "visitor_text": "people are viewing this right now",
-            "visitor_max": 500,
-            "visitor_min": 100,
-            "visitor_change": 10,
-            "padding_top": 0,
-            "padding_bottom": 30
-          }
-        },
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94h": {
           "type": "countdown_stock",
           "disabled": true,
@@ -140,18 +127,29 @@
             "padding_bottom": 30
           }
         },
+        "liquid_LWk7Ki": {
+          "type": "liquid",
+          "name": "Custom liquid by aj",
+          "settings": {
+            "liquid": "<div class=\"vastu-sticky-mobile\">\n\n  <div class=\"sticky-inner\">\n\n    <!-- Quantity -->\n    <div class=\"sticky-qty\">\n      <button type=\"button\" class=\"qty-btn minus\">−</button>\n      <input type=\"number\" id=\"stickyQuantity\" value=\"1\" min=\"1\">\n      <button type=\"button\" class=\"qty-btn plus\">+</button>\n    </div>\n\n    <!-- Buttons -->\n    <button type=\"button\" class=\"sticky-btn add-cart-btn\">\n      Add to Cart\n    </button>\n\n    <button type=\"button\" class=\"sticky-btn buy-now-btn\">\n      Buy Now\n    </button>\n\n  </div>\n\n</div>\n\n<style>\n/* Hide on desktop */\n@media (min-width: 768px) {\n  .vastu-sticky-mobile {\n    display: none;\n  }\n}\n\n/* Sticky container */\n.vastu-sticky-mobile {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  background: #ffffff;\n  box-shadow: 0 -3px 15px rgba(0,0,0,0.15);\n  padding: 10px;\n  z-index: 9999;\n}\n\n.sticky-inner {\n  display: flex;\n  gap: 8px;\n  align-items: center;\n}\n\n/* Quantity */\n.sticky-qty {\n  display: flex;\n  align-items: center;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n}\n\n.sticky-qty input {\n  width: 40px;\n  text-align: center;\n  border: none;\n  font-size: 14px;\n}\n\n.qty-btn {\n  background: #f3f3f3;\n  border: none;\n  padding: 6px 10px;\n  font-size: 16px;\n  cursor: pointer;\n}\n\n/* Buttons */\n.sticky-btn {\n  flex: 1;\n  padding: 12px 8px;\n  border-radius: 8px;\n  border: none;\n  font-weight: 600;\n  font-size: 14px;\n  color: #fff;\n  cursor: pointer;\n  transition: 0.3s ease;\n}\n\n/* Prosperity Green */\n.add-cart-btn {\n  background-color: #1e7d32;\n}\n\n.add-cart-btn:hover {\n  background-color: #166528;\n}\n\n/* Sacred Urgency Saffron */\n.buy-now-btn {\n  background-color: #ff6f00;\n}\n\n.buy-now-btn:hover {\n  background-color: #e65100;\n}\n</style>\n\n<script>\ndocument.addEventListener(\"DOMContentLoaded\", function() {\n\n  const minus = document.querySelector(\".vastu-sticky-mobile .minus\");\n  const plus = document.querySelector(\".vastu-sticky-mobile .plus\");\n  const qtyInput = document.getElementById(\"stickyQuantity\");\n\n  minus.addEventListener(\"click\", function() {\n    if (qtyInput.value > 1) qtyInput.value--;\n  });\n\n  plus.addEventListener(\"click\", function() {\n    qtyInput.value++;\n  });\n\n  // Add to Cart\n  document.querySelector(\".add-cart-btn\").addEventListener(\"click\", function() {\n    const form = document.querySelector('form[action*=\"/cart/add\"]');\n    form.querySelector('input[name=\"quantity\"]').value = qtyInput.value;\n    form.submit();\n  });\n\n  // Buy Now\n  document.querySelector(\".buy-now-btn\").addEventListener(\"click\", function() {\n    const form = document.querySelector('form[action*=\"/cart/add\"]');\n    form.querySelector('input[name=\"quantity\"]').value = qtyInput.value;\n    form.submit();\n    setTimeout(function(){\n      window.location.href = \"/checkout\";\n    }, 500);\n  });\n\n});\n</script>",
+            "padding_top": 0,
+            "padding_bottom": 30
+          }
+        },
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94d": {
           "type": "buy_button",
           "settings": {
+            "show_buy_now": true,
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true,
             "show_checkbox": false,
-            "padding_top": 0,
+            "padding_top": 30,
             "padding_bottom": 30
           }
         },
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94k": {
           "type": "buy_othersite",
+          "disabled": true,
           "settings": {
             "buy_othersite_title": "BUY ON",
             "image_width": 60,
@@ -248,6 +246,8 @@
       "block_order": [
         "b9220087-e178-48b9-a33a-095a4119abaf",
         "bedc5e2d-642d-4448-8569-c7fcfd527042",
+        "liquid_4EYGzY",
+        "4dabf9d3-3372-4f5a-9edf-1e1f03527b1c",
         "areviews_reviews_importer_areviews_title_rating_0AE61F",
         "b1d95bc4-490b-4b8c-914a-89b1323d2a43",
         "b1d95bc4-490b-4b8c-914a-89b1323d2a41",
@@ -255,8 +255,8 @@
         "4dabf9d3-3372-4f5a-9edf-1e1f03527b1a",
         "addon_buttons_MGW7hE",
         "4dabf9d3-3372-4f5a-9edf-1e1f03527b1b",
-        "4dabf9d3-3372-4f5a-9edf-1e1f03527b1c",
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94h",
+        "liquid_LWk7Ki",
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94d",
         "ae0ed4c8-948a-46c7-b292-5f2687b8c94k",
         "941018d2-7613-4b60-aa2c-94962df06c94",
@@ -274,7 +274,7 @@
         "wishlist": true,
         "media_sticky": true,
         "image_zoom_hover": true,
-        "image_zoom_click": true,
+        "image_zoom_click": false,
         "video_autoplay": false,
         "video_modal": false,
         "product_360": false,
@@ -603,7 +603,6 @@
     }
   },
   "order": [
-    "breadcrumb-v1",
     "main-product",
     "product-information-tabs",
     "product-page-marquee",
