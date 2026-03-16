@@ -110,77 +110,17 @@
       var buyNowBtn = form.querySelector('[data-buy-now]');
       if (!buyNowBtn) return;
 
-      var buyNowInProgress = false;
-      form.addEventListener('submit', function(e) {
-        if (buyNowInProgress) {
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          return false;
-        }
-      }, true);
-
-      buyNowBtn.addEventListener('click', function(e) {
+      document.addEventListener('click', function(e) {
+        var target = e.target && (e.target.closest ? e.target.closest('[data-buy-now]') : null);
+        if (!target || target !== buyNowBtn) return;
         e.preventDefault();
         e.stopPropagation();
         e.stopImmediatePropagation();
         if (buyNowBtn.disabled) return;
-        if (buyNowInProgress) return;
-        buyNowInProgress = true;
-        buyNowBtn.disabled = true;
-        buyNowBtn.classList.add('xo-btn--loading');
-
-        var id = (form.querySelector('input[name="id"]') || {}).value || '';
-        var qty = 1;
-        var qtyEl = form.elements && form.elements.namedItem && form.elements.namedItem('quantity');
-        if (qtyEl && qtyEl.value !== '') {
-          var parsed = parseInt(qtyEl.value, 10);
-          if (!isNaN(parsed) && parsed >= 1) qty = parsed;
-        }
-        var body = new FormData();
-        body.set('id', id);
-        body.set('quantity', String(qty));
-        body.set('return_to', '/checkout');
-
-        function fallbackFormSubmit() {
-          var fallback = document.createElement('form');
-          fallback.method = 'POST';
-          fallback.action = (window.routes && window.routes.cart_add_url ? window.routes.cart_add_url.replace(/\.js$/, '') : '/cart/add');
-          body.forEach(function(value, key) {
-            var input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = key;
-            input.value = value;
-            fallback.appendChild(input);
-          });
-          document.body.appendChild(fallback);
-          fallback.submit();
-        }
-
-        fetch('/cart/add.js', {
-          method: 'POST',
-          body: body,
-          headers: { 'Accept': 'application/json' }
-        }).then(function(r) {
-          var ct = r.headers.get('Content-Type') || '';
-          if (!ct.includes('application/json')) {
-            return r.text().then(function() { throw new Error('non-json'); });
-          }
-          return r.json();
-        }).then(function(data) {
-          buyNowInProgress = false;
-          if (data.message && !data.id) {
-            alert(data.message);
-            buyNowBtn.disabled = false;
-            buyNowBtn.classList.remove('xo-btn--loading');
-            return;
-          }
+        form.submit();
+        setTimeout(function() {
           window.location.href = '/checkout';
-        }).catch(function(err) {
-          buyNowInProgress = false;
-          buyNowBtn.disabled = false;
-          buyNowBtn.classList.remove('xo-btn--loading');
-          fallbackFormSubmit();
-        });
+        }, 500);
       }, true);
     })();
   </script>
