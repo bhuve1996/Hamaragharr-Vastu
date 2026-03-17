@@ -117,10 +117,15 @@
         e.stopPropagation();
         e.stopImmediatePropagation();
         if (buyNowBtn.disabled) return;
+        var returnTo = form.querySelector('input[name="return_to"]');
+        if (!returnTo) {
+          returnTo = document.createElement('input');
+          returnTo.type = 'hidden';
+          returnTo.name = 'return_to';
+          form.appendChild(returnTo);
+        }
+        returnTo.value = '/checkout';
         form.submit();
-        setTimeout(function() {
-          window.location.href = '/checkout';
-        }, 500);
       }, true);
     })();
   </script>
