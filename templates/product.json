@@ -33,7 +33,7 @@
           "name": "Custom liquid price deal",
           "disabled": true,
           "settings": {
-            "liquid": "<div class=\"offer-wrapper\">\n\n<div class=\"limited-deal\">\n🔥 Limited Time Offer\n</div>\n\n<div class=\"price-row\">\n\n<span class=\"sale-price\">₹1999</span>\n\n<span class=\"mrp\">\n<span class=\"strike\">₹4200</span> MRP\n</span>\n\n</div>\n\n<div class=\"saving\">\nYou Save ₹2201 (52%)\n</div>\n\n<div class=\"tax-note\">\nInclusive of all taxes\n</div>\n\n<div class=\"trust-row\">\n\n\n<span class=\"delivery\">\n🚚 Free Delivery Across India\n</span>\n\n</div>\n\n</div>\n\n\n<style>\n\n.offer-wrapper{\nmargin:15px 0;\npadding:16px;\nborder-radius:10px;\nbackground:#fff7f7;\nborder:1px solid #ffd6d6;\nfont-family:inherit;\nmax-width:420px;\n}\n\n.limited-deal{\nbackground:#ff3b3b;\ncolor:white;\nfont-size:14px;\nfont-weight:600;\ndisplay:inline-block;\npadding:4px 10px;\nborder-radius:6px;\nmargin-bottom:8px;\n}\n\n.price-row{\ndisplay:flex;\nalign-items:center;\ngap:10px;\n}\n\n.sale-price{\nfont-size:30px;\nfont-weight:600;\ncolor:#d40000;\n}\n\n.mrp{\nfont-size:16px;\ncolor:#666;\n}\n\n.strike{\ntext-decoration:line-through;\ncolor:#888;\n}\n\n.saving{\nfont-size:16px;\nfont-weight:600;\ncolor:#0a8f3c;\nmargin-top:4px;\n}\n\n.tax-note{\nfont-size:13px;\ncolor:#777;\nmargin-top:2px;\n}\n\n.trust-row{\nmargin-top:10px;\nfont-size:14px;\ndisplay:flex;\nflex-direction:column;\ngap:4px;\ncolor:#444;\n}\n\n</style>",
+            "liquid": "<div class=\"offer-wrapper\">\n\n<div class=\"limited-deal\">\n\ud83d\udd25 Limited Time Offer\n</div>\n\n<div class=\"price-row\">\n\n<span class=\"sale-price\">\u20b91999</span>\n\n<span class=\"mrp\">\n<span class=\"strike\">\u20b94200</span> MRP\n</span>\n\n</div>\n\n<div class=\"saving\">\nYou Save \u20b92201 (52%)\n</div>\n\n<div class=\"tax-note\">\nInclusive of all taxes\n</div>\n\n<div class=\"trust-row\">\n\n\n<span class=\"delivery\">\n\ud83d\ude9a Free Delivery Across India\n</span>\n\n</div>\n\n</div>\n\n\n<style>\n\n.offer-wrapper{\nmargin:15px 0;\npadding:16px;\nborder-radius:10px;\nbackground:#fff7f7;\nborder:1px solid #ffd6d6;\nfont-family:inherit;\nmax-width:420px;\n}\n\n.limited-deal{\nbackground:#ff3b3b;\ncolor:white;\nfont-size:14px;\nfont-weight:600;\ndisplay:inline-block;\npadding:4px 10px;\nborder-radius:6px;\nmargin-bottom:8px;\n}\n\n.price-row{\ndisplay:flex;\nalign-items:center;\ngap:10px;\n}\n\n.sale-price{\nfont-size:30px;\nfont-weight:600;\ncolor:#d40000;\n}\n\n.mrp{\nfont-size:16px;\ncolor:#666;\n}\n\n.strike{\ntext-decoration:line-through;\ncolor:#888;\n}\n\n.saving{\nfont-size:16px;\nfont-weight:600;\ncolor:#0a8f3c;\nmargin-top:4px;\n}\n\n.tax-note{\nfont-size:13px;\ncolor:#777;\nmargin-top:2px;\n}\n\n.trust-row{\nmargin-top:10px;\nfont-size:14px;\ndisplay:flex;\nflex-direction:column;\ngap:4px;\ncolor:#444;\n}\n\n</style>",
             "padding_top": 20,
             "padding_bottom": 20
           }
@@ -131,7 +131,7 @@
           "type": "liquid",
           "name": "Custom liquid by aj",
           "settings": {
-            "liquid": "<div class=\"vastu-sticky-mobile\">\n\n  <div class=\"sticky-inner\">\n\n    <!-- Quantity -->\n    <div class=\"sticky-qty\">\n      <button type=\"button\" class=\"qty-btn minus\">−</button>\n      <input type=\"number\" id=\"stickyQuantity\" value=\"1\" min=\"1\">\n      <button type=\"button\" class=\"qty-btn plus\">+</button>\n    </div>\n\n    <!-- Buttons -->\n    <button type=\"button\" class=\"sticky-btn add-cart-btn\">\n      Add to Cart\n    </button>\n\n    <button type=\"button\" class=\"sticky-btn buy-now-btn\">\n      Buy Now\n    </button>\n\n  </div>\n\n</div>\n\n<style>\n/* Hide on desktop */\n@media (min-width: 768px) {\n  .vastu-sticky-mobile {\n    display: none;\n  }\n}\n\n/* Sticky container */\n.vastu-sticky-mobile {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  background: #ffffff;\n  box-shadow: 0 -3px 15px rgba(0,0,0,0.15);\n  padding: 10px;\n  z-index: 9999;\n}\n\n.sticky-inner {\n  display: flex;\n  gap: 8px;\n  align-items: center;\n}\n\n/* Quantity */\n.sticky-qty {\n  display: flex;\n  align-items: center;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n}\n\n.sticky-qty input {\n  width: 40px;\n  text-align: center;\n  border: none;\n  font-size: 14px;\n}\n\n.qty-btn {\n  background: #f3f3f3;\n  border: none;\n  padding: 6px 10px;\n  font-size: 16px;\n  cursor: pointer;\n}\n\n/* Buttons */\n.sticky-btn {\n  flex: 1;\n  padding: 12px 8px;\n  border-radius: 8px;\n  border: none;\n  font-weight: 600;\n  font-size: 14px;\n  color: #fff;\n  cursor: pointer;\n  transition: 0.3s ease;\n}\n\n/* Prosperity Green */\n.add-cart-btn {\n  background-color: #1e7d32;\n}\n\n.add-cart-btn:hover {\n  background-color: #166528;\n}\n\n/* Sacred Urgency Saffron */\n.buy-now-btn {\n  background-color: #ff6f00;\n}\n\n.buy-now-btn:hover {\n  background-color: #e65100;\n}\n</style>\n\n<script>\ndocument.addEventListener(\"DOMContentLoaded\", function() {\n\n  const minus = document.querySelector(\".vastu-sticky-mobile .minus\");\n  const plus = document.querySelector(\".vastu-sticky-mobile .plus\");\n  const qtyInput = document.getElementById(\"stickyQuantity\");\n\n  minus.addEventListener(\"click\", function() {\n    if (qtyInput.value > 1) qtyInput.value--;\n  });\n\n  plus.addEventListener(\"click\", function() {\n    qtyInput.value++;\n  });\n\n  // Add to Cart\n  document.querySelector(\".add-cart-btn\").addEventListener(\"click\", function() {\n    const form = document.querySelector('form[action*=\"/cart/add\"]');\n    form.querySelector('input[name=\"quantity\"]').value = qtyInput.value;\n    form.submit();\n  });\n\n  // Buy Now\n  document.querySelector(\".buy-now-btn\").addEventListener(\"click\", function() {\n    const form = document.querySelector('form[action*=\"/cart/add\"]');\n    form.querySelector('input[name=\"quantity\"]').value = qtyInput.value;\n    form.submit();\n    setTimeout(function(){\n      window.location.href = \"/checkout\";\n    }, 500);\n  });\n\n});\n</script>",
+            "liquid": "<div class=\"vastu-sticky-mobile\">\n\n  <div class=\"sticky-inner\">\n\n    <!-- Quantity -->\n    <div class=\"sticky-qty\">\n      <button type=\"button\" class=\"qty-btn minus\">\u2212</button>\n      <input type=\"number\" id=\"stickyQuantity\" value=\"1\" min=\"1\">\n      <button type=\"button\" class=\"qty-btn plus\">+</button>\n    </div>\n\n    <!-- Buttons -->\n    <button type=\"button\" class=\"sticky-btn add-cart-btn\">\n      Add to Cart\n    </button>\n\n    <button type=\"button\" class=\"sticky-btn buy-now-btn\">\n      Buy Now\n    </button>\n\n  </div>\n\n</div>\n\n<style>\n/* Hide on desktop */\n@media (min-width: 768px) {\n  .vastu-sticky-mobile {\n    display: none;\n  }\n}\n\n/* Sticky container */\n.vastu-sticky-mobile {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  background: #ffffff;\n  box-shadow: 0 -3px 15px rgba(0,0,0,0.15);\n  padding: 10px;\n  z-index: 9999;\n}\n\n.sticky-inner {\n  display: flex;\n  gap: 8px;\n  align-items: center;\n}\n\n/* Quantity */\n.sticky-qty {\n  display: flex;\n  align-items: center;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n}\n\n.sticky-qty input {\n  width: 40px;\n  text-align: center;\n  border: none;\n  font-size: 14px;\n}\n\n.qty-btn {\n  background: #f3f3f3;\n  border: none;\n  padding: 6px 10px;\n  font-size: 16px;\n  cursor: pointer;\n}\n\n/* Buttons */\n.sticky-btn {\n  flex: 1;\n  padding: 12px 8px;\n  border-radius: 8px;\n  border: none;\n  font-weight: 600;\n  font-size: 14px;\n  color: #fff;\n  cursor: pointer;\n  transition: 0.3s ease;\n}\n\n/* Prosperity Green */\n.add-cart-btn {\n  background-color: #1e7d32;\n}\n\n.add-cart-btn:hover {\n  background-color: #166528;\n}\n\n/* Sacred Urgency Saffron */\n.buy-now-btn {\n  background-color: #ff6f00;\n}\n\n.buy-now-btn:hover {\n  background-color: #e65100;\n}\n</style>\n\n<script>\ndocument.addEventListener(\"DOMContentLoaded\", function() {\n\n  const minus = document.querySelector(\".vastu-sticky-mobile .minus\");\n  const plus = document.querySelector(\".vastu-sticky-mobile .plus\");\n  const qtyInput = document.getElementById(\"stickyQuantity\");\n\n  minus.addEventListener(\"click\", function() {\n    if (qtyInput.value > 1) qtyInput.value--;\n  });\n\n  plus.addEventListener(\"click\", function() {\n    qtyInput.value++;\n  });\n\n  // Add to Cart\n  document.querySelector(\".add-cart-btn\").addEventListener(\"click\", function() {\n    const form = document.querySelector('form[action*=\"/cart/add\"]');\n    form.querySelector('input[name=\"quantity\"]').value = qtyInput.value;\n    form.submit();\n  });\n\n  var checkoutUrl = {{ request.origin | append: '/checkout' | json }};\n  document.querySelector(\".buy-now-btn\").addEventListener(\"click\", function() {\n    var form = document.querySelector('form[action*=\"/cart/add\"]');\n    if (!form) return;\n    var idInput = form.querySelector('input[name=\"id\"]');\n    var qtyField = form.querySelector('input[name=\"quantity\"]');\n    if (qtyField) qtyField.value = qtyInput.value;\n    var id = idInput ? idInput.value : '';\n    var qty = parseInt(qtyInput.value, 10);\n    if (isNaN(qty) || qty < 1) qty = 1;\n    var btn = this;\n    btn.disabled = true;\n    var body = new FormData();\n    body.set('id', id);\n    body.set('quantity', String(qty));\n    fetch('/cart/add.js', { method: 'POST', body: body, headers: { 'Accept': 'application/json' }, credentials: 'same-origin' })\n      .then(function(r) {\n        var ct = r.headers.get('Content-Type') || '';\n        if (!ct.includes('application/json')) return r.text().then(function() { throw new Error('non-json'); });\n        return r.json();\n      })\n      .then(function(data) {\n        if (data.message && !data.id) { alert(data.message); btn.disabled = false; return; }\n        setTimeout(function() { window.location.href = checkoutUrl; }, 200);\n      })\n      .catch(function() {\n        btn.disabled = false;\n        var rt = form.querySelector('input[name=\"return_to\"]');\n        if (!rt) { rt = document.createElement('input'); rt.type = 'hidden'; rt.name = 'return_to'; form.appendChild(rt); }\n        rt.value = checkoutUrl;\n        form.submit();\n      });\n  });\n\n});\n</script>",
             "padding_top": 0,
             "padding_bottom": 30
           }
@@ -332,7 +332,7 @@
         "item_1": {
           "type": "marquee_item",
           "settings": {
-            "text": "Free Shipping on Orders Above ₹500",
+            "text": "Free Shipping on Orders Above \u20b9500",
             "icon_svg": "",
             "link": ""
           }
@@ -447,7 +447,7 @@
           "type": "question",
           "settings": {
             "question": "Will it work in a rented home or flat?",
-            "answer": "<p>Yes. No drilling, no construction, no permanent changes. Works for any home — owned, rented, flat, villa, or office.</p>",
+            "answer": "<p>Yes. No drilling, no construction, no permanent changes. Works for any home \u2014 owned, rented, flat, villa, or office.</p>",
             "product_type": "vastu kit"
           }
         },
@@ -455,7 +455,7 @@
           "type": "question",
           "settings": {
             "question": "Is my payment 100% secure on this website?",
-            "answer": "<p>Yes. All payments are processed through Razorpay — India's most trusted payment gateway. Your card and UPI details are never stored on our website. 100% encrypted and secure.</p>",
+            "answer": "<p>Yes. All payments are processed through Razorpay \u2014 India's most trusted payment gateway. Your card and UPI details are never stored on our website. 100% encrypted and secure.</p>",
             "product_type": "vastu kit"
           }
         },
@@ -463,15 +463,15 @@
           "type": "question",
           "settings": {
             "question": "Can this kit be used for an office or commercial space?",
-            "answer": "<p>Yes. The kit works for home offices, shops, business premises and commercial spaces — not just homes. Many of our customers have used it in their workplace to improve focus, financial flow and team harmony.</p>",
+            "answer": "<p>Yes. The kit works for home offices, shops, business premises and commercial spaces \u2014 not just homes. Many of our customers have used it in their workplace to improve focus, financial flow and team harmony.</p>",
             "product_type": "vastu kit"
           }
         },
         "question_3XFXDp": {
           "type": "question",
           "settings": {
-            "question": "I have never used a Vastu product before — is this right for me?",
-            "answer": "<p>Yes, this kit is designed for every kind of users. The guidance is written in simple everyday language — no Vastu background, no spiritual knowledge, and no prior experience needed. If your home feels off, this is the right place to start.<br/></p>",
+            "question": "I have never used a Vastu product before \u2014 is this right for me?",
+            "answer": "<p>Yes, this kit is designed for every kind of users. The guidance is written in simple everyday language \u2014 no Vastu background, no spiritual knowledge, and no prior experience needed. If your home feels off, this is the right place to start.<br/></p>",
             "product_type": "vastu kit"
           }
         },
@@ -479,7 +479,7 @@
           "type": "question",
           "settings": {
             "question": "How soon will I see results?",
-            "answer": "<p>Most customers notice a shift in energy and peace within 7–21 days. Results vary based on your home's condition and how consistently you follow the guide.</p>",
+            "answer": "<p>Most customers notice a shift in energy and peace within 7\u201321 days. Results vary based on your home's condition and how consistently you follow the guide.</p>",
             "product_type": "all"
           }
         },
@@ -487,7 +487,7 @@
           "type": "question",
           "settings": {
             "question": "How fast will I receive my order?",
-            "answer": "<p>Delivered within 3–5 business days across India. You'll receive a tracking link once dispatched.</p>",
+            "answer": "<p>Delivered within 3\u20135 business days across India. You'll receive a tracking link once dispatched.</p>",
             "product_type": "all"
           }
         },
@@ -495,7 +495,7 @@
           "type": "question",
           "settings": {
             "question": "Can I use this kit more than once?",
-            "answer": "<p>Yes — it's designed for lifetime use. Recheck your home anytime, repeat the cleansing ritual monthly, no re-purchase needed.<br/></p>",
+            "answer": "<p>Yes \u2014 it's designed for lifetime use. Recheck your home anytime, repeat the cleansing ritual monthly, no re-purchase needed.<br/></p>",
             "product_type": "vastu kit"
           }
         },
@@ -511,7 +511,7 @@
           "type": "question",
           "settings": {
             "question": "What is your return or refund policy?",
-            "answer": "<p>We do not offer returns or refunds for change of mind. However if your kit arrives with a missing item or significant physical damage, contact us on WhatsApp within 48 hours of delivery with a photo and we will replace it immediately — no hassle.</p>",
+            "answer": "<p>We do not offer returns or refunds for change of mind. However if your kit arrives with a missing item or significant physical damage, contact us on WhatsApp within 48 hours of delivery with a photo and we will replace it immediately \u2014 no hassle.</p>",
             "product_type": "all"
           }
         }
