@@ -430,131 +430,104 @@
         "question_xW3a8G": {
           "type": "question",
           "settings": {
-            "question": "How does this Vastu product work?",
-            "answer": "<p>This product works on <strong>traditional Vastu principles</strong> that help balance the five elements and energy flow in your space. When placed correctly, it supports positivity, harmony, and well-being.</p>",
-            "product_type": "all"
-          }
-        },
-        "question_Nq8kVX": {
-          "type": "question",
-          "settings": {
-            "question": "How long does it take to see results?",
-            "answer": "<p>Many customers start noticing changes in <strong>energy, peace, and positivity within a few days to a few weeks</strong>. Results may vary based on placement, belief, and environment.</p>",
-            "product_type": "all"
+            "question": "How does this kit work?",
+            "answer": "<p>This product works on traditional Vastu principles that help balance the five elements and energy flow in your space. When placed correctly, it supports positivity, harmony, and well-being. The kit gives you a step-by-step system to identify and correct Vastu imbalances in your space.<br/></p>",
+            "product_type": "vastu kit"
           }
         },
         "question_t4BUaa": {
           "type": "question",
           "settings": {
-            "question": "Is this product already energised?",
-            "answer": "<p>Yes. All Hamaragharr Vastu products are <strong>pre-energised</strong> before dispatch to ensure effective results from the time you install them.</p>",
-            "product_type": "all"
+            "question": "Do I need any prior knowledge of Vastu?",
+            "answer": "<p>None at all. The booklet is written in simple language (English and Hindi) with room-by-room instructions. If you can read, you can use this kit.</p>",
+            "product_type": "vastu kit"
           }
         },
         "question_mjHrnY": {
           "type": "question",
           "settings": {
-            "question": "Do I need a Vastu expert to install this?",
-            "answer": "<p>No. Every product comes with <strong>clear, step-by-step placement instructions</strong>, making it easy for anyone to install without professional help.</p>",
-            "product_type": "all"
+            "question": "Will it work in a rented home or flat?",
+            "answer": "<p>Yes. No drilling, no construction, no permanent changes. Works for any home — owned, rented, flat, villa, or office.</p>",
+            "product_type": "vastu kit"
           }
         },
-        "question_qa68mL": {
+        "question_LVikCR": {
           "type": "question",
           "settings": {
-            "question": "Can I use this product in a rented home or apartment?",
-            "answer": "<p>Absolutely. Our Vastu remedies are <strong>non-invasive</strong> and do not require drilling, demolition, or permanent changes — ideal for <strong>rented homes and flats</strong>.</p>",
+            "question": "Is my payment 100% secure on this website?",
+            "answer": "<p>Yes. All payments are processed through Razorpay — India's most trusted payment gateway. Your card and UPI details are never stored on our website. 100% encrypted and secure.</p>",
+            "product_type": "vastu kit"
+          }
+        },
+        "question_ayKwPa": {
+          "type": "question",
+          "settings": {
+            "question": "Can this kit be used for an office or commercial space?",
+            "answer": "<p>Yes. The kit works for home offices, shops, business premises and commercial spaces — not just homes. Many of our customers have used it in their workplace to improve focus, financial flow and team harmony.</p>",
+            "product_type": "vastu kit"
+          }
+        },
+        "question_3XFXDp": {
+          "type": "question",
+          "settings": {
+            "question": "I have never used a Vastu product before — is this right for me?",
+            "answer": "<p>Yes, this kit is designed for every kind of users. The guidance is written in simple everyday language — no Vastu background, no spiritual knowledge, and no prior experience needed. If your home feels off, this is the right place to start.<br/></p>",
+            "product_type": "vastu kit"
+          }
+        },
+        "question_Nq8kVX": {
+          "type": "question",
+          "settings": {
+            "question": "How soon will I see results?",
+            "answer": "<p>Most customers notice a shift in energy and peace within 7–21 days. Results vary based on your home's condition and how consistently you follow the guide.</p>",
             "product_type": "all"
           }
         },
         "question_XLqdNa": {
           "type": "question",
           "settings": {
-            "question": "Where exactly should I place this product?",
-            "answer": "<p>Placement depends on the product and purpose. You will receive a <strong>direction-wise placement guide</strong> with your order. For any confusion, our team is available on <strong>WhatsApp support</strong>.</p>",
+            "question": "How fast will I receive my order?",
+            "answer": "<p>Delivered within 3–5 business days across India. You'll receive a tracking link once dispatched.</p>",
             "product_type": "all"
           }
         },
         "question_h6UTff": {
           "type": "question",
           "settings": {
-            "question": "Can I use more than one Vastu product together?",
-            "answer": "<p>Yes. Multiple Vastu products can be used together as long as they are placed as per the provided guidelines. Many customers combine remedies for better results.</p>",
-            "product_type": "all"
+            "question": "Can I use this kit more than once?",
+            "answer": "<p>Yes — it's designed for lifetime use. Recheck your home anytime, repeat the cleansing ritual monthly, no re-purchase needed.<br/></p>",
+            "product_type": "vastu kit"
           }
         },
         "question_hLEEm8": {
           "type": "question",
           "settings": {
-            "question": "Is Cash on Delivery (COD) available?",
-            "answer": "<p>Yes, <strong>COD is available across India</strong>, along with UPI, cards, and net banking.</p>",
+            "question": "Does it fix all Vastu dosh?",
+            "answer": "<p>It addresses all common and major Vastu imbalances. For structural defects results may vary.</p>",
             "product_type": "all"
           }
         },
-        "question_fDXwhX": {
+        "question_RMXqKk": {
           "type": "question",
           "settings": {
-            "question": "What if I don't see any difference?",
-            "answer": "<p>Vastu results depend on multiple factors such as placement, surroundings, and personal belief. If you have concerns, our team will <strong>guide you with placement corrections</strong>.</p>",
+            "question": "What is your return or refund policy?",
+            "answer": "<p>We do not offer returns or refunds for change of mind. However if your kit arrives with a missing item or significant physical damage, contact us on WhatsApp within 48 hours of delivery with a photo and we will replace it immediately — no hassle.</p>",
             "product_type": "all"
-          }
-        },
-        "question_mDtpp6": {
-          "type": "question",
-          "settings": {
-            "question": "Is this product suitable for gifting?",
-            "answer": "<p>Yes. Our Vastu products make <strong>thoughtful and meaningful gifts</strong> for housewarming, weddings, festivals, offices, and new beginnings.</p>",
-            "product_type": "all"
-          }
-        },
-        "question_UinKMH": {
-          "type": "question",
-          "settings": {
-            "question": "How is the product packed and delivered?",
-            "answer": "<p>All products are <strong>securely packed</strong> to avoid damage and shipped with reliable delivery partners across India.</p>",
-            "product_type": "all"
-          }
-        },
-        "question_6yJNbw": {
-          "type": "question",
-          "settings": {
-            "question": "Whom can I contact for help or guidance?",
-            "answer": "<p>You can contact us easily via:<br>📲 <strong>WhatsApp Support</strong><br>📧 Email<br>📞 Customer care<br><br>We're happy to help you choose or place the right remedy.</p>",
-            "product_type": "all"
-          }
-        },
-        "question_zEcHe3": {
-          "type": "question",
-          "settings": {
-            "question": "Will the colours fade over time?",
-            "answer": "<p>No. We use high-quality, fade-resistant printing for long-lasting beauty.</p>",
-            "product_type": "wall painting"
-          }
-        },
-        "question_rAVBTG": {
-          "type": "question",
-          "settings": {
-            "question": "Does this kit correct all Vastu dosh?",
-            "answer": "<p>The kit addresses <strong>common and major Vastu imbalances</strong>. For severe or structural defects, results may vary.</p>",
-            "product_type": "vastu kit"
           }
         }
       },
       "block_order": [
         "question_xW3a8G",
-        "question_Nq8kVX",
         "question_t4BUaa",
         "question_mjHrnY",
-        "question_qa68mL",
+        "question_LVikCR",
+        "question_ayKwPa",
+        "question_3XFXDp",
+        "question_Nq8kVX",
         "question_XLqdNa",
         "question_h6UTff",
         "question_hLEEm8",
-        "question_fDXwhX",
-        "question_mDtpp6",
-        "question_UinKMH",
-        "question_6yJNbw",
-        "question_zEcHe3",
-        "question_rAVBTG"
+        "question_RMXqKk"
       ],
       "name": "Product FAQ",
       "settings": {

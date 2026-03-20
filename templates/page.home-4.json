@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "slideshow-v1": {
@@ -6,83 +15,25 @@
         "13926295-9e3c-41b8-a71d-a0fd2ed4e3ca": {
           "type": "slideshow",
           "settings": {
-            "reverse_layout": true,
-            "subtitle": "Style Destination",
-            "subtitle_font_size": 1.8,
-            "subtitle_font_weight": 400,
-            "subtitle_animation": "fade-right",
-            "title": "Basic Collection",
-            "title_font_size": 8,
-            "title_font_weight": 500,
-            "title_animation": "fade-left",
-            "description": "Create indoor jungles in low light areas with our shade tolerant houseplant collection.",
-            "description_font_size": 2,
-            "description_font_weight": 400,
-            "description_animation": "fade-left",
-            "button_text": "SHOP NOW",
-            "button_link": "shopify://collections/all",
-            "button_mode": "dark",
-            "button_style": "secondary",
-            "button_size": "sm",
-            "button_radius": 0,
-            "button_padding": 1.4,
-            "button_animation": "fade-left",
-            "device": "desktop",
-            "image_desktop_animation": "none",
-            "image_mobile_animation": "none",
-            "color_scheme": "",
             "background_type": "image",
-            "background_color": "#f7f7f7",
-            "background_gradient": "",
             "background_image_desktop": "shopify://shop_images/slide2.1.jpg",
             "background_image_mobile": "shopify://shop_images/slide2.1.jpg",
-            "use_parallax": false,
-            "background_image_animation": "none",
             "background_video_url": "",
-            "background_video_animation": "none",
             "background_overlay": "",
-            "background_margin": 0
+            "button_link": "shopify://collections/all",
+            "color_scheme": ""
           }
         },
         "3d548e62-6820-4210-8e7a-865fb6a6505c": {
           "type": "slideshow",
           "settings": {
-            "reverse_layout": true,
-            "subtitle": "Style Destination",
-            "subtitle_font_size": 1.8,
-            "subtitle_font_weight": 400,
-            "subtitle_animation": "fade-right",
-            "title": "Spring Collection",
-            "title_font_size": 8,
-            "title_font_weight": 500,
-            "title_animation": "fade-left",
-            "description": "Create indoor jungles in low light areas with our shade tolerant houseplant collection.",
-            "description_font_size": 2,
-            "description_font_weight": 400,
-            "description_animation": "fade-left",
-            "button_text": "SHOP NOW",
-            "button_link": "shopify://collections/all",
-            "button_mode": "dark",
-            "button_style": "secondary",
-            "button_size": "sm",
-            "button_radius": 0,
-            "button_padding": 1.4,
-            "button_animation": "fade-left",
-            "device": "mobile",
-            "image_desktop_animation": "fade-right",
-            "image_mobile_animation": "fade-up",
-            "color_scheme": "",
             "background_type": "image",
-            "background_color": "#f7f7f7",
-            "background_gradient": "",
             "background_image_desktop": "shopify://shop_images/slide2.2.jpg",
             "background_image_mobile": "shopify://shop_images/slide2.2.jpg",
-            "use_parallax": false,
-            "background_image_animation": "none",
             "background_video_url": "",
-            "background_video_animation": "none",
             "background_overlay": "",
-            "background_margin": 0
+            "button_link": "shopify://collections/all",
+            "color_scheme": ""
           }
         }
       },
