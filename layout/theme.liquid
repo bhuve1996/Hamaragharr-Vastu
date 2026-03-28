@@ -378,10 +378,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     
     <div id='xo-root'>
-      {% liquid
-        assign button_text = 'accessibility.skip_to_text' | t
-        render 'button', link: '#xo-main-content', class: 'xo-skip-to-content xo-visually-hidden', text: button_text
-      %}
+      <a class='xo-skip-to-content xo-visually-hidden' href='#xo-main-content'>
+        {{- 'accessibility.skip_to_text' | t -}}
+      </a>
 
       {%- if template contains 'index' or template contains 'home' -%}
         {%- if settings.header_style == 'default' -%}
