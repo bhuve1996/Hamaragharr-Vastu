@@ -136,7 +136,7 @@
                 <div class='header-v6__promotion-carousel-wrapper'>
                   {% for product in section.settings.topbar_promotion_collection.products limit: 20 %}
                     <a href='{{ product.url }}' class='header-v6__promotion-item'>
-                      <span class='header-v6__promotion-name'>{% render 'product-display-title', product: product %}</span>
+                      <span class='header-v6__promotion-name'>{% render 'product-topbar-promotion-label', product: product %}</span>
                     </a>
                   {% endfor %}
                 </div>
@@ -517,7 +517,7 @@
       "type": "collection",
       "id": "topbar_promotion_collection",
       "label": "Promotion Products Collection",
-      "info": "Select a collection to display products in the topbar marquee. If empty, phone/email will be shown instead."
+      "info": "Select a collection to display products in the topbar marquee. If empty, phone/email will be shown instead. Optional per-product label: in Admin → Products → [product] → Metafields, add definition custom.topbar_promotion_label (Single line text), e.g. “Shop for Owl”. If empty, the product Short name or title is used."
     },
     {
       "type": "html",

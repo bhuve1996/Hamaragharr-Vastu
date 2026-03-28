@@ -1,0 +1,15 @@
+{% comment %}
+  Text shown in the header top bar promotion carousel for a product.
+
+  Priority:
+  1. Product metafield custom.topbar_promotion_label (e.g. "Shop for Owl")
+  2. product-display-title (Short name metafield, else full product title)
+
+  Merchants: Settings → Custom data → Products → add Single line text,
+  namespace custom, key topbar_promotion_label, name e.g. "Top bar promo label".
+{% endcomment %}
+{% if product.metafields.custom.topbar_promotion_label.value != blank %}
+  {{- product.metafields.custom.topbar_promotion_label.value | strip | escape -}}
+{% else %}
+  {% render 'product-display-title', product: product %}
+{% endif %}
