@@ -11,59 +11,9 @@
       {%- assign blocks_limit = 20 -%}
       {%- for block in section.blocks limit: blocks_limit -%}
         {% if block.settings.question != blank %}
-          {% comment %} Check if this FAQ should be shown for this product {% endcomment %}
-          {% assign show_faq = false %}
-          
-          {% comment %} If no product type specified, show for all products {% endcomment %}
-          {% if block.settings.product_type == blank or block.settings.product_type == 'all' %}
-            {% assign show_faq = true %}
-          {% else %}
-            {% comment %} Check product collections, tags, or title for matches {% endcomment %}
-            {% assign product_type_lower = block.settings.product_type | downcase %}
-            {% assign product_title_lower = product.title | downcase %}
-            {% assign product_type_tag = block.settings.product_type | prepend: 'type-' | downcase %}
-            
-            {% comment %} Check if product title contains the type (e.g., "wall painting", "vastu kit") {% endcomment %}
-            {% if product_title_lower contains product_type_lower %}
-              {% assign show_faq = true %}
-            {% endif %}
-            
-            {% comment %} Check product tags - limited and early exit {% endcomment %}
-            {% unless show_faq %}
-              {% assign tags_limit = 10 %}
-              {% for tag in product.tags limit: tags_limit %}
-                {% assign tag_lower = tag | downcase %}
-                {% if tag_lower == product_type_lower or tag_lower contains product_type_lower %}
-                  {% assign show_faq = true %}
-                  {% break %}
-                {% endif %}
-              {% endfor %}
-            {% endunless %}
-            
-            {% comment %} Check product collections - limited and early exit {% endcomment %}
-            {% unless show_faq %}
-              {% assign collections_limit = 5 %}
-              {% for collection in product.collections limit: collections_limit %}
-                {% assign collection_title_lower = collection.title | downcase %}
-                {% if collection_title_lower contains product_type_lower %}
-                  {% assign show_faq = true %}
-                  {% break %}
-                {% endif %}
-              {% endfor %}
-            {% endunless %}
-            
-            {% comment %} Check product type {% endcomment %}
-            {% unless show_faq %}
-              {% if product.type != blank %}
-                {% assign product_type_value = product.type | downcase %}
-                {% if product_type_value == product_type_lower or product_type_value contains product_type_lower %}
-                  {% assign show_faq = true %}
-                {% endif %}
-              {% endif %}
-            {% endunless %}
-          {% endif %}
-          
-          {% if show_faq %}
+          {%- capture faq_show_flag -%}{% render 'product-faq-should-display', block: block, product: product %}{%- endcapture -%}
+          {% assign faq_show_flag = faq_show_flag | strip %}
+          {% if faq_show_flag == '1' %}
             <xo-animate xo-cascade class='faq-v3__row'>
               <xo-collapse-trigger class='faq-v3__trigger'>
                 <div class='faq-v3__question'>{{ block.settings.question }}</div>
@@ -83,7 +33,7 @@
     </xo-collapse-provider>
   </xo-container>
   {%- comment -%} FAQ Structured Data (Schema.org) {%- endcomment -%}
-  {% render 'faq-schema', section: section %}
+  {% render 'faq-schema', section: section, product: product %}
     {% render 'section-separator',
     enable_separator: section.settings.enable_separator,
     separator_color: section.settings.separator_color,
@@ -126,6 +76,10 @@
       "label": "t:sections.all.fullwidth_margin.label",
       "default": 0,
       "visible_if": "{{ section.settings.width == 'fullwidth' }}"
+    },
+    {
+      "type": "paragraph",
+      "content": "For FAQs that belong to one product only: add a question block and use “Only show on this product” to pick that product. Leave it empty to keep using “Show for Product Type” (all products, wall paintings, or Vastu kits)."
     },
     {
       "type": "text",
@@ -267,10 +221,16 @@
           "label": "Answer"
         },
         {
+          "type": "product",
+          "id": "specific_product",
+          "label": "Only show on this product",
+          "info": "Optional. Pick one product to show this FAQ only on that product’s page. Leave empty to use “Show for Product Type” instead."
+        },
+        {
           "type": "select",
           "id": "product_type",
           "label": "Show for Product Type",
-          "info": "Select which product types should see this FAQ. Leave as 'All Products' to show for everyone.",
+          "info": "Used when “Only show on this product” is empty. Select which product types should see this FAQ. Choose “All Products” to show for everyone.",
           "default": "all",
           "options": [
             {

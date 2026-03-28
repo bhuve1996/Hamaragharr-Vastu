@@ -1,0 +1,62 @@
+{% comment %}
+  Returns "1" if this FAQ block should display for the current product, else "0".
+  Accepts: block — section block (type question), product — current product
+{% endcomment %}
+{% liquid
+  assign out = '0'
+  if block.type == 'question' and block.settings.question != blank
+    if block.settings.specific_product != blank
+      if block.settings.specific_product.id == product.id
+        assign out = '1'
+      endif
+    else
+      assign show_faq = false
+      if block.settings.product_type == blank or block.settings.product_type == 'all'
+        assign show_faq = true
+      else
+        assign product_type_lower = block.settings.product_type | downcase
+        assign product_title_lower = product.title | downcase
+
+        if product_title_lower contains product_type_lower
+          assign show_faq = true
+        endif
+
+        unless show_faq
+          assign tags_limit = 10
+          for tag in product.tags limit: tags_limit
+            assign tag_lower = tag | downcase
+            if tag_lower == product_type_lower or tag_lower contains product_type_lower
+              assign show_faq = true
+              break
+            endif
+          endfor
+        endunless
+
+        unless show_faq
+          assign collections_limit = 5
+          for collection in product.collections limit: collections_limit
+            assign collection_title_lower = collection.title | downcase
+            if collection_title_lower contains product_type_lower
+              assign show_faq = true
+              break
+            endif
+          endfor
+        endunless
+
+        unless show_faq
+          if product.type != blank
+            assign product_type_value = product.type | downcase
+            if product_type_value == product_type_lower or product_type_value contains product_type_lower
+              assign show_faq = true
+            endif
+          endif
+        endunless
+      endif
+
+      if show_faq
+        assign out = '1'
+      endif
+    endif
+  endif
+%}
+{{- out -}}

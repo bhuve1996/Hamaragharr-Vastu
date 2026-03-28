@@ -1,0 +1,411 @@
+{% comment %}
+  Extra product images from metafields (content team adds them on each product in Admin).
+  Metafields: custom.product_page_extra_images (list of files), optional custom.product_page_extra_gallery_heading (single line).
+{% endcomment %}
+{% liquid
+  assign gallery_files = product.metafields.custom.product_page_extra_images.value
+  assign valid_count = 0
+  if gallery_files != blank
+    for item in gallery_files
+      if item == blank
+        continue
+      endif
+      assign is_img = false
+      if item.media_type == 'image'
+        assign is_img = true
+      elsif item.mime_type != blank and item.mime_type contains 'image/'
+        assign is_img = true
+      endif
+      if is_img
+        assign valid_count = valid_count | plus: 1
+      endif
+    endfor
+  endif
+
+  assign heading_text = product.metafields.custom.product_page_extra_gallery_heading.value | default: section.settings.heading
+%}
+
+{% if valid_count > 0 %}
+  <section {% render 'section-attr' %} class='product-page-extra-gallery'>
+    {% render 'section-bg-image' %}
+    <xo-container {% render 'section-layout' %}>
+      {% if heading_text != blank %}
+        <xo-animate xo-cascade>
+          <h2 class='product-page-extra-gallery__title'>{{ heading_text | escape }}</h2>
+        </xo-animate>
+      {% endif %}
+
+      <xo-animate xo-cascade>
+        {% if valid_count == 1 %}
+          <div class='product-page-extra-gallery__single'>
+            {% for item in gallery_files %}
+              {% liquid
+                assign is_img = false
+                if item.media_type == 'image'
+                  assign is_img = true
+                elsif item.mime_type != blank and item.mime_type contains 'image/'
+                  assign is_img = true
+                endif
+              %}
+              {% unless is_img %}{% continue %}{% endunless %}
+              <div class='product-page-extra-gallery__frame'>
+                <img
+                  class='product-page-extra-gallery__img'
+                  is='xo-lazyload'
+                  loading='lazy'
+                  src='{{ item | image_url: width: 2000 }}'
+                  srcset='{{ item | image_url: width: 800 }} 800w, {{ item | image_url: width: 1200 }} 1200w, {{ item | image_url: width: 2000 }} 2000w'
+                  sizes='(min-width: 990px) min(100vw, 1200px), 100vw'
+                  width='{{ item.preview_image.width | default: 1200 }}'
+                  height='{{ item.preview_image.height | default: 800 }}'
+                  alt='{{ item.alt | default: item.preview_image.alt | default: product.title | escape }}'
+                >
+              </div>
+              {% break %}
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class='product-page-extra-gallery__carousel-wrap'>
+            {% assign extra_gallery_slide_n = 0 %}
+            <xo-carousel
+              xo-name='product-extra-gallery-{{ section.id }}'
+              xo-per-view='1'
+              xo-gap='0'
+              xo-speed='400'
+              xo-loop
+              xo-rewind
+            >
+              <xo-carousel-inner>
+                <xo-carousel-list role='list' aria-label='{{ 'general.slider.name' | t }}'>
+                  {% for item in gallery_files %}
+                    {% liquid
+                      assign is_img = false
+                      if item.media_type == 'image'
+                        assign is_img = true
+                      elsif item.mime_type != blank and item.mime_type contains 'image/'
+                        assign is_img = true
+                      endif
+                    %}
+                    {% unless is_img %}{% continue %}{% endunless %}
+                    {% assign extra_gallery_slide_n = extra_gallery_slide_n | plus: 1 %}
+                    <xo-carousel-slide
+                      aria-roledescription='{{ 'sections.slideshow.slide' | t }}'
+                      aria-label='{{ extra_gallery_slide_n }} {{ 'general.slider.of' | t }} {{ valid_count }}'
+                      class='product-page-extra-gallery__slide'
+                    >
+                      <div class='product-page-extra-gallery__frame'>
+                        <img
+                          class='product-page-extra-gallery__img'
+                          is='xo-lazyload'
+                          loading='lazy'
+                          src='{{ item | image_url: width: 2000 }}'
+                          srcset='{{ item | image_url: width: 800 }} 800w, {{ item | image_url: width: 1200 }} 1200w, {{ item | image_url: width: 2000 }} 2000w'
+                          sizes='(min-width: 990px) min(100vw, 1200px), 100vw'
+                          width='{{ item.preview_image.width | default: 1200 }}'
+                          height='{{ item.preview_image.height | default: 800 }}'
+                          alt='{{ item.alt | default: item.preview_image.alt | default: product.title | escape }}'
+                        >
+                      </div>
+                    </xo-carousel-slide>
+                  {% endfor %}
+                </xo-carousel-list>
+              </xo-carousel-inner>
+              <xo-carousel-prev class='product-page-extra-gallery__arrow product-page-extra-gallery__arrow--left'
+                ><button type='button' aria-label='{{ 'general.slider.previous_slide' | t }}'>{% render 'icon', name: 'arrow-left', icon_size: '14' %}</button></xo-carousel-prev
+              >
+              <xo-carousel-next class='product-page-extra-gallery__arrow product-page-extra-gallery__arrow--right'
+                ><button type='button' aria-label='{{ 'general.slider.next_slide' | t }}'>{% render 'icon', name: 'arrow-right', icon_size: '14' %}</button></xo-carousel-next
+              >
+            </xo-carousel>
+          </div>
+        {% endif %}
+      </xo-animate>
+    </xo-container>
+    {% render 'section-separator',
+      enable_separator: section.settings.enable_separator,
+      separator_color: section.settings.separator_color,
+      separator_height: section.settings.separator_height,
+      separator_width: section.settings.separator_width,
+      padding_top: section.settings.separator_padding_top,
+      padding_bottom: section.settings.separator_padding_bottom
+    %}
+  </section>
+
+  <style>
+    .product-page-extra-gallery__title {
+      margin: 0 0 1.25rem;
+      text-align: center;
+    }
+    .product-page-extra-gallery__frame {
+      position: relative;
+      width: 100%;
+      border-radius: var(--radius, 8px);
+      overflow: hidden;
+      background: rgba(var(--color-foreground), 0.04);
+    }
+    .product-page-extra-gallery__img {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+    .product-page-extra-gallery__carousel-wrap {
+      position: relative;
+    }
+    .product-page-extra-gallery__arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    .product-page-extra-gallery__arrow button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      border: none;
+      background: rgba(var(--color-background), 0.92);
+      color: rgb(var(--color-foreground));
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+      cursor: pointer;
+    }
+    .product-page-extra-gallery__arrow--left {
+      left: 0.5rem;
+    }
+    .product-page-extra-gallery__arrow--right {
+      right: 0.5rem;
+    }
+    @media (max-width: 749px) {
+      .product-page-extra-gallery__arrow--left {
+        left: 0.25rem;
+      }
+      .product-page-extra-gallery__arrow--right {
+        right: 0.25rem;
+      }
+      .product-page-extra-gallery__arrow button {
+        width: 2.25rem;
+        height: 2.25rem;
+      }
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product extra gallery",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Images are added per product in Shopify Admin → Products → [product] → Metafields. Create definitions once under Settings → Custom data → Products: (1) Namespace custom, key product_page_extra_images, type List of files, name “Product page extra images”. (2) Optional: key product_page_extra_gallery_heading, Single line text, for a title above the images. One image shows as a static block; two or more use arrows to slide."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Default heading (optional)",
+      "info": "Shown when the product’s “Product page extra gallery heading” metafield is empty. Leave blank for no title."
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.all.width.label",
+      "default": "box",
+      "options": [
+        {
+          "value": "box",
+          "label": "t:sections.all.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.all.width.options__2.label"
+        },
+        {
+          "value": "fullwidth",
+          "label": "t:sections.all.width.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "id": "fullwidth_margin",
+      "label": "t:sections.all.fullwidth_margin.label",
+      "default": 0,
+      "visible_if": "{{ section.settings.width == 'fullwidth' }}"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "t:sections.all.background_type.label",
+      "options": [
+        {
+          "value": "color",
+          "label": "t:sections.all.background_type.option__1.label"
+        },
+        {
+          "value": "gradient",
+          "label": "t:sections.all.background_type.option__2.label"
+        },
+        {
+          "value": "image",
+          "label": "t:sections.all.background_type.option__3.label"
+        },
+        {
+          "value": "video",
+          "label": "t:sections.all.background_type.option__4.label"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.all.background_color.label",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "t:sections.all.background_gradient.label",
+      "visible_if": "{{ section.settings.background_type == 'gradient' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_desktop",
+      "label": "t:sections.all.background_image_desktop.label",
+      "visible_if": "{{ section.settings.background_type == 'image' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "t:sections.all.background_image_mobile.label",
+      "visible_if": "{{ section.settings.background_type == 'image' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_parallax",
+      "label": "t:sections.all.use_parallax.label",
+      "default": false,
+      "visible_if": "{{ section.settings.background_type == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "background_image_animation",
+      "label": "t:sections.all.animation.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.animation.option__0.label"
+        },
+        {
+          "value": "fade",
+          "label": "t:sections.all.animation.option__1.label"
+        },
+        {
+          "value": "fade-up",
+          "label": "t:sections.all.animation.option__2.label"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.background_type == 'image' }}"
+    },
+    {
+      "type": "textarea",
+      "id": "background_video_url",
+      "label": "t:sections.all.background_video_url.label",
+      "visible_if": "{{ section.settings.background_type == 'video' }}"
+    },
+    {
+      "type": "color",
+      "id": "background_overlay",
+      "label": "t:sections.all.background_overlay.label",
+      "alpha": true,
+      "visible_if": "{{ section.settings.background_type == 'image' or section.settings.background_type == 'video' }}"
+    },
+    {
+      "type": "number",
+      "id": "background_margin",
+      "label": "t:sections.all.background_margin.label",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_top",
+      "label": "t:sections.all.padding_top.label",
+      "default": 36
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom",
+      "label": "t:sections.all.padding_bottom.label",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Section separator"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_separator",
+      "label": "Enable separator",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Separator color",
+      "default": "#473855",
+      "visible_if": "{{ section.settings.enable_separator }}"
+    },
+    {
+      "type": "range",
+      "id": "separator_height",
+      "min": 1,
+      "max": 11,
+      "step": 2,
+      "unit": "px",
+      "label": "Separator height",
+      "default": 1,
+      "visible_if": "{{ section.settings.enable_separator }}"
+    },
+    {
+      "type": "range",
+      "id": "separator_width",
+      "min": 5,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Separator width",
+      "default": 50,
+      "visible_if": "{{ section.settings.enable_separator }}"
+    },
+    {
+      "type": "number",
+      "id": "separator_padding_top",
+      "label": "Separator padding top",
+      "default": 20,
+      "visible_if": "{{ section.settings.enable_separator }}"
+    },
+    {
+      "type": "number",
+      "id": "separator_padding_bottom",
+      "label": "Separator padding bottom",
+      "default": 20,
+      "visible_if": "{{ section.settings.enable_separator }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product extra gallery"
+    }
+  ]
+}
+{% endschema %}
