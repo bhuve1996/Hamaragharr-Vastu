@@ -485,7 +485,8 @@
     },
     "star_reviews_info": "{{ rating_value }} out of {{ rating_max }} stars",
     "collapsible_content_title": "Collapsible content",
-    "complementary_products": "Complementary products"
+    "complementary_products": "Complementary products",
+    "cart_scroll_more": "Scroll down to see more items in your cart"
   },
   "newsletter": {
     "label": "Email",

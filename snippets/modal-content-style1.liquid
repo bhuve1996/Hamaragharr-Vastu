@@ -21,6 +21,7 @@
   - content_tag_name: {String} Tag name for the content (optional)
   - header_separator: {Boolean} Whether to add a separator between the header and the content (optional)
   - footer_separator: {Boolean} Whether to add a separator between the content and the footer (optional)
+  - scroll_more_hint: {Boolean} Wrap body in a host + bottom fade + scroll button (cart drawer). Default: false (optional)
 
   Usage:
   {% render 'modal-content-style1',
@@ -37,6 +38,7 @@
   assign footer_height = footer_height | default: '7rem'
   assign close_size = close_size | default: '2rem'
   assign content_tag_name = content_tag_name | default: 'div'
+  assign scroll_more_hint = scroll_more_hint | default: false
 %}
 
 {% capture header %}
@@ -69,11 +71,23 @@
     {% else %}
       {{ header }}
     {% endif %}
+    {% if scroll_more_hint %}
+      <div class='vastu-cart-scroll-hint-host'>
+    {% endif %}
     <{{ content_tag_name }} class='xo-modal-content-style1__body{% unless scroll_disabled %} xo-scrollbar{% endunless %}'>
       <div class='xo-modal-content-style1__content{% if content_class %} {{ content_class }}{% endif %}'>
         {{ content }}
       </div>
     </{{ content_tag_name }}>
+    {% if scroll_more_hint %}
+      <div class='vastu-cart-scroll-hint' data-vastu-cart-scroll-hint hidden>
+        <div class='vastu-cart-scroll-hint__shade' aria-hidden='true'></div>
+        <button type='button' class='vastu-cart-scroll-hint__btn' aria-label='{{ 'accessibility.cart_scroll_more' | t }}'>
+          {% render 'icon', name: 'chevron-down', icon_size: '18', color: 'rgba(var(--color-foreground))' %}
+        </button>
+      </div>
+      </div>
+    {% endif %}
     {% if footer %}
       {% if footer_separator %}
         <div class='xo-modal-content-style1__separator'></div>
@@ -102,13 +116,19 @@
 </div>
 
 <script>
-  const elementToChange = document.querySelector('.xo-modal-content-style1__body');
-  const addClass = document.querySelector('.xo-modal-content-style1__header');
-  elementToChange.addEventListener('scroll', function () {
-    if (elementToChange.scrollTop > 0) {
-      addClass.classList.add('xo-modal-content-style1__header--scroll');
-    } else {
-      addClass.classList.remove('xo-modal-content-style1__header--scroll');
-    }
-  });
+  (function () {
+    var script = document.currentScript;
+    var root = script && script.previousElementSibling;
+    if (!root || !root.classList || !root.classList.contains('xo-modal-content-style1')) return;
+    var elementToChange = root.querySelector('.xo-modal-content-style1__body');
+    var addClass = root.querySelector('.xo-modal-content-style1__header');
+    if (!elementToChange || !addClass) return;
+    elementToChange.addEventListener('scroll', function () {
+      if (elementToChange.scrollTop > 0) {
+        addClass.classList.add('xo-modal-content-style1__header--scroll');
+      } else {
+        addClass.classList.remove('xo-modal-content-style1__header--scroll');
+      }
+    });
+  })();
 </script>

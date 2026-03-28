@@ -59,3 +59,60 @@
     {% endcase %}
   </xo-cart-mini>
 </xo-modal>
+
+<script>
+  (function () {
+    function initVastuCartScrollHint() {
+      var modal = document.querySelector('xo-modal[xo-name="cart"]');
+      if (!modal) return;
+      var host = modal.querySelector('.vastu-cart-scroll-hint-host');
+      var scrollEl = modal.querySelector(
+        'xo-cart-scroll.xo-modal-content-style1__body, .xo-modal-content-style1__body'
+      );
+      var hint = modal.querySelector('[data-vastu-cart-scroll-hint]');
+      var btn = hint && hint.querySelector('.vastu-cart-scroll-hint__btn');
+      if (!host || !scrollEl || !hint || !btn) return;
+
+      var ticking = false;
+      function update() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          ticking = false;
+          var maxScroll = scrollEl.scrollHeight - scrollEl.clientHeight;
+          var show = maxScroll > 12 && scrollEl.scrollTop < maxScroll - 12;
+          if (show) {
+            hint.removeAttribute('hidden');
+            hint.classList.add('is-visible');
+          } else {
+            hint.setAttribute('hidden', '');
+            hint.classList.remove('is-visible');
+          }
+        });
+      }
+
+      scrollEl.addEventListener('scroll', update, { passive: true });
+      if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(update).observe(scrollEl);
+      }
+      window.addEventListener('resize', update, { passive: true });
+      var mo = new MutationObserver(update);
+      mo.observe(scrollEl, { childList: true, subtree: true });
+      document.addEventListener('cart:updated', update);
+      document.addEventListener('cart:refresh', update);
+
+      btn.addEventListener('click', function () {
+        var step = Math.min(200, Math.ceil(scrollEl.clientHeight * 0.55));
+        scrollEl.scrollBy({ top: step, behavior: 'smooth' });
+      });
+
+      update();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initVastuCartScrollHint);
+    } else {
+      initVastuCartScrollHint();
+    }
+  })();
+</script>
